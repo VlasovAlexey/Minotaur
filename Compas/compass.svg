@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+	<!--
+		Copyright 2020, GUILLEUS Hugues <ghugues@netc.fr>
+		BSD 3-Clause License
+	-->
+	<title>Compass Icon</title>
+
+	<polygon points="150,000 100,150 200,150" fill="red"/>
+	<polygon points="150,300 100,150 200,150" fill="white"/>
+
+	<circle cx="50%" cy="50%" r="15" fill="darkgrey"/>
+</svg>

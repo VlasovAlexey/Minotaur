@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+	Copyright 2020, GUILLEUS Hugues <ghugues@netc.fr>
+	BSD 3-Clause License
+-->
+<html lang=en>
+
+<head>
+	<meta charset="utf-8">
+	<script>
+		(function () {
+			for (let lang of navigator.languages) {
+				switch (lang) {
+				case "fr":
+				case "fr-FR":
+					document.location.assign("index.fr.html");
+					return;
+				case "en":
+				case "en-US":
+					document.location.assign("index.en.html");
+					return;
+				}
+			}
+			document.location.assign("index.en.html");
+		})();
+	</script>
+</head>
+
+<body>
+	<noscript>
+		<p>Choose a language: /// Choisi une langue&nbsp;:</p>
+		<a href="index.fr.html">Français</a><br>
+		<a href="index.en.html">English</a><br>
+	</noscript>
+</body>
+
+</html>

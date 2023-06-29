@@ -1,0 +1,31 @@
+{
+	"name": "Compass",
+	"short_name": "compass",
+	"description": "Display the localisation and the orientation of the device.",
+	"start_url": ".",
+	"display": "standalone",
+	"icons": [{
+			"src": "icons/icon.svg",
+			"sizes": "150x150",
+			"type": "image/svg"
+		},
+		{
+			"src": "icons/96.png",
+			"sizes": "96x96",
+			"type": "image/png"
+		},
+		{
+			"src": "icons/192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "icons/512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+
+	],
+	"background_color": "silver",
+	"theme_color": "silver"
+}
