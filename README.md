@@ -51,6 +51,7 @@ Many of the core components and extensions to Code live in their own repositorie
 
 # Licensing
 Copyright (c) 2023, VlasovAlexey
+
 All rights reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
