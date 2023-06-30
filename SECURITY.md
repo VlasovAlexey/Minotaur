@@ -24,4 +24,4 @@ Our applications don’t collect personal information from anyone, including chi
 
 ## Contact Us
 If you have any questions about this Privacy Policy, feel free to get in touch with us at all3862000@mail.ru Alexey Vlasov
-You can get privacy policy from http://scan3d.ru/Minotaur/PrivacyPolicyMinotaur.pdf
+You can get privacy policy from https://github.com/VlasovAlexey/Minotaur/blob/main/HTML_SRC/PrivacyPolicy.pdf

@@ -1,7 +1,7 @@
 {
   "theme_color": "#2B559B",
   "background_color": "#2B559B",
-  "description": "DiveProMe Decompression Planner Software",
+  "description": "Minotaur Software for Cave Dive Mapping",
   "display": "fullscreen",
   "icons": [
     {
@@ -17,9 +17,9 @@
       "purpose": "maskable"
     }
   ],
-  "name": "DiveProMe Decompression Planner Software",
-  "short_name": "DiveProMe",
-  "start_url": "/DiveProMe/HTML_SRC/",
+  "name": "Minotaur Software for Cave Dive Mapping",
+  "short_name": "Minotaur",
+  "start_url": "/Minotaur/HTML_SRC/",
   "lang": "en",
   "orientation": "portrait",
   "display_override": [
@@ -63,7 +63,7 @@
   "shortcuts": [
     {
       "name": "Main",
-      "url": "https://vlasovalexey.github.io/DiveProMe/HTML_SRC/index.html",
+      "url": "https://vlasovalexey.github.io/Minotaur/HTML_SRC/index.html",
       "icons": [
         {
           "src": "arrow-down-circle.png",
@@ -79,21 +79,21 @@
   "related_applications": [
     {
       "platform": "play",
-      "url": "https://play.google.com/store/apps/details?id=com.diveprome.avlasov.diveprome&hl=en_US"
+      "url": "https://play.google.com/"
     }, {
       "platform": "itunes",
-      "url": "https://www.apple.com/de/app-store/"
+      "url": "https://www.apple.com/"
     }
   ],
-  "id": "https://vlasovalexey.github.io/iYaWvyTwaaiug06uGxZd",
+  "id": "https://vlasovalexey.github.io/iYaWvyTwaaiug06uGxZn",
   "protocol_handlers": [
     {
       "protocol": "web+pwa",
-      "url": "/DiveProMe/HTML_SRC/index.html%s"
+      "url": "/Minotaur/HTML_SRC/index.html%s"
     },
     {
       "protocol": "web+diveprome",
-      "url": "/DiveProMe/HTML_SRC/index.html%s"
+      "url": "/Minotaur/HTML_SRC/index.html%s"
     }
   ],
   "share_target": {
@@ -101,7 +101,7 @@
     "method": "POST",
     "enctype": "multipart/form-data",
     "params": {
-      "url": "/DiveProMe/HTML_SRC/"
+      "url": "/Minotaur/HTML_SRC/"
     }
   }
 }

@@ -2,6 +2,6 @@
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register('/DiveProMe/HTML_SRC/sw.js')
+    .register('/Minotaur/HTML_SRC/sw.js')
     .then(() => { console.log('Service Worker Registered'); });
 }
