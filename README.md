@@ -44,7 +44,7 @@ Want to contribute? The team encourages community feedback and contributions. Pl
 If Minotaur is not working properly, please file a report in the [email](mailto:all3862000@mail.ru). We also welcome issues submitted on GitHub.
 
 # Roadmap
-For information regarding Minotaur plans and release schedule, please see the  [Facebook Minotaur](https://github.com/VlasovAlexey/Minotaur)
+For information regarding Minotaur plans and release schedule, please see the [Minotaur](https://github.com/VlasovAlexey/Minotaur)
 
 # Related Projects
 Many of the core components and extensions to Code live in their own repositories on GitHub. For example, the [JsPDF](https://github.com/MrRio/jsPDF) and the [JsXLSX](https://github.com/clarketm/js-xlsx) have their own repositories. Simply ask if you need more info.
