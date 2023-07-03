@@ -376,10 +376,10 @@
                 ".tn_donat_header_silver" : "Silver Donation Section",
                 ".tn_donat_header_bronze" : "Bronze Donation Section",
 
-                ".td_founder_list" : "Thomas Holloway, Vladimir Polyakov, Franjo Sánchez Castejón, Nikita Azarenko, Hugo Ballester, 大漠骑兵Andy （谢鹏）, Lee Nam Gil, Marco P.",
-                ".td_gold_list" : "Aleksandr Sestopalec, Aliaksander Lukyanchenka, Michail Balabanov, Fabrice Pierre Palacio",
-                ".td_silver_list" : "Maxim Parinov, Anton Bedarev, Andrey Nikolskiy, Denis Bogatyrev",
-                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Nikolaj Voronin, Valerij Vakshul",
+                ".td_founder_list" : "",
+                ".td_gold_list" : "",
+                ".td_silver_list" : "",
+                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
                 ".header11" : "S.A.U.L. Recreational Dive Planner",
                 ".tr_saul_mix" : "Mix",
@@ -588,10 +588,10 @@
                 ".tn_donat_header_silver" : "Серебряная секция",
                 ".tn_donat_header_bronze" : "Бронзовая секция",
 
-                ".td_founder_list" : "Thomas Holloway, Vladimir Polyakov, Franjo Sánchez Castejón, Nikita Azarenko, Hugo Ballester, 大漠骑兵Andy （谢鹏）, Lee Nam Gil, Marco P.",
-                ".td_gold_list" : "Aleksandr Shestopalec, Aliaksander Lukyanchenka, Michail Balabanov, Fabrice Pierre Palacio",
-                ".td_silver_list" : "Maxim Parinov, Anton Bedarev, Andrey Nikolskiy, Denis Bogatyrev",
-                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Nikolaj Voronin, Valerij Vakshul",
+                ".td_founder_list" : "",
+                ".td_gold_list" : "",
+                ".td_silver_list" : "",
+                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
                 ".header11" : "S.A.U.L. Рекриационный планировщик риска погружений",
                 ".tr_saul_mix" : "Смесь",
@@ -795,10 +795,10 @@
                 ".tn_donat_header_silver" : "Sección de Plata",
                 ".tn_donat_header_bronze" : "Sección de Bronce",
 
-                ".td_founder_list" : "Thomas Holloway, Vladimir Polyakov, Franjo Sánchez Castejón, Nikita Azarenko, Hugo Ballester, 大漠骑兵Andy （谢鹏）, Lee Nam Gil, Marco P.",
-                ".td_gold_list" : "Aleksandr Shestopalec, Aliaksander Lukyanchenka, Michail Balabanov, Fabrice Pierre Palacio",
-                ".td_silver_list" : "Maxim Parinov, Anton Bedarev, Andrey Nikolskiy, Denis Bogatyrev",
-                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Nikolaj Voronin, Valerij Vakshul",
+                ".td_founder_list" : "",
+                ".td_gold_list" : "",
+                ".td_silver_list" : "",
+                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
                 ".header11" : "S.A.U.L. Planificador de Buceo Recreativo",
                 ".tr_saul_mix" : "Mezcla",
@@ -1000,10 +1000,10 @@
                 ".tn_donat_header_silver" : "Doações Prata",
                 ".tn_donat_header_bronze" : "Doações Bronze",
 
-                ".td_founder_list" : "Thomas Holloway, Vladimir Polyakov, Franjo Sánchez Castejón, Nikita Azarenko, Hugo Ballester, 大漠骑兵Andy （谢鹏）, Lee Nam Gil, Marco P.",
-                ".td_gold_list" : "Aleksandr Shestopalec, Aliaksander Lukyanchenka, Michail Balabanov, Fabrice Pierre Palacio",
-                ".td_silver_list" : "Maxim Parinov, Anton Bedarev, Andrey Nikolskiy, Denis Bogatyrev",
-                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Nikolaj Voronin, Valerij Vakshul",
+                ".td_founder_list" : "",
+                ".td_gold_list" : "",
+                ".td_silver_list" : "",
+                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
 
                 ".header11" : "S.A.U.L. Planificador de Mergulho Recreativo",
@@ -1208,10 +1208,10 @@
                 ".tn_donat_header_silver" : "白银级土豪爸爸",
                 ".tn_donat_header_bronze" : "青铜级土豪爸爸",
 
-                ".td_founder_list" : "Thomas Holloway, Vladimir Polyakov, Franjo Sánchez Castejón, Nikita Azarenko, Hugo Ballester, 大漠骑兵Andy （谢鹏）, Lee Nam Gil, Marco P.",
-                ".td_gold_list" : "Aleksandr Shestopalec, Aliaksander Lukyanchenka, Michail Balabanov, Fabrice Pierre Palacio",
-                ".td_silver_list" : "Maxim Parinov, Anton Bedarev, Andrey Nikolskiy, Denis Bogatyrev",
-                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Nikolaj Voronin, Valerij Vakshul",
+                ".td_founder_list" : "",
+                ".td_gold_list" : "",
+                ".td_silver_list" : "",
+                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
                 ".header11" : "S.A.U.L. 休闲潜水计划工具软件",
                 ".tr_saul_mix" : "Mix",
@@ -1388,10 +1388,11 @@
                 ".tn_donat_header_gold" : "Секция за дарение златна",
                 ".tn_donat_header_silver" : " Секция за дарение сребърна ",
                 ".tn_donat_header_bronze" : " Секция за дарение  ",
-                ".td_founder_list" : "Thomas Holloway, Vladimir Polyakov, Franjo Sánchez Castejón, Nikita Azarenko, Hugo Ballester, 大漠骑兵Andy （谢鹏）, Lee Nam Gil, Marco P.",
-                ".td_gold_list" : "Aleksandr Sestopalec, Aliaksander Lukyanchenka, Michail Balabanov, Fabrice Pierre Palacio",
-                ".td_silver_list" : "Maxim Parinov, Anton Bedarev, Andrey Nikolskiy, Denis Bogatyrev",
-                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Nikolaj Voronin, Valerij Vakshul",
+
+                ".td_founder_list" : "",
+                ".td_gold_list" : "",
+                ".td_silver_list" : "",
+                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
                 ".header11" : "S.A.U.L. Recreational Dive Planner",
                 ".tr_saul_mix" : "Микс",
@@ -1567,10 +1568,11 @@
                 ".tn_donat_header_gold" : " Section OR des dons ",
                 ".tn_donat_header_silver" : " Section Argent des dons",
                 ".tn_donat_header_bronze" : " Section Bronze des dons",
-                ".td_founder_list" : "Thomas Holloway, Vladimir Polyakov, Franjo Sánchez Castejón, Nikita Azarenko, Hugo Ballester, 大漠骑兵Andy （谢鹏）, Lee Nam Gil, Marco P.",
-                ".td_gold_list" : "Aleksandr Sestopalec, Aliaksander Lukyanchenka, Michail Balabanov, Fabrice Pierre Palacio",
-                ".td_silver_list" : "Maxim Parinov, Anton Bedarev, Andrey Nikolskiy, Denis Bogatyrev",
-                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Nikolaj Voronin, Valerij Vakshul",
+
+                ".td_founder_list" : "",
+                ".td_gold_list" : "",
+                ".td_silver_list" : "",
+                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
                 ".header11" : "S.A.U.L. Planificateur de plongée récréative",
                 ".tr_saul_mix" : "Mélange",
@@ -1746,10 +1748,11 @@
                 ".tn_donat_header_gold" : "금 기부 섹션",
                 ".tn_donat_header_silver" : "은 기부 섹션",
                 ".tn_donat_header_bronze" : "동 기부 섹션",
-                ".td_founder_list" : "Thomas Holloway, Vladimir Polyakov, Franjo Sánchez Castejón, Nikita Azarenko, Hugo Ballester, 大漠骑兵Andy （谢鹏）, Lee Nam Gil, Marco P.",
-                ".td_gold_list" : "Aleksandr Sestopalec, Aliaksander Lukyanchenka, Michail Balabanov",
-                ".td_silver_list" : "Maxim Parinov, Anton Bedarev, Andrey Nikolskiy, Denis Bogatyrev",
-                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Nikolaj Voronin, Valerij Vakshul",
+
+                ".td_founder_list" : "",
+                ".td_gold_list" : "",
+                ".td_silver_list" : "",
+                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
                 ".header11" : "S.A.U.L. 레크리에이션 다이빙 플래너",
                 ".tr_saul_mix" : "기체",
@@ -1926,10 +1929,12 @@
                 ".tn_donat_header_gold" : "Sezione donazione dorata",
                 ".tn_donat_header_silver" : "Sezione donazione argentata",
                 ".tn_donat_header_bronze" : "Sezione donazione bronzea",
-                ".td_founder_list" : "Thomas Holloway, Vladimir Polyakov, Franjo Sánchez Castejón, Nikita Azarenko, Hugo Ballester, 大漠骑兵Andy （谢鹏）, Lee Nam Gil, Marco P.",
-                ".td_gold_list" : "Aleksandr Sestopalec, Aliaksander Lukyanchenka, Michail Balabanov",
-                ".td_silver_list" : "Maxim Parinov, Anton Bedarev",
-                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Nikolaj Voronin, Valerij Vakshul",
+
+                ".td_founder_list" : "",
+                ".td_gold_list" : "",
+                ".td_silver_list" : "",
+                ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
+
                 ".header11" : "Pianificatore immersioni Ricreative S.A.U.L.",
                 ".tr_saul_mix" : "Mix",
                 ".tr_saul_res_type" : "Tipo di calcolo",

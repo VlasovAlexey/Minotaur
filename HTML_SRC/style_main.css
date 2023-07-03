@@ -1035,3 +1035,11 @@ a#windowControlMinimize{
     filter: drop-shadow( 0px 5px 10px rgba(20, 20, 20, 1));
 }
 
+.st1{fill:none;stroke:#cccccc;stroke-width:2;stroke-linecap:round;}
+.st2{fill:none;stroke:#808080;stroke-width:2;stroke-linecap:round;}
+.st3{font-family:Liberation Sans,Arial;}
+.st4{font-size:48px; fill:#cccccc;}
+.st5{font-size:12px; fill:#cccccc;}
+.st6{font-size:48px; fill:#ff0000;}
+
+

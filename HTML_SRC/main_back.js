@@ -1,6 +1,4 @@
 // /main prg start
-init_global();
-
 function hide_unused_elements() {
     element_id_hide("visuallyhidden");
     element_id_hide("tr_plan_ccr");
@@ -30,7 +28,7 @@ function hide_unused_elements() {
     element_id_hide("td_warn_div");
     element_id_hide("div_block_main_profile"); 
 }
-hide_unused_elements();
+//hide_unused_elements();
 
 //Main Loop
 function upd_all() {

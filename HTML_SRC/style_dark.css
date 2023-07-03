@@ -267,7 +267,7 @@ img {
 }
 #slider {
     width: 100%;
-    color: #66666;
+    color: #666666;
     font-family: FirstFont;
     font-size: 20px;
 }
@@ -395,4 +395,11 @@ img {
     color: #eeeeee;
     box-shadow: 0 0 0px #ffffff inset, 0 0px 0px #ffffff inset, 0 0px 0px #ffffff;
 }
+
+.st1{fill:none;stroke:#cccccc;stroke-width:2;stroke-linecap:round;}
+.st2{fill:none;stroke:#808080;stroke-width:2;stroke-linecap:round;}
+.st3{font-family:Liberation Sans,Arial;}
+.st4{font-size:48px; fill:#cccccc;}
+.st5{font-size:12px; fill:#cccccc;}
+.st6{font-size:48px; fill:#ff0000;}
 

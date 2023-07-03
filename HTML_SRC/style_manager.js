@@ -25,11 +25,11 @@ function assign_css_style(){
 
     if(tn_color_idx*1.0 === 1){
         CSSLoad("style_main.css?v01148111111345");
-        CSSLoad("roundslider_main.css");
+        //CSSLoad("roundslider_main.css");
     }
     if(tn_color_idx*1.0 === 2){
         CSSLoad("style_light.css?v51111041131113");
-        CSSLoad("roundslider_light.css");
+        //CSSLoad("roundslider_light.css");
     }
     ZoomButtonChangeStyle();
 }

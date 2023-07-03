@@ -1217,10 +1217,6 @@ function split_fn_to_int(arr){
     //ga('send', 'event'  , 'Save Settings', 'Save Settings OK!');
     write_cookie();
 
-    //check Anroid platform an enable warning about 40 sec. after save if true
-    if(IsAndroid() === true){
-        android_btn();
-    }
  }
 
  
@@ -1606,7 +1602,7 @@ function create_html(){
 
     lng_opt = document.getElementById("tn_lng");
     lng_opt.addEventListener('change', upd_all);
-    //lng_opt.addEventListener('change', changeLang);
+    lng_opt.addEventListener('change', changeLang);
 
     Dmn_opt = document.getElementById("tn_dmn");
     Dmn_opt.addEventListener('change', dim_cng);
