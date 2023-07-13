@@ -25,10 +25,28 @@ function assign_css_style(){
 
     if(tn_color_idx*1.0 === 1){
         CSSLoad("style_main.css?v01148111111345");
+        if(record_state != 1){
+            document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
+            document.getElementById("btn_rec").style.border = "6px solid #969696";
+        }
+        
+        if(meas_state != 1){
+            document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
+            document.getElementById("btn_meas").style.border = "6px solid #969696";
+        }
         //CSSLoad("roundslider_main.css");
     }
     if(tn_color_idx*1.0 === 2){
         CSSLoad("style_light.css?v51111041131113");
+        if(record_state != 1){
+            document.getElementById("btn_rec").style.background = "url(rec_light.svg) no-repeat center center";
+            document.getElementById("btn_rec").style.border = "6px solid #000000";
+        }
+        
+        if(meas_state != 1){
+            document.getElementById("btn_meas").style.background = "url(meas_light.svg) no-repeat center center";
+            document.getElementById("btn_meas").style.border = "6px solid #000000";
+        }
         //CSSLoad("roundslider_light.css");
     }
     ZoomButtonChangeStyle();

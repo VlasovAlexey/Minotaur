@@ -219,17 +219,15 @@ function updateError(err) {
 
 //Recording button start here
 var record_state = 0;
-document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat top left";
-document.getElementById("btn_rec").style.border = "6px solid #969696";
 
 function btn_record(){
     if (record_state == 0){
-        document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat top left";
+        document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
         document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
         record_state = 1;
     }
     else{
-        document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat top left";
+        document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
         document.getElementById("btn_rec").style.border = "6px solid #969696";
         record_state = 0;
     }
@@ -237,17 +235,17 @@ function btn_record(){
 
 //Measure button start here
 var meas_state = 0;
-document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat top left";
+document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
 document.getElementById("btn_meas").style.border = "6px solid #969696";
 
 function btn_meas_click(){
     if (meas_state == 0){
-        document.getElementById("btn_meas").style.background = "url(meas_press.svg) no-repeat top left";
+        document.getElementById("btn_meas").style.background = "url(meas_press.svg) no-repeat center center";
         document.getElementById("btn_meas").style.border = "6px solid #188958";
         meas_state = 1;
     }
     else{
-        document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat top left";
+        document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
         document.getElementById("btn_meas").style.border = "6px solid #969696";
         meas_state = 0;
     }

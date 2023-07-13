@@ -1003,3 +1003,31 @@ a#windowControlMinimize{
 .st4{font-size:48px; fill:#000000;}
 .st5{font-size:12px; fill:#000000;}
 .st6{font-size:48px; fill:#ff0000;}
+
+.btn_rec,
+.btn_meas
+{
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-family: FirstFont;
+    font-size: 16px;
+    width: auto;
+    position: relative;
+    display: inline-block;
+    background: #ffffff;
+    padding: .4em 1em;
+    outline: none;
+    border: 6px solid #000000;
+    border-radius: 15px;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    
+    width: 40%;
+    height: 150px;
+    
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+}
