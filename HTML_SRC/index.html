@@ -509,7 +509,7 @@
                <p class=error id="error-TIMEOUT" hidden>Time out to get the localisation.</p>
                <p class=error id="error-OTHER" hidden>Unknown error.</p>
                <div id="compass">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%"  height="100%" id="compass1" alt="compass1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="80%"  height="80%">
                      <g id="compass_second">
                         <g id="minutes">
                            <line class="st1" x1="250" y1="21.9" x2="250" y2="61.9"/>
@@ -770,16 +770,18 @@
                   <dt>Last update:</dt>
                   <dd id=lastUpdate>0</dd>
                </dl>            
-               <div id="profile_chart" class="profile_chart"></div>
+               <div id="profile_chart" class="profile_chart">
+                  <div id="t_table" class="t_table"></div>
+                  <div class="t_total_cons" id="t_total_cons"></div>
+                  <div class="t_otu_cns" id="t_otu_cns"></div>
+                  <button type="button" id="btn_meas" class="btn_meas" onClick="btn_meas_click();"></button>
+                  <button type="button" id="btn_rec" class="btn_rec" onClick="btn_record();"></button>
+               </div>
                <button type="button" id="btn_export_pdf_profile" class="btn_export_pdf_profile" onClick="btn_export_pdf();">Export PDF!</button>
             </div>
-            <div class="div_block_bottom">
-               <div id="t_table" class="t_table"></div>
-               <div class="t_total_cons" id="t_total_cons"></div>
-               <div class="t_otu_cns" id="t_otu_cns"></div>
-               <button type="button" id="btn_export_xls" class="btn_export_xls" onClick="btn_export_xls();">Export XLS!</button>
-               <button type="button" id="btn_tbl_pdf" class="btn_tbl_pdf" onClick="btn_export_tbl_plan_pdf();">Export PDF!</button>
-            </div>
+            
+               
+            
             <div class="header" id="5-header">
                <div class="header5"></div>
             </div>

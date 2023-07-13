@@ -186,7 +186,10 @@ self.addEventListener('install', (e) => {
 '/Minotaur/HTML_SRC/window_controls_icons_light.svg',
 '/Minotaur/HTML_SRC/Arial_Digiscream_Normal.ttf',
 '/Minotaur/HTML_SRC/files.txt',
-'/Minotaur/HTML_SRC/manifest.webmanifest'
+'/Minotaur/HTML_SRC/manifest.webmanifest',
+'/Minotaur/HTML_SRC/meas_light.svg',
+'/Minotaur/HTML_SRC/meas_main.svg',
+'/Minotaur/HTML_SRC/meas_press.svg'
     ])),
   );
 });
