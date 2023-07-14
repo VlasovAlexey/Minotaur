@@ -189,7 +189,12 @@ self.addEventListener('install', (e) => {
 '/Minotaur/HTML_SRC/manifest.webmanifest',
 '/Minotaur/HTML_SRC/meas_light.svg',
 '/Minotaur/HTML_SRC/meas_main.svg',
-'/Minotaur/HTML_SRC/meas_press.svg'
+'/Minotaur/HTML_SRC/meas_press.svg',
+'/Minotaur/HTML_SRC/rec_light.svg',
+'/Minotaur/HTML_SRC/rec_main.svg',
+'/Minotaur/HTML_SRC/rec_press.svg',
+'/Minotaur/HTML_SRC/gps_ok.svg',
+'/Minotaur/HTML_SRC/gps_no.svg'
     ])),
   );
 });

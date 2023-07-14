@@ -121,10 +121,15 @@ window.addEventListener("load", () => {
 		return;
 	}
 
+    
 	window.addEventListener("deviceorientation", event => {
-		let a = Math.round(event.alpha)
-		document.getElementById("data-angle").textContent = a;
-		document.getElementById("compass").style.transform = `rotate(${a}deg)`;
+		let orient_a = Math.round(event.alpha)
+        let orient_b = Math.round(event.beta)
+        let orient_g = Math.round(event.gamma)
+		document.getElementById("data-angle").textContent = orient_a;
+        document.getElementById("data-beta").textContent = orient_b;
+        document.getElementById("data-gamma").textContent = orient_g;
+		document.getElementById("compass").style.transform = `rotate(${orient_a}deg)`;
 	});
 
 	navigator.geolocation.watchPosition(g => {
@@ -140,6 +145,8 @@ window.addEventListener("load", () => {
 }, {
 	once: true,
 });
+
+
 
 // Update all the element in DOM with the new geolocation information in a GeolocationCoordinates object 
 function updateGeo(c) {
@@ -218,23 +225,24 @@ function updateError(err) {
 }
 
 //Recording button start here
-var record_state = 0;
+element_id_hide("rec_blinking");
 
 function btn_record(){
     if (record_state == 0){
         document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
         document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
-        record_state = 1;
+        element_id_show("rec_blinking");
+        record_state = 1;        
     }
     else{
         document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
         document.getElementById("btn_rec").style.border = "6px solid #969696";
+        element_id_hide("rec_blinking");
         record_state = 0;
     }
 }
 
 //Measure button start here
-var meas_state = 0;
 document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
 document.getElementById("btn_meas").style.border = "6px solid #969696";
 
