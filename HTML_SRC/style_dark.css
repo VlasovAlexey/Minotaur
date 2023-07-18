@@ -430,3 +430,9 @@ img {
     cursor: pointer;
     display: inline-block;
 }
+
+/*lock portrait on iphone*/
+@viewport {  
+    orientation: portrait;  
+}
+
