@@ -1,34 +1,6 @@
 // /main prg start
 init_global();
 
-//detect mobile device
-function detect_mod_device() {
-    if (navigator.userAgent.match(/Android/i)
-    || navigator.userAgent.match(/webOS/i)
-    || navigator.userAgent.match(/iPhone/i)
-    || navigator.userAgent.match(/iPad/i)
-    || navigator.userAgent.match(/iPod/i)
-    || navigator.userAgent.match(/BlackBerry/i)
-    || navigator.userAgent.match(/Windows Phone/i)) {
-       return true ;
-    } else {
-       return false ;
-    }
- }
-console.log(detect_mod_device());
-
- //go to fullscreen and lock portrait mode
-function full_screen(){
-    let de = document.documentElement;
-    if (de.requestFullscreen) { de.requestFullscreen(); }
-    else if (de.mozRequestFullScreen) { de.mozRequestFullScreen(); }
-    else if (de.webkitRequestFullscreen) { de.webkitRequestFullscreen(); }
-    else if (de.msRequestFullscreen) { de.msRequestFullscreen(); }
-}
-if(detect_mod_device() == true){
-    full_screen();
-    screen.lockOrientation('portrait');
-}
 function hide_unused_elements() {
     element_id_hide("visuallyhidden");
     element_id_hide("tr_plan_ccr");
