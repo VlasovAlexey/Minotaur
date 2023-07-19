@@ -122,8 +122,73 @@ function closeNav() {
     //document.getElementById("AlertOverlay").style.display = "none";
 }
 
+//Recording button start here
+element_id_hide("rec_blinking");
+
+function btn_record(){
+    if (record_state == 0){
+        document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
+        document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
+        element_id_show("rec_blinking");
+        record_state = 1;        
+    }
+    else{
+        document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
+        document.getElementById("btn_rec").style.border = "6px solid #969696";
+        element_id_hide("rec_blinking");
+        record_state = 0;
+    }
+}
+
+//Measure button start here
+document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
+document.getElementById("btn_meas").style.border = "6px solid #969696";
+
+function btn_meas_click(){
+    if (meas_state == 0){
+        document.getElementById("btn_meas").style.background = "url(meas_press.svg) no-repeat center center";
+        document.getElementById("btn_meas").style.border = "6px solid #188958";
+        meas_state = 1;
+    }
+    else{
+        document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
+        document.getElementById("btn_meas").style.border = "6px solid #969696";
+        meas_state = 0;
+    }
+}
+let compass = document.getElementById('compass');
+      let status  = document.getElementById('status');
+
+      if ( 'AbsoluteOrientationSensor' in window ) {
+        compass.hidden = false;     
+        let sensor = new AbsoluteOrientationSensor();
+        sensor.addEventListener('reading', function(e) {
+          let q = e.target.quaternion;
+          heading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
+
+          let html =  'Heading in degrees: ' + heading;
+          //if(heading < 0) heading = 360 + heading;
+          var headingAdjusted = 270 + heading;
+          
+          //heading - 90;
+          console.log('adjusted heading Before: ' + headingAdjusted);
+          //headingAdjusted + 90;
+          //if(headingAdjusted > 360) headingAdjusted = headingAdjusted - 90;
+          console.log('adjusted heading After: ' + headingAdjusted);
+          //var test = 90 + headingAdjusted;
+          //var test = 80;
+          html += '<br>Adjusted:   ' + headingAdjusted;
+          status.innerHTML = html;
+          compass.style.Transform = 'rotate(' + headingAdjusted + 'deg)';
+          compass.style.WebkitTransform = 'rotate('+ headingAdjusted + 'deg)';
+          //compass.style.MozTransform = 'rotate(' + 90 + 'deg)';
+        });
+        sensor.start();
+      }
+      else status.innerHTML = 'AbsoluteOrientationSensor not supported';
+      
 // The date of the last geolocation update.
-var lastUpdate = new Date();
+/*var lastUpdate = new Date();
 
 window.addEventListener("load", () => {
 	if (!navigator.geolocation) {
@@ -169,7 +234,7 @@ window.addEventListener("load", () => {
 	}, updateError, {
 		enableHighAccuracy: true,
 	    });
-	    window.setInterval(updateTime, 1000);
+	    window.setInterval(updateTime, 10);
     },
     {
 	    once: true,
@@ -195,7 +260,7 @@ function updateGeo(c) {
 	}
 }
 
-/* TIME */
+
 
 const Second = 1000;
 const Minute = 60 * Second;
@@ -208,7 +273,7 @@ function updateTime() {
 	document.getElementById("lastUpdate").textContent = `${min}m ${sec}s`;
 }
 
-/* ERROR */
+
 
 const NONAVIGATION = -1; // a non-standart error code
 const PERMISSION_DENIED = 1;
@@ -252,38 +317,4 @@ function updateError(err) {
 
 	document.getElementById(`error-${t}`).hidden = false;
 }
-
-//Recording button start here
-element_id_hide("rec_blinking");
-
-function btn_record(){
-    if (record_state == 0){
-        document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
-        document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
-        element_id_show("rec_blinking");
-        record_state = 1;        
-    }
-    else{
-        document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
-        document.getElementById("btn_rec").style.border = "6px solid #969696";
-        element_id_hide("rec_blinking");
-        record_state = 0;
-    }
-}
-
-//Measure button start here
-document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
-document.getElementById("btn_meas").style.border = "6px solid #969696";
-
-function btn_meas_click(){
-    if (meas_state == 0){
-        document.getElementById("btn_meas").style.background = "url(meas_press.svg) no-repeat center center";
-        document.getElementById("btn_meas").style.border = "6px solid #188958";
-        meas_state = 1;
-    }
-    else{
-        document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
-        document.getElementById("btn_meas").style.border = "6px solid #969696";
-        meas_state = 0;
-    }
-}
+*/
