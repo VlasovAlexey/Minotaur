@@ -168,7 +168,7 @@ let compass = document.getElementById('compass');
 
           let html =  'Heading in degrees: ' + heading;
           //if(heading < 0) heading = 360 + heading;
-          var headingAdjusted = 90 + heading;
+          var headingAdjusted = heading;
           
           //heading - 90;
           
