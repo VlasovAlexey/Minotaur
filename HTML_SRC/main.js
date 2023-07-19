@@ -138,10 +138,12 @@ window.addEventListener("load", () => {
 		let orient_a = Math.round(event.alpha) - 90
         let orient_b = Math.round(event.beta)
         let orient_g = Math.round(event.gamma)
-		document.getElementById("data-angle").textContent = orient_a - 90;
+        document.getElementById("compass").style.transform = `rotate(${orient_a}deg)`;
+        orient_a = (orient_a - 90)*1.0;
+		document.getElementById("data-angle").textContent = orient_a;
         document.getElementById("data-beta").textContent = orient_b;
         document.getElementById("data-gamma").textContent = orient_g;
-		document.getElementById("compass").style.transform = `rotate(${orient_a}deg)`;
+		
 	});
 
 	navigator.geolocation.watchPosition(g => {
@@ -151,12 +153,12 @@ window.addEventListener("load", () => {
 		updateGeo(g.coords);
 	}, updateError, {
 		enableHighAccuracy: true,
-	});
-
-	window.setInterval(updateTime, 1000);
-}, {
-	once: true,
-});
+	    });
+	    window.setInterval(updateTime, 1000);
+    },
+    {
+	    once: true,
+    });
 
 
 
