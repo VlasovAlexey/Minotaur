@@ -135,10 +135,10 @@ window.addEventListener("load", () => {
 
     
 	window.addEventListener("deviceorientation", event => {
-		let orient_a = Math.round(event.alpha)
+		let orient_a = Math.round(event.alpha) - 90
         let orient_b = Math.round(event.beta)
         let orient_g = Math.round(event.gamma)
-		document.getElementById("data-angle").textContent = orient_a;
+		document.getElementById("data-angle").textContent = orient_a + 90;
         document.getElementById("data-beta").textContent = orient_b;
         document.getElementById("data-gamma").textContent = orient_g;
 		document.getElementById("compass").style.transform = `rotate(${orient_a}deg)`;
