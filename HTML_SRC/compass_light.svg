@@ -198,9 +198,10 @@
                         <line class="st2" x1="209.9" y1="246.5" x2="289.9" y2="246.5"/>
                      </g>
                      <g id="text">
-                        <text transform="matrix(0 1 -1 0 381.1846 224.3477)" class="st3 st4" id="st3">W</text>
+                        <text transform="matrix(0 1 -1 0 381.1846 224.3477)" class="st3 st4" id="st3">E</text>
                         <text transform="matrix(1 0 0 1 235.1057 415.1405)" class="st3 st4">S</text>
                         <text transform="matrix(1 0 0 1 233.7814 109.3156)" class="st3 st6">N</text>
+                           <text transform="matrix(0 1 -1 0 82.3594 230.9922)" class="st3 st4">W</text>
                         <g id="Degrees">
                            <text transform="matrix(1 0 0 1 246.6631 15.2502)" class="st3 st5">0</text>
                            <text transform="matrix(0.9848 -0.1736 0.1736 0.9848 203.2713 19.9221)" class="st3 st5">10</text>
@@ -240,7 +241,7 @@
                            <text transform="matrix(0.9848 0.1736 -0.1736 0.9848 280.2961 17.0263)" class="st3 st5">350</text>
                         </g>
                         <g id="English">
-                           <text transform="matrix(0 1 -1 0 82.3594 230.9922)" class="st3 st4">E</text>
+
                         </g>
                      </g>
                   </svg>                
