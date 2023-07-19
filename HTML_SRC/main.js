@@ -168,19 +168,19 @@ let compass = document.getElementById('compass');
 
           let html =  'Heading in degrees: ' + heading;
           //if(heading < 0) heading = 360 + heading;
-          var headingAdjusted = 270 + heading;
+          var headingAdjusted = 90 + heading;
           
           //heading - 90;
-          //console.log('adjusted heading Before: ' + headingAdjusted);
+          
           //headingAdjusted + 90;
           //if(headingAdjusted > 360) headingAdjusted = headingAdjusted - 90;
-          //console.log('adjusted heading After: ' + headingAdjusted);
+          
           //var test = 90 + headingAdjusted;
           //var test = 80;
           html += '<br>Adjusted:   ' + headingAdjusted;
           status.innerHTML = html;
-          compass.style.Transform = 'rotate(' + heading + 'deg)';
-          compass.style.WebkitTransform = 'rotate('+ heading + 'deg)';
+          compass.style.Transform = 'rotate(' + headingAdjusted + 'deg)';
+          compass.style.WebkitTransform = 'rotate('+ headingAdjusted + 'deg)';
           //compass.style.MozTransform = 'rotate(' + 90 + 'deg)';
         });
         sensor.start();
@@ -188,7 +188,7 @@ let compass = document.getElementById('compass');
       else status.innerHTML = 'AbsoluteOrientationSensor not supported';
       
 // The date of the last geolocation update.
-/*var lastUpdate = new Date();
+var lastUpdate = new Date();
 
 window.addEventListener("load", () => {
 	if (!navigator.geolocation) {
@@ -197,20 +197,6 @@ window.addEventListener("load", () => {
 		});
 		return;
 	}
-
-    var x = document.getElementById("data-heading1");
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else { 
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-    function showPosition(position) {
-        x.innerHTML = "Latitude: " + position.coords.latitude + 
-        "<br>Longitude: " + position.coords.longitude +
-        "<br>Heading: " + position.coords.heading;
-    }
 
 	window.addEventListener("deviceorientation", event => {
 		let orient_a = Math.round(event.alpha)
@@ -230,7 +216,6 @@ window.addEventListener("load", () => {
 		errorHidden();
 		updateTime();
 		updateGeo(g.coords);
-        getLocation();
 	}, updateError, {
 		enableHighAccuracy: true,
 	    });
@@ -317,4 +302,3 @@ function updateError(err) {
 
 	document.getElementById(`error-${t}`).hidden = false;
 }
-*/
