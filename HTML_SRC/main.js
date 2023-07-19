@@ -1,6 +1,18 @@
 // /main prg start
 init_global();
 
+function getSize() {
+    if ((window.innerWidth) > (window.innerHeight)){
+        openNav();
+        
+    }
+    if ((window.innerWidth) <= (window.innerHeight)){
+        closeNav();
+    }  
+}  
+getSize();
+window.addEventListener("resize", getSize);
+
 function hide_unused_elements() {
     element_id_hide("visuallyhidden");
     element_id_hide("tr_plan_ccr");

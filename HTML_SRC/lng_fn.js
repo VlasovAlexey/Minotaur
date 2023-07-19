@@ -1922,7 +1922,7 @@
               if($( "#tn_dmn" ).val() == 2){val = "psi"}
           }
           if(val == "ch_Tissue"){val = "Tissue"}
-          if(val == "ch_UnderDev"){val = "Warning!<br>This Tool under Develop. This GUI only demonstrate Work in Progress.<br>Thank you!<br>"}
+          if(val == "ch_UnderDev"){val = "Warning!<br>Please rotate device to Portrait orientation.<br>Thank you!<br>"}
           if(val == "ch_tbl_name"){val = "Decompression Table"}
           if(val == "ch_tbl_cons"){val = "Table of Gas Consumption"}
 
@@ -2025,7 +2025,7 @@
             if($( "#tn_dmn" ).val() == 2){val = "psi"}
         }
         if(val == "ch_Tissue"){val = "Ткань"}
-        if(val == "ch_UnderDev"){val = "Внимание!<br>Выбранный инструмент находится в разработке. Интерфейс показан для демонстрации общего прогресса работы.<br>Спасибо за тест!<br>"}
+        if(val == "ch_UnderDev"){val = "Внимание!<br>Пожалуйста, поверните устройство в портретную ориентацию.<br>Спасибо!<br>"}
         if(val == "ch_tbl_name"){val = "Декомпрессионная таблица"}
         if(val == "ch_tbl_cons"){val = "Таблица расхода газа"}
 
@@ -2127,7 +2127,7 @@
             if($( "#tn_dmn" ).val() == 2){val = "psi"}
         }
         if(val == "ch_Tissue"){val = "Compartimento"}
-        if(val == "ch_UnderDev"){val = "¡Atención!<br>Esta herramienta está en desarrollo. Esta GUI solo muestra el trabajo en progreso.<br>¡Gracias!<br>"}
+        if(val == "ch_UnderDev"){val = "¡Atención!<br>Gira el dispositivo a la orientación vertical.<br>¡Gracias!<br>"}
         if(val == "ch_tbl_name"){val = "Tabla Descompresión"}
         if(val == "ch_tbl_cons"){val = "Tabla Consumo de Gas"}
 
@@ -2221,7 +2221,7 @@
               if($( "#tn_dmn" ).val() == 2){val = "psi"}
           }
           if(val == "ch_Tissue"){val = "Tecido"}
-          if(val == "ch_UnderDev"){val = "Atenção!<br>Esta Ferramenta está ainda em Desenvolvimento. Este Interface reflete trabalho ainda a ser desenvolvido.<br>Obrigado!<br>"}
+          if(val == "ch_UnderDev"){val = "Atenção!<br>Rode o dispositivo para a orientação vertical.<br>Obrigado!<br>"}
           if(val == "ch_tbl_name"){val = "Tabela de Descompressão"}
           if(val == "ch_tbl_cons"){val = "Tabela de Consumo de Gases"}
           if(val == "dmn_air"){val = "Ar"}
@@ -2310,7 +2310,7 @@
               if($( "#tn_dmn" ).val() == 2){val = "psi"}
           }
           if(val == "ch_Tissue"){val = "组织"}
-          if(val == "ch_UnderDev"){val = "警告！<br>这个工具软件仍在开发中，这个图形界面只提供了尚在进行中的工作演示。<br>谢谢!<br>"}
+          if(val == "ch_UnderDev"){val = "警告！<br>请将设备旋转至纵向。<br>谢谢!<br>"}
           if(val == "ch_tbl_name"){val = "减压表格"}
           if(val == "ch_tbl_cons"){val = "气体消费表格"}
           if(val == "dmn_air"){val = "空气"}
@@ -2503,7 +2503,7 @@
               val = "Тъкан"
           }
           if (val == "ch_UnderDev") {
-              val = "Внимание!<br>Този инструмент е в разработка.<br>Благодаря Ви!<br>"
+              val = "Внимание!<br>Моля, завъртете устройството в портретна ориентация.<br>Благодаря Ви!<br>"
           }
           if (val == "ch_tbl_name") {
               val = "Деко таблица"
@@ -2745,7 +2745,7 @@
               val = "Tissue"
           }
           if (val == "ch_UnderDev") {
-              val = "ATTENTION!<br> Cet outil est en développement. Cette interface graphique montre uniquement les travaux en cours.<br>Merci de votre comprehension!<br>"
+              val = "ATTENTION!<br>Veuillez faire pivoter l'appareil pour qu'il soit orienté vers le portrait.<br>Merci de votre comprehension!<br>"
           }
           if (val == "ch_tbl_name") {
               val = "Table de décompression"
@@ -2884,7 +2884,7 @@
                 if($( "#tn_dmn" ).val() == 2){val = "psi"}
             }
             if(val == "ch_Tissue"){val = "조직"}
-            if(val == "ch_UnderDev"){val = "경고!<br>이 Tool은 개발 중입니다. 이 GUI는 진행 중인 작업만 보여줍니다.<br>감사합니다!<br>"}
+            if(val == "ch_UnderDev"){val = "경고!<br>기기를 세로 방향으로 회전하세요.<br>감사합니다!<br>"}
             if(val == "ch_tbl_name"){val = "감압표"}
             if(val == "ch_tbl_cons"){val = "기체 소비량 표"}
             if(val == "dmn_air"){val = "Air"}
@@ -2971,7 +2971,7 @@
                 if($( "#tn_dmn" ).val() == 2){val = "psi"}
             }
             if(val == "ch_Tissue"){val = "Tessuto"}
-            if(val == "ch_UnderDev"){val = "Attenzione!<br>Questo strumento è sotto sviluppo. Quest’interfaccia è mostrata sotto lavori in corso.<br>Grazie!<br>"}
+            if(val == "ch_UnderDev"){val = "Attenzione!<br>Ruotare il dispositivo con orientamento verticale.<br>Grazie!<br>"}
             if(val == "ch_tbl_name"){val = "Tabelle decompressive"}
             if(val == "ch_tbl_cons"){val = "Tabelle dei consumi gassosi"}
             if(val == "dmn_air"){val = "Aria"}
