@@ -204,44 +204,43 @@
                            <text transform="matrix(0 1 -1 0 82.3594 230.9922)" class="st3 st4">W</text>
                         <g id="Degrees">
                            <text transform="matrix(1 0 0 1 246.6631 15.2502)" class="st3 st5">0</text>
-                           <text transform="matrix(0.9848 -0.1736 0.1736 0.9848 203.2713 19.9221)" class="st3 st5">10</text>
-                           <text transform="matrix(0.9397 -0.342 0.342 0.9397 164.6366 31.4788)" class="st3 st5">20</text>
-                           <text transform="matrix(0.866 -0.5 0.5 0.866 128.5952 49.5686)" class="st3 st5">30</text>
-                           <text transform="matrix(0.766 -0.6428 0.6428 0.766 94.9662 74.7137)" class="st3 st5"> 40</text>
-                           <text transform="matrix(0.6428 -0.766 0.766 0.6428 68.5621 102.9684)" class="st3 st5">50</text>
-                           <text transform="matrix(0.5 -0.866 0.866 0.5 46.3945 136.6556)" class="st3 st5">60</text>
-                           <text transform="matrix(0.342 -0.9397 0.9397 0.342 30.4135 173.6805)" class="st3 st5">70</text>
-                           <text transform="matrix(0.1736 -0.9848 0.9848 0.1736 21.1045 212.918)" class="st3 st5">80</text>
-                           <text transform="matrix(-9.728667e-009 -1 1 -9.728667e-009 18.7507 253.1752)" class="st3 st5">90</text>
-                           <text transform="matrix(-0.1736 -0.9848 0.9848 -0.1736 24.0023 296.516)" class="st3 st5">100</text>
-                           <text transform="matrix(-0.342 -0.9397 0.9397 -0.342 36.121 334.9998)" class="st3 st5">110</text>
-                           <text transform="matrix(-0.5 -0.866 0.866 -0.5 54.738 370.7942)" class="st3 st5">120</text>
-                           <text transform="matrix(-0.6428 -0.766 0.766 -0.6428 79.2876 402.8128)" class="st3 st5">130</text>
-                           <text transform="matrix(-0.766 -0.6428 0.6428 -0.766 109.0246 430.0818)" class="st3 st5">140</text>
-                           <text transform="matrix(-0.866 -0.5 0.5 -0.866 143.0454 451.7725)" class="st3 st5">150</text>
-                           <text transform="matrix(-0.9397 -0.342 0.342 -0.9397 180.3152 467.2268)" class="st3 st5">160</text>
-                           <text transform="matrix(-0.9848 -0.1736 0.1736 -0.9848 219.7032 475.9743)" class="st3 st5">170</text>
+                           <text transform="matrix(0.9848 -0.1736 0.1736 0.9848 203.2713 19.9221)" class="st3 st5">350</text>
+                           <text transform="matrix(0.9397 -0.342 0.342 0.9397 164.6366 31.4788)" class="st3 st5">340</text>
+                           <text transform="matrix(0.866 -0.5 0.5 0.866 128.5952 49.5686)" class="st3 st5">330</text>
+                           <text transform="matrix(0.766 -0.6428 0.6428 0.766 94.9662 74.7137)" class="st3 st5">320</text>
+                           <text transform="matrix(0.6428 -0.766 0.766 0.6428 68.5621 102.9684)" class="st3 st5">310</text>
+                           <text transform="matrix(0.5 -0.866 0.866 0.5 46.3945 136.6556)" class="st3 st5">300</text>
+                           <text transform="matrix(0.342 -0.9397 0.9397 0.342 30.4135 173.6805)" class="st3 st5">290</text>
+                           <text transform="matrix(0.1736 -0.9848 0.9848 0.1736 21.1045 212.918)" class="st3 st5">280</text>
+                           <text transform="matrix(-9.728667e-009 -1 1 -9.728667e-009 18.7507 253.1752)" class="st3 st5">270</text>
+                           <text transform="matrix(-0.1736 -0.9848 0.9848 -0.1736 24.0023 296.516)" class="st3 st5">260</text>
+                           <text transform="matrix(-0.342 -0.9397 0.9397 -0.342 36.121 334.9998)" class="st3 st5">250</text>
+                           <text transform="matrix(-0.5 -0.866 0.866 -0.5 54.738 370.7942)" class="st3 st5">240</text>
+                           <text transform="matrix(-0.6428 -0.766 0.766 -0.6428 79.2876 402.8128)" class="st3 st5">230</text>
+                           <text transform="matrix(-0.766 -0.6428 0.6428 -0.766 109.0246 430.0818)" class="st3 st5">220</text>
+                           <text transform="matrix(-0.866 -0.5 0.5 -0.866 143.0454 451.7725)" class="st3 st5">210</text>
+                           <text transform="matrix(-0.9397 -0.342 0.342 -0.9397 180.3152 467.2268)" class="st3 st5">200</text>
+                           <text transform="matrix(-0.9848 -0.1736 0.1736 -0.9848 219.7032 475.9743)" class="st3 st5">190</text>
                            <text transform="matrix(-1 0 0 -1 260.0112 477.7485)" class="st3 st5">180</text>
-                           <text transform="matrix(-0.9848 0.1736 -0.1736 -0.9848 300.0161 472.4969)" class="st3 st5">190</text>
-                           <text transform="matrix(-0.9397 0.342 -0.342 -0.9397 338.4998 460.3785)" class="st3 st5">200</text>
-                           <text transform="matrix(-0.866 0.5 -0.5 -0.866 374.2942 441.761)" class="st3 st5">210</text>
-                           <text transform="matrix(-0.766 0.6428 -0.6428 -0.766 406.3128 417.211)" class="st3 st5">220</text>
-                           <text transform="matrix(-0.6428 0.766 -0.766 -0.6428 433.5818 387.4739)" class="st3 st5">230</text>
-                           <text transform="matrix(-0.5 0.866 -0.866 -0.5 455.2725 353.4536)" class="st3 st5">240</text>
-                           <text transform="matrix(-0.342 0.9397 -0.9397 -0.342 470.7268 316.1836)" class="st3 st5">250</text>
-                           <text transform="matrix(-0.1736 0.9848 -0.9848 -0.1736 479.4743 276.7961)" class="st3 st5">260</text>
-                           <text transform="matrix(9.728667e-009 1 -1 9.728667e-009 481.2486 236.4882)" class="st3 st5">270</text>
-                           <text transform="matrix(0.1736 0.9848 -0.9848 0.1736 475.997 196.4843)" class="st3 st5">280</text>
-                           <text transform="matrix(0.342 0.9397 -0.9397 0.342 463.8785 158.0005)" class="st3 st5">290</text>
-                           <text transform="matrix(0.5 0.866 -0.866 0.5 445.261 122.2053)" class="st3 st5">300</text>
-                           <text transform="matrix(0.6428 0.766 -0.766 0.6428 420.711 90.1872)" class="st3 st5">310</text>
-                           <text transform="matrix(0.766 0.6428 -0.6428 0.766 390.9739 62.9179)" class="st3 st5">320</text>
-                           <text transform="matrix(0.866 0.5 -0.5 0.866 356.9536 41.227)" class="st3 st5">330</text>
-                           <text transform="matrix(0.9397 0.342 -0.342 0.9397 319.6836 25.7735)" class="st3 st5">340</text>
-                           <text transform="matrix(0.9848 0.1736 -0.1736 0.9848 280.2961 17.0263)" class="st3 st5">350</text>
+                           <text transform="matrix(-0.9848 0.1736 -0.1736 -0.9848 300.0161 472.4969)" class="st3 st5">170</text>
+                           <text transform="matrix(-0.9397 0.342 -0.342 -0.9397 338.4998 460.3785)" class="st3 st5">160</text>
+                           <text transform="matrix(-0.866 0.5 -0.5 -0.866 374.2942 441.761)" class="st3 st5">150</text>
+                           <text transform="matrix(-0.766 0.6428 -0.6428 -0.766 406.3128 417.211)" class="st3 st5">140</text>
+                           <text transform="matrix(-0.6428 0.766 -0.766 -0.6428 433.5818 387.4739)" class="st3 st5">130</text>
+                           <text transform="matrix(-0.5 0.866 -0.866 -0.5 455.2725 353.4536)" class="st3 st5">120</text>
+                           <text transform="matrix(-0.342 0.9397 -0.9397 -0.342 470.7268 316.1836)" class="st3 st5">110</text>
+                           <text transform="matrix(-0.1736 0.9848 -0.9848 -0.1736 479.4743 276.7961)" class="st3 st5">100</text>
+                           <text transform="matrix(9.728667e-009 1 -1 9.728667e-009 481.2486 236.4882)" class="st3 st5">90</text>
+                           <text transform="matrix(0.1736 0.9848 -0.9848 0.1736 475.997 196.4843)" class="st3 st5">80</text>
+                           <text transform="matrix(0.342 0.9397 -0.9397 0.342 463.8785 158.0005)" class="st3 st5">70</text>
+                           <text transform="matrix(0.5 0.866 -0.866 0.5 445.261 122.2053)" class="st3 st5">60</text>
+                           <text transform="matrix(0.6428 0.766 -0.766 0.6428 420.711 90.1872)" class="st3 st5">50</text>
+                           <text transform="matrix(0.766 0.6428 -0.6428 0.766 390.9739 62.9179)" class="st3 st5">40</text>
+                           <text transform="matrix(0.866 0.5 -0.5 0.866 356.9536 41.227)" class="st3 st5">30</text>
+                           <text transform="matrix(0.9397 0.342 -0.342 0.9397 319.6836 25.7735)" class="st3 st5">20</text>
+                           <text transform="matrix(0.9848 0.1736 -0.1736 0.9848 280.2961 17.0263)" class="st3 st5">10</text>
                         </g>
                         <g id="English">
-
                         </g>
                      </g>
                   </svg>                
