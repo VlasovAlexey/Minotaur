@@ -168,7 +168,7 @@ let compass = document.getElementById('compass');
 
           let html =  'Heading in degrees: ' + heading;
           //if(heading < 0) heading = 360 + heading;
-          var headingAdjusted = 90 + heading;
+          headingAdjusted = (90 + heading);
           
           //heading - 90;
           
@@ -180,7 +180,7 @@ let compass = document.getElementById('compass');
           html += '<br>Adjusted:   ' + headingAdjusted;
           status.innerHTML = html;
           compass.style.Transform = 'rotate(' + headingAdjusted + 'deg)';
-          compass.style.WebkitTransform = 'rotate('+ headingAdjusted + 'deg)';
+          //compass.style.WebkitTransform = 'rotate('+ headingAdjusted + 'deg)';
           //compass.style.MozTransform = 'rotate(' + 90 + 'deg)';
         });
         sensor.start();
