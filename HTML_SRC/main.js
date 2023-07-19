@@ -143,7 +143,7 @@ window.addEventListener("load", () => {
 		document.getElementById("data-angle").textContent = orient_a;
         document.getElementById("data-beta").textContent = orient_b;
         document.getElementById("data-gamma").textContent = orient_g;
-        orient_a = (orient_a - 90)*1.0;
+        //orient_a = (orient_a - 90)*1.0;
         document.getElementById("compass").style.transform = `rotate(${orient_a}deg)`;
 		
 	});
@@ -169,7 +169,7 @@ function updateGeo(c) {
 	[
 		"accuracy",
 		"altitude",
-		"altitudeAccuracy",
+		"altitudeAccuracy","heading",
 		"latitude",
 		"longitude",
 		"speed",
