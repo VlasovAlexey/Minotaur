@@ -133,7 +133,20 @@ window.addEventListener("load", () => {
 		return;
 	}
 
-    
+    var x = document.getElementById("data-heading1");
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude +
+        "<br>Heading: " + position.coords.heading;
+    }
+
 	window.addEventListener("deviceorientation", event => {
 		let orient_a = Math.round(event.alpha)
         let orient_b = Math.round(event.beta)
@@ -143,8 +156,7 @@ window.addEventListener("load", () => {
 		document.getElementById("data-angle").textContent = orient_a;
         document.getElementById("data-beta").textContent = orient_b;
         document.getElementById("data-gamma").textContent = orient_g;
-        //orient_a = (orient_a - 90)*1.0;
-        document.getElementById("compass").style.transform = `rotate(${orient_a}deg)`;
+        document.getElementById("compass").style.transform = `rotate(${((orient_a-90)*1.0)}deg)`;
 		
 	});
 
@@ -153,6 +165,7 @@ window.addEventListener("load", () => {
 		errorHidden();
 		updateTime();
 		updateGeo(g.coords);
+        getLocation();
 	}, updateError, {
 		enableHighAccuracy: true,
 	    });
@@ -169,7 +182,7 @@ function updateGeo(c) {
 	[
 		"accuracy",
 		"altitude",
-		"altitudeAccuracy","heading",
+		"altitudeAccuracy",
 		"latitude",
 		"longitude",
 		"speed",
