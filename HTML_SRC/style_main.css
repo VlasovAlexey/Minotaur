@@ -1063,7 +1063,12 @@ a#windowControlMinimize{
     display: inline-block;
 }
 
-/*lock portrait on iphone*/
-@viewport {  
-    orientation: portrait;  
+.btn_gps
+{
+    outline: none;
+    border: 0px solid #969696;
+    text-align: left;
+    width: 100%;
+    height: 50px;
+    background-size: contain;
 }

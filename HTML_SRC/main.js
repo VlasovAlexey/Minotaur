@@ -1,3 +1,20 @@
+//get current date time string in UTC
+function get_date(){
+
+var now = new Date();
+
+var year = now.getFullYear();
+var month = now.getMonth() + 1;
+var day = now.getDate();
+var hours = now.getHours();
+var minutes = now.getMinutes();
+var seconds = now.getSeconds();
+//var milliseconds = now.getMilliseconds();
+
+var final_time = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
+    return final_time;
+}
+
 // /main prg start
 init_global();
 
@@ -122,21 +139,41 @@ function closeNav() {
     //document.getElementById("AlertOverlay").style.display = "none";
 }
 
+//gps_enable
+document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+
 //Recording button start here
 element_id_hide("rec_blinking");
+
+var GPX_File = "";
 
 function btn_record(){
     if (record_state == 0){
         document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
         document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
         element_id_show("rec_blinking");
-        record_state = 1;        
+        record_state = 1;
+
+        //start writing to gpx array data
+        //Add header
+        GPX_File = GPX_File + "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        GPX_File = GPX_File + " <metadata>\n <time>"+ get_date() + "</time>\n </metadata>\n";
+        GPX_File = GPX_File + " <trk>\n  <name>Minotaur_Track_"+ get_date() + "</name>\n  <trkseg>\n";
+
     }
     else{
         document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
         document.getElementById("btn_rec").style.border = "6px solid #969696";
         element_id_hide("rec_blinking");
         record_state = 0;
+
+        //end create gpx array
+        GPX_File = GPX_File + "  </trkseg>\n </trk>\n</gpx>\n";
+        //and write file
+        //console.log(GPX_File);
+        var blob = new Blob([GPX_File], {type: "text/plain;charset=utf-8"});
+        saveAs(blob, "minotaur_track_"+ get_date() + ".gpx");
+        GPX_File = [];
     }
 }
 

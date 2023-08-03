@@ -1646,44 +1646,6 @@ function create_html(){
     calc_depth_lo = document.getElementById("tr_calc_depth_lo");
     calc_depth_lo.addEventListener('change', upd_calc_mwd_depth_lo);
 
-    price_cur = document.getElementById("tr_price_cur");
-    price_cur.addEventListener('change', upd_price);
-    price_he_dls = document.getElementById("tr_price_he_dls");
-    price_he_dls.addEventListener('change', upd_price);
-    price_he_cnt = document.getElementById("tr_price_he_cnt");
-    price_he_cnt.addEventListener('change', upd_price);
-
-    price_o2_dls = document.getElementById("tr_price_o2_dls");
-    price_o2_dls.addEventListener('change', upd_price);
-    price_o2_cnt = document.getElementById("tr_price_o2_cnt");
-    price_o2_cnt.addEventListener('change', upd_price);
-
-    price_top_dls = document.getElementById("tr_price_top_dls");
-    price_top_dls.addEventListener('change', upd_price);
-    price_top_cnt = document.getElementById("tr_price_top_cnt");
-    price_top_cnt.addEventListener('change', upd_price);
-
-    //new2_0
-    calc_cur_ex_rate_pound = document.getElementById("tr_calc_cur_ex_rate_pound");
-    calc_cur_ex_rate_pound.addEventListener('change', upd_price);
-    calc_cur_ex_rate_pence = document.getElementById("tr_calc_cur_ex_rate_pence");
-    calc_cur_ex_rate_pence.addEventListener('change', upd_price);
-
-    calc_cur_ex_rate_euro = document.getElementById("tr_calc_cur_ex_rate_euro");
-    calc_cur_ex_rate_euro.addEventListener('change', upd_price);
-    calc_cur_ex_rate_eucents = document.getElementById("tr_calc_cur_ex_rate_eucents");
-    calc_cur_ex_rate_eucents.addEventListener('change', upd_price);
-
-    calc_cur_ex_rate_rub = document.getElementById("tr_calc_cur_ex_rate_rub");
-    calc_cur_ex_rate_rub.addEventListener('change', upd_price);
-    calc_cur_ex_rate_kopek = document.getElementById("tr_calc_cur_ex_rate_kopek");
-    calc_cur_ex_rate_kopek.addEventListener('change', upd_price);
-
-    calc_cur_ex_rate_yuan = document.getElementById("tr_calc_cur_ex_rate_yuan");
-    calc_cur_ex_rate_yuan.addEventListener('change', upd_price);
-    calc_cur_ex_rate_fyn = document.getElementById("tr_calc_cur_ex_rate_fyn");
-    calc_cur_ex_rate_fyn.addEventListener('change', upd_price);
-
     //new3_0
     plan_style_opt = document.getElementById("tn_plan_style");
     plan_style_opt.addEventListener('change', upd_all);
@@ -1948,45 +1910,6 @@ function init_global(){
     calc_he.addEventListener('change', upd_calc_mwd_he);
     calc_depth_lo = document.getElementById("tr_calc_depth_lo");
     calc_depth_lo.addEventListener('change', upd_calc_mwd_depth_lo);
-
-    price_cur = document.getElementById("tr_price_cur");
-    price_cur.addEventListener('change', price_lng_cur_upd);
-    price_cur.addEventListener('change', upd_price);
-    price_he_dls = document.getElementById("tr_price_he_dls");
-    price_he_dls.addEventListener('change', upd_price);
-    price_he_cnt = document.getElementById("tr_price_he_cnt");
-    price_he_cnt.addEventListener('change', upd_price);
-
-    price_o2_dls = document.getElementById("tr_price_o2_dls");
-    price_o2_dls.addEventListener('change', upd_price);
-    price_o2_cnt = document.getElementById("tr_price_o2_cnt");
-    price_o2_cnt.addEventListener('change', upd_price);
-
-    price_top_dls = document.getElementById("tr_price_top_dls");
-    price_top_dls.addEventListener('change', upd_price);
-    price_top_cnt = document.getElementById("tr_price_top_cnt");
-    price_top_cnt.addEventListener('change', upd_price);
-
-//new2_0
-    calc_cur_ex_rate_pound = document.getElementById("tr_calc_cur_ex_rate_pound");
-    calc_cur_ex_rate_pound.addEventListener('change', upd_price);
-    calc_cur_ex_rate_pence = document.getElementById("tr_calc_cur_ex_rate_pence");
-    calc_cur_ex_rate_pence.addEventListener('change', upd_price);
-
-    calc_cur_ex_rate_euro = document.getElementById("tr_calc_cur_ex_rate_euro");
-    calc_cur_ex_rate_euro.addEventListener('change', upd_price);
-    calc_cur_ex_rate_eucents = document.getElementById("tr_calc_cur_ex_rate_eucents");
-    calc_cur_ex_rate_eucents.addEventListener('change', upd_price);
-
-    calc_cur_ex_rate_rub = document.getElementById("tr_calc_cur_ex_rate_rub");
-    calc_cur_ex_rate_rub.addEventListener('change', upd_price);
-    calc_cur_ex_rate_kopek = document.getElementById("tr_calc_cur_ex_rate_kopek");
-    calc_cur_ex_rate_kopek.addEventListener('change', upd_price);
-
-    calc_cur_ex_rate_yuan = document.getElementById("tr_calc_cur_ex_rate_yuan");
-    calc_cur_ex_rate_yuan.addEventListener('change', upd_price);
-    calc_cur_ex_rate_fyn = document.getElementById("tr_calc_cur_ex_rate_fyn");
-    calc_cur_ex_rate_fyn.addEventListener('change', upd_price);
 
     //new3_0
     plan_style_opt = document.getElementById("tn_plan_style");

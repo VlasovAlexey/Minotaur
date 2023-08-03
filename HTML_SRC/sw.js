@@ -107,7 +107,6 @@ self.addEventListener('install', (e) => {
 '/Minotaur/HTML_SRC/canvg.min.js',
 '/Minotaur/HTML_SRC/chart_profile.js',
 '/Minotaur/HTML_SRC/chart_theme.js',
-'/Minotaur/HTML_SRC/cns_table.js',
 '/Minotaur/HTML_SRC/cookie_settings.js',
 '/Minotaur/HTML_SRC/dive_comp.js',
 '/Minotaur/HTML_SRC/exporting.js',
@@ -135,13 +134,11 @@ self.addEventListener('install', (e) => {
 '/Minotaur/HTML_SRC/main.js',
 '/Minotaur/HTML_SRC/nodejs_fn.js',
 '/Minotaur/HTML_SRC/offline-exporting.src.js',
-'/Minotaur/HTML_SRC/price_calc.js',
 '/Minotaur/HTML_SRC/roundslider.js',
 '/Minotaur/HTML_SRC/saul_planner.js',
 '/Minotaur/HTML_SRC/style_manager.js',
 '/Minotaur/HTML_SRC/svg2pdf.src.js',
 '/Minotaur/HTML_SRC/sw.js',
-'/Minotaur/HTML_SRC/tables_build.js',
 '/Minotaur/HTML_SRC/xlsx.full.min.js',
 '/Minotaur/HTML_SRC/README.md',
 '/Minotaur/HTML_SRC/PrivacyPolicyDiveProMe.pdf',
@@ -194,7 +191,8 @@ self.addEventListener('install', (e) => {
 '/Minotaur/HTML_SRC/rec_main.svg',
 '/Minotaur/HTML_SRC/rec_press.svg',
 '/Minotaur/HTML_SRC/gps_ok.svg',
-'/Minotaur/HTML_SRC/gps_no.svg'
+'/Minotaur/HTML_SRC/gps_no.svg',
+'/Minotaur/HTML_SRC/FileSaver.js'
     ])),
   );
 });
