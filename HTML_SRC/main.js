@@ -171,8 +171,8 @@ function btn_record(){
         GPX_File = GPX_File + "  </trkseg>\n </trk>\n</gpx>\n";
         //and write file
         //console.log(GPX_File);
-        var fl_name = "minotaur_track_"+ get_date() + ".gpx";
-        var blob = new Blob([GPX_File], {type: "application/octet-stream;charset=utf-8"});
+        var fl_name = "minotaur_track_.gpx";
+        var blob = new Blob([GPX_File], {type: "application/xml;charset=utf-8"});
         saveAs(blob, fl_name);
         GPX_File = [];
     }
