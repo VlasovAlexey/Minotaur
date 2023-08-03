@@ -348,8 +348,6 @@
 
                 ".header10" : "Donation Hall of Fame",
                 ".tn_donat_header" : "",
-                ".btn_msg" : "How to make a Donation",
-                ".btn_tel" : "Make Call to Developers",
 
                 ".btn_ios_msg" : "How to make a Donation",
                 ".btn_ios_tel" : "Make Call to Developers",
@@ -364,20 +362,7 @@
                 ".td_silver_list" : "",
                 ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
-                ".header11" : "S.A.U.L. Recreational Dive Planner",
-                ".tr_saul_mix" : "Mix",
-                ".tr_saul_res_type" : "Calculation Type",
-                ".tr_saul_depth" : "Depth" + lng_meters,
-                ".tr_saul_btime" : "Bottom Time" + lng_min,
-                ".tn_saul_mix_arr_air" : "Air",
-                ".tn_saul_mix_arr_ean32" : "EAN32",
-                ".tn_saul_res_type_arr_forward" : "%(DCS) for a selected Bottom Time",
-                ".tn_saul_res_type_arr_reverse" : "Bottom Time for an acceptable %(DCS)",
-
-                ".tr_saul_cap_percent" : "Your DCS Risk is:",
-                ".tr_saul_time_max" : "Your Maximum Bottom Time is:",
-                ".tr_saul_time_max_dim" : "Copyright © 2021 Dr. Saul Goldman, Professor Emeritus, University of Guelph",
-                ".tr_saul_percent" : "DCS Acceptable Probability, %"
+                ".header11" : "S.A.U.L. Recreational Dive Planner"
             },
 
             //Rus
@@ -541,8 +526,6 @@
 
                 ".header10" : "Зал славы",
                 ".tn_donat_header" : "",
-                ".btn_msg" : "Как сделать пожертвование",
-                ".btn_tel" : "Сделать звонок разработчикам",
 
                 ".btn_ios_msg" : "Как сделать пожертвование",
                 ".btn_ios_tel" : "Сделать звонок разработчикам",
@@ -557,20 +540,7 @@
                 ".td_silver_list" : "",
                 ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
-                ".header11" : "S.A.U.L. Рекриационный планировщик риска погружений",
-                ".tr_saul_mix" : "Смесь",
-                ".tr_saul_res_type" : "Метод расчета",
-                ".tr_saul_depth" : "Глубина" + lng_meters,
-                ".tr_saul_btime" : "Донное время" + lng_min,
-                ".tn_saul_mix_arr_air" : "Воздух",
-                ".tn_saul_mix_arr_ean32" : "EAN32",
-                ".tn_saul_res_type_arr_forward" : "%(ДКБ) для выбранной глубины",
-                ".tn_saul_res_type_arr_reverse" : "Донное время для премлемого %(ДКБ)",
-
-                ".tr_saul_cap_percent" : "Ваш риск ДКБ составляет:",
-                ".tr_saul_time_max" : "Ваше максимальное время на дне составляет:",
-                ".tr_saul_time_max_dim" : "Все права защищены © 2021 Сол Гольдман, почетный профессор, Гвельфский университет",
-                ".tr_saul_percent" : "Допускаемая вероятность ДКБ, %"
+                ".header11" : "S.A.U.L. Рекриационный планировщик риска погружений"
             },
 
             //Spa
@@ -729,8 +699,6 @@
 
                 ".header10" : "Templo de la Fama de la Donación",
                 ".tn_donat_header" : "",
-                ".btn_msg" : "Cómo hacer una Donación",
-                ".btn_tel" : "Hacer una Llamada al Desarrollador",
 
                 ".btn_ios_msg" : "Cómo hacer una Donación",
                 ".btn_ios_tel" : "Hacer una Llamada al Desarrollador",
@@ -745,20 +713,7 @@
                 ".td_silver_list" : "",
                 ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
-                ".header11" : "S.A.U.L. Planificador de Buceo Recreativo",
-                ".tr_saul_mix" : "Mezcla",
-                ".tr_saul_res_type" : "Tipo de Cálculo",
-                ".tr_saul_depth" : "Profundidad" + lng_meters,
-                ".tr_saul_btime" : "Tiempo del Fondo" + lng_min,
-                ".tn_saul_mix_arr_air" : "Aire",
-                ".tn_saul_mix_arr_ean32" : "EAN32",
-                ".tn_saul_res_type_arr_forward" : "% (ED) Para Una Hora Inferior Seleccionada",
-                ".tn_saul_res_type_arr_reverse" : "Tiempo Inferior Para Aceptable %(ED)",
-
-                ".tr_saul_cap_percent" : "Su Riesgo de (ED) es:",
-                ".tr_saul_time_max" : "El Tiempo Máximo de la Parte Inferior es:",
-                ".tr_saul_time_max_dim" : "Copyright © 2021 Dr. Saul Goldman, Profesor Emérito, Universidad de Guelph",
-                ".tr_saul_percent" : "DC Probabilidad Aceptable, %"
+                ".header11" : "S.A.U.L. Planificador de Buceo Recreativo"
             },
             4: {
                 //Prt
@@ -915,8 +870,6 @@
 
                 ".header10" : "Mural de Benfeitores",
                 ".tn_donat_header" : "",
-                ".btn_msg" : "Como fazer uma Doação?",
-                ".btn_tel" : "Ligue aos Criadores",
 
                 ".btn_ios_msg" : "Como fazer uma Doação?",
                 ".btn_ios_tel" : "Contacte com os Criadores",
@@ -932,21 +885,7 @@
                 ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
 
-                ".header11" : "S.A.U.L. Planificador de Mergulho Recreativo",
-                ".tr_saul_mix" : "Mistura",
-                ".tr_saul_res_type" : "Tipo de Cálculo",
-                ".tr_saul_depth" : "Profundidade" + lng_meters,
-                ".tr_saul_btime" : "Tempo de Fundo" + lng_min,
-                ".tn_saul_mix_arr_air" : "Ar",
-                ".tn_saul_mix_arr_ean32" : "EAN32",
-                ".tn_saul_res_type_arr_forward" : "%(DCS) para um determinado tempo de fundo",
-                ".tn_saul_res_type_arr_reverse" : "Tempo de fundo para um probabilidade aceitável de %(DCS)",
-
-                ".tr_saul_cap_percent" : "O Seu Risco de DCS é:",
-                ".tr_saul_time_max" : "O Seu Tempo Máximo de Fundo é:",
-                ".tr_saul_time_max_dim" : "Todos os direitos reservados © 2021 Dr. Saul Goldman, Professor Emeritus, Universidade de Guelph",
-                ".tr_saul_percent" : "DCS probabilidade aceitável, %"
-
+                ".header11" : "S.A.U.L. Planificador de Mergulho Recreativo"
             },
             5 : {
                 //China
@@ -1104,8 +1043,6 @@
 
                 ".header10" : "打赏金主爸爸名录",
                 ".tn_donat_header" : "",
-                ".btn_msg" : "如何为软件作者打赏",
-                ".btn_tel" : "致电软件作者",
 
                 ".btn_ios_msg" : "如何为软件作者打赏",
                 ".btn_ios_tel" : "致电软件作者 ",
@@ -1120,21 +1057,7 @@
                 ".td_silver_list" : "",
                 ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
-                ".header11" : "S.A.U.L. 休闲潜水计划工具软件",
-                ".tr_saul_mix" : "Mix",
-                ".tr_saul_res_type" : "计算类型",
-                ".tr_saul_depth" : "深度" + lng_meters,
-                ".tr_saul_btime" : "底部时间" + lng_min,
-                ".tn_saul_mix_arr_air" : "空气",
-                ".tn_saul_mix_arr_ean32" : "EAN32高氧",
-                ".tn_saul_res_type_arr_forward" : "已选择的底部时间所面临的DCS风险概率%",
-                ".tn_saul_res_type_arr_reverse" : "可接受的DCS风险概率% 对应的底部时间",
-
-                ".tr_saul_cap_percent" : "你面临的减压病风险:",
-                ".tr_saul_time_max" : "你的最大底部时间:",
-                ".tr_saul_time_max_dim" : "版权所有 © 2021 Saul Goldman博士, Guelph大学名誉教授 ",
-                ".tr_saul_percent" : "可接受的DCS减压病风险概率, %"
-
+                ".header11" : "S.A.U.L. 休闲潜水计划工具软件"
             },
             6 : {
                 //Bulgarian
@@ -1272,8 +1195,6 @@
                 ".tn_airbr_time_reset_no" : "Не",
                 ".header10" : "Зала на славата - дарения",
                 ".tn_donat_header" : "",
-                ".btn_msg" : "Как да направя дарение",
-                ".btn_tel" : "Обадете се на разработчика",
                 ".btn_ios_msg" : "Как да направя дарение",
                 ".btn_ios_tel" : "Обадете се на разработчика",
                 ".tn_donat_header_founder" : "Секция за дарения основатели",
@@ -1286,20 +1207,7 @@
                 ".td_silver_list" : "",
                 ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
-                ".header11" : "S.A.U.L. Recreational Dive Planner",
-                ".tr_saul_mix" : "Микс",
-                ".tr_saul_res_type" : "Вид калкулация",
-                ".tr_saul_depth" : "Дълбочина" + lng_meters,
-                ".tr_saul_btime" : "Дънно време" + lng_min,
-                ".tn_saul_mix_arr_air" : "Въздух",
-                ".tn_saul_mix_arr_ean32" : "EAN32",
-                ".tn_saul_res_type_arr_forward" : "%(DCS) за избраното дънно време",
-                ".tn_saul_res_type_arr_reverse" : "Дънно време с приемлив %(DCS)",
-
-                ".tr_saul_cap_percent" : "Вашия риск за DCS е :",
-                ".tr_saul_time_max" : "Вашето максимално дънно време е:",
-                ".tr_saul_time_max_dim" : "Copyright © 2021 Dr. Saul Goldman, Professor Emeritus, University of Guelph",
-                ".tr_saul_percent" : "DCS Приемлива вероятност, %"
+                ".header11" : "S.A.U.L. Recreational Dive Planner"
             },
             7: {
                 //Fr
@@ -1437,8 +1345,6 @@
                 ".tn_airbr_time_reset_no" : "Non",
                 ".header10" : "Temple de la Donation ",
                 ".tn_donat_header" : "",
-                ".btn_msg" : " Comment faire un don ",
-                ".btn_tel" : " Appelez les développeurs ",
                 ".btn_ios_msg" : " Comment faire un don ",
                 ".btn_ios_tel" : " Appelez les développeurs ",
                 ".tn_donat_header_founder" : " Section des dons des fondateurs ",
@@ -1451,20 +1357,7 @@
                 ".td_silver_list" : "",
                 ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
-                ".header11" : "S.A.U.L. Planificateur de plongée récréative",
-                ".tr_saul_mix" : "Mélange",
-                ".tr_saul_res_type" : "Type de Calcul",
-                ".tr_saul_depth" : "Profondeur" + lng_meters,
-                ".tr_saul_btime" : "Temps au fond" + lng_min,
-                ".tn_saul_mix_arr_air" : "Air",
-                ".tn_saul_mix_arr_ean32" : "EAN32",
-                ".tn_saul_res_type_arr_forward" : "%(d’accident de décompression) pour un temps au fond sélectionné",
-                ".tn_saul_res_type_arr_reverse" : "Temps au fond pour un %(d’accident de décompression) acceptable",
-
-                ".tr_saul_cap_percent" : "Votre Risque d’accident de décompression est de:",
-                ".tr_saul_time_max" : "Votre temps maximum au fond est de:",
-                ".tr_saul_time_max_dim" : "Copyright © 2021 Dr. Saul Goldman, Professor Emeritus, University of Guelph",
-                ".tr_saul_percent" : "Probabilité acceptable d’accident de décompression, %"
+                ".header11" : "S.A.U.L. Planificateur de plongée récréative"
             },
             8: {
                 //Korean
@@ -1602,8 +1495,6 @@
                 ".tn_airbr_time_reset_no" : "No",
                 ".header10" : "기부 명예의 전당",
                 ".tn_donat_header" : "",
-                ".btn_msg" : "기부 방법",
-                ".btn_tel" : "개발자에게 전화 걸기",
                 ".btn_ios_msg" : "기부 방법",
                 ".btn_ios_tel" : "개발자에게 전화 걸기",
                 ".tn_donat_header_founder" : "설립자 기부 섹션",
@@ -1616,20 +1507,7 @@
                 ".td_silver_list" : "",
                 ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
-                ".header11" : "S.A.U.L. 레크리에이션 다이빙 플래너",
-                ".tr_saul_mix" : "기체",
-                ".tr_saul_res_type" : "계산 유형",
-                ".tr_saul_depth" : "수심" + lng_meters,
-                ".tr_saul_btime" : "바텀 시간" + lng_min,
-                ".tn_saul_mix_arr_air" : "Air",
-                ".tn_saul_mix_arr_ean32" : "EAN32",
-                ".tn_saul_res_type_arr_forward" : "%(DCS) 선택된 바텀 시간",
-                ".tn_saul_res_type_arr_reverse" : "선택 가능한 바텀 시간 %(DCS)",
-
-                ".tr_saul_cap_percent" : "귀하의 DCS 위험은 다음과 같습니다",
-                ".tr_saul_time_max" : "귀하의 최대 바텀 시간은 다음과 같습니다",
-                ".tr_saul_time_max_dim" : "저작권 © 2021 Dr. Saul Goldman, Professor Emeritus, 대학교 명예교수",
-                ".tr_saul_percent" : "DCS 허용 확률, %"
+                ".header11" : "S.A.U.L. 레크리에이션 다이빙 플래너"
             },
             9: {
                 //Italian
@@ -1768,8 +1646,6 @@
                 ".tn_airbr_time_reset_no" : "No",
                 ".header10" : "Albo d’onore dei donatori",
                 ".tn_donat_header" : "",
-                ".btn_msg" : "Come fare una donazione",
-                ".btn_tel" : " Chiama gli sviluppatori ",
                 ".btn_ios_msg" : " Come fare una donazione ",
                 ".btn_ios_tel" : "Chiama gli sviluppatori",
                 ".tn_donat_header_founder" : "Sezione donazione dei fondatori",
@@ -1782,20 +1658,7 @@
                 ".td_silver_list" : "",
                 ".td_bronze_list" : "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
-                ".header11" : "Pianificatore immersioni Ricreative S.A.U.L.",
-                ".tr_saul_mix" : "Mix",
-                ".tr_saul_res_type" : "Tipo di calcolo",
-                ".tr_saul_depth" : "Profondità" + lng_meters,
-                ".tr_saul_btime" : "Tempo di fondo" + lng_min,
-                ".tn_saul_mix_arr_air" : "Aria",
-                ".tn_saul_mix_arr_ean32" : "EAN32",
-                ".tn_saul_res_type_arr_forward" : "%(MDD) per il tempo di fondo selezionato ",
-                ".tn_saul_res_type_arr_reverse" : "Tempo di fondo per una % accettabile (MDD)",
-
-                ".tr_saul_cap_percent" : "Il rischio di MDD è:",
-                ".tr_saul_time_max" : "Il tempo massimo di fondo è:",
-                ".tr_saul_time_max_dim" : "Copyright © 2021 Dr. Saul Goldman, Professore Emerito, Università di Guelph",
-                ".tr_saul_percent" : "La probabilità di una MDD accettabile è: %"
+                ".header11" : "Pianificatore immersioni Ricreative S.A.U.L."
             }
         };
     }

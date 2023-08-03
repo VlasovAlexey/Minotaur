@@ -5,15 +5,6 @@ deleteCookie("lvl_usr1");
 deleteCookie("lvl_mix_usr1");
 deleteCookie("mdls_usr1");
 */
-var deco_mix_arr = [50,0,100,0,20,30,18,45,15,50,12,60,8,70,40,0,80,0,21,35];
-var deco_mix_depth_arr = [0,0,0,0,0,0,0,0,0,0];
-var travel_mix_depth_arr = [0,0,0,0,0,0,0,0,0,0];
-var travel_mix_arr = [21,0,20,30,18,45,15,50,12,60,8,70,40,0,80,0,21,35,100,0];
-
-var lvl_arr = [1,40,20];
-var lvl_mix_arr = [21,0];
-
-var gf_arr = [20,80];
 
 var mdls_usr = 2;
 var lngs_usr = 1;
@@ -108,21 +99,8 @@ var opt_airbr_time_reset_usr = 1;
 //new6_0
 var opt_blt_dln_usr = 2;
 
-//new7_0
-var opt_saul_mix_usr = 1;
-var opt_saul_res_type_usr = 1;
-var opt_saul_depth_usr = 12;
-var opt_saul_btime_usr = 30;
-var opt_saul_percent_usr = 0.3;
-
 function default_set(){
-    deco_mix_arr = [50,0,100,0,20,30,18,45,15,55,12,60,10,70,21,35,30,30,60,0];
-    deco_mix_depth_arr = [0,0,0,0,0,0,0,0,0,0];
-    travel_mix_depth_arr = [0,0,0,0,0,0,0,0,0,0];
-    travel_mix_arr = [21,0,20,30,18,45,15,50,12,60,8,70,40,0,80,0,21,35,100,0];
-    lvl_arr = [1,39,20];
-    lvl_mix_arr = [21,0];
-    gf_arr = [20,80];
+    
     mdls_usr = 2;
     lngs_usr = 1;
     dmns_usr = 1;
@@ -215,13 +193,6 @@ function default_set(){
 
     //new6_0
     opt_blt_dln_usr = 2;
-
-    //new7_0
-    opt_saul_mix_usr = 1;
-    opt_saul_res_type_usr = 1;
-    opt_saul_depth_usr = 12;
-    opt_saul_btime_usr = 30;
-    opt_saul_percent_usr = 0.3;
 
 }
 
@@ -471,30 +442,6 @@ var airbr_time_reset_arr = [
     {
         text: "Yes",
         id: "tn_airbr_time_reset_yes",
-        isdisable: "enabled"
-    }];
-
-var saul_mix_arr = [
-    {
-        text: "Air",
-        id: "tn_saul_mix_arr_air",
-        isdisable: "enable"
-    },
-    {
-        text: "EAN32",
-        id: "tn_saul_mix_arr_ean32",
-        isdisable: "enabled"
-    }];
-
-var saul_res_type_arr = [
-    {
-        text: "%(DCS) for a selected Bottom Time",
-        id: "tn_saul_res_type_arr_forward",
-        isdisable: "enable"
-    },
-    {
-        text: "Bottom Time for an acceptable %(DCS)",
-        id: "tn_saul_res_type_arr_reverse",
         isdisable: "enabled"
     }];
 
@@ -970,7 +917,6 @@ function write_cookie(){
     setCookie("lvl_usr1", lvl_arr.join(","));
     setCookie("lvl_mix_usr1", lvl_mix_arr.join(","));
 
-    setCookie("gf_arr_usr1", gf_arr.join(","));
     setCookie("mdls_usr1", return_idx("tn_mdl"));
     setCookie("lngs_usr1", return_idx("tn_lng"));
 
@@ -1064,13 +1010,6 @@ function write_cookie(){
 
     //new6_0
     setCookie("opt_blt_dln_usr1", opt_blt_dln);
-
-    //new7_0
-    setCookie("opt_saul_mix_usr1", return_idx("opt_saul_mix"));
-    setCookie("opt_saul_res_type_usr1", return_idx("opt_saul_res_type"));
-    setCookie("opt_saul_depth_usr1", return_idx("opt_saul_depth"));
-    setCookie("opt_saul_btime_usr1", return_idx("opt_saul_btime"));
-    setCookie("opt_saul_percent_usr1", return_idx("opt_saul_percent"));
 }
 
 function read_cookie(){
@@ -1082,7 +1021,6 @@ function read_cookie(){
     lvl_arr = split_fn_to_int("lvl_usr1");
     lvl_mix_arr = split_fn_to_int("lvl_mix_usr1");
 
-    gf_arr = split_fn_to_int("gf_arr_usr1");
     mdls_usr = parseInt(getCookie("mdls_usr1"));
     lngs_usr = parseInt(getCookie("lngs_usr1"));
 
@@ -1178,13 +1116,6 @@ function read_cookie(){
 
     //new6_0
     opt_blt_dln_usr = parseInt(getCookie("opt_blt_dln_usr1"));
-
-    //new7_0
-    opt_saul_mix_usr = parseInt(getCookie("opt_saul_mix_usr1"));
-    opt_saul_res_type_usr = parseInt(getCookie("opt_saul_res_type_usr1"));
-    opt_saul_depth_usr = parseInt(getCookie("opt_saul_depth_usr1"));
-    opt_saul_btime_usr = parseInt(getCookie("opt_saul_btime_usr1"));
-    opt_saul_percent_usr = parseFloat(getCookie("opt_saul_percent_usr1"));
 }
 function return_idx(html_ids){
     tmp4 = document.getElementById(html_ids);
@@ -1228,10 +1159,6 @@ function btn_restore(){
     changeGuiDim();
     changeLang();
     assign_css_style();
-
-    //upd_saul_depth();
-    upd_saul_time();
-    upd_saul();
 
     write_cookie();
 
@@ -1324,12 +1251,6 @@ function dim_cng(){
     opt_airbr_time_reset_usr = $( "#opt_airbr_time_reset" ).val();
     //new6_0
     opt_blt_dln_usr = opt_blt_dln;
-    //new7_0
-    opt_saul_mix_usr = $( "#opt_saul_mix" ).val();
-    opt_saul_res_type_usr = $( "#opt_saul_res_type" ).val();
-    opt_saul_depth_usr = $( "#opt_saul_depth" ).val();
-    opt_saul_btime_usr = $( "#opt_saul_btime" ).val();
-    opt_saul_percent_usr  = $( "#opt_saul_percent" ).val();
 
     create_html();
     init_global();
@@ -1339,17 +1260,11 @@ function dim_cng(){
 
     upd_all();
 
-    upd_saul_depth();
-    upd_saul();
-
 }
 
 //Create dynamic HTML elements
 
 function create_html(){
-    del_html_elem("tn_gf");
-    create_option("tn_gf", "tn_gf_lo_opt", 0, 100, gf_arr[0] , 1 , 0 , "none");
-    create_option("tn_gf", "tn_gf_hi_opt", 0, 100, gf_arr[1], 1 , 0 , "none");
 
     del_html_elem("tr_mdl_sel");
     create_custom_option_arr("tr_mdl_sel" , "tn_mdl" , mdls_usr , mdls_arr);
@@ -1521,24 +1436,7 @@ function create_html(){
     //new6_0
     opt_blt_dln = opt_blt_dln_usr;
 
-    //new7_0
-    del_html_elem("tn_saul_mix");
-    create_custom_option_arr("tn_saul_mix" , "opt_saul_mix" , opt_saul_mix_usr , saul_mix_arr);
-    del_html_elem("tn_saul_res_type");
-    create_custom_option_arr("tn_saul_res_type" , "opt_saul_res_type" , opt_saul_res_type_usr , saul_res_type_arr);
-    del_html_elem("tn_saul_depth");
-    create_option("tn_saul_depth", "opt_saul_depth", 12, 57, opt_saul_depth_usr , 1 , 0 , "depth");
-    del_html_elem("tn_saul_btime");
-    create_option("tn_saul_btime", "opt_saul_btime", 5, 60, opt_saul_btime_usr , 1 , 0 , "none");
-    del_html_elem("tn_saul_percent");
-    create_option("tn_saul_percent", "opt_saul_percent", 0.0, 0.98, opt_saul_percent_usr , 0.01 , 2 , "none");
-
     //Re create watchers for changes
-    tn_gf_lo = document.getElementById("tn_gf_lo_opt");
-    tn_gf_hi = document.getElementById("tn_gf_hi_opt");
-    tn_gf_lo.addEventListener('change', upd_gf);
-    tn_gf_hi.addEventListener('change', upd_gf);
-
     tn_cng_time = document.getElementById("opt_cng_time");
     tn_cng_time.addEventListener('change', upd_all);
 
@@ -1606,45 +1504,9 @@ function create_html(){
 
     Dmn_opt = document.getElementById("tn_dmn");
     Dmn_opt.addEventListener('change', dim_cng);
-    //Dmn_opt.addEventListener('change', changeGuiDim);
-    //Dmn_opt.addEventListener('change', changeLang);
-    //Dmn_opt.addEventListener('change', upd_all);
 
     mdl = document.getElementById("tn_mdl");
     mdl.addEventListener('change', upd_all);
-
-    //recreate watchers for new
-    //need check because now every changes make upd_all. This is low performances and need review.
-
-
-    //blnd_temp = document.getElementById("tr_blnd_temp");
-    //blnd_temp.addEventListener('change', upd_blend);
-    //blnd_temp_mode = document.getElementById("tr_blnd_temp_mode");
-    //blnd_temp_mode.addEventListener('change', upd_blend);
-    //blend_mix_first = document.getElementById("tr_blend_mix_first");
-    //blend_mix_first.addEventListener('change', upd_blend);
-
-    //blend_press_start = document.getElementById("tr_blend_press_start");
-    //blend_press_start.addEventListener('change', upd_blend);
-    //blend_press_end = document.getElementById("tr_blend_press_end");
-    //blend_press_end.addEventListener('change', upd_blend);
-    //blend_he_start = document.getElementById("tr_blend_he_start");
-    //blend_he_start.addEventListener('change', upd_blend);
-    //blend_he_end = document.getElementById("tr_blend_he_end");
-    //blend_he_end.addEventListener('change', upd_blend);
-    //blend_o2_start = document.getElementById("tr_blend_o2_start");
-    //blend_o2_start.addEventListener('change', upd_blend);
-    //blend_o2_end= document.getElementById("tr_blend_o2_end");
-    //blend_o2_end.addEventListener('change', upd_blend);
-
-    calc_depth = document.getElementById("tr_calc_depth");
-    calc_depth.addEventListener('change', upd_calc_mwd_depth);
-    calc_o2 = document.getElementById("tr_calc_o2");
-    calc_o2.addEventListener('change', upd_calc_mwd_oxy);
-    calc_he = document.getElementById("tr_calc_he");
-    calc_he.addEventListener('change', upd_calc_mwd_he);
-    calc_depth_lo = document.getElementById("tr_calc_depth_lo");
-    calc_depth_lo.addEventListener('change', upd_calc_mwd_depth_lo);
 
     //new3_0
     plan_style_opt = document.getElementById("tn_plan_style");
@@ -1672,23 +1534,8 @@ function create_html(){
     opt_airbr_time.addEventListener('change', upd_all);
     opt_airbr_time_reset = document.getElementById("opt_airbr_time_reset");
     opt_airbr_time_reset.addEventListener('change', upd_all);
-
-    //new7_0
-    opt_saul_mix = document.getElementById("opt_saul_mix");
-    opt_saul_mix.addEventListener('change', upd_saul_depth);
-    opt_saul_res_type = document.getElementById("opt_saul_res_type");
-    opt_saul_res_type.addEventListener('change', upd_saul_type);
-    opt_saul_depth = document.getElementById("opt_saul_depth");
-    opt_saul_depth.addEventListener('change', upd_saul_time);
-    opt_saul_btime = document.getElementById("opt_saul_btime");
-    opt_saul_btime.addEventListener('change', upd_saul);
-    opt_saul_percent = document.getElementById("opt_saul_percent");
-    opt_saul_percent.addEventListener('change', upd_saul);
-
 }
 
-create_option("tn_gf", "tn_gf_lo_opt", 0, 100, gf_arr[0] , 1 , 0, "none");
-create_option("tn_gf", "tn_gf_hi_opt", 0, 100, gf_arr[1], 1 , 0, "none");
 
 create_custom_option_arr("tr_mdl_sel" , "tn_mdl" , mdls_usr , mdls_arr);
 create_custom_option_arr("tr_lng_sel" , "tn_lng" , lngs_usr , lng_arr);
@@ -1784,13 +1631,6 @@ create_custom_option_arr("tn_airbr_time_reset" , "opt_airbr_time_reset" , opt_ai
 //new6_0
 opt_blt_dln = opt_blt_dln_usr;
 
-//new7_0
-create_custom_option_arr("tn_saul_mix" , "opt_saul_mix" , opt_saul_mix_usr , saul_mix_arr);
-create_custom_option_arr("tn_saul_res_type" , "opt_saul_res_type" , opt_saul_res_type_usr , saul_res_type_arr);
-create_option("tn_saul_depth", "opt_saul_depth", 12, 57, opt_saul_depth_usr , 1 , 0 , "depth");
-create_option("tn_saul_btime", "opt_saul_btime", 5, 60, opt_saul_btime_usr , 1 , 0 , "none");
-create_option("tn_saul_percent", "opt_saul_percent", 0.0, 0.98, opt_saul_percent_usr , 0.01 , 2 , "none");
-
 function init_global(){
     //if you want force language to eng you change to 1
 //this "feature" very important for PDF generation with other languages is not possible. Only eng.
@@ -1878,39 +1718,6 @@ function init_global(){
     mdl = document.getElementById("tn_mdl");
     mdl.addEventListener('change', upd_all);
 
-
-//new
- 
-
-    //blnd_temp = document.getElementById("tr_blnd_temp");
-    //blnd_temp.addEventListener('change', upd_blend);
-    //blnd_temp_mode = document.getElementById("tr_blnd_temp_mode");
-    //blnd_temp_mode.addEventListener('change', upd_blend);
-    //blend_mix_first = document.getElementById("tr_blend_mix_first");
-    //blend_mix_first.addEventListener('change', upd_blend);
-
-    //blend_press_start = document.getElementById("tr_blend_press_start");
-    //blend_press_start.addEventListener('change', upd_blend);
-    //blend_press_end = document.getElementById("tr_blend_press_end");
-    //blend_press_end.addEventListener('change', upd_blend);
-    //blend_he_start = document.getElementById("tr_blend_he_start");
-    //blend_he_start.addEventListener('change', upd_blend);
-    //blend_he_end = document.getElementById("tr_blend_he_end");
-    //blend_he_end.addEventListener('change', upd_blend);
-    //blend_o2_start = document.getElementById("tr_blend_o2_start");
-    //blend_o2_start.addEventListener('change', upd_blend);
-    //blend_o2_end= document.getElementById("tr_blend_o2_end");
-    //blend_o2_end.addEventListener('change', upd_blend);
-
-    calc_depth = document.getElementById("tr_calc_depth");
-    calc_depth.addEventListener('change', upd_calc_mwd_depth);
-    calc_o2 = document.getElementById("tr_calc_o2");
-    calc_o2.addEventListener('change', upd_calc_mwd_oxy);
-    calc_he = document.getElementById("tr_calc_he");
-    calc_he.addEventListener('change', upd_calc_mwd_he);
-    calc_depth_lo = document.getElementById("tr_calc_depth_lo");
-    calc_depth_lo.addEventListener('change', upd_calc_mwd_depth_lo);
-
     //new3_0
     plan_style_opt = document.getElementById("tn_plan_style");
     plan_style_opt.addEventListener('change', upd_all);
@@ -1938,57 +1745,4 @@ function init_global(){
     opt_airbr_time_reset = document.getElementById("opt_airbr_time_reset");
     opt_airbr_time_reset.addEventListener('change', upd_all);
 
-    //new7_0
-    opt_saul_mix = document.getElementById("opt_saul_mix");
-    opt_saul_mix.addEventListener('change', upd_saul_depth);
-    opt_saul_res_type = document.getElementById("opt_saul_res_type");
-    opt_saul_res_type.addEventListener('change', upd_saul_type);
-    opt_saul_depth = document.getElementById("opt_saul_depth");
-    opt_saul_depth.addEventListener('change', upd_saul_time);
-    opt_saul_btime = document.getElementById("opt_saul_btime");
-    opt_saul_btime.addEventListener('change', upd_saul);
-    opt_saul_percent = document.getElementById("opt_saul_percent");
-    opt_saul_percent.addEventListener('change', upd_saul);
 }
-
-/*
-var tn_gf_lo = document.getElementById("tn_gf_lo_opt");
-var tn_gf_hi = document.getElementById("tn_gf_hi_opt");
-tn_gf_lo.addEventListener('change', upd_gf);
-tn_gf_hi.addEventListener('change', upd_gf);
-
-//gradient factor functions for update interface and values
-
-function upd_gf(){
-  mdl = document.getElementById("tn_mdl");
-  mdl_idx = mdl.options[mdl.selectedIndex].value;
-
-    tn_gf_lo = document.getElementById("tn_gf_lo_opt");
-    tn_gf_hi = document.getElementById("tn_gf_hi_opt");
-    tn_gf_lo_idx = tn_gf_lo.options[tn_gf_lo.selectedIndex].value;
-    tn_gf_hi_idx = tn_gf_hi.options[tn_gf_hi.selectedIndex].value;
-  
-    del_html_elem("tn_gf");
-    if(tn_gf_lo_idx*1.0 != gf_arr[0]){
-      gf_arr[0] = tn_gf_lo_idx*1.0;
-      if(tn_gf_lo_idx*1.0 >= gf_arr[1]){
-         gf_arr[0] = gf_arr[1]-1;
-      }
-    }
-    if(tn_gf_hi_idx*1.0 != gf_arr[1]){
-      gf_arr[1] = tn_gf_hi_idx*1.0;
-      if(tn_gf_hi_idx*1.0 <= gf_arr[0]){
-         gf_arr[1] = gf_arr[0]+1;
-      }
-    }
-    create_option("tn_gf", "tn_gf_lo_opt", 0, 100, gf_arr[0], 1 , 0 , "none");
-    create_option("tn_gf", "tn_gf_hi_opt", 0, 100, gf_arr[1], 1 , 0 , "none");
-  
-    tn_gf_lo = document.getElementById("tn_gf_lo_opt");
-    tn_gf_hi = document.getElementById("tn_gf_hi_opt");
-    tn_gf_lo.addEventListener('change', upd_gf);
-    tn_gf_hi.addEventListener('change', upd_gf);
-
-  upd_all();
-}
-*/
