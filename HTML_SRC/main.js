@@ -146,6 +146,19 @@ document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat
 element_id_hide("rec_blinking");
 
 var GPX_File = "";
+var lat_start = "0.0";
+var lon_start = "0.0";
+var ele_start = "0.0";
+
+var lat_reg = "0.0";
+var lon_reg = "0.0";
+var ele_reg = "0.0";
+
+var lat_end = "0.0";
+var lon_end = "0.0";
+var ele_end = "0.0";
+
+var rec_first_start = 0;
 
 function btn_record(){
     if (record_state == 0){
@@ -157,6 +170,8 @@ function btn_record(){
         //start writing to gpx array data
         //Add header
         GPX_File = GPX_File + "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+
+        GPX_File = GPX_File + "<gpx creator=\"Minotaur https://vlasovalexey.github.io/Minotaur/HTML_SRC/\" version=\"0.1\" xmlns=\"https://vlasovalexey.github.io/Minotaur/HTML_SRC/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"https://vlasovalexey.github.io/Minotaur/HTML_SRC/\">\n";
         GPX_File = GPX_File + " <metadata>\n <time>"+ get_date() + "</time>\n </metadata>\n";
         GPX_File = GPX_File + " <trk>\n  <name>Minotaur_Track_"+ get_date() + "</name>\n  <trkseg>\n";
 
@@ -166,9 +181,25 @@ function btn_record(){
         document.getElementById("btn_rec").style.border = "6px solid #969696";
         element_id_hide("rec_blinking");
         record_state = 0;
+        rec_first_start = 0;
+        //close trk
+        GPX_File = GPX_File + "  </trkseg>\n </trk>\n";
+
+        //add two way points
+        GPX_File = GPX_File + "    <wpt lat=\""+ lat_start + "\" lon=\"" + lon_start + "\">\n";
+        GPX_File = GPX_File + "     <ele>"+ ele_start + "</ele>\n";
+        GPX_File = GPX_File + "     <name>Track Minotaur Start "+ lat_start +", " + lon_start + "</name>\n";
+        GPX_File = GPX_File + "     <desc>Track Minotaur Start "+ lat_start +", " + lon_start + "</desc>\n";
+        GPX_File = GPX_File + "    </wpt>\n";
+
+        GPX_File = GPX_File + "    <wpt lat=\""+ lat_end + "\" lon=\"" + lon_end + "\">\n";
+        GPX_File = GPX_File + "     <ele>"+ ele_end + "</ele>\n";
+        GPX_File = GPX_File + "     <name>Track Minotaur End "+ lat_end +", " + lon_end + "</name>\n";
+        GPX_File = GPX_File + "     <desc>Track Minotaur End "+ lat_end +", " + lon_end + "</desc>\n";
+        GPX_File = GPX_File + "    </wpt>\n";
 
         //end create gpx array
-        GPX_File = GPX_File + "  </trkseg>\n </trk>\n</gpx>\n";
+        GPX_File = GPX_File + "</gpx>\n";
         //and write file
         //console.log(GPX_File);
         var fl_name = "minotaur_track_"+ get_date() + ".gpx";
@@ -259,7 +290,7 @@ window.addEventListener("load", () => {
 	}, updateError, {
 		enableHighAccuracy: true,
 	    });
-	    window.setInterval(updateTime, 10);
+	    window.setInterval(updateTime, 2000);
     },
     {
 	    once: true,
@@ -279,7 +310,43 @@ function updateGeo(c) {
 	].forEach(p => {
 		document.getElementById(`data-${p}`).textContent = String(c[p]);
 	});
+    
+    //recording and we need add every interval data to file
+    if(record_state == 1){
 
+        //errors handler
+        if(c.latitude == null || c.latitude == undefined){lat_reg = "0.0"}else{lat_reg = c.latitude}
+        if(c.longitude == null || c.longitude == undefined){lon_reg = "0.0"}else{lon_reg = c.longitude}
+        if(c.altitude == null || c.altitude == undefined){ele_reg = "0.0"}else{ele_reg = c.altitude}
+
+        GPX_File = GPX_File + "    <trkpt lat=\""+ lat_reg +"\" lon=\""+ lon_reg + "\">\n";
+        GPX_File = GPX_File + "     <ele>"+ ele_reg + "</ele>\n";
+        GPX_File = GPX_File + "    </trkpt>\n";
+
+        if(rec_first_start == 0){
+            lat_start = c.latitude;
+            lon_start = c.longitude;
+            ele_start = c.altitude;
+
+            rec_first_start = 1;
+        }
+        else{
+            lat_end = c.latitude;
+            lon_end = c.longitude;
+            ele_start = c.altitude;
+        }
+
+        if(lat_start == null || lat_start == undefined){lat_start = "0.0"};
+        if(lat_end == null || lat_end == undefined){lat_end = "0.0"};
+        
+        if(lon_start == null || lon_start == undefined){lon_start = "0.0"};
+        if(lon_end == null || lon_end == undefined){lon_end = "0.0"};
+
+        if(ele_start == null || ele_start == undefined){ele_start = "0.0"};
+        if(ele_end == null || ele_end == undefined){ele_end = "0.0"};
+    }
+
+    //console.log(c.latitude);
 	if (typeof c.accuracy === "number") {
 		document.getElementById("data-accuracy").textContent = Math.round(c.accuracy);
 	}
