@@ -9,7 +9,6 @@
     lng_ltr_min = "";
     lng_min = "";
     lng_ltr = "";
-
     lng_temper = "";
 
     function changeGuiDim(){
@@ -180,7 +179,6 @@
                 lng_ltr = ", ft<sup><small>3</small></sup>";
                 lng_temper = ", <sup><small>o</small></sup>F"
             }
-
         }
         AssignLng();
     }
@@ -193,18 +191,16 @@
         lang = {
             1: {
                 //Eng
-                ".tn_rec_freq" : "Recording Frequency",
-                ".tn_meas_len" : "Measuring Circle Length",
-                ".tn_const_spd" : "Constant Speed",
+                ".tn_rec_freq" : "Record Step",
+                ".tn_meas_len" : "Circle Length",
+                ".tn_const_spd" : "Constant Speed Value",
                 ".tn_calib_f" : "Calibration Factor",
-
                 //".tn_use_gps" : "Use GPS Data",
                 //".tn_use_spd" : "Use Constant Speed",
-                
-                ".btn_add_track" : "Add Track",
-                ".btn_delete_track" : "Delete Track",
-                ".btn_save_track" : "Save Final Track",
-                //".btn_join_track" : "Join Track To",
+                ".btn_add_track" : "Add Route",
+                ".btn_delete_track" : "Delete Route",
+                ".btn_save_track" : "Save Final Route",
+                //".btn_join_track" : "Join Route To",
 
                 ".td_copyright" : "Copyright © 2023 Alexey Vlasov. Licensed under the Apache License 2.0",
                 ".btn_save" : "Save Current Settings",
@@ -220,9 +216,9 @@
                 ".header1" : "",
                 ".header2" : "",
                 ".header3" : "",
-                ".header4" : "Track Recorder",
-                ".header5" : "Track Builder",
-                ".header6" : "Track Viewer",
+                ".header4" : "Route Recorder",
+                ".header5" : "Route Builder",
+                ".header6" : "Routes Viewer",
                 ".header7" : "",
                 ".header8" : "",
                 
@@ -253,6 +249,17 @@
 
             //Rus
             2: {
+                ".tn_rec_freq" : "Шаг записи",
+                ".tn_meas_len" : "Длина окружности",
+                ".tn_const_spd" : "Постоянное значение скорости",
+                ".tn_calib_f" : "Калибровочный коэффициент",
+                //".tn_use_gps" : "Использовать данные GPS",
+                //".tn_use_spd" : "Использовать постоянную скорость",
+                ".btn_add_track" : "Добавить трек",
+                ".btn_delete_track" : "Удалить трек",
+                ".btn_save_track" : "Сохранить итоговый маршрут",
+                //".btn_join_track" : "Присоединить трек к",
+
                 ".td_copyright" : "Все права защищены © 2022 Алексей Власов. Использование в соответствии с Apache 2.0 лицензией",
                 ".btn_save" : "Сохранить текущие настройки",
                 ".btn_restore" : "Настройки по умолчанию",
@@ -267,9 +274,9 @@
                 ".header1" : "Параметры погружения",
                 ".header2" : "Предупреждения погружения",
                 ".header3" : "Смеси погружения",
-                ".header4" : "Профиль погружения",
-                ".header5" : "Парциальные давления газов" + lng_bar,
-                ".header6" : "Давление газов в тканях",
+                ".header4" : "Запись маршрутов",
+                ".header5" : "Конструктор маршрутов",
+                ".header6" : "Просмотрщик маршрутов",
                 ".header7" : "Расход газов",
                 ".header8" : "Стоимость газов",
                
@@ -300,6 +307,17 @@
 
             //Spa
             3: {
+                ".tn_rec_freq" : "Paso Registro",
+                ".tn_meas_len" : "Longitud Círculo",
+                ".tn_const_spd" : "Valor Velocidad Constante",
+                ".tn_calib_f" : "Factor Calibración",
+                //".tn_use_gps" : "Utilizar Datos GPS",
+                //".tn_use_spd" : "Usar Velocidad Constante",
+                ".btn_add_track" : "Añadir Ruta",
+                ".btn_delete_track" : "Borrar Ruta",
+                ".btn_save_track" : "Guardar Ruta Final",
+                //".btn_join_track" : "Unir Ruta a",
+
                 ".td_copyright" : "Copyright © 2023 Alexey Vlasov. Bajo licencia Apache 2.0",
                 ".btn_save" : "Guardar Configuración Actual",
                 ".btn_restore" : "Restaurar Valores Predeterminados",
@@ -311,14 +329,14 @@
                 ".tn_dmn_imp" : "Pies/Pies Cu./PSI/Fahrenheit",
         
                 ".header0" : "Ajustes Generales",
-                ".header1" : "Ajustes de Buceo",
+                ".header1" : "Ajustes Buceo",
                 ".header2" : "Alertas",
                 ".header3" : "Gases",
-                ".header4" : "Crear Perfil Buceo",
-                ".header5" : "Presiones Parciales" + lng_bar,
-                ".header6" : "Tensión Gases en Compartimentos",
-                ".header7" : "Consumo de Gas",
-                ".header8" : "Precio del Gas",
+                ".header4" : "Grabador de Rutas",
+                ".header5" : "Creador de Rutas",
+                ".header6" : "Visor de Rutas",
+                ".header7" : "Consumo Gas",
+                ".header8" : "Precio Gas",
                
                 ".header9" : "Herramientas de Aprendizaje",
 
@@ -346,6 +364,17 @@
             },
             4: {
                 //Prt
+                ".tn_rec_freq" : "Passo de Registo",
+                ".tn_meas_len" : "Comprimento do Círculo",
+                ".tn_const_spd" : "Valor da Velocidade Constante",
+                ".tn_calib_f" : "Fator de Calibração",
+                //".tn_use_gps" : "Utilizar Dados GPS",
+                //".tn_use_spd" : "Usar Velocidade Constante",
+                ".btn_add_track" : "Adicionar Rota",
+                ".btn_delete_track" : "Eliminar Rota",
+                ".btn_save_track" : "Guardar Rota Final",
+                //".btn_join_track" : "Juntar Rota a",
+
                 ".td_copyright" : "Copyright © 2023 Alexey Vlasov. Licenciado por Apache License 2.0",
                 ".btn_save" : "Guardar Definições Atuais",
                 ".btn_restore" : "Restaurar Originais",
@@ -360,9 +389,9 @@
                 ".header1" : "Definições do Mergulho",
                 ".header2" : "Alertas",
                 ".header3" : "Gases",
-                ".header4" : "Gerar Perfil de Mergulho",
-                ".header5" : "Pressões Parciais dos Gases" + lng_bar,
-                ".header6" : "Tensão dos Gases nos Compartimentos dos Tecidos",
+                ".header4" : "Gravador de Rotas",
+                ".header5" : "Criador de Rotas",
+                ".header6" : "Visualizador de Rotas",
                 ".header7" : "Consumo de Gás",
                 ".header8" : "Preço do Gás",
                 
@@ -393,6 +422,17 @@
             },
             5 : {
                 //China
+                ".tn_rec_freq" : "记录步骤",
+                ".tn_meas_len" : "圆周长度",
+                ".tn_const_spd" : "匀速值",
+                ".tn_calib_f" : "校准系数",
+                //".tn_use_gps" : "使用 GPS 数据",
+                //".tn_use_spd" : "使用匀速",
+                ".btn_add_track" : "添加路线",
+                ".btn_delete_track" : "删除路线",
+                ".btn_save_track" : "保存最终路线",
+                //".btn_join_track" : "加入路线至",
+
                 ".td_copyright" : " 版权所有© 2022 Alexey Vlasov. 根据Apache 2.0许可证授权",
                 ".btn_save" : "保存当前设定",
                 ".btn_restore" : "恢复默认设置",
@@ -407,9 +447,9 @@
                 ".header1" : "潜水设定",
                 ".header2" : "潜水警报设定",
                 ".header3" : "潜水气体设定",
-                ".header4" : "建立潜水计划",
-                ".header5" : "气体分压" + lng_bar,
-                ".header6" : "气体在组织腔隔中的表面张力",
+                ".header4" : "路线记录器",
+                ".header5" : "路线生成器",
+                ".header6" : "路线查看器",
                 ".header7" : "气体消费计算",
                 ".header8" : "气体价格",
         
@@ -439,6 +479,17 @@
             },
             6 : {
                 //Bulgarian
+                ".tn_rec_freq" : "Стъпка за запис",
+                ".tn_meas_len" : "Дължина на кръга",
+                ".tn_const_spd" : "Стойност на постоянната скорост",
+                ".tn_calib_f" : "Коефициент на калибриране",
+                //".tn_use_gps" : "Използване на GPS данни",
+                //".tn_use_spd" : "Използване на постоянна скорост",
+                ".btn_add_track" : "Добавяне на маршрут",
+                ".btn_delete_track" : "Изтриване на маршрут",
+                ".btn_save_track" : "Записване на окончателния маршрут",
+                //".btn_join_track" : "Присъединяване към маршрут към",
+
                 ".td_copyright" : "Copyright © 2023 Alexey Vlasov. Licensed under the Apache License 2.0",
                 ".btn_save" : "Запазване на текущите настройки",
                 ".btn_restore" : "Възстанови фабричните настройки",
@@ -453,9 +504,9 @@
                 ".header1" : "Настройки на дайва",
                 ".header2" : "Аларми",
                 ".header3" : "Дайв газове",
-                ".header4" : "Изградете профила на дайва",
-                ".header5" : "Парциално налягане на газа" + lng_bar,
-                ".header6" : "Напрежение на газа в тъканните групи",
+                ".header4" : "Записване на маршрута",
+                ".header5" : "Създаване на маршрути",
+                ".header6" : "Преглед на маршрути",
                 ".header7" : "Разход на газа",
                 ".header8" : "Цена на газа",
                 
@@ -481,7 +532,18 @@
                 ".header11" : "S.A.U.L. Recreational Dive Planner"
             },
             7: {
-                //Fr   
+                //Fr
+                ".tn_rec_freq" : "Fréquence d'enregistrement",
+                ".tn_meas_len" : "Longueur du cercle",
+                ".tn_const_spd" : "Valeur de la vitesse constante",
+                ".tn_calib_f" : "Facteur d'étalonnage",
+                //".tn_use_gps" : "Utiliser les données GPS",
+                //".tn_use_spd" : "Utiliser la vitesse constante",
+                ".btn_add_track" : "Ajouter un itinéraire",
+                ".btn_delete_track" : "Supprimer un itinéraire",
+                ".btn_save_track" : "Sauvegarder l'itinéraire final",
+                //".btn_join_track" : "Joindre l'itinéraire à",
+
                 ".td_copyright" : "Copyright © 2023 Alexey Vlasov. Sous licence Apache License 2.0",
                 ".btn_save" : "Enregistrer les données actuelles",
                 ".btn_restore" : "Restorer les données",
@@ -496,9 +558,9 @@
                 ".header1" : "Réglages de plongée",
                 ".header2" : "Alertes de plongée",
                 ".header3" : "Gaz de plongée",
-                ".header4" : "Construire profile de plongée",
-                ".header5" : "Pression partiel du gaz" + lng_bar,
-                ".header6" : "Tension des Gaz dans les compartiments des tissues",
+                ".header4" : "Enregistreur d'itinéraire",
+                ".header5" : "Constructeur d'itinéraires",
+                ".header6" : "Visualisateur d'itinéraires",
                 ".header7" : "Consommation de gaz",
                 ".header8" : "Prix du gaz",
                 
@@ -525,6 +587,17 @@
             },
             8: {
                 //Korean
+                ".tn_rec_freq" : "기록 빈도",
+                ".tn_meas_len" : "원 길이",
+                ".tn_const_spd" : "일정한 속도 값",
+                ".tn_calib_f" : "보정 계수",
+                //".tn_use_gps" : "GPS 데이터 사용",
+                //".tn_use_spd" : "정속 속도 사용",
+                ".btn_add_track" : "경로 추가",
+                ".btn_delete_track" : "경로 삭제",
+                ".btn_save_track" : "최종 경로 저장",
+                //".btn_join_track" : "경로 연결 대상",
+
                 ".td_copyright" : "저작권 © 2023 알렉세이 블라소프. Licensed under the Apache License 2.0",
                 ".btn_save" : "현재 설정 저장",
                 ".btn_restore" : "기본값으로 복원",
@@ -539,9 +612,9 @@
                 ".header1" : "다이빙 설정",
                 ".header2" : "다이빙 경고",
                 ".header3" : "다이빙 기체",
-                ".header4" : "다이빙 프로필 작성",
-                ".header5" : "가스 부분 압력" + lng_bar,
-                ".header6" : "조직 구획의 기체 장력",
+                ".header4" : "경로 레코더",
+                ".header5" : "경로 빌더",
+                ".header6" : "경로 뷰어",
                 ".header7" : "가스 소비",
                 ".header8" : "기체 금액 계산",
                 ".header9" : "기체 혼합",
@@ -568,6 +641,17 @@
             },
             9: {
                 //Italian
+                ".tn_rec_freq" : "Frequenza di registrazione",
+                ".tn_meas_len" : "Lunghezza del cerchio",
+                ".tn_const_spd" : "Valore di velocità costante",
+                ".tn_calib_f" : "Fattore di calibrazione",
+                //".tn_use_gps" : "Utilizzare i dati GPS",
+                //".tn_use_spd" : "Usa velocità costante",
+                ".btn_add_track" : "Aggiungi percorso",
+                ".btn_delete_track" : "Cancella percorso",
+                ".btn_save_track" : "Salva percorso finale",
+                //".btn_join_track" : "Unisci percorso a",
+
                 ".td_copyright" : "Copyright © 2023 Alexey Vlasov. Autorizzato secondo la licenza Apache 2.0",
                 ".btn_save" : "Salva le impostazioni attuali",
                 ".btn_restore" : "Ripristina alle impostazioni di fabbrica",
@@ -582,9 +666,9 @@
                 ".header1" : "Impostazioni dell’immersione",
                 ".header2" : "Allarmi per l’immersione",
                 ".header3" : "Gas per l’immersione",
-                ".header4" : "Sviluppa il profilo dell’immersione",
-                ".header5" : "Pressione parziale dei Gas" + lng_bar,
-                ".header6" : "Tensione gassosa nei compartimenti tissutali",
+                ".header4" : "Registratore di percorso",
+                ".header5" : "Costruttore di percorsi",
+                ".header6" : "Visualizzatore di percorsi",
                 ".header7" : "Consumo di Gas",
                 ".header8" : "Costo dei Gas",
                 
