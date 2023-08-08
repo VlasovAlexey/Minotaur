@@ -332,6 +332,13 @@ select
     text-align: center;
     border-radius: 15px;
 }
+.div_block_rec {
+    width: 93%;
+    border: 1px solid #444444;
+    padding: 0px;
+    margin-top: 5px;
+    border-radius: 15px;
+}
 .div_block_bottom {
     width: 91%;
     border: 1px solid #444444;
@@ -354,11 +361,11 @@ select
     width: 91%;
     font-size:12px;
 }
+.btn_add_track,
+.btn_delete_track,
+.btn_save_track,
 .btn_save,
 .btn_restore,
-.btn_add_lvl,
-.btn_del_lvl,
-.tn_btn_tiss,
 .btn_export_pdf_profile,
 .btn_export_pdf_pp,
 .btn_export_xls,
@@ -368,12 +375,7 @@ select
 .btn_bailout,
 .btn_diluent,
 .btn_ios_msg,
-.btn_ios_tel,
-
-.tn_btn_price,
-.tn_btn_learn,
-.tn_btn_pp_profile_chart,
-.tn_btn_cons
+.btn_ios_tel
 {
 
     margin-top: 10px;
@@ -395,51 +397,37 @@ select
     cursor: pointer;
     box-shadow: 0 0 0px #ffffff inset, 0 0px 0px #ffffff inset, 0 0px 0px #ffffff;
 }
+.btn_add_track:hover,
+.btn_delete_track:hover,
+.btn_save_track:hover,
 .btn_save:hover,
 .btn_restore:hover,
-.btn_add_lvl:hover,
-.btn_del_lvl:hover,
-.tn_btn_tiss:hover,
 .btn_export_pdf_profile:hover,
 .btn_export_pdf_pp:hover,
 .btn_export_xls:hover,
 .btn_tbl_pdf:hover,
 .btn_msg:hover,
 .btn_tel:hover,
-.btn_bailout:hover,
-.btn_diluent:hover,
 .btn_ios_msg:hover,
-.btn_ios_tel:hover,
-
-.tn_btn_price:hover,
-.tn_btn_learn:hover,
-.tn_btn_pp_profile_chart:hover,
-.tn_btn_cons:hover
+.btn_ios_tel:hover
 {
     background: #eeeeee;
     color: #424242;
     border: 2px solid #0080fc;
 }
+.btn_add_track:active,
+.btn_delete_track:active,
+.btn_save_track:active,
 .btn_save:active,
 .btn_restore:active,
-.btn_add_lvl:active,
-.btn_del_lvl:active,
-.tn_btn_tiss:active,
 .btn_export_pdf_profile:active,
 .btn_export_pdf_pp:active,
 .btn_export_xls:active,
 .btn_tbl_pdf:active,
 .btn_msg:active,
 .btn_tel:active,
-.btn_bailout:active,
-.btn_diluent:active,
 .btn_ios_msg:active,
-.btn_ios_tel:active,
-
-.tn_btn_price:active,
-.tn_btn_learn:active,
-.tn_btn_pp_profile_chart:active,
-.tn_btn_cons:active
+.btn_ios_tel:active
 {
     top: 1px;
     background: #424242;
@@ -447,16 +435,7 @@ select
     box-shadow: 0 0 0px #ffffff inset, 0 0px 0px #ffffff inset, 0 0px 0px #ffffff;
 }
 
-.btn_bailout
-{
-    border: 2px solid #969696;
-    background: #b60000;
-}
-.btn_diluent
-{
-    border: 2px solid #969696;
-    background: #2b83ff;
-}
+
 
 .btn_msg,
 .btn_tel,

@@ -31,33 +31,15 @@ getSize();
 window.addEventListener("resize", getSize);
 
 function hide_unused_elements() {
-    element_id_hide("visuallyhidden");
-    element_id_hide("tr_plan_ccr");
-    element_id_hide("tn_plan_ccr_sel");
-    element_id_hide("tr_mdl");
-    element_id_hide("tr_mdl_sel");
-    element_id_hide("tr_gf");
-    element_id_hide("tn_gf");
-    element_id_hide("tr_water");
-    element_id_hide("tn_water_set");
-    element_id_hide("tr_slevel");
-    element_id_hide("tn_slevel");
-    element_id_hide("tr_celsus");
-    element_id_hide("tn_celsus");
-    element_id_hide("tr_plan_style");
-    element_id_hide("tn_plan_style_sel");
+    element_id_hide("tn_btn_save");
     element_id_hide("1-header");
     element_id_hide("2-header");
     element_id_hide("3-header");
-    element_id_hide("btn_export_pdf_profile");
-    element_id_hide("5-header");
-    element_id_hide("6-header");
     element_id_hide("7-header");
     element_id_hide("8-header");
     element_id_hide("9-header");
     element_id_hide("11-header");
     element_id_hide("td_warn_div");
-    element_id_hide("div_block_main_profile"); 
 }
 hide_unused_elements();
 
