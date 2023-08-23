@@ -1,7 +1,7 @@
   var lastNamedLat = 0;
   var lastNamedLong = 0;
   
-  var popupShown = false;
+  var popupShown = true;
 
   let deferredPrompt;
   window.addEventListener('beforeinstallprompt', (e) => {
@@ -159,44 +159,41 @@
         levelY = levelG;
         levelX = levelB * -1;
       } else {
-        console.error("The browser dosnt support window.orientation");
+        console.error("The browser don`t support window.orientation");
       }
       levelDisp.style.top = (levelY + 50) + "%";
       levelDisp.style.left = (levelX + 50) + "%";
-      var labelAngle = 360-heading;
+      var AlabelAngle = 360-heading;
       
       const labels = document.querySelectorAll(".label");
       for (let i = 0; i < labels.length; i++) {
-        labels[i].style.transform = "translate(-50%, -50%) rotate(" + labelAngle + "deg";
+        labels[i].style.transform = "translate(-50%, -50%) rotate(" + AlabelAngle + "deg";
       }
       dial.style.transform = "rotate(" + heading + "deg)"
-      var acHeading = 360 - Math.round(heading);
-      if(acHeading >= 360){
-        acHeading -= 360;
+      var AacHeading = 360 - Math.round(heading);
+      if(AacHeading >= 360){
+        AacHeading -= 360;
       }
-      document.getElementById("heading-value").innerHTML = acHeading + "&deg";
-      var directionName = "";
-      if(acHeading > 337 || acHeading < 22){
-        directionName = "N"
-      } else if(acHeading < 67){
-        directionName = "NE"
-      } else if(acHeading < 112){
-        directionName = "E"
-      } else if(acHeading < 157){
-        directionName = "SE"
-      } else if(acHeading < 202){
-        directionName = "S"
-      } else if(acHeading < 247){
-        directionName = "SW"
-      } else if(acHeading < 292){
-        directionName = "W"
+      document.getElementById("heading-value").innerHTML = AacHeading + "&deg";
+      var AdirectionName = "";
+      if(AacHeading > 337 || AacHeading < 22){
+        AdirectionName = "N"
+      } else if(AacHeading < 67){
+        AdirectionName = "NE"
+      } else if(AacHeading < 112){
+        AdirectionName = "E"
+      } else if(AacHeading < 157){
+        AdirectionName = "SE"
+      } else if(AacHeading < 202){
+        AdirectionName = "S"
+      } else if(AacHeading < 247){
+        AdirectionName = "SW"
+      } else if(AacHeading < 292){
+        AdirectionName = "W"
       } else {
-        directionName = "NW"
+        AdirectionName = "NW"
       } 
-      document.getElementById("heading-name").innerHTML = directionName;
-      //compass.style.Transform = 'rotate(' + Aheading + 'deg)';
-      //compass.style.WebkitTransform = 'rotate('+ Aheading + 'deg)';
-      //compass.style.MozTransform = 'rotate(' + 90 + 'deg)';
+      document.getElementById("heading-name").innerHTML = AdirectionName;
     });
     sensor.start();
   }
