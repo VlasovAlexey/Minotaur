@@ -146,7 +146,7 @@
         var levelG = Math.min(Math.max((el.gamma / 9), -5), 5);
         var levelB = Math.min(Math.max((el.beta / 9), -5), 5);
       
-        var heading = 0;
+        var Aheading = 0;
   
         var screenAngle = window.orientation;
         if(screenAngle == 0 || screenAngle == 360) { // rightside up
