@@ -167,14 +167,14 @@
         }
         levelDisp.style.top = (levelY + 50) + "%";
         levelDisp.style.left = (levelX + 50) + "%";
-        var AlabelAngle = 360-heading;
+        var AlabelAngle = 360-Aheading;
         
         const labels = document.querySelectorAll(".label");
         for (let i = 0; i < labels.length; i++) {
           labels[i].style.transform = "translate(-50%, -50%) rotate(" + AlabelAngle + "deg";
         }
-        dial.style.transform = "rotate(" + heading + "deg)"
-        var AacHeading = 360 - Math.round(heading);
+        dial.style.transform = "rotate(" + Aheading + "deg)"
+        var AacHeading = 360 - Math.round(Aheading);
         if(AacHeading >= 360){
           AacHeading -= 360;
         }
