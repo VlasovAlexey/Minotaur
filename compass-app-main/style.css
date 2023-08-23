@@ -71,7 +71,7 @@
     text-align: center;
     display: grid;
     place-content: center;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.0001s ease-in-out;
   }
   .installPrompt {
     display: none;
@@ -84,7 +84,7 @@
     z-index: 1000;
     padding: 20px;
     border-radius: 20px;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.002s ease-in-out;
     -webkit-user-select: none;
     user-select: none;
     pointer-events: none;
