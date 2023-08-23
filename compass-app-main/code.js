@@ -125,7 +125,7 @@
     }
       
   }, false);
-
+/*
   //Android compass sensor reading
   let Vstatus  = document.getElementById('status');
   if ( 'AbsoluteOrientationSensor' in window ) {
@@ -210,7 +210,7 @@
   else{
     Vstatus.innerHTML = 'AbsoluteOrientationSensor not supported';
   } 
-
+*/
   function convertCoordinates(latitude, longitude) {
   const latDegrees = Math.floor(latitude);
   const latMinutes = Math.floor((latitude - latDegrees) * 60);
