@@ -61,49 +61,6 @@
     margin-top: 2em;
     text-align: center;
   }
-  .accessblur {
-    width: 160%; height: 160%;
-    position: fixed;
-    left: -30%; top: -30%;
-    -webkit-backdrop-filter: blur(4px) brightness(2);
-    backdrop-filter: blur(4px) brightness(2);
-    z-index: 300;
-    text-align: center;
-    display: grid;
-    place-content: center;
-    transition: opacity 0.0001s ease-in-out;
-  }
-  .installPrompt {
-    display: none;
-    position: fixed;
-    top: 22px; right: 22px;
-    max-width: 70%;
-    min-width: 240px;
-    background: rgba(80,80,80,0.4);
-    -webkit-backdrop-filter: blur(40px); backdrop-filter: blur(40px);
-    z-index: 1000;
-    padding: 20px;
-    border-radius: 20px;
-    transition: opacity 0.002s ease-in-out;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-  }
-  .installPrompt button {
-    padding: 8px 24px;
-    margin-top: 12px;
-    font-size: 0.9em;
-    background: rgba(255,255,255,0.9);
-    -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); 
-    border-radius: 200000px;
-    border: none;
-  }
-
-  @media (display-mode: browser) {
-    .installPrompt {
-      display: block
-    }
-  }
 
   @media (max-width: 345px), (max-height: 345px) {
     .dialContainer {
