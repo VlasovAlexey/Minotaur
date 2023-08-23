@@ -4,6 +4,32 @@
   var popupShown = true;
 
   let deferredPrompt;
+
+  function getOS() {
+    var userAgent = window.navigator.userAgent,
+        platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
+        macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+        os = null;
+  
+    if (macosPlatforms.indexOf(platform) !== -1) {
+      os = 'Mac OS';
+    } else if (iosPlatforms.indexOf(platform) !== -1) {
+      os = 'iOS';
+    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+      os = 'Windows';
+    } else if (/Android/.test(userAgent)) {
+      os = 'Android';
+    } else if (/Linux/.test(platform)) {
+      os = 'Linux';
+    }
+  
+    return os;
+  }
+
+ 
+
   window.addEventListener('beforeinstallprompt', (e) => {
     // Prevents the default mini-infobar or install dialog from appearing on mobile
     e.preventDefault();
@@ -99,12 +125,8 @@
         if(acHeading >= 360){
           acHeading -= 360;
         }
-        if(acHeading == NaN){
-
-        }
-        else
-        {
-        document.getElementById("heading-value").innerHTML = acHeading + "&deg";
+        if(getOS() == "iOS"){
+          document.getElementById("heading-value").innerHTML = acHeading + "&deg";
         var directionName = "";
         if(acHeading > 337 || acHeading < 22){
           directionName = "N"
@@ -123,7 +145,7 @@
         } else {
           directionName = "NW"
         } 
-          document.getElementById("heading-name").innerHTML = directionName;
+        document.getElementById("heading-name").innerHTML = directionName;
         }
   }, false);
 
@@ -134,7 +156,6 @@
     let sensor = new AbsoluteOrientationSensor();
     sensor.addEventListener('reading', function(el) {
       let q = el.target.quaternion;
-      if(q != NaN){
         var Aheading = 0;
         Aheading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
         if(popupShown){
@@ -154,7 +175,7 @@
           levelY = levelB;
           levelX = levelG;
         } else if(screenAngle == 90) { //landscape left
-          heading = (270 - Aheading - 180);
+          heading = (270 - Aheading + 180);
           levelY = levelG * -1;
           levelX = levelB;
         } else if(screenAngle == 180) { //upside down
@@ -162,7 +183,7 @@
           levelY = levelB * -1;
           levelX = levelG * -1;
         } else if(screenAngle == 270 || screenAngle == -90) { //landscape right
-          heading = (90 - Aheading - 90);
+          heading = (90 - Aheading + 90);
           
           levelY = levelG;
           levelX = levelB * -1;
@@ -172,9 +193,7 @@
         levelDisp.style.top = (levelY + 50) + "%";
         levelDisp.style.left = (levelX + 50) + "%";
         var AlabelAngle = 360-Aheading;
-        
-        //sometimes sensor return NaN an we fix it
-        if(AlabelAngle != NaN){
+      
           const labels = document.querySelectorAll(".label");
           for (let i = 0; i < labels.length; i++) {
             labels[i].style.transform = "translate(-50%, -50%) rotate(" + AlabelAngle + "deg";
@@ -184,7 +203,7 @@
           if(AacHeading >= 360){
             AacHeading -= 360;
           }
-          if(AacHeading != NaN){
+          if(getOS() == "Android"){
             document.getElementById("heading-value").innerHTML = AacHeading + "&deg";
             var AdirectionName = "";
             if(AacHeading > 337 || AacHeading < 22){
@@ -206,8 +225,7 @@
             } 
             document.getElementById("heading-name").innerHTML = AdirectionName;            
           }
-        }
-      }
+       
     });
     sensor.start();
   }
