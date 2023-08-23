@@ -125,8 +125,8 @@
   if ( 'AbsoluteOrientationSensor' in window ) {
     //compass.hidden = false;     
     let sensor = new AbsoluteOrientationSensor();
-    sensor.addEventListener('reading', function(e) {
-      let q = e.target.quaternion;
+    sensor.addEventListener('reading', function(el) {
+      let q = el.target.quaternion;
       Aheading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
       if(popupShown){
         popupShown = false;
@@ -136,8 +136,8 @@
     
       var levelDisp = document.getElementById("level-disp");
       var levelX = 0; var levelY = 0;
-      var levelG = Math.min(Math.max((e.gamma / 9), -5), 5);
-      var levelB = Math.min(Math.max((e.beta / 9), -5), 5);
+      var levelG = Math.min(Math.max((el.gamma / 9), -5), 5);
+      var levelB = Math.min(Math.max((el.beta / 9), -5), 5);
     
       var heading = 0;
 
