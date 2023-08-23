@@ -125,7 +125,7 @@
     }
       
   }, false);
-/*
+
   //Android compass sensor reading
   let Vstatus  = document.getElementById('status');
   if ( 'AbsoluteOrientationSensor' in window ) {
@@ -182,26 +182,28 @@
           if(AacHeading >= 360){
             AacHeading -= 360;
           }
-          document.getElementById("heading-value").innerHTML = AacHeading + "&deg";
-          var AdirectionName = "";
-          if(AacHeading > 337 || AacHeading < 22){
-            AdirectionName = "N"
-          } else if(AacHeading < 67){
-            AdirectionName = "NE"
-          } else if(AacHeading < 112){
-            AdirectionName = "E"
-          } else if(AacHeading < 157){
-            AdirectionName = "SE"
-          } else if(AacHeading < 202){
-            AdirectionName = "S"
-          } else if(AacHeading < 247){
-            AdirectionName = "SW"
-          } else if(AacHeading < 292){
-            AdirectionName = "W"
-          } else {
-            AdirectionName = "NW"
-          } 
-          document.getElementById("heading-name").innerHTML = AdirectionName;
+          if(AacHeading != NaN){
+            document.getElementById("heading-value").innerHTML = AacHeading + "&deg";
+            var AdirectionName = "";
+            if(AacHeading > 337 || AacHeading < 22){
+              AdirectionName = "N"
+            } else if(AacHeading < 67){
+              AdirectionName = "NE"
+            } else if(AacHeading < 112){
+              AdirectionName = "E"
+            } else if(AacHeading < 157){
+              AdirectionName = "SE"
+            } else if(AacHeading < 202){
+              AdirectionName = "S"
+            } else if(AacHeading < 247){
+              AdirectionName = "SW"
+            } else if(AacHeading < 292){
+              AdirectionName = "W"
+            } else {
+              AdirectionName = "NW"
+            } 
+            document.getElementById("heading-name").innerHTML = AdirectionName;            
+          }
         }
       }
     });
@@ -210,7 +212,7 @@
   else{
     Vstatus.innerHTML = 'AbsoluteOrientationSensor not supported';
   } 
-*/
+
   function convertCoordinates(latitude, longitude) {
   const latDegrees = Math.floor(latitude);
   const latMinutes = Math.floor((latitude - latDegrees) * 60);
