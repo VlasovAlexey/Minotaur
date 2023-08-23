@@ -52,7 +52,7 @@
 
   //IOS compass sensor reading
   window.addEventListener('deviceorientation', function(e) {
-    if(e.webkitCompassHeading != NaN){
+    
       if(popupShown){
         popupShown = false;
         //document.getElementById("accessblur").style.opacity = "0";
@@ -89,9 +89,7 @@
       levelDisp.style.top = (levelY + 50) + "%";
       levelDisp.style.left = (levelX + 50) + "%";
       var labelAngle = 360-heading;
-      
-      //sometimes sensor return NaN an we fix it
-      if(labelAngle != NaN){
+    
         const labels = document.querySelectorAll(".label");
         for (let i = 0; i < labels.length; i++) {
           labels[i].style.transform = "translate(-50%, -50%) rotate(" + labelAngle + "deg";
@@ -101,8 +99,12 @@
         if(acHeading >= 360){
           acHeading -= 360;
         }
-        if(acHeading != NaN){
-          //document.getElementById("heading-value").innerHTML = acHeading + "&deg";
+        if(acHeading == NaN){
+
+        }
+        else
+        {
+        document.getElementById("heading-value").innerHTML = acHeading + "&deg";
         var directionName = "";
         if(acHeading > 337 || acHeading < 22){
           directionName = "N"
@@ -121,11 +123,8 @@
         } else {
           directionName = "NW"
         } 
-        //document.getElementById("heading-name").innerHTML = directionName;
+          document.getElementById("heading-name").innerHTML = directionName;
         }
-      }
-    }
-      
   }, false);
 
   //Android compass sensor reading
@@ -155,7 +154,7 @@
           levelY = levelB;
           levelX = levelG;
         } else if(screenAngle == 90) { //landscape left
-          heading = (270 - Aheading);
+          heading = (270 - Aheading - 180);
           levelY = levelG * -1;
           levelX = levelB;
         } else if(screenAngle == 180) { //upside down
@@ -163,7 +162,8 @@
           levelY = levelB * -1;
           levelX = levelG * -1;
         } else if(screenAngle == 270 || screenAngle == -90) { //landscape right
-          heading = (90 - Aheading);
+          heading = (90 - Aheading - 90);
+          
           levelY = levelG;
           levelX = levelB * -1;
         } else {
