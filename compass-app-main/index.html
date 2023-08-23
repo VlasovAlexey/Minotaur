@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Compass App</title>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<link rel="manifest" href="/compass-app/manifest.webmanifest">
+<meta name="full-screen" content="yes"/>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="Compass">
+<link rel="apple-touch-icon" href="/compass-app/resources/compass-app-icon.png">
+
+<!-- Google font alternative for Apple system font
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet"> -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class = "accessblur" id = "accessblur">
+    <div id = "accessbutton" style = "position: relative; color: black; background: rgba(255,255,255,0.8); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 30px 44px; border-radius: 10px; box-shadow: 2px 2px 44px black;">
+      <img src = "compass-app-icon.png" style = "width: 80px; margin: 12px; border-radius: 14px;">
+      <h1 style = "font-weight: 400; font-size: 1.5em; margin: 0;">
+        Minotaur App
+      </h1>
+      <h3 style = "font-weight: 500; font-size: 0.8em;">&nbsp</h3>
+      <br>
+      <button onclick="grantPermission()" style = "font-size: 1em; color: black; border: none; background: white; padding: 10px 14px; margin-bottom: 6px; border-radius: 10px; box-shadow: 2px 2px 20px -8px black; font-weight: 400;">Enable Minotaur access...</button>
+    </div>
+    <span id = "accesserror" style = "display: none; font-size: 1em; color: black; border: none; background: rgba(255,255,255,0.9); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 30px 44px; border-radius: 10px; box-shadow: 2px 2px 44px black; font-weight: 400;"><div style = "font-size: 3em; padding-bottom: 12px;">&#x26A0;</div> Your device isn't supported.</span>
+  </div>
+  <div class = "dialContainer">
+    <span style="position: absolute; transform: translateX(-50%); top: 32px; left: 50%; width: 5px; height: 18px; -webkit-backdrop-filter: invert(1); backdrop-filter: invert(1); z-index: 1;"  ></span>
+    <span style="position: absolute; transform: translateX(-50%); top: -16px; left: 50%; width: 5px; height: 48px; background: white; z-index: 1;"  ></span>
+    <div id = "dial">
+      <span class="label cardinal" style="left: 50%; top: 25%;">N</span>
+      <span class="label cardinal" style="left: 50%; top: 75%;">S</span>
+      <span class="label cardinal" style="left: 25%; top: 50%;">W</span>
+      <span class="label cardinal" style="left: 75%; top: 50%;">E</span>
+
+      <span class="label" style="top: 2%;     left: 50%;"  >0</span>
+      <!--<span class="label" style="top: 10%;   left: 74%;"  >30</span>
+      <span class="label" style="top: 24.5%; left: 89.5%;">60</span>-->
+      <span class="label" style="top: 8.5%;   left: 74%;"  >30</span>
+      <span class="label" style="top: 24.5%; left: 91.5%;">60</span>
+
+      <span class="label" style="top: 50%;   left: 98%;" >90</span>
+      <span class="label" style="top: 75.5%; left: 91.5%;">120</span>
+      <span class="label" style="top: 92%;   left: 74%;"  >150</span>
+
+      <span class="label" style="top: 98%;  left: 50%;"  >180</span>
+      <span class="label" style="top: 92%;   left: 26%;"  >210</span>
+      <span class="label" style="top: 75.5%; left: 8.5%;">240</span>
+
+      <span class="label" style="top: 50%;   left: 2%;"   >270</span>
+      <span class="label" style="top: 24.5%; left: 8.5%;">300</span>
+      <span class="label" style="top: 8.5%;   left: 26%;"  >330</span>
+
+      <img src = "compass-dial.jpeg">
+    </div>
+
+    <svg id = "level-disp" width="100" height="100" style = "position: absolute; left: 45%; top: 55%; transform: translate(-50%, -50%) scale(1.2);">
+      <circle cx="50" cy="50" r="32"fill="#222" />
+      <line stroke="white" stroke-width="0.3" x1="50" y1="40" x2="50" y2="60" stroke="black" />
+      <line stroke="white" stroke-width="0.3" x1="40" y1="50" x2="60" y2="50" stroke="black" />
+   </svg> 
+
+    <svg width="100" height="100" style = "position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1.2);">
+      <line stroke="white" stroke-width="0.3" x1="50" y1="0" x2="50" y2="100" stroke="black" />
+      <line stroke="white" stroke-width="0.3" x1="0" y1="50" x2="100" y2="50" stroke="black" />
+   </svg> 
+
+   
+
+  </div>
+
+  <div id = "stats">
+    <div style = "height: 80px;">
+      
+      <div id="heading-value" class="heading-display" style="width: 53%; float: left; text-align: right;">246&deg;</div>
+      <div id="heading-name" class="heading-display" style="width: 42%; float: right; text-align: left;">SW</div>
+    </div>
+    <div class="location-display">
+      <span id="location-info">No Location Data</span><br>
+      <span id="location-name"></span><br>
+      <span id = "location-elev">-- ft Elevation</span>
+    </div>
+  </div>
+  <script src="code.js" charset="UTF-8"></script>
+</body>
+</html>
