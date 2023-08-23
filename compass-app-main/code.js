@@ -51,7 +51,7 @@
   var dial = document.getElementById("dial");
 
   //IOS compass sensor reading
- /* window.addEventListener('deviceorientation', function(e) {
+  window.addEventListener('deviceorientation', function(e) {
     if(e.webkitCompassHeading != NaN){
       if(popupShown){
         popupShown = false;
@@ -125,7 +125,7 @@
     }
       
   }, false);
-*/
+
   //Android compass sensor reading
   let Vstatus  = document.getElementById('status');
   if ( 'AbsoluteOrientationSensor' in window ) {
