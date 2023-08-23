@@ -43,8 +43,8 @@
     try {
       DeviceOrientationEvent.requestPermission();
     } catch {
-      document.getElementById("accessbutton").style.display = "none";
-      document.getElementById("accesserror").style.display = "block";
+      //document.getElementById("accessbutton").style.display = "none";
+      //document.getElementById("accesserror").style.display = "block";
     }
   }
   
@@ -55,7 +55,7 @@
     if(e.webkitCompassHeading != NaN){
       if(popupShown){
         popupShown = false;
-        document.getElementById("accessblur").style.opacity = "0";
+        //document.getElementById("accessblur").style.opacity = "0";
         updatePosition();
       }
     
@@ -137,7 +137,7 @@
         Aheading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
         if(popupShown){
           popupShown = false;
-          document.getElementById("accessblur").style.opacity = "0";
+          //document.getElementById("accessblur").style.opacity = "0";
           updatePosition();
         }
       
