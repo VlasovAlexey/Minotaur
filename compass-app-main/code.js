@@ -90,35 +90,38 @@
       levelDisp.style.left = (levelX + 50) + "%";
       var labelAngle = 360-heading;
       
-      const labels = document.querySelectorAll(".label");
-      for (let i = 0; i < labels.length; i++) {
-        labels[i].style.transform = "translate(-50%, -50%) rotate(" + labelAngle + "deg";
+      //sometimes sensor return NaN an we fix it
+      if(labelAngle != NaN){
+        const labels = document.querySelectorAll(".label");
+        for (let i = 0; i < labels.length; i++) {
+          labels[i].style.transform = "translate(-50%, -50%) rotate(" + labelAngle + "deg";
+        }
+        dial.style.transform = "rotate(" + heading + "deg)"
+        var acHeading = 360 - Math.round(heading);
+        if(acHeading >= 360){
+          acHeading -= 360;
+        }
+        document.getElementById("heading-value").innerHTML = acHeading + "&deg";
+        var directionName = "";
+        if(acHeading > 337 || acHeading < 22){
+          directionName = "N"
+        } else if(acHeading < 67){
+          directionName = "NE"
+        } else if(acHeading < 112){
+          directionName = "E"
+        } else if(acHeading < 157){
+          directionName = "SE"
+        } else if(acHeading < 202){
+          directionName = "S"
+        } else if(acHeading < 247){
+          directionName = "SW"
+        } else if(acHeading < 292){
+          directionName = "W"
+        } else {
+          directionName = "NW"
+        } 
+        document.getElementById("heading-name").innerHTML = directionName;
       }
-      dial.style.transform = "rotate(" + heading + "deg)"
-      var acHeading = 360 - Math.round(heading);
-      if(acHeading >= 360){
-        acHeading -= 360;
-      }
-      document.getElementById("heading-value").innerHTML = acHeading + "&deg";
-      var directionName = "";
-      if(acHeading > 337 || acHeading < 22){
-        directionName = "N"
-      } else if(acHeading < 67){
-        directionName = "NE"
-      } else if(acHeading < 112){
-        directionName = "E"
-      } else if(acHeading < 157){
-        directionName = "SE"
-      } else if(acHeading < 202){
-        directionName = "S"
-      } else if(acHeading < 247){
-        directionName = "SW"
-      } else if(acHeading < 292){
-        directionName = "W"
-      } else {
-        directionName = "NW"
-      } 
-      document.getElementById("heading-name").innerHTML = directionName;
     }
       
   }, false);
@@ -169,35 +172,38 @@
         levelDisp.style.left = (levelX + 50) + "%";
         var AlabelAngle = 360-Aheading;
         
-        const labels = document.querySelectorAll(".label");
-        for (let i = 0; i < labels.length; i++) {
-          labels[i].style.transform = "translate(-50%, -50%) rotate(" + AlabelAngle + "deg";
+        //sometimes sensor return NaN an we fix it
+        if(AlabelAngle != NaN){
+          const labels = document.querySelectorAll(".label");
+          for (let i = 0; i < labels.length; i++) {
+            labels[i].style.transform = "translate(-50%, -50%) rotate(" + AlabelAngle + "deg";
+          }
+          dial.style.transform = "rotate(" + Aheading + "deg)"
+          var AacHeading = 360 - Math.round(Aheading);
+          if(AacHeading >= 360){
+            AacHeading -= 360;
+          }
+          document.getElementById("heading-value").innerHTML = AacHeading + "&deg";
+          var AdirectionName = "";
+          if(AacHeading > 337 || AacHeading < 22){
+            AdirectionName = "N"
+          } else if(AacHeading < 67){
+            AdirectionName = "NE"
+          } else if(AacHeading < 112){
+            AdirectionName = "E"
+          } else if(AacHeading < 157){
+            AdirectionName = "SE"
+          } else if(AacHeading < 202){
+            AdirectionName = "S"
+          } else if(AacHeading < 247){
+            AdirectionName = "SW"
+          } else if(AacHeading < 292){
+            AdirectionName = "W"
+          } else {
+            AdirectionName = "NW"
+          } 
+          document.getElementById("heading-name").innerHTML = AdirectionName;
         }
-        dial.style.transform = "rotate(" + Aheading + "deg)"
-        var AacHeading = 360 - Math.round(Aheading);
-        if(AacHeading >= 360){
-          AacHeading -= 360;
-        }
-        document.getElementById("heading-value").innerHTML = AacHeading + "&deg";
-        var AdirectionName = "";
-        if(AacHeading > 337 || AacHeading < 22){
-          AdirectionName = "N"
-        } else if(AacHeading < 67){
-          AdirectionName = "NE"
-        } else if(AacHeading < 112){
-          AdirectionName = "E"
-        } else if(AacHeading < 157){
-          AdirectionName = "SE"
-        } else if(AacHeading < 202){
-          AdirectionName = "S"
-        } else if(AacHeading < 247){
-          AdirectionName = "SW"
-        } else if(AacHeading < 292){
-          AdirectionName = "W"
-        } else {
-          AdirectionName = "NW"
-        } 
-        document.getElementById("heading-name").innerHTML = AdirectionName;
       }
     });
     sensor.start();
