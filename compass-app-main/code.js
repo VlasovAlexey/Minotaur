@@ -102,7 +102,7 @@
           acHeading -= 360;
         }
         if(acHeading != NaN){
-          document.getElementById("heading-value").innerHTML = acHeading + "&deg";
+          //document.getElementById("heading-value").innerHTML = acHeading + "&deg";
         var directionName = "";
         if(acHeading > 337 || acHeading < 22){
           directionName = "N"
@@ -121,7 +121,7 @@
         } else {
           directionName = "NW"
         } 
-        document.getElementById("heading-name").innerHTML = directionName;
+        //document.getElementById("heading-name").innerHTML = directionName;
         }
       }
     }
