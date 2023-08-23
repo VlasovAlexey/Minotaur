@@ -134,6 +134,7 @@
     sensor.addEventListener('reading', function(el) {
       let q = el.target.quaternion;
       if(q != NaN){
+        var Aheading = 0;
         Aheading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
         if(popupShown){
           popupShown = false;
@@ -146,8 +147,6 @@
         var levelG = Math.min(Math.max((el.gamma / 9), -5), 5);
         var levelB = Math.min(Math.max((el.beta / 9), -5), 5);
       
-        var Aheading = 0;
-  
         var screenAngle = window.orientation;
         if(screenAngle == 0 || screenAngle == 360) { // rightside up
           heading = (360 - Aheading);
