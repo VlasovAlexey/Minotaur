@@ -101,7 +101,8 @@
         if(acHeading >= 360){
           acHeading -= 360;
         }
-        document.getElementById("heading-value").innerHTML = acHeading + "&deg";
+        if(acHeading != NaN){
+          document.getElementById("heading-value").innerHTML = acHeading + "&deg";
         var directionName = "";
         if(acHeading > 337 || acHeading < 22){
           directionName = "N"
@@ -121,6 +122,7 @@
           directionName = "NW"
         } 
         document.getElementById("heading-name").innerHTML = directionName;
+        }
       }
     }
       
