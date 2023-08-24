@@ -88,9 +88,7 @@ if ( 'AbsoluteOrientationSensor' in window ) {
   sensor.addEventListener('reading', function(e) {
     let q = e.target.quaternion;
     AHeading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
-    if(AHeading < 0){
-      AHeading = 360 + AHeading;
-    }
+    
   });
   sensor.start();
 }
@@ -119,6 +117,9 @@ window.addEventListener('deviceorientation', function(e) {
     if(getOS() == "Android"){  
       //android
       rot_sensor = AHeading;
+      if(rot_sensor < 0){
+        rot_sensor = 360 + rot_sensor;
+      }
     }
     else
     {
@@ -131,7 +132,7 @@ window.addEventListener('deviceorientation', function(e) {
       levelY = levelB;
       levelX = levelG;
     } else if(screenAngle == 90) { //landscape left
-      heading = (270 - rot_sensor);
+      heading = (270 - rot_sensor - 180);
       levelY = levelG * -1;
       levelX = levelB;
     } else if(screenAngle == 180) { //upside down
@@ -139,7 +140,7 @@ window.addEventListener('deviceorientation', function(e) {
       levelY = levelB * -1;
       levelX = levelG * -1;
     } else if(screenAngle == 270 || screenAngle == -90) { //landscape right
-      heading = (90 - rot_sensor);
+      heading = (90 - rot_sensor - 180);
       levelY = levelG;
       levelX = levelB * -1;
     } else {
