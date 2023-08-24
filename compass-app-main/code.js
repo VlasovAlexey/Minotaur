@@ -1,7 +1,3 @@
-var lastNamedLat = 0;
-var lastNamedLong = 0;
-let deferredPrompt;
-
 //get OS
 function getOS() {
 	var userAgent = window.navigator.userAgent,
@@ -27,6 +23,28 @@ function getOS() {
 	}
 	return os;
 }
+
+var lastNamedLat = 0;
+var lastNamedLong = 0;
+
+var popupShown = false;
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevents the default mini-infobar or install dialog from appearing on mobile
+  e.preventDefault();
+  // Save the event because you'll need to trigger it later.
+  deferredPrompt = e;
+  // Show your customized install prompt for your PWA
+  // Your own UI doesn't have to be a single element, you
+  // can have buttons in different locations, or wait to prompt
+  // as part of a critical journey.
+  showInAppInstallPromotion();
+  
+  document.getElementById("installInstructions").style.display = "none";
+  document.getElementById("installBtn").style.display = "block";
+});
+
 
 function showPosition(position) {
 	var nameLat = position.coords.latitude.toFixed(2);
@@ -59,6 +77,7 @@ function grantPermission() {
 		//document.getElementById("accesserror").style.display = "block";
 	}
 }
+grantPermission();
 
 var dial = document.getElementById("dial");
 
