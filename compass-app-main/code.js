@@ -76,6 +76,8 @@ function grantPremission() {
   }
 }
 
+//document.getElementById("location-elev").style.display = "none";
+
 //disable menu request if our device is not IOS
 if(getOS() != "iOS"){ 
   grantPremission();
@@ -112,7 +114,7 @@ window.addEventListener('deviceorientation', function(e) {
     var heading = 0;
     var screenAngle = window.orientation;
     var rot_sensor = 0;
-    
+    var rot_android_cor = 0;
     //check os and select data from different watchers sensors
     if(getOS() == "Android"){  
       //android
@@ -120,11 +122,13 @@ window.addEventListener('deviceorientation', function(e) {
       if(rot_sensor < 0){
         rot_sensor = 360 + rot_sensor;
       }
+      var rot_android_cor = 180;
     }
     else
     {
       //ios
       rot_sensor = e.webkitCompassHeading;
+      rot_android_cor = 0;
     }
 
     if(screenAngle == 0 || screenAngle == 360) { // rightside up
@@ -132,7 +136,7 @@ window.addEventListener('deviceorientation', function(e) {
       levelY = levelB;
       levelX = levelG;
     } else if(screenAngle == 90) { //landscape left
-      heading = (270 - rot_sensor - 180);
+      heading = (270 - rot_sensor - rot_android_cor);
       levelY = levelG * -1;
       levelX = levelB;
     } else if(screenAngle == 180) { //upside down
@@ -140,11 +144,11 @@ window.addEventListener('deviceorientation', function(e) {
       levelY = levelB * -1;
       levelX = levelG * -1;
     } else if(screenAngle == 270 || screenAngle == -90) { //landscape right
-      heading = (90 - rot_sensor - 180);
+      heading = (90 - rot_sensor - rot_android_cor);
       levelY = levelG;
       levelX = levelB * -1;
     } else {
-      console.error("The browser dosnt support window.orientation");
+      console.log("The browser dosnt support window.orientation");
     }
     levelDisp.style.top = (levelY + 50) + "%";
     levelDisp.style.left = (levelX + 50) + "%";

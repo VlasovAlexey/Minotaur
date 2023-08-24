@@ -15,13 +15,16 @@ body {
   height: 300px;
   position: absolute;
   left: 50%;
-  top: 30%;
+  top: 0%;
   transform: translate(-50%, -50%) rotate(0deg);
+
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.5em;
 }
 #dial {
   width: 300px;
   height: 300px;
-  transform: /*rotate(-246deg)*/;
   position: relative;
 }
 #dial span {
@@ -43,22 +46,23 @@ body {
 }
 
 #stats {
-  position: absolute;
-  left: 50%;
-  top: 79%;
-  transform: translate(-50%, -50%);
-  width: 300px;
+  right: 50%;
+  width: 25%;
+  height: 30%;
+  position:sticky;
+  z-index:333;
 }
 .heading-display {
-  font-size: 4.5em;
+  font-size: 2em;
   display: inline-block;
   font-weight: 200;
+  
 }
 .location-display {
   font-size: 1em;
   font-weight: 500;
   line-height: 1.5em;
-  margin-top: 2em;
+  margin-top: 1em;
   text-align: center;
 }
 .accessblur {
@@ -69,7 +73,6 @@ body {
   text-align: center;
   display: grid;
   place-content: center;
-  transition: opacity 0.0001s ease-in-out;
 }
 .installPrompt {
   display: none;
@@ -111,7 +114,7 @@ body {
 @media (min-height: 700px) and (min-width: 415px) {
   .dialContainer {
     transform: translate(-50%, -50%) scale(1.15);
-    top: 35%;
+    top: 25%;
   }
 }
 @media (max-height: 528px) and (min-width: 567px), (max-height: 730px) and (min-width: 670px) {
@@ -120,7 +123,7 @@ body {
   }
   #stats{
     left: 72%;
-    top: 50%;
+    top: 30%;
   }
   @media (min-width: 850px) and (min-height: 490px) {
     .dialContainer {
@@ -133,7 +136,7 @@ body {
     }
     #stats{
       left: 75%;
-      top: 50%;
+      top: 30%;
     }
   }
   @media (max-width: 620px) {
