@@ -44,7 +44,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   document.getElementById("installInstructions").style.display = "none";
   document.getElementById("installBtn").style.display = "block";
 });
-
+deferredPrompt.prompt();
 
 function showPosition(position) {
 	var nameLat = position.coords.latitude.toFixed(2);
