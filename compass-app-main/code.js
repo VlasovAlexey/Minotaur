@@ -44,7 +44,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   document.getElementById("installInstructions").style.display = "none";
   document.getElementById("installBtn").style.display = "block";
 });
-deferredPrompt.prompt();
+
 
 function showPosition(position) {
 	var nameLat = position.coords.latitude.toFixed(2);
@@ -81,12 +81,14 @@ function grantPermission() {
 grantPermission();
 
 var dial = document.getElementById("dial");
+if (getOS() == "iOS") {
+
 
 //IOS compass sensor reading
 window.addEventListener('deviceorientation', function (e) {
 	
   updatePosition();
-
+  //deferredPrompt.prompt();
 	var levelDisp = document.getElementById("level-disp");
 	var levelX = 0;
 	var levelY = 0;
@@ -132,7 +134,7 @@ window.addEventListener('deviceorientation', function (e) {
 	if (acHeading >= 360) {
 		acHeading -= 360;
 	}
-	if (getOS() == "iOS") {
+	
 		document.getElementById("heading-value")
 			.innerHTML = acHeading + "&deg";
 		var directionName = "";
@@ -162,9 +164,10 @@ window.addEventListener('deviceorientation', function (e) {
 		}
 		document.getElementById("heading-name")
 			.innerHTML = directionName;
-	}
+	
 }, false);
-
+}
+if (getOS() == "Android" || getOS() == "Windows" || getOS() == "Win32" || getOS() == "Win64"){
 //Android compass sensor reading
 let Vstatus = document.getElementById('status');
 if ('AbsoluteOrientationSensor' in window) {
@@ -221,7 +224,7 @@ if ('AbsoluteOrientationSensor' in window) {
 		if (AacHeading >= 360) {
 			AacHeading -= 360;
 		}
-		if (getOS() == "Android") {
+		 
 			document.getElementById("heading-value")
 				.innerHTML = AacHeading + "&deg";
 			var AdirectionName = "";
@@ -253,11 +256,12 @@ if ('AbsoluteOrientationSensor' in window) {
 				.innerHTML = AdirectionName;
 		}
 
-	});
+	);
 	sensor.start();
 }
 else {
 	Vstatus.innerHTML = 'AbsoluteOrientationSensor not supported';
+}
 }
 
 function convertCoordinates(latitude, longitude) {
