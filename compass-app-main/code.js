@@ -64,6 +64,7 @@ function updatePosition() {
 	navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+//request permission on IOS devices only
 function grantPermission() {
 	if (navigator.geolocation) {
 		updatePosition();
