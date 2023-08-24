@@ -61,17 +61,26 @@ function updatePosition() {
 }
 
 function grantPremission() {
+  
+  document.getElementById("accessbutton").style.display = "none";
   if (navigator.geolocation) {
     updatePosition();
-    setInterval(updatePosition(), 1000);
+    setInterval(updatePosition(), 100);
   }
   try {
     DeviceOrientationEvent.requestPermission();
   } catch {
-    document.getElementById("accessbutton").style.display = "none";
-    document.getElementById("accesserror").style.display = "block";
+    
+    //display error here!
+    //document.getElementById("accesserror").style.display = "block";
   }
 }
+
+//disable menu request if our device is not IOS
+if(getOS() != "iOS"){ 
+  grantPremission();
+}
+
 //android device orientation watcher
 var AHeading = 0;
 if ( 'AbsoluteOrientationSensor' in window ) {
@@ -83,6 +92,7 @@ if ( 'AbsoluteOrientationSensor' in window ) {
   sensor.start();
 }
 else status.innerHTML = 'AbsoluteOrientationSensor not supported';
+
 
 //device orientation
 var dial = document.getElementById("dial");
