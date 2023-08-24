@@ -88,6 +88,9 @@ if ( 'AbsoluteOrientationSensor' in window ) {
   sensor.addEventListener('reading', function(e) {
     let q = e.target.quaternion;
     AHeading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
+    if(AHeading < 0){
+      AHeading = 360 + AHeading;
+    }
   });
   sensor.start();
 }
