@@ -123,12 +123,14 @@ window.addEventListener('deviceorientation', function(e) {
         rot_sensor = 360 + rot_sensor;
       }
       var rot_android_cor = 180;
+      var rot_dif = 360;
     }
     else
     {
       //ios
       rot_sensor = e.webkitCompassHeading;
       rot_android_cor = 0;
+      rot_dif = 0;
     }
 
     if(screenAngle == 0 || screenAngle == 360) { // rightside up
@@ -158,7 +160,9 @@ window.addEventListener('deviceorientation', function(e) {
     for (let i = 0; i < labels.length; i++) {
       labels[i].style.transform = "translate(-50%, -50%) rotate(" + labelAngle + "deg";
     }
-    dial.style.transform = "rotate(" + heading + "deg)"
+    
+    //check
+    dial.style.transform = "rotate(" + (rot_dif - heading) + "deg)"
     var acHeading = 360 - Math.round(heading);
     if(acHeading >= 360){
       acHeading -= 360;
