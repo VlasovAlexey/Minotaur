@@ -160,10 +160,10 @@ window.addEventListener('deviceorientation', function(e) {
     for (let i = 0; i < labels.length; i++) {
       labels[i].style.transform = "translate(-50%, -50%) rotate(" + labelAngle + "deg";
     }
-    
+
     //check
     dial.style.transform = "rotate(" + (rot_dif - heading) + "deg)"
-    var acHeading = 360 - Math.round(heading);
+    var acHeading = rot_dif - (360 - Math.round(heading));
     if(acHeading >= 360){
       acHeading -= 360;
     }
