@@ -27,6 +27,7 @@ var lastNamedLong = 0;
 
 var popupShown = false;
 
+var screenAngle = 0;
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevents the default mini-infobar or install dialog from appearing on mobile
@@ -51,8 +52,8 @@ function showPosition(position) {
     lastNamedLat = nameLat;
     lastNamedLong = nameLong;
   }
-  document.getElementById("location-info").innerHTML = convertCoordinates(position.coords.latitude, position.coords.longitude);
-  document.getElementById("location-elev").innerHTML = Math.round(position.coords.altitude * 3.280839895) + " ft Elevation";
+  //document.getElementById("location-info").innerHTML = convertCoordinates(position.coords.latitude, position.coords.longitude);
+  document.getElementById("location-elev").innerHTML = Math.round(position.coords.altitude * 3.280839895) + " ft Elevation " + screenAngle;
 }
 
 
@@ -130,7 +131,7 @@ window.addEventListener('deviceorientation', function(e) {
     {
       //ios
       rot_sensor = e.webkitCompassHeading;
-      rot_sensor = rot_sensor + 360;
+      rot_sensor = rot_sensor - 360;
       rot_android_cor = 0;
       rot_dif = 0;
     }
