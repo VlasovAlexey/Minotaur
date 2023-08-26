@@ -96,6 +96,8 @@ if ( 'AbsoluteOrientationSensor' in window ) {
 }
 else status.innerHTML = 'AbsoluteOrientationSensor not supported';
 
+var rot_sensor = 0;
+var rot_android_cor = 0;
 
 //device orientation
 var dial = document.getElementById("dial");
@@ -113,8 +115,7 @@ window.addEventListener('deviceorientation', function(e) {
   
     var heading = 0;
     var screenAngle = window.orientation;
-    var rot_sensor = 0;
-    var rot_android_cor = 0;
+    
     //check os and select data from different watchers sensors
     if(getOS() == "Android"){  
       //android
@@ -122,8 +123,8 @@ window.addEventListener('deviceorientation', function(e) {
       if(rot_sensor < 0){
         rot_sensor = 360 + rot_sensor;
       }
-      var rot_android_cor = 180;
-      var rot_dif = 360;
+      rot_android_cor = 180;
+      rot_dif = 360;
     }
     else
     {
