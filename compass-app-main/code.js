@@ -130,6 +130,7 @@ window.addEventListener('deviceorientation', function(e) {
     {
       //ios
       rot_sensor = e.webkitCompassHeading;
+      rot_sensor = rot_sensor + 360;
       rot_android_cor = 0;
       rot_dif = 0;
     }
