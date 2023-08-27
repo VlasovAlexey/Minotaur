@@ -27,7 +27,6 @@ var lastNamedLong = 0;
 
 var popupShown = false;
 
-var screenAngle = 0;
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevents the default mini-infobar or install dialog from appearing on mobile
@@ -52,8 +51,8 @@ function showPosition(position) {
     lastNamedLat = nameLat;
     lastNamedLong = nameLong;
   }
-  //document.getElementById("location-info").innerHTML = convertCoordinates(position.coords.latitude, position.coords.longitude);
-  document.getElementById("location-elev").innerHTML = Math.round(position.coords.altitude * 3.280839895) + " ft Elevation " + screenAngle;
+  document.getElementById("location-info").innerHTML = convertCoordinates(position.coords.latitude, position.coords.longitude);
+  document.getElementById("location-elev").innerHTML = Math.round(position.coords.altitude * 3.280839895) + " ft Elevation ";
 }
 
 
@@ -97,8 +96,7 @@ if ( 'AbsoluteOrientationSensor' in window ) {
 }
 else status.innerHTML = 'AbsoluteOrientationSensor not supported';
 
-var rot_sensor = 0;
-var rot_android_cor = 0;
+
 
 //device orientation
 var dial = document.getElementById("dial");
@@ -116,6 +114,8 @@ window.addEventListener('deviceorientation', function(e) {
   
     var heading = 0;
     var screenAngle = window.orientation;
+    var rot_sensor = 0;
+    var rot_android_cor = 0;
     
     //check os and select data from different watchers sensors
     if(getOS() == "Android"){  
