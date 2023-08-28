@@ -82,8 +82,6 @@ function grantPremission() {
 if(getOS() != "iOS"){ 
   grantPremission();
 }
-//test
-grantPremission();
 
 const startBtn = document.querySelector(".start-btn");
 const isIOS =
@@ -116,7 +114,7 @@ if (isIOS) {
 //android device orientation watcher
 var AHeading = 0;
 function handler(e) {
-  AHeading = e.webkitCompassHeading || Math.abs(e.alpha - 360);
+  AHeading = -(e.webkitCompassHeading || Math.abs(e.alpha - 360));
 }
 init();
 
@@ -136,6 +134,7 @@ window.addEventListener('deviceorientation', function(e) {
   
     var heading = 0;
     var screenAngle = window.orientation;
+    
     var rot_sensor = 0;
     var rot_android_cor = 0;
     
@@ -143,8 +142,11 @@ window.addEventListener('deviceorientation', function(e) {
     if(getOS() == "Android"){  
       //android
       rot_sensor = AHeading;
-      rot_android_cor = 0;
-      rot_dif = 0;
+      if(rot_sensor < 0){
+        rot_sensor = 360 + rot_sensor;
+      }
+      rot_android_cor = 180;
+      rot_dif = 360;
     }
     else
     {
