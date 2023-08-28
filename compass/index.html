@@ -42,7 +42,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        transition: transform 0.01s ease-out;
+        transition: transform 0.05s ease-out;
         background: url(compass.png)
           center no-repeat;
         background-size: contain;
@@ -68,12 +68,10 @@
       <div class="compass-circle"></div>
       <div class="my-point"></div>
     </div>
-    <button class="start-btn">Start compass</button>
   </body>
   <script>
     const compassCircle = document.querySelector(".compass-circle");
     const myPoint = document.querySelector(".my-point");
-    const startBtn = document.querySelector(".start-btn");
     const isIOS =
       navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
       navigator.userAgent.match(/AppleWebKit/);
