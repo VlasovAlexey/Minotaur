@@ -82,6 +82,8 @@ function grantPremission() {
 if(getOS() != "iOS"){ 
   grantPremission();
 }
+//test
+grantPremission();
 
 const startBtn = document.querySelector(".start-btn");
 const isIOS =
@@ -144,8 +146,8 @@ window.addEventListener('deviceorientation', function(e) {
       if(rot_sensor < 0){
         rot_sensor = 360 + rot_sensor;
       }
-      rot_android_cor = 180;
-      rot_dif = 360;
+      rot_android_cor = 0;
+      rot_dif = 0;
     }
     else
     {

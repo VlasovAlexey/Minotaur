@@ -41,7 +41,7 @@ body {
   width: 90%;
   margin-left: 5%; margin-top: 5%;
   transform: rotate(180deg);
-  transition: transform 0.1s ease-out;
+  transition: transform 1.0s ease-out;
   position: absolute;
   z-index: 0;
 }
