@@ -80,7 +80,7 @@
 
     function init() {
       startBtn.addEventListener("click", startCompass);
-      navigator.geolocation.getCurrentPosition(locationHandler);
+      //navigator.geolocation.getCurrentPosition(locationHandler);
 
       if (!isIOS) {
         window.addEventListener("deviceorientationabsolute", handler, true);
@@ -105,7 +105,7 @@
       compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
       compassCircle.style.transform = `translate(-50%, -50%) rotate(${-compass}deg)`;
 
-      // ±15 degree
+      /* ï¿½15 degree
       if (
         (pointDegree < Math.abs(compass) &&
           pointDegree + 15 > Math.abs(compass)) ||
@@ -116,8 +116,9 @@
       } else if (pointDegree) {
         myPoint.style.opacity = 1;
       }
+      */
     }
-
+/*
     let pointDegree;
 
     function locationHandler(position) {
@@ -149,7 +150,7 @@
         );
       return Math.round(psi);
     }
-
+*/
     init();
   </script>
 </html>

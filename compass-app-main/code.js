@@ -83,21 +83,40 @@ if(getOS() != "iOS"){
   grantPremission();
 }
 
+const startBtn = document.querySelector(".start-btn");
 const isIOS =
 navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
 navigator.userAgent.match(/AppleWebKit/);
 
+function init() {
+startBtn.addEventListener("click", startCompass);
+//navigator.geolocation.getCurrentPosition(locationHandler);
 
 if (!isIOS) {
   window.addEventListener("deviceorientationabsolute", handler, true);
 }
+}
+
+function startCompass() {
+if (isIOS) {
+  DeviceOrientationEvent.requestPermission()
+    .then((response) => {
+      if (response === "granted") {
+        window.addEventListener("deviceorientation", handler, true);
+      } else {
+        alert("has to be allowed!");
+      }
+    })
+    .catch(() => alert("not supported"));
+}
+}
 
 //android device orientation watcher
 var AHeading = 0;
-
-  function handler(e) {
-    AHeading = -(e.webkitCompassHeading || Math.abs(e.alpha - 360));
-  }
+function handler(e) {
+  AHeading = -(e.webkitCompassHeading || Math.abs(e.alpha - 360));
+}
+init();
 
 //device orientation
 var dial = document.getElementById("dial");
