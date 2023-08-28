@@ -86,13 +86,9 @@ if(getOS() != "iOS"){
 //android device orientation watcher
 var AHeading = 0;
 if ( 'AbsoluteOrientationSensor' in window ) {
-  let sensor = new AbsoluteOrientationSensor();
-  sensor.addEventListener('reading', function(e) {
-    let q = e.target.quaternion;
-    AHeading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
-    
-  });
-  sensor.start();
+  function handler(e) {
+    AHeading = -(e.webkitCompassHeading || Math.abs(e.alpha - 360));
+  }
 }
 else status.innerHTML = 'AbsoluteOrientationSensor not supported';
 
