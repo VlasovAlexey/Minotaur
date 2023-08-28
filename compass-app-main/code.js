@@ -116,7 +116,7 @@ if (isIOS) {
 //android device orientation watcher
 var AHeading = 0;
 function handler(e) {
-  AHeading = -(e.webkitCompassHeading || Math.abs(e.alpha - 360));
+  AHeading = e.webkitCompassHeading || Math.abs(e.alpha - 360);
 }
 init();
 
@@ -143,9 +143,6 @@ window.addEventListener('deviceorientation', function(e) {
     if(getOS() == "Android"){  
       //android
       rot_sensor = AHeading;
-      if(rot_sensor < 0){
-        rot_sensor = 360 + rot_sensor;
-      }
       rot_android_cor = 0;
       rot_dif = 0;
     }
