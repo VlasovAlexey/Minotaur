@@ -85,14 +85,10 @@ if(getOS() != "iOS"){
 
 //android device orientation watcher
 var AHeading = 0;
-if ( 'AbsoluteOrientationSensor' in window ) {
+
   function handler(e) {
     AHeading = -(e.webkitCompassHeading || Math.abs(e.alpha - 360));
   }
-}
-else status.innerHTML = 'AbsoluteOrientationSensor not supported';
-
-
 
 //device orientation
 var dial = document.getElementById("dial");
