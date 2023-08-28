@@ -83,6 +83,15 @@ if(getOS() != "iOS"){
   grantPremission();
 }
 
+const isIOS =
+navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
+navigator.userAgent.match(/AppleWebKit/);
+
+
+if (!isIOS) {
+  window.addEventListener("deviceorientationabsolute", handler, true);
+}
+
 //android device orientation watcher
 var AHeading = 0;
 
