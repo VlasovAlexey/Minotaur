@@ -68,12 +68,15 @@ body {
 }
 .accessblur {
   width: 160%; height: 160%;
-  position: fixed;
-  left: -30%; top: -30%;
-  z-index: 300;
-  text-align: center;
-  display: grid;
-  place-content: center;
+    position: fixed;
+    left: -30%; top: -30%;
+    -webkit-backdrop-filter: blur(4px) brightness(2);
+    backdrop-filter: blur(4px) brightness(2);
+    z-index: 300;
+    text-align: center;
+    display: grid;
+    place-content: center;
+    transition: opacity 1s ease-in-out;
 }
 .installPrompt {
   display: none;

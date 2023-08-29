@@ -63,6 +63,7 @@ function updatePosition() {
 function grantPremission() {
   
   document.getElementById("accessbutton").style.display = "none";
+  document.getElementById("accessblur").style.opacity = "0";
   if (navigator.geolocation) {
     updatePosition();
     setInterval(updatePosition(), 100);
