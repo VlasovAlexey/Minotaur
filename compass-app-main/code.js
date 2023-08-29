@@ -80,7 +80,7 @@ function grantPremission() {
 
 //disable menu request if our device is not IOS
 if(getOS() != "iOS"){ 
-  grantPremission();
+  //grantPremission();
 }
 
 const startBtn = document.querySelector(".start-btn");
@@ -104,7 +104,7 @@ if (isIOS) {
       if (response === "granted") {
         window.addEventListener("deviceorientation", handler, true);
       } else {
-        alert("has to be allowed!");
+        //alert("has to be allowed!");
       }
     })
     .catch(() => alert("not supported"));

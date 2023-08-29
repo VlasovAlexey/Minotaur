@@ -18,7 +18,7 @@
     </h1>
     <h3 style = "font-weight: 500; font-size: 0.8em;"></h3>
     <br>
-    <button onclick="grantPremission()" style = "font-size: 1em; color: black; border: none; background: white; padding: 10px 14px; margin-bottom: 6px; border-radius: 10px; box-shadow: 2px 2px 20px -8px black; font-weight: 400;">Enable Minotaur access...</button>
+    <button id="fullscreen_permission" onclick="grantPremission()" style = "font-size: 1em; color: black; border: none; background: white; padding: 10px 14px; margin-bottom: 6px; border-radius: 10px; box-shadow: 2px 2px 20px -8px black; font-weight: 400;">Enable Minotaur access...</button>
   </div>
 </div>
 <div class = "dialContainer">
@@ -71,7 +71,7 @@
   </div>
   <div class="location-display">
     <span id="location-info">No Location Data</span><br>
-    
+    <button id="lock">Lock in current orientation</button>
   </div>
 </div>
 <script src="code.js?v0.1" charset="UTF-8"></script>
