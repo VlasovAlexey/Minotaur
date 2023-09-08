@@ -179,7 +179,15 @@ window.addEventListener('deviceorientation', function(e) {
     }
     levelDisp.style.top = (levelY + 50) + "%";
     levelDisp.style.left = (levelX + 50) + "%";
-    var labelAngle = rot_dif - (360-heading);
+    if(getOS() == "Android"){  
+      //android
+      var labelAngle = rot_dif - (360 - heading);
+    }
+    else{
+      //ios
+      var labelAngle = 360 - heading;
+    }
+    
     
     const labels = document.querySelectorAll(".label");
     for (let i = 0; i < labels.length; i++) {
