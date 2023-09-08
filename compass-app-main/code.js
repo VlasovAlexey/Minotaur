@@ -153,7 +153,7 @@ window.addEventListener('deviceorientation', function(e) {
     {
       //ios
       rot_sensor = e.webkitCompassHeading;
-      rot_sensor = rot_sensor - 360;
+      rot_sensor = Math.abs(rot_sensor);
       rot_android_cor = 0;
       rot_dif = 0;
     }
@@ -175,7 +175,7 @@ window.addEventListener('deviceorientation', function(e) {
       levelY = levelG;
       levelX = levelB * -1;
     } else {
-      console.log("The browser dosnt support window.orientation");
+      console.log("The browser doesn`t support window.orientation");
     }
     levelDisp.style.top = (levelY + 50) + "%";
     levelDisp.style.left = (levelX + 50) + "%";
