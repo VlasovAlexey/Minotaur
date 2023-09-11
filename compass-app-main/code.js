@@ -187,7 +187,7 @@ window.addEventListener('deviceorientation', function(e) {
     }
     else{
       //ios
-      labelAngle = 360 - heading;
+      labelAngle = (Math.abs(360 - heading));
     }
     
     const labels = document.querySelectorAll(".label");
@@ -205,7 +205,7 @@ window.addEventListener('deviceorientation', function(e) {
     }
     else{
       //ios
-      acHeading = 360 - Math.round(heading);
+      acHeading = (Math.abs(360 - Math.round(heading)));
     }
     if(acHeading >= 360){
       acHeading -= 360;
