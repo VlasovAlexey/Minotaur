@@ -20,7 +20,7 @@ This survey is a very fast and precise measurement method, it will be difficult 
 - Microsoft Excel (XLS)
 
 # Geting Started
-- Get the latest version online [Minotaur](https://vlasovalexey.github.io/DiveProMe/HTML_SRC) or clone\download from GitHub
+- Get the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/) or clone\download from GitHub
 - Unzip arhive. Use latest Google Chrome\Safari Browser for view
 - Go to Minotaur/HTML_SRC/
 - Search index.html and start it
@@ -37,7 +37,6 @@ To be available later
 - Safari
 - iOS
 - Android
-- Windows Phone
 
 # Contributing
 Want to contribute? The team encourages community feedback and contributions. Please follow our contributing guidelines.
