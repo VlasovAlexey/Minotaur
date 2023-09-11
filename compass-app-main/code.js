@@ -179,7 +179,16 @@ window.addEventListener('deviceorientation', function(e) {
     }
     levelDisp.style.top = (levelY + 50) + "%";
     levelDisp.style.left = (levelX + 50) + "%";
-    var labelAngle = rot_dif - (360-heading);
+
+    var labelAngle = 0;
+    if(getOS() == "Android"){
+      //android
+      labelAngle = rot_dif - (360-heading);
+    }
+    else{
+      //ios
+      labelAngle = 360 - heading;
+    }
     
     const labels = document.querySelectorAll(".label");
     for (let i = 0; i < labels.length; i++) {
@@ -188,7 +197,16 @@ window.addEventListener('deviceorientation', function(e) {
 
     //check
     dial.style.transform = "rotate(" + (rot_dif - heading) + "deg)"
-    var acHeading = rot_dif - (360 - Math.round(heading));
+    var acHeading = 0;
+
+    if(getOS() == "Android"){
+      //android
+      acHeading = rot_dif - (360 - Math.round(heading));
+    }
+    else{
+      //ios
+      acHeading = 360 - Math.round(heading);
+    }
     if(acHeading >= 360){
       acHeading -= 360;
     }
