@@ -179,7 +179,7 @@ window.addEventListener('deviceorientation', function(e) {
     }
     levelDisp.style.top = (levelY + 50) + "%";
     levelDisp.style.left = (levelX + 50) + "%";
-    var labelAngle = Math.abs(rot_dif - (360-heading));
+    var labelAngle = rot_dif - (360-heading);
     
     const labels = document.querySelectorAll(".label");
     for (let i = 0; i < labels.length; i++) {
@@ -188,7 +188,7 @@ window.addEventListener('deviceorientation', function(e) {
 
     //check
     dial.style.transform = "rotate(" + (rot_dif - heading) + "deg)"
-    var acHeading = Math.abs(rot_dif - (360 - Math.round(heading)));
+    var acHeading = rot_dif - (360 - Math.round(heading));
     if(acHeading >= 360){
       acHeading -= 360;
     }
