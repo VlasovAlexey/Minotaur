@@ -181,35 +181,30 @@ window.addEventListener('deviceorientation', function(e) {
     levelDisp.style.left = (levelX + 50) + "%";
 
     var labelAngle = 0;
+    var acHeading = 0;
+
     if(getOS() == "Android"){
       //android
       labelAngle = rot_dif - (360-heading);
+      dial.style.transform = "rotate(" + (rot_dif - heading) + "deg)"
+      acHeading = rot_dif - (360 - Math.round(heading));
     }
     else{
       //ios
       labelAngle = (Math.abs(360 - heading));
+      dial.style.transform = "rotate(" + (heading) + "deg)"
+      acHeading = (Math.abs(360 - Math.round(heading)));
     }
     
     const labels = document.querySelectorAll(".label");
     for (let i = 0; i < labels.length; i++) {
       labels[i].style.transform = "translate(-50%, -50%) rotate(" + labelAngle + "deg";
     }
-
-    //check
-    dial.style.transform = "rotate(" + (rot_dif - heading) + "deg)"
-    var acHeading = 0;
-
-    if(getOS() == "Android"){
-      //android
-      acHeading = rot_dif - (360 - Math.round(heading));
-    }
-    else{
-      //ios
-      acHeading = (Math.abs(360 - Math.round(heading)));
-    }
+    
     if(acHeading >= 360){
       acHeading -= 360;
     }
+
     document.getElementById("heading-value").innerHTML = acHeading + "&deg";
     var directionName = "";
     if(acHeading > 337 || acHeading < 22){
