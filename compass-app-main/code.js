@@ -192,7 +192,7 @@ window.addEventListener('deviceorientation', function(e) {
     else{
       //ios
       labelAngle = (Math.abs(360 - heading));
-      dial.style.transform = "rotate(" + (heading) + "deg)"
+      dial.style.transform = "rotate(" + (heading-360) + "deg)"
       acHeading = (Math.abs(360 - Math.round(heading)));
     }
     
