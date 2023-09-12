@@ -187,7 +187,7 @@ window.addEventListener('deviceorientation', function(e) {
         //ios
         heading = (90 - rot_sensor);
       }
-      
+
       levelY = levelG;
       levelX = levelB * -1;
     } else {
@@ -204,6 +204,9 @@ window.addEventListener('deviceorientation', function(e) {
       labelAngle = rot_dif - (360-heading);
       dial.style.transform = "rotate(" + (rot_dif - heading) + "deg)"
       acHeading = rot_dif - (360 - Math.round(heading));
+      
+      //android fix
+      if(acHeading < 0){acHeading = 360 + acHeading}
     }
     else{
       //ios
