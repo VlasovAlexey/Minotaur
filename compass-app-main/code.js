@@ -177,7 +177,17 @@ window.addEventListener('deviceorientation', function(e) {
       levelY = levelB * -1;
       levelX = levelG * -1;
     } else if(screenAngle == 270 || screenAngle == -90) { //landscape right
-      heading = (90 - rot_sensor + rot_android_cor);
+      
+      if(getOS() == "Android"){  
+        //android
+        heading = (90 - rot_sensor + rot_android_cor);
+        if(heading < 0){heading = 360 + heading}
+      }
+      else{
+        //ios
+        heading = (90 - rot_sensor);
+      }
+      
       levelY = levelG;
       levelX = levelB * -1;
     } else {
