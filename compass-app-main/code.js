@@ -28,7 +28,7 @@ var lastNamedLong = 0;
 var popupShown = false;
 
 let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
+window.addEventListener("beforeinstallprompt", (e) => {
   // Prevents the default mini-infobar or install dialog from appearing on mobile
   e.preventDefault();
   // Save the event because you'll need to trigger it later.
@@ -85,9 +85,7 @@ if(getOS() != "iOS"){
 }
 
 const startBtn = document.querySelector(".start-btn");
-const isIOS =
-navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
-navigator.userAgent.match(/AppleWebKit/);
+const isIOS = navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
 
 function init() {
 startBtn.addEventListener("click", startCompass);
@@ -224,7 +222,7 @@ window.addEventListener('deviceorientation', function(e) {
     } else {
       directionName = "NW"
     } 
-    document.getElementById("heading-name").innerHTML = directionName;
+    document.getElementById("heading-name").innerHTML = directionName + " " + screenAngle;
     
     
 }, false);
