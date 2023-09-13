@@ -80,9 +80,7 @@ self.addEventListener('install', (e) => {
 
 '/Minotaur/HTML_SRC/jquery.mCustomScrollbar.css',
 '/Minotaur/HTML_SRC/katex.css',
-'/Minotaur/HTML_SRC/roundslider.css',
-'/Minotaur/HTML_SRC/roundslider_light.css',
-'/Minotaur/HTML_SRC/roundslider_main.css',
+
 '/Minotaur/HTML_SRC/style_dark.css',
 '/Minotaur/HTML_SRC/style_hide_download_section.css',
 '/Minotaur/HTML_SRC/style_hide_window_control_section.css',
@@ -127,7 +125,6 @@ self.addEventListener('install', (e) => {
 '/Minotaur/HTML_SRC/main.js',
 '/Minotaur/HTML_SRC/nodejs_fn.js',
 '/Minotaur/HTML_SRC/offline-exporting.src.js',
-'/Minotaur/HTML_SRC/roundslider.js',
 '/Minotaur/HTML_SRC/style_manager.js',
 '/Minotaur/HTML_SRC/svg2pdf.src.js',
 '/Minotaur/HTML_SRC/sw.js',
