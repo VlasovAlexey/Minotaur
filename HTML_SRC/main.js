@@ -371,7 +371,7 @@ function updateTime() {
 	let min = Math.floor(d / Minute);
 	let sec = Math.floor(d % Minute / Second);
   tot_time = min + "m " + sec + "s"
-	document.getElementById("lastUpdate").textContent = "Last Update " + tot_time;
+	document.getElementById("lastUpdate").innerHTML = "Last Update <br>" + tot_time;
 }
 
 
