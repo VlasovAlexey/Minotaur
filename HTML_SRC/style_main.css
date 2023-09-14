@@ -1056,10 +1056,10 @@ a#windowControlMinimize{
 .dialContainer {
     width: 300px;
     height: 300px;
-    position: absolute;
+    /*position: absolute;*/
     left: 50%;
     top: 250px;
-    transform: translate(-50%, -50%) rotate(0deg);
+    /*transform: translate(-50%, -50%) rotate(0deg);*/
   
     font-size: 1em;
     font-weight: 500;
@@ -1072,7 +1072,6 @@ a#windowControlMinimize{
   }
   #dial span {
     position: absolute;
-    z-index: 100;
     font-size: 1.0em;
     transform: translate(-50%, -50%)/* rotate(246deg)*/;
     font-weight: 400;
@@ -1082,11 +1081,11 @@ a#windowControlMinimize{
   }
   #dial img {
     width: 90%;
-    margin-left: 5%; margin-top: 5%;
+    /*margin-left: 5%;*/
+    margin-top: 5%;
     transform: rotate(0deg);
     transition: transform 1.0s ease-out;
-    position: absolute;
-    z-index: 0;
+    /*position: absolute;*/
   }
   
   #stats {
@@ -1094,7 +1093,6 @@ a#windowControlMinimize{
     width: 35%;
     height: 30%;
     position:sticky;
-    z-index:10;
   }
   .heading-display {
     font-size: 2em;
@@ -1115,11 +1113,11 @@ a#windowControlMinimize{
       left: -30%; top: -30%;
       -webkit-backdrop-filter: blur(4px) brightness(2);
       backdrop-filter: blur(4px) brightness(2);
-      z-index: 300;
+      z-index: 2;
       text-align: center;
       display: grid;
       place-content: center;
-      transition: opacity 1s ease-in-out;
+      transition: opacity 0.4s ease-in-out;
   }
   .installPrompt {
     display: none;
@@ -1129,10 +1127,10 @@ a#windowControlMinimize{
     min-width: 240px;
     background: rgba(80,80,80,0.4);
     -webkit-backdrop-filter: blur(40px); backdrop-filter: blur(40px);
-    z-index: 1000;
+    z-index: 10;
     padding: 20px;
     border-radius: 20px;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
     -webkit-user-select: none;
     user-select: none;
     pointer-events: none;

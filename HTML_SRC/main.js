@@ -464,6 +464,7 @@ function updateError(err) {
     
     document.getElementById("accessbutton").style.display = "none";
     document.getElementById("accessblur").style.opacity = "0";
+    document.getElementById("accessblur").style.display = "none";
     if (navigator.geolocation) {
       updatePosition();
       setInterval(updatePosition(), 100);
