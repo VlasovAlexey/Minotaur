@@ -323,25 +323,22 @@
          </div>
          <div class="div_block_bottom">
             <dd><code id="status"></code></dd>
+            
             <div id="rec_base" style="width:100%; height:0px;">
                <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:50px; position:sticky; top: 0px; z-index:10"></div>
             </div>
             <div id="gps_base" style="width:100%; height:0px;">
                <div id="btn_gps" class="btn_gps"></div>
                </div class="compass_body">
+               <span style="transform: translateX(-3px); position: absolute; left: 50%; width: 6px; height: 50px; background: white; z-index:1"  ></span>
                <div class = "accessblur" id = "accessblur">
-                  <div class="start-btn" id="accessbutton" style="position: relative; color: black; background: rgba(255,255,255,0.8); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 30px 44px; border-radius: 10px; box-shadow: 2px 2px 44px black;">
-                     <h1 style = "font-weight: 400; font-size: 1.5em; margin: 0;">
-                        Minotaur App
-                     </h1>
-                     <h3 style = "font-weight: 500; font-size: 0.8em;"></h3>
+                  <div class="start-btn" id="accessbutton" style="position: relative; color: rgb(255, 255, 255); background: #830000; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 30px 44px; border-radius: 10px;">
+                     <h1 style = "font-weight: 400; font-size: 1.5em; margin: 0;">Minotaur App</h1>
                      <br>
-                     <button id="fullscreen_permission" onclick="grantPremission()" style = "font-size: 1em; color: black; border: none; background: white; padding: 10px 14px; margin-bottom: 6px; border-radius: 10px; box-shadow: 2px 2px 20px -8px black; font-weight: 400;">Enable Minotaur access...</button>
+                     <button id="fullscreen_permission" class="fullscreen_permission" onclick="grantPremission()">Enable Minotaur access...</button>
                   </div>
                </div>
                <div class = "dialContainer">
-                  <span style="position: absolute; transform: translateX(-50%); top: 32px; left: 50%; width: 5px; height: 18px; -webkit-backdrop-filter: invert(1); backdrop-filter: invert(1); z-index: 1;"  ></span>
-                  <span style="position: absolute; transform: translateX(-50%); top: -16px; left: 50%; width: 5px; height: 48px; background: white; z-index: 1;"  ></span>
                   <div id = "dial">
                      <span class="label cardinal" style="left: 50%; top: 25%;">N</span>
                      <span class="label cardinal" style="left: 50%; top: 75%;">S</span>
@@ -362,28 +359,35 @@
                      <span class="label" style="top: 24.5%; left: 8.5%;">300</span>
                      <span class="label" style="top: 8.5%;   left: 26%;"  >330</span>
                      <img src = "compass_main.svg">
+                     <svg id = "level-disp" width="100" height="100" style = "position: absolute; left: 45%; top: 55%; transform: translate(-50%, -50%) scale(1.2);">
+                        <circle cx="50" cy="50" r="40" fill="#999" />
+                        <line stroke="red" stroke-width="0.9" x1="50" y1="20" x2="50" y2="80" stroke="black" />
+                        <line stroke="red" stroke-width="0.9" x1="20" y1="50" x2="80" y2="50" stroke="black" />
+                     </svg>
+                     <svg width="100" height="100" style = "position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1.2);">
+                        <line stroke="white" stroke-width="0.9" x1="50" y1="0" x2="50" y2="100" stroke="black" />
+                        <line stroke="white" stroke-width="0.9" x1="0" y1="50" x2="100" y2="50" stroke="black" />
+                     </svg>
                   </div>
-                  <svg id = "level-disp" width="100" height="100" style = "position: absolute; left: 45%; top: 55%; transform: translate(-50%, -50%) scale(1.2);">
-                     <circle cx="50" cy="50" r="40" fill="#999" />
-                     <line stroke="red" stroke-width="0.9" x1="50" y1="20" x2="50" y2="80" stroke="black" />
-                     <line stroke="red" stroke-width="0.9" x1="20" y1="50" x2="80" y2="50" stroke="black" />
-                  </svg>
-                  <svg width="100" height="100" style = "position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1.2);">
-                     <line stroke="white" stroke-width="0.9" x1="50" y1="0" x2="50" y2="100" stroke="black" />
-                     <line stroke="white" stroke-width="0.9" x1="0" y1="50" x2="100" y2="50" stroke="black" />
-                  </svg>
-                  <span id = "location-elev">-- ft Elevation</span>
                </div>
-               <div id="accessblur">
-                  <div id = "stats">
-                     <div>
-                        <div id="heading-value" class="heading-display" style="width: 53%; float: left; text-align: right;">246&deg;</div>
-                        <div id="heading-name" class="heading-display" style="width: 42%; float: right; text-align: left;">SW</div>
-                     </div>
-                     <div class="location-display">
-                        <span id="location-info">No Location Data</span><br>
-                     </div>
-                  </div>
+               <div id="info_glob">
+                  <table id="info_glob" border="0">
+                     <tr>
+                        <td>
+                           <span id="location-info">No Location Data</span>
+                        </td>
+                        <td>
+                           <div id="heading-value" class="heading-display" style="width: 50%; float: right;">246&deg;</div>
+                           <div id="heading-name" class="heading-display" style="width: 50%; float: left">SW</div>
+                        </td>
+                        <td>
+                           <span id="location-elev">Elevation</span>
+                        </td>
+                        <td>
+                           <dd id="lastUpdate">0</dd>
+                        </td>
+                     </tr>
+                  </table>
                </div>
                <!--
                   <div id="compass" style="background: url(compass_main.svg) no-repeat center center; width:100%; height:500px;"></div>
@@ -393,10 +397,6 @@
                   <p class=error id="error-TIMEOUT" hidden>Time out to get the localisation.</p>
                   <p class=error id="error-OTHER" hidden>Unknown error.</p>
                   -->
-               <dl>
-                  <dt>Last update:</dt>
-                  <dd id=lastUpdate>0</dd>
-               </dl>
                <div id="big_buttons" class="big_buttons">
                   <button type="button" id="btn_meas" class="btn_meas" onClick="btn_meas_click();"></button>
                   <button type="button" id="btn_rec" class="btn_rec" onClick="btn_record();"></button>

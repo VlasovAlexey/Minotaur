@@ -370,7 +370,8 @@ function updateTime() {
 	let d = new Date() - lastUpdate;
 	let min = Math.floor(d / Minute);
 	let sec = Math.floor(d % Minute / Second);
-	document.getElementById("lastUpdate").textContent = `${min}m ${sec}s`;
+  tot_time = min + "m " + sec + "s"
+	document.getElementById("lastUpdate").textContent = tot_time;
 }
 
 
@@ -452,7 +453,7 @@ function updateError(err) {
       lastNamedLong = nameLong;
     }
     document.getElementById("location-info").innerHTML = convertCoordinates(position.coords.latitude, position.coords.longitude);
-    document.getElementById("location-elev").innerHTML = Math.round(position.coords.altitude * 3.280839895) + " ft Elevation ";
+    document.getElementById("location-elev").innerHTML = "Elevation <br>" + (Math.round(position.coords.altitude)) + " m";
   }
   
   
@@ -667,6 +668,6 @@ function updateError(err) {
   const latString = `${latDegrees}Р’В°${latMinutes}'${latSeconds}" ${latitude >= 0 ? 'N' : 'S'}`;
   const lonString = `${lonDegrees}Р’В°${lonMinutes}'${lonSeconds}" ${direction}`;
   
-  return `${latString} ${lonString}`;
+  return (latString + " <br>" + lonString);
   }
   
