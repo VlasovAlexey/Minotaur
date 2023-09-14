@@ -371,7 +371,7 @@ function updateTime() {
 	let min = Math.floor(d / Minute);
 	let sec = Math.floor(d % Minute / Second);
   tot_time = min + "m " + sec + "s"
-	document.getElementById("lastUpdate").textContent = tot_time;
+	document.getElementById("lastUpdate").textContent = "Last Update " + tot_time;
 }
 
 
@@ -626,7 +626,7 @@ function updateError(err) {
         acHeading -= 360;
       }
   
-      document.getElementById("heading-value").innerHTML = acHeading + "&deg";
+      //document.getElementById("heading-value").innerHTML = acHeading + "&deg";
       var directionName = "";
       if(acHeading > 337 || acHeading < 22){
         directionName = "N"
@@ -645,6 +645,7 @@ function updateError(err) {
       } else {
         directionName = "NW"
       } 
+      directionName = directionName + " " + acHeading + "&deg"
       document.getElementById("heading-name").innerHTML = directionName;
       
       

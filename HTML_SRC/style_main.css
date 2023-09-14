@@ -1068,7 +1068,7 @@ a#windowControlMinimize{
   #dial {
     width: 300px;
     height: 300px;
-    position: relative;
+    position: absolute;
   }
   #dial span {
     position: absolute;
@@ -1088,7 +1088,7 @@ a#windowControlMinimize{
   
   .heading-display{
     font-size: 2em;
-    display: inline-block;
+    /*display: inline-block;*/
     font-weight: 200;
     
   }
@@ -1132,7 +1132,9 @@ a#windowControlMinimize{
 #info_glob td {
     font-size: 20px;
     font-weight: 200;
+    border-bottom: 0px
 }
-
-  
-  
+#info_glob tr:hover td{
+    color: #969696;
+    background: #2b2b2c;
+}  
