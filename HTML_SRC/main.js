@@ -612,9 +612,12 @@ function updateError(err) {
       }
       else{
         //ios
+        var cross_id1 = document.getElementsByClassName("cross_id1")[0];
         labelAngle = (Math.abs(360 - heading));
         dial.style.transform = "rotate(" + (heading-360) + "deg)"
+        cross_id1.style.transform = " transform: translate(-50%, -50%) scale(1.2) rotate(-" + (heading-360) + "deg)"
         acHeading = (Math.abs(360 - Math.round(heading)));
+
       }
       
       const labels = document.querySelectorAll(".label");
