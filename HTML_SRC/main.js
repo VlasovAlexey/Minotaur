@@ -600,7 +600,9 @@ function updateError(err) {
   
       var labelAngle = 0;
       var acHeading = 0;
-  
+      var cross_01 = document.getElementById("level-disp");
+      var cross_02 = document.getElementById("level-cross");
+      
       if(getOS() == "Android"){
         //android
         labelAngle = rot_dif - (360-heading);
@@ -609,12 +611,18 @@ function updateError(err) {
         
         //android fix
         if(acHeading < 0){acHeading = 360 + acHeading}
+
+        cross_01.style.transform = "translate(-50%, -50%) rotate(-" + (heading-360) + "deg)"
+        cross_02.style.transform = "translate(-50%, -50%) rotate(-" + (heading-360) + "deg)"
       }
       else{
         //ios
         labelAngle = (Math.abs(360 - heading));
         dial.style.transform = "rotate(" + (heading-360) + "deg)"
-        acHeading = (Math.abs(360 - Math.round(heading)));
+        acHeading = (Math.abs(360 - Math.round(heading)));  
+        cross_01.style.transform = "translate(-50%, -50%) rotate(-" + (heading-360) + "deg)"
+        cross_02.style.transform = "translate(-50%, -50%) rotate(-" + (heading-360) + "deg)"
+        
       }
       
       const labels = document.querySelectorAll(".label");
