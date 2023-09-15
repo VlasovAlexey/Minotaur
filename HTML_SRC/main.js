@@ -612,8 +612,8 @@ function updateError(err) {
         //android fix
         if(acHeading < 0){acHeading = 360 + acHeading}
 
-        cross_01.style.transform = "translate(-50%, -50%) rotate(" + (rot_dif + heading) + "deg)"
-        cross_02.style.transform = "translate(-50%, -50%) rotate(" + (rot_dif + heading) + "deg)"
+        cross_01.style.transform = "translate(-50%, -50%) rotate(" + (heading - rot_dif) + "deg)"
+        cross_02.style.transform = "translate(-50%, -50%) rotate(" + (heading - rot_dif) + "deg)"
       }
       else{
         //ios
