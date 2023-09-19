@@ -282,9 +282,13 @@
             </div>
             <div class="div_block">
                <div id="tn_rec_freq" class="tn_rec_freq"></div>
+         
                <div id="tn_meas_len" class="tn_meas_len"></div>
+               <input type="text" inputmode="numeric" id="tr_meas_len" class="tr_meas_len" name="tr_meas_len" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                <div id="tn_const_spd" class="tn_const_spd"></div>
+               <input type="text" inputmode="numeric" id="tr_const_spd" class="tr_const_spd" name="tr_const_spd" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                <div id="tn_calib_f" class="tn_calib_f"></div>
+               <input type="text" inputmode="numeric" id="tr_calib_f" class="tr_calib_f" name="tr_calib_f" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
             </div>
             <div class="div_block">
                <div id="tr_ifc_set" class="tr_ifc_set"></div>
@@ -425,6 +429,9 @@
                <div class="header7"></div>
             </div>
             <div class="content" id="7-content">
+              <!-- <div id="div_block_rec">
+                  <iframe id="div_block_rec" class="div_block_rec" src="https://opoto.github.io/wtracks/" width="100%" height="700px" style="border:none;"></iframe>
+               </div>-->
             </div>
             <div class="header" id="8-header">
                <div class="header8"></div>

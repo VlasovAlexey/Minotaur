@@ -274,7 +274,6 @@ select
 .btn_ios_msg,
 .btn_ios_tel
 {
-
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: FirstFont;
@@ -293,6 +292,33 @@ select
     transition: .2s ease-in-out;
     cursor: pointer;
     box-shadow: 0 0 0px #ffffff inset, 0 0px 0px #ffffff inset, 0 0px 0px #ffffff;
+}
+input
+{
+    background-color: #272727;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    cursor: pointer;
+    color: #c4c4c4;
+    font-family: FirstFont;
+    font-size: 16px;
+    border-radius: 15px;
+    text-align-last: center;
+
+    margin-bottom: 10px;
+    font-family: FirstFont;
+    width: auto;
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    padding: .4em 1em;
+    outline: none;
+    border: 1px solid #969696;
+    border-radius: 15px;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    
 }
 .btn_add_track:hover,
 .btn_delete_track:hover,
