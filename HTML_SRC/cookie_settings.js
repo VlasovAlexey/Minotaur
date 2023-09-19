@@ -2,10 +2,18 @@ var lngs_usr = 1;
 var dmns_usr = 1;
 var color_usr = 1;
 
+var meas_len_usr = 2.11;
+var const_spd_usr = 5.321;
+var calib_f_usr = 0.0;
+
 function default_set(){
     lngs_usr = 1;
     dmns_usr = 1;
     color_usr = 1;
+
+    meas_len_usr = 2.11;
+    const_spd_usr = 5.321;
+    calib_f_usr = 0.0;
 }
 
 var lng_arr = [
@@ -97,6 +105,7 @@ function setCookie(name, value) {
         var expires = "; expires=" + "Mon, 01-Jan-2224 00:00:00 GMT";
         var SameSite = "";
         document.cookie = name + "=" + value + expires + SameSite;
+        
     }
     else
     {
@@ -120,6 +129,7 @@ function deleteCookie(name) {
         var date = new Date();
         date.setTime(date.getTime() - 1);
         document.cookie = name += "=; expires=" + date.toGMTString();
+        
     }
     else
     {
@@ -130,18 +140,34 @@ function write_cookie(){
     setCookie("lngs_usr1", return_idx("tn_lng"));
     setCookie("dmns_usr1", return_idx("tn_dmn"));
     setCookie("color_usr1", return_idx("tn_color"));
+
+    console.log(return_val("meas_len_opt"));
+    setCookie("meas_len_usr1",return_val("meas_len_opt"));
+    //setCookie("const_spd_usr1",return_val("const_spd_opt"));
+    //setCookie("calib_f_usr1",return_val("calib_f_opt"));
 }
 
 function read_cookie(){
     lngs_usr = parseInt(getCookie("lngs_usr1"));
     dmns_usr = parseInt(getCookie("dmns_usr1"));
     color_usr = parseInt(getCookie("color_usr1"));
+    
+    meas_len_usr = getCookie("meas_len_usr1");
+    //const_spd_usr = getCookie("const_spd_usr1");
+    //calib_f_usr = getCookie("calib_f_usr1");
 }
 function return_idx(html_ids){
     tmp4 = document.getElementById(html_ids);
     idx_me = tmp4.options[tmp4.selectedIndex].value;
     return idx_me;
 }
+
+function return_val(html_ids){
+    tmp5 = document.getElementById(html_ids);
+    val_me = tmp5.value;
+    return val_me;
+}
+
 //settings doesn`t saved ad it is first start. it will be saved now
 if(getCookie("opt_rate_asc_surf_usr1") == undefined){
     //need explanation for me. If uncomment below line all is don`t work on Android
@@ -190,6 +216,7 @@ function dim_cng(){
     lngs_usr = $( "#tn_lng" ).val();
     dmns_usr = $( "#tn_dmn" ).val();//
     color_usr = $( "#tn_color" ).val();
+    meas_len = $( "#meas_len_opt" ).val();
 
     create_html();
     init_global();
@@ -209,6 +236,9 @@ function create_html(){
     create_custom_option_arr("tr_dmn_sel" , "tn_dmn" , dmns_usr , dmns_arr);
     del_html_elem("tn_ifc_set");
     create_custom_option_arr("tn_ifc_set" , "tn_color" , color_usr , color_arr);
+    
+    del_html_elem("tr_meas_len");
+    create_input_val("tr_meas_len" , "meas_len_opt" , meas_len_usr);
 
     //Re create watchers for changes
     tn_cng_color = document.getElementById("tn_color");
@@ -221,11 +251,16 @@ function create_html(){
 
     Dmn_opt = document.getElementById("tn_dmn");
     Dmn_opt.addEventListener('change', dim_cng);
+
+    w_meas_len = document.getElementById("meas_len_opt");
+    w_meas_len.addEventListener('change', upd_all);
 }
 
 create_custom_option_arr("tr_lng_sel" , "tn_lng" , lngs_usr , lng_arr);
 create_custom_option_arr("tr_dmn_sel" , "tn_dmn" , dmns_usr , dmns_arr);
 create_custom_option_arr("tn_ifc_set" , "tn_color" , color_usr , color_arr);
+
+create_input_val("tr_meas_len" , "meas_len_opt" , meas_len_usr);
 
 function init_global(){
     //if you want force language to eng you change to 1
@@ -243,4 +278,7 @@ function init_global(){
 
     Dmn_opt = document.getElementById("tn_dmn");
     Dmn_opt.addEventListener('change', dim_cng);
+
+    w_meas_len = document.getElementById("meas_len_opt");
+    w_meas_len.addEventListener('change', upd_all);
 }

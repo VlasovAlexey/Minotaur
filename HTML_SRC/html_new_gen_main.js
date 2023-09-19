@@ -195,6 +195,23 @@ function create_html_text(htmls_id , opt_id , text){
       htmls_id.appendChild(tmp_div);
 }
 
+/*Create input inside div.
+htmls_id - select element inside your html to add
+opt_id - id for new added select element
+text - text value
+*/
+function create_input_val(htmls_id , opt_id , text){
+    htmls_id = document.getElementById(htmls_id);
+    tmp_div = document.createElement('input');
+    tmp_div.setAttribute("id", opt_id);
+    tmp_div.setAttribute("name", opt_id);
+    tmp_div.setAttribute("class", opt_id);
+    tmp_div.setAttribute("type", "text");
+    tmp_div.setAttribute("inputmode", "decimal");
+    tmp_div.setAttribute("oninput", "this.value = this.value.replace(/[^0-9,]/g, '').replace(/(\,.*)\,/g, '$1');");
+    tmp_div.setAttribute("value",text);
+    htmls_id.appendChild(tmp_div);
+}
 
 function del_html_elem(htmls_id){
   htmls_id = document.getElementById(htmls_id);
