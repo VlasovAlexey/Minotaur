@@ -2,18 +2,18 @@ var lngs_usr = 1;
 var dmns_usr = 1;
 var color_usr = 1;
 
-var meas_len_usr = 2.11;
-var const_spd_usr = 5.321;
-var calib_f_usr = 0.0;
+var meas_len_usr = "2,11";
+var const_spd_usr = "5,321";
+var calib_f_usr = "0,0";
 
 function default_set(){
     lngs_usr = 1;
     dmns_usr = 1;
     color_usr = 1;
 
-    meas_len_usr = 2.11;
-    const_spd_usr = 5.321;
-    calib_f_usr = 0.0;
+    meas_len_usr = "2,11";
+    const_spd_usr = "5,321";
+    calib_f_usr = "0,0";
 }
 
 var lng_arr = [
@@ -72,7 +72,7 @@ var dmns_arr = [
     {
         text: "Feet/Cu.Feet/PSI",
         id: "tn_dmn_imp",
-        isdisable: "enabled"
+        isdisable: "disabled"
     }];
 var color_arr = [
     {
@@ -141,10 +141,10 @@ function write_cookie(){
     setCookie("dmns_usr1", return_idx("tn_dmn"));
     setCookie("color_usr1", return_idx("tn_color"));
 
-    console.log(return_val("meas_len_opt"));
+    
     setCookie("meas_len_usr1",return_val("meas_len_opt"));
-    //setCookie("const_spd_usr1",return_val("const_spd_opt"));
-    //setCookie("calib_f_usr1",return_val("calib_f_opt"));
+    setCookie("const_spd_usr1",return_val("const_spd_opt"));
+    setCookie("calib_f_usr1",return_val("calib_f_opt"));
 }
 
 function read_cookie(){
@@ -153,8 +153,8 @@ function read_cookie(){
     color_usr = parseInt(getCookie("color_usr1"));
     
     meas_len_usr = getCookie("meas_len_usr1");
-    //const_spd_usr = getCookie("const_spd_usr1");
-    //calib_f_usr = getCookie("calib_f_usr1");
+    const_spd_usr = getCookie("const_spd_usr1");
+    calib_f_usr = getCookie("calib_f_usr1");
 }
 function return_idx(html_ids){
     tmp4 = document.getElementById(html_ids);
@@ -169,7 +169,7 @@ function return_val(html_ids){
 }
 
 //settings doesn`t saved ad it is first start. it will be saved now
-if(getCookie("opt_rate_asc_surf_usr1") == undefined){
+if(getCookie("color_usr1") == undefined){
     //need explanation for me. If uncomment below line all is don`t work on Android
     //upd_all();
     //console.log("cookie not found!");
@@ -239,6 +239,10 @@ function create_html(){
     
     del_html_elem("tr_meas_len");
     create_input_val("tr_meas_len" , "meas_len_opt" , meas_len_usr);
+    del_html_elem("tr_const_spd");
+    create_input_val("tr_const_spd" , "const_spd_opt" , const_spd_usr);
+    del_html_elem("tr_calib_f");
+    create_input_val("tr_calib_f" , "calib_f_opt" , calib_f_usr);
 
     //Re create watchers for changes
     tn_cng_color = document.getElementById("tn_color");
@@ -254,6 +258,10 @@ function create_html(){
 
     w_meas_len = document.getElementById("meas_len_opt");
     w_meas_len.addEventListener('change', upd_all);
+    w_const_spd = document.getElementById("const_spd_opt");
+    w_const_spd.addEventListener('change', upd_all);
+    w_calib_f = document.getElementById("calib_f_opt");
+    w_calib_f.addEventListener('change', upd_all);
 }
 
 create_custom_option_arr("tr_lng_sel" , "tn_lng" , lngs_usr , lng_arr);
@@ -261,6 +269,8 @@ create_custom_option_arr("tr_dmn_sel" , "tn_dmn" , dmns_usr , dmns_arr);
 create_custom_option_arr("tn_ifc_set" , "tn_color" , color_usr , color_arr);
 
 create_input_val("tr_meas_len" , "meas_len_opt" , meas_len_usr);
+create_input_val("tr_const_spd" , "const_spd_opt" , const_spd_usr);
+create_input_val("tr_calib_f" , "calib_f_opt" , calib_f_usr);
 
 function init_global(){
     //if you want force language to eng you change to 1
@@ -281,4 +291,8 @@ function init_global(){
 
     w_meas_len = document.getElementById("meas_len_opt");
     w_meas_len.addEventListener('change', upd_all);
+    w_const_spd = document.getElementById("const_spd_opt");
+    w_const_spd.addEventListener('change', upd_all);
+    w_calib_f = document.getElementById("calib_f_opt");
+    w_calib_f.addEventListener('change', upd_all);
 }

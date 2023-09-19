@@ -591,21 +591,14 @@ br{
       place-content: center;
       transition: opacity 0.4s ease-in-out;
   }
-  .installPrompt {
-    display: none;
-    position: fixed;
-    top: 22px; right: 22px;
-    max-width: 70%;
-    min-width: 240px;
-    background: rgba(80,80,80,0.4);
-    -webkit-backdrop-filter: blur(40px); backdrop-filter: blur(40px);
-    z-index: 10;
-    padding: 20px;
-    border-radius: 20px;
-    transition: opacity 0.4s ease-in-out;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
+  .start-btn{
+    height:auto;
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    text-align-last: center;
+    top: -90%;
+    left: 0%;
   }
 
 /*table center styles */
@@ -638,7 +631,7 @@ input
     text-align-last: center;
     margin-bottom: 10px;
     font-family: FirstFont;
-    width: auto;
+    width: 100px;
     position: relative;
     display: inline-block;
     padding: .4em 1em;

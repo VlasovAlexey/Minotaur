@@ -14,6 +14,7 @@
     function changeGuiDim(){
         if (Dmn_opt.options[Dmn_opt.selectedIndex].value == 1){
             if(lng_opt.options[lng_opt.selectedIndex].value == 1){
+                lng_sec_s = ", sec";
                 lng_bar = ", bar";
                 lng_meters = ", meters";
                 lng_meters_min = ", m/min";
@@ -23,6 +24,7 @@
                 lng_temper = ", <sup><small>o</small></sup>C";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 2){
+                lng_sec_s = ", сек";
                 lng_bar = ", бар";
                 lng_meters = ", метры";
                 lng_meters_min = " (м/мин)";
@@ -32,6 +34,7 @@
                 lng_temper = ", <sup><small>o</small></sup>C";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 3){
+                lng_sec_s = ", seg";
                 lng_bar = ", bar";
                 lng_meters = ", metros";
                 lng_meters_min = ", m/min";
@@ -41,6 +44,7 @@
                 lng_temper = ", <sup><small>o</small></sup>C";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 4){
+                lng_sec_s = ", seg";
                 lng_bar = ", bar";
                 lng_meters = ", metros";
                 lng_meters_min = ", m/min";
@@ -50,6 +54,7 @@
                 lng_temper = ", <sup><small>o</small></sup>C";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 5){
+                lng_sec_s = ", 秒钟";
                 lng_bar = ", bar";
                 lng_meters = ", 米";
                 lng_meters_min = ", 米/分钟";
@@ -59,6 +64,7 @@
                 lng_temper = ", <sup><small>o</small></sup>C";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 6){
+                lng_sec_s = ", сек";
                 lng_bar = ", бар";
                 lng_meters = ", метри";
                 lng_meters_min = ", м/мин";
@@ -68,6 +74,7 @@
                 lng_temper = ", <sup><small>o</small></sup>C";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 7){
+                lng_sec_s = ", sec";
                 lng_bar = ", bar";
                 lng_meters = ", metres";
                 lng_meters_min = ", m/min";
@@ -77,6 +84,7 @@
                 lng_temper = ", <sup><small>o</small></sup>C";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 8){
+                lng_sec_s = ", 초";
                 lng_bar = ", bar";
                 lng_meters = ", meters";
                 lng_meters_min = ", m/min";
@@ -86,6 +94,7 @@
                 lng_temper = ", <sup><small>o</small></sup>C";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 9){
+                lng_sec_s = ", sec";
                 lng_bar = ", bar";
                 lng_meters = ", metri";
                 lng_meters_min = ", m/min";
@@ -99,6 +108,7 @@
         else
         {
             if(lng_opt.options[lng_opt.selectedIndex].value == 1){
+                lng_sec_s = ", sec";
                 lng_bar = ", psi";
                 lng_meters = ", ft";
                 lng_meters_min = ", ft/min";
@@ -108,6 +118,7 @@
                 lng_temper = ", <sup><small>o</small></sup>F";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 2){
+                lng_sec_s = ", сек";
                 lng_bar = ", psi";
                 lng_meters = ", футы";
                 lng_meters_min = " (футов/мин)";
@@ -117,6 +128,7 @@
                 lng_temper = ", <sup><small>o</small></sup>F";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 3) {
+                lng_sec_s = ", seg";
                 lng_bar = ", psi";
                 lng_meters = ", ft";
                 lng_meters_min = ", ft/min";
@@ -126,6 +138,7 @@
                 lng_temper = ", <sup><small>o</small></sup>F";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 4) {
+                lng_sec_s = ", seg";
                 lng_bar = ", psi";
                 lng_meters = ", pés";
                 lng_meters_min = ", p/min";
@@ -135,6 +148,7 @@
                 lng_temper = ", <sup><small>o</small></sup>F";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 5) {
+                lng_sec_s = ", 秒钟";
                 lng_bar = ", psi";
                 lng_meters = ", 英尺";
                 lng_meters_min = ", 英尺/分钟";
@@ -144,6 +158,7 @@
                 lng_temper = ", <sup><small>o</small></sup>F";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 6){
+                lng_sec_s = ", сек";
                 lng_bar = ", пси";
                 lng_meters = ", фт";
                 lng_meters_min = ", фт/мин";
@@ -153,6 +168,7 @@
                 lng_temper = ", <sup><small>o</small></sup>F";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 7){
+                lng_sec_s = ", sec";
                 lng_bar = ", psi";
                 lng_meters = ", ft";
                 lng_meters_min = ", ft/min";
@@ -162,6 +178,7 @@
                 lng_temper = ", <sup><small>o</small></sup>F";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 8){
+                lng_sec_s = ", 초";
                 lng_bar = ", psi";
                 lng_meters = ", ft";
                 lng_meters_min = ", ft/min";
@@ -171,6 +188,7 @@
                 lng_temper = ", <sup><small>o</small></sup>F";
             }
             if(lng_opt.options[lng_opt.selectedIndex].value == 9){
+                lng_sec_s = ", sec";
                 lng_bar = ", psi";
                 lng_meters = ", ft";
                 lng_meters_min = ", ft/min";
@@ -191,9 +209,9 @@
         lang = {
             1: {
                 //Eng
-                ".tn_rec_freq" : "Record Step",
-                ".tn_meas_len" : "Circle Length",
-                ".tn_const_spd" : "Constant Speed Value",
+                ".tn_rec_freq" : "Record Step" + lng_sec_s,
+                ".tn_meas_len" : "Circle Length" + lng_meters,
+                ".tn_const_spd" : "Constant Speed Value" + lng_meters_min,
                 ".tn_calib_f" : "Calibration Factor",
                 //".tn_use_gps" : "Use GPS Data",
                 //".tn_use_spd" : "Use Constant Speed",
@@ -249,9 +267,9 @@
 
             //Rus
             2: {
-                ".tn_rec_freq" : "Шаг записи",
-                ".tn_meas_len" : "Длина окружности",
-                ".tn_const_spd" : "Постоянное значение скорости",
+                ".tn_rec_freq" : "Шаг записи" + lng_sec_s,
+                ".tn_meas_len" : "Длина окружности" + lng_meters,
+                ".tn_const_spd" : "Постоянное значение скорости" + lng_meters_min,
                 ".tn_calib_f" : "Калибровочный коэффициент",
                 //".tn_use_gps" : "Использовать данные GPS",
                 //".tn_use_spd" : "Использовать постоянную скорость",
@@ -307,9 +325,9 @@
 
             //Spa
             3: {
-                ".tn_rec_freq" : "Paso Registro",
-                ".tn_meas_len" : "Longitud Círculo",
-                ".tn_const_spd" : "Valor Velocidad Constante",
+                ".tn_rec_freq" : "Paso Registro" + lng_sec_s,
+                ".tn_meas_len" : "Longitud Círculo" + lng_meters,
+                ".tn_const_spd" : "Valor Velocidad Constante" + lng_meters_min,
                 ".tn_calib_f" : "Factor Calibración",
                 //".tn_use_gps" : "Utilizar Datos GPS",
                 //".tn_use_spd" : "Usar Velocidad Constante",
@@ -364,9 +382,9 @@
             },
             4: {
                 //Prt
-                ".tn_rec_freq" : "Passo de Registo",
-                ".tn_meas_len" : "Comprimento do Círculo",
-                ".tn_const_spd" : "Valor da Velocidade Constante",
+                ".tn_rec_freq" : "Passo de Registo" + lng_sec_s,
+                ".tn_meas_len" : "Comprimento do Círculo" + lng_meters,
+                ".tn_const_spd" : "Valor da Velocidade Constante" + lng_meters_min,
                 ".tn_calib_f" : "Fator de Calibração",
                 //".tn_use_gps" : "Utilizar Dados GPS",
                 //".tn_use_spd" : "Usar Velocidade Constante",
@@ -422,9 +440,9 @@
             },
             5 : {
                 //China
-                ".tn_rec_freq" : "记录步骤",
-                ".tn_meas_len" : "圆周长度",
-                ".tn_const_spd" : "匀速值",
+                ".tn_rec_freq" : "记录步骤" + lng_sec_s,
+                ".tn_meas_len" : "圆周长度" + lng_meters,
+                ".tn_const_spd" : "匀速值" + lng_meters_min,
                 ".tn_calib_f" : "校准系数",
                 //".tn_use_gps" : "使用 GPS 数据",
                 //".tn_use_spd" : "使用匀速",
@@ -479,9 +497,9 @@
             },
             6 : {
                 //Bulgarian
-                ".tn_rec_freq" : "Стъпка за запис",
-                ".tn_meas_len" : "Дължина на кръга",
-                ".tn_const_spd" : "Стойност на постоянната скорост",
+                ".tn_rec_freq" : "Стъпка за запис" + lng_sec_s,
+                ".tn_meas_len" : "Дължина на кръга" + lng_meters,
+                ".tn_const_spd" : "Стойност на постоянната скорост" + lng_meters_min,
                 ".tn_calib_f" : "Коефициент на калибриране",
                 //".tn_use_gps" : "Използване на GPS данни",
                 //".tn_use_spd" : "Използване на постоянна скорост",
@@ -533,9 +551,9 @@
             },
             7: {
                 //Fr
-                ".tn_rec_freq" : "Fréquence d'enregistrement",
-                ".tn_meas_len" : "Longueur du cercle",
-                ".tn_const_spd" : "Valeur de la vitesse constante",
+                ".tn_rec_freq" : "Fréquence d'enregistrement" + lng_sec_s,
+                ".tn_meas_len" : "Longueur du cercle" + lng_meters,
+                ".tn_const_spd" : "Valeur de la vitesse constante" + lng_meters_min,
                 ".tn_calib_f" : "Facteur d'étalonnage",
                 //".tn_use_gps" : "Utiliser les données GPS",
                 //".tn_use_spd" : "Utiliser la vitesse constante",
@@ -587,9 +605,9 @@
             },
             8: {
                 //Korean
-                ".tn_rec_freq" : "기록 빈도",
-                ".tn_meas_len" : "원 길이",
-                ".tn_const_spd" : "일정한 속도 값",
+                ".tn_rec_freq" : "기록 빈도" + lng_sec_s,
+                ".tn_meas_len" : "원 길이" + lng_meters,
+                ".tn_const_spd" : "일정한 속도 값" + lng_meters_min,
                 ".tn_calib_f" : "보정 계수",
                 //".tn_use_gps" : "GPS 데이터 사용",
                 //".tn_use_spd" : "정속 속도 사용",
@@ -641,9 +659,9 @@
             },
             9: {
                 //Italian
-                ".tn_rec_freq" : "Frequenza di registrazione",
-                ".tn_meas_len" : "Lunghezza del cerchio",
-                ".tn_const_spd" : "Valore di velocità costante",
+                ".tn_rec_freq" : "Frequenza di registrazione" + lng_sec_s,
+                ".tn_meas_len" : "Lunghezza del cerchio" + lng_meters,
+                ".tn_const_spd" : "Valore di velocità costante" + lng_meters_min,
                 ".tn_calib_f" : "Fattore di calibrazione",
                 //".tn_use_gps" : "Utilizzare i dati GPS",
                 //".tn_use_spd" : "Usa velocità costante",
