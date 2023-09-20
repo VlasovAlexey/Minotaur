@@ -2,6 +2,7 @@ var lngs_usr = 1;
 var dmns_usr = 1;
 var color_usr = 1;
 
+var rec_freq_usr = 2;
 var meas_len_usr = "2,11";
 var const_spd_usr = "5,321";
 var calib_f_usr = "0,0";
@@ -11,6 +12,7 @@ function default_set(){
     dmns_usr = 1;
     color_usr = 1;
 
+    rec_freq_usr = 2;
     meas_len_usr = "2,11";
     const_spd_usr = "5,321";
     calib_f_usr = "0,0";
@@ -141,7 +143,7 @@ function write_cookie(){
     setCookie("dmns_usr1", return_idx("tn_dmn"));
     setCookie("color_usr1", return_idx("tn_color"));
 
-    
+    setCookie("rec_freq_usr1", return_idx("rec_freq_opt"));
     setCookie("meas_len_usr1",return_val("meas_len_opt"));
     setCookie("const_spd_usr1",return_val("const_spd_opt"));
     setCookie("calib_f_usr1",return_val("calib_f_opt"));
@@ -152,6 +154,7 @@ function read_cookie(){
     dmns_usr = parseInt(getCookie("dmns_usr1"));
     color_usr = parseInt(getCookie("color_usr1"));
     
+    rec_freq_usr = getCookie("rec_freq_usr1");
     meas_len_usr = getCookie("meas_len_usr1");
     const_spd_usr = getCookie("const_spd_usr1");
     calib_f_usr = getCookie("calib_f_usr1");
@@ -216,7 +219,11 @@ function dim_cng(){
     lngs_usr = $( "#tn_lng" ).val();
     dmns_usr = $( "#tn_dmn" ).val();//
     color_usr = $( "#tn_color" ).val();
+    
+    rec_freq = $( "#rec_freq_opt" ).val();
     meas_len = $( "#meas_len_opt" ).val();
+    const_spd = $( "#const_spd_opt" ).val();
+    calib_f = $( "#calib_f_opt" ).val();
 
     create_html();
     init_global();
@@ -237,6 +244,9 @@ function create_html(){
     del_html_elem("tn_ifc_set");
     create_custom_option_arr("tn_ifc_set" , "tn_color" , color_usr , color_arr);
     
+    
+    del_html_elem("tr_rec_freq");
+    create_option("tr_rec_freq", "rec_freq_opt", 1, 10, rec_freq_usr , 1 , 0 , "none");
     del_html_elem("tr_meas_len");
     create_input_val("tr_meas_len" , "meas_len_opt" , meas_len_usr);
     del_html_elem("tr_const_spd");
@@ -256,6 +266,8 @@ function create_html(){
     Dmn_opt = document.getElementById("tn_dmn");
     Dmn_opt.addEventListener('change', dim_cng);
 
+    w_rec_freq = document.getElementById("rec_freq_opt");
+    w_rec_freq.addEventListener('change', upd_all);
     w_meas_len = document.getElementById("meas_len_opt");
     w_meas_len.addEventListener('change', upd_all);
     w_const_spd = document.getElementById("const_spd_opt");
@@ -268,6 +280,7 @@ create_custom_option_arr("tr_lng_sel" , "tn_lng" , lngs_usr , lng_arr);
 create_custom_option_arr("tr_dmn_sel" , "tn_dmn" , dmns_usr , dmns_arr);
 create_custom_option_arr("tn_ifc_set" , "tn_color" , color_usr , color_arr);
 
+create_option("tr_rec_freq", "rec_freq_opt", 1, 10, rec_freq_usr , 1 , 0 , "none");
 create_input_val("tr_meas_len" , "meas_len_opt" , meas_len_usr);
 create_input_val("tr_const_spd" , "const_spd_opt" , const_spd_usr);
 create_input_val("tr_calib_f" , "calib_f_opt" , calib_f_usr);
@@ -289,6 +302,8 @@ function init_global(){
     Dmn_opt = document.getElementById("tn_dmn");
     Dmn_opt.addEventListener('change', dim_cng);
 
+    w_rec_freq = document.getElementById("rec_freq_opt");
+    w_rec_freq.addEventListener('change', upd_all);
     w_meas_len = document.getElementById("meas_len_opt");
     w_meas_len.addEventListener('change', upd_all);
     w_const_spd = document.getElementById("const_spd_opt");

@@ -159,6 +159,8 @@ var ele_start = "0.0";
 var lat_reg = "0.0";
 var lon_reg = "0.0";
 var ele_reg = "0.0";
+var speed_reg = "0.0";
+var course_reg = "0.0";
 
 var lat_end = "0.0";
 var lon_end = "0.0";
@@ -326,9 +328,18 @@ function updateGeo(c) {
         if(c.latitude == null || c.latitude == undefined){lat_reg = "0.0"}else{lat_reg = c.latitude}
         if(c.longitude == null || c.longitude == undefined){lon_reg = "0.0"}else{lon_reg = c.longitude}
         if(c.altitude == null || c.altitude == undefined){ele_reg = "0.0"}else{ele_reg = c.altitude}
+        
+        speed_reg = document.getElementById("const_spd_opt").value;
+        if(speed_reg == null || speed_reg == undefined || speed_reg == ""){speed_reg = "0.0"}
+        speed_reg = (speed_reg.replace(",", "."));
 
+        if(acHeading == null || acHeading == undefined){acHeading = "0.0"}else{course_reg = acHeading}
+        
+        //write to file
         GPX_File = GPX_File + "    <trkpt lat=\""+ lat_reg +"\" lon=\""+ lon_reg + "\">\n";
         GPX_File = GPX_File + "     <ele>"+ ele_reg + "</ele>\n";
+        GPX_File = GPX_File + "     <speed>"+ speed_reg + "</speed>\n";
+        GPX_File = GPX_File + "     <course>"+ course_reg + "</course>\n";
         GPX_File = GPX_File + "    </trkpt>\n";
 
         if(rec_first_start == 0){
@@ -422,7 +433,7 @@ function updateError(err) {
 	document.getElementById(`error-${t}`).hidden = false;
 }
 
-//compass
+//compass code start here
   var lastNamedLat = 0;
   var lastNamedLong = 0;
   

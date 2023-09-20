@@ -521,6 +521,15 @@ br{
     height: 50px;
     background-size: contain;
 }
+.start-btn{
+    height:auto;
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    text-align-last: center;
+    top: -90%;
+    left: 0%;
+  }
 
 /* compass styles */
 .dialContainer {
