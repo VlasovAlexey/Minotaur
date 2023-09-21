@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <title>Minotaur Software for Cave Dive Mapping</title>
+      <meta property="og:title" content="Minotaur Software for Cave Dive Mapping"/>
+      <meta property="og:description" content="Minotaur Software for Cave Dive Mapping"/>
+      <meta property="og:image" content="promo_label.jpg?v0.812184415">
+      <meta property="og:type" content="website"/>
+      <meta property="og:url" content= "promo_label.jpg?v0.812814415" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
+
+      <!--PWA app features
+      <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+      <meta name="theme-color" content="#2B559B" />
+      <script src="index.js" defer></script>
+      <link rel="manifest" href="manifest.webmanifest">
+      -->
+      <link href="apple-touch-icon.png?v0.81284415" rel="apple-touch-icon" />
+      <link href="apple-touch-icon-76x76.png?v0.81284415" rel="apple-touch-icon" sizes="76x76" />
+      <link href="apple-touch-icon-120x120.png?v0.81284415" rel="apple-touch-icon" sizes="120x120" />
+      <link href="apple-touch-icon-152x152.png?v0.81284415" rel="apple-touch-icon" sizes="152x152" />
+      <link href="apple-touch-icon-180x180.png?v0.81284415" rel="apple-touch-icon" sizes="180x180" />
+      <link href="icon-hires.png?v0.81284415" rel="icon" sizes="192x192" />
+      <link href="icon-normal.png?v0.81284415" rel="icon" sizes="128x128" />
+      <link rel="stylesheet" type="text/css" href="style_main.css?v0.621">
+      
+      <!-- Preloader Info Wait when all Page Loaded-->
+      <style type="text/css">
+         #preloader {
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         z-index: 99;
+         opacity:1;
+         
+         background: repeating-linear-gradient(45deg, #08203e, #4684ee);
+         background: repeating-linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+         background: repeating-linear-gradient(45deg, #3986d9 , #efc96d, #c9411a);
+         background: repeating-linear-gradient(45deg, #3d203e, #b90037);
+         background: repeating-radial-gradient(#aaaaaa, #ffffff);
+         background: repeating-linear-gradient(0deg, #36d1dc, #5b86e5);
+         background: repeating-linear-gradient(45deg, #000428, #004e92);
+         background: repeating-linear-gradient(0deg, #43cea2, #185a9d);
+         background: repeating-linear-gradient(45deg, #04101f, #4684ee);
+         
+         background: repeating-linear-gradient(45deg, #08203e, #4684ee);
+         background: repeating-linear-gradient(45deg, #2193b0, #6dd5ed);
+         background: repeating-linear-gradient(0deg, #141e30, #243b55);
+         background: repeating-linear-gradient(0deg, #ff9966, #ff5e62);
+         background: repeating-linear-gradient(45deg, #3d203e, #b90037);
+         background: repeating-linear-gradient(45deg, #04101f, #1e51a8);
+
+         animation: gradient 4s ease infinite;
+         -webkit-transition: opacity 200ms ease-in-out;
+         -moz-transition: opacity 200ms ease-in-out;
+         transition: opacity 200ms ease-in-out;
+         background-position: center;
+         background-size: auto;
+         }
+         @keyframes gradient {
+         0% {
+         background-size: 100% 100%;
+         }
+         50% {
+         background-size: 200% 400%;
+         }
+         100% {
+         background-size: 100% 100%;
+         }
+         }
+         
+         #preloader div {
+         font-family: arial;
+         font-size: 70%;
+         text-align: center;
+         position: fixed;
+         z-index: 999;
+         color: #ffffff;
+         padding: 2%;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         -webkit-transition: opacity 400ms ease-in-out;
+         -moz-transition: opacity 400ms ease-in-out;
+         transition: opacity 400ms ease-in-out;
+         }
+         @keyframes AnimationName1 {
+         0%{background-size:100% 200%}
+         50%{background-size:500% 100%}
+         100%{  background-size: 100% 200%}
+         }
+         .circles{
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         overflow: hidden;
+         }
+         .circles li{
+         position: absolute;
+         display: block;
+         list-style: none;
+         width: 20px;
+         height: 20px;
+         background: rgba(255, 255, 255, 0.2);
+         animation: animate 4s linear infinite;
+         bottom: -150px;
+         }
+         .circles li:nth-child(1){
+         left: 25%;
+         width: 80px;
+         height: 80px;
+         animation-delay: 1s;
+         animation-duration: 11s;
+         }
+         .circles li:nth-child(2){
+         left: 10%;
+         width: 20px;
+         height: 20px;
+         animation-delay: 0s;
+         animation-duration: 6s;
+         }
+         .circles li:nth-child(3){
+         left: 70%;
+         width: 20px;
+         height: 20px;
+         animation-delay: 1s;
+         animation-duration: 11s;
+         }
+         .circles li:nth-child(4){
+         left: 40%;
+         width: 60px;
+         height: 60px;
+         animation-delay: 0s;
+         animation-duration: 9s;
+         }
+         .circles li:nth-child(5){
+         left: 65%;
+         width: 20px;
+         height: 20px;
+         animation-delay: 1s;
+         animation-duration: 7s;
+         }
+         .circles li:nth-child(6){
+         left: 75%;
+         width: 110px;
+         height: 110px;
+         animation-delay: 0s;
+         animation-duration: 11s;
+         }
+         .circles li:nth-child(7){
+         left: 35%;
+         width: 150px;
+         height: 150px;
+         animation-delay: 1s;
+         animation-duration: 11s;
+         }
+         .circles li:nth-child(8){
+         left: 50%;
+         width: 25px;
+         height: 25px;
+         animation-delay: 1s;
+         animation-duration: 10s;
+         }
+         .circles li:nth-child(9){
+         left: 20%;
+         width: 15px;
+         height: 15px;
+         animation-delay: 0s;
+         animation-duration: 15s;
+         }
+         .circles li:nth-child(10){
+         left: 85%;
+         width: 150px;
+         height: 150px;
+         animation-delay: 1s;
+         animation-duration: 5s;
+         }
+         @keyframes animate {
+         0%{
+         transform: translateY(0) rotate(0deg);
+         opacity: 1;
+         border-radius: 50%;
+         }
+         100%{
+         transform: translateY(-1000px) rotate(720deg);
+         opacity: 0;
+         border-radius: 50%;
+         }
+         }
+      </style>
+      <div id="preloader">
+         <div>
+            <svg class="preloader" viewBox="0 -80 931 350" width="50%"  height="50%"  xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 210 60" xmlns:xlink="http://www.w3.org/1999/xlink" id="el_iCETpszOu">
+               <g id="#000000ff">
+               </g>
+               <g id="#ffffffff">
+                  <path fill="#ffffff" opacity="1.00" d=" M 412.29 82.42 C 424.83 81.75 437.80 81.19 449.89 85.20 C 456.53 87.38 462.96 91.80 465.41 98.60 C 467.49 104.82 467.59 111.50 467.64 117.99 C 467.64 166.33 467.64 214.66 467.64 263.00 C 467.64 269.34 467.55 275.78 465.88 281.94 C 464.15 288.39 458.75 293.23 452.72 295.70 C 441.46 300.46 428.96 300.19 416.98 299.88 C 408.58 299.39 399.63 298.37 392.53 293.46 C 384.67 287.66 382.38 277.26 382.28 268.01 C 382.24 217.00 382.26 165.99 382.27 114.98 C 382.30 106.74 383.73 97.80 389.38 91.42 C 395.11 84.96 404.15 83.42 412.29 82.42 M 420.38 108.50 C 416.88 108.48 414.48 111.65 414.78 115.00 C 414.69 165.33 414.76 215.66 414.75 265.99 C 414.68 268.61 415.22 272.10 418.15 272.98 C 422.61 274.20 427.47 274.19 431.92 272.90 C 435.15 271.26 434.66 267.06 434.98 264.03 C 435.01 215.34 435.01 166.66 434.98 117.97 C 434.66 114.94 435.15 110.73 431.92 109.10 C 428.20 107.95 424.20 107.93 420.38 108.50 Z" />
+                  <path fill="#ffffff" opacity="1.00" d=" M 67.02 84.00 C 83.09 84.00 99.16 84.00 115.23 84.00 C 120.57 134.15 125.84 184.31 131.37 234.43 C 135.51 184.30 139.30 134.14 143.28 84.00 C 159.23 84.00 175.19 84.00 191.14 84.00 C 191.14 156.00 191.14 228.00 191.14 300.00 C 181.76 300.00 172.38 300.00 163.00 300.00 C 163.00 244.66 162.99 189.33 163.00 134.00 C 162.99 131.28 163.14 128.55 162.78 125.85 C 161.90 127.81 161.90 129.98 161.68 132.08 C 155.54 188.05 149.30 244.02 143.18 299.99 C 133.88 300.01 124.58 299.99 115.28 300.00 C 108.57 242.64 102.46 185.20 95.52 127.87 C 95.88 132.24 95.79 136.62 95.79 141.00 C 95.79 194.00 95.79 247.00 95.79 300.00 C 86.20 300.00 76.61 300.00 67.02 300.00 C 67.02 228.00 67.02 156.00 67.02 84.00 Z" />
+                  <path fill="#ffffff" opacity="1.00" d=" M 211.21 84.00 C 222.10 84.00 232.99 84.00 243.88 84.00 C 243.88 156.00 243.88 228.00 243.88 300.00 C 232.99 300.00 222.10 300.00 211.21 300.00 C 211.21 228.00 211.21 156.00 211.21 84.00 Z" />
+                  <path fill="#ffffff" opacity="1.00" d=" M 264.02 84.00 C 279.20 84.00 294.38 84.00 309.55 84.00 C 318.64 138.37 327.39 192.82 336.78 247.12 C 337.15 243.76 337.00 240.38 337.03 237.00 C 337.02 186.00 337.03 135.00 337.02 84.00 C 345.88 84.00 354.74 83.99 363.59 84.01 C 363.58 156.00 363.58 228.00 363.59 299.99 C 348.91 299.98 334.22 300.06 319.54 299.95 C 309.99 242.82 300.31 185.70 290.53 128.61 C 290.67 185.74 290.55 242.87 290.59 300.00 C 281.73 300.00 272.88 300.00 264.02 300.00 C 264.02 228.00 264.02 156.00 264.02 84.00 Z" />
+                  <path fill="#ffffff" opacity="1.00" d=" M 479.31 84.00 C 506.53 84.00 533.75 84.00 560.98 84.00 C 560.97 93.38 560.98 102.76 560.98 112.14 C 552.80 112.13 544.62 112.16 536.44 112.13 C 536.51 174.75 536.45 237.37 536.47 300.00 C 525.65 300.00 514.84 300.00 504.02 300.00 C 504.02 237.38 504.03 174.76 504.01 112.14 C 495.78 112.14 487.54 112.15 479.30 112.14 C 479.31 102.76 479.31 93.38 479.31 84.00 Z" />
+                  <path fill="#ffffff" opacity="1.00" d=" M 582.44 84.01 C 598.57 83.99 614.70 84.01 630.83 84.00 C 639.22 155.98 647.20 228.01 655.57 299.99 C 644.52 299.99 633.47 300.02 622.43 299.98 C 621.05 281.69 619.18 263.45 617.82 245.16 C 609.40 245.13 600.98 245.12 592.57 245.16 C 590.61 263.43 588.95 281.74 586.90 300.00 C 577.25 300.00 567.60 300.00 557.95 300.00 C 565.91 227.98 574.39 156.02 582.44 84.01 M 605.72 117.65 C 602.02 150.72 599.06 183.89 595.65 216.99 C 602.10 217.01 608.55 217.00 615.01 217.00 C 611.99 185.29 609.35 153.54 606.45 121.82 C 606.31 120.41 606.07 119.02 605.72 117.65 Z" />
+                  <path fill="#ffffff" opacity="1.00" d=" M 669.36 84.01 C 680.18 83.99 691.01 84.00 701.84 84.00 C 701.84 143.99 701.82 203.98 701.84 263.97 C 702.01 267.05 702.09 271.19 705.37 272.68 C 709.05 274.29 713.74 274.46 717.18 272.16 C 720.59 269.58 720.83 264.92 720.86 261.01 C 720.85 202.00 720.86 143.00 720.86 84.00 C 731.68 84.00 742.50 84.00 753.33 84.00 C 753.32 145.66 753.35 207.33 753.31 268.99 C 752.88 276.81 752.77 285.87 746.68 291.68 C 739.72 298.57 729.31 299.54 720.02 299.88 C 707.97 300.13 695.41 300.61 684.04 295.91 C 678.49 293.66 673.42 289.46 671.54 283.62 C 670.03 278.57 669.38 273.27 669.36 268.00 C 669.36 206.67 669.37 145.34 669.36 84.01 Z" />
+                  <path fill="#ffffff" opacity="1.00" d=" M 773.46 84.01 C 786.64 83.99 799.82 84.00 813.00 84.00 C 821.48 84.01 830.04 84.51 838.28 86.67 C 842.97 88.00 847.90 89.94 850.90 94.00 C 853.85 98.12 855.20 103.13 856.17 108.04 C 858.49 120.22 857.81 132.67 857.92 145.00 C 857.82 159.56 858.51 174.30 855.52 188.65 C 854.51 193.15 853.24 197.76 850.50 201.54 C 847.57 205.43 842.75 207.16 838.21 208.33 C 846.20 238.91 854.39 269.44 862.47 300.00 C 851.16 299.99 839.85 300.03 828.55 299.98 C 820.96 269.25 813.16 238.57 805.60 207.83 C 805.92 238.55 805.65 269.28 805.74 300.00 C 794.98 299.99 784.22 300.01 773.46 299.99 C 773.48 228.00 773.47 156.00 773.46 84.01 M 805.73 110.14 C 805.75 134.53 805.75 158.92 805.73 183.31 C 810.46 183.17 815.24 183.63 819.95 183.04 C 823.33 182.04 823.47 177.87 824.14 175.00 C 825.84 160.07 824.80 145.01 825.06 130.02 C 824.63 123.68 825.43 116.54 821.93 110.94 C 816.73 109.31 811.09 110.50 805.73 110.14 Z" />                  
+               </g>               
+            </svg>
+            
+            <div style="color: #eeeeee">Copyright © 2023 Alexey Vlasov<br/>
+               Version 0.1
+            </div>
+            
+         </div>
+         <div>
+            <svg viewBox="0 0 850 850" width="25%"  height="25%"  xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 210 60" xmlns:xlink="http://www.w3.org/1999/xlink" id="el_iCETpszOu">
+               <g id="#000000ff">
+               </g>
+               <g id="#ffffff">
+               <path fill="#ff0000" opacity="1.00" d=" M 290.78 100.85 C 298.65 94.52 301.72 84.49 303.42 74.94 C 303.77 88.64 301.33 103.00 293.56 114.55 C 286.16 125.32 273.80 131.44 261.35 134.27 C 231.44 141.15 200.59 145.55 172.51 158.62 C 159.05 164.95 147.54 175.06 139.74 187.75 C 123.88 213.56 120.27 244.51 118.86 274.14 C 114.17 245.30 115.23 215.91 116.93 186.92 C 118.27 176.82 118.85 165.80 125.36 157.42 C 134.85 148.43 147.68 144.67 159.41 139.58 C 186.80 130.35 214.18 120.35 242.92 116.24 C 259.36 113.28 277.32 111.81 290.78 100.85 Z" />
+               <path fill="#ff0000" opacity="1.00" d=" M 763.00 353.99 C 778.82 333.04 787.66 307.28 789.83 281.23 C 795.83 307.05 791.04 335.24 776.43 357.42 C 766.80 372.49 753.07 384.59 737.80 393.75 C 710.68 410.43 679.27 417.50 648.61 424.50 C 618.33 430.89 587.97 439.12 556.78 438.60 C 560.28 443.64 563.93 448.57 567.12 453.82 C 597.18 453.34 627.25 456.24 656.87 461.31 C 669.54 463.89 682.92 466.38 693.54 474.25 C 683.37 475.92 673.43 478.81 663.84 482.57 C 683.21 497.22 703.73 512.52 715.51 534.25 C 711.91 535.65 708.17 536.81 704.87 538.87 C 679.62 557.75 641.64 556.21 617.12 536.85 C 603.42 523.95 588.67 512.27 574.62 499.77 C 578.11 507.64 582.65 515.13 588.70 521.32 C 597.49 531.52 606.02 542.15 612.10 554.23 C 602.30 547.31 590.89 542.49 578.97 540.93 C 600.33 554.98 612.81 583.29 605.20 608.24 C 598.69 593.73 584.45 583.76 569.46 579.51 C 574.99 594.24 575.44 610.20 574.48 625.73 C 573.15 631.04 572.72 636.73 569.37 641.29 C 550.75 637.80 533.51 651.27 526.88 667.97 C 522.24 681.39 517.99 695.01 515.05 708.93 C 513.23 716.49 511.42 724.68 505.55 730.24 C 505.31 719.39 503.60 707.28 495.52 699.29 C 496.28 721.71 492.12 747.35 474.50 762.96 C 474.88 753.51 474.83 743.90 472.10 734.75 C 465.62 748.27 456.86 762.04 442.81 768.61 C 446.48 756.45 446.89 742.85 441.42 731.16 C 452.63 727.05 461.06 718.09 467.48 708.33 C 484.39 700.42 495.13 682.53 495.01 663.97 C 494.46 652.34 506.14 646.39 513.15 639.10 C 505.88 629.27 495.08 622.63 483.89 618.12 C 480.29 616.86 475.98 614.62 472.56 617.49 C 453.21 626.95 430.82 634.05 409.26 628.66 C 399.29 626.39 389.50 623.17 380.29 618.72 C 377.76 617.65 375.33 615.10 372.38 616.27 C 358.75 620.07 346.45 628.18 337.19 638.84 C 345.27 624.43 358.16 612.21 374.22 607.40 C 389.94 615.48 407.42 620.77 425.00 622.67 C 424.68 617.21 426.33 611.11 422.47 606.53 C 406.46 576.92 395.71 542.38 401.61 508.55 C 406.74 495.40 411.80 482.18 415.49 468.54 C 416.07 467.13 414.89 465.96 414.14 464.91 C 402.18 449.83 386.49 436.47 367.23 432.31 C 370.96 424.14 380.15 420.85 388.00 417.99 C 395.92 414.50 405.47 414.29 412.02 408.06 C 419.41 399.09 423.55 387.95 426.37 376.81 C 427.65 369.35 426.38 361.67 427.94 354.24 C 430.24 348.67 433.40 343.01 438.70 339.78 C 446.02 335.56 454.57 334.80 462.78 333.76 C 484.28 332.26 506.03 334.78 526.42 341.82 C 523.52 344.18 521.20 347.14 519.03 350.16 C 525.01 352.61 531.69 353.18 537.96 354.85 C 539.26 355.40 540.64 355.69 542.02 356.00 C 561.32 361.42 584.98 364.20 597.03 382.20 C 588.08 381.76 579.23 383.63 571.00 387.05 C 576.29 388.82 581.36 391.30 585.78 394.73 C 617.27 386.97 650.15 384.66 680.69 373.12 C 680.19 385.32 692.13 395.83 704.16 393.39 C 727.65 387.81 748.52 373.17 763.00 353.99 M 398.53 430.43 C 403.49 434.45 407.18 439.71 411.11 444.68 C 430.27 442.11 449.98 434.87 463.20 420.19 C 465.84 417.16 469.37 415.02 471.60 411.63 C 450.09 425.12 424.24 434.81 398.53 430.43 M 434.89 467.25 C 438.68 481.08 443.35 494.68 448.95 507.89 C 457.19 510.50 465.39 513.40 473.81 515.34 C 479.26 514.45 484.59 512.88 489.98 511.65 C 486.78 536.11 482.77 560.73 474.55 584.07 C 489.38 565.02 499.91 543.02 512.46 522.56 C 521.03 519.35 531.27 523.04 539.35 518.32 C 543.65 509.45 544.68 499.36 546.91 489.83 C 540.20 486.10 536.38 477.81 538.44 470.32 C 540.05 463.12 546.69 457.84 553.93 457.13 C 545.90 448.44 533.94 443.52 522.10 444.74 C 499.73 447.14 479.93 460.18 463.84 475.24 C 456.54 458.97 468.42 441.93 481.46 432.81 C 462.11 437.58 446.53 451.62 434.89 467.25 M 465.50 522.93 C 459.88 549.73 447.08 574.24 434.54 598.33 C 447.53 587.82 455.51 572.64 463.10 558.07 C 465.12 566.45 466.74 575.06 466.44 583.72 C 471.18 573.51 471.88 562.01 471.89 550.92 C 471.04 541.43 470.55 531.29 465.50 522.93 Z" />
+               <path fill="#ff0000" opacity="1.00" d=" M 319.47 476.47 C 322.40 476.01 324.65 478.62 326.97 480.02 C 337.87 488.86 347.99 498.67 357.82 508.67 C 348.62 511.48 337.35 511.04 330.29 503.77 C 323.69 496.19 321.91 485.90 319.47 476.47 Z" />
+               <path fill="#ff0000" opacity="1.00" d=" M 494.21 508.44 C 506.39 497.56 517.03 484.36 531.49 476.42 C 529.49 485.29 527.44 494.56 522.09 502.09 C 515.60 510.35 503.65 511.16 494.21 508.44 Z" />
+               <path fill="#ff0000" opacity="1.00" d=" M 376.03 584.12 C 367.74 560.77 363.90 536.10 360.38 511.66 C 365.82 512.94 371.19 514.55 376.71 515.45 C 380.41 514.75 383.95 513.43 387.59 512.48 C 383.00 537.91 379.75 564.50 385.21 590.01 C 368.71 587.00 355.28 575.65 345.52 562.53 C 335.41 548.79 322.48 536.60 316.35 520.36 C 323.59 521.44 331.44 519.99 338.29 522.76 C 350.64 543.30 361.33 565.06 376.03 584.12 Z" />
+               <path fill="#ff0000" opacity="1.00" d=" M 370.42 657.51 C 376.23 656.36 381.94 662.23 380.97 668.02 C 379.47 677.93 386.45 686.62 394.42 691.53 C 410.88 701.53 432.31 702.41 449.89 694.85 C 460.52 690.34 471.48 680.41 469.56 667.75 C 468.14 660.08 479.76 653.11 484.45 660.56 C 488.36 671.02 485.59 683.26 479.13 692.15 C 469.27 705.85 452.74 713.30 436.36 715.55 C 415.15 718.32 391.72 713.23 376.19 697.79 C 366.98 688.82 361.96 675.09 365.36 662.43 C 365.90 659.95 367.93 657.99 370.42 657.51 Z" />
+               </g>
+               <g id="#ff0000">
+               <path fill="#ff0000" opacity="1.00" d=" M 548.29 75.62 C 549.34 87.18 554.82 98.89 565.25 104.75 C 585.44 116.54 609.81 115.12 631.79 121.32 C 653.21 126.67 674.26 133.33 694.96 141.03 C 706.13 145.90 718.74 149.53 727.01 159.02 C 734.13 171.27 734.65 186.24 734.66 200.06 C 736.61 224.50 735.88 249.22 732.48 273.51 C 732.17 246.18 728.10 218.18 715.57 193.57 C 709.27 181.78 700.57 170.89 689.15 163.72 C 662.55 147.92 631.54 142.40 601.61 136.38 C 588.19 133.37 573.83 130.36 563.58 120.44 C 551.54 109.04 548.14 91.57 548.29 75.62 Z" />
+               <path fill="#ff0000" opacity="1.00" d=" M 60.64 282.26 C 64.09 320.16 82.04 358.28 114.42 379.70 C 123.58 385.78 133.80 390.04 144.14 393.64 C 156.17 395.38 167.91 384.91 167.29 372.65 C 198.60 384.95 232.49 387.40 265.04 394.79 C 269.44 391.30 274.57 388.90 279.81 386.97 C 271.70 383.25 262.77 381.42 253.85 382.13 C 257.81 374.35 264.92 368.97 272.03 364.25 C 258.42 360.51 244.79 356.74 230.91 354.19 C 210.96 351.21 190.58 350.84 170.98 345.75 C 155.09 342.34 139.23 334.92 129.71 321.24 C 160.72 338.01 196.85 338.41 230.95 343.14 C 250.91 346.57 270.49 351.97 290.12 356.89 C 303.59 353.78 317.28 351.57 331.09 350.51 C 328.62 345.78 324.30 342.51 320.79 338.62 C 342.27 335.29 364.14 337.45 385.70 338.96 C 372.13 354.56 360.42 372.14 343.31 384.28 C 333.93 391.57 323.39 397.54 315.45 406.52 C 310.40 412.25 307.65 419.53 305.82 426.85 C 320.74 427.24 334.96 432.87 347.73 440.27 C 362.31 448.94 376.12 459.61 385.73 473.79 C 371.94 461.47 355.94 450.83 337.87 446.15 C 323.58 441.92 307.29 445.64 297.06 456.70 C 305.01 457.52 312.16 463.83 313.00 471.94 C 314.26 479.56 309.43 486.70 302.97 490.30 C 301.67 495.73 301.86 501.43 300.79 506.92 C 298.01 501.73 295.80 496.27 293.40 490.90 C 304.55 482.28 299.47 462.69 285.59 460.45 C 284.86 452.58 284.71 444.47 287.40 436.92 C 279.64 443.76 272.23 451.01 264.13 457.46 C 267.14 450.36 271.90 444.31 276.28 438.05 C 250.45 435.76 225.28 429.36 199.98 424.01 C 174.61 418.06 148.81 412.43 125.41 400.54 C 100.29 388.26 77.45 368.85 66.51 342.57 C 58.22 323.75 56.46 302.33 60.64 282.26 Z" />
+               <path fill="#ff0000" opacity="1.00" d=" M 616.72 343.52 C 651.49 338.20 688.31 338.28 720.17 321.49 C 711.78 333.42 698.38 340.64 684.62 344.57 C 660.77 351.88 635.54 350.27 610.97 352.29 C 596.07 353.35 581.18 354.88 566.24 355.35 C 582.99 351.12 599.80 347.01 616.72 343.52 Z" />
+               <path fill="#ff0000" opacity="1.00" d=" M 145.26 466.12 C 171.97 455.20 200.81 450.61 229.33 447.46 C 204.67 454.50 178.42 459.51 156.89 474.18 C 167.08 475.90 176.99 478.89 186.69 482.44 C 167.36 497.19 146.92 512.47 134.99 534.17 C 144.61 537.14 152.97 542.94 160.43 549.55 C 177.62 559.42 197.61 565.03 217.47 564.56 C 219.84 555.40 222.67 546.09 228.60 538.53 C 239.69 523.41 255.96 513.66 270.17 501.86 C 267.78 507.58 265.24 513.36 261.13 518.09 C 252.47 529.38 244.75 541.43 238.53 554.23 C 248.25 547.62 259.30 542.65 271.04 541.18 C 250.11 555.45 237.66 583.26 245.15 608.10 C 251.57 594.15 265.22 583.31 280.14 580.23 C 275.90 588.11 276.22 597.37 274.61 605.95 C 274.61 617.95 274.24 630.96 280.63 641.60 C 282.48 645.11 286.88 643.25 290.00 643.57 C 298.41 643.77 307.54 643.52 315.00 647.98 C 323.61 654.83 329.30 664.78 333.21 674.92 C 325.76 667.23 318.43 658.47 308.02 654.80 C 294.60 651.86 280.78 654.43 267.29 654.90 C 262.99 652.23 258.94 649.04 255.71 645.12 C 253.73 647.55 251.80 650.01 249.79 652.42 C 235.55 633.27 223.22 610.13 226.45 585.47 C 221.16 591.44 216.18 597.71 210.50 603.33 C 211.61 590.83 213.62 578.36 217.07 566.27 C 198.59 573.41 177.58 574.00 158.62 568.39 C 150.59 566.33 144.50 560.38 137.23 556.74 C 129.04 551.69 119.69 549.24 110.60 546.36 C 115.75 523.59 130.59 504.53 148.10 489.72 C 137.54 488.06 126.95 486.58 116.42 484.71 C 124.45 476.40 134.73 470.67 145.26 466.12 Z" />
+               <path fill="#ff0000" opacity="1.00" d=" M 310.16 665.03 C 319.67 673.20 327.00 683.76 331.71 695.35 C 335.62 704.57 337.26 714.73 342.61 723.34 C 344.07 714.12 346.30 704.45 352.74 697.34 C 355.07 717.82 360.16 739.08 372.89 755.73 C 372.84 745.91 374.45 736.10 378.12 726.97 C 383.83 740.22 390.93 753.59 402.74 762.40 C 401.50 755.53 402.16 748.32 405.51 742.11 C 405.93 752.90 408.44 763.55 412.77 773.45 C 401.34 776.05 388.95 773.63 378.58 768.42 C 359.08 755.13 353.34 730.08 351.98 707.92 C 347.81 716.60 347.30 726.47 348.02 735.94 C 339.37 730.61 334.75 721.16 332.42 711.60 C 328.15 694.83 321.74 678.20 310.16 665.03 Z" />
+               </g>               
+            </svg>
+         </div>
+         <div class="area" >
+            <ul class="circles">
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+            </ul>
+         </div >
+      </div>
+      <title>DiveProMe+ Decompression Planner Software</title>
+      <meta property="og:title" content="DiveProMe+ Decompression Planner Software"/>
+      <meta property="og:description" content="DiveProMe+ Decompression Planner Software"/>
+      <meta property="og:image" content="/DiveMePro/promo_label+.jpg">
+      <meta property="og:type" content="website"/>
+      <meta property="og:url" content= "/DiveMePro/promo_label+.jpg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
+      <link href="apple-touch-icon+.png" rel="apple-touch-icon" />
+      <link href="apple-touch-icon-76x76+.png" rel="apple-touch-icon" sizes="76x76" />
+      <link href="apple-touch-icon-120x120+.png" rel="apple-touch-icon" sizes="120x120" />
+      <link href="apple-touch-icon-152x152+.png" rel="apple-touch-icon" sizes="152x152" />
+      <link href="apple-touch-icon-180x180+.png" rel="apple-touch-icon" sizes="180x180" />
+      <link href="icon-hires+.png" rel="icon" sizes="192x192" />
+      <link href="icon-normal+.png" rel="icon" sizes="128x128" />
+   </head>
+   <body id="body_main" onload="">
+      <!-- custom node js Platforms(Win,OsX, Linux) start interface position control
+         <div id="node_os_custom_height"><br/></div> -->
+      <!--custom window toolbar end  -->
+      <div id="intro" id="main_body">
+         <div id="slider">
+            <div class="header" id="0-header">
+               <div class="header0"></div>
+            </div>
+            <div class="content" id="0-content">
+               <div class="div_block" id="visuallyhidden">
+               </div>
+               <div class="div_block">
+                  <div id="tr_lng" class="tr_lng"></div>
+                  <div id="tr_lng_sel" class="tr_lng_sel"></div>
+                  <div id="tr_dmn" class="tr_dmn"></div>
+                  <div id="tr_dmn_sel" class="tr_dmn_sel"></div>
+               </div>
+               <div class="div_block">
+                  <div id="tn_rec_freq" class="tn_rec_freq"></div>
+                  <div id="tn_meas_len" class="tn_meas_len"></div>
+                  <div id="tn_const_spd" class="tn_const_spd"></div>
+                  <div id="tn_calib_f" class="tn_calib_f"></div>
+               </div>
+               <div class="div_block">
+                  <div id="tr_ifc_set" class="tr_ifc_set"></div>
+                  <div name ="tn_ifc_set" id="tn_ifc_set" class="tn_ifc_set"></div>
+                  <div class="tn_btn_save" id="tn_btn_save">
+                     <button type="button" onClick="btn_save();" id="btn_save" class="btn_save">Save Settings</button>
+                  </div>
+                  <div class="tn_btn_restore" id="tn_btn_restore">
+                     <button type="button" onClick="btn_restore();" id="btn_restore" class="btn_restore">Restore Default Settings</button>
+                  </div>
+               </div>
+            </div>
+            <div class="header" id="1-header">
+               <div class="header1"></div>
+            </div>
+            <div class="content" id="1-content">
+            </div>
+            <div class="header" id="2-header">
+               <div class="header2"></div>
+            </div>
+            <div class="content" id="2-content">
+               <div class="div_block" id="ibcd_block">
+               </div>
+            </div>
+            <div class="header" id="3-header">
+               <div class="header3"></div>
+            </div>
+            <div class="content" id="3-content">
+               <div class="div_block">
+               </div>
+            </div>
+            <div class="header" id="4-header">
+               <div class="header4"></div>
+            </div>
+            <div class="content" id="4-content">
+            </div>
+            <div class="div_block_bottom">
+               <dd><code id="status"></code></dd>
+               <div id="rec_base" style="width:100%; height:0px;">
+                  <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:50px; position:sticky; top: 0px; z-index:10"></div>
+               </div>
+               <div id="gps_base" style="width:100%; height:0px;">
+                  <div id="btn_gps" class="btn_gps"></div>
+               </div>
+               <div id="compass" style="background: url(compass_main.svg) no-repeat center center; width:100%; height:500px;"></div>
+               <p class=error id="error-NONAVIGATION" hidden>There are no navigation on this device.</p>
+               <p class=error id="error-PERMISSION_DENIED" hidden>You must authorize the localisation to get the data.</p>
+               <p class=error id="error-POSITION_UNAVAILABLE" hidden>Intern error when get the localisation data.</p>
+               <p class=error id="error-TIMEOUT" hidden>Time out to get the localisation.</p>
+               <p class=error id="error-OTHER" hidden>Unknown error.</p>
+               <dl>
+                  <dt>Orientation</dt>
+                  <dd><code id=data-angle>?</code>В°</dd>
+                  <dd><code id=data-beta>?</code>В°</dd>
+                  <dd><code id=data-gamma>?</code>В°</dd>
+                  <dt>Coordinates:</dt>
+                  <dd>
+                     (<code id=data-latitude>?</code>В°,
+                     <code id=data-longitude>?</code>В°)
+                     В±&nbsp;<code id=data-accuracy>?</code>m
+                  </dd>
+            
+                  <dt>Altitude:</dt>
+                  <dd>
+                     <code id=data-altitude>?</code>m
+                     В±&nbsp;<code id=data-altitudeAccuracy>?</code>m
+                  </dd>
+            
+                  <dt>Speed:</dt>
+                  <dd><code id=data-speed>?</code>m/s</dd>
+            
+                  <dt>Last update:</dt>
+                  <dd id=lastUpdate>0</dd>
+               </dl>            
+               <div id="big_buttons" class="big_buttons">
+                  <button type="button" id="btn_meas" class="btn_meas" onClick="btn_meas_click();"></button>
+                  <button type="button" id="btn_rec" class="btn_rec" onClick="btn_record();"></button>
+               </div>
+            </div>
+            <div class="header" id="5-header">
+               <div class="header5"></div>
+            </div>
+            <div class="content" id="5-content">
+               <div class="div_block" id="div_block">
+                  <button type="button" id="btn_add_track" class="btn_add_track" onClick="btn_add_track();"></button>
+                  <button type="button" id="btn_delete_track" class="btn_delete_track" onClick="btn_delete_track();"></button>
+                  <button type="button" id="btn_save_track" class="btn_save_track" onClick="btn_save_track();"></button>
+               </div>
+            </div>
+            <div class="header" id="6-header">
+               <div class="header6"></div>
+            </div>
+            <div class="content" id="6-content">
+               <div id="div_block_rec">
+                  <iframe id="div_block_rec" class="div_block_rec" src="viewer/index.html" width="100%" height="700px" style="border:none;"></iframe>
+               </div>
+            </div>
+            <div class="header" id="7-header">
+               <div class="header7"></div>
+            </div>
+            <div class="content" id="7-content">
+            </div>
+            <div class="header" id="8-header">
+               <div class="header8"></div>
+            </div>
+            <div class="content" id="8-content">
+            </div>
+            <div class="header" id="9-header">
+               <div class="header9"></div>
+            </div>
+            <div class="content" id="9-content">
+            </div>
+            <div class="header" id="10-header">
+               <div class="header10"></div>
+            </div>
+            <div class="content" id="10-content">
+               <div class="div_block">
+                  <div class="tn_donat_header" id="tn_donat_header"></div>
+                  <a id="btn_ios_msg" target="_blank" rel="noopener noreferrer" class="btn_ios_msg" href="mailto:all3862000@mail.ru?subject=DiveProMe%20Donation"></a>
+                  <br>
+                  <a id="btn_ios_tel" target="_blank" rel="noopener noreferrer" class="btn_ios_tel" href="tel:+79204241850"></a>
+               </div>
+               <div class="div_block">
+                  <div class="tn_donat_header_founder" id="tn_donat_header_founder"></div>
+                  <img src="cup_founder.png"><br>
+                  <div class="td_founder_list"></div>
+               </div>
+               <div class="div_block">
+                  <div class="tn_donat_header_gold" id="tn_donat_header_gold"></div>
+                  <img src="cup_gold.png"><br>
+                  <div class="td_gold_list"></div>
+               </div>
+               <div class="div_block">
+                  <div class="tn_donat_header_silver" id="tn_donat_header_silver"></div>
+                  <img src="cup_silver.png"><br>
+                  <div class="td_silver_list"></div>
+               </div>
+               <div class="div_block">
+                  <div class="tn_donat_header_bronze" id="tn_donat_header_bronze"></div>
+                  <img src="cup_bronze.png"><br>
+                  <div class="td_bronze_list"></div>
+               </div>
+            </div>
+            <div class="header" id="11-header">
+               <div class="header11"></div>
+            </div>
+            <div class="content" id="11-content">
+            </div>
+         </div>
+      </div>
+      <div class="div_block_warn" id="td_warn_div">
+         <div id="td_warn" class="td_warn"></div>
+      </div>
+      <div class="div_block_warn">
+         <div id="td_copyright" class="td_copyright"></div>
+         <div id="chart_pdf" class="chart_pdf"></div>
+      </div>
+      <div id="AlertOverlay" class="overlay" onClick="closeNav();">
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"></a>
+         <div class="overlay-content">
+            <div> </div>
+            <div class="tn_overlay_text" id="tn_overlay_text">
+               <div class="opt_overlay_text" id="opt_overlay_text"></div>
+            </div>
+         </div>
+      </div>
+      <div id="Overlay_progress" class="overlay_progress">
+         <div class="overlay-content-progress">
+            <div>
+               <svg class="shadow" id="eu3lY90mh7v1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  width="150"  height="150" viewBox="0 0 600 600" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+                  
+                  <g transform="translate(19.991013 0)">
+                     <ellipse rx="180" ry="180" transform="translate(280.008982 320.019785)" fill="#fff" stroke="#166bff" stroke-width="20"/>
+                     <path d="M230.300596,110.171584c13.78533-17.892982,43.65513-19.303053,60,0" transform="matrix(.69016 0.723657-.723657 0.69016 339.21005-103.380475)" fill="#fff" stroke="#166bff" stroke-width="60" stroke-linecap="round"/>
+                     <path d="M230.300596,110.171584c13.78533-17.892982,43.65513-19.303053,60,0" transform="matrix(.690125-.72369 0.72369 0.690125-139.198228 273.36926)" fill="#fff" stroke="#166bff" stroke-width="60" stroke-linecap="round"/>
+                     <path d="M230.300596,110.171584h60" transform="matrix(.493651 0.517611 0.723657-.69016 188.823603 434.093752)" fill="#fff" stroke="#166bff" stroke-width="40" stroke-linecap="round"/>
+                     <path d="M230.300596,110.171584h60" transform="matrix(.493626-.517635-.72369-.690125 117.286607 703.565017)" fill="#fff" stroke="#166bff" stroke-width="40" stroke-linecap="round"/>
+                     <path d="M230.300596,110.171584h80" transform="translate(9.708386-10.139586)" fill="#fff" stroke="#166bff" stroke-width="40" stroke-linecap="round"/>
+                     <g id="eu3lY90mh7v9_tr" transform="translate(280.008987,320.019785) rotate(0)">
+                        <path d="M265.150298,229.743893v-140" transform="translate(-265.150304,-229.743893)" fill="#fff" stroke="#166bff" stroke-width="14" stroke-linecap="round"/>
+                     </g>
+                  </g>
+               </svg>
+            </div>
+            <div class="tn_overlay_text_progress" id="tn_overlay_text_progress">
+               
+               <div class="opt_overlay_text" id="opt_overlay_text"></div>
+            </div>
+         </div>
+      </div>
+      <!--<node js specific lines for export choising>-->
+      <input id="nodejs_export_xls" type="file"  nwsaveas style="display:none" accept="application/vnd.ms-excel" nwworkingdir=""/>
+      <input id="nodejs_export_pdf" type="file"  nwsaveas style="display:none" accept="application/pdf" nwworkingdir=""/>
+      <script src="jquery-3.6.0.js"></script>
+      <script src="jquery.mCustomScrollbar.js"></script>
+      <script src="jquery.mousewheel.js"></script>
+      <script src="roundslider.js"></script>
+      <script src="jszip.js"></script>
+      <script src="xlsx.full.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="katex.css">
+      <script src="katex.js"></script>
+      <!--<script src="jspdf.debug.js"></script>-->
+      <script src="jspdf.src.js"></script>
+      <script src="Arial_Digiscream_Normal-normal.js"></script>
+      <script src="svg2pdf.src.js"></script>
+      <script src="jspdf.plugin.autotable.js"></script>
+      <script src="highstock.js?v0.1811153116241151113311111131167" charset="UTF-8"></script>
+      <script src="exporting.src.js?v0.16135114125816133592113157" charset="UTF-8"></script>
+      <script src="offline-exporting.src.js?v0.1554116233311163171819215" charset="UTF-8"></script>
+      <script src="html_new_gen_main.js?v0.1112111154563333111186411841154923457" charset="UTF-8"></script>
+      <script src="android_fn.js?v0.284184112511131453651339116234517" charset="UTF-8"></script>
+      <script src="cookie_settings.js?v0.112285311142516313311111836441521679123457wa123" charset="UTF-8"></script>
+      <script src="lng_fn.js?v0.110267w1a134g215f1145v3613313112"charset="UTF-8"></script>
+      <script src="block_gen.js?v0.826112118315315545v16931123457" charset="UTF-8"></script>
+      <script src="chart_theme.js?v0.1821412834v5753361131461115912345" charset="UTF-8"></script>
+      <script src="style_manager.js?v0.1812v11114353536311327468114315912345" charset="UTF-8"></script>
+      
+      <!-- Very important place only here node js check functions! -->
+      <script src="nodejs_fn.js?v0.1818244152v61134573356113591213415" charset="UTF-8"></script>
+      <script src="FileSaver.js?v0.8842617111v4113453335625191123145" charset="UTF-8"></script>
+      <script src="main.js?v0.18812454115651911v1313452335672113415aw" charset="UTF-8"></script>
+      <script src="style_manager.js?v0.1881412131v62134573356141115912345" charset="UTF-8"></script>
+      <!-- Preloader Info Wait when all Page Loaded-->
+      <script type="text/javascript">
+         window.onload = function() {
+             setTimeout( function(){
+               document.getElementById("preloader").style.opacity = "0";
+               setTimeout(function() {
+                   document.getElementById("preloader").style.display = "none";
+               }, 1000);
+             }, 1200);
+         };
+      </script>
+      <!--<Preloader_End>-->
+   </body>
