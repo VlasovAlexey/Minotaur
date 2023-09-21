@@ -318,6 +318,36 @@
          </div>
          <div class="div_block_bottom">
             <dd><code id="status"></code></dd>
+            <dl>
+               <dt>Orientation</dt>
+               <dd><code id=data-angle>?</code>Р’В°</dd>
+               <dd><code id=data-beta>?</code>Р’В°</dd>
+               <dd><code id=data-gamma>?</code>Р’В°</dd>
+               <dt>Coordinates:</dt>
+               <dd>
+                  (<code id=data-latitude>?</code>Р’В°,
+                  <code id=data-longitude>?</code>Р’В°)
+                  Р’В±&nbsp;<code id=data-accuracy>?</code>m
+               </dd>
+         
+               <dt>Altitude:</dt>
+               <dd>
+                  <code id=data-altitude>?</code>m
+                  Р’В±&nbsp;<code id=data-altitudeAccuracy>?</code>m
+               </dd>
+         
+               <dt>Speed:</dt>
+               <dd><code id=data-speed>?</code>m/s</dd>
+         
+               <dt>Last update:</dt>
+               <dd id=lastUpdate>0</dd>
+            </dl>
+            <p class=error id="error-NONAVIGATION" hidden>There are no navigation on this device.</p>
+               <p class=error id="error-PERMISSION_DENIED" hidden>You must authorize the localisation to get the data.</p>
+               <p class=error id="error-POSITION_UNAVAILABLE" hidden>Intern error when get the localisation data.</p>
+               <p class=error id="error-TIMEOUT" hidden>Time out to get the localisation.</p>
+               <p class=error id="error-OTHER" hidden>Unknown error.</p>
+               
             <div id="rec_base" style="width:100%; height:0px;">
                <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:50px; position:sticky; top: 0px; z-index:10"></div>
             </div>

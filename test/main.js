@@ -207,36 +207,8 @@ function btn_meas_click(){
         meas_state = 0;
     }
 }
-let compass = document.getElementById('compass');
-      let status  = document.getElementById('status');
 
-      if ( 'AbsoluteOrientationSensor' in window ) {
-        compass.hidden = false;     
-        let sensor = new AbsoluteOrientationSensor();
-        sensor.addEventListener('reading', function(e) {
-          let q = e.target.quaternion;
-          heading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
 
-          let html =  'Heading in degrees: ' + heading;
-          //if(heading < 0) heading = 360 + heading;
-          headingAdjusted = heading;
-          
-          //heading - 90;
-          
-          //headingAdjusted + 90;
-          //if(headingAdjusted > 360) headingAdjusted = headingAdjusted - 90;
-          
-          //var test = 90 + headingAdjusted;
-          //var test = 80;
-          html += '<br>Adjusted:   ' + headingAdjusted;
-          status.innerHTML = html;
-          compass.style.Transform = 'rotate(' + heading + 'deg)';
-          compass.style.WebkitTransform = 'rotate('+ heading + 'deg)';
-          //compass.style.MozTransform = 'rotate(' + 90 + 'deg)';
-        });
-        sensor.start();
-      }
-      else status.innerHTML = 'AbsoluteOrientationSensor not supported';
       
 // The date of the last geolocation update.
 var lastUpdate = new Date();

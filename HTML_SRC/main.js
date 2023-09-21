@@ -285,9 +285,9 @@ window.addEventListener("load", () => {
         let orient_g = Math.round(event.gamma)
         
         
-		//document.getElementById("data-angle").textContent = orient_a;
-        //document.getElementById("data-beta").textContent = orient_b;
-        //document.getElementById("data-gamma").textContent = orient_g;
+		document.getElementById("data-angle").textContent = orient_a;
+        document.getElementById("data-beta").textContent = orient_b;
+        document.getElementById("data-gamma").textContent = orient_g;
         //document.getElementById("compass").style.transform = `rotate(${((orient_a-90)*1.0)}deg)`;
 		
 	});
@@ -318,7 +318,7 @@ function updateGeo(c) {
 		"longitude",
 		"speed",
 	].forEach(p => {
-		//document.getElementById(`data-${p}`).textContent = String(c[p]);
+		document.getElementById(`data-${p}`).textContent = String(c[p]);
 	});
     
     //recording and we need add every interval data to file
@@ -390,7 +390,7 @@ const TIMEOUT = 3;
 
 // Hidden all error paragraph.
 function errorHidden() {
-    /*
+    
 	[
 		"error-NONAVIGATION",
 		"error-PERMISSION_DENIED",
@@ -398,7 +398,7 @@ function errorHidden() {
 		"error-TIMEOUT",
 		"error-OTHER",
 	].forEach(e => document.getElementById(e).hidden = true);
-    */
+    
 }
 
 
