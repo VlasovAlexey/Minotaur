@@ -427,6 +427,7 @@ function updateError(err) {
 	}
 
 	document.getElementById(`error-${t}`).hidden = false;
+  
 }
 
 //compass code start here
