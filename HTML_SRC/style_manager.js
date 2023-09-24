@@ -54,34 +54,12 @@ function assign_css_style(){
         }
         //CSSLoad("roundslider_light.css");
     }
-    ZoomButtonChangeStyle();
+    //ZoomButtonChangeStyle();
 }
 assign_css_style();
 
-//Change ZoomButtonStyles
-function ZoomButtonChangeStyle(){
-    if(tn_color_idx*1.0 === 1){
-        ColorZoobButtonFill = "#fa2b2c";
-        ColorZoobButtonStroke = "#969696";
-        ColorZoobButtonText = "white";
-        ZoobButtonRadius = 10;
-        ColorZoobButtonFillHover = "#eeeeee";
-        ColorZoobButtonTextHover = "#424242";
-        ColorZoobButtonStrokeHover = "#0080fc";
-    }
-    if(tn_color_idx*1.0 === 2){
-        ColorZoobButtonFill = "#fa2b2c";
-        ColorZoobButtonStroke = "#fa2b2c";
-        ColorZoobButtonText = "white";
-        ZoobButtonRadius = 5;
-        ColorZoobButtonFillHover = "#eeeeee";
-        ColorZoobButtonTextHover = "#0080fc";
-        ColorZoobButtonStrokeHover = "#0080fc";
-    }
-}
-
 //hide node js OS control icons and toolbar because not work smoothly
-CSSLoad("style_hide_window_control_section.css?v153");
+//CSSLoad("style_hide_window_control_section.css?v153");
 
 
 

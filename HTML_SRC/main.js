@@ -1,8 +1,6 @@
 //get current date time string in UTC
 function get_date(){
-
 var now = new Date();
-
 var year = now.getFullYear();
 var month = now.getMonth() + 1;
 var day = now.getDate();
@@ -10,10 +8,23 @@ var hours = now.getHours();
 var minutes = now.getMinutes();
 var seconds = now.getSeconds();
 //var milliseconds = now.getMilliseconds();
-
 var final_time = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
-    return final_time;
+return final_time;
 }
+
+//get current date time string in human readable
+function get_date_hr(){
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.getMonth() + 1;
+  var day = now.getDate();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+  //var milliseconds = now.getMilliseconds();
+  var final_time = `${day}_${month}_${year} ${hours}:${minutes}:${seconds}`;
+  return final_time;
+  }
 
 //os detector
 function getOS() {
@@ -159,6 +170,7 @@ var ele_start = "0.0";
 var lat_reg = "0.0";
 var lon_reg = "0.0";
 var ele_reg = "0.0";
+
 var speed_reg = "0.0";
 var course_reg = "0.0";
 
@@ -210,7 +222,7 @@ function btn_record(){
         GPX_File = GPX_File + "</gpx>\n";
         
         //and write file
-        var fl_name = "minotaur_track_"+ get_date() + ".gpx";
+        var fl_name = "minotaur_"+ get_date_hr() + ".gpx";
         var blob = new Blob([GPX_File], {type: "application/gpx;charset=utf-8"});
         saveAs(blob, fl_name);
         GPX_File = [];
@@ -233,42 +245,9 @@ function btn_meas_click(){
         meas_state = 0;
     }
 }
-/*
-let compass = document.getElementById('compass');
-      let status  = document.getElementById('status');
-    
-      if ( 'AbsoluteOrientationSensor' in window ) {
-        compass.hidden = false;     
-        let sensor = new AbsoluteOrientationSensor();
-        sensor.addEventListener('reading', function(e) {
-          let q = e.target.quaternion;
-          heading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
-
-          let html =  'Heading in degrees: ' + heading;
-          //if(heading < 0) heading = 360 + heading;
-          headingAdjusted = heading;
-          
-          //heading - 90;
-          
-          //headingAdjusted + 90;
-          //if(headingAdjusted > 360) headingAdjusted = headingAdjusted - 90;
-          
-          //var test = 90 + headingAdjusted;
-          //var test = 80;
-          html += '<br>Adjusted:   ' + headingAdjusted;
-          status.innerHTML = html;
-          compass.style.Transform = 'rotate(' + heading + 'deg)';
-          compass.style.WebkitTransform = 'rotate('+ heading + 'deg)';
-          //compass.style.MozTransform = 'rotate(' + 90 + 'deg)';
-        });
-        sensor.start();
-      }
-      else status.innerHTML = 'AbsoluteOrientationSensor not supported';
-*/
 
 // The date of the last geolocation update.
 var lastUpdate = new Date();
-
 window.addEventListener("load", () => {
 	if (!navigator.geolocation) {
 		updateError({
@@ -277,35 +256,37 @@ window.addEventListener("load", () => {
 		return;
 	}
 
- 
-
 	window.addEventListener("deviceorientation", event => {
 		let orient_a = Math.round(event.alpha)
-        let orient_b = Math.round(event.beta)
-        let orient_g = Math.round(event.gamma)
-        
-        
+    let orient_b = Math.round(event.beta)
+    let orient_g = Math.round(event.gamma)
+          
 		document.getElementById("data-angle").textContent = orient_a;
-        document.getElementById("data-beta").textContent = orient_b;
-        document.getElementById("data-gamma").textContent = orient_g;
-        //document.getElementById("compass").style.transform = `rotate(${((orient_a-90)*1.0)}deg)`;
-		
+    document.getElementById("data-beta").textContent = orient_b;
+    document.getElementById("data-gamma").textContent = orient_g;
+    //document.getElementById("compass").style.transform = `rotate(${((orient_a-90)*1.0)}deg)`;
 	});
 
 	navigator.geolocation.watchPosition(g => {
-		lastUpdate = new Date();
-		errorHidden();
-		updateTime();
+		//lastUpdate = new Date();
+		//errorHidden();
+		//updateTime();
 		updateGeo(g.coords);
+    console.log(g.coords)
 	}, updateError, {
 		enableHighAccuracy: true,
 	    });
 	    window.setInterval(updateTime, 2000);
     },
     {
-	    once: true,
+	    //once: true,
     });
 
+    
+    myInterval = setInterval(test_int, 2000);
+    function test_int(){
+      console.log(acHeading);
+    }
 
 
 // Update all the element in DOM with the new geolocation information in a GeolocationCoordinates object 
@@ -372,18 +353,19 @@ function updateGeo(c) {
 const Second = 1000;
 const Minute = 60 * Second;
 
-// Update the durattion since the last geolocalisation element.
+// Update the duration since the last geolocation element.
 function updateTime() {
-	let d = new Date() - lastUpdate;
+	/*let d = new Date() - lastUpdate;
 	let min = Math.floor(d / Minute);
 	let sec = Math.floor(d % Minute / Second);
   tot_time = min + "m " + sec + "s"
 	document.getElementById("lastUpdate").innerHTML = "Last Update <br>" + tot_time;
+  */
 }
 
 
 
-const NONAVIGATION = -1; // a non-standart error code
+const NONAVIGATION = -1; // a non-standard error code
 const PERMISSION_DENIED = 1;
 const POSITION_UNAVAILABLE = 2;
 const TIMEOUT = 3;
@@ -431,7 +413,6 @@ function updateError(err) {
   
 }
 
-
 //compass code start here
   var lastNamedLat = 0;
   var lastNamedLong = 0;
@@ -453,7 +434,24 @@ function updateError(err) {
     document.getElementById("installInstructions").style.display = "none";
     document.getElementById("installBtn").style.display = "block";
   });
-
+  
+  function showPosition(position) {
+    var nameLat = position.coords.latitude.toFixed(2);
+    var nameLong = position.coords.longitude.toFixed(2);
+    if(lastNamedLat != nameLat || lastNamedLong != nameLong) {
+  
+      lastNamedLat = nameLat;
+      lastNamedLong = nameLong;
+    }
+    document.getElementById("location-info").innerHTML = convertCoordinates(position.coords.latitude, position.coords.longitude);
+    document.getElementById("location-elev").innerHTML = "Elevation <br>" + (Math.round(position.coords.altitude)) + " m";
+  }
+  
+  
+  function updatePosition() {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+  
   function grantPremission() {
     
     document.getElementById("accessbutton").style.display = "none";
@@ -473,25 +471,6 @@ function updateError(err) {
   }
   
   //document.getElementById("location-elev").style.display = "none";
-  /*  
-  function showPosition(position) {
-    var nameLat = position.coords.latitude.toFixed(2);
-    var nameLong = position.coords.longitude.toFixed(2);
-    if(lastNamedLat != nameLat || lastNamedLong != nameLong) {
-  
-      lastNamedLat = nameLat;
-      lastNamedLong = nameLong;
-    }
-    document.getElementById("location-info").innerHTML = convertCoordinates(position.coords.latitude, position.coords.longitude);
-    document.getElementById("location-elev").innerHTML = "Elevation <br>" + (Math.round(position.coords.altitude)) + " m";
-  }
-  
-  
-  function updatePosition() {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  }
-  
-
   
   //disable menu request if our device is not IOS
   if(getOS() != "iOS"){ 
@@ -533,6 +512,7 @@ function updateError(err) {
   
   //device orientation
   var dial = document.getElementById("dial");
+  var acHeading = 0;
   window.addEventListener('deviceorientation', function(e) {
       if(popupShown){
         popupShown = false;
@@ -611,7 +591,7 @@ function updateError(err) {
       levelDisp.style.left = (levelX + 50) + "%";
   
       var labelAngle = 0;
-      var acHeading = 0;
+      acHeading = 0;
       var cross_01 = document.getElementById("level-disp");
       var cross_02 = document.getElementById("level-cross");
       
@@ -692,4 +672,3 @@ function updateError(err) {
   return (latString + " <br>" + lonString);
   }
   
-*/

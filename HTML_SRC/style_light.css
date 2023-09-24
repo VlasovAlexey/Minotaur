@@ -524,11 +524,11 @@ br{
 .start-btn{
     height:auto;
     position: absolute;
-    width: 80%;
+    width: 100%;
     text-align: center;
     text-align-last: center;
     top: -90%;
-    left: 0%;
+    left: -15%;
   }
 
 /* compass styles */
