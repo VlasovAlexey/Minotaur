@@ -431,6 +431,7 @@ function updateError(err) {
   
 }
 
+
 //compass code start here
   var lastNamedLat = 0;
   var lastNamedLong = 0;
@@ -452,24 +453,7 @@ function updateError(err) {
     document.getElementById("installInstructions").style.display = "none";
     document.getElementById("installBtn").style.display = "block";
   });
-  
-  function showPosition(position) {
-    var nameLat = position.coords.latitude.toFixed(2);
-    var nameLong = position.coords.longitude.toFixed(2);
-    if(lastNamedLat != nameLat || lastNamedLong != nameLong) {
-  
-      lastNamedLat = nameLat;
-      lastNamedLong = nameLong;
-    }
-    document.getElementById("location-info").innerHTML = convertCoordinates(position.coords.latitude, position.coords.longitude);
-    document.getElementById("location-elev").innerHTML = "Elevation <br>" + (Math.round(position.coords.altitude)) + " m";
-  }
-  
-  
-  function updatePosition() {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  }
-  
+
   function grantPremission() {
     
     document.getElementById("accessbutton").style.display = "none";
@@ -489,6 +473,25 @@ function updateError(err) {
   }
   
   //document.getElementById("location-elev").style.display = "none";
+  /*  
+  function showPosition(position) {
+    var nameLat = position.coords.latitude.toFixed(2);
+    var nameLong = position.coords.longitude.toFixed(2);
+    if(lastNamedLat != nameLat || lastNamedLong != nameLong) {
+  
+      lastNamedLat = nameLat;
+      lastNamedLong = nameLong;
+    }
+    document.getElementById("location-info").innerHTML = convertCoordinates(position.coords.latitude, position.coords.longitude);
+    document.getElementById("location-elev").innerHTML = "Elevation <br>" + (Math.round(position.coords.altitude)) + " m";
+  }
+  
+  
+  function updatePosition() {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+  
+
   
   //disable menu request if our device is not IOS
   if(getOS() != "iOS"){ 
@@ -689,3 +692,4 @@ function updateError(err) {
   return (latString + " <br>" + lonString);
   }
   
+*/
