@@ -522,13 +522,8 @@ br{
     background-size: contain;
 }
 .start-btn{
-    height:auto;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    text-align-last: center;
+    position: relative;
     top: -90%;
-    left: -15%;
   }
 
 /* compass styles */

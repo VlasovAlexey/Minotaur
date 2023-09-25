@@ -592,13 +592,8 @@ br{
       transition: opacity 0.4s ease-in-out;
   }
   .start-btn{
-    height:auto;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    text-align-last: center;
-    top: -90%;
-    left: -15%;
+    position: relative;
+    top: -90%;  
   }
 
 /*table center styles */

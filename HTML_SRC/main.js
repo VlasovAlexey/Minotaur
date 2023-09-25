@@ -79,12 +79,21 @@ function hide_unused_elements() {
 hide_unused_elements();
 
 //Main Loop
+GlobalInterval = 0;
 function upd_all() {
     //Show progress bar
     Pbar_Show();
 
     //Update GUI dimension first. It is important for correct update GUI elements at any time
     changeGuiDim();
+
+    //get and set record frequency
+    if(GlobalInterval == 0 || GlobalInterval != 0){clearTimeout(GlobalInterval);}
+    GlobalInterval = setInterval(GlobalWatch, (1000 * document.getElementById("rec_freq_opt").value));
+    
+    //get speed from interface and set it
+    speed_reg = document.getElementById("const_spd_opt").value;
+    speed_reg = (speed_reg.replace(",", "."));
 
     //auto save all settings
     btn_save();
@@ -171,7 +180,9 @@ var lat_reg = "0.0";
 var lon_reg = "0.0";
 var ele_reg = "0.0";
 
-var speed_reg = "0.0";
+var speed_reg = document.getElementById("const_spd_opt").value;
+speed_reg = (speed_reg.replace(",", "."));
+
 var course_reg = "0.0";
 
 var lat_end = "0.0";
@@ -261,33 +272,69 @@ window.addEventListener("load", () => {
     let orient_b = Math.round(event.beta)
     let orient_g = Math.round(event.gamma)
           
-		document.getElementById("data-angle").textContent = orient_a;
-    document.getElementById("data-beta").textContent = orient_b;
-    document.getElementById("data-gamma").textContent = orient_g;
+		//document.getElementById("data-angle").textContent = orient_a;
+    //document.getElementById("data-beta").textContent = orient_b;
+    //document.getElementById("data-gamma").textContent = orient_g;
     //document.getElementById("compass").style.transform = `rotate(${((orient_a-90)*1.0)}deg)`;
 	});
 
 	navigator.geolocation.watchPosition(g => {
-		//lastUpdate = new Date();
-		//errorHidden();
-		//updateTime();
+		lastUpdate = new Date();
+		errorHidden();
+		updateTime();
 		updateGeo(g.coords);
-    console.log(g.coords)
 	}, updateError, {
 		enableHighAccuracy: true,
 	    });
-	    window.setInterval(updateTime, 2000);
+	    window.setInterval(updateTime, 100);
     },
     {
 	    //once: true,
     });
 
-    
-    myInterval = setInterval(test_int, 2000);
-    function test_int(){
-      console.log(acHeading);
-    }
+//global watch function for all global values in one place
+function GlobalWatch(){
+  //console.log("tick");
+  //recording and we need add every interval data to file
+  if(record_state == 1){
 
+      //errors handler
+      if(lat_reg == null || lat_reg == undefined){lat_reg = "0.0"}
+      if(lon_reg == null || lon_reg == undefined){lon_reg = "0.0"}
+      if(ele_reg == null || ele_reg == undefined){ele_reg = "0.0"}
+      
+      if(acHeading == null || acHeading == undefined){acHeading = "0.0"}else{course_reg = acHeading}
+      
+      //write to file
+      GPX_File = GPX_File + "    <trkpt lat=\""+ lat_reg +"\" lon=\""+ lon_reg + "\">\n";
+      GPX_File = GPX_File + "     <ele>"+ ele_reg + "</ele>\n";
+      GPX_File = GPX_File + "     <speed>"+ speed_reg + "</speed>\n";
+      GPX_File = GPX_File + "     <course>"+ course_reg + "</course>\n";
+      GPX_File = GPX_File + "    </trkpt>\n";
+
+      if(rec_first_start == 0){
+          lat_start = lat_reg;
+          lon_start = lon_reg;
+          ele_start = ele_reg;
+
+          rec_first_start = 1;
+      }
+      else{
+          lat_end = lat_reg;
+          lon_end = lon_reg;
+          ele_start = ele_reg;
+      }
+
+      if(lat_start == null || lat_start == undefined){lat_start = "0.0"};
+      if(lat_end == null || lat_end == undefined){lat_end = "0.0"};
+      
+      if(lon_start == null || lon_start == undefined){lon_start = "0.0"};
+      if(lon_end == null || lon_end == undefined){lon_end = "0.0"};
+
+      if(ele_start == null || ele_start == undefined){ele_start = "0.0"};
+      if(ele_end == null || ele_end == undefined){ele_end = "0.0"};
+  }
+}
 
 // Update all the element in DOM with the new geolocation information in a GeolocationCoordinates object 
 function updateGeo(c) {
@@ -299,55 +346,12 @@ function updateGeo(c) {
 		"longitude",
 		"speed",
 	].forEach(p => {
-		document.getElementById(`data-${p}`).textContent = String(c[p]);
+		//document.getElementById(`data-${p}`).textContent = String(c[p]);
 	});
-    
-    //recording and we need add every interval data to file
-    if(record_state == 1){
 
-        //errors handler
-        if(c.latitude == null || c.latitude == undefined){lat_reg = "0.0"}else{lat_reg = c.latitude}
-        if(c.longitude == null || c.longitude == undefined){lon_reg = "0.0"}else{lon_reg = c.longitude}
-        if(c.altitude == null || c.altitude == undefined){ele_reg = "0.0"}else{ele_reg = c.altitude}
-        
-        speed_reg = document.getElementById("const_spd_opt").value;
-        if(speed_reg == null || speed_reg == undefined || speed_reg == ""){speed_reg = "0.0"}
-        speed_reg = (speed_reg.replace(",", "."));
-
-        if(acHeading == null || acHeading == undefined){acHeading = "0.0"}else{course_reg = acHeading}
-        
-        //write to file
-        GPX_File = GPX_File + "    <trkpt lat=\""+ lat_reg +"\" lon=\""+ lon_reg + "\">\n";
-        GPX_File = GPX_File + "     <ele>"+ ele_reg + "</ele>\n";
-        GPX_File = GPX_File + "     <speed>"+ speed_reg + "</speed>\n";
-        GPX_File = GPX_File + "     <course>"+ course_reg + "</course>\n";
-        GPX_File = GPX_File + "    </trkpt>\n";
-
-        if(rec_first_start == 0){
-            lat_start = c.latitude;
-            lon_start = c.longitude;
-            ele_start = c.altitude;
-
-            rec_first_start = 1;
-        }
-        else{
-            lat_end = c.latitude;
-            lon_end = c.longitude;
-            ele_start = c.altitude;
-        }
-
-        if(lat_start == null || lat_start == undefined){lat_start = "0.0"};
-        if(lat_end == null || lat_end == undefined){lat_end = "0.0"};
-        
-        if(lon_start == null || lon_start == undefined){lon_start = "0.0"};
-        if(lon_end == null || lon_end == undefined){lon_end = "0.0"};
-
-        if(ele_start == null || ele_start == undefined){ele_start = "0.0"};
-        if(ele_end == null || ele_end == undefined){ele_end = "0.0"};
-    }
-	if (typeof c.accuracy === "number") {
-		//document.getElementById("data-accuracy").textContent = Math.round(c.accuracy);
-	}
+  lat_reg = c.latitude;
+  lon_reg = c.longitude;
+  ele_reg = c.altitude;
 }
 
 const Second = 1000;
@@ -355,16 +359,12 @@ const Minute = 60 * Second;
 
 // Update the duration since the last geolocation element.
 function updateTime() {
-	/*let d = new Date() - lastUpdate;
+	let d = new Date() - lastUpdate;
 	let min = Math.floor(d / Minute);
 	let sec = Math.floor(d % Minute / Second);
   tot_time = min + "m " + sec + "s"
 	document.getElementById("lastUpdate").innerHTML = "Last Update <br>" + tot_time;
-  */
 }
-
-
-
 const NONAVIGATION = -1; // a non-standard error code
 const PERMISSION_DENIED = 1;
 const POSITION_UNAVAILABLE = 2;
