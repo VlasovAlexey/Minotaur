@@ -259,6 +259,9 @@ function btn_meas_click(){
 
 // The date of the last geolocation update.
 var lastUpdate = new Date();
+var orient_a = 0;
+var orient_b = 0;
+var orient_g = 0;
 window.addEventListener("load", () => {
 	if (!navigator.geolocation) {
 		updateError({
@@ -268,9 +271,9 @@ window.addEventListener("load", () => {
 	}
 
 	window.addEventListener("deviceorientation", event => {
-		let orient_a = Math.round(event.alpha)
-    let orient_b = Math.round(event.beta)
-    let orient_g = Math.round(event.gamma)
+		orient_a = Math.round(event.alpha)
+    orient_b = Math.round(event.beta)
+    orient_g = Math.round(event.gamma)
           
 		//document.getElementById("data-angle").textContent = orient_a;
     //document.getElementById("data-beta").textContent = orient_b;
@@ -310,6 +313,12 @@ function GlobalWatch(){
       GPX_File = GPX_File + "     <ele>"+ ele_reg + "</ele>\n";
       GPX_File = GPX_File + "     <speed>"+ speed_reg + "</speed>\n";
       GPX_File = GPX_File + "     <course>"+ course_reg + "</course>\n";
+      GPX_File = GPX_File + "     <extensions>\n";
+      GPX_File = GPX_File + "      <orient_a>"+ orient_a + "</orient_a>\n";
+      GPX_File = GPX_File + "      <orient_b>"+ orient_b + "</orient_b>\n";
+      GPX_File = GPX_File + "      <orient_g>"+ orient_g + "</orient_g>\n";
+      GPX_File = GPX_File + "      <freq>"+ (document.getElementById("rec_freq_opt").value) + "</freq>\n";
+      GPX_File = GPX_File + "     </extensions>\n";
       GPX_File = GPX_File + "    </trkpt>\n";
 
       if(rec_first_start == 0){
