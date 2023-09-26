@@ -479,8 +479,6 @@ function updateError(err) {
     }
   }
   
-  //document.getElementById("location-elev").style.display = "none";
-  
   //disable menu request if our device is not IOS
   if(getOS() != "iOS"){ 
     //grantPremission();
@@ -498,6 +496,7 @@ function updateError(err) {
   }
   }
   
+  //deploy
   function startCompass() {
   if (isIOS) {
     DeviceOrientationEvent.requestPermission().then((response) => {
