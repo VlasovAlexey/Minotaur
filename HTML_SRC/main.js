@@ -500,8 +500,7 @@ function updateError(err) {
   
   function startCompass() {
   if (isIOS) {
-    DeviceOrientationEvent.requestPermission()
-      .then((response) => {
+    DeviceOrientationEvent.requestPermission().then((response) => {
         if (response === "granted") {
           window.addEventListener("deviceorientation", handler, true);
         } else {
