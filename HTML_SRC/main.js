@@ -189,6 +189,8 @@ var lat_end = "0.0";
 var lon_end = "0.0";
 var ele_end = "0.0";
 
+var meas_tick = 0;
+
 var rec_first_start = 0;
 
 function btn_record(){
@@ -233,6 +235,8 @@ function btn_record(){
         GPX_File = GPX_File + "    <extensions>\n";
         GPX_File = GPX_File + "     <speed>"+ speed_reg + "</speed>\n";
         GPX_File = GPX_File + "     <freq>"+ (document.getElementById("rec_freq_opt").value) + "</freq>\n";
+        GPX_File = GPX_File + "     <meas_len>"+ ((document.getElementById("meas_len_opt").value).replace(",", ".")) + "</meas_len>\n";
+        GPX_File = GPX_File + "     <calib_f>"+ ((document.getElementById("calib_f_opt").value).replace(",", ".")) + "</calib_f>\n";
         GPX_File = GPX_File + "    </extensions>\n";
         //end create gpx array
         GPX_File = GPX_File + "</gpx>\n";
@@ -250,10 +254,12 @@ document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-re
 document.getElementById("btn_meas").style.border = "6px solid #969696";
 
 function btn_meas_click(){
+  meas_tick = meas_tick + 1;
     if (meas_state == 0){
         document.getElementById("btn_meas").style.background = "url(meas_press.svg) no-repeat center center";
         document.getElementById("btn_meas").style.border = "6px solid #188958";
         meas_state = 1;
+        
     }
     else{
         document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
@@ -316,10 +322,10 @@ function GlobalWatch(){
       GPX_File = GPX_File + "      <orient_a>"+ orient_a + "</orient_a>\n";
       GPX_File = GPX_File + "      <orient_b>"+ orient_b + "</orient_b>\n";
       GPX_File = GPX_File + "      <orient_g>"+ orient_g + "</orient_g>\n";
-      
+      GPX_File = GPX_File + "      <meas_tick>"+ meas_tick + "</meas_tick>\n";
       GPX_File = GPX_File + "     </extensions>\n";
       GPX_File = GPX_File + "    </trkpt>\n";
-
+      meas_tick = 0;
       if(rec_first_start == 0){
           lat_start = lat_reg;
           lon_start = lon_reg;

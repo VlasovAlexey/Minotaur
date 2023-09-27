@@ -209,6 +209,9 @@
         lang = {
             1: {
                 //Eng
+                ".app_name" : "Minotaur",
+                ".fullscreen_permission" : "Enable Geo Data Access",
+
                 ".tn_rec_freq" : "Record Step" + lng_sec_s,
                 ".tn_meas_len" : "Circle Length" + lng_meters,
                 ".tn_const_spd" : "Constant Speed Value" + lng_meters_min,
@@ -267,6 +270,9 @@
 
             //Rus
             2: {
+                ".app_name" : "Минотавр",
+                ".fullscreen_permission" : "Включить доступ к геоданным",
+
                 ".tn_rec_freq" : "Шаг записи" + lng_sec_s,
                 ".tn_meas_len" : "Длина окружности" + lng_meters,
                 ".tn_const_spd" : "Постоянное значение скорости" + lng_meters_min,
@@ -325,6 +331,9 @@
 
             //Spa
             3: {
+                ".app_name" : "Minotauro",
+                ".fullscreen_permission" : "Acceso a Datos Geográficos",
+
                 ".tn_rec_freq" : "Paso Registro" + lng_sec_s,
                 ".tn_meas_len" : "Longitud Círculo" + lng_meters,
                 ".tn_const_spd" : "Valor Velocidad Constante" + lng_meters_min,
@@ -382,6 +391,9 @@
             },
             4: {
                 //Prt
+                ".app_name" : "Minotauro",
+                ".fullscreen_permission" : "Ativar o Acesso a Dados Geográficos",
+
                 ".tn_rec_freq" : "Passo de Registo" + lng_sec_s,
                 ".tn_meas_len" : "Comprimento do Círculo" + lng_meters,
                 ".tn_const_spd" : "Valor da Velocidade Constante" + lng_meters_min,
@@ -440,6 +452,9 @@
             },
             5 : {
                 //China
+                ".app_name" : "牛头人",
+                ".fullscreen_permission" : "启用地理数据访问",
+
                 ".tn_rec_freq" : "记录步骤" + lng_sec_s,
                 ".tn_meas_len" : "圆周长度" + lng_meters,
                 ".tn_const_spd" : "匀速值" + lng_meters_min,
@@ -497,6 +512,9 @@
             },
             6 : {
                 //Bulgarian
+                ".app_name" : "Минотавър",
+                ".fullscreen_permission" : "Разрешаване на достъпа до геоданни",
+
                 ".tn_rec_freq" : "Стъпка за запис" + lng_sec_s,
                 ".tn_meas_len" : "Дължина на кръга" + lng_meters,
                 ".tn_const_spd" : "Стойност на постоянната скорост" + lng_meters_min,
@@ -551,6 +569,9 @@
             },
             7: {
                 //Fr
+                ".app_name" : "Minotaure",
+                ".fullscreen_permission" : "Activer l'accès aux données géographiques",
+
                 ".tn_rec_freq" : "Fréquence d'enregistrement" + lng_sec_s,
                 ".tn_meas_len" : "Longueur du cercle" + lng_meters,
                 ".tn_const_spd" : "Valeur de la vitesse constante" + lng_meters_min,
@@ -605,6 +626,9 @@
             },
             8: {
                 //Korean
+                ".app_name" : "미노타우로스",
+                ".fullscreen_permission" : "지리적 데이터 액세스 활성화",
+
                 ".tn_rec_freq" : "기록 빈도" + lng_sec_s,
                 ".tn_meas_len" : "원 길이" + lng_meters,
                 ".tn_const_spd" : "일정한 속도 값" + lng_meters_min,
@@ -659,6 +683,9 @@
             },
             9: {
                 //Italian
+                ".app_name" : "Minotauro",
+                ".fullscreen_permission" : "Abilitare l'accesso ai dati geografici",
+
                 ".tn_rec_freq" : "Frequenza di registrazione" + lng_sec_s,
                 ".tn_meas_len" : "Lunghezza del cerchio" + lng_meters,
                 ".tn_const_spd" : "Valore di velocità costante" + lng_meters_min,
