@@ -196,6 +196,7 @@ function btn_record(){
         document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
         document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
         element_id_show("rec_blinking");
+        element_id_hide("main_parameters");
         record_state = 1;
 
         //start writing to gpx array data
@@ -211,6 +212,7 @@ function btn_record(){
         document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
         document.getElementById("btn_rec").style.border = "6px solid #969696";
         element_id_hide("rec_blinking");
+        element_id_show("main_parameters");
         record_state = 0;
         rec_first_start = 0;
         //close trk
@@ -228,7 +230,10 @@ function btn_record(){
         GPX_File = GPX_File + "     <name>Track Minotaur End "+ lat_end +", " + lon_end + "</name>\n";
         GPX_File = GPX_File + "     <desc>Track Minotaur End "+ lat_end +", " + lon_end + "</desc>\n";
         GPX_File = GPX_File + "    </wpt>\n";
-
+        GPX_File = GPX_File + "    <extensions>\n";
+        GPX_File = GPX_File + "     <speed>"+ speed_reg + "</speed>\n";
+        GPX_File = GPX_File + "     <freq>"+ (document.getElementById("rec_freq_opt").value) + "</freq>\n";
+        GPX_File = GPX_File + "    </extensions>\n";
         //end create gpx array
         GPX_File = GPX_File + "</gpx>\n";
         
@@ -274,11 +279,6 @@ window.addEventListener("load", () => {
 		orient_a = Math.round(event.alpha)
     orient_b = Math.round(event.beta)
     orient_g = Math.round(event.gamma)
-          
-		//document.getElementById("data-angle").textContent = orient_a;
-    //document.getElementById("data-beta").textContent = orient_b;
-    //document.getElementById("data-gamma").textContent = orient_g;
-    //document.getElementById("compass").style.transform = `rotate(${((orient_a-90)*1.0)}deg)`;
 	});
 
 	navigator.geolocation.watchPosition(g => {
@@ -297,7 +297,6 @@ window.addEventListener("load", () => {
 
 //global watch function for all global values in one place
 function GlobalWatch(){
-  //console.log("tick");
   //recording and we need add every interval data to file
   if(record_state == 1){
 
@@ -311,13 +310,13 @@ function GlobalWatch(){
       //write to file
       GPX_File = GPX_File + "    <trkpt lat=\""+ lat_reg +"\" lon=\""+ lon_reg + "\">\n";
       GPX_File = GPX_File + "     <ele>"+ ele_reg + "</ele>\n";
-      GPX_File = GPX_File + "     <speed>"+ speed_reg + "</speed>\n";
+      
       GPX_File = GPX_File + "     <course>"+ course_reg + "</course>\n";
       GPX_File = GPX_File + "     <extensions>\n";
       GPX_File = GPX_File + "      <orient_a>"+ orient_a + "</orient_a>\n";
       GPX_File = GPX_File + "      <orient_b>"+ orient_b + "</orient_b>\n";
       GPX_File = GPX_File + "      <orient_g>"+ orient_g + "</orient_g>\n";
-      GPX_File = GPX_File + "      <freq>"+ (document.getElementById("rec_freq_opt").value) + "</freq>\n";
+      
       GPX_File = GPX_File + "     </extensions>\n";
       GPX_File = GPX_File + "    </trkpt>\n";
 
