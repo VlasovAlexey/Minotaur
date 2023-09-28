@@ -2,8 +2,6 @@ self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open('minotaur-store').then((cache) => cache.addAll([
 
-
-
 '/Minotaur/HTML_SRC/contrib/auto-render.js',
 '/Minotaur/HTML_SRC/contrib/copy-tex.css',
 '/Minotaur/HTML_SRC/contrib/copy-tex.js',
@@ -87,11 +85,8 @@ self.addEventListener('install', (e) => {
 '/Minotaur/HTML_SRC/style_light.css',
 '/Minotaur/HTML_SRC/style_main.css',
 '/Minotaur/HTML_SRC/index.html',
-'/Minotaur/HTML_SRC/fhypNsNGFOCzLFy.jpg',
 '/Minotaur/HTML_SRC/KxaGqtkBwthDlxV.jpg',
 '/Minotaur/HTML_SRC/lcIApCbFpPichcX.jpg',
-'/Minotaur/HTML_SRC/LhwkHGqwLgAxiJY.jpg',
-'/Minotaur/HTML_SRC/mjIsLrjrAbCuQbN.jpg',
 '/Minotaur/HTML_SRC/promo_label.jpg',
 '/Minotaur/HTML_SRC/android_fn.js',
 '/Minotaur/HTML_SRC/Arial_Digiscream_Normal-normal.js',
