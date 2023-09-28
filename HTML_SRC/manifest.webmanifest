@@ -1,7 +1,7 @@
 {
   "theme_color": "#2B559B",
   "background_color": "#2B559B",
-  "description": "Minotaur Software for Cave Dive Mapping",
+  "description": "Minotaur Cave Diving Mapping Software",
   "display": "fullscreen",
   "icons": [
     {
@@ -17,7 +17,7 @@
       "purpose": "maskable"
     }
   ],
-  "name": "Minotaur Software for Cave Dive Mapping",
+  "name": "Minotaur Cave Diving Mapping Software",
   "short_name": "Minotaur",
   "start_url": "/Minotaur/HTML_SRC/",
   "lang": "en",
@@ -92,7 +92,7 @@
       "url": "/Minotaur/HTML_SRC/index.html%s"
     },
     {
-      "protocol": "web+diveprome",
+      "protocol": "web+minotaur",
       "url": "/Minotaur/HTML_SRC/index.html%s"
     }
   ],
