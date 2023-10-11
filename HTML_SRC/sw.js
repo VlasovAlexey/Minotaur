@@ -79,9 +79,6 @@ self.addEventListener('install', (e) => {
 '/Minotaur/HTML_SRC/jquery.mCustomScrollbar.css',
 '/Minotaur/HTML_SRC/katex.css',
 
-'/Minotaur/HTML_SRC/style_dark.css',
-'/Minotaur/HTML_SRC/style_hide_download_section.css',
-'/Minotaur/HTML_SRC/style_hide_window_control_section.css',
 '/Minotaur/HTML_SRC/style_light.css',
 '/Minotaur/HTML_SRC/style_main.css',
 '/Minotaur/HTML_SRC/index.html',

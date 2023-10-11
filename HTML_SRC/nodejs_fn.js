@@ -43,7 +43,7 @@ function node_enable() {
 //Hide download section if run on desktop Platform
 function hide_download_icons_node(){
     if(node_enable() === true){
-        CSSLoad("style_hide_download_section.css?v01");
+        //CSSLoad("style_hide_download_section.css?v01");
         //CSSLoad("style_hide_window_control_section.css?v03");
     }
 }

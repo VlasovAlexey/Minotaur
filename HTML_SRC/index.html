@@ -358,7 +358,7 @@
                   </div>
                </div>
                <div id="info_glob">
-                  <table id="info_glob" border="0">
+                  <table id="info_glob">
                      <tr>
                         <td>
                            <span id="location-info">No Location Data</span>
@@ -396,7 +396,8 @@
             </div>
             <div class="content" id="5-content">
                <div class="div_block" id="div_block">
-                  <button type="button" id="btn_add_track" class="btn_add_track" onClick="btn_add_track();"></button>
+                  <input type="file" id="gpx_file" class="gpx_file" accept=".gpx"></button>
+                  <label for="gpx_file" id="btn_add_track" class="btn_add_track"></label>
                   <button type="button" id="btn_delete_track" class="btn_delete_track" onClick="btn_delete_track();"></button>
                   <button type="button" id="btn_save_track" class="btn_save_track" onClick="btn_save_track();"></button>
                </div>
@@ -518,11 +519,14 @@
       <script src="Arial_Digiscream_Normal-normal.js"></script>
       <script src="svg2pdf.src.js"></script>
       <script src="jspdf.plugin.autotable.js"></script>
+
+
       <script src="highstock.js?v0.1811153116241151113311111131167" charset="UTF-8"></script>
       <script src="exporting.src.js?v0.16135114125816133592113157" charset="UTF-8"></script>
       <script src="offline-exporting.src.js?v0.1554116233311163171819215" charset="UTF-8"></script>
       <script src="html_new_gen_main.js?v0.1112111154563333111186411841154923457" charset="UTF-8"></script>
       <script src="android_fn.js?v0.284184112511131453651339116234517" charset="UTF-8"></script>
+      <script src="gpx_composer.js" charset="UTF-8"></script>
       <script src="cookie_settings.js?v0.112285311142516313311111836441521679123457wa123" charset="UTF-8"></script>
       <script src="lng_fn.js?v0.110267w1a134g215f1145v3613313112"charset="UTF-8"></script>
       <script src="block_gen.js?v0.826112118315315545v16931123457" charset="UTF-8"></script>

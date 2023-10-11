@@ -636,3 +636,5 @@ input
     transition: .2s ease-in-out;
     cursor: pointer;    
 }
+
+#gpx_file {display: none;}
