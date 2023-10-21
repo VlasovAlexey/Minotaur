@@ -4,7 +4,7 @@ var color_usr = 1;
 
 var rec_freq_usr = 2;
 var meas_len_usr = "2,11";
-var const_spd_usr = "5,321";
+var const_spd_usr = "1,4925373134";
 var calib_f_usr = "0,0";
 
 function default_set(){
@@ -14,7 +14,7 @@ function default_set(){
 
     rec_freq_usr = 2;
     meas_len_usr = "2,11";
-    const_spd_usr = "5,321";
+    const_spd_usr = "1,4925373134";
     calib_f_usr = "0,0";
 }
 
