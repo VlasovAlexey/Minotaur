@@ -17,7 +17,7 @@
                 lng_sec_s = ", sec";
                 lng_bar = ", bar";
                 lng_meters = ", meters";
-                lng_meters_min = ", m/min";
+                lng_meters_min = ", m/sec";
                 lng_ltr_min = ", l/min";
                 lng_min = ", min";
                 lng_ltr = ", liters";
@@ -27,7 +27,7 @@
                 lng_sec_s = ", сек";
                 lng_bar = ", бар";
                 lng_meters = ", метры";
-                lng_meters_min = " (м/мин)";
+                lng_meters_min = " (м/сек)";
                 lng_ltr_min = " (л/мин)";
                 lng_min = ", мин.";
                 lng_ltr = ", литры";
@@ -37,7 +37,7 @@
                 lng_sec_s = ", seg";
                 lng_bar = ", bar";
                 lng_meters = ", metros";
-                lng_meters_min = ", m/min";
+                lng_meters_min = ", m/sec";
                 lng_ltr_min = ", l/min";
                 lng_min = ", min";
                 lng_ltr = ", l";
@@ -47,7 +47,7 @@
                 lng_sec_s = ", seg";
                 lng_bar = ", bar";
                 lng_meters = ", metros";
-                lng_meters_min = ", m/min";
+                lng_meters_min = ", m/sec";
                 lng_ltr_min = ", l/min";
                 lng_min = ", min";
                 lng_ltr = ", l";
@@ -57,7 +57,7 @@
                 lng_sec_s = ", 秒钟";
                 lng_bar = ", bar";
                 lng_meters = ", 米";
-                lng_meters_min = ", 米/分钟";
+                lng_meters_min = ", 米/秒钟";
                 lng_ltr_min = ", 升/分钟";
                 lng_min = ", 分钟";
                 lng_ltr = ", 升";
@@ -67,7 +67,7 @@
                 lng_sec_s = ", сек";
                 lng_bar = ", бар";
                 lng_meters = ", метри";
-                lng_meters_min = ", м/мин";
+                lng_meters_min = ", м/сек";
                 lng_ltr_min = ", л/мин";
                 lng_min = ", мин";
                 lng_ltr = ", литри";
@@ -77,7 +77,7 @@
                 lng_sec_s = ", sec";
                 lng_bar = ", bar";
                 lng_meters = ", metres";
-                lng_meters_min = ", m/min";
+                lng_meters_min = ", m/sec";
                 lng_ltr_min = ", l/min";
                 lng_min = ", min";
                 lng_ltr = ", litres";
@@ -87,7 +87,7 @@
                 lng_sec_s = ", 초";
                 lng_bar = ", bar";
                 lng_meters = ", meters";
-                lng_meters_min = ", m/min";
+                lng_meters_min = ", m/sec";
                 lng_ltr_min = ", l/min";
                 lng_min = ", min";
                 lng_ltr = ", liters";
@@ -97,7 +97,7 @@
                 lng_sec_s = ", sec";
                 lng_bar = ", bar";
                 lng_meters = ", metri";
-                lng_meters_min = ", m/min";
+                lng_meters_min = ", m/sec";
                 lng_ltr_min = ", l/min";
                 lng_min = ", min";
                 lng_ltr = ", litri";
@@ -111,7 +111,7 @@
                 lng_sec_s = ", sec";
                 lng_bar = ", psi";
                 lng_meters = ", ft";
-                lng_meters_min = ", ft/min";
+                lng_meters_min = ", ft/sec";
                 lng_ltr_min = ", ft<sup><small>3</small></sup>/min";
                 lng_min = ", min";
                 lng_ltr = ", ft<sup><small>3</small></sup>";
@@ -121,7 +121,7 @@
                 lng_sec_s = ", сек";
                 lng_bar = ", psi";
                 lng_meters = ", футы";
-                lng_meters_min = " (футов/мин)";
+                lng_meters_min = " (футов/сек)";
                 lng_ltr_min = " (футов<sup><small>3</small></sup>/мин)";
                 lng_min = ", мин.";
                 lng_ltr = ", футы<sup><small>3</small></sup>";
@@ -131,7 +131,7 @@
                 lng_sec_s = ", seg";
                 lng_bar = ", psi";
                 lng_meters = ", ft";
-                lng_meters_min = ", ft/min";
+                lng_meters_min = ", ft/sec";
                 lng_ltr_min = ", ft<sup><small>3</small></sup>/min";
                 lng_min = ", min";
                 lng_ltr = ", ft<sup><small>3</small></sup>";
@@ -141,7 +141,7 @@
                 lng_sec_s = ", seg";
                 lng_bar = ", psi";
                 lng_meters = ", pés";
-                lng_meters_min = ", p/min";
+                lng_meters_min = ", p/sec";
                 lng_ltr_min = ", pés<sup><small>3</small></sup>/min";
                 lng_min = ", min";
                 lng_ltr = ", pés<sup><small>3</small></sup>";
@@ -151,7 +151,7 @@
                 lng_sec_s = ", 秒钟";
                 lng_bar = ", psi";
                 lng_meters = ", 英尺";
-                lng_meters_min = ", 英尺/分钟";
+                lng_meters_min = ", 英尺/秒钟";
                 lng_ltr_min = ", 英尺<sup><small>3</small></sup>/分钟";
                 lng_min = ", 分钟";
                 lng_ltr = ", 英尺<sup><small>3</small></sup>";
@@ -161,7 +161,7 @@
                 lng_sec_s = ", сек";
                 lng_bar = ", пси";
                 lng_meters = ", фт";
-                lng_meters_min = ", фт/мин";
+                lng_meters_min = ", фт/сек";
                 lng_ltr_min = ", фт<sup><small>3</small></sup>/мин";
                 lng_min = ", мин";
                 lng_ltr = ", фт<sup><small>3</small></sup>";
@@ -171,7 +171,7 @@
                 lng_sec_s = ", sec";
                 lng_bar = ", psi";
                 lng_meters = ", ft";
-                lng_meters_min = ", ft/min";
+                lng_meters_min = ", ft/sec";
                 lng_ltr_min = ", ft<sup><small>3</small></sup>/min";
                 lng_min = ", min";
                 lng_ltr = ", ft<sup><small>3</small></sup>";
@@ -181,7 +181,7 @@
                 lng_sec_s = ", 초";
                 lng_bar = ", psi";
                 lng_meters = ", ft";
-                lng_meters_min = ", ft/min";
+                lng_meters_min = ", ft/sec";
                 lng_ltr_min = ", ft<sup><small>3</small></sup>/min";
                 lng_min = ", min";
                 lng_ltr = ", ft<sup><small>3</small></sup>";
@@ -191,7 +191,7 @@
                 lng_sec_s = ", sec";
                 lng_bar = ", psi";
                 lng_meters = ", ft";
-                lng_meters_min = ", ft/min";
+                lng_meters_min = ", ft/sec";
                 lng_ltr_min = ", ft<sup><small>3</small></sup>/min";
                 lng_min = ", min";
                 lng_ltr = ", ft<sup><small>3</small></sup>";
