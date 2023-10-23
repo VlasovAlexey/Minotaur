@@ -2,7 +2,7 @@ var lngs_usr = 1;
 var dmns_usr = 1;
 var color_usr = 1;
 
-var rec_freq_usr = 2;
+var rec_freq_usr = 1;
 var meas_len_usr = "2,11";
 var const_spd_usr = "1,4925373134";
 var calib_f_usr = "0,0";
@@ -12,7 +12,7 @@ function default_set(){
     dmns_usr = 1;
     color_usr = 1;
 
-    rec_freq_usr = 2;
+    rec_freq_usr = 1;
     meas_len_usr = "2,11";
     const_spd_usr = "1,4925373134";
     calib_f_usr = "0,0";
