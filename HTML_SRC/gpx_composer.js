@@ -143,6 +143,51 @@ function gpx_final_save(){
 	}
 }
 
+var pointCount = 31;
+var i, r;
 
+var x = [];
+var y = [];
+var z = [];
+var c = [];
+
+for(i = 0; i < pointCount; i++) 
+{
+   r = 10 * Math.cos(i / 10);
+   x.push(r * Math.cos(i));
+   y.push(r * Math.sin(i));
+   z.push(i);
+   c.push(i)
+}
+var layout = {
+    showlegend: false,
+	autosize: true,
+	width: 500,
+  	height: 500,
+	paper_bgcolor: '#2b2b2c',
+	plot_bgcolor: '#c2b2b2c'
+};
+
+var config = {
+	displayModeBar: false // this is the line that hides the bar.
+  };
+Plotly.newPlot('trackChart', [{
+  type: 'scatter3d',
+  mode: 'lines+markers',
+  x: x,
+  y: y,
+  z: z,
+  line: {
+    width: 6,
+    color: c,
+    colorscale: "Viridis"},
+  marker: {
+    size: 3.5,
+    color: c,
+    colorscale: "Greens",
+    cmin: -20,
+    cmax: 50
+  }},                  
+],layout, config);
 
 //console.log(c_lat,c_lon);

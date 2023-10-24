@@ -25,7 +25,7 @@
       <link href="icon-hires.png?v0.81284415" rel="icon" sizes="192x192" />
       <link href="icon-normal.png?v0.81284415" rel="icon" sizes="128x128" />
       <link rel="stylesheet" type="text/css" href="style_main.css?v0.621">
-      
+      <script src="plotly-2.27.0.js"></script>
       <!-- Preloader Info Wait when all Page Loaded-->
       <style type="text/css">
          #preloader {
@@ -396,6 +396,7 @@
             </div>
             <div class="content" id="5-content">
                <div class="div_block" id="div_block">
+                  <div id="trackChart"><!-- Plotly chart will be drawn inside this DIV --></div>
                   <input type="file" id="gpx_file" class="gpx_file" accept=".gpx"></button>
                   <label for="gpx_file" id="btn_add_track" class="btn_add_track"></label>
                   <button type="button" id="btn_delete_track" class="btn_delete_track" onClick="btn_delete_track();"></button>
@@ -521,7 +522,6 @@
       <script src="jspdf.plugin.autotable.js"></script>
       
       <script src="utm.js"></script>
-      
       <script src="highstock.js?v0.1811153116241151113311111131167" charset="UTF-8"></script>
       <script src="exporting.src.js?v0.16135114125816133592113157" charset="UTF-8"></script>
       <script src="offline-exporting.src.js?v0.1554116233311163171819215" charset="UTF-8"></script>
