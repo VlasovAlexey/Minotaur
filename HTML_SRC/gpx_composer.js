@@ -160,14 +160,25 @@ for(i = 0; i < pointCount; i++)
    c.push(i)
 }
 var layout = {
+	scene:{ aspectmode: "auto", bgcolor:'#772b2c', xaxis: {color:"green",spikecolor: '#a10000',title : 'Horizon', autorange: 'reversed', backgroundcolor: 'rgb(230, 242,255)',gridcolor: 'rgb(255, 255, 255)',showbackground: true,zerolinecolor: 'rgb(255, 255, 255)'},
+	yaxis: {title : 'Expected Loss Differences', backgroundcolor: 'rgb(230, 242,255)',gridcolor: 'rgb(255, 255, 255)',showbackground: true,zerolinecolor: 'rgb(255, 255, 255)'},
+	zaxis: {title : 'Rating Grade', backgroundcolor: 'rgb(230, 230,200)',gridcolor: 'rgb(220, 220, 220)',showbackground: true,zerolinecolor: 'rgb(255, 255, 255)'}},
     showlegend: false,
 	autosize: true,
-	width: 500,
-  	height: 500,
-	paper_bgcolor: '#2b2b2c',
-	plot_bgcolor: '#c2b2b2c'
+	margin: 2,
+	minreducedheight: 2,
+	minreducedwidth: 2,
+	paper_bgcolor: '#552b2c',
+	font_color: '#ffffff',
+	'margin': {
+        'l':0,
+        'r':0,
+        't':0,
+        'b':0
+    }
 };
 
+//height: 1000,
 var config = {
 	displayModeBar: false // this is the line that hides the bar.
   };
@@ -180,11 +191,11 @@ Plotly.newPlot('trackChart', [{
   line: {
     width: 6,
     color: c,
-    colorscale: "Viridis"},
+    colorscale: "Hot"},
   marker: {
     size: 3.5,
     color: c,
-    colorscale: "Greens",
+    colorscale: "Hot",
     cmin: -20,
     cmax: 50
   }},                  
