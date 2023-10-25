@@ -94,7 +94,9 @@ function upd_all() {
     //get speed from interface and set it
     speed_reg = document.getElementById("const_spd_opt").value;
     speed_reg = (speed_reg.replace(",", "."));
-
+     
+    gps_chart();
+    
     //auto save all settings
     btn_save();
 
@@ -145,6 +147,7 @@ function Pbar_Hide() {
 function upd_error() {
     openNav();
     upd_all();
+    
 }
 //Open overlay window with custom text
 function openNav() {

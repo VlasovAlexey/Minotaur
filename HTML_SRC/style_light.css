@@ -616,3 +616,8 @@ input
 }
 
 #gpx_file {display: none;}
+
+#trackChart {
+    width: 100%;
+    height: 500px;
+  }

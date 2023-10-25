@@ -285,6 +285,7 @@ create_input_val("tr_meas_len" , "meas_len_opt" , meas_len_usr);
 create_input_val("tr_const_spd" , "const_spd_opt" , const_spd_usr);
 create_input_val("tr_calib_f" , "calib_f_opt" , calib_f_usr);
 
+var force_lng = 0;
 function init_global(){
     //if you want force language to eng you change to 1
     //this "feature" very important for PDF generation with other languages is not possible. Only eng.

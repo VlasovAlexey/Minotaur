@@ -760,7 +760,12 @@
       {
           var td_lng = lng_opt.options[lng_opt.selectedIndex].value
       };
+      //eng
       if(td_lng == 1){
+        if(val == "gps_lat"){val = "Latitude"}
+        if(val == "gps_lon"){val = "Longitude"}
+        if(val == "gps_ele"){val = "Elevation"}
+        
         if(val == "ch_UnderDev"){val = "Warning!<br>Please rotate device to Portrait orientation.<br>Thank you!<br>"}
         if(val == "tab_dmn_ltr"){
               if($( "#tn_dmn" ).val() == 1){val = "Liters"}
@@ -775,7 +780,12 @@
               if($( "#tn_dmn" ).val() == 2){val = "ft."}
         }
     }
+    //rus
     if(td_lng == 2){
+        if(val == "gps_lat"){val = "Широта"}
+        if(val == "gps_lon"){val = "Долгота"}
+        if(val == "gps_ele"){val = "Высота"}
+
         if(val == "ch_UnderDev"){val = "Внимание!<br>Пожалуйста, поверните устройство в портретную ориентацию.<br>Спасибо!<br>"}
         if(val == "tab_dmn_ltr"){
             if($( "#tn_dmn" ).val() == 1){val = "Литров"}
@@ -790,7 +800,12 @@
             if($( "#tn_dmn" ).val() == 2){val = "фт."}
         }
     }
+    //sp
     if(td_lng == 3){
+        if(val == "gps_lat"){val = "Latitud"}
+        if(val == "gps_lon"){val = "LLongitud"}
+        if(val == "gps_ele"){val = "Elevación"}
+
         if(val == "ch_UnderDev"){val = "¡Atención!<br>Gira el dispositivo a la orientación vertical.<br>¡Gracias!<br>"}
         if(val == "tab_dmn_ltr"){
             if($( "#tn_dmn" ).val() == 1){val = "Litros"}
@@ -805,7 +820,12 @@
             if($( "#tn_dmn" ).val() == 2){val = "ft."}
         }
     }
+    //pt
       if(td_lng == 4){
+        if(val == "gps_lat"){val = "Latitude"}
+        if(val == "gps_lon"){val = "Longitude"}
+        if(val == "gps_ele"){val = "Elevação"}
+
         if(val == "ch_UnderDev"){val = "Atenção!<br>Rode o dispositivo para a orientação vertical.<br>Obrigado!<br>"}
         if(val == "tab_dmn_ltr"){
               if($( "#tn_dmn" ).val() == 1){val = "Litros"}
@@ -820,7 +840,12 @@
               if($( "#tn_dmn" ).val() == 2){val = "pés"}
         }
       }
+      //ch
       if(td_lng == 5){
+        if(val == "gps_lat"){val = "纬度"}
+        if(val == "gps_lon"){val = "经度"}
+        if(val == "gps_ele"){val = "海拔"}
+
         if(val == "ch_UnderDev"){val = "警告！<br>请将设备旋转至纵向。<br>谢谢!<br>"}
         if(val == "tab_dmn_ltr"){
               if($( "#tn_dmn" ).val() == 1){val = "升"}
@@ -835,7 +860,12 @@
               if($( "#tn_dmn" ).val() == 2){val = "英尺"}
         }
       }
+      //br
       if(td_lng == 6) {
+        if(val == "gps_lat"){val = "Ширина"}
+        if(val == "gps_lon"){val = "Дължина"}
+        if(val == "gps_ele"){val = "Височина"}
+
         if (val == "ch_UnderDev") {val = "Внимание!<br>Моля, завъртете устройството в портретна ориентация.<br>Благодаря Ви!<br>"}
           if (val == "tab_dmn_ltr") {
             if ($("#tn_dmn").val() == 1) {
@@ -862,7 +892,12 @@
               }
           }
       }
+      //fr
       if(td_lng == 7) {
+        if(val == "gps_lat"){val = "Latitude"}
+        if(val == "gps_lon"){val = "Longitude"}
+        if(val == "gps_ele"){val = "Altitude"}
+
         if(val == "ch_UnderDev"){val = "Attention !<br>Tournez l'appareil à la verticale.<br>Merci de votre attention !<br>"}
         if (val == "tab_dmn_ltr") {
               if ($("#tn_dmn").val() == 1) {
@@ -889,7 +924,12 @@
             } 
           }  
         }
+        //kr
         if(td_lng == 8){
+            if(val == "gps_lat"){val = "위도"}
+            if(val == "gps_lon"){val = "경도"}
+            if(val == "gps_ele"){val = "고도"}
+
             if(val == "ch_UnderDev"){val = "경고!<br>기기를 세로 방향으로 회전하세요.<br>감사합니다!<br>"}
             if(val == "tab_dmn_ltr"){
                 if($( "#tn_dmn" ).val() == 1){val = "리터"}
@@ -904,7 +944,12 @@
                 if($( "#tn_dmn" ).val() == 2){val = "ft."}
             }
         }
+        //it
         if(td_lng == 9){
+            if(val == "gps_lat"){val = "Latitudine"}
+            if(val == "gps_lon"){val = "Longitudine"}
+            if(val == "gps_ele"){val = "Altitudine"}
+
             if(val == "ch_UnderDev"){val = "Attenzione!<br>Ruotare il dispositivo con orientamento verticale.<br>Grazie!<br>"}
             if(val == "tab_dmn_ltr"){
                 if($( "#tn_dmn" ).val() == 1){val = "Litri"}

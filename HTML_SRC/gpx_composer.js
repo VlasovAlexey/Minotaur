@@ -143,62 +143,142 @@ function gpx_final_save(){
 	}
 }
 
-var pointCount = 31;
-var i, r;
+//draw gps tracks chart
+function gps_chart() {
+	del_html_elem("trackChart");
+	var pointCount = 50;
+	var i, r;
+	var x = [];
+	var y = [];
+	var z = [];
+	var c = [];
+	for (i = 0; i < pointCount; i++) {
+		r = 2 * Math.cos(i / 10);
+		x.push(r * Math.cos(i));
+		y.push(r * Math.sin(i));
+		z.push(i);
+		c.push(i)
+	}
+	var layout = 0;
+	
+	//color dark
+	if(document.getElementById("tn_color").value == 1){
+		layout = {
+			scene: {
+				aspectmode: "auto",
+				bgcolor: "#2b2b2c",
+				xaxis: {
+					color: "#929292",
+					spikecolor: "#a10000",
+					title: plan_lng("gps_lat"),
+					autorange: "reversed",
+					backgroundcolor: "#3c4e3d",
+					gridcolor: 'color:"222222"',
+					showbackground: true,
+					zerolinecolor: "rgb(255, 255, 255)"
+				},
+				yaxis: {
+					color: "#929292",
+					title: plan_lng("gps_lon"),
+					backgroundcolor: "#4e3e3c",
+					gridcolor: "rgb(255, 255, 255)",
+					showbackground: true,
+					zerolinecolor: "rgb(255, 255, 255)"
+				},
+				zaxis: {
+					color: "#929292",
+					title: plan_lng("gps_ele"),
+					backgroundcolor: "#3c444e",
+					gridcolor: "rgb(220, 220, 220)",
+					showbackground: true,
+					zerolinecolor: "rgb(255, 255, 255)"
+				}
+			},
+			showlegend: false,
+			autosize: true,
+			margin: 2,
+			minreducedheight: 2,
+			minreducedwidth: 2,
+			paper_bgcolor: "#2b2b2c",
+			'margin': {
+				'l': 0,
+				'r': 0,
+				't': 0,
+				'b': 0
+			}
+		};	
+	}
+	//color light
+	if(document.getElementById("tn_color").value == 2){
+		layout = {
+			scene: {
+				aspectmode: "auto",
+				bgcolor: "#ffffff",
+				xaxis: {
+					color: "#202020",
+					spikecolor: "#a10000",
+					title: plan_lng("gps_lat"),
+					autorange: "reversed",
+					backgroundcolor: "#ebc5c1",
+					gridcolor: "rgb(25, 25, 25)",
+					showbackground: true,
+					zerolinecolor: "rgb(0, 0, 0)"
+				},
+				yaxis: {
+					color: "#202020",
+					title: plan_lng("gps_lon"),
+					backgroundcolor: "#c1ebc4",
+					gridcolor: "rgb(25, 25, 25)",
+					showbackground: true,
+					zerolinecolor: "rgb(0, 0, 0)"
+				},
+				zaxis: {
+					color: "#202020",
+					title: plan_lng("gps_ele"),
+					backgroundcolor: "#c1d4eb",
+					gridcolor: "rgb(25, 25, 25)",
+					showbackground: true,
+					zerolinecolor: "rgb(0, 0, 0)"
+				}
+			},
+			showlegend: false,
+			autosize: true,
+			margin: 2,
+			minreducedheight: 2,
+			minreducedwidth: 2,
+			paper_bgcolor: "#ffffff",
+			'margin': {
+				'l': 0,
+				'r': 0,
+				't': 0,
+				'b': 0
+			}
+		};	
+	}
+	//height: 1000,
+	var config = {
+		displayModeBar: false // this is the line that hides the bar.
+	};
+	Plotly.newPlot("trackChart", [{
+		type: "scatter3d",
+		mode: "lines+markers",
+		x: x,
+		y: y,
+		z: z,
+		line: {
+			width: 6,
+			color: c,
+			colorscale: "Hot"
+		},
+		marker: {
+			size: 3.5,
+			color: c,
+			colorscale: "Hot",
+			cmin: -20,
+			cmax: 50
+		}
+	}, ], layout, config);
 
-var x = [];
-var y = [];
-var z = [];
-var c = [];
-
-for(i = 0; i < pointCount; i++) 
-{
-   r = 10 * Math.cos(i / 10);
-   x.push(r * Math.cos(i));
-   y.push(r * Math.sin(i));
-   z.push(i);
-   c.push(i)
 }
-var layout = {
-	scene:{ aspectmode: "auto", bgcolor:'#772b2c', xaxis: {color:"green",spikecolor: '#a10000',title : 'Horizon', autorange: 'reversed', backgroundcolor: 'rgb(230, 242,255)',gridcolor: 'rgb(255, 255, 255)',showbackground: true,zerolinecolor: 'rgb(255, 255, 255)'},
-	yaxis: {title : 'Expected Loss Differences', backgroundcolor: 'rgb(230, 242,255)',gridcolor: 'rgb(255, 255, 255)',showbackground: true,zerolinecolor: 'rgb(255, 255, 255)'},
-	zaxis: {title : 'Rating Grade', backgroundcolor: 'rgb(230, 230,200)',gridcolor: 'rgb(220, 220, 220)',showbackground: true,zerolinecolor: 'rgb(255, 255, 255)'}},
-    showlegend: false,
-	autosize: true,
-	margin: 2,
-	minreducedheight: 2,
-	minreducedwidth: 2,
-	paper_bgcolor: '#552b2c',
-	font_color: '#ffffff',
-	'margin': {
-        'l':0,
-        'r':0,
-        't':0,
-        'b':0
-    }
-};
 
-//height: 1000,
-var config = {
-	displayModeBar: false // this is the line that hides the bar.
-  };
-Plotly.newPlot('trackChart', [{
-  type: 'scatter3d',
-  mode: 'lines+markers',
-  x: x,
-  y: y,
-  z: z,
-  line: {
-    width: 6,
-    color: c,
-    colorscale: "Hot"},
-  marker: {
-    size: 3.5,
-    color: c,
-    colorscale: "Hot",
-    cmin: -20,
-    cmax: 50
-  }},                  
-],layout, config);
-
-//console.log(c_lat,c_lon);
+gps_chart();
