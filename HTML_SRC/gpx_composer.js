@@ -162,7 +162,8 @@ var layout = 0;
 
 function gps_chart() {
 	//crappy code for centering graph
-	
+	var width_calc = (window.innerWidth/100*(88+((window.innerWidth-500)/650)));
+
 	//color dark
 	if(document.getElementById("tn_color").value == 1){
 		layout = {
@@ -171,31 +172,33 @@ function gps_chart() {
 				bgcolor: "#2b2b2c",
 				xaxis: {
 					color: "#929292",
-					spikecolor: "#a10000",
+					spikecolor: "#000000",
 					title: plan_lng("gps_lat"),
 					backgroundcolor: "#3c4e3d",
-					gridcolor: 'color:"222222"',
+					gridcolor: "rgb(100, 100, 100)",
 					showbackground: true,
 					zerolinecolor: "rgb(255, 255, 255)"
 				},
 				yaxis: {
 					color: "#929292",
+					spikecolor: "#000000",
 					title: plan_lng("gps_lon"),
 					backgroundcolor: "#4e3e3c",
-					gridcolor: "rgb(255, 255, 255)",
+					gridcolor: "rgb(100, 100, 100)",
 					showbackground: true,
 					zerolinecolor: "rgb(255, 255, 255)"
 				},
 				zaxis: {
 					color: "#929292",
+					spikecolor: "#000000",
 					title: plan_lng("gps_ele"),
 					backgroundcolor: "#3c444e",
-					gridcolor: "rgb(220, 220, 220)",
+					gridcolor: "rgb(100, 100, 100)",
 					showbackground: true,
 					zerolinecolor: "rgb(255, 255, 255)"
 				}
 			},
-			width: (window.innerWidth/100*(88+((window.innerWidth-500)/650))),
+			width: width_calc,
 			showlegend: false,
 			paper_bgcolor: "#2b2b2c",
 			'margin': {
@@ -215,32 +218,34 @@ function gps_chart() {
 				bgcolor: "#ffffff",
 				xaxis: {
 					color: "#202020",
-					spikecolor: "#a10000",
+					spikecolor: "#ff0000",
 					title: plan_lng("gps_lat"),
 					autorange: "reversed",
 					backgroundcolor: "#ebc5c1",
-					gridcolor: "rgb(25, 25, 25)",
+					gridcolor: "rgb(255, 255, 255)",
 					showbackground: true,
 					zerolinecolor: "rgb(0, 0, 0)"
 				},
 				yaxis: {
 					color: "#202020",
+					spikecolor: "#ff0000",
 					title: plan_lng("gps_lon"),
 					backgroundcolor: "#c1ebc4",
-					gridcolor: "rgb(25, 25, 25)",
+					gridcolor: "rgb(255, 255, 255)",
 					showbackground: true,
 					zerolinecolor: "rgb(0, 0, 0)"
 				},
 				zaxis: {
 					color: "#202020",
+					spikecolor: "#ff0000",
 					title: plan_lng("gps_ele"),
 					backgroundcolor: "#c1d4eb",
-					gridcolor: "rgb(25, 25, 25)",
+					gridcolor: "rgb(255, 255, 255)",
 					showbackground: true,
 					zerolinecolor: "rgb(0, 0, 0)"
 				}
 			},
-			width: (window.innerWidth/100*(88+((window.innerWidth-500)/650))),
+			width: width_calc,
 			showlegend: false,
 			paper_bgcolor: "#ffffff",
 			'margin': {
