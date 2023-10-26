@@ -144,22 +144,24 @@ function gpx_final_save(){
 }
 
 //draw gps tracks chart
+//del_html_elem("trackChart");
+var pointCount = 50;
+var i, r;
+var x = [];
+var y = [];
+var z = [];
+var c = [];
+for (i = 0; i < pointCount; i++) {
+	r = 2 * Math.cos(i / 10);
+	x.push(r * Math.cos(i));
+	y.push(r * Math.sin(i));
+	z.push(i);
+	c.push(i)
+}
+var layout = 0;
+
 function gps_chart() {
-	del_html_elem("trackChart");
-	var pointCount = 50;
-	var i, r;
-	var x = [];
-	var y = [];
-	var z = [];
-	var c = [];
-	for (i = 0; i < pointCount; i++) {
-		r = 2 * Math.cos(i / 10);
-		x.push(r * Math.cos(i));
-		y.push(r * Math.sin(i));
-		z.push(i);
-		c.push(i)
-	}
-	var layout = 0;
+	//crappy code for centering graph
 	
 	//color dark
 	if(document.getElementById("tn_color").value == 1){
@@ -171,7 +173,6 @@ function gps_chart() {
 					color: "#929292",
 					spikecolor: "#a10000",
 					title: plan_lng("gps_lat"),
-					autorange: "reversed",
 					backgroundcolor: "#3c4e3d",
 					gridcolor: 'color:"222222"',
 					showbackground: true,
@@ -194,11 +195,8 @@ function gps_chart() {
 					zerolinecolor: "rgb(255, 255, 255)"
 				}
 			},
+			width: (window.innerWidth/100*(88+((window.innerWidth-500)/650))),
 			showlegend: false,
-			autosize: true,
-			margin: 2,
-			minreducedheight: 2,
-			minreducedwidth: 2,
 			paper_bgcolor: "#2b2b2c",
 			'margin': {
 				'l': 0,
@@ -211,6 +209,7 @@ function gps_chart() {
 	//color light
 	if(document.getElementById("tn_color").value == 2){
 		layout = {
+			autosize: true,
 			scene: {
 				aspectmode: "auto",
 				bgcolor: "#ffffff",
@@ -241,11 +240,8 @@ function gps_chart() {
 					zerolinecolor: "rgb(0, 0, 0)"
 				}
 			},
+			width: (window.innerWidth/100*(88+((window.innerWidth-500)/650))),
 			showlegend: false,
-			autosize: true,
-			margin: 2,
-			minreducedheight: 2,
-			minreducedwidth: 2,
 			paper_bgcolor: "#ffffff",
 			'margin': {
 				'l': 0,
