@@ -307,14 +307,14 @@ window.addEventListener("load", () => {
 
 	//acceleration 
 	window.addEventListener("devicemotion", event => {
-		accel_x = parseFloat(event.accelerationIncludingGravity.x).toFixed(2);
-		accel_y = parseFloat(event.accelerationIncludingGravity.y).toFixed(2);
-		accel_z = parseFloat(event.accelerationIncludingGravity.z).toFixed(2);
-		rot_rate_a = parseFloat(event.rotationRate.alpha).toFixed(2);
-		rot_rate_b = parseFloat(event.rotationRate.beta).toFixed(2);
-		rot_rate_g = parseFloat(event.rotationRate.gamma).toFixed(2);
-		document.getElementById("data-test1").textContent = String(accel_x + " : " + accel_y + " : " + accel_z);
-		document.getElementById("data-test2").textContent = String(rot_rate_a + " : " + rot_rate_b + " : " + rot_rate_g);
+		accel_x = parseFloat(event.accelerationIncludingGravity.x).toFixed(3);
+		accel_y = parseFloat(event.accelerationIncludingGravity.y).toFixed(3);
+		accel_z = parseFloat(event.accelerationIncludingGravity.z).toFixed(3);
+		rot_rate_a = parseFloat(event.rotationRate.alpha).toFixed(3);
+		rot_rate_b = parseFloat(event.rotationRate.beta).toFixed(3);
+		rot_rate_g = parseFloat(event.rotationRate.gamma).toFixed(3);
+		//document.getElementById("data-test1").textContent = String(accel_x + " : " + accel_y + " : " + accel_z);
+		//document.getElementById("data-test2").textContent = String(rot_rate_a + " : " + rot_rate_b + " : " + rot_rate_g);
 	});
 
 	navigator.geolocation.watchPosition(g => {
