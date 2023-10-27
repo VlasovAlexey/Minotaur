@@ -83,7 +83,7 @@ hide_unused_elements();
 GlobalInterval = 0;
 
 function upd_all() {
-	gps_chart();
+	
 	//Show progress bar
 	Pbar_Show();
 
@@ -101,12 +101,13 @@ function upd_all() {
 	speed_reg = (speed_reg.replace(",", "."));
 
 
+	gps_chart();
+	
 	//auto save all settings
 	btn_save();
-
 	reset_me();
 	Pbar_Hide();
-	gps_chart();
+	
 }
 upd_all();
 
