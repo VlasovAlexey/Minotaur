@@ -90,6 +90,7 @@ select
     margin-right: 2px;
     border-radius: 15px;
     text-align-last: center;
+    border: 1px solid #969696;
 }
 .tn_dmn
 {
@@ -618,23 +619,23 @@ input
     background-color: #272727;
     -webkit-appearance: none;
     -moz-appearance: none;
-    cursor: pointer;
     color: #c4c4c4;
     font-family: FirstFont;
     font-size: 16px;
+    margin-bottom: 15px;
+    margin-left: 2px;
+    margin-right: 2px;
     border-radius: 15px;
     text-align-last: center;
-    margin-bottom: 10px;
-    font-family: FirstFont;
-    width: 100px;
     position: relative;
     display: inline-block;
-    padding: .4em 1em;
+    padding: .3em 1em;
     outline: none;
     border: 1px solid #969696;
     border-radius: 15px;
     transition: .2s ease-in-out;
-    cursor: pointer;    
+    cursor: pointer;
+    width: 100px;  
 }
 
 #gpx_file {display: none;}

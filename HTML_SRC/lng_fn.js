@@ -207,6 +207,15 @@
     	lang = {
     		1: {
     			//Eng
+			   ".tn_igrf_13": "Use IGFR-13",
+			   ".tn_accel_use": "Use Acceleration Sensor Data",
+			   ".tn_default_lat": "Default Start Latitude",
+			   ".tn_default_lon": "Default Start Longitude",
+			   ".tn_igrf_13_yes": "Yes",
+			   ".tn_igrf_13_no": "No",
+			   ".tn_accel_use_yes": "Yes",
+			   ".tn_accel_use_no": "No",
+			   
     			".app_name": "Minotaur",
     			".fullscreen_permission": "Enable Geo Data Access",
 
@@ -268,6 +277,15 @@
 
     		//Rus
     		2: {
+				".tn_igrf_13": "Использовать IGFR-13",
+			   ".tn_accel_use": "Использовать данные датчика ускорения",
+			   ".tn_default_lat": "Начальная широта по умолчанию",
+			   ".tn_default_lon": "Начальная долгота по умолчанию",
+			   ".tn_igrf_13_yes": "Да",
+			   ".tn_igrf_13_no": "Нет",
+			   ".tn_accel_use_yes": "Да",
+			   ".tn_accel_use_no": "Нет",
+
     			".app_name": "Минотавр",
     			".fullscreen_permission": "Включить доступ к геоданным",
 
@@ -327,8 +345,18 @@
     			".header11": "S.A.U.L. Рекриационный планировщик риска погружений"
     		},
 
-    		//Spa
+    		
     		3: {
+				//Spa
+				".tn_igrf_13": "Utilizar IGFR-13",
+			   ".tn_accel_use": "Utilizar Datos del Sensor de Aceleración",
+			   ".tn_default_lat": "Latitud Inicial por Defecto",
+			   ".tn_default_lon": "Longitud Inicial por Defecto",
+			   ".tn_igrf_13_yes": "Sí",
+			   ".tn_igrf_13_no": "No",
+			   ".tn_accel_use_yes": "Sí",
+			   ".tn_accel_use_no": "No",
+
     			".app_name": "Minotauro",
     			".fullscreen_permission": "Acceso a Datos Geográficos",
 
@@ -389,6 +417,15 @@
     		},
     		4: {
     			//Prt
+				".tn_igrf_13": "Utilizar IGFR-13",
+				".tn_accel_use": "Utilizar Dados do Sensor de Aceleração",
+				".tn_default_lat": "Latitude Inicial Predefinida",
+				".tn_default_lon": "Longitude Inicial Predefinida",
+				".tn_igrf_13_yes": "Sim",
+				".tn_igrf_13_no": "Não",
+				".tn_accel_use_yes": "Sim",
+				".tn_accel_use_no": "Não",
+ 
     			".app_name": "Minotauro",
     			".fullscreen_permission": "Ativar o Acesso a Dados Geográficos",
 
@@ -450,6 +487,15 @@
     		},
     		5: {
     			//China
+				".tn_igrf_13": "使 IGFR-13",
+				".tn_accel_use": "使用加速度传感器数据",
+				".tn_default_lat": "默认起始纬度",
+				".tn_default_lon": "默认起始经度",
+				".tn_igrf_13_yes": "赞同",
+				".tn_igrf_13_no": "拒绝",
+				".tn_accel_use_yes": "赞同",
+				".tn_accel_use_no": "拒绝",
+ 
     			".app_name": "牛头人",
     			".fullscreen_permission": "启用地理数据访问",
 
@@ -510,6 +556,15 @@
     		},
     		6: {
     			//Bulgarian
+				".tn_igrf_13": "Използване на IGFR-13",
+				".tn_accel_use": "Използване на данни от сензора за ускорение",
+				".tn_default_lat": "Начална географска ширина",
+				".tn_default_lon": "Начална дължина",
+				".tn_igrf_13_yes": "Да",
+				".tn_igrf_13_no": "Не",
+				".tn_accel_use_yes": "Да",
+				".tn_accel_use_no": "Не",
+ 
     			".app_name": "Минотавър",
     			".fullscreen_permission": "Разрешаване на достъпа до геоданни",
 
@@ -567,6 +622,15 @@
     		},
     		7: {
     			//Fr
+				".tn_igrf_13": "Utiliser l'IGFR-13",
+				".tn_accel_use": "Utiliser les données du capteur d'accélération",
+				".tn_default_lat": "Latitude de départ par défaut",
+				".tn_default_lon": "Longitude de départ par défaut",
+				".tn_igrf_13_yes": "Oui",
+				".tn_igrf_13_no": "Non",
+				".tn_accel_use_yes": "Oui",
+				".tn_accel_use_no": "Non",
+
     			".app_name": "Minotaure",
     			".fullscreen_permission": "Activer l'accès aux données géographiques",
 
@@ -624,6 +688,15 @@
     		},
     		8: {
     			//Korean
+				".tn_igrf_13": "IGFR-13 사용",
+				".tn_accel_use": "가속도 센서 데이터 사용",
+				".tn_default_lat": "기본 시작 위도",
+				".tn_default_lon": "기본 시작 경도",
+				".tn_igrf_13_yes": "예",
+				".tn_igrf_13_no": "아니요",
+				".tn_accel_use_yes": "예",
+				".tn_accel_use_no": "아니요",
+
     			".app_name": "미노타우로스",
     			".fullscreen_permission": "지리적 데이터 액세스 활성화",
 
@@ -681,6 +754,15 @@
     		},
     		9: {
     			//Italian
+				".tn_igrf_13": "Utilizzare IGFR-13",
+				".tn_accel_use": "Usa i dati del sensore di accelerazione",
+				".tn_default_lat": "Latitudine di partenza predefinita",
+				".tn_default_lon": "Longitudine di partenza predefinita",
+				".tn_igrf_13_yes": "Sì",
+				".tn_igrf_13_no": "No",
+				".tn_accel_use_yes": "Sì",
+				".tn_accel_use_no": "No",
+ 
     			".app_name": "Minotauro",
     			".fullscreen_permission": "Abilitare l'accesso ai dati geografici",
 

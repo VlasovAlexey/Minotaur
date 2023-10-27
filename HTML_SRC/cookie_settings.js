@@ -7,6 +7,11 @@ var meas_len_usr = "2,11";
 var const_spd_usr = "1,4925373134";
 var calib_f_usr = "0,0";
 
+var igrf_13_usr = 1;
+var accel_use_usr = 1;
+var default_lat_usr = "47,4946796";
+var default_lon_usr = "19,0272695";
+
 function default_set() {
 	lngs_usr = 1;
 	dmns_usr = 1;
@@ -16,6 +21,11 @@ function default_set() {
 	meas_len_usr = "2,11";
 	const_spd_usr = "1,4925373134";
 	calib_f_usr = "0,0";
+
+	igrf_13_usr = 1;
+	accel_use_usr = 1;
+	default_lat_usr = "47,4946796";
+	default_lon_usr = "19,0272695";
 }
 
 var lng_arr = [{
@@ -86,6 +96,28 @@ var color_arr = [{
 		isdisable: "enabled"
 	}
 ];
+var igrf_13_arr = [{
+	text: "igrf_13_yes",
+	id: "tn_igrf_13_yes",
+	isdisable: "enabled"
+},
+{
+	text: "igrf_13_no",
+	id: "tn_igrf_13_no",
+	isdisable: "enabled"
+}
+];
+var accel_use_arr = [{
+	text: "accel_use_yes",
+	id: "tn_accel_use_yes",
+	isdisable: "enabled"
+},
+{
+	text: "accel_use_no",
+	id: "tn_accel_use_no",
+	isdisable: "enabled"
+}
+];
 
 //Show\Hide HTML elements
 function element_id_show(id) {
@@ -144,6 +176,12 @@ function write_cookie() {
 	setCookie("meas_len_usr1", return_val("meas_len_opt"));
 	setCookie("const_spd_usr1", return_val("const_spd_opt"));
 	setCookie("calib_f_usr1", return_val("calib_f_opt"));
+
+	setCookie("igrf_13_usr1", return_val("igrf_13_opt"));
+	setCookie("accel_use_usr1", return_val("accel_use_opt"));
+	setCookie("default_lat_usr1", return_val("default_lat_opt"));
+	setCookie("default_lon_usr1", return_val("default_lon_opt"));
+	
 }
 
 function read_cookie() {
@@ -155,6 +193,11 @@ function read_cookie() {
 	meas_len_usr = getCookie("meas_len_usr1");
 	const_spd_usr = getCookie("const_spd_usr1");
 	calib_f_usr = getCookie("calib_f_usr1");
+
+	igrf_13_usr = getCookie("igrf_13_usr1");
+	accel_use_usr = getCookie("accel_use_usr1");
+	default_lat_usr = getCookie("default_lat_usr1");
+	default_lon_usr = getCookie("default_lon_usr1");
 }
 
 function return_idx(html_ids) {
@@ -170,7 +213,7 @@ function return_val(html_ids) {
 }
 
 //settings doesn`t saved ad it is first start. it will be saved now
-if (getCookie("color_usr1") == undefined) {
+if (getCookie("default_lon_usr1") == undefined) {
 	//need explanation for me. If uncomment below line all is don`t work on Android
 	//upd_all();
 	//console.log("cookie not found!");
@@ -222,6 +265,11 @@ function dim_cng() {
 	const_spd = $("#const_spd_opt").val();
 	calib_f = $("#calib_f_opt").val();
 
+	igfr_13 = $("#igrf_13_opt").val();
+	accel_use = $("#accel_use_opt").val();
+	default_lat = $("#default_lat_opt").val();
+	default_lon = $("#default_lon_opt").val();
+	
 	create_html();
 	init_global();
 	changeGuiDim();
@@ -251,6 +299,15 @@ function create_html() {
 	del_html_elem("tr_calib_f");
 	create_input_val("tr_calib_f", "calib_f_opt", calib_f_usr);
 
+	del_html_elem("tr_igrf_13");
+	create_custom_option_arr("tr_igrf_13", "igrf_13_opt", igrf_13_usr, igrf_13_arr);
+	del_html_elem("tr_accel_use");
+	create_custom_option_arr("tr_accel_use", "accel_use_opt", accel_use_usr, accel_use_arr);
+	del_html_elem("tr_default_lat");
+	create_input_val("tr_default_lat", "default_lat_opt", default_lat_usr);
+	del_html_elem("tr_default_lon");
+	create_input_val("tr_default_lon", "default_lon_opt", default_lon_usr);
+	
 	//Re create watchers for changes
 	tn_cng_color = document.getElementById("tn_color");
 	tn_cng_color.addEventListener('change', assign_css_style);
@@ -271,6 +328,15 @@ function create_html() {
 	w_const_spd.addEventListener('change', upd_all);
 	w_calib_f = document.getElementById("calib_f_opt");
 	w_calib_f.addEventListener('change', upd_all);
+
+	w_igrf_13 = document.getElementById("igrf_13_opt");
+	w_igrf_13.addEventListener('change', upd_all);
+	w_accel_use = document.getElementById("accel_use_opt");
+	w_accel_use.addEventListener('change', upd_all);
+	w_default_lat = document.getElementById("default_lat_opt");
+	w_default_lat.addEventListener('change', upd_all);
+	w_default_lon = document.getElementById("default_lon_opt");
+	w_default_lon.addEventListener('change', upd_all);
 }
 
 create_custom_option_arr("tr_lng_sel", "tn_lng", lngs_usr, lng_arr);
@@ -281,6 +347,11 @@ create_option("tr_rec_freq", "rec_freq_opt", 1, 10, rec_freq_usr, 1, 0, "none");
 create_input_val("tr_meas_len", "meas_len_opt", meas_len_usr);
 create_input_val("tr_const_spd", "const_spd_opt", const_spd_usr);
 create_input_val("tr_calib_f", "calib_f_opt", calib_f_usr);
+
+create_custom_option_arr("tr_igrf_13", "igrf_13_opt", igrf_13_usr, igrf_13_arr);
+create_custom_option_arr("tr_accel_use", "accel_use_opt", accel_use_usr, accel_use_arr);
+create_input_val("tr_default_lat", "default_lat_opt", default_lat_usr);
+create_input_val("tr_default_lon", "default_lon_opt", default_lon_usr);
 
 var force_lng = 0;
 
@@ -309,4 +380,13 @@ function init_global() {
 	w_const_spd.addEventListener('change', upd_all);
 	w_calib_f = document.getElementById("calib_f_opt");
 	w_calib_f.addEventListener('change', upd_all);
+
+	w_igrf_13 = document.getElementById("igrf_13_opt");
+	w_igrf_13.addEventListener('change', upd_all);
+	w_accel_use = document.getElementById("accel_use_opt");
+	w_accel_use.addEventListener('change', upd_all);
+	w_default_lat = document.getElementById("default_lat_opt");
+	w_default_lat.addEventListener('change', upd_all);
+	w_default_lon = document.getElementById("default_lon_opt");
+	w_default_lon.addEventListener('change', upd_all);
 }
