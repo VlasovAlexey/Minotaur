@@ -38,7 +38,7 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |Point reduction filters|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
 |Temperature sensor|No|No|$\textcolor{green}{\textsf{Yes}}$|
 |Using pulsation to calculate average speed|$\textcolor{green}{\textsf{Yes}}$|No|$\textcolor{green}{\textsf{Yes}}$|
-|Memory maximum routes |1 000 000|50| +/- 5000|
+|Memory maximum routes |$\textcolor{green}{\textsf{Depend of phone memory +/- 1 000 000}}$|50| +/- 5000|
 |Working with multiple routes|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
 |Manual map drawing|No|$\textcolor{green}{\textsf{Yes}}$|No|
 |Add LRUD data|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
