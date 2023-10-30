@@ -22,10 +22,10 @@ This survey is a very fast and precise measurement method, it will be difficult 
 # Compare with other software and hardware
 |   Features            | Minotaur      | Ariane`s Line                 | The Surveyor |
 | :---                  |   :---:       |     :---:                     |        :---: |
-|  Price                |  Free         | 750$ + $40 Yearly subscription|        2600€ |
-|Accuracy of measurement \n or map construction| 2% on DPV     | 0.5% on total length          | Around 1%    |        
-|    |               |                               |              |
-| Compass precision     | 2°            | 1.5°                          | 2°           |
+|  Price        `#0969DA` |  **Free**     | 750$ + $40 Yearly subscription|        2600€ |
+|Accuracy of measurement| 2% on DPV     | **0.5% on total length**      | Around 1%    |        
+| Depht precision       | 5 meters      | **0.1 meters**                | 0.3 meters   |
+| Compass precision     | 2°            | **1.5°**                      | 2°           |
 
 # Geting Started
 - Get the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/) or clone\download from GitHub
