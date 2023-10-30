@@ -23,8 +23,8 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |   Features            | Minotaur      | Ariane`s Line                 | The Surveyor |
 | :---                  |   :---:       |     :---:                     |        :---: |
 |  Price                |  Free         | 750$ + $40 Yearly subscription|        2600€ |
-|Accuracy of measurement| 2% on DPV     | 0.5% on total length          | Around 1%    |        
-|or map construction    |               |                               |              |
+|Accuracy of measurement \n or map construction| 2% on DPV     | 0.5% on total length          | Around 1%    |        
+|    |               |                               |              |
 | Compass precision     | 2°            | 1.5°                          | 2°           |
 
 # Geting Started
