@@ -32,7 +32,7 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |Support by third-party programs for the format|$\textcolor{green}{\textsf{Yes}}$| No                                  |No            |
 |Code availability      |$\textcolor{green}{\textsf{Yes}}$| No                               |No            |
 |Use routs in other software |$\textcolor{green}{\textsf{Yes}}$ | No                              |No            |
-|Supported OS   | $\textcolor{green}{\textsf{Android, IOS, Windows, MacOS, Linux}}$| Windows, MacOS, Linux | Windows |
+|Supported OS   | $\textcolor{green}{\textsf{Android, IOS, Windows, MacOS, Linux}}$| Windows, MacOS, Linux | Windows, Android |
 |IGRF13 correction | $\textcolor{green}{\textsf{Yes}}$ | $\textcolor{green}{\textsf{Yes}}$ | No Info|
 |WGS84 model for calculations | $\textcolor{green}{\textsf{Yes}}$|No Info|No Info|
 |Point reduction filters|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
