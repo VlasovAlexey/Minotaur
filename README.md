@@ -31,6 +31,8 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |Code availability      |$\textcolor{green}{\textsf{Yes}}$| No                               |No            |
 |Use routs in other software |$\textcolor{green}{\textsf{Yes}}$ | No                              |No            |
 |Supported OS   | $\textcolor{green}{\textsf{Android, IOS, Windows, MacOS, Linux}}$| Windows, MacOS, Linux | Windows |
+|IGRF13 correction | $\textcolor{green}{\textsf{Yes}}$ | $\textcolor{green}{\textsf{Yes}}$ | No Info|
+|WGS84 model for calculations | $\textcolor{green}{\textsf{Yes}}$|No Info|No Info|
 
 # Geting Started
 - Get the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/) or clone\download from GitHub
