@@ -45,7 +45,7 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |Building complex profiles|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
 |Multilingual software GUI|$\textcolor{green}{\textsf{Yes}}$|No|No|
 |Third party software installation required|$\textcolor{green}{\textsf{No}}$|Yes|Yes|
-Accessibility|Device can be operated with one hand|Device can be operated with one hand|No|
+Accessibility|$\textcolor{green}{\textsf{Device can be operated with one hand}}$|$\textcolor{green}{\textsf{Device can be operated with one hand}}$|No|
 
 # Geting Started
 - Get the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/) or clone\download from GitHub
