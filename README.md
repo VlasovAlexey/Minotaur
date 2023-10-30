@@ -20,7 +20,7 @@ This survey is a very fast and precise measurement method, it will be difficult 
 - GPS Exchange Format file (GPX) are full supported
     
 # Compare with other software and hardware
-|   Features            | Minotaur      | Ariane`s Line                 | The Surveyor |
+|   Features            | [Minotaur](https://github.com/VlasovAlexey/Minotaur)      | [Ariane`s Line](https://www.arianesline.com/ariane/)|[The Surveyor](https://support.seacraft.eu/knowledge-base/the-surveyor-user-manual/)|
 | :---                  |   :---:       |     :---:                     |        :---: |
 |  Price                | $\textcolor{green}{\textsf{Free}}$ | 750$ + $40 Yearly subscription|        2600€ |
 |Accuracy of measurement| Around 2%     | $\textcolor{green}{\textsf{0.5% on total length}}$ | Around 1%    |
@@ -40,7 +40,7 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |Using pulsation to calculate average speed|$\textcolor{green}{\textsf{Yes}}$|No|$\textcolor{green}{\textsf{Yes}}$|
 |Memory maximum routes |$\textcolor{green}{\textsf{Depend of phone memory +/- 1 000 000}}$|50| +/- 5000|
 |Working with multiple routes|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
-|Manual map drawing|No|$\textcolor{green}{\textsf{Yes}}$|No|
+|Manual map drawing|[Use WTracks](https://opoto.github.io/wtracks/)|$\textcolor{green}{\textsf{Yes}}$|No|
 |Add LRUD data|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
 |Building complex profiles|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
 |Multilingual software GUI|$\textcolor{green}{\textsf{Yes}}$|No|No|
