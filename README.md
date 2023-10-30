@@ -23,13 +23,13 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |   Features            | Minotaur      | Ariane`s Line                 | The Surveyor |
 | :---                  |   :---:       |     :---:                     |        :---: |
 |  Price                | $\textcolor{green}{\textsf{Free}}$ | 750$ + $40 Yearly subscription|        2600€ |
-|Accuracy of measurement| 2% on DPV     | $\textcolor{green}{\textsf{0.5% on total length}}$ | Around 1%    |        
+|Accuracy of measurement| Around 2%     | $\textcolor{green}{\textsf{0.5% on total length}}$ | Around 1%    |        
 | Depht precision       | 5 meters      | $\textcolor{green}{\textsf{0.1 meters}}$           | 0.3 meters   |
 | Compass precision     | 2°            | $\textcolor{green}{\textsf{1.5°}}$                 | 2°           |
 |Open data format       | $\textcolor{green}{\textsf{Yes}}$ | No                             |No            |
 |Support by third-party programs for the format|$\textcolor{green}{\textsf{Yes}}$| No                                  |No            |
 |Code availability      |$\textcolor{green}{\textsf{Yes}}$| No                               |No            |
-|Use in other products  |$\textcolor{green}{\textsf{Yes}}$ | No                              |No            |
+|Use routs in other sowtware |$\textcolor{green}{\textsf{Yes}}$ | No                              |No            |
 |Supported OS   | $\textcolor{green}{\textsf{Android, IOS, Windows, MacOS, Linux}}$| Windows, MacOS, Linux | Windows |
 
 # Geting Started
