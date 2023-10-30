@@ -17,7 +17,7 @@ This survey is a very fast and precise measurement method, it will be difficult 
 - Available in different languages
 - Internet connection is not required
 - Minotaur is available for major platforms PC, Mac, Linux, IOS and Android
-- Microsoft Excel (GPX) supported
+- GPS Exchange Format file (GPX) are full supported
   
 # Compare with other software and hardware
 |   Features            | Minotaur      | Ariane`s Line                 | The Surveyor |
