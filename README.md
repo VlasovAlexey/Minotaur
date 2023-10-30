@@ -18,13 +18,11 @@ This survey is a very fast and precise measurement method, it will be difficult 
 - Internet connection is not required
 - Minotaur is available for major platforms PC, Mac, Linux, IOS and Android
 - GPS Exchange Format file (GPX) are full supported
-
-$\textcolor{magenta}{\textsf{Should be magenta}}$ 
     
 # Compare with other software and hardware
 |   Features            | Minotaur      | Ariane`s Line                 | The Surveyor |
 | :---                  |   :---:       |     :---:                     |        :---: |
-|  Price                |  **Free**     | 750$ + $40 Yearly subscription|        2600€ |
+|  Price                |  $\textcolor{green}{\textsf{Free}}$     | 750$ + $40 Yearly subscription|        2600€ |
 |Accuracy of measurement| 2% on DPV     | **0.5% on total length**      | Around 1%    |        
 | Depht precision       | 5 meters      | **0.1 meters**                | 0.3 meters   |
 | Compass precision     | 2°            | **1.5°**                      | 2°           |
