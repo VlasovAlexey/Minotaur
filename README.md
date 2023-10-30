@@ -23,7 +23,9 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |   Features            | Minotaur      | Ariane`s Line                 | The Surveyor |
 | :---                  |   :---:       |     :---:                     |        :---: |
 |  Price                | $\textcolor{green}{\textsf{Free}}$ | 750$ + $40 Yearly subscription|        2600€ |
-|Accuracy of measurement| Around 2%     | $\textcolor{green}{\textsf{0.5% on total length}}$ | Around 1%    |        
+|Accuracy of measurement| Around 2%     | $\textcolor{green}{\textsf{0.5% on total length}}$ | Around 1%    |
+|Difficulty in learning to use|Medium|Hard|Hard|
+|Loop closure|Around 2%|1%|Around 2%|
 | Depht precision       | 5 meters      | $\textcolor{green}{\textsf{0.1 meters}}$           | 0.3 meters   |
 | Compass precision     | 2°            | $\textcolor{green}{\textsf{1.5°}}$                 | 2°           |
 |Open data format       | $\textcolor{green}{\textsf{Yes}}$ | No                             |No            |
@@ -33,7 +35,20 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |Supported OS   | $\textcolor{green}{\textsf{Android, IOS, Windows, MacOS, Linux}}$| Windows, MacOS, Linux | Windows |
 |IGRF13 correction | $\textcolor{green}{\textsf{Yes}}$ | $\textcolor{green}{\textsf{Yes}}$ | No Info|
 |WGS84 model for calculations | $\textcolor{green}{\textsf{Yes}}$|No Info|No Info|
+|Temperature sensor|No|No|$\textcolor{green}{\textsf{Yes}}$|
+|Using pulsation to calculate average speed|$\textcolor{green}{\textsf{Yes}}$|No|$\textcolor{green}{\textsf{Yes}}$|
+|Memory maximum routes |1 000 000|50| +/- 5000|
 
+Speed of route construction
+Working with multiple routes
+Manual map drawing
+Add LRUD data
+Building complex profiles
+Multilingual software GUI
+Third party software installation required
+Different units of measurement
+Accessibility : Device can be operated with one hand.
+Point reduction filters
 # Geting Started
 - Get the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/) or clone\download from GitHub
 - Unzip arhive. Use latest Google Chrome\Safari Browser for view
