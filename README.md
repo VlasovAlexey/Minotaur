@@ -17,7 +17,13 @@ This survey is a very fast and precise measurement method, it will be difficult 
 - Available in different languages
 - Internet connection is not required
 - Minotaur is available for major platforms PC, Mac, Linux, IOS and Android
-- Microsoft Excel (XLS)
+- Microsoft Excel (GPX) supported
+  
+# Compare with other software and hardware
+| Minotaur     | Ariane`s Line  |  The Surveyor |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
 
 # Geting Started
 - Get the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/) or clone\download from GitHub
