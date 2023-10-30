@@ -23,7 +23,7 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |   Features            | [Minotaur](https://github.com/VlasovAlexey/Minotaur)      | [Ariane`s Line](https://www.arianesline.com/ariane/)|[The Surveyor](https://support.seacraft.eu/knowledge-base/the-surveyor-user-manual/)|
 | :---                  |   :---:       |     :---:                     |        :---: |
 |  Price                | $\textcolor{green}{\textsf{Free}}$ | 750$ + $40 Yearly subscription|        2600€ |
-|Accuracy of measurement| Around 2%     | $\textcolor{green}{\textsf{0.5% on total length}}$ | Around 1%    |
+|Accuracy of measurement| Around 2%|$\textcolor{green}{\textsf{0.5%}}$| Around 1%    |
 |Difficulty in learning to use|Medium|Hard|Hard|
 |Loop closure|Around 2%|$\textcolor{green}{\textsf{1%}}$|Around 2%|
 | Depht precision       | 5 meters      | $\textcolor{green}{\textsf{0.1 meters}}$           | 0.3 meters   |
