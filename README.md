@@ -27,7 +27,7 @@ This survey is a very fast and precise measurement method, it will be difficult 
 | Depht precision       | 5 meters      | $\textcolor{green}{\textsf{0.1 meters}}$           | 0.3 meters   |
 | Compass precision     | 2°            | $\textcolor{green}{\textsf{1.5°}}$                 | 2°           |
 |Open data format       | $\textcolor{green}{\textsf{Yes}}$ | No                             |No            |
-|Support by third-party programs for the format|**Yes**| No                                  |No            |
+|Support by third-party programs for the format|$\textcolor{green}{\textsf{Yes}}$| No                                  |No            |
 |Code availability      |$\textcolor{green}{\textsf{Yes}}$| No                               |No            |
 |Use in other products  |$\textcolor{green}{\textsf{Yes}}$ | No                              |No            |
 |Supported OS   | $\textcolor{green}{\textsf{Android, IOS, Windows, MacOS, Linux}}$| Windows, MacOS, Linux | Windows |
