@@ -26,10 +26,10 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |Accuracy of measurement| 2% on DPV     | **0.5% on total length**      | Around 1%    |        
 | Depht precision       | 5 meters      | **0.1 meters**                | 0.3 meters   |
 | Compass precision     | 2°            | **1.5°**                      | 2°           |
-|Open data format       | Yes           | No                            |No            |
-|Support by third-party programs for the format|Yes| No                 |No            |
-|Code availability      | Yes           | No                            |No            |
-|Use in other products  | Yes           | No                            |No            |
+|Open data format       | **Yes**       | No                            |No            |
+|Support by third-party programs for the format|**Yes**| No             |No            |
+|Code availability      |**Yes**        | No                            |No            |
+|Use in other products  |**Yes**        | No                            |No            |
 |Supported OS   | Android, IOS, Windows, MacOS, Linux| Windows, MacOS, Linux | Windows |
 
 # Geting Started
