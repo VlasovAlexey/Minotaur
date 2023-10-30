@@ -35,20 +35,18 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |Supported OS   | $\textcolor{green}{\textsf{Android, IOS, Windows, MacOS, Linux}}$| Windows, MacOS, Linux | Windows |
 |IGRF13 correction | $\textcolor{green}{\textsf{Yes}}$ | $\textcolor{green}{\textsf{Yes}}$ | No Info|
 |WGS84 model for calculations | $\textcolor{green}{\textsf{Yes}}$|No Info|No Info|
+|Point reduction filters|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
 |Temperature sensor|No|No|$\textcolor{green}{\textsf{Yes}}$|
 |Using pulsation to calculate average speed|$\textcolor{green}{\textsf{Yes}}$|No|$\textcolor{green}{\textsf{Yes}}$|
 |Memory maximum routes |1 000 000|50| +/- 5000|
+|Working with multiple routes|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
+|Manual map drawing|No|$\textcolor{green}{\textsf{Yes}}$|No|
+|Add LRUD data|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
+|Building complex profiles|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
+|Multilingual software GUI|$\textcolor{green}{\textsf{Yes}}$|No|No|
+|Third party software installation required|$\textcolor{green}{\textsf{No}}$|Yes|Yes|
+Accessibility|Device can be operated with one hand|Device can be operated with one hand|No|
 
-Speed of route construction
-Working with multiple routes
-Manual map drawing
-Add LRUD data
-Building complex profiles
-Multilingual software GUI
-Third party software installation required
-Different units of measurement
-Accessibility : Device can be operated with one hand.
-Point reduction filters
 # Geting Started
 - Get the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/) or clone\download from GitHub
 - Unzip arhive. Use latest Google Chrome\Safari Browser for view
