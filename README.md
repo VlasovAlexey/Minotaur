@@ -29,7 +29,7 @@ This survey is a very fast and precise measurement method, it will be difficult 
 |Open data format       | $\textcolor{green}{\textsf{Yes}}$ | No                             |No            |
 |Support by third-party programs for the format|$\textcolor{green}{\textsf{Yes}}$| No                                  |No            |
 |Code availability      |$\textcolor{green}{\textsf{Yes}}$| No                               |No            |
-|Use routs in other sowtware |$\textcolor{green}{\textsf{Yes}}$ | No                              |No            |
+|Use routs in other software |$\textcolor{green}{\textsf{Yes}}$ | No                              |No            |
 |Supported OS   | $\textcolor{green}{\textsf{Android, IOS, Windows, MacOS, Linux}}$| Windows, MacOS, Linux | Windows |
 
 # Geting Started
