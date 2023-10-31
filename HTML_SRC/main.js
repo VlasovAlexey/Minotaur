@@ -82,7 +82,7 @@ hide_unused_elements();
 
 //Main Loop
 GlobalInterval = 0;
-
+AccelInterval = 0;
 function upd_all() {
 	
 	//Show progress bar
@@ -94,13 +94,18 @@ function upd_all() {
 	//get and set record frequency
 	if (GlobalInterval == 0 || GlobalInterval != 0) {
 		clearTimeout(GlobalInterval);
-	}
+	};
 	GlobalInterval = setInterval(GlobalWatch, (1000 * document.getElementById("rec_freq_opt").value));
+
+	//get and set frequency for accelerometer
+	if (AccelInterval == 0 || AccelInterval != 0) {
+		clearTimeout(AccelInterval);
+	}
+	AccelInterval = setInterval(AccelWatch, 50 );
 
 	//get speed from interface and set it
 	speed_reg = document.getElementById("const_spd_opt").value;
 	speed_reg = (speed_reg.replace(",", "."));
-
 
 	gps_chart();
 	
@@ -211,6 +216,7 @@ function btn_record() {
 		document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
 		element_id_show("rec_blinking");
 		element_id_hide("main_parameters");
+		
 		record_state = 1;
 
 		//start writing to gpx array data
@@ -291,14 +297,9 @@ var orient_a = 0;
 var orient_b = 0;
 var orient_g = 0;
 
-var accel_x = 0;
-var accel_y = 0;
-var accel_z = 0;
 
-var rot_rate_a = 0;
-var rot_rate_b = 0;
-var rot_rate_g = 0;
 
+//display geolocation warning usage
 window.addEventListener("load", () => {
 	if (!navigator.geolocation) {
 		updateError({
@@ -321,6 +322,8 @@ window.addEventListener("load", () => {
 		rot_rate_a = parseFloat(event.rotationRate.alpha).toFixed(3);
 		rot_rate_b = parseFloat(event.rotationRate.beta).toFixed(3);
 		rot_rate_g = parseFloat(event.rotationRate.gamma).toFixed(3);
+
+		
 		//document.getElementById("data-test1").textContent = String(accel_x + " : " + accel_y + " : " + accel_z);
 		//document.getElementById("data-test2").textContent = String(rot_rate_a + " : " + rot_rate_b + " : " + rot_rate_g);
 	});
@@ -337,6 +340,51 @@ window.addEventListener("load", () => {
 }, {
 	//once: true,
 });
+//acceleration watch sensor write info to arr
+var accel_arr = [];
+
+var accel_x = 0;
+var accel_y = 0;
+var accel_z = 0;
+
+var rot_rate_a = 0;
+var rot_rate_b = 0;
+var rot_rate_g = 0;
+
+function AccelWatch(){
+	if (record_state == 1) {
+		//errors handler
+		if (accel_x == null || accel_x == undefined || isNaN(accel_x) == true) {
+			accel_x = "0.0";
+		}
+		if (accel_y == null || accel_y == undefined || isNaN(accel_y) == true) {
+			accel_y = "0.0";
+		}
+		if (accel_z == null || accel_z == undefined || isNaN(accel_z) == true) {
+			accel_z = "0.0";
+		}
+		if (rot_rate_a == null || rot_rate_a == undefined || isNaN(rot_rate_a) == true) {
+			rot_rate_a = "0.0";
+		}
+		if (rot_rate_b == null || rot_rate_b == undefined || isNaN(rot_rate_b) == true) {
+			rot_rate_b = "0.0";
+		}
+		if (rot_rate_g == null || rot_rate_g == undefined|| isNaN(rot_rate_g) == true) {
+			rot_rate_g = "0.0";
+		}
+	
+		accel_arr = accel_arr + "      <a_x>" + accel_x + "</a_x>\n";
+		accel_arr = accel_arr + "      <a_y>" + accel_y + "</a_y>\n";
+		accel_arr = accel_arr + "      <a_z>" + accel_z + "</a_z>\n";
+
+		accel_arr = accel_arr + "      <rr_a>" + rot_rate_a + "</rr_a>\n";
+		accel_arr = accel_arr + "      <rr_b>" + rot_rate_b + "</rr_b>\n";
+		accel_arr = accel_arr + "      <rr_g>" + rot_rate_g + "</rr_g>\n";
+	}
+	else{
+		accel_arr = [];
+	}
+}
 
 //global watch function for all global values in one place
 function GlobalWatch() {
@@ -344,20 +392,20 @@ function GlobalWatch() {
 	if (record_state == 1) {
 
 		//errors handler
-		if (lat_reg == null || lat_reg == undefined) {
-			lat_reg = "0.0"
+		if (lat_reg == null || lat_reg == undefined || isNaN(lat_reg) == true) {
+			lat_reg = "0.0";
 		}
-		if (lon_reg == null || lon_reg == undefined) {
-			lon_reg = "0.0"
+		if (lon_reg == null || lon_reg == undefined || isNaN(lon_reg) == true) {
+			lon_reg = "0.0";
 		}
-		if (ele_reg == null || ele_reg == undefined) {
-			ele_reg = "0.0"
+		if (ele_reg == null || ele_reg == undefined  || isNaN(ele_reg) == true) {
+			ele_reg = "0.0";
 		}
 
-		if (acHeading == null || acHeading == undefined) {
-			acHeading = "0.0"
+		if (acHeading == null || acHeading == undefined  || isNaN(acHeading) == true) {
+			acHeading = "0.0";
 		} else {
-			course_reg = acHeading
+			course_reg = acHeading;
 		}
 
 		//write to file
@@ -370,6 +418,12 @@ function GlobalWatch() {
 		GPX_File = GPX_File + "      <orient_b>" + orient_b + "</orient_b>\n";
 		GPX_File = GPX_File + "      <orient_g>" + orient_g + "</orient_g>\n";
 		GPX_File = GPX_File + "      <meas_tick>" + meas_tick + "</meas_tick>\n";
+		
+		if(document.getElementById("accel_use_opt").value == 1){
+			GPX_File = GPX_File + accel_arr;
+		}
+		accel_arr = [];
+		
 		GPX_File = GPX_File + "     </extensions>\n";
 		GPX_File = GPX_File + "    </trkpt>\n";
 		meas_tick = 0;
@@ -524,6 +578,14 @@ function updatePosition() {
 	navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+//if app run on Descktop Devices we see nothin warning about permissions
+if (getOS() != "iOS" || getOS() != "Android"){
+	document.getElementById("accessbutton").style.display = "none";
+	document.getElementById("accessblur").style.opacity = "0";
+	document.getElementById("accessblur").style.display = "none";
+}
+
+//permission button for acess geo data on mobile devices
 function grantPremission() {
 
 	document.getElementById("accessbutton").style.display = "none";
@@ -542,10 +604,7 @@ function grantPremission() {
 	}
 }
 
-//disable menu request if our device is not IOS
-if (getOS() != "iOS") {
-	//grantPremission();
-}
+
 
 const startBtn = document.querySelector(".start-btn");
 const isIOS = navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);

@@ -12,6 +12,8 @@ var accel_use_usr = 1;
 var default_lat_usr = "47,4946796";
 var default_lon_usr = "19,0272695";
 
+var default_ele_usr = "0,0";
+
 function default_set() {
 	lngs_usr = 1;
 	dmns_usr = 1;
@@ -26,6 +28,8 @@ function default_set() {
 	accel_use_usr = 1;
 	default_lat_usr = "47,4946796";
 	default_lon_usr = "19,0272695";
+
+	default_ele_usr = "0,0";
 }
 
 var lng_arr = [{
@@ -181,7 +185,8 @@ function write_cookie() {
 	setCookie("accel_use_usr1", return_val("accel_use_opt"));
 	setCookie("default_lat_usr1", return_val("default_lat_opt"));
 	setCookie("default_lon_usr1", return_val("default_lon_opt"));
-	
+
+	setCookie("default_ele_usr1", return_val("default_ele_opt"));
 }
 
 function read_cookie() {
@@ -198,6 +203,8 @@ function read_cookie() {
 	accel_use_usr = getCookie("accel_use_usr1");
 	default_lat_usr = getCookie("default_lat_usr1");
 	default_lon_usr = getCookie("default_lon_usr1");
+
+	default_ele_usr = getCookie("default_ele_usr1");
 }
 
 function return_idx(html_ids) {
@@ -213,7 +220,7 @@ function return_val(html_ids) {
 }
 
 //settings doesn`t saved ad it is first start. it will be saved now
-if (getCookie("default_lon_usr1") == undefined) {
+if (getCookie("default_ele_usr1") == undefined) {
 	//need explanation for me. If uncomment below line all is don`t work on Android
 	//upd_all();
 	//console.log("cookie not found!");
@@ -269,6 +276,8 @@ function dim_cng() {
 	accel_use = $("#accel_use_opt").val();
 	default_lat = $("#default_lat_opt").val();
 	default_lon = $("#default_lon_opt").val();
+
+	default_ele = $("#default_ele_opt").val();
 	
 	create_html();
 	init_global();
@@ -307,6 +316,9 @@ function create_html() {
 	create_input_val("tr_default_lat", "default_lat_opt", default_lat_usr);
 	del_html_elem("tr_default_lon");
 	create_input_val("tr_default_lon", "default_lon_opt", default_lon_usr);
+
+	del_html_elem("tr_default_ele");
+	create_input_val("tr_default_ele", "default_ele_opt", default_ele_usr);
 	
 	//Re create watchers for changes
 	tn_cng_color = document.getElementById("tn_color");
@@ -337,6 +349,9 @@ function create_html() {
 	w_default_lat.addEventListener('change', upd_all);
 	w_default_lon = document.getElementById("default_lon_opt");
 	w_default_lon.addEventListener('change', upd_all);
+
+	w_default_ele = document.getElementById("default_ele_opt");
+	w_default_ele.addEventListener('change', upd_all);
 }
 
 create_custom_option_arr("tr_lng_sel", "tn_lng", lngs_usr, lng_arr);
@@ -352,6 +367,8 @@ create_custom_option_arr("tr_igrf_13", "igrf_13_opt", igrf_13_usr, igrf_13_arr);
 create_custom_option_arr("tr_accel_use", "accel_use_opt", accel_use_usr, accel_use_arr);
 create_input_val("tr_default_lat", "default_lat_opt", default_lat_usr);
 create_input_val("tr_default_lon", "default_lon_opt", default_lon_usr);
+
+create_input_val("tr_default_ele", "default_ele_opt", default_ele_usr);
 
 var force_lng = 0;
 
@@ -389,4 +406,7 @@ function init_global() {
 	w_default_lat.addEventListener('change', upd_all);
 	w_default_lon = document.getElementById("default_lon_opt");
 	w_default_lon.addEventListener('change', upd_all);
+
+	w_default_ele = document.getElementById("default_ele_opt");
+	w_default_ele.addEventListener('change', upd_all);
 }
