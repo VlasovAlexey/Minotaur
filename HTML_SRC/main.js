@@ -101,7 +101,7 @@ function upd_all() {
 	if (AccelInterval == 0 || AccelInterval != 0) {
 		clearTimeout(AccelInterval);
 	}
-	AccelInterval = setInterval(AccelWatch, 50 );
+	AccelInterval = setInterval(AccelWatch, 40);
 
 	//get speed from interface and set it
 	speed_reg = document.getElementById("const_spd_opt").value;
@@ -316,9 +316,9 @@ window.addEventListener("load", () => {
 
 	//acceleration 
 	window.addEventListener("devicemotion", event => {
-		accel_x = parseFloat(event.accelerationIncludingGravity.x).toFixed(3);
-		accel_y = parseFloat(event.accelerationIncludingGravity.y).toFixed(3);
-		accel_z = parseFloat(event.accelerationIncludingGravity.z).toFixed(3);
+		accel_x = parseFloat(event.acceleration.x).toFixed(3);
+		accel_y = parseFloat(event.acceleration.y).toFixed(3);
+		accel_z = parseFloat(event.acceleration.z).toFixed(3);
 		rot_rate_a = parseFloat(event.rotationRate.alpha).toFixed(3);
 		rot_rate_b = parseFloat(event.rotationRate.beta).toFixed(3);
 		rot_rate_g = parseFloat(event.rotationRate.gamma).toFixed(3);
@@ -380,6 +380,7 @@ function AccelWatch(){
 		accel_arr = accel_arr + "      <rr_a>" + rot_rate_a + "</rr_a>\n";
 		accel_arr = accel_arr + "      <rr_b>" + rot_rate_b + "</rr_b>\n";
 		accel_arr = accel_arr + "      <rr_g>" + rot_rate_g + "</rr_g>\n";
+
 	}
 	else{
 		accel_arr = [];
