@@ -55,8 +55,9 @@ init_global();
 
 function getSize() {
 	if ((window.innerWidth) > (window.innerHeight)) {
-		openNav();
-
+		if (getOS() == "iOS" || getOS() == "Android"){
+			openNav();
+		}
 	}
 	if ((window.innerWidth) <= (window.innerHeight)) {
 		closeNav();
@@ -182,6 +183,7 @@ document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat
 element_id_hide("rec_blinking");
 
 var GPX_File = "";
+var GPX_file_num = 1;
 var lat_start = "0.0";
 var lon_start = "0.0";
 var ele_start = "0.0";
@@ -251,7 +253,12 @@ function btn_record() {
 		GPX_File = GPX_File + "</gpx>\n";
 
 		//and write file
-		var fl_name = "minotaur_" + get_date_hr() + ".gpx";
+		scr_n_add = "";
+		if (GPX_file_num < 9 ) {
+			scr_n_add = "0";
+		}
+		var fl_name = scr_n_add + GPX_file_num + "_minotaur_" + get_date_hr() + ".gpx";
+		GPX_file_num = GPX_file_num + 1;
 		var blob = new Blob([GPX_File], {
 			type: "application/gpx;charset=utf-8"
 		});
