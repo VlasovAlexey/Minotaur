@@ -579,8 +579,8 @@ function updatePosition() {
 	navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-//if app run on Descktop Devices we see nothin warning about permissions
-if (getOS() != "iOS" || getOS() != "Android"){
+//if app run on Descktop Devices we see nothing warning about permissions
+if (getOS() == "Windows" || getOS() == "Linux" || getOS() == "Mac OS"){
 	document.getElementById("accessbutton").style.display = "none";
 	document.getElementById("accessblur").style.opacity = "0";
 	document.getElementById("accessblur").style.display = "none";
