@@ -1,7 +1,7 @@
 
 [![Support](https://img.shields.io/badge/Support-Mail-brightgreen.svg?style=for-the-badge)](mailto:all3862000@mail.ru)
 [![MIT License](https://img.shields.io/badge/License-Apache2.0-blue.svg?style=for-the-badge)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Documentation](https://img.shields.io/badge/Documentation-Facebook-brightgreen.svg?style=for-the-badge)](https://vlasovalexey.github.io/Minotaur/HTML_SRC/)
+[![Documentation](https://img.shields.io/badge/Documentation-Facebook-brightgreen.svg?style=for-the-badge)](https://www.facebook.com/MinotaurMap)
 
 # Minotaur
 Firstly the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/)
@@ -71,7 +71,7 @@ Want to contribute? The team encourages community feedback and contributions. Pl
 If Minotaur is not working properly, please file a report in the [email](mailto:all3862000@mail.ru). We also welcome issues submitted on GitHub.
 
 # Roadmap
-For information regarding Minotaur plans and release schedule, please see the [Minotaur](https://www.facebook.com/profile.php?id=61552402604812)
+For information regarding Minotaur plans and release schedule, please see the [Minotaur](https://www.facebook.com/MinotaurMap)
 
 # Related Projects
 Many of the core components and extensions to Code live in their own repositories on GitHub. For example, the [JsPDF](https://github.com/MrRio/jsPDF) and the [JsXLSX](https://github.com/clarketm/js-xlsx) have their own repositories. Simply ask if you need more info.
