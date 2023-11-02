@@ -181,7 +181,7 @@ function closeNav() {
 	//document.getElementById("AlertOverlay").style.display = "none";
 }
 
-//gps_enable
+//reset gps and location icons to disabled state
 document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
 document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
 
@@ -331,7 +331,8 @@ window.addEventListener("load", () => {
 	});
 
 	navigator.geolocation.watchPosition(g => {
-		document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
+		//document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
+		document.getElementById("btn_gps").style.background = "url(gps_ok.svg) no-repeat left center";
 		lastUpdate = new Date();
 		errorHidden();
 		updateTime();
@@ -493,6 +494,9 @@ function updateTime() {
 	let min = Math.floor(d / Minute);
 	let sec = Math.floor(d % Minute / Second);
 	tot_time = min + "m " + sec + "s"
+	if(sec > 3) {
+		document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+	}
 	document.getElementById("lastUpdate").innerHTML = "Last Update <br>" + tot_time;
 }
 const NONAVIGATION = -1; // a non-standard error code
