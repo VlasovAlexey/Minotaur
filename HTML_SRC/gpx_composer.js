@@ -21,9 +21,9 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 	}
 
 	// Max 2 MB allowed
-	var max_size_allowed = 10*1024*1024
+	var max_size_allowed = 30*1024*1024
 	if(file.size > max_size_allowed) {
-		alert('Error : Exceeded size 10MB');
+		alert('Error : Exceeded size 30MB');
 		return;
 	}
 
