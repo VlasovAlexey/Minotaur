@@ -6,7 +6,7 @@
 # Minotaur
 Firstly the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/)
 
-Minotaur is a JavaScript and HTML5 a software that allows you to use your phone's sensors to build underwater cave routes. Using sensor data and AI, you can get an amazing accuracy of 2-3%. On closed routes using diver propulsion vehicle(DPV) the accuracy reaches 1%.
+Minotaur is a JavaScript and HTML5 a software that allows you to use your phone's sensors to build underwater cave routes. Using sensor data and AI, you can get an amazing accuracy of 2-3%. On closed routes using diver propulsion vehicle(DPV) the accuracy reaches 1%. Without experience in use and calibration, the Minotaur will produce a result with an accuracy in the neighborhood of 4%
 
 Minotaur has a module for route recording, editing and viewing. Routes can be processed and cleaned of sensors fluctuations and deviations. Routes can be assembled into a complex system. Circular routes are supported. Minotaur also has a built-in viewer of finished routes on the world map. Google's open GPX format allows routes to be edited in thousands of other programs and services. Exchange with any geodetic mapping system in the world. This gives a wide range of possibilities for further placement and publication of routes of any kind and configuration for any purpose.
 
