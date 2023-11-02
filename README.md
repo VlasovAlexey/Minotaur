@@ -47,23 +47,24 @@ The constant measurement mode allows you to take pictures regardless of location
 Accessibility|$\textcolor{green}{\textsf{Device can be operated with one hand}}$|$\textcolor{green}{\textsf{Device can be operated with one hand}}$|No|
 
 # Geting Started
-- Get the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/) or clone\download from GitHub
+- To record routes, install Minotaur as a PWA app on your phone
+- To edit and create routes in Browser, Get the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/) or clone\download from GitHub
 - Unzip arhive. Use latest Google Chrome\Safari Browser for view
 - Go to Minotaur/HTML_SRC/
 - Search index.html and start it
 - Thats all!
-- Unzip arhive to your OS
-- Start executable file Minotaur
+- To edit and create routes in your favorite OS, unzip arhive from GitHub to your OS
+- Start executable file with Minotaur icon
 - Really thats all :)
-
+  
 # Video of usage
 To be available later
 
 # Browser compatibility
 - Chrome
 - Safari
-- iOS
-- Android
+- Safari iOS, Chrome iOS
+- Chrome Android
 
 # Contributing
 Want to contribute? The team encourages community feedback and contributions. Please follow our contributing guidelines.
