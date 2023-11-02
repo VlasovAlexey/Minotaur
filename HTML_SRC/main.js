@@ -332,7 +332,6 @@ window.addEventListener("load", () => {
 
 	navigator.geolocation.watchPosition(g => {
 		//document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
-		document.getElementById("btn_gps").style.background = "url(gps_ok.svg) no-repeat left center";
 		lastUpdate = new Date();
 		errorHidden();
 		updateTime();
@@ -495,7 +494,19 @@ function updateTime() {
 	let sec = Math.floor(d % Minute / Second);
 	tot_time = min + "m " + sec + "s"
 	if(sec > 3) {
-		document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+		if(document.getElementById("tn_color").value == 1){
+			document.getElementById("btn_gps").style.background = "url(gps_bad.svg) no-repeat left center";
+		}
+		else{
+			document.getElementById("btn_gps").style.background = "url(gps_bad_light.svg) no-repeat left center";
+		}
+		
+		if(sec > 10){
+			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+		}	
+	}
+	else{
+		document.getElementById("btn_gps").style.background = "url(gps_ok.svg) no-repeat left center";
 	}
 	document.getElementById("lastUpdate").innerHTML = "Last Update <br>" + tot_time;
 }
@@ -527,23 +538,23 @@ function updateError(err) {
 	switch (err.code) {
 		case NONAVIGATION:
 			t = "NONAVIGATION";
-			document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
 			break;
 		case PERMISSION_DENIED:
 			t = "PERMISSION_DENIED";
-			document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
 			break;
 		case POSITION_UNAVAILABLE:
 			t = "POSITION_UNAVAILABLE";
-			document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
 			break;
 		case TIMEOUT:
 			t = "TIMEOUT";
-			document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
 			break;
 		default:
 			t = "OTHER";
-			document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
 			console.error(err);
 	}
 	
@@ -591,7 +602,7 @@ function updatePosition() {
 	navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-//if app run on Descktop Devices we see nothing warning about permissions
+//if app run on Desktop Devices we see nothing warning about permissions
 if (getOS() == "Windows" || getOS() == "Linux" || getOS() == "Mac OS"){
 	document.getElementById("accessbutton").style.display = "none";
 	document.getElementById("accessblur").style.opacity = "0";
@@ -644,7 +655,10 @@ function startCompass() {
 					document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
 				}
 			})
-			.catch(() => alert("not supported"));
+			.catch(() => {
+				document.getElementById("btn_gps").style.background = "url(nav_no.svg) no-repeat left center";
+			}
+		);
 	}
 }
 
