@@ -10,7 +10,7 @@ Minotaur is a JavaScript and HTML5 a software that allows you to use your phone'
 
 Minotaur has a module for route recording, editing and viewing. Routes can be processed and cleaned of sensors fluctuations and deviations. Routes can be assembled into a complex system. Circular routes are supported. Minotaur also has a built-in viewer of finished routes on the world map.
 
-Install Minotaur on your phone. Place your phone in any underwater house with blutooth access buttons. Using a simple compass calibration procedure and navigation rules you can now record underwater cave routes!
+Install Minotaur on your phone. Place your phone in any underwater hoses with blutooth access buttons. Using a simple compass calibration procedure and navigation rules you can now record underwater cave routes!
 The constant measurement mode allows you to take pictures regardless of location or difficult line positioning. This method of surveying is very fast, it is difficult to use in cramped, confined caves. It is necessary to move using a DPV scooter for the best mapping results.
 
 # Features
