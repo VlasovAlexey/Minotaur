@@ -6,11 +6,10 @@
 # Minotaur
 Firstly the latest version online [Minotaur](https://vlasovalexey.github.io/Minotaur/HTML_SRC/)
 
-Minotaur is a Java and HTML5 a hardware and software system. It allows for measurement of tensioned lines, which are often used as reference – for example, for cave diving survey, or archeological survey.
-For remote underwater caves exploration, speed of survey is essential. Using traditional slates and compass is a very time consuming method. Necessity to lay straight lines, and avoid placements sometimes force to spend a lot of time for laying exploration line.
+Minotaur is a JavaScript and HTML5 a software that allows you to use your phone's sensors to build underwater cave routes. Using sensor data and AI, you can get an amazing accuracy of 2-3%. On closed routes using diver propulsion vehicle(DPV) the accuracy reaches 1%.
 
-With The Minotaur, all needed is to simply dive through the cave, gently pushing the device on the line. Due to constant measurement mode, survey is made regardless of placements or complicated line positioning.
-This survey is a very fast and precise measurement method, it will be difficult to use in tight environments, restricted caves. For the the highest accuracy level a permanent reference grid measurement is always the best option.
+Install Minotaur on your phone. Place your phone in any box with blutooth access buttons. Using a simple compass calibration procedure and navigation rules you can now record underwater cave routes!
+The constant measurement mode allows you to take pictures regardless of location or difficult line positioning. This method of surveying is very fast, it is difficult to use in cramped, confined caves. It is necessary to move using a DPV scooter for the best mapping results.
 
 # Features
 - Rapid cave survey
