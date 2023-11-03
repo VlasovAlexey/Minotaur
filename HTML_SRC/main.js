@@ -488,17 +488,24 @@ const Second = 1000;
 const Minute = 60 * Second;
 
 // Update the duration since the last geolocation element.
+let gps_bad_count = 0;
+let sec_old = 0;
 function updateTime() {
 	let d = new Date() - lastUpdate;
 	let min = Math.floor(d / Minute);
 	let sec = Math.floor(d % Minute / Second);
 	tot_time = min + "m " + sec + "s"
+	if(sec_old != sec){
+		gps_bad_count = gps_bad_count - 1;
+	}
 	if(sec > 3) {
 		if(document.getElementById("tn_color").value == 1){
 			document.getElementById("btn_gps").style.background = "url(gps_bad.svg) no-repeat left center";
+			gps_bad_count = 4;
 		}
 		else{
 			document.getElementById("btn_gps").style.background = "url(gps_bad_light.svg) no-repeat left center";
+			gps_bad_count = 4;
 		}
 		
 		if(sec > 10){
@@ -506,10 +513,17 @@ function updateTime() {
 		}	
 	}
 	else{
-		document.getElementById("btn_gps").style.background = "url(gps_ok.svg) no-repeat left center";
+		if(gps_bad_count < 1){
+			document.getElementById("btn_gps").style.background = "url(gps_ok.svg) no-repeat left center";
+		}
+		
 	}
 	document.getElementById("lastUpdate").innerHTML = "Last Update <br>" + tot_time;
+	sec_old = sec;
 }
+
+
+
 const NONAVIGATION = -1; // a non-standard error code
 const PERMISSION_DENIED = 1;
 const POSITION_UNAVAILABLE = 2;
@@ -615,17 +629,16 @@ function grantPremission() {
 	document.getElementById("accessbutton").style.display = "none";
 	document.getElementById("accessblur").style.opacity = "0";
 	document.getElementById("accessblur").style.display = "none";
+	document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
 	if (navigator.geolocation) {
-		document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
 		updatePosition();
 		setInterval(updatePosition(), 100);
 	}
 	try {
 		DeviceOrientationEvent.requestPermission();
 	} catch {
+		//display error here
 		document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
-		//display error here!
-		//document.getElementById("accesserror").style.display = "block";
 	}
 }
 
