@@ -638,7 +638,6 @@ function grantPremission() {
 		DeviceOrientationEvent.requestPermission();
 	} catch {
 		//display error here
-		document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
 	}
 }
 
@@ -665,7 +664,6 @@ function startCompass() {
 					document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
 				} else {
 					//alert("has to be allowed!");
-					document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
 				}
 			})
 			.catch(() => {
