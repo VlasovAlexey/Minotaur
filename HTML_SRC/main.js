@@ -306,7 +306,7 @@ window.addEventListener("load", () => {
 		updateError({
 			code: NONAVIGATION
 		});
-		document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
+		
 		return;
 	}
 
@@ -669,7 +669,7 @@ function startCompass() {
 				}
 			})
 			.catch(() => {
-				document.getElementById("btn_gps").style.background = "url(nav_no.svg) no-repeat left center";
+				//document.getElementById("btn_gps").style.background = "url(nav_no.svg) no-repeat left center";
 			}
 		);
 	}
