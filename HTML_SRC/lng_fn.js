@@ -861,6 +861,15 @@
     	};
     	//eng
     	if (td_lng == 1) {
+			if (val == "gpx_no_file") {
+    			val = "Warning!<br>Please select any GPX file.<br>Thank you!<br>"
+    		}
+			if (val == "gpx_bad_ext_file") {
+    			val = "Error!<br>Incorrect file type.<br>Only GPX file extension alloved!<br>"
+    		}
+			if (val == "gpx_big_file") {
+    			val = "Error!<br>Exceeded size 30MB.<br>Only 30Mb GPX data can be alloved!<br>"
+    		}
     		if (val == "gps_lat") {
     			val = "Latitude"
     		}
@@ -901,6 +910,15 @@
     	}
     	//rus
     	if (td_lng == 2) {
+			if (val == "gpx_no_file") {
+    			val = "Внимание!<br>Выбирите хотя бы один GPX файл.<br>Спасибо!<br>"
+    		}
+			if (val == "gpx_bad_ext_file") {
+    			val = "Ошибка!<br>Не коректный тип файла.<br>Только файлы с расширением GPX могут быть загружены!<br>"
+    		}
+			if (val == "gpx_big_file") {
+    			val = "Ошибка!<br>Превышен размер файла в 30Mб.<br>Допускаются файлы размером не более 30Mб!<br>"
+    		}
     		if (val == "gps_lat") {
     			val = "Широта"
     		}
@@ -941,6 +959,15 @@
     	}
     	//sp
     	if (td_lng == 3) {
+			if (val == "gpx_no_file") {
+    			val = "¡Atención!<br>Por favor, seleccione cualquier archivo GPX.<br>¡Gracias!<br>"
+    		}
+			if (val == "gpx_bad_ext_file") {
+    			val = "¡Error!<br>Tipo de archivo incorrecto.<br>¡Sólo se permite la extensión GPX!<br>"
+    		}
+			if (val == "gpx_big_file") {
+    			val = "¡Error!<br>El tamaño del archivo supera los 30 MB.<br>¡Sólo se admiten archivos GPX de 30 MB!<br>"
+    		}
     		if (val == "gps_lat") {
     			val = "Latitud"
     		}
@@ -980,6 +1007,15 @@
     		}
     	}
     	//pt
+		if (val == "gpx_no_file") {
+			val = "Aviso!<br>Por favor, seleccione qualquer ficheiro GPX.<br>Obrigado!<br>"
+		}
+		if (val == "gpx_bad_ext_file") {
+			val = "Erro!<br>Tipo de ficheiro incorreto.<br>Só é permitida a extensão de ficheiro GPX!<br>"
+		}
+		if (val == "gpx_big_file") {
+			val = "Erro!<br>O tamanho do ficheiro excedeu 30 MB.<br>Só são suportados ficheiros GPX de 30 MB!<br>"
+		}
     	if (td_lng == 4) {
     		if (val == "gps_lat") {
     			val = "Latitude"
@@ -1020,6 +1056,15 @@
     		}
     	}
     	//ch
+		if (val == "gpx_no_file") {
+			val = "警告!<br>请选择任何 GPX 文件。<br>谢谢！<br>"
+		}
+		if (val == "gpx_bad_ext_file") {
+			val = "错误！!<br>文件类型不正确。<br>只允许 GPX 文件扩展名！<br>"
+		}
+		if (val == "gpx_big_file") {
+			val = "错误！!<br>文件大小超过 30 MB。<br>只支持 30 MB 的 GPX 文件！<br>"
+		}
     	if (td_lng == 5) {
     		if (val == "gps_lat") {
     			val = "纬度"
@@ -1060,6 +1105,15 @@
     		}
     	}
     	//br
+		if (val == "gpx_no_file") {
+			val = "Предупреждение!<br>Изберете произволен GPX файл.<br>Благодаря ви!<br>"
+		}
+		if (val == "gpx_bad_ext_file") {
+			val = "Грешка!<br>Неправилен тип файл.<br>Разрешено е само разширението на файла GPX!<br>"
+		}
+		if (val == "gpx_big_file") {
+			val = "Грешка!<br>Размерът на файла е над 30 MB.<br>Поддържат се само 30 MB GPX файлове!<br>"
+		}
     	if (td_lng == 6) {
     		if (val == "gps_lat") {
     			val = "Ширина"
@@ -1100,6 +1154,15 @@
     		}
     	}
     	//fr
+		if (val == "gpx_no_file") {
+			val = "Attention !<br>Veuillez sélectionner n'importe quel fichier GPX.<br>Merci d'avance !<br>"
+		}
+		if (val == "gpx_bad_ext_file") {
+			val = "Erreur !<br>Type de fichier incorrect.<br>Seule l'extension de fichier GPX est autorisée !<br>"
+		}
+		if (val == "gpx_big_file") {
+			val = "Erreur !<br>La taille du fichier a dépassé 30 Mo.<br>Seuls les fichiers GPX de 30 Mo sont pris en charge !<br>"
+		}
     	if (td_lng == 7) {
     		if (val == "gps_lat") {
     			val = "Latitude"
@@ -1140,6 +1203,15 @@
     		}
     	}
     	//kr
+		if (val == "gpx_no_file") {
+			val = "경고!<br>GPX 파일을 선택하세요.<br>감사합니다!<br>"
+		}
+		if (val == "gpx_bad_ext_file") {
+			val = "오류!<br>파일 형식이 잘못되었습니다.<br>GPX 파일 확장자만 허용됩니다!<br>"
+		}
+		if (val == "gpx_big_file") {
+			val = "오류!<br>파일 크기가 30MB를 초과했습니다.<br>30MB GPX 파일만 지원됩니다!<br>"
+		}
     	if (td_lng == 8) {
     		if (val == "gps_lat") {
     			val = "위도"
@@ -1180,6 +1252,15 @@
     		}
     	}
     	//it
+		if (val == "gpx_no_file") {
+			val = "Attenzione!<br>Selezionare un file GPX qualsiasi.<br>Grazie!<br>"
+		}
+		if (val == "gpx_bad_ext_file") {
+			val = "Errore!<br>Tipo di file non corretto.<br>È consentita solo l'estensione GPX!<br>"
+		}
+		if (val == "gpx_big_file") {
+			val = "Errore!<br>La dimensione del file ha superato i 30 MB.<br>Sono supportati solo i file GPX da 30 MB!<br>"
+		}
     	if (td_lng == 9) {
     		if (val == "gps_lat") {
     			val = "Latitudine"

@@ -4,7 +4,10 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 	// files that user has chosen
 	var all_files = this.files;
 	if(all_files.length == 0) {
-		alert('Error : No file selected');
+		del_html_elem("tn_overlay_text");
+		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("gpx_no_file"));
+		document.getElementById("AlertOverlay").style.height = "100%";
+		document.getElementById("AlertOverlay").style.opacity = "1";
 		return;
 	}
 
@@ -16,14 +19,20 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
   
   allowed_name = file.name.slice((Math.max(0, file.name.lastIndexOf(".")) || Infinity) + 1);
 	if(allowed_name != "gpx") {
-		alert('Error : Incorrect file type');
+		del_html_elem("tn_overlay_text");
+		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("gpx_bad_ext_file"));
+		document.getElementById("AlertOverlay").style.height = "100%";
+		document.getElementById("AlertOverlay").style.opacity = "1";
 		return;
 	}
 
 	// Max 2 MB allowed
 	var max_size_allowed = 30*1024*1024
 	if(file.size > max_size_allowed) {
-		alert('Error : Exceeded size 30MB');
+		del_html_elem("tn_overlay_text");
+		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("gpx_big_file"));
+		document.getElementById("AlertOverlay").style.height = "100%";
+		document.getElementById("AlertOverlay").style.opacity = "1";
 		return;
 	}
 
@@ -41,12 +50,7 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 	reader.addEventListener('load', function(e) {
 	    //var text = e.target.result;
         gpx_file = e.target.result;
-		
-	    // contents of the file
-	    //document.querySelector("#contents").innerHTML = text;
-	    //document.querySelector("#contents").style.display = 'block';
-
-	    //document.querySelector("#file-input-label").style.display = 'block'; 
+		gpx_file_to_massive(e.target.result);
 	});
 
 	// file reading failed
