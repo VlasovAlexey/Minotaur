@@ -261,7 +261,7 @@ function btn_record() {
 
 		//and write file
 		scr_n_add = "";
-		if (GPX_file_num < 9 ) {
+		if (GPX_file_num < 10 ) {
 			scr_n_add = "0";
 		}
 		var fl_name = scr_n_add + GPX_file_num + "_minotaur_" + get_date_hr() + ".gpx";
@@ -684,7 +684,7 @@ init();
 //device orientation
 var dial = document.getElementById("dial");
 var acHeading = 0;
-window.addEventListener('deviceorientation', function(e) {
+window.addEventListener('deviceorientationabsolute', function(e) {
 	if (popupShown) {
 		popupShown = false;
 		document.getElementById("accessblur").style.opacity = "0";

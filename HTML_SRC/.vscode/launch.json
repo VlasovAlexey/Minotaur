@@ -8,7 +8,7 @@
                 "type": "pwa-chrome",
                 "request": "launch",
                 "name": "Open index.html",
-                "file": "g:\\Minotaur\\HTML_SRC\\index.html"
+                "file": "h:\\Minotaur\\HTML_SRC\\index.html"
             }
         ]
     }
