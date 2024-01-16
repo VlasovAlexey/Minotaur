@@ -675,11 +675,9 @@ function startCompass() {
 
 //android device orientation watcher
 var AHeading = 0;
-var Accur = 0;
 
 function handler(e) {
 	AHeading = -(e.webkitCompassHeading || Math.abs(e.alpha - 360));
-	Accur = e.webkitCompassAccuracy;
 }
 init();
 
@@ -822,8 +820,6 @@ window.addEventListener('deviceorientation', function(e) {
 	}
 	directionName = directionName + " " + acHeading + "&deg"
 	document.getElementById("heading-name").innerHTML = directionName;
-	document.getElementById("heading-name").innerHTML = Accur;
-
 }, false);
 
 
