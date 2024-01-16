@@ -820,6 +820,8 @@ window.addEventListener('deviceorientation', function(e) {
 	}
 	directionName = directionName + " " + acHeading + "&deg"
 	document.getElementById("heading-name").innerHTML = directionName;
+
+
 }, false);
 
 
