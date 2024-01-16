@@ -707,7 +707,6 @@ window.addEventListener('deviceorientation', function(e) {
 	if (getOS() == "Android") {
 		//android
 		rot_sensor = AHeading;
-		rot_sensor = e.alpha;
 		if (rot_sensor < 0) {
 			rot_sensor = 360 + rot_sensor;
 		}
@@ -821,7 +820,7 @@ window.addEventListener('deviceorientation', function(e) {
 	}
 	directionName = directionName + " " + acHeading + "&deg"
 	document.getElementById("heading-name").innerHTML = directionName;
-}, deviceOrientationEvent, true);
+}, false);
 
 
 function convertCoordinates(latitude, longitude) {
