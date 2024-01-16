@@ -675,16 +675,18 @@ function startCompass() {
 
 //android device orientation watcher
 var AHeading = 0;
+var Accur = 0;
 
 function handler(e) {
 	AHeading = -(e.webkitCompassHeading || Math.abs(e.alpha - 360));
+	Accur = e.webkitCompassAccuracy;
 }
 init();
 
 //device orientation
 var dial = document.getElementById("dial");
 var acHeading = 0;
-window.addEventListener('deviceorientationabsolute', function(e) {
+window.addEventListener('deviceorientation', function(e) {
 	if (popupShown) {
 		popupShown = false;
 		document.getElementById("accessblur").style.opacity = "0";
@@ -820,7 +822,7 @@ window.addEventListener('deviceorientationabsolute', function(e) {
 	}
 	directionName = directionName + " " + acHeading + "&deg"
 	document.getElementById("heading-name").innerHTML = directionName;
-
+	document.getElementById("heading-name").innerHTML = Accur;
 
 }, false);
 
