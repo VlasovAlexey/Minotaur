@@ -201,8 +201,8 @@ function compass_upd(compass_data){
 			acHeading = 360 + acHeading
 		}
 
-		cross_01.style.transform = "translate(-50%, -50%) rotate(" + (heading + rot_dif) + "deg)"
-		cross_02.style.transform = "translate(-50%, -50%) rotate(" + (heading + rot_dif) + "deg)"
+		cross_01.style.transform = "translate(-50%, -50%) rotate(-" + (heading + rot_dif) + "deg)"
+		cross_02.style.transform = "translate(-50%, -50%) rotate(-" + (heading + rot_dif) + "deg)"
 	} else {
 		//ios
 		labelAngle = (Math.abs(360 - heading));
