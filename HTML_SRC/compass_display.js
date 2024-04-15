@@ -182,8 +182,8 @@ function compass_upd(compass_data){
 	} else {
 		//console.log("The browser doesn`t support window.orientation");
 	}
-	//levelDisp.style.top = "-150px";
-	//levelDisp.style.left = "0px";
+	levelDisp.style.top = "-150px";
+	levelDisp.style.left = "0px";
 
 	var labelAngle = 0;
 	acHeading = 0;
@@ -201,15 +201,15 @@ function compass_upd(compass_data){
 			acHeading = 360 + acHeading
 		}
 
-		//cross_01.style.transform = "translate(0%, -50%) rotate(" + (heading - rot_dif) + "deg)"
-		//cross_02.style.transform = "translate(-50%, -50%) rotate(" + (heading - rot_dif) + "deg)"
+		cross_01.style.transform = "translate(0%, -50%) rotate(" + (heading - rot_dif) + "deg)"
+		cross_02.style.transform = "translate(-50%, -50%) rotate(" + (heading - rot_dif) + "deg)"
 	} else {
 		//ios
 		labelAngle = (Math.abs(360 - heading));
 		dial.style.transform = "rotate(" + (heading - 360) + "deg)"
 		acHeading = (Math.abs(360 - Math.round(heading)));
-		//cross_01.style.transform = "translate(0%, -50%) rotate(-" + (heading + 360) + "deg)"
-		//cross_02.style.transform = "translate(-50%, -50%) rotate(-" + (heading + 360) + "deg)"
+		cross_01.style.transform = "translate(0%, -50%) rotate(-" + (heading + 360) + "deg)"
+		cross_02.style.transform = "translate(-50%, -50%) rotate(-" + (heading + 360) + "deg)"
 
 	}
 
