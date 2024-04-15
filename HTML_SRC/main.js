@@ -684,7 +684,9 @@ init();
 //device orientation
 var dial = document.getElementById("dial");
 var acHeading = 0;
-window.addEventListener('deviceorientation', function(e) {
+
+//update compass visual and position
+function compass_upd(compass_data){
 	if (popupShown) {
 		popupShown = false;
 		document.getElementById("accessblur").style.opacity = "0";
@@ -694,8 +696,8 @@ window.addEventListener('deviceorientation', function(e) {
 	var levelDisp = document.getElementById("level-disp");
 	var levelX = 0;
 	var levelY = 0;
-	var levelG = Math.min(Math.max((e.gamma / 9), -5), 5);
-	var levelB = Math.min(Math.max((e.beta / 9), -5), 5);
+	var levelG = Math.min(Math.max((compass_data.gamma / 9), -5), 5);
+	var levelB = Math.min(Math.max((compass_data.beta / 9), -5), 5);
 
 	var heading = 0;
 	var screenAngle = window.orientation;
@@ -714,7 +716,7 @@ window.addEventListener('deviceorientation', function(e) {
 		rot_dif = 360;
 	} else {
 		//ios
-		rot_sensor = e.webkitCompassHeading;
+		rot_sensor = compass_data.webkitCompassHeading;
 		rot_sensor = Math.abs(rot_sensor);
 		rot_android_cor = 0;
 		rot_dif = 0;
@@ -820,8 +822,11 @@ window.addEventListener('deviceorientation', function(e) {
 	}
 	directionName = directionName + " " + acHeading + "&deg"
 	document.getElementById("heading-name").innerHTML = directionName;
+}
 
-
+//main function for compass Android update data
+window.addEventListener('deviceorientation', function(e) {
+	compass_upd(e);
 }, false);
 
 
