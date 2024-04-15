@@ -566,6 +566,12 @@ br{
     height: 300px;
     position: relative;
   }
+  #cross_red {
+    width: 300px;
+    height: 300px;
+    position: relative;
+  }
+  
   #dial span {
     position: absolute;
     font-size: 1.0em;
