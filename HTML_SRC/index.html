@@ -320,6 +320,17 @@
             <div id="rec_base" style="width:100%; height:0px;">
                <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:50px; position:sticky; top: 0px; z-index:10"></div>
             </div>
+            <div id="cross_red" style = "position: relative; left: 50%; top: 50%; transform: translate(-50%, -50%)">
+               <svg id="level-disp" width="100" height="100" style = "position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1.2);">
+                  <circle cx="50" cy="50" r="40" fill="#999" />
+                  <line stroke="red" stroke-width="4" x1="50" y1="20" x2="50" y2="80" stroke="black" />
+                  <line stroke="red" stroke-width="4" x1="20" y1="50" x2="80" y2="50" stroke="black" />
+               </svg>
+               <svg id="level-cross" width="100" height="100" style = "position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1.2);">
+                  <line stroke="gray" stroke-width="4" x1="50" y1="0" x2="50" y2="100" stroke="black" />
+                  <line stroke="gray" stroke-width="4" x1="0" y1="50" x2="100" y2="50" stroke="black" />
+               </svg>
+            </div>
             <div id="gps_base" style="width:100%; height:0px;">
                <div id="btn_gps" class="btn_gps"></div>
                <div id="btn_nav" class="btn_nav"></div>
@@ -353,17 +364,7 @@
                      <img id="compass_svg">
                   </div>
                </div>
-               <div id="cross_red" style = "position: relative; left: 50%; top: 50%; transform: translate(-50%, -50%)">
-                  <svg id="level-disp" width="100" height="100" style = "position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1.2);">
-                     <circle cx="50" cy="50" r="40" fill="#999" />
-                     <line stroke="red" stroke-width="4" x1="50" y1="20" x2="50" y2="80" stroke="black" />
-                     <line stroke="red" stroke-width="4" x1="20" y1="50" x2="80" y2="50" stroke="black" />
-                  </svg>
-                  <svg id="level-cross" width="100" height="100" style = "position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1.2);">
-                     <line stroke="gray" stroke-width="4" x1="50" y1="0" x2="50" y2="100" stroke="black" />
-                     <line stroke="gray" stroke-width="4" x1="0" y1="50" x2="100" y2="50" stroke="black" />
-                  </svg>
-               </div>
+               
                <div id="info_glob">
                   <table id="info_glob">
                      <tr>
