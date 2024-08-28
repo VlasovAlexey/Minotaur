@@ -10,7 +10,7 @@ div {
     cursor: default;
     -khtml-user-select: none;
     user-select: none;
-    text-align-last: center;
+    
 }
 .tab_black{
     color: #000000;
@@ -598,8 +598,9 @@ br{
     color: #000000;
     background: #ffffff;
 } 
-input
-{
+#tr_meas_len input,
+#tr_const_spd input,
+#tr_calib_f input {
     background-color: #eeeeee;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -629,4 +630,15 @@ input
 #trackChart {
     width: 100%;
     height: 500px;
-  }
+}
+
+#map {
+    width: 100%;
+    height: 600px;
+    max-height: 50vh;
+    
+}
+.leaflet-container {
+    line-height: 1.0;
+    text-align-last: left;
+}

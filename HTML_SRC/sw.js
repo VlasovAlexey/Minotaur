@@ -76,7 +76,6 @@ self.addEventListener('install', (e) => {
 '/Minotaur/HTML_SRC/icons/64.png',
 '/Minotaur/HTML_SRC/icons/logo.png',
 
-'/Minotaur/HTML_SRC/jquery.mCustomScrollbar.css',
 '/Minotaur/HTML_SRC/katex.css',
 
 '/Minotaur/HTML_SRC/style_light.css',

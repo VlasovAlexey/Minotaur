@@ -11,7 +11,7 @@ div {
     cursor: default;
     -khtml-user-select: none;
     user-select: none;
-    text-align-last: center;
+    
 }
 .tab_black{
     color: #e0e0e0;
@@ -620,8 +620,9 @@ br{
     color: #969696;
     background: #2b2b2c;
 }
-input
-{
+#tr_meas_len input,
+#tr_const_spd input,
+#tr_calib_f input {
     background-color: #272727;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -650,3 +651,14 @@ input
     width: 100%;
     height: 500px;
   }
+
+#map {
+    width: 100%;
+    height: 600px;
+    max-height: 50vh;
+    
+}
+.leaflet-container {
+    line-height: 1.0;
+    text-align-last: left;
+}

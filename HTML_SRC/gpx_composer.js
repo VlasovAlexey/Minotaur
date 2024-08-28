@@ -165,6 +165,7 @@ for (i = 0; i < pointCount; i++) {
 var layout = 0;
 
 function gps_chart() {
+	/*
 	//crappy code for centering graph
 	var width_calc = (window.innerWidth/100*(88+((window.innerWidth-500)/650)));
 
@@ -283,7 +284,7 @@ function gps_chart() {
 			cmax: 50
 		}
 	}, ], layout, config);
-
+	*/
 }
 
 gps_chart();

@@ -91,6 +91,8 @@ function btn_record() {
 document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
 document.getElementById("btn_meas").style.border = "6px solid #969696";
 
+element_id_hide("map_hide");
+
 function btn_meas_click() {
 	meas_tick = meas_tick + 1;
 	if (meas_state == 0) {
@@ -98,10 +100,22 @@ function btn_meas_click() {
 		document.getElementById("btn_meas").style.border = "6px solid #188958";
 		meas_state = 1;
 
+		element_id_show("map_hide");
+		element_id_hide("gps_base");
+		element_id_hide("dialContainer");
+		element_id_hide("info_glob");
+		//element_id_hide("compass_body");
+
 	} else {
 		document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
 		document.getElementById("btn_meas").style.border = "6px solid #969696";
 		meas_state = 0;
+		
+		element_id_hide("map_hide");
+		element_id_show("gps_base");
+		element_id_show("dialContainer");
+		element_id_show("info_glob");
+		//element_id_show("compass_body");
 	}
 }
 

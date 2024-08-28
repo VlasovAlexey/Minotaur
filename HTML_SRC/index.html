@@ -25,7 +25,7 @@
       <link href="icon-hires.png?v0.81284415" rel="icon" sizes="192x192" />
       <link href="icon-normal.png?v0.81284415" rel="icon" sizes="128x128" />
       <link rel="stylesheet" type="text/css" href="style_main.css?v0.621">
-      <script src="plotly-2.27.0.js"></script>
+      
       <!-- Preloader Info Wait when all Page Loaded-->
       <style type="text/css">
          #preloader {
@@ -34,7 +34,7 @@
          left: 0;
          right: 0;
          bottom: 0;
-         z-index: 99;
+         z-index: 5000;
          opacity:1;
          background: repeating-linear-gradient(45deg, #08203e, #4684ee);
          background: repeating-linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -320,6 +320,9 @@
             <div id="rec_base" style="width:100%; height:0px;">
                <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:50px; position:sticky; top: 0px; z-index:10"></div>
             </div>
+            <div id="map_hide">
+               <div id="map"></div>
+            </div>
             <div id="gps_base" style="width:100%; height:0px;">
                <div id="btn_gps" class="btn_gps"></div>
                <div id="btn_nav" class="btn_nav"></div>
@@ -332,7 +335,7 @@
                      <button id="fullscreen_permission" class="fullscreen_permission" onclick="grantPremission()"></button>
                   </div>
                </div>
-               <div class = "dialContainer">
+               <div class = "dialContainer" id = "dialContainer">
                   <div id = "dial">
                      <span class="label cardinal" style="left: 50%; top: 25%;">N</span>
                      <span class="label cardinal" style="left: 50%; top: 75%;">S</span>
@@ -393,6 +396,9 @@
                   <p class=error id="error-TIMEOUT" hidden>Time out to get the localisation.</p>
                   <p class=error id="error-OTHER" hidden>Unknown error.</p>
                   -->
+               
+            </div>
+            <div class="div_block" id="div_block">
                <div id="big_buttons" class="big_buttons">
                   <button type="button" id="btn_meas" class="btn_meas" onClick="btn_meas_click();"></button>
                   <button type="button" id="btn_rec" class="btn_rec" onClick="btn_record();"></button>
@@ -526,14 +532,32 @@
       <!--<node js specific lines for export choising>-->
       <input id="nodejs_export_xls" type="file"  nwsaveas style="display:none" accept="application/vnd.ms-excel" nwworkingdir=""/>
       <input id="nodejs_export_pdf" type="file"  nwsaveas style="display:none" accept="application/pdf" nwworkingdir=""/>
+      
+      <script src="plotly-2.27.0.js"></script>
+
+      <!-- Leaflet JS / CSS -->
+		<script src="leaflet/leaflet-src.js"></script>
+		<link rel="stylesheet" href="leaflet/leaflet.css">
+
+		<!-- Leaflet-Rotate -->
+		<script src="leaflet/leaflet-rotate-src.js"></script>
+
+		<!-- include some miscellaneous -->
+		<script src="leaflet/route.js"></script>
+		<script src="leaflet/places.js"></script>
+		<script src="leaflet/loremIpsum.js"></script>
+		<script src="leaflet/debug.js"></script>
+      
+
+      <script src="map_rotator.js" charset="UTF-8"></script>
+
       <script src="jquery-3.6.0.js"></script>
-      <!--<<script src="jquery.mCustomScrollbar.js"></script>-->
-      <!--<script src="jquery.mousewheel.js"></script>-->
+      
       <script src="jszip.js"></script>
       <script src="xlsx.full.min.js"></script>
       <link rel="stylesheet" type="text/css" href="katex.css">
       <script src="katex.js"></script>
-      <!--<script src="jspdf.debug.js"></script>-->
+   
       <script src="jspdf.src.js"></script>
       <script src="Arial_Digiscream_Normal-normal.js"></script>
       <script src="svg2pdf.src.js"></script>

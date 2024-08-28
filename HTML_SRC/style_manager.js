@@ -16,15 +16,6 @@ function assign_css_style() {
 	tn_cng_color = document.getElementById("tn_color");
 	tn_color_idx = tn_cng_color.options[tn_cng_color.selectedIndex].value;
 
-	//load custom scrollbars
-	CSSLoad("jquery.mCustomScrollbar.css");
-	/*$('body').mCustomScrollbar({
-	    theme: "dark-thick",
-	    scrollButtons:{enable:true},
-	    keyboard:{scrollAmount:100},
-	    mouseWheel:{deltaFactor:100},
-	    scrollInertia:400
-	}); */
 
 	if (tn_color_idx * 1.0 === 1) {
 		CSSLoad("style_main.css?v011481113111345");
@@ -38,7 +29,6 @@ function assign_css_style() {
 			document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
 			document.getElementById("btn_meas").style.border = "6px solid #969696";
 		}
-		//CSSLoad("roundslider_main.css");
 	}
 	if (tn_color_idx * 1.0 === 2) {
 		CSSLoad("style_light.css?v511110413131113");
