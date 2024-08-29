@@ -104,7 +104,7 @@ function btn_meas_click() {
 		element_id_hide("gps_base");
 		element_id_hide("dialContainer");
 		element_id_hide("info_glob");
-		//element_id_hide("compass_body");
+		element_id_hide("compas_head_box");
 
 	} else {
 		document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
@@ -115,7 +115,7 @@ function btn_meas_click() {
 		element_id_show("gps_base");
 		element_id_show("dialContainer");
 		element_id_show("info_glob");
-		//element_id_show("compass_body");
+		element_id_show("compas_head_box");
 	}
 }
 
@@ -302,12 +302,18 @@ function updateGeo(c) {
 		"longitude",
 		"speed",
 	].forEach(p => {
+		
 		//document.getElementById(`data-${p}`).textContent = String(c[p]);
+		
+		
 	});
 
 	lat_reg = c.latitude;
 	lon_reg = c.longitude;
 	ele_reg = c.altitude;
+
+	document.getElementById(`data-latitude`).textContent = lat_reg;
+	document.getElementById(`data-longitude`).textContent = lon_reg;
 }
 
 const Second = 1000;

@@ -15,8 +15,8 @@ var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 });
 
 var map = L.map('map', {
-    center: [55, 10],
-    zoom: 2,
+    center: [lat_reg, lon_reg],
+    zoom: 17,
     layers: [esri],
     // worldCopyJump: true,
     // preferCanvas: false,
@@ -25,10 +25,11 @@ var map = L.map('map', {
     rotate: true,
     rotateControl: {
         closeOnZeroBearing: false,
-        // position: 'bottomleft',
+        position: 'bottomleft',
     },
     bearing: 30,
     zoomControl: false,
+    rotateControl: false,
     // attributionControl: false,
     // zoomControl: false,
     compassBearing: true,
@@ -55,7 +56,8 @@ var layers = L.control.layers({
     'Streets': osm,
     'Satellite': esri,
 }, null, {
-    collapsed: true
+    collapsed: true,
+    position: 'bottomright'
 }).addTo(map);
 
 
@@ -66,3 +68,32 @@ var path = L.polyline(route, {
 document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.display = 'none';
 // Display some debug info
 //L.Rotate.debug(map);
+
+var playerLoc = new L.Marker(map.getCenter()).addTo(map);
+
+
+var currentAutoMove = false; // needed to check in `movestart` event-listener if moved from interval or by user
+var pauseAutoMove = false; // if true -> Stops moving map
+
+var latitude,longitude;
+
+setInterval(()=>{
+    latitude = lat_reg;
+    longitude = lon_reg;
+
+    updatemap();
+
+}, 500)
+
+function updatemap() {  // Update the current player location on map
+    playerLoc.setLatLng([latitude,longitude]);
+    
+    map.invalidateSize();
+    map.panTo([latitude,longitude]);
+
+}
+
+map.on('movestart',(e)=>{
+	//console.log(e, currentAutoMove);
+})
+

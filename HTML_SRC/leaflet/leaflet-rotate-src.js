@@ -1925,7 +1925,7 @@
     };
 
     L.Map.mergeOptions({
-        rotateControl: true,
+         rotateControl:true,
     });
 
     L.Map.addInitHook(function() {
