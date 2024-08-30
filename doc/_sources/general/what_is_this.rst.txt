@@ -1,0 +1,4 @@
+Introduction
+========================================
+
+Smartphones are now a big part of life. Solve many everyday and beyond tasks. It is the small heart of our daily life. At the same time, a modern smartphone is a high-performance system with great features at a reasonable cost. Minotaur is a platform that allows you to turn your smartphone into a compass, a pathfinder in underwater caves, a cartographer. Minotaur is an open platform and you can participate in its expansion. You can use all the developments of the platform for your own purposes, including commercial ones. Flexible license policy is a significant advantage of Minotaur. Enjoy your journey into a world of open source!

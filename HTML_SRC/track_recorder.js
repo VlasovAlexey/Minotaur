@@ -303,17 +303,14 @@ function updateGeo(c) {
 		"speed",
 	].forEach(p => {
 		
-		//document.getElementById(`data-${p}`).textContent = String(c[p]);
-		
-		
 	});
 
 	lat_reg = c.latitude;
 	lon_reg = c.longitude;
 	ele_reg = c.altitude;
 
-	document.getElementById(`data-latitude`).textContent = lat_reg;
-	document.getElementById(`data-longitude`).textContent = lon_reg;
+	//document.getElementById(`data-latitude`).textContent = lat_reg;
+	//document.getElementById(`data-longitude`).textContent = lon_reg;
 }
 
 const Second = 1000;
