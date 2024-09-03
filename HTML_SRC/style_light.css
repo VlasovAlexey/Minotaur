@@ -648,3 +648,10 @@ br{
     line-height: 1.0;
     text-align-last: left;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+.element::-webkit-scrollbar { width: 0 !important }
