@@ -1312,7 +1312,7 @@
             } else if('ondeviceorientation' in window) {
                 this.__deviceOrientationEvent = 'deviceorientation';
             }
-            this._throttled = L.Util.throttle(this._onDeviceOrientation, 100, this);
+            this._throttled = L.Util.throttle(this._onDeviceOrientation, 10, this);
         },
 
         addHooks: function() {

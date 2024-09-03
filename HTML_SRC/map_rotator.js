@@ -72,22 +72,19 @@ document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.displa
 var playerLoc = new L.Marker(map.getCenter()).addTo(map);
 
 
-var currentAutoMove = false; // needed to check in `movestart` event-listener if moved from interval or by user
-var pauseAutoMove = false; // if true -> Stops moving map
+//var currentAutoMove = false; // needed to check in `movestart` event-listener if moved from interval or by user
+//var pauseAutoMove = false; // if true -> Stops moving map
 
 var latitude,longitude;
 
 setInterval(()=>{
     latitude = lat_reg;
     longitude = lon_reg;
-
     updatemap();
-
 }, 500)
 
 function updatemap() {  // Update the current player location on map
     playerLoc.setLatLng([latitude,longitude]);
-    
     map.invalidateSize();
     map.panTo([latitude,longitude]);
 
