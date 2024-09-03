@@ -208,7 +208,7 @@
     		1: {
     			//Eng
 				".tn_default_ele": "Default Start Elevation" + lng_meters,
-			   ".tn_igrf_13": "Use IGFR-13",
+			   ".tn_igrf_13": "Use IGRF-13",
 			   ".tn_accel_use": "Use Acceleration Sensor Data",
 			   ".tn_default_lat": "Default Start Latitude" + ", °",
 			   ".tn_default_lon": "Default Start Longitude" + ", °",
@@ -280,7 +280,7 @@
     		2: {
 				".tn_default_ele": "Начальная высота над уровнем моря" + lng_meters,
 
-				".tn_igrf_13": "Использовать IGFR-13",
+				".tn_igrf_13": "Использовать IGRF-13",
 			   ".tn_accel_use": "Использовать данные датчика ускорения",
 			   ".tn_default_lat": "Начальная широта по умолчанию" + ", °",
 			   ".tn_default_lon": "Начальная долгота по умолчанию" + ", °",
@@ -353,7 +353,7 @@
 				//Spa
 				".tn_default_ele": "Elevación Inicial Predeterminada" + lng_meters,
 
-				".tn_igrf_13": "Utilizar IGFR-13",
+				".tn_igrf_13": "Utilizar IGRF-13",
 			   ".tn_accel_use": "Utilizar Datos del Sensor de Aceleración",
 			   ".tn_default_lat": "Latitud Inicial por Defecto" + ", °",
 			   ".tn_default_lon": "Longitud Inicial por Defecto" + ", °",
@@ -424,7 +424,7 @@
     			//Prt
 				".tn_default_ele": "Elevação Inicial Predefinida" + lng_meters,
 
-				".tn_igrf_13": "Utilizar IGFR-13",
+				".tn_igrf_13": "Utilizar IGRF-13",
 				".tn_accel_use": "Utilizar Dados do Sensor de Aceleração",
 				".tn_default_lat": "Latitude Inicial Predefinida" + ", °",
 				".tn_default_lon": "Longitude Inicial Predefinida" + ", °",
@@ -496,7 +496,7 @@
     			//China
 				".tn_default_ele": "默认起始海拔" + lng_meters,
 
-				".tn_igrf_13": "使 IGFR-13",
+				".tn_igrf_13": "使 IGRF-13",
 				".tn_accel_use": "使用加速度传感器数据",
 				".tn_default_lat": "默认起始纬度" + ", °",
 				".tn_default_lon": "默认起始经度" + ", °",
@@ -567,7 +567,7 @@
     			//Bulgarian
 				".tn_default_ele": "Начална надморска височина по подразбиране" + lng_meters,
 
-				".tn_igrf_13": "Използване на IGFR-13",
+				".tn_igrf_13": "Използване на IGRF-13",
 				".tn_accel_use": "Използване на данни от сензора за ускорение",
 				".tn_default_lat": "Начална географска ширина" + ", °",
 				".tn_default_lon": "Начална дължина" + ", °",
@@ -635,7 +635,7 @@
     			//Fr
 				".tn_default_ele": "Altitude de départ par défaut" + lng_meters,
 
-				".tn_igrf_13": "Utiliser l'IGFR-13",
+				".tn_igrf_13": "Utiliser l'IGRF-13",
 				".tn_accel_use": "Utiliser les données du capteur d'accélération",
 				".tn_default_lat": "Latitude de départ par défaut" + ", °",
 				".tn_default_lon": "Longitude de départ par défaut" + ", °",
@@ -703,7 +703,7 @@
     			//Korean
 				".tn_default_ele": "기본 시작 고도" + lng_meters,
 
-				".tn_igrf_13": "IGFR-13 사용",
+				".tn_igrf_13": "IGRF-13 사용",
 				".tn_accel_use": "가속도 센서 데이터 사용",
 				".tn_default_lat": "기본 시작 위도" + ", °",
 				".tn_default_lon": "기본 시작 경도" + ", °",
@@ -771,7 +771,7 @@
     			//Italian
 				".tn_default_ele": "Altezza di partenza predefinita" + lng_meters,
 
-				".tn_igrf_13": "Utilizzare IGFR-13",
+				".tn_igrf_13": "Utilizzare IGRF-13",
 				".tn_accel_use": "Usa i dati del sensore di accelerazione",
 				".tn_default_lat": "Latitudine di partenza predefinita" + ", °",
 				".tn_default_lon": "Longitudine di partenza predefinita" + ", °",

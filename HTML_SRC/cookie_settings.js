@@ -272,7 +272,7 @@ function dim_cng() {
 	const_spd = $("#const_spd_opt").val();
 	calib_f = $("#calib_f_opt").val();
 
-	igfr_13 = $("#igrf_13_opt").val();
+	IGRF_13 = $("#igrf_13_opt").val();
 	accel_use = $("#accel_use_opt").val();
 	default_lat = $("#default_lat_opt").val();
 	default_lon = $("#default_lon_opt").val();
