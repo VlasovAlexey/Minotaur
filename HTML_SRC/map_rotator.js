@@ -60,11 +60,27 @@ var layers = L.control.layers({
     position: 'bottomright'
 }).addTo(map);
 
+//style for main line
+var style = {
+    color: "#ff0000",
+    weight: 5,
+    opacity: 1.0
+     }, 
+    stroke = {
+    color: "#fff",
+    weight: 9,
+    opacity: 1.0
+    };
 
-var path = L.polyline(route, {
+//draw main line with outline
+var path1 = L.polyline(route, stroke, {
+    renderer: L.canvas()
+}).addTo(map);
+var path2 = L.polyline(route, style, {
     renderer: L.canvas()
 }).addTo(map);
 
+//disable heading button
 document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.display = 'none';
 // Display some debug info
 //L.Rotate.debug(map);
