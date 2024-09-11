@@ -92,17 +92,27 @@ select
     text-align-last: center;
     border: 1px solid #969696;
 }
-.tn_dmn
+.tn_dmn,
+.data_format_opt
 {
     width: 275px;
+    text-align: center;
 }
 .tn_lng
 {
     width: 160px;
+    text-align: center;
 }
 .tn_color
 {
     width: 190px;
+    text-align: center;
+}
+.accel_use_opt,
+.igrf_13_opt,
+.rec_freq_opt
+{
+    text-align: center;
 }
 .td_lngr
 {
@@ -111,6 +121,7 @@ select
     font-family: FirstFont;
     cursor: default;
     border-radius: 15px;
+    text-align: center;
 }
 #slider
 {
@@ -273,7 +284,9 @@ select
 .btn_bailout,
 .btn_diluent,
 .btn_ios_msg,
-.btn_ios_tel
+.btn_ios_tel,
+.btn_get_lat_lon,
+.btn_close_map_picker
 {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -306,7 +319,9 @@ select
 .btn_msg:hover,
 .btn_tel:hover,
 .btn_ios_msg:hover,
-.btn_ios_tel:hover
+.btn_ios_tel:hover,
+.btn_get_lat_lon:hover,
+.btn_close_map_picker:hover
 {
     background: #eeeeee;
     color: #424242;
@@ -324,7 +339,9 @@ select
 .btn_msg:active,
 .btn_tel:active,
 .btn_ios_msg:active,
-.btn_ios_tel:active
+.btn_ios_tel:active,
+.btn_get_lat_lon:active,
+.btn_close_map_picker:active
 {
     top: 1px;
     background: #424242;
@@ -625,7 +642,8 @@ br{
 #tr_calib_f input,
 #tr_default_lat input,
 #tr_default_lon input,
-#tr_default_ele input {
+#tr_default_ele input,
+#tr_igrf_13_val input {
     background-color: #272727;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -675,3 +693,39 @@ br{
 }
 
 .element::-webkit-scrollbar { width: 0 !important }
+
+.btn_close_map_picker
+{
+    top: 80%;
+    margin: 100;
+    z-index: 45000;
+}
+.btn_close_map_picker:hover
+{
+    top: 80%;
+    z-index: 45000;
+}
+.btn_close_map_picker:active
+{
+    top: 80%;
+    z-index: 45000;
+}
+.map_picker_base
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4500;
+}
+
+.map_picker
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+}

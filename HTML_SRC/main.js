@@ -6,6 +6,8 @@ GlobalInterval = 0;
 AccelInterval = 0;
 function upd_all() {
 	
+	upd_igrf();
+
 	//Show progress bar
 	Pbar_Show();
 
@@ -30,6 +32,7 @@ function upd_all() {
 
 	gps_chart();
 	
+
 	//auto save all settings
 	btn_save();
 	changeGuiDim();

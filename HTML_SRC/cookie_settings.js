@@ -13,6 +13,9 @@ var default_lat_usr = "47,4946796";
 var default_lon_usr = "19,0272695";
 
 var default_ele_usr = "0,0";
+var data_format_usr = 1;
+
+var igrf_13_val_usr = "0,0";
 
 function default_set() {
 	lngs_usr = 1;
@@ -30,6 +33,9 @@ function default_set() {
 	default_lon_usr = "19,0272695";
 
 	default_ele_usr = "0,0";
+
+	data_format_usr = 1;
+	igrf_13_val_usr = "0,0";
 }
 
 var lng_arr = [{
@@ -123,6 +129,29 @@ var accel_use_arr = [{
 }
 ];
 
+var data_format_arr = [{
+	text: "data_format_gps",
+	id: "data_format_gps",
+	isdisable: "enabled"
+},
+{
+	text: "data_format_dpv",
+	id: "data_format_dpv",
+	isdisable: "enabled"
+},
+{
+	text: "data_format_seacraft",
+	id: "data_format_seacraft",
+	isdisable: "disabled"
+},
+{
+	text: "data_format_ariane",
+	id: "data_format_ariane",
+	isdisable: "disabled"
+}
+];
+
+
 //Show\Hide HTML elements
 function element_id_show(id) {
 	var x = document.getElementById(id);
@@ -187,6 +216,10 @@ function write_cookie() {
 	setCookie("default_lon_usr1", return_val("default_lon_opt"));
 
 	setCookie("default_ele_usr1", return_val("default_ele_opt"));
+
+	setCookie("data_format_usr1", return_val("data_format_opt"));
+	
+	setCookie("igrf_13_val_usr1", return_val("igrf_13_val_opt"));
 }
 
 function read_cookie() {
@@ -205,6 +238,9 @@ function read_cookie() {
 	default_lon_usr = getCookie("default_lon_usr1");
 
 	default_ele_usr = getCookie("default_ele_usr1");
+
+	data_format_usr = getCookie("data_format_usr1");
+	igrf_13_val_usr = getCookie("igrf_13_val_usr1");
 }
 
 function return_idx(html_ids) {
@@ -278,6 +314,10 @@ function dim_cng() {
 	default_lon = $("#default_lon_opt").val();
 
 	default_ele = $("#default_ele_opt").val();
+
+	data_format = $("#data_format_opt").val();
+	
+	igrf_13_val = $("#igrf_13_val_opt").val();
 	
 	create_html();
 	init_global();
@@ -319,7 +359,14 @@ function create_html() {
 
 	del_html_elem("tr_default_ele");
 	create_input_val("tr_default_ele", "default_ele_opt", default_ele_usr);
+
+	del_html_elem("tr_data_format");
+	create_custom_option_arr("tr_data_format", "data_format_opt", data_format_usr, data_format_arr);
+
+	del_html_elem("tr_igrf_13_val");
+	create_input_val("tr_igrf_13_val", "igrf_13_val_opt", igrf_13_val_usr);
 	
+
 	//Re create watchers for changes
 	tn_cng_color = document.getElementById("tn_color");
 	tn_cng_color.addEventListener('change', assign_css_style);
@@ -352,6 +399,12 @@ function create_html() {
 
 	w_default_ele = document.getElementById("default_ele_opt");
 	w_default_ele.addEventListener('change', upd_all);
+
+	w_data_format = document.getElementById("data_format_opt");
+	w_data_format.addEventListener('change', upd_all);
+
+	w_igrf_13_val = document.getElementById("igrf_13_val_opt");
+	w_igrf_13_val.addEventListener('change', upd_all);
 }
 
 create_custom_option_arr("tr_lng_sel", "tn_lng", lngs_usr, lng_arr);
@@ -369,6 +422,10 @@ create_input_val("tr_default_lat", "default_lat_opt", default_lat_usr);
 create_input_val("tr_default_lon", "default_lon_opt", default_lon_usr);
 
 create_input_val("tr_default_ele", "default_ele_opt", default_ele_usr);
+
+create_custom_option_arr("tr_data_format", "data_format_opt", data_format_usr, data_format_arr);
+
+create_input_val("tr_igrf_13_val", "igrf_13_val_opt", igrf_13_val_usr);
 
 var force_lng = 0;
 
@@ -409,4 +466,10 @@ function init_global() {
 
 	w_default_ele = document.getElementById("default_ele_opt");
 	w_default_ele.addEventListener('change', upd_all);
+
+	w_data_format = document.getElementById("data_format_opt");
+	w_data_format.addEventListener('change', upd_all);
+
+	w_igrf_13_val = document.getElementById("igrf_13_val_opt");
+	w_igrf_13_val.addEventListener('change', upd_all);
 }

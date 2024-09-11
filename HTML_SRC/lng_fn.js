@@ -207,6 +207,13 @@
     	lang = {
     		1: {
     			//Eng
+				".btn_get_lat_lon": "Pick from Map",
+				".tn_data_format": "Recording Data Format",
+				".data_format_gps": "Regular GPS Tracking",
+				".data_format_dpv": "Constant Speed DPV",
+				".data_format_seacraft": "Constant Speed Seacraft",
+				".data_format_ariane": "Constant Speed Ariane",
+
 				".tn_default_ele": "Default Start Elevation" + lng_meters,
 			   ".tn_igrf_13": "Use IGRF-13",
 			   ".tn_accel_use": "Use Acceleration Sensor Data",
@@ -278,6 +285,13 @@
 
     		//Rus
     		2: {
+				".btn_get_lat_lon": "Взять значения с карты",
+				".tn_data_format": "Формат записи данных",
+				".data_format_gps": "Обычный GPS трэк",
+				".data_format_dpv": "Скутер постоянная скорость",
+				".data_format_seacraft": "Постоянная скорость Seacraft",
+				".data_format_ariane": "Постоянная скорость Ariane",
+
 				".tn_default_ele": "Начальная высота над уровнем моря" + lng_meters,
 
 				".tn_igrf_13": "Использовать IGRF-13",
@@ -351,6 +365,13 @@
     		
     		3: {
 				//Spa
+				".btn_get_lat_lon": "Elija en el Mapa",
+				".tn_data_format": "Formato de Grabación de Datos",
+				".data_format_gps": "Seguimiento GPS Normal",
+				".data_format_dpv": "Velocidad Constante DPV",
+				".data_format_seacraft": "Velocidad Constante Seacraft",
+				".data_format_ariane": "Velocidad Constante Ariane",
+
 				".tn_default_ele": "Elevación Inicial Predeterminada" + lng_meters,
 
 				".tn_igrf_13": "Utilizar IGRF-13",
@@ -422,6 +443,13 @@
     		},
     		4: {
     			//Prt
+				".btn_get_lat_lon": "Escolher no Mapa",
+				".tn_data_format": "Formato dos Dados de Registo",
+				".data_format_gps": "Rastreio GPS Regular",
+				".data_format_dpv": "Velocidade Constante DPV",
+				".data_format_seacraft": "Velocidade Constante Seacraft",
+				".data_format_ariane": "Velocidade Constante Ariane",
+
 				".tn_default_ele": "Elevação Inicial Predefinida" + lng_meters,
 
 				".tn_igrf_13": "Utilizar IGRF-13",
@@ -494,6 +522,13 @@
     		},
     		5: {
     			//China
+				".btn_get_lat_lon": "從地圖挑選",
+				".tn_data_format": "記錄資料格式",
+				".data_format_gps": "一般 GPS 路徑",
+				".data_format_dpv": "定速 DPV",
+				".data_format_seacraft": "定速 Seacraft",
+				".data_format_ariane": "定速 Ariane",
+
 				".tn_default_ele": "默认起始海拔" + lng_meters,
 
 				".tn_igrf_13": "使 IGRF-13",
@@ -565,6 +600,13 @@
     		},
     		6: {
     			//Bulgarian
+				".btn_get_lat_lon": "Избор от картата",
+				".tn_data_format": "Формат на данните за запис",
+				".data_format_gps": "Редовно GPS проследяване",
+				".data_format_dpv": "DPV с постоянна скорост",
+				".data_format_seacraft": "Seacraft с постоянна скорост",
+				".data_format_ariane": "Ariane с постоянна скорост",
+
 				".tn_default_ele": "Начална надморска височина по подразбиране" + lng_meters,
 
 				".tn_igrf_13": "Използване на IGRF-13",
@@ -632,7 +674,14 @@
     			".header11": "S.A.U.L. Recreational Dive Planner"
     		},
     		7: {
-    			//Fr
+				//Fr
+				".btn_get_lat_lon": "Choisir sur la carte",
+				".tn_data_format": "Format des données d'enregistremen",
+				".data_format_gps": "Suivi GPS régulier",
+				".data_format_dpv": "Vitesse constante DPV",
+				".data_format_seacraft": "Vitesse constante Seacraft",
+				".data_format_ariane": "Vitesse constante Ariane",
+
 				".tn_default_ele": "Altitude de départ par défaut" + lng_meters,
 
 				".tn_igrf_13": "Utiliser l'IGRF-13",
@@ -701,6 +750,14 @@
     		},
     		8: {
     			//Korean
+				".btn_get_lat_lon": "지도 위에서 선택",
+				
+				".tn_data_format": "기록 데이터 형식",
+				".data_format_gps": "일반 GPS 추적",
+				".data_format_dpv": "정속 DPV",
+				".data_format_seacraft": "정속 Seacraft",
+				".data_format_ariane": "정속 Ariane",
+				
 				".tn_default_ele": "기본 시작 고도" + lng_meters,
 
 				".tn_igrf_13": "IGRF-13 사용",
@@ -768,7 +825,15 @@
     			".header11": "S.A.U.L. 레크리에이션 다이빙 플래너"
     		},
     		9: {
-    			//Italian
+				//Italian
+				".btn_get_lat_lon": "Selezionare su una mappa",
+
+				".tn_data_format": "Formato dati di registrazione",
+				".data_format_gps": "Tracciamento GPS regolare",
+				".data_format_dpv": "DPV a velocità costante",
+				".data_format_seacraft": "Seacraft a velocità costante",
+				".data_format_ariane": "Ariane a velocità costante",
+    			
 				".tn_default_ele": "Altezza di partenza predefinita" + lng_meters,
 
 				".tn_igrf_13": "Utilizzare IGRF-13",
