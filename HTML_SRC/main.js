@@ -5,7 +5,16 @@ init_global();
 GlobalInterval = 0;
 AccelInterval = 0;
 function upd_all() {
-	
+	if ($("#data_format_opt").val() * 1.0 == 1) {
+		element_id_hide("div_block_dpv1");
+		element_id_hide("div_block_dpv2");
+		element_id_hide("div_block_dpv3");
+	}
+	if ($("#data_format_opt").val() * 1.0 == 2) {
+		element_id_show("div_block_dpv1");
+		element_id_show("div_block_dpv2");
+		element_id_show("div_block_dpv3");
+	}
 	upd_igrf();
 
 	//Show progress bar

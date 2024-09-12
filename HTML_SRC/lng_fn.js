@@ -207,6 +207,7 @@
     	lang = {
     		1: {
     			//Eng
+				".btn_close_map_picker": "Get Сoordinates",
 				".btn_get_lat_lon": "Pick from Map",
 				".tn_data_format": "Recording Data Format",
 				".data_format_gps": "Regular GPS Tracking",
@@ -215,7 +216,7 @@
 				".data_format_ariane": "Constant Speed Ariane",
 
 				".tn_default_ele": "Default Start Elevation" + lng_meters,
-			   ".tn_igrf_13": "Use IGRF-13",
+			   ".tn_igrf_13": "Use WMM",
 			   ".tn_accel_use": "Use Acceleration Sensor Data",
 			   ".tn_default_lat": "Default Start Latitude" + ", °",
 			   ".tn_default_lon": "Default Start Longitude" + ", °",
@@ -285,6 +286,7 @@
 
     		//Rus
     		2: {
+				".btn_close_map_picker": "Получить текущие координаты",
 				".btn_get_lat_lon": "Взять значения с карты",
 				".tn_data_format": "Формат записи данных",
 				".data_format_gps": "Обычный GPS трэк",
@@ -294,7 +296,7 @@
 
 				".tn_default_ele": "Начальная высота над уровнем моря" + lng_meters,
 
-				".tn_igrf_13": "Использовать IGRF-13",
+				".tn_igrf_13": "Использовать WMM",
 			   ".tn_accel_use": "Использовать данные датчика ускорения",
 			   ".tn_default_lat": "Начальная широта по умолчанию" + ", °",
 			   ".tn_default_lon": "Начальная долгота по умолчанию" + ", °",
@@ -365,6 +367,7 @@
     		
     		3: {
 				//Spa
+				".btn_close_map_picker": "Obtener Сoordenadas",
 				".btn_get_lat_lon": "Elija en el Mapa",
 				".tn_data_format": "Formato de Grabación de Datos",
 				".data_format_gps": "Seguimiento GPS Normal",
@@ -374,7 +377,7 @@
 
 				".tn_default_ele": "Elevación Inicial Predeterminada" + lng_meters,
 
-				".tn_igrf_13": "Utilizar IGRF-13",
+				".tn_igrf_13": "Utilizar WMM",
 			   ".tn_accel_use": "Utilizar Datos del Sensor de Aceleración",
 			   ".tn_default_lat": "Latitud Inicial por Defecto" + ", °",
 			   ".tn_default_lon": "Longitud Inicial por Defecto" + ", °",
@@ -443,6 +446,7 @@
     		},
     		4: {
     			//Prt
+				".btn_close_map_picker": "Obter Coordenadas С",
 				".btn_get_lat_lon": "Escolher no Mapa",
 				".tn_data_format": "Formato dos Dados de Registo",
 				".data_format_gps": "Rastreio GPS Regular",
@@ -452,7 +456,7 @@
 
 				".tn_default_ele": "Elevação Inicial Predefinida" + lng_meters,
 
-				".tn_igrf_13": "Utilizar IGRF-13",
+				".tn_igrf_13": "Utilizar WMM",
 				".tn_accel_use": "Utilizar Dados do Sensor de Aceleração",
 				".tn_default_lat": "Latitude Inicial Predefinida" + ", °",
 				".tn_default_lon": "Longitude Inicial Predefinida" + ", °",
@@ -522,6 +526,7 @@
     		},
     		5: {
     			//China
+				".btn_close_map_picker": "取得坐標",
 				".btn_get_lat_lon": "從地圖挑選",
 				".tn_data_format": "記錄資料格式",
 				".data_format_gps": "一般 GPS 路徑",
@@ -531,7 +536,7 @@
 
 				".tn_default_ele": "默认起始海拔" + lng_meters,
 
-				".tn_igrf_13": "使 IGRF-13",
+				".tn_igrf_13": "使 WMM",
 				".tn_accel_use": "使用加速度传感器数据",
 				".tn_default_lat": "默认起始纬度" + ", °",
 				".tn_default_lon": "默认起始经度" + ", °",
@@ -600,6 +605,7 @@
     		},
     		6: {
     			//Bulgarian
+				".btn_close_map_picker": "Получаване на координати",
 				".btn_get_lat_lon": "Избор от картата",
 				".tn_data_format": "Формат на данните за запис",
 				".data_format_gps": "Редовно GPS проследяване",
@@ -609,7 +615,7 @@
 
 				".tn_default_ele": "Начална надморска височина по подразбиране" + lng_meters,
 
-				".tn_igrf_13": "Използване на IGRF-13",
+				".tn_igrf_13": "Използване на WMM",
 				".tn_accel_use": "Използване на данни от сензора за ускорение",
 				".tn_default_lat": "Начална географска ширина" + ", °",
 				".tn_default_lon": "Начална дължина" + ", °",
@@ -675,6 +681,7 @@
     		},
     		7: {
 				//Fr
+				".btn_close_map_picker": "Obtenir des coordonnées Сoordinates",
 				".btn_get_lat_lon": "Choisir sur la carte",
 				".tn_data_format": "Format des données d'enregistremen",
 				".data_format_gps": "Suivi GPS régulier",
@@ -684,7 +691,7 @@
 
 				".tn_default_ele": "Altitude de départ par défaut" + lng_meters,
 
-				".tn_igrf_13": "Utiliser l'IGRF-13",
+				".tn_igrf_13": "Utiliser l'WMM",
 				".tn_accel_use": "Utiliser les données du capteur d'accélération",
 				".tn_default_lat": "Latitude de départ par défaut" + ", °",
 				".tn_default_lon": "Longitude de départ par défaut" + ", °",
@@ -750,6 +757,7 @@
     		},
     		8: {
     			//Korean
+				".btn_close_map_picker": "좌표 가져오기",
 				".btn_get_lat_lon": "지도 위에서 선택",
 				
 				".tn_data_format": "기록 데이터 형식",
@@ -760,7 +768,7 @@
 				
 				".tn_default_ele": "기본 시작 고도" + lng_meters,
 
-				".tn_igrf_13": "IGRF-13 사용",
+				".tn_igrf_13": "WMM 사용",
 				".tn_accel_use": "가속도 센서 데이터 사용",
 				".tn_default_lat": "기본 시작 위도" + ", °",
 				".tn_default_lon": "기본 시작 경도" + ", °",
@@ -826,6 +834,7 @@
     		},
     		9: {
 				//Italian
+				".btn_close_map_picker": "Ottieni le coordinate",
 				".btn_get_lat_lon": "Selezionare su una mappa",
 
 				".tn_data_format": "Formato dati di registrazione",
@@ -836,7 +845,7 @@
     			
 				".tn_default_ele": "Altezza di partenza predefinita" + lng_meters,
 
-				".tn_igrf_13": "Utilizzare IGRF-13",
+				".tn_igrf_13": "Utilizzare WMM",
 				".tn_accel_use": "Usa i dati del sensore di accelerazione",
 				".tn_default_lat": "Latitudine di partenza predefinita" + ", °",
 				".tn_default_lon": "Longitudine di partenza predefinita" + ", °",

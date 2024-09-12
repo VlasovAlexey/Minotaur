@@ -15,13 +15,27 @@ function btn_close_map_picker(){
     txt = txt.toString();
     txt = (txt.slice((txt.indexOf('LatLng(')) + 7));
     
-    default_lat_usr = (txt.slice(0 , (txt.indexOf(',')) - 1));
-    txt = (txt.slice((txt.indexOf(' ')) + 1));
-    default_lon_usr = (txt.slice(0 , (txt.indexOf(')')) - 1));
-    
+    //check internet connection
+    if (lat_reg != "0.0" && lon_reg != "0.0" && ele_reg != "0.0"){
+        
+        //all is ok
+        default_lat_usr = (txt.slice(0 , (txt.indexOf(',')) - 1));
+        txt = (txt.slice((txt.indexOf(' ')) + 1));
+        default_lon_usr = (txt.slice(0 , (txt.indexOf(')')) - 1));
+        
+        //if on desktop we doesn`t have altitude sensor
+        if (ele_reg != null){
+            default_ele_usr = ele_reg;
+        }
+        
+        dim_cng();
+    } else {
+        //check internet connection warning here
+    }
+
     element_id_hide("map_picker_base");
     
-    dim_cng();
+    
 }
 
 //create map for picking
