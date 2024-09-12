@@ -1,3 +1,6 @@
+var route_map_disp = [];
+var c_lat = 0;
+var c_lon = 0;
 
 var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     id: 'mapbox.streets',
@@ -93,30 +96,64 @@ var playerLoc = new L.Marker(map.getCenter()).addTo(map);
 
 setInterval(()=>{
     updatemap();
-}, 500)
+}, ($("#rec_freq_opt").val() * 1000.0))
 
 function updatemap() {  // Update the current player location on map
-    playerLoc.setLatLng([lat_reg,lon_reg]);
-    map.invalidateSize();
-    map.panTo([lat_reg,lon_reg]);
     
     //button record pressed
     if (record_state == 1){
-        path1.removeFrom(map);
-        path2.removeFrom(map);
-        route_map_disp.push([lat_reg,lon_reg]);
-        path1 = L.polyline(route_map_disp, stroke, {
-            renderer: L.canvas()
-        }).addTo(map);
-        path2 = L.polyline(route_map_disp, style, {
-            renderer: L.canvas()
-        }).addTo(map);
+        if($("#data_format_opt").val() * 1.0 == 1){
+            //Regular GPS Tracking
+            playerLoc.setLatLng([lat_reg,lon_reg]);
+            map.invalidateSize();
+            map.panTo([lat_reg,lon_reg]);
+            
+            path1.removeFrom(map);
+            path2.removeFrom(map);
+            route_map_disp.push([lat_reg,lon_reg]);
+            path1 = L.polyline(route_map_disp, stroke, {
+                renderer: L.canvas()
+            }).addTo(map);
+            path2 = L.polyline(route_map_disp, style, {
+                renderer: L.canvas()
+            }).addTo(map);
+        } else {
+            //all others modes with Constant Speed
+            playerLoc.setLatLng([c_lat,c_lon]);
+            map.invalidateSize();
+            map.panTo([c_lat,c_lon]);
+            
+            c_time_freq = $("#rec_freq_opt").val() * 1.0;
+            c_speed = document.getElementById("const_spd_opt").value;
+            c_speed = (c_speed.replace(",", ".")) * 1.0;
+            //console.log(route_map_disp);
+            
+            c_lat_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, course_reg * 1.0).lat;
+			c_lon_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, course_reg * 1.0).lon;
+
+            path1.removeFrom(map);
+            path2.removeFrom(map);
+            route_map_disp.push([c_lat,c_lon]);
+            path1 = L.polyline(route_map_disp, stroke, {
+                renderer: L.canvas()
+            }).addTo(map);
+            path2 = L.polyline(route_map_disp, style, {
+                renderer: L.canvas()
+            }).addTo(map);
+            
+            c_lat = c_lat_new;
+            c_lon = c_lon_new;
+        }
     }
     //button record pressed
     if (record_state == 0){
+        playerLoc.setLatLng([lat_reg,lon_reg]);
+        map.invalidateSize();
+        map.panTo([lat_reg,lon_reg]);
+        
         path1.removeFrom(map);
         path2.removeFrom(map);
-        route_map_disp = [[0,0]];
+        route_map_disp = [];
         path1 = L.polyline(route_map_disp, stroke, {
             renderer: L.canvas()
         }).addTo(map);

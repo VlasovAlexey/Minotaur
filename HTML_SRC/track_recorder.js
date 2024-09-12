@@ -265,9 +265,17 @@ function GlobalWatch() {
 			//map rotator clear tracks and try create first point
 			if (lat_reg != "0.0" && lon_reg != "0.0"){
 				route_map_disp = [[lat_reg * 1.0 , lon_reg * 1.0]];
+				c_lat = lat_reg * 1.0;
+				c_lon = lon_reg * 1.0;
 			} else {
-				//bad news/ sensor data or internet not available and get start value from default
-				route_map_disp = [[$("#default_lat_opt").val() * 1.0 , $("#default_lon_opt").val() * 1.0]];
+				//bad news - sensor data or internet not available and get start value from default
+				c_lat = document.getElementById("default_lat_op").value;
+				c_lat = (c_lat.replace(",", ".")) * 1.0;
+
+				c_lon = document.getElementById("default_lon_op").value;
+				c_lon = (c_lon.replace(",", ".")) * 1.0;
+
+				route_map_disp = [[c_lat, y_lon]];
 			}
 
 			rec_first_start = 1;
