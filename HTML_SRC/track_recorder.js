@@ -262,6 +262,14 @@ function GlobalWatch() {
 			lon_start = lon_reg;
 			ele_start = ele_reg;
 
+			//map rotator clear tracks and try create first point
+			if (lat_reg != "0.0" && lon_reg != "0.0"){
+				route_map_disp = [[lat_reg * 1.0 , lon_reg * 1.0]];
+			} else {
+				//bad news/ sensor data or internet not available and get start value from default
+				route_map_disp = [[$("#default_lat_opt").val() * 1.0 , $("#default_lon_opt").val() * 1.0]];
+			}
+
 			rec_first_start = 1;
 		} else {
 			lat_end = lat_reg;

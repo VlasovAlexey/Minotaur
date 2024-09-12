@@ -674,12 +674,12 @@ br{
   }
 
 #map {
-    height: 68vh;
+    height: 65vh;
     width: 100%;
     border: 1px solid #444444;
     padding: 0px;
-    margin-top: 5px;
-    border-radius: 5px; 
+    margin: 0 0 0 0;
+    border-radius: 7px;
 }
 .leaflet-container {
     line-height: 1.0;

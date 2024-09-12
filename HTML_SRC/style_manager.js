@@ -1,6 +1,7 @@
 //buttons default state to start
 var record_state = 0;
 var meas_state = 0;
+var route_map_disp = [[0,0]];
 
 //Load default Style
 function CSSLoad(file) {

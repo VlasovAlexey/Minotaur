@@ -73,10 +73,10 @@ var style = {
     };
 
 //draw main line with outline
-var path1 = L.polyline(route, stroke, {
+var path1 = L.polyline(route_map_disp, stroke, {
     renderer: L.canvas()
 }).addTo(map);
-var path2 = L.polyline(route, style, {
+var path2 = L.polyline(route_map_disp, style, {
     renderer: L.canvas()
 }).addTo(map);
 
@@ -91,18 +91,39 @@ var playerLoc = new L.Marker(map.getCenter()).addTo(map);
 //var currentAutoMove = false; // needed to check in `movestart` event-listener if moved from interval or by user
 //var pauseAutoMove = false; // if true -> Stops moving map
 
-var latitude,longitude;
-
 setInterval(()=>{
-    latitude = lat_reg;
-    longitude = lon_reg;
     updatemap();
 }, 500)
 
 function updatemap() {  // Update the current player location on map
-    playerLoc.setLatLng([latitude,longitude]);
+    playerLoc.setLatLng([lat_reg,lon_reg]);
     map.invalidateSize();
-    map.panTo([latitude,longitude]);
+    map.panTo([lat_reg,lon_reg]);
+    
+    //button record pressed
+    if (record_state == 1){
+        path1.removeFrom(map);
+        path2.removeFrom(map);
+        route_map_disp.push([lat_reg,lon_reg]);
+        path1 = L.polyline(route_map_disp, stroke, {
+            renderer: L.canvas()
+        }).addTo(map);
+        path2 = L.polyline(route_map_disp, style, {
+            renderer: L.canvas()
+        }).addTo(map);
+    }
+    //button record pressed
+    if (record_state == 0){
+        path1.removeFrom(map);
+        path2.removeFrom(map);
+        route_map_disp = [[0,0]];
+        path1 = L.polyline(route_map_disp, stroke, {
+            renderer: L.canvas()
+        }).addTo(map);
+        path2 = L.polyline(route_map_disp, style, {
+            renderer: L.canvas()
+        }).addTo(map);
+    }
 
 }
 

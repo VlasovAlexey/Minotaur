@@ -652,13 +652,12 @@ br{
 }
 
 #map {
-    height: 900px;
-    max-height: 50vh;
-    width: 93%;
+    height: 65vh;
+    width: 100%;
     border: 1px solid #444444;
     padding: 0px;
-    margin-top: 5px;
-    border-radius: 7px; 
+    margin: 0 0 0 0;
+    border-radius: 5px;
 }
 .leaflet-container {
     line-height: 1.0;
