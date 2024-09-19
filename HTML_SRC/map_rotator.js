@@ -153,7 +153,6 @@ function updatemap() {  // Update the current player location on map
         
         path1.removeFrom(map);
         path2.removeFrom(map);
-        route_map_disp = [];
         path1 = L.polyline(route_map_disp, stroke, {
             renderer: L.canvas()
         }).addTo(map);

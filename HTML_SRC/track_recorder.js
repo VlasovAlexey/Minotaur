@@ -26,6 +26,31 @@ var rec_first_start = 0;
 
 function btn_record() {
 	if (record_state == 0) {
+		//map rotator clear tracks and try create first point
+		if (lat_reg != "0.0" && lon_reg != "0.0"){
+			if($("#data_format_opt").val() * 1.0 == 1){
+				//gps track and sensors on
+				c_lat = lat_reg * 1.0;
+				c_lon = lon_reg * 1.0;
+				route_map_disp = [[lat_reg * 1.0 , lon_reg * 1.0]];
+			} else {
+				//constant speed track and sensors on
+				c_lat = document.getElementById("default_lat_opt").value;
+				c_lat = (c_lat.replace(",", ".")) * 1.0;
+
+				c_lon = document.getElementById("default_lon_opt").value;
+				c_lon = (c_lon.replace(",", ".")) * 1.0;
+				route_map_disp = [[c_lat, c_lon]];
+			}
+		} else {
+			//bad news - sensor data or internet not available and get start value from default for all track modes
+			c_lat = document.getElementById("default_lat_opt").value;
+			c_lat = (c_lat.replace(",", ".")) * 1.0;
+
+			c_lon = document.getElementById("default_lon_opt").value;
+			c_lon = (c_lon.replace(",", ".")) * 1.0;
+			route_map_disp = [[c_lat, c_lon]];
+		}
 		document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
 		element_id_show("rec_blinking");
@@ -35,6 +60,9 @@ function btn_record() {
 		
 		record_state = 1;
 
+		//clear once map path on realtime
+		route_map_disp = [];
+		
 		//start writing to gpx array data
 		//Add header
 		GPX_File = GPX_File + "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
@@ -265,27 +293,11 @@ function GlobalWatch() {
 			lon_start = lon_reg;
 			ele_start = ele_reg;
 
-			//map rotator clear tracks and try create first point
-			if (lat_reg != "0.0" && lon_reg != "0.0"){
-				route_map_disp = [[lat_reg * 1.0 , lon_reg * 1.0]];
-				c_lat = lat_reg * 1.0;
-				c_lon = lon_reg * 1.0;
-			} else {
-				//bad news - sensor data or internet not available and get start value from default
-				c_lat = document.getElementById("default_lat_op").value;
-				c_lat = (c_lat.replace(",", ".")) * 1.0;
-
-				c_lon = document.getElementById("default_lon_op").value;
-				c_lon = (c_lon.replace(",", ".")) * 1.0;
-
-				route_map_disp = [[c_lat, y_lon]];
-			}
-
 			rec_first_start = 1;
 		} else {
 			lat_end = lat_reg;
 			lon_end = lon_reg;
-			ele_start = ele_reg;
+			ele_end = ele_reg;
 		}
 
 		if (lat_start == null || lat_start == undefined) {

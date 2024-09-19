@@ -42,11 +42,7 @@ function assign_css_style() {
 			document.getElementById("btn_meas").style.background = "url(meas_light.svg) no-repeat center center";
 			document.getElementById("btn_meas").style.border = "6px solid #000000";
 		}
-		//CSSLoad("roundslider_light.css");
+		
 	}
-	//ZoomButtonChangeStyle();
 }
 assign_css_style();
-
-//hide node js OS control icons and toolbar because not work smoothly
-//CSSLoad("style_hide_window_control_section.css?v153");

@@ -16,7 +16,7 @@ function btn_close_map_picker(){
     txt = (txt.slice((txt.indexOf('LatLng(')) + 7));
     
     //check internet connection
-    if (lat_reg != "0.0" && lon_reg != "0.0" && ele_reg != "0.0"){
+    if (lat_reg != "0.0" && lon_reg != "0.0"){
         
         //all is ok
         document.getElementById("default_lat_opt").value = (txt.slice(0 , (txt.indexOf(',')) - 1));
