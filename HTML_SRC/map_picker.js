@@ -24,13 +24,15 @@ function btn_close_map_picker(){
         default_lon_usr = (txt.slice(0 , (txt.indexOf(')')) - 1));
         
         //if on desktop we doesn`t have altitude sensor
-        if (ele_reg != null){
+        if (ele_reg == null || ele_reg == 0){
+            openSensorError();
+        } else {
             default_ele_usr = ele_reg;
-        }
-        
+        }     
         dim_cng();
     } else {
-        //check internet connection warning here
+        //check internet connection warning
+        openInternetError();
     }
 
     element_id_hide("map_picker_base");

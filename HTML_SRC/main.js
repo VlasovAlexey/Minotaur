@@ -99,6 +99,24 @@ function closeNav() {
 	document.getElementById("AlertOverlay").style.opacity = "0";
 }
 
+//warning window with sensor error
+function openSensorError() {
+	del_html_elem("tn_overlay_text");
+	create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("ch_SensorError"));
+	document.getElementById("AlertOverlay").style.height = "100%";
+	document.getElementById("AlertOverlay").style.opacity = "1";
+
+}
+
+//warning window with no Internet connection
+function openInternetError() {
+	del_html_elem("tn_overlay_text");
+	create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("ch_InternetError"));
+	document.getElementById("AlertOverlay").style.height = "100%";
+	document.getElementById("AlertOverlay").style.opacity = "1";
+
+}
+
 //reset gps and location icons to disabled state
 document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
 document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";

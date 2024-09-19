@@ -30,6 +30,8 @@ function btn_record() {
 		document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
 		element_id_show("rec_blinking");
 		element_id_hide("main_parameters");
+		element_id_hide("data_format");
+		element_id_hide("tn_btn_restore");
 		
 		record_state = 1;
 
@@ -46,6 +48,8 @@ function btn_record() {
 		document.getElementById("btn_rec").style.border = "6px solid #969696";
 		element_id_hide("rec_blinking");
 		element_id_show("main_parameters");
+		element_id_show("data_format");
+		element_id_show("tn_btn_restore");
 		record_state = 0;
 		rec_first_start = 0;
 		//close trk
@@ -105,7 +109,6 @@ function btn_meas_click() {
 		element_id_hide("dialContainer");
 		element_id_hide("info_glob");
 		element_id_hide("compas_head_box");
-
 	} else {
 		document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
 		document.getElementById("btn_meas").style.border = "6px solid #969696";

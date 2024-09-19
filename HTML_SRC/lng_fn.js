@@ -935,6 +935,12 @@
     	};
     	//eng
     	if (td_lng == 1) {
+			if (val == "ch_SensorError") {
+    			val = "Warning!<br>Sensor ERROR or no access to the sensor.<br>Please check sensor access!<br>"
+    		}
+			if (val == "ch_InternetError") {
+    			val = "Warning!<br>Internet not available.<br>Please check your Internet connection!!<br>"
+    		}
 			if (val == "gpx_no_file") {
     			val = "Warning!<br>Please select any GPX file.<br>Thank you!<br>"
     		}
