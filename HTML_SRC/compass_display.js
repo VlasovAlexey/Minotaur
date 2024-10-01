@@ -177,6 +177,18 @@ function compass_upd(compass_data){
 			heading = (90 - rot_sensor);
 		}
 
+		//wmm adds
+		if($("#igrf_13_opt").val() * 1.0 == 1){
+			heading = heading + parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
+
+		}
+		if (heading < 0) {
+			heading = 360 + heading;
+		}
+		if (heading > 360) {
+			heading = heading - 360;
+		}
+
 		levelY = levelG;
 		levelX = levelB * -1;
 	} else {
@@ -198,7 +210,7 @@ function compass_upd(compass_data){
 		
 		//android fix
 		if (acHeading < 0) {
-			acHeading = 360 + acHeading
+			acHeading = 360 + acHeading;
 		}
 
 		cross_01.style.transform = "translate(-50%, -50%) rotate(" + (heading - rot_dif) + "deg)"

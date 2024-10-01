@@ -27,7 +27,7 @@ function btn_close_map_picker(){
         if (ele_reg == null || ele_reg == 0){
             openSensorError();
         } else {
-            document.getElementById("default_ele_opt").value = (ele_reg.toFixed(2));
+            document.getElementById("default_ele_opt").value = (ele_reg.toFixed(2)).replace("." , ",");
         }    
         upd_all(); 
     } else {
