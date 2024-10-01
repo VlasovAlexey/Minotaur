@@ -177,23 +177,27 @@ function compass_upd(compass_data){
 			heading = (90 - rot_sensor);
 		}
 
-		//wmm adds
-		if($("#igrf_13_opt").val() * 1.0 == 1){
-			heading = heading + parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
-
-		}
-		if (heading < 0) {
-			heading = 360 + heading;
-		}
-		if (heading > 360) {
-			heading = heading - 360;
-		}
+		
 
 		levelY = levelG;
 		levelX = levelB * -1;
 	} else {
 		//console.log("The browser doesn`t support window.orientation");
 	}
+
+	//wmm geo model add compensation
+	if($("#igrf_13_opt").val() * 1.0 == 1){
+		console.log(parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , ".")));
+		heading = heading - parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
+
+	}
+	if (heading < 0) {
+		heading = 360 + heading;
+	}
+	if (heading > 360) {
+		heading = heading - 360;
+	}
+
 	levelDisp.style.top = (levelY + 50) + "%";
 	levelDisp.style.left = (levelX + 50) + "%";
 
