@@ -188,7 +188,7 @@ function compass_upd(compass_data){
 	//wmm geo model add compensation
 	if($("#igrf_13_opt").val() * 1.0 == 1){
 		console.log(parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , ".")));
-		heading = heading - parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
+		heading = heading + parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
 
 	}
 	if (heading < 0) {
