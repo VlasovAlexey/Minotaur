@@ -939,7 +939,7 @@
     			val = "Warning!<br>Sensor ERROR or no access to the sensor.<br>Please check sensor access!<br>"
     		}
 			if (val == "ch_InternetError") {
-    			val = "Warning!<br>Internet not available.<br>Please check your Internet connection!!<br>"
+    			val = "Warning!<br>Internet not available.<br>Please check your Internet connection!<br>"
     		}
 			if (val == "gpx_no_file") {
     			val = "Warning!<br>Please select any GPX file.<br>Thank you!<br>"
@@ -990,6 +990,12 @@
     	}
     	//rus
     	if (td_lng == 2) {
+			if (val == "ch_SensorError") {
+    			val = "Внимание!<br>Сенсор сломан либо нет дступа к сенсору.<br>Пожалуйста, проверьте доступ к сенсору!<br>"
+    		}
+			if (val == "ch_InternetError") {
+    			val = "Внимание!<br>Интернет не дступен.<br>Пожалуйста, проверьете соединение с интернетом!<br>"
+    		}
 			if (val == "gpx_no_file") {
     			val = "Внимание!<br>Выбирите хотя бы один GPX файл.<br>Спасибо!<br>"
     		}
@@ -1039,6 +1045,12 @@
     	}
     	//sp
     	if (td_lng == 3) {
+			if (val == "ch_SensorError") {
+    			val = "¡Atención!<br>ERROR del sensor o no hay acceso al sensor.<br>Compruebe el acceso al sensor.<br>"
+    		}
+			if (val == "ch_InternetError") {
+    			val = "¡Atención!<br>Internet no disponible.<br>Compruebe su conexión a Internet.<br>"
+    		}
 			if (val == "gpx_no_file") {
     			val = "¡Atención!<br>Por favor, seleccione cualquier archivo GPX.<br>¡Gracias!<br>"
     		}
@@ -1087,6 +1099,12 @@
     		}
     	}
     	//pt
+		if (val == "ch_SensorError") {
+			val = "Aviso!<br>Sensor ERROR ou sem acesso ao sensor.<br>Verifique o acesso ao sensor!<br>"
+		}
+		if (val == "ch_InternetError") {
+			val = "Aviso!<br>Internet não disponível.<br>Verifique a sua ligação à Internet!<br>"
+		}
 		if (val == "gpx_no_file") {
 			val = "Aviso!<br>Por favor, seleccione qualquer ficheiro GPX.<br>Obrigado!<br>"
 		}
@@ -1136,6 +1154,12 @@
     		}
     	}
     	//ch
+		if (val == "ch_SensorError") {
+			val = "警告!<br>Sensor ERROR（感測器錯誤）或無法存取感測器。<br>請檢查感測器存取權限！<br>"
+		}
+		if (val == "ch_InternetError") {
+			val = "警告!<br>網際網路無法使用。<br>請檢查您的網際網路連線！<br>"
+		}
 		if (val == "gpx_no_file") {
 			val = "警告!<br>请选择任何 GPX 文件。<br>谢谢！<br>"
 		}
@@ -1185,6 +1209,12 @@
     		}
     	}
     	//br
+		if (val == "ch_SensorError") {
+			val = "Предупреждение!<br>Грешка на сензора или липса на достъп до сензора.<br>Моля, проверете правата за достъп до сензора!<br>"
+		}
+		if (val == "ch_InternetError") {
+			val = "Предупреждение!<br>Интернет не е достъпен.<br>Моля, проверете интернет връзката си!<br>"
+		}
 		if (val == "gpx_no_file") {
 			val = "Предупреждение!<br>Изберете произволен GPX файл.<br>Благодаря ви!<br>"
 		}
@@ -1234,6 +1264,12 @@
     		}
     	}
     	//fr
+		if (val == "ch_SensorError") {
+			val = "ATTENTION !<br>ERREUR capteur ou accès au capteur impossible.<br>Veuillez vérifier les droits d'accès au capteur !<br>"
+		}
+		if (val == "ch_InternetError") {
+			val = "ATTENTION !<br>L'Internet n'est pas disponible.<br>Veuillez vérifier votre connexion Internet !<br>"
+		}
 		if (val == "gpx_no_file") {
 			val = "Attention !<br>Veuillez sélectionner n'importe quel fichier GPX.<br>Merci d'avance !<br>"
 		}
@@ -1283,6 +1319,12 @@
     		}
     	}
     	//kr
+		if (val == "ch_SensorError") {
+			val = "경고!<br>센서 오류 또는 센서 액세스 권한이 없습니다.<br>센서 액세스 권한을 확인하세요!<br>"
+		}
+		if (val == "ch_InternetError") {
+			val = "경고!<br>인터넷을 사용할 수 없습니다.<br>인터넷 연결을 확인하세요!<br>"
+		}
 		if (val == "gpx_no_file") {
 			val = "경고!<br>GPX 파일을 선택하세요.<br>감사합니다!<br>"
 		}
@@ -1332,6 +1374,12 @@
     		}
     	}
     	//it
+		if (val == "ch_SensorError") {
+			val = "ATTENZIONE!<br>ERRORE sensore o nessun accesso al sensore.<br>Verificare i diritti di accesso al sensore!<br>"
+		}
+		if (val == "ch_InternetError") {
+			val = "ATTENZIONE!<br>Internet non è disponibile.<br>Verificare la connessione a Internet!<br>"
+		}
 		if (val == "gpx_no_file") {
 			val = "Attenzione!<br>Selezionare un file GPX qualsiasi.<br>Grazie!<br>"
 		}

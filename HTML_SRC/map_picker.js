@@ -19,15 +19,15 @@ function btn_close_map_picker(){
     if (lat_reg != "0.0" && lon_reg != "0.0"){
         
         //all is ok
-        document.getElementById("default_lat_opt").value = (txt.slice(0 , (txt.indexOf(',')) - 1));
+        document.getElementById("default_lat_opt").value = (txt.slice(0 , (txt.indexOf(',')) - 1)).replace("." , ",");
         txt = (txt.slice((txt.indexOf(' ')) + 1));
-        document.getElementById("default_lon_opt").value = (txt.slice(0 , (txt.indexOf(')')) - 1));
+        document.getElementById("default_lon_opt").value = (txt.slice(0 , (txt.indexOf(')')) - 1)).replace("." , ",");
         
         //if on desktop we doesn`t have altitude sensor
         if (ele_reg == null || ele_reg == 0){
             openSensorError();
         } else {
-            document.getElementById("default_ele_opt").value = ele_reg;
+            document.getElementById("default_ele_opt").value = (ele_reg.toFixed(2));
         }    
         upd_all(); 
     } else {

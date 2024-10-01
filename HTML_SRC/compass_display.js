@@ -195,7 +195,7 @@ function compass_upd(compass_data){
 		labelAngle = rot_dif - (360 - heading);
 		dial.style.transform = "rotate(" + (rot_dif - heading) + "deg)"
 		acHeading = rot_dif - (360 - Math.round(heading));
-
+		
 		//android fix
 		if (acHeading < 0) {
 			acHeading = 360 + acHeading
