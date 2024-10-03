@@ -1351,6 +1351,11 @@
          */
         _onDeviceOrientation: function(e) {
             var angle = e.webkitCompassHeading || e.alpha;
+            
+            //minotaur interface
+            angle = wmm_correction(angle);
+            //minotaur interface end
+
             var deviceOrientation = 0;
 
             // Safari iOS

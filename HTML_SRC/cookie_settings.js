@@ -151,6 +151,49 @@ var data_format_arr = [{
 }
 ];
 
+//os detector
+function getOS() {
+	var userAgent = window.navigator.userAgent,
+		platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
+		macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+		windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+		iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+		os = null;
+
+	if (macosPlatforms.indexOf(platform) !== -1) {
+		os = 'Mac OS';
+	} else if (iosPlatforms.indexOf(platform) !== -1) {
+		os = 'iOS';
+	} else if (windowsPlatforms.indexOf(platform) !== -1) {
+		os = 'Windows';
+	} else if (/Android/.test(userAgent)) {
+		os = 'Android';
+	} else if (/Linux/.test(platform)) {
+		os = 'Linux';
+	}
+
+	return os;
+}
+
+//wmm geo model add compensation to compass heading
+function wmm_correction(heading_t) {
+	if($("#igrf_13_opt").val() * 1.0 == 1){
+		if (getOS() == "Windows" || getOS() == "Linux" || getOS() == "Mac OS"){
+			//desktop only for tests
+			heading_t = heading_t - parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
+		} else{
+			//mobile with real sensors
+			heading_t = heading_t + parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
+		}
+	}
+	if (heading_t < 0) {
+		heading_t = 360 + heading_t;
+	}
+	if (heading_t > 360) {
+		heading_t = heading_t - 360;
+	}
+	return heading_t;
+}
 
 //Show\Hide HTML elements
 function element_id_show(id) {
@@ -353,18 +396,18 @@ function create_html() {
 	del_html_elem("tr_accel_use");
 	create_custom_option_arr("tr_accel_use", "accel_use_opt", accel_use_usr, accel_use_arr);
 	del_html_elem("tr_default_lat");
-	create_input_val("tr_default_lat", "default_lat_opt", default_lat_usr);
+	create_input_val_sign("tr_default_lat", "default_lat_opt", default_lat_usr);
 	del_html_elem("tr_default_lon");
-	create_input_val("tr_default_lon", "default_lon_opt", default_lon_usr);
+	create_input_val_sign("tr_default_lon", "default_lon_opt", default_lon_usr);
 
 	del_html_elem("tr_default_ele");
-	create_input_val("tr_default_ele", "default_ele_opt", default_ele_usr);
+	create_input_val_sign("tr_default_ele", "default_ele_opt", default_ele_usr);
 
 	del_html_elem("tr_data_format");
 	create_custom_option_arr("tr_data_format", "data_format_opt", data_format_usr, data_format_arr);
 
 	del_html_elem("tr_igrf_13_val");
-	create_input_val("tr_igrf_13_val", "igrf_13_val_opt", igrf_13_val_usr);
+	create_input_val_sign("tr_igrf_13_val", "igrf_13_val_opt", igrf_13_val_usr);
 	
 
 	//Re create watchers for changes
@@ -418,14 +461,14 @@ create_input_val("tr_calib_f", "calib_f_opt", calib_f_usr);
 
 create_custom_option_arr("tr_igrf_13", "igrf_13_opt", igrf_13_usr, igrf_13_arr);
 create_custom_option_arr("tr_accel_use", "accel_use_opt", accel_use_usr, accel_use_arr);
-create_input_val("tr_default_lat", "default_lat_opt", default_lat_usr);
-create_input_val("tr_default_lon", "default_lon_opt", default_lon_usr);
+create_input_val_sign("tr_default_lat", "default_lat_opt", default_lat_usr);
+create_input_val_sign("tr_default_lon", "default_lon_opt", default_lon_usr);
 
-create_input_val("tr_default_ele", "default_ele_opt", default_ele_usr);
+create_input_val_sign("tr_default_ele", "default_ele_opt", default_ele_usr);
 
 create_custom_option_arr("tr_data_format", "data_format_opt", data_format_usr, data_format_arr);
 
-create_input_val("tr_igrf_13_val", "igrf_13_val_opt", igrf_13_val_usr);
+create_input_val_sign("tr_igrf_13_val", "igrf_13_val_opt", igrf_13_val_usr);
 
 var force_lng = 0;
 
