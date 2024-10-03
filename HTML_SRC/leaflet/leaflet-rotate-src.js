@@ -1351,11 +1351,6 @@
          */
         _onDeviceOrientation: function(e) {
             var angle = e.webkitCompassHeading || e.alpha;
-            
-            //minotaur interface
-            angle = wmm_correction(angle);
-            //minotaur interface end
-
             var deviceOrientation = 0;
 
             // Safari iOS
@@ -1368,7 +1363,10 @@
                 deviceOrientation = window.orientation;
             }
 
-            this._map.setBearing(angle - deviceOrientation);
+            //minotaur interface
+            this._map.setBearing(wmm_correction(angle) - deviceOrientation);
+            //this._map.setBearing(angle - deviceOrientation);
+
         },
 
     });
