@@ -128,8 +128,8 @@ function updatemap() {  // Update the current player location on map
             c_speed = (c_speed.replace(",", ".")) * 1.0;
             //console.log(route_map_disp);
             
-            c_lat_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, course_reg * 1.0).lat;
-			c_lon_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, course_reg * 1.0).lon;
+            c_lat_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, wmm_correction(course_reg) * 1.0).lat;
+			c_lon_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, wmm_correction(course_reg) * 1.0).lon;
 
             path1.removeFrom(map);
             path2.removeFrom(map);
