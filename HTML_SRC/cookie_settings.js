@@ -389,7 +389,7 @@ function create_html() {
 
 
 	del_html_elem("tr_rec_freq");
-	create_option("tr_rec_freq", "rec_freq_opt", 1, 10, rec_freq_usr, 1, 0, "none");
+	create_option("tr_rec_freq", "rec_freq_opt", 0.02, 1, rec_freq_usr, 0.02, 2, "none");
 	del_html_elem("tr_meas_len");
 	create_input_val("tr_meas_len", "meas_len_opt", meas_len_usr);
 	del_html_elem("tr_const_spd");
@@ -460,7 +460,7 @@ create_custom_option_arr("tr_lng_sel", "tn_lng", lngs_usr, lng_arr);
 create_custom_option_arr("tr_dmn_sel", "tn_dmn", dmns_usr, dmns_arr);
 create_custom_option_arr("tn_ifc_set", "tn_color", color_usr, color_arr);
 
-create_option("tr_rec_freq", "rec_freq_opt", 1, 10, rec_freq_usr, 1, 0, "none");
+create_option("tr_rec_freq", "rec_freq_opt", 0.02, 1, rec_freq_usr, 0.01, 2, "none");
 create_input_val("tr_meas_len", "meas_len_opt", meas_len_usr);
 create_input_val("tr_const_spd", "const_spd_opt", const_spd_usr);
 create_input_val("tr_calib_f", "calib_f_opt", calib_f_usr);

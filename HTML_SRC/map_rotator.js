@@ -96,8 +96,7 @@ var playerLoc = new L.Marker(map.getCenter()).addTo(map);
 
 setInterval(()=>{
     updatemap();
-}, ($("#rec_freq_opt").val() * 1000.0))
-console.log(($("#rec_freq_opt").value() * 1000.0));
+}, ($("#rec_freq_opt").val() * 1000.0));
 
 function updatemap() {  // Update the current player location on map
     
