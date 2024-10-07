@@ -178,12 +178,18 @@ function getOS() {
 //wmm geo model add compensation to compass heading
 function wmm_correction(heading_t) {
 	if($("#igrf_13_opt").val() * 1.0 == 1){
-		if (getOS() == "Windows" || getOS() == "Linux" || getOS() == "Mac OS"){
-			//desktop and iOS
-			heading_t = heading_t - parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
-		} else{
-			//mobile with real sensors
+		
+		if (getOS() == "iOS"){
+			//iOS
 			heading_t = heading_t + parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
+		}
+		if (getOS() == "Android"){
+			//Android
+			heading_t = heading_t - parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
+		}
+		if (getOS() == "Windows" || getOS() == "Linux" || getOS() == "Mac OS"){
+			//No sensor platforms e.g. desktop
+			heading_t = heading_t - parseFloat((document.getElementById("igrf_13_val_opt").value).replace("," , "."));
 		}
 	}
 	if (heading_t < 0) {

@@ -1363,11 +1363,10 @@
             if (!e.absolute && 'undefined' !== typeof window.orientation) {
                 deviceOrientation = window.orientation;
             }
-            
+
             //minotaur interface
             angle = wmm_correction(angle);
             this._map.setBearing(angle - deviceOrientation);
-
         },
 
     });

@@ -180,9 +180,12 @@ function compass_upd(compass_data){
 		//console.log("The browser doesn`t support window.orientation");
 	}
 
-	//wmm geo model add compensation to compass heading
-	//heading = (wmm_correction(heading));
-
+	//wmm geo model add compensation to compass heading ONLY for no sensors mode e.g. desktop platforms
+	if (getOS() == "Windows" || getOS() == "Linux" || getOS() == "Mac OS"){
+		//No sensor platforms
+		heading = (wmm_correction(heading));
+	}
+	
 	levelDisp.style.top = (levelY + 50) + "%";
 	levelDisp.style.left = (levelX + 50) + "%";
 
