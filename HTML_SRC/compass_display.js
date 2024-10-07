@@ -62,8 +62,6 @@ function grantPremission() {
 	}
 }
 
-
-
 const startBtn = document.querySelector(".start-btn");
 const isIOS = navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
 
@@ -98,7 +96,7 @@ function startCompass() {
 var AHeading = 0;
 
 function handler(e) {
-	AHeading = -(e.webkitCompassHeading || Math.abs(e.alpha - 360));
+	AHeading = wmm_correction(-(e.webkitCompassHeading || Math.abs(e.alpha - 360)));
 }
 init();
 
@@ -137,7 +135,7 @@ function compass_upd(compass_data){
 		rot_dif = 360;
 	} else {
 		//ios
-		rot_sensor = compass_data.webkitCompassHeading;
+		rot_sensor = wmm_correction(compass_data.webkitCompassHeading);
 		rot_sensor = Math.abs(rot_sensor);
 		rot_android_cor = 0;
 		rot_dif = 0;
@@ -183,7 +181,7 @@ function compass_upd(compass_data){
 	}
 
 	//wmm geo model add compensation to compass heading
-	heading = (wmm_correction(heading));
+	//heading = (wmm_correction(heading));
 
 	levelDisp.style.top = (levelY + 50) + "%";
 	levelDisp.style.left = (levelX + 50) + "%";

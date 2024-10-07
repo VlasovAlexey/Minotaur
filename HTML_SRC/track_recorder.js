@@ -15,7 +15,7 @@ var speed_reg = document.getElementById("const_spd_opt").value;
 speed_reg = (speed_reg.replace(",", "."));
 
 var course_reg = "0.0";
-course_reg = wmm_correction(course_reg);
+course_reg = "0.0";
 
 var lat_end = "0.0";
 var lon_end = "0.0";

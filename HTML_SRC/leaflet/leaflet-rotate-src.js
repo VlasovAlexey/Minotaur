@@ -1356,16 +1356,17 @@
             // Safari iOS
             if (!e.absolute && e.webkitCompassHeading) {
                 angle = 360 - angle;
+                
             }
 
             // Older browsers
             if (!e.absolute && 'undefined' !== typeof window.orientation) {
                 deviceOrientation = window.orientation;
             }
-
+            
             //minotaur interface
-            this._map.setBearing(wmm_correction(angle) - deviceOrientation);
-            //this._map.setBearing(angle - deviceOrientation);
+            angle = wmm_correction(angle);
+            this._map.setBearing(angle - deviceOrientation);
 
         },
 
