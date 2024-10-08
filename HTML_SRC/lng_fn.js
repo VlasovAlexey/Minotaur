@@ -207,7 +207,8 @@
     	lang = {
     		1: {
     			//Eng
-				".btn_close_map_picker": "Get Сoordinates",
+				".btn_wmm": "Calculate Magnetic Declination",
+				".btn_close_map_picker": "Get Coordinates",
 				".btn_get_lat_lon": "Pick from Map",
 				".tn_data_format": "Recording Data Format",
 				".data_format_gps": "Regular GPS Tracking",
@@ -286,6 +287,7 @@
 
     		//Rus
     		2: {
+				".btn_wmm": "Вычислить магнитное склонение",
 				".btn_close_map_picker": "Получить текущие координаты",
 				".btn_get_lat_lon": "Взять значения с карты",
 				".tn_data_format": "Формат записи данных",
@@ -367,6 +369,7 @@
     		
     		3: {
 				//Spa
+				".btn_wmm": "Calcular Declinación Magnética",
 				".btn_close_map_picker": "Obtener Сoordenadas",
 				".btn_get_lat_lon": "Elija en el Mapa",
 				".tn_data_format": "Formato de Grabación de Datos",
@@ -446,6 +449,7 @@
     		},
     		4: {
     			//Prt
+				".btn_wmm": "Calcular Declinação Magnética",
 				".btn_close_map_picker": "Obter Coordenadas С",
 				".btn_get_lat_lon": "Escolher no Mapa",
 				".tn_data_format": "Formato dos Dados de Registo",
@@ -526,6 +530,7 @@
     		},
     		5: {
     			//China
+				".btn_wmm": "運算磁偏角",
 				".btn_close_map_picker": "取得坐標",
 				".btn_get_lat_lon": "從地圖挑選",
 				".tn_data_format": "記錄資料格式",
@@ -605,6 +610,7 @@
     		},
     		6: {
     			//Bulgarian
+				".btn_wmm": "Изчисляване на магнитно отклонение",
 				".btn_close_map_picker": "Получаване на координати",
 				".btn_get_lat_lon": "Избор от картата",
 				".tn_data_format": "Формат на данните за запис",
@@ -681,6 +687,7 @@
     		},
     		7: {
 				//Fr
+				".btn_wmm": "Calculer la déclinaison magnétique",
 				".btn_close_map_picker": "Obtenir des coordonnées Сoordinates",
 				".btn_get_lat_lon": "Choisir sur la carte",
 				".tn_data_format": "Format des données d'enregistremen",
@@ -757,6 +764,7 @@
     		},
     		8: {
     			//Korean
+				".btn_wmm": "자기 편각 계산하기",
 				".btn_close_map_picker": "좌표 가져오기",
 				".btn_get_lat_lon": "지도 위에서 선택",
 				
@@ -834,6 +842,7 @@
     		},
     		9: {
 				//Italian
+				".btn_wmm": "Calcolare la declinazione magnetica",
 				".btn_close_map_picker": "Ottieni le coordinate",
 				".btn_get_lat_lon": "Selezionare su una mappa",
 
@@ -935,6 +944,9 @@
     	};
     	//eng
     	if (td_lng == 1) {
+			if (val == "ch_WMMWarn") {
+    			val = "Warning!<br>The WMM calculation algorithm works correctly until December 2025. After this date, the values may not be accurate.<br>Please update Minotaur in January 2026!<br>"
+    		}
 			if (val == "ch_SensorError") {
     			val = "Warning!<br>Sensor ERROR or no access to the sensor.<br>Please check sensor access!<br>"
     		}
@@ -990,6 +1002,9 @@
     	}
     	//rus
     	if (td_lng == 2) {
+			if (val == "ch_WMMWarn") {
+    			val = "Внимание!<br>Алгоритм расчета WMM корректно работает до декабря 2025 года. После этой даты значения могут быть неточными.<br>Пожалуйста, обновите Минотавр в январе 2026 года!<br>"
+    		}			
 			if (val == "ch_SensorError") {
     			val = "Внимание!<br>Сенсор сломан либо нет дступа к сенсору.<br>Пожалуйста, проверьте доступ к сенсору!<br>"
     		}
@@ -1045,6 +1060,9 @@
     	}
     	//sp
     	if (td_lng == 3) {
+			if (val == "ch_WMMWarn") {
+    			val = "¡Atención!<br>El algoritmo de cálculo del MMM funciona correctamente hasta diciembre de 2025. Después de esta fecha, los valores pueden no ser exactos.<br>Por favor, ¡actualice Minotauro en enero de 2026!<br>"
+    		}			
 			if (val == "ch_SensorError") {
     			val = "¡Atención!<br>ERROR del sensor o no hay acceso al sensor.<br>Compruebe el acceso al sensor.<br>"
     		}
@@ -1099,6 +1117,9 @@
     		}
     	}
     	//pt
+		if (val == "ch_WMMWarn") {
+			val = "Aviso!<br>O algoritmo de cálculo do WMM funciona corretamente até dezembro de 2025. Após esta data, os valores podem não ser exactos.<br>Por favor, actualize o Minotaur em janeiro de 2026!<br>"
+		}		
 		if (val == "ch_SensorError") {
 			val = "Aviso!<br>Sensor ERROR ou sem acesso ao sensor.<br>Verifique o acesso ao sensor!<br>"
 		}
@@ -1154,6 +1175,9 @@
     		}
     	}
     	//ch
+		if (val == "ch_WMMWarn") {
+			val = "警告!<br>WMM 計算演算法可正常運作至 2025 年 12 月。<br>請於 2026 年 1 月更新 Minotaur！<br>"
+		}		
 		if (val == "ch_SensorError") {
 			val = "警告!<br>Sensor ERROR（感測器錯誤）或無法存取感測器。<br>請檢查感測器存取權限！<br>"
 		}
@@ -1209,6 +1233,9 @@
     		}
     	}
     	//br
+		if (val == "ch_WMMWarn") {
+			val = "Предупреждение!<br>Алгоритъмът за изчисляване на ВММ работи правилно до декември 2025 г. След тази дата стойностите може да не са точни.<br>Моля, актуализирайте Minotaur през януари 2026 г.!<br>"
+		}		
 		if (val == "ch_SensorError") {
 			val = "Предупреждение!<br>Грешка на сензора или липса на достъп до сензора.<br>Моля, проверете правата за достъп до сензора!<br>"
 		}
@@ -1264,6 +1291,9 @@
     		}
     	}
     	//fr
+		if (val == "ch_WMMWarn") {
+			val = "ATTENTION !<br>L'algorithme de calcul du WMM fonctionne correctement jusqu'en décembre 2025. Après cette date, les valeurs risquent de ne plus être exactes.<br>Veuillez mettre à jour le Minotaure en janvier 2026 !<br>"
+		}		
 		if (val == "ch_SensorError") {
 			val = "ATTENTION !<br>ERREUR capteur ou accès au capteur impossible.<br>Veuillez vérifier les droits d'accès au capteur !<br>"
 		}
@@ -1319,6 +1349,9 @@
     		}
     	}
     	//kr
+		if (val == "ch_WMMWarn") {
+			val = "경고!<br>WMM 계산 알고리즘은 2025년 12월까지 올바르게 작동합니다. 이 날짜 이후에는 값이 정확하지 않을 수 있습니다.<br>2026년 1월에 미노타우로스를 업데이트해 주세요!<br>"
+		}		
 		if (val == "ch_SensorError") {
 			val = "경고!<br>센서 오류 또는 센서 액세스 권한이 없습니다.<br>센서 액세스 권한을 확인하세요!<br>"
 		}
@@ -1374,6 +1407,9 @@
     		}
     	}
     	//it
+		if (val == "ch_WMMWarn") {
+			val = "ATTENZIONE!<br>L'algoritmo di calcolo del WMM funziona correttamente fino al dicembre 2025. Dopo questa data, i valori potrebbero non essere accurati.<br>Si prega di aggiornare Minotauro nel gennaio 2026!<br>"
+		}		
 		if (val == "ch_SensorError") {
 			val = "ATTENZIONE!<br>ERRORE sensore o nessun accesso al sensore.<br>Verificare i diritti di accesso al sensore!<br>"
 		}

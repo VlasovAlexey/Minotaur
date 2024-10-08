@@ -274,6 +274,7 @@
                <div class="div_block" id="div_block_dpv1">
                   <div id="tn_rec_freq" class="tn_rec_freq"></div>
                   <div id="tr_rec_freq" class="tr_rec_freq"></div>
+   
                   <div id="tn_meas_len" class="tn_meas_len"></div>
                   <div id="tr_meas_len" class="tr_meas_len"></div>
                   <div id="tn_const_spd" class="tn_const_spd"></div>
@@ -287,6 +288,7 @@
                   <div id="tn_igrf_13" class="tn_igrf_13"></div>
                   <div id="tr_igrf_13" class="tr_igrf_13"></div>
                   <div id="tr_igrf_13_val" class="tr_igrf_13_val"></div>
+                  <button type="button" id="btn_wmm" class="btn_wmm" onClick="btn_wmm_calc();"></button>
                </div>
                <div class="div_block" id="div_block_dpv3">
                   <div id="tn_default_lat" class="tn_default_lat"></div>
@@ -555,6 +557,7 @@
       <input id="nodejs_export_xls" type="file"  nwsaveas style="display:none" accept="application/vnd.ms-excel" nwworkingdir=""/>
       <input id="nodejs_export_pdf" type="file"  nwsaveas style="display:none" accept="application/pdf" nwworkingdir=""/>
       
+      <!--<load other files>-->
       <script src="plotly-2.27.0.js"></script>
       <script src="jquery-3.6.0.js"></script>
       
@@ -576,7 +579,7 @@
       <script src="android_fn.js?v0.2841841125111311453651339116234517" charset="UTF-8"></script>
       
       
-      <script src="cookie_settings.js?v0.11228531114253416313311111836441521679123457wa123" charset="UTF-8"></script>
+      <script src="cookie_settings.js?v0.112285311142534516313311111836441521679123457wa123" charset="UTF-8"></script>
       <!-- Leaflet JS / CSS -->
 		<script src="leaflet/leaflet-src.js"></script>
 		<link rel="stylesheet" href="leaflet/leaflet.css">
@@ -612,6 +615,11 @@
       <script src="compass_display.js?011" charset="UTF-8"></script>
       <script src="style_manager.js?v0.188141121311v62134573356141115912345" charset="UTF-8"></script>
       
+      <!--<load WMM files>-->
+      <script src="wmm/newGeomag.js"></script>
+      <script src="wmm/cof2Obj.js"></script>
+      <script src="wmm/wmm_cof_2025.js"></script>
+
       <!-- <script src="resize.js?v0.1881412131" charset="UTF-8"></script>-->
       <!-- Preloader Info Wait when all Page Loaded-->
       <script type="text/javascript">

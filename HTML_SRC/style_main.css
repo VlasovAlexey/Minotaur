@@ -286,7 +286,8 @@ select
 .btn_ios_msg,
 .btn_ios_tel,
 .btn_get_lat_lon,
-.btn_close_map_picker
+.btn_close_map_picker,
+.btn_wmm
 {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -321,7 +322,8 @@ select
 .btn_ios_msg:hover,
 .btn_ios_tel:hover,
 .btn_get_lat_lon:hover,
-.btn_close_map_picker:hover
+.btn_close_map_picker:hover,
+.btn_wmm:hover
 {
     background: #eeeeee;
     color: #424242;
@@ -341,7 +343,8 @@ select
 .btn_ios_msg:active,
 .btn_ios_tel:active,
 .btn_get_lat_lon:active,
-.btn_close_map_picker:active
+.btn_close_map_picker:active,
+.btn_wmm:active
 {
     top: 1px;
     background: #424242;

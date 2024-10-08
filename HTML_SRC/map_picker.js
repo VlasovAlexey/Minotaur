@@ -29,7 +29,7 @@ function btn_close_map_picker(){
         } else {
             document.getElementById("default_ele_opt").value = (ele_reg.toFixed(2)).replace("." , ",");
         }    
-        upd_all(); 
+        upd_all();
     } else {
         //check internet connection warning
         openInternetError();

@@ -266,7 +266,8 @@ select
 .btn_msg,
 .btn_tel,
 .btn_get_lat_lon,
-.btn_close_map_picker
+.btn_close_map_picker,
+.btn_wmm
 {
     border: 10px;
     margin-top: 10px;
@@ -300,7 +301,8 @@ select
 .btn_msg:hover,
 .btn_tel:hover,
 .btn_get_lat_lon:hover,
-.btn_close_map_picker:hover
+.btn_close_map_picker:hover,
+.btn_wmm:hover
 {
     background: #ffffff;
     color: #0080fc;
@@ -318,7 +320,8 @@ select
 .btn_msg:active,
 .btn_tel:active,
 .btn_get_lat_lon:active,
-.btn_close_map_picker:active
+.btn_close_map_picker:active,
+.btn_wmm:active
 {
     top: 1px;
     background: #ffffff;

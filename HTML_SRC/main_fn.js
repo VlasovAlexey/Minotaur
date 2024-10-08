@@ -51,5 +51,11 @@ function hide_unused_elements() {
 	element_id_hide("9-header");
 	element_id_hide("11-header");
 	element_id_hide("td_warn_div");
+
+	//hide not used now elements from GUI but later may be enabled
+	element_id_hide("tn_meas_len");
+	element_id_hide("tr_meas_len");
+	element_id_hide("tn_calib_f");
+	element_id_hide("tr_calib_f");
 }
 hide_unused_elements();

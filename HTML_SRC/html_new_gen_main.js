@@ -147,9 +147,7 @@ function create_option_arr(htmls_id, opt_id, selected_elm, tmp_arr) {
 	tmp_div.setAttribute("class", "lvl_option_style");
 
 	for (f = 0; f < tmp_arr.length; f++) {
-
 		addOption(tmp_div, tmp_arr[f], f, false, f + 1 == selected_elm);
-
 	}
 	htmls_id.appendChild(tmp_div);
 }
@@ -166,7 +164,7 @@ function create_custom_option_arr(htmls_id, opt_id, selected_elm, tmp_arr) {
 
 	for (f = 0; f < tmp_arr.length; f++) {
 
-		addOption_custom(tmp_div, tmp_arr[f].text, f + 1, false, f + 1 == selected_elm, tmp_arr[f].id, tmp_arr[f].isdisable);
+		addOption_custom(tmp_div, tmp_arr[f].text, tmp_arr[f].value, false, f + 1 == selected_elm, tmp_arr[f].id, tmp_arr[f].isdisable);
 
 	}
 	htmls_id.appendChild(tmp_div);

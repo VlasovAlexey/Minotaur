@@ -4,6 +4,7 @@ init_global();
 //Main RECORD Loop
 GlobalInterval = 0;
 AccelInterval = 0;
+
 function upd_all() {
 	if ($("#data_format_opt").val() * 1.0 == 1) {
 		element_id_hide("div_block_dpv1");
@@ -112,6 +113,15 @@ function openSensorError() {
 function openInternetError() {
 	del_html_elem("tn_overlay_text");
 	create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("ch_InternetError"));
+	document.getElementById("AlertOverlay").style.height = "100%";
+	document.getElementById("AlertOverlay").style.opacity = "1";
+
+}
+
+//warning window about current date of WMM generation value
+function openWMMWarn() {
+	del_html_elem("tn_overlay_text");
+	create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("ch_WMMWarn"));
 	document.getElementById("AlertOverlay").style.height = "100%";
 	document.getElementById("AlertOverlay").style.opacity = "1";
 

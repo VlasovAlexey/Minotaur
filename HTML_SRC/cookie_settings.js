@@ -2,7 +2,7 @@ var lngs_usr = 1;
 var dmns_usr = 1;
 var color_usr = 1;
 
-var rec_freq_usr = 1;
+var rec_freq_usr = 2;
 var meas_len_usr = "2,11";
 var const_spd_usr = "1,4925373134";
 var calib_f_usr = "0,0";
@@ -22,7 +22,7 @@ function default_set() {
 	dmns_usr = 1;
 	color_usr = 1;
 
-	rec_freq_usr = 1;
+	rec_freq_usr = 2;
 	meas_len_usr = "2,11";
 	const_spd_usr = "1,4925373134";
 	calib_f_usr = "0,0";
@@ -41,90 +41,107 @@ function default_set() {
 var lng_arr = [{
 		text: "English",
 		id: "tn_english",
+		value: "1",
 		isdisable: "enabled"
 	},
 	{
 		text: "Русский",
 		id: "tn_russia",
+		value: "2",
 		isdisable: "enabled"
 	},
 	{
 		text: "Español",
 		id: "tn_portuguese",
+		value: "3",
 		isdisable: "enabled"
 	},
 	{
 		text: "Português",
 		id: "tn_port",
+		value: "4",
 		isdisable: "enabled"
 	},
 	{
 		text: "中文",
 		id: "tn_china",
+		value: "5",
 		isdisable: "enabled"
 	},
 	{
 		text: "Български",
 		id: "tn_bu",
+		value: "6",
 		isdisable: "enabled"
 	},
 	{
 		text: "Français",
 		id: "tn_fr",
+		value: "7",
 		isdisable: "enabled"
 	},
 	{
 		text: "한국어",
 		id: "tn_kr",
+		value: "8",
 		isdisable: "enabled"
 	},
 	{
 		text: "Italiano",
 		id: "tn_it",
+		value: "9",
 		isdisable: "enabled"
 	}
 ];
 var dmns_arr = [{
 		text: "Meters/Liters/Bar.",
 		id: "tn_dmn_mtr",
+		value: "1",
 		isdisable: "enabled"
 	},
 	{
 		text: "Feet/Cu.Feet/PSI",
 		id: "tn_dmn_imp",
+		value: "2",
 		isdisable: "disabled"
 	}
 ];
 var color_arr = [{
 		text: "Dark Theme",
 		id: "tn_color_dark",
+		value: "1",
 		isdisable: "enabled"
 	},
 	{
 		text: "Light Theme",
 		id: "tn_color_light",
+		value: "2",
 		isdisable: "enabled"
 	}
 ];
 var igrf_13_arr = [{
 	text: "igrf_13_yes",
 	id: "tn_igrf_13_yes",
+	value: "1",
 	isdisable: "enabled"
 },
 {
 	text: "igrf_13_no",
 	id: "tn_igrf_13_no",
+	value: "2",
 	isdisable: "enabled"
 }
 ];
 var accel_use_arr = [{
 	text: "accel_use_yes",
 	id: "tn_accel_use_yes",
+	value: "1",
 	isdisable: "enabled"
 },
 {
 	text: "accel_use_no",
 	id: "tn_accel_use_no",
+	value: "2",
 	isdisable: "enabled"
 }
 ];
@@ -132,25 +149,73 @@ var accel_use_arr = [{
 var data_format_arr = [{
 	text: "data_format_gps",
 	id: "data_format_gps",
+	value: "1",
 	isdisable: "enabled"
 },
 {
 	text: "data_format_dpv",
 	id: "data_format_dpv",
+	value: "2",
 	isdisable: "enabled"
 },
 {
 	text: "data_format_seacraft",
 	id: "data_format_seacraft",
+	value: "3",
 	isdisable: "disabled"
 },
 {
 	text: "data_format_ariane",
 	id: "data_format_ariane",
+	value: "4",
 	isdisable: "disabled"
 }
 ];
 
+var record_step_arr = [
+	{
+		text: "0,01",
+		id: "r_step_01",
+		value: "0.01",
+		isdisable: "enabled"
+	},
+	{
+		text: "0,02",
+		id: "r_step_02",
+		value: "0.02",
+		isdisable: "enabled"
+	},
+	{
+		text: "0,05",
+		id: "r_step_03",
+		value: "0.05",
+		isdisable: "enabled"
+	},
+	{
+		text: "0,1",
+		id: "r_step_04",
+		value: "0.1",
+		isdisable: "enabled"
+	},
+	{
+		text: "0,25",
+		id: "r_step_05",
+		value: "0.25",
+		isdisable: "enabled"
+	},
+	{
+		text: "0,5",
+		id: "r_step_06",
+		value: "0.5",
+		isdisable: "enabled"
+	},
+	{
+		text: "1,0",
+		id: "r_step_07",
+		value: "1.0",
+		isdisable: "enabled"
+	}
+];
 //os detector
 function getOS() {
 	var userAgent = window.navigator.userAgent,
@@ -171,7 +236,6 @@ function getOS() {
 	} else if (/Linux/.test(platform)) {
 		os = 'Linux';
 	}
-
 	return os;
 }
 
@@ -294,7 +358,7 @@ function read_cookie() {
 
 function return_idx(html_ids) {
 	tmp4 = document.getElementById(html_ids);
-	idx_me = tmp4.options[tmp4.selectedIndex].value;
+	idx_me = tmp4.options.selectedIndex + 1.0;
 	return idx_me;
 }
 
@@ -389,7 +453,8 @@ function create_html() {
 
 
 	del_html_elem("tr_rec_freq");
-	create_option("tr_rec_freq", "rec_freq_opt", 0.02, 1, rec_freq_usr, 0.02, 2, "none");
+	//create_option("tr_rec_freq", "rec_freq_opt", 0.02, 1, rec_freq_usr, 0.02, 2, "none");
+	create_custom_option_arr("tr_rec_freq", "rec_freq_opt", rec_freq_usr, record_step_arr);
 	del_html_elem("tr_meas_len");
 	create_input_val("tr_meas_len", "meas_len_opt", meas_len_usr);
 	del_html_elem("tr_const_spd");
@@ -460,7 +525,9 @@ create_custom_option_arr("tr_lng_sel", "tn_lng", lngs_usr, lng_arr);
 create_custom_option_arr("tr_dmn_sel", "tn_dmn", dmns_usr, dmns_arr);
 create_custom_option_arr("tn_ifc_set", "tn_color", color_usr, color_arr);
 
-create_option("tr_rec_freq", "rec_freq_opt", 0.02, 1, rec_freq_usr, 0.01, 2, "none");
+//create_option("tr_rec_freq", "rec_freq_opt", 0.02, 1, rec_freq_usr, 0.01, 2, "none");
+create_custom_option_arr("tr_rec_freq", "rec_freq_opt", rec_freq_usr, record_step_arr);
+
 create_input_val("tr_meas_len", "meas_len_opt", meas_len_usr);
 create_input_val("tr_const_spd", "const_spd_opt", const_spd_usr);
 create_input_val("tr_calib_f", "calib_f_opt", calib_f_usr);
