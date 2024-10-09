@@ -82,20 +82,18 @@ var path1 = L.hotline(route_map_disp, {
 
 //disable heading button
 document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.display = 'none';
+
 // Display some debug info
 //L.Rotate.debug(map);
 
 var playerLoc = new L.Marker(map.getCenter()).addTo(map);
-
-
-//var currentAutoMove = false; // needed to check in `movestart` event-listener if moved from interval or by user
-//var pauseAutoMove = false; // if true -> Stops moving map
 
 function start_draw_path(){
     setInterval(()=>{
         updatemap();
     }, (document.getElementById("rec_freq_opt").value * 1000.0));
 }
+start_draw_path();
 
 function updatemap() {  // Update the current player location on map
     

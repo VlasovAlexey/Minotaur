@@ -7,8 +7,10 @@ var lat_start = "0.0";
 var lon_start = "0.0";
 var ele_start = "0.0";
 
-var lat_reg = "0.0";
-var lon_reg = "0.0";
+var lat_reg = document.getElementById("default_lat_opt").value;
+lat_reg = (lat_reg.replace(",", "."));
+var lon_reg = document.getElementById("default_lon_opt").value;
+lon_reg = (lon_reg.replace(",", "."));
 var ele_reg = "0.0";
 
 var speed_reg = document.getElementById("const_spd_opt").value;
