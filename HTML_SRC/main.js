@@ -41,7 +41,7 @@ function upd_all() {
 	speed_reg = (speed_reg.replace(",", "."));
 
 	gps_chart();
-	
+	compass_upd_main();	
 
 	//auto save all settings
 	btn_save();

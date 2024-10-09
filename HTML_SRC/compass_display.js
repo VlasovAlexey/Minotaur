@@ -250,17 +250,18 @@ function compass_upd(compass_data){
 }
 
 //main function for compass update data
-
-if (getOS() == "Android") {
-	//Android
-	window.addEventListener('deviceorientationabsolute', function(e) {
-		compass_upd(e);
-	}, false);	
-} else {
-	//IOS
-	window.addEventListener('deviceorientation', function(e) {
-		compass_upd(e);
-	}, false);	
+function compass_upd_main() {
+	if (getOS() == "Android") {
+		//Android
+		window.addEventListener('deviceorientationabsolute', function(e) {
+			compass_upd(e);
+		}, false);	
+	} else {
+		//IOS
+		window.addEventListener('deviceorientation', function(e) {
+			compass_upd(e);
+		}, false);	
+	}
 }
 
 function convertCoordinates(latitude, longitude) {

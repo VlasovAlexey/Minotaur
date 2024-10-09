@@ -63,24 +63,21 @@ var layers = L.control.layers({
     position: 'bottomright'
 }).addTo(map);
 
-//style for main line
-var style = {
-    color: "#ff0000",
-    weight: 5,
-    opacity: 1.0
-     }, 
-    stroke = {
-    color: "#fff",
-    weight: 9,
-    opacity: 1.0
-    };
-
 //draw main line with outline
-var path1 = L.polyline(route_map_disp, stroke, {
-    renderer: L.canvas()
-}).addTo(map);
-var path2 = L.polyline(route_map_disp, style, {
-    renderer: L.canvas()
+//function draw_line(){}
+
+var path1 = L.hotline(route_map_disp, {
+    min: 150,
+    max: 350,
+    palette: {
+        0.0: '#008800',
+        0.5: '#ffff00',
+        1.0: '#ff0000'
+    },
+    weight: 15,
+    outlineColor: '#000000',
+    outlineWidth: 3,
+    smoothFactor: 4
 }).addTo(map);
 
 //disable heading button
@@ -94,71 +91,66 @@ var playerLoc = new L.Marker(map.getCenter()).addTo(map);
 //var currentAutoMove = false; // needed to check in `movestart` event-listener if moved from interval or by user
 //var pauseAutoMove = false; // if true -> Stops moving map
 
-setInterval(()=>{
-    updatemap();
-}, ($("#rec_freq_opt").val() * 1000.0));
+function start_draw_path(){
+    setInterval(()=>{
+        updatemap();
+    }, (document.getElementById("rec_freq_opt").value * 1000.0));
+}
 
 function updatemap() {  // Update the current player location on map
     
     //button record pressed
     if (record_state == 1){
+        path1.removeFrom(map);
+        //path2.removeFrom(map);
         if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking
             playerLoc.setLatLng([lat_reg,lon_reg]);
             map.invalidateSize();
             map.panTo([lat_reg,lon_reg]);
             
-            path1.removeFrom(map);
-            path2.removeFrom(map);
-            route_map_disp.push([lat_reg,lon_reg]);
-            path1 = L.polyline(route_map_disp, stroke, {
-                renderer: L.canvas()
+            route_map_disp.push([lat_reg,lon_reg,ele_reg]);
+
+            path1 = L.hotline(route_map_disp, {
+                min: 150,
+                max: 350,
+                palette: {
+                    0.0: '#008800',
+                    0.5: '#ffff00',
+                    1.0: '#ff0000'
+                },
+                weight: 15,
+                outlineColor: '#000000',
+                outlineWidth: 3,
+                smoothFactor: 4
             }).addTo(map);
-            path2 = L.polyline(route_map_disp, style, {
-                renderer: L.canvas()
-            }).addTo(map);
+            
         } else {
             //all others modes with Constant Speed
             playerLoc.setLatLng([c_lat,c_lon]);
             map.invalidateSize();
             map.panTo([c_lat,c_lon]);
             
-            c_time_freq = $("#rec_freq_opt").val() * 1.0;
-            c_speed = document.getElementById("const_spd_opt").value;
-            c_speed = (c_speed.replace(",", ".")) * 1.0;
-            //console.log(route_map_disp);
+            route_map_disp.push([c_lat,c_lon,ele_reg]);
             
-            c_lat_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, acHeading * 1.0).lat;
-			c_lon_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, acHeading * 1.0).lon;
-
-            path1.removeFrom(map);
-            path2.removeFrom(map);
-            route_map_disp.push([c_lat,c_lon]);
-            path1 = L.polyline(route_map_disp, stroke, {
-                renderer: L.canvas()
+            path1 = L.hotline(route_map_disp, {
+                min: 150,
+                max: 350,
+                palette: {
+                    0.0: '#008800',
+                    0.5: '#ffff00',
+                    1.0: '#ff0000'
+                },
+                weight: 15,
+                outlineColor: '#000000',
+                outlineWidth: 3,
+                smoothFactor: 4
             }).addTo(map);
-            path2 = L.polyline(route_map_disp, style, {
-                renderer: L.canvas()
-            }).addTo(map);
-            
-            c_lat = c_lat_new;
-            c_lon = c_lon_new;
         }
     }
-    //button record pressed
+    //button record not pressed
     if (record_state == 0){
-        playerLoc.setLatLng([lat_reg,lon_reg]);
-        map.invalidateSize();
-        map.panTo([lat_reg,lon_reg]);
         
-        path1.removeFrom(map);
-        path2.removeFrom(map);
-        path1 = L.polyline(route_map_disp, stroke, {
-            renderer: L.canvas()
-        }).addTo(map);
-        path2 = L.polyline(route_map_disp, style, {
-            renderer: L.canvas()
-        }).addTo(map);
     }
 
 }

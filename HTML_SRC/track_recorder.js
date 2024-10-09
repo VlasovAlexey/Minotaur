@@ -64,6 +64,12 @@ function btn_record() {
 		//clear once map path on realtime
 		route_map_disp = [];
 		
+		//start path watcher for map rotator
+		start_draw_path();
+
+		//start sensor watchers for path writing
+		geolocation_pos_watcher();
+
 		//start writing to gpx array data
 		//Add header
 		GPX_File = GPX_File + "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
@@ -157,49 +163,49 @@ var orient_a = 0;
 var orient_b = 0;
 var orient_g = 0;
 
-//display geolocation warning usage
-window.addEventListener("load", () => {
-	if (!navigator.geolocation) {
-		updateError({
-			code: NONAVIGATION
+function geolocation_pos_watcher() {	
+	//display geolocation warning usage
+	window.addEventListener("load", () => {
+		if (!navigator.geolocation) {
+			updateError({
+				code: NONAVIGATION
+			});
+			return;
+		}
+
+		window.addEventListener("deviceorientation", event => {
+			orient_a = Math.round(event.alpha);
+			orient_b = Math.round(event.beta);
+			orient_g = Math.round(event.gamma);
+			document.getElementById("data-test1").textContent = String("orient_a,b,g: " + orient_a + " : " + orient_b + " : " + orient_g);
 		});
-		
-		return;
-	}
 
-	window.addEventListener("deviceorientation", event => {
-		orient_a = Math.round(event.alpha);
-		orient_b = Math.round(event.beta);
-		orient_g = Math.round(event.gamma);
+		//acceleration 
+		window.addEventListener("devicemotion", event => {
+			accel_x = parseFloat(event.acceleration.x).toFixed(3);
+			accel_y = parseFloat(event.acceleration.y).toFixed(3);
+			accel_z = parseFloat(event.acceleration.z).toFixed(3);
+			rot_rate_a = parseFloat(event.rotationRate.alpha).toFixed(3);
+			rot_rate_b = parseFloat(event.rotationRate.beta).toFixed(3);
+			rot_rate_g = parseFloat(event.rotationRate.gamma).toFixed(3);
+			//document.getElementById("data-test1").textContent = String(accel_x + " : " + accel_y + " : " + accel_z);
+			//document.getElementById("data-test2").textContent = String(rot_rate_a + " : " + rot_rate_b + " : " + rot_rate_g);
+		});
+		navigator.geolocation.watchPosition(g => {
+			//document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
+			lastUpdate = new Date();
+			errorHidden();
+			updateTime();
+			updateGeo(g.coords);
+		}, updateError, {
+			enableHighAccuracy: true,
+		});
+		window.setInterval(updateTime, 10);
+	}, {
+		//once: true,
 	});
-
-	//acceleration 
-	window.addEventListener("devicemotion", event => {
-		accel_x = parseFloat(event.acceleration.x).toFixed(3);
-		accel_y = parseFloat(event.acceleration.y).toFixed(3);
-		accel_z = parseFloat(event.acceleration.z).toFixed(3);
-		rot_rate_a = parseFloat(event.rotationRate.alpha).toFixed(3);
-		rot_rate_b = parseFloat(event.rotationRate.beta).toFixed(3);
-		rot_rate_g = parseFloat(event.rotationRate.gamma).toFixed(3);
-
-		
-		//document.getElementById("data-test1").textContent = String(accel_x + " : " + accel_y + " : " + accel_z);
-		//document.getElementById("data-test2").textContent = String(rot_rate_a + " : " + rot_rate_b + " : " + rot_rate_g);
-	});
-
-	navigator.geolocation.watchPosition(g => {
-		//document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
-		lastUpdate = new Date();
-		errorHidden();
-		updateTime();
-		updateGeo(g.coords);
-	}, updateError, {
-		enableHighAccuracy: true,
-	});
-	window.setInterval(updateTime, 10);
-}, {
-	//once: true,
-});
+}
+geolocation_pos_watcher();
 
 //acceleration watch sensor write info to arr
 var accel_arr = [];
@@ -271,9 +277,28 @@ function GlobalWatch() {
 		}
 
 		//write to file
-		GPX_File = GPX_File + "    <trkpt lat=\"" + lat_reg + "\" lon=\"" + lon_reg + "\">\n";
-		GPX_File = GPX_File + "     <ele>" + ele_reg + "</ele>\n";
+		if($("#data_format_opt").val() * 1.0 == 1){
+            //Regular GPS Tracking
+            GPX_File = GPX_File + "    <trkpt lat=\"" + lat_reg + "\" lon=\"" + lon_reg + "\">\n";
+			GPX_File = GPX_File + "     <ele>" + ele_reg + "</ele>\n";
 
+        } else {
+            //all others modes with Constant Speed e.g.
+            c_time_freq = document.getElementById("rec_freq_opt").value;
+            c_speed = document.getElementById("const_spd_opt").value;
+            c_speed = (c_speed.replace(",", ".")) * 1.0;
+            
+            c_lat_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, acHeading * 1.0).lat;
+			c_lon_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, acHeading * 1.0).lon;
+
+			GPX_File = GPX_File + "    <trkpt lat=\"" + c_lat + "\" lon=\"" + c_lon + "\">\n";
+			GPX_File = GPX_File + "     <ele>" + ele_reg + "</ele>\n";
+
+            c_lat = c_lat_new;
+            c_lon = c_lon_new;
+        }
+
+		//write all other data
 		GPX_File = GPX_File + "     <course>" + course_reg + "</course>\n";
 		GPX_File = GPX_File + "     <extensions>\n";
 		GPX_File = GPX_File + "      <orient_a>" + orient_a + "</orient_a>\n";
@@ -347,42 +372,6 @@ function updateGeo(c) {
 
 const Second = 1000;
 const Minute = 60 * Second;
-
-// Update the duration since the last geolocation element.
-let gps_bad_count = 0;
-let sec_old = 0;
-function updateTime() {
-	let d = new Date() - lastUpdate;
-	let min = Math.floor(d / Minute);
-	let sec = Math.floor(d % Minute / Second);
-	tot_time = min + "m " + sec + "s"
-	if(sec_old != sec){
-		gps_bad_count = gps_bad_count - 1;
-	}
-	if(sec > 3) {
-		if(document.getElementById("tn_color").value == 1){
-			document.getElementById("btn_gps").style.background = "url(gps_bad.svg) no-repeat left center";
-			gps_bad_count = 4;
-		}
-		else{
-			document.getElementById("btn_gps").style.background = "url(gps_bad_light.svg) no-repeat left center";
-			gps_bad_count = 4;
-		}
-		
-		if(sec > 10){
-			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
-		}	
-	}
-	else{
-		if(gps_bad_count < 1){
-			document.getElementById("btn_gps").style.background = "url(gps_ok.svg) no-repeat left center";
-		}
-		
-	}
-	document.getElementById("lastUpdate").innerHTML = "Last Update <br>" + tot_time;
-	sec_old = sec;
-}
-
 const NONAVIGATION = -1; // a non-standard error code
 const PERMISSION_DENIED = 1;
 const POSITION_UNAVAILABLE = 2;
@@ -429,4 +418,39 @@ function updateError(err) {
 			console.error(err);
 	}
 	//document.getElementById(`error-${t}`).hidden = false;
+}
+
+// Update the duration since the last geolocation element
+let gps_bad_count = 0;
+let sec_old = 0;
+function updateTime() {
+	let d = new Date() - lastUpdate;
+	let min = Math.floor(d / Minute);
+	let sec = Math.floor(d % Minute / Second);
+	tot_time = min + "m " + sec + "s"
+	if(sec_old != sec){
+		gps_bad_count = gps_bad_count - 1;
+	}
+	if(sec > 3) {
+		if(document.getElementById("tn_color").value == 1){
+			document.getElementById("btn_gps").style.background = "url(gps_bad.svg) no-repeat left center";
+			gps_bad_count = 4;
+		}
+		else{
+			document.getElementById("btn_gps").style.background = "url(gps_bad_light.svg) no-repeat left center";
+			gps_bad_count = 4;
+		}
+		
+		if(sec > 10){
+			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+		}	
+	}
+	else{
+		if(gps_bad_count < 1){
+			document.getElementById("btn_gps").style.background = "url(gps_ok.svg) no-repeat left center";
+		}
+		
+	}
+	document.getElementById("lastUpdate").innerHTML = "Last Update <br>" + tot_time;
+	sec_old = sec;
 }
