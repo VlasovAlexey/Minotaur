@@ -135,13 +135,13 @@ function draw_path() {
         min: ele_line_max,
         max: ele_line_min,
         palette: {
-            0.0: '#008800',
+            0.0: '#ff0000',
             0.5: '#ffff00',
-            1.0: '#ff0000'
+            1.0: '#008800'
         },
         weight: 10,
-        outlineColor: '#ffffff',
-        outlineWidth: 3,
-        smoothFactor: 3
+        outlineColor: '#000000',
+        outlineWidth: 2,
+        smoothFactor: 2
     }).addTo(map);
 }

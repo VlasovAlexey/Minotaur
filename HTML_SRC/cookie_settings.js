@@ -8,7 +8,7 @@ var const_spd_usr = "1,4925373134";
 var calib_f_usr = "0,0";
 
 var igrf_13_usr = 1;
-var accel_use_usr = 1;
+var accel_use_usr = 2;
 var default_lat_usr = "47,4946796";
 var default_lon_usr = "19,0272695";
 
@@ -28,7 +28,7 @@ function default_set() {
 	calib_f_usr = "0,0";
 
 	igrf_13_usr = 1;
-	accel_use_usr = 1;
+	accel_use_usr = 2;
 	default_lat_usr = "47,4946796";
 	default_lon_usr = "19,0272695";
 

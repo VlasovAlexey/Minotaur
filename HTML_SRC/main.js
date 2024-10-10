@@ -5,6 +5,19 @@ init_global();
 GlobalInterval = 0;
 AccelInterval = 0;
 
+function upd_wmm_gui(){
+    if($("#igrf_13_opt").val() == 1){
+        element_id_show("tr_igrf_13_val");
+        element_id_show_inline("btn_wmm");
+    }
+    if($("#igrf_13_opt").val() == 2){
+        element_id_hide("tr_igrf_13_val");
+        element_id_hide("btn_wmm");
+        $(".igrf_13_val_opt").val("0,0");
+    }
+    //upd_all();
+}
+
 function upd_all() {
 	if ($("#data_format_opt").val() * 1.0 == 1) {
 		element_id_hide("div_block_dpv1");
@@ -16,7 +29,7 @@ function upd_all() {
 		element_id_show("div_block_dpv2");
 		element_id_show("div_block_dpv3");
 	}
-	upd_igrf();
+	upd_wmm_gui();
 
 	//Show progress bar
 	Pbar_Show();

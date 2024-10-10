@@ -149,26 +149,28 @@ function gpx_final_save(){
 
 //draw gps tracks chart
 //del_html_elem("trackChart");
-var pointCount = 50;
+var pointCount = 300;
 var i, r;
 var x = [];
 var y = [];
 var z = [];
 var c = [];
 for (i = 0; i < pointCount; i++) {
-	r = 2 * Math.cos(i / 10);
-	x.push(r * Math.cos(i));
-	y.push(r * Math.sin(i));
+	r = 10 * Math.cos(i / 10);
+	x.push(r * Math.cos(i*0.01));
+	y.push(r * Math.sin(i*0.01));
 	z.push(i);
 	c.push(i)
 }
 var layout = 0;
+//crappy code for centering graph
+var width_calc = (window.innerWidth/100*(88+((window.innerWidth-500)/650)));
 
 function gps_chart() {
-	/*
-	//crappy code for centering graph
-	var width_calc = (window.innerWidth/100*(88+((window.innerWidth-500)/650)));
-
+	//class="plot-container plotly"
+	//id="trackChart"
+	
+	create_html_text("trackChart","trackChart_opt","");
 	//color dark
 	if(document.getElementById("tn_color").value == 1){
 		layout = {
@@ -265,7 +267,7 @@ function gps_chart() {
 	var config = {
 		displayModeBar: false // this is the line that hides the bar.
 	};
-	Plotly.newPlot("trackChart", [{
+	Plotly.newPlot("trackChart_opt", [{
 		type: "scatter3d",
 		mode: "lines+markers",
 		x: x,
@@ -284,7 +286,7 @@ function gps_chart() {
 			cmax: 50
 		}
 	}, ], layout, config);
-	*/
+	
 }
 
 gps_chart();

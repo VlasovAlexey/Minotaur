@@ -226,6 +226,8 @@ function create_input_val_sign(htmls_id, opt_id, text) {
 function del_html_elem(htmls_id) {
 	htmls_id = document.getElementById(htmls_id);
 	htmls_id.innerHTML = "";
+	htmls_class = document.getElementsByClassName(htmls_id);
+	htmls_class.innerHTML = "";
 }
 //Special changes for custom class changes only for level number option
 function create_option_lvl(htmls_id, opt_id, start, end, selected_elm, nrm_step, nrm_after_dot) {

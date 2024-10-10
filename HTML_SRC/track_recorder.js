@@ -46,6 +46,7 @@ function btn_record() {
 				c_lon = document.getElementById("default_lon_opt").value;
 				c_lon = (c_lon.replace(",", ".")) * 1.0;
 				route_map_disp = [[c_lat, c_lon]];
+				ele_reg_const = parseFloat((document.getElementById("default_ele_opt").value).replace(",", "."));
 			}
 		} else {
 			//bad news - sensor data or internet not available and get start value from default for all track modes
@@ -56,8 +57,12 @@ function btn_record() {
 			c_lon = (c_lon.replace(",", ".")) * 1.0;
 			route_map_disp = [[c_lat, c_lon]];
 
-			ele_reg_const = parseFloat(ele_reg.replace(",", "."));
+			ele_reg_const = parseFloat((document.getElementById("default_ele_opt").value).replace(",", "."));
 		}
+		
+		ele_line_min = ele_reg_const;
+		ele_line_max = ele_reg_const + 1;
+
 		document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
 		element_id_show("rec_blinking");
@@ -136,6 +141,23 @@ function btn_record() {
 		});
 		saveAs(blob, fl_name);
 		GPX_File = [];
+
+		//send to 3d view new recorded track
+		//clear previous data
+		x = [];
+		y = [];
+		z = [];
+		c = [];
+		for (i = 0; i < route_map_disp.length; i++) {
+			x.push(route_map_disp[i][0]);
+			y.push(route_map_disp[i][1]);
+			z.push(route_map_disp[i][2]);
+			c.push(route_map_disp[i][2]);
+		}
+
+		//draw new 3d chart with new data
+		del_html_elem("trackChart_opt");
+		gps_chart();
 	}
 }
 
@@ -191,7 +213,9 @@ function geolocation_pos_watcher() {
 			orient_a = Math.round(event.alpha);
 			orient_b = Math.round(event.beta);
 			orient_g = Math.round(event.gamma);
-			document.getElementById("data-test1").textContent = String("orient_bt: " + orient_bt + " ele_reg_const: " + ele_reg_const);
+			document.getElementById("data-test1").textContent = String("orient_bt: " + orient_bt + " ele_reg_const: " + ele_reg_const + " ele_reg: " + ele_reg);
+			document.getElementById("data-test2").textContent = String("ele_line_min: " + ele_line_min + " ele_line_max: " + ele_line_max);
+			
 		});
 
 		//acceleration 
