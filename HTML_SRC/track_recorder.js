@@ -7,10 +7,12 @@ var lat_start = "0.0";
 var lon_start = "0.0";
 var ele_start = "0.0";
 
-var lat_reg = document.getElementById("default_lat_opt").value;
-lat_reg = (lat_reg.replace(",", "."));
-var lon_reg = document.getElementById("default_lon_opt").value;
-lon_reg = (lon_reg.replace(",", "."));
+var lat_reg = "0.0";
+var lon_reg = "0.0";
+//var lat_reg = document.getElementById("default_lat_opt").value;
+//lat_reg = (lat_reg.replace(",", "."));
+//var lon_reg = document.getElementById("default_lon_opt").value;
+//lon_reg = (lon_reg.replace(",", "."));
 var ele_reg = "0.0";
 
 var speed_reg = document.getElementById("const_spd_opt").value;
@@ -179,7 +181,7 @@ function geolocation_pos_watcher() {
 			orient_a = Math.round(event.alpha);
 			orient_b = Math.round(event.beta);
 			orient_g = Math.round(event.gamma);
-			document.getElementById("data-test1").textContent = String("orient_a,b,g: " + orient_a + " : " + orient_b + " : " + orient_g);
+			//document.getElementById("data-test1").textContent = String("orient_a,b,g: " + orient_a + " : " + orient_b + " : " + orient_g);
 		});
 
 		//acceleration 

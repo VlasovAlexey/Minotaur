@@ -66,19 +66,7 @@ var layers = L.control.layers({
 //draw main line with outline
 //function draw_line(){}
 
-var path1 = L.hotline(route_map_disp, {
-    min: 150,
-    max: 350,
-    palette: {
-        0.0: '#008800',
-        0.5: '#ffff00',
-        1.0: '#ff0000'
-    },
-    weight: 15,
-    outlineColor: '#000000',
-    outlineWidth: 3,
-    smoothFactor: 4
-}).addTo(map);
+draw_path();
 
 //disable heading button
 document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.display = 'none';
@@ -108,20 +96,7 @@ function updatemap() {  // Update the current player location on map
             map.panTo([lat_reg,lon_reg]);
             
             route_map_disp.push([lat_reg,lon_reg,ele_reg]);
-
-            path1 = L.hotline(route_map_disp, {
-                min: 150,
-                max: 350,
-                palette: {
-                    0.0: '#008800',
-                    0.5: '#ffff00',
-                    1.0: '#ff0000'
-                },
-                weight: 15,
-                outlineColor: '#000000',
-                outlineWidth: 3,
-                smoothFactor: 4
-            }).addTo(map);
+            draw_path();
             
         } else {
             //all others modes with Constant Speed
@@ -130,30 +105,30 @@ function updatemap() {  // Update the current player location on map
             map.panTo([c_lat,c_lon]);
             
             route_map_disp.push([c_lat,c_lon,ele_reg]);
-            
-            path1 = L.hotline(route_map_disp, {
-                min: 150,
-                max: 350,
-                palette: {
-                    0.0: '#008800',
-                    0.5: '#ffff00',
-                    1.0: '#ff0000'
-                },
-                weight: 15,
-                outlineColor: '#000000',
-                outlineWidth: 3,
-                smoothFactor: 4
-            }).addTo(map);
+            draw_path();           
         }
     }
     //button record not pressed
     if (record_state == 0){
-        
+        playerLoc.setLatLng([lat_reg,lon_reg]);
+        map.invalidateSize();
+        map.panTo([lat_reg,lon_reg]);
     }
 
 }
 
-map.on('movestart',(e)=>{
-	//console.log(e, currentAutoMove);
-})
-
+function draw_path() {           
+    path1 = L.hotline(route_map_disp, {
+        min: 150,
+        max: 350,
+        palette: {
+            0.0: '#008800',
+            0.5: '#ffff00',
+            1.0: '#ff0000'
+        },
+        weight: 15,
+        outlineColor: '#000000',
+        outlineWidth: 3,
+        smoothFactor: 3
+    }).addTo(map);
+}

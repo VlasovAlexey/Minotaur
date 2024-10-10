@@ -41,7 +41,8 @@ function upd_all() {
 	speed_reg = (speed_reg.replace(",", "."));
 
 	gps_chart();
-	compass_upd_main();	
+	compass_upd_main();
+	map.compassBearing.enable();
 
 	//auto save all settings
 	btn_save();
