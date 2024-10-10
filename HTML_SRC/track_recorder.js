@@ -14,7 +14,7 @@ var lon_reg = "0.0";
 //var lon_reg = document.getElementById("default_lon_opt").value;
 //lon_reg = (lon_reg.replace(",", "."));
 var ele_reg = "0.0";
-
+var ele_reg_const = 0;
 var speed_reg = document.getElementById("const_spd_opt").value;
 speed_reg = (speed_reg.replace(",", "."));
 
@@ -55,6 +55,8 @@ function btn_record() {
 			c_lon = document.getElementById("default_lon_opt").value;
 			c_lon = (c_lon.replace(",", ".")) * 1.0;
 			route_map_disp = [[c_lat, c_lon]];
+
+			ele_reg_const = parseFloat(ele_reg.replace(",", "."));
 		}
 		document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
@@ -102,7 +104,14 @@ function btn_record() {
 		GPX_File = GPX_File + "    </wpt>\n";
 
 		GPX_File = GPX_File + "    <wpt lat=\"" + lat_end + "\" lon=\"" + lon_end + "\">\n";
-		GPX_File = GPX_File + "     <ele>" + ele_end + "</ele>\n";
+		
+		if($("#data_format_opt").val() * 1.0 == 1){
+			//regular GPS file
+			GPX_File = GPX_File + "     <ele>" + ele_end + "</ele>\n";
+		} else {
+			//constant speed DPV file other variations
+			GPX_File = GPX_File + "     <ele>" + ele_reg_const + "</ele>\n";
+		}
 		GPX_File = GPX_File + "     <name>Track Minotaur End " + lat_end + ", " + lon_end + "</name>\n";
 		GPX_File = GPX_File + "     <desc>Track Minotaur End " + lat_end + ", " + lon_end + "</desc>\n";
 		GPX_File = GPX_File + "    </wpt>\n";
@@ -165,6 +174,7 @@ function btn_meas_click() {
 var lastUpdate = new Date();
 var orient_a = 0;
 var orient_b = 0;
+var orient_bt = 0;
 var orient_g = 0;
 
 function geolocation_pos_watcher() {	
@@ -181,7 +191,7 @@ function geolocation_pos_watcher() {
 			orient_a = Math.round(event.alpha);
 			orient_b = Math.round(event.beta);
 			orient_g = Math.round(event.gamma);
-			//document.getElementById("data-test1").textContent = String("orient_a,b,g: " + orient_a + " : " + orient_b + " : " + orient_g);
+			document.getElementById("data-test1").textContent = String("orient_bt: " + orient_bt + " ele_reg_const: " + ele_reg_const);
 		});
 
 		//acceleration 
@@ -292,11 +302,27 @@ function GlobalWatch() {
             c_speed = document.getElementById("const_spd_opt").value;
             c_speed = (c_speed.replace(",", ".")) * 1.0;
             
-            c_lat_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, acHeading * 1.0).lat;
-			c_lon_new = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, acHeading * 1.0).lon;
+			//check device orientation about beta angle
+			if (orient_b >= 0) {
+				orient_bt = orient_b;
+				if (orient_b > 89){orient_bt = 89;}
+			} else {
+				orient_bt = orient_b;
+				if (orient_b < -89){orient_bt = -89;}
+			}
+
+			//make new elevation calculation
+			if (orient_bt >= 0) {
+				ele_reg_const = ele_reg_const + (Math.sin((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed));
+			} else {
+				ele_reg_const = ele_reg_const - (Math.sin((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed));
+			}
+
+            c_lat_new = destinationPoint(c_lat, c_lon, (Math.cos((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed)) , acHeading * 1.0).lat;
+			c_lon_new = destinationPoint(c_lat, c_lon, (Math.cos((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed)) , acHeading * 1.0).lon;
 
 			GPX_File = GPX_File + "    <trkpt lat=\"" + c_lat + "\" lon=\"" + c_lon + "\">\n";
-			GPX_File = GPX_File + "     <ele>" + ele_reg + "</ele>\n";
+			GPX_File = GPX_File + "     <ele>" + ele_reg_const + "</ele>\n";
 
             c_lat = c_lat_new;
             c_lon = c_lon_new;

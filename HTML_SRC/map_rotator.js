@@ -104,7 +104,7 @@ function updatemap() {  // Update the current player location on map
             map.invalidateSize();
             map.panTo([c_lat,c_lon]);
             
-            route_map_disp.push([c_lat,c_lon,ele_reg]);
+            route_map_disp.push([c_lat,c_lon,ele_reg_const]);
             draw_path();           
         }
     }
@@ -117,17 +117,30 @@ function updatemap() {  // Update the current player location on map
 
 }
 
-function draw_path() {           
+var ele_line_min = ele_reg_const;
+var ele_line_max = ele_reg_const + 1;
+
+function draw_path() {
+    if($("#data_format_opt").val() * 1.0 == 1){
+        //regular GPS track
+        //if(ele_line_min > ele_reg_const){ele_line_min = ele_reg};
+        if(ele_line_max < ele_reg_const){ele_line_max = ele_reg};
+    }  else {
+        //constant speed track
+        //if(ele_line_min > ele_reg_const){ele_line_min = ele_reg_const};
+        if(ele_line_max < ele_reg_const){ele_line_max = ele_reg_const};
+    }
+
     path1 = L.hotline(route_map_disp, {
-        min: 150,
-        max: 350,
+        min: ele_line_max,
+        max: ele_line_min,
         palette: {
             0.0: '#008800',
             0.5: '#ffff00',
             1.0: '#ff0000'
         },
-        weight: 15,
-        outlineColor: '#000000',
+        weight: 10,
+        outlineColor: '#ffffff',
         outlineWidth: 3,
         smoothFactor: 3
     }).addTo(map);
