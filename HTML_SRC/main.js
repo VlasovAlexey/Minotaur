@@ -42,7 +42,6 @@ function upd_all() {
 
 	gps_chart();
 	compass_upd_main();
-	map.compassBearing.enable();
 
 	//auto save all settings
 	btn_save();
