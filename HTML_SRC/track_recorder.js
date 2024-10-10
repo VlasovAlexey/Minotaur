@@ -149,12 +149,11 @@ function btn_record() {
 		z = [];
 		c = [];
 		for (i = 0; i < route_map_disp.length; i++) {
-			x.push(route_map_disp[i][0]);
-			y.push(route_map_disp[i][1]);
-			z.push(route_map_disp[i][2]);
-			c.push(route_map_disp[i][2]);
+			x.push((route_map_disp[i][0]));
+			y.push((route_map_disp[i][1]));
+			z.push((route_map_disp[i][2]));
+			c.push(i);
 		}
-
 		//draw new 3d chart with new data
 		del_html_elem("trackChart_opt");
 		gps_chart();
@@ -238,7 +237,7 @@ function geolocation_pos_watcher() {
 		}, updateError, {
 			enableHighAccuracy: true,
 		});
-		window.setInterval(updateTime, 10);
+		window.setInterval(updateTime, 1);
 	}, {
 		//once: true,
 	});
@@ -317,6 +316,7 @@ function GlobalWatch() {
 		//write to file
 		if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking
+			route_map_disp.push([lat_reg,lon_reg,ele_reg]);
             GPX_File = GPX_File + "    <trkpt lat=\"" + lat_reg + "\" lon=\"" + lon_reg + "\">\n";
 			GPX_File = GPX_File + "     <ele>" + ele_reg + "</ele>\n";
 
@@ -336,6 +336,7 @@ function GlobalWatch() {
 			}
 
 			//make new elevation calculation
+			
 			if (orient_bt >= 0) {
 				ele_reg_const = ele_reg_const + (Math.sin((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed));
 			} else {
@@ -345,11 +346,13 @@ function GlobalWatch() {
             c_lat_new = destinationPoint(c_lat, c_lon, (Math.cos((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed)) , acHeading * 1.0).lat;
 			c_lon_new = destinationPoint(c_lat, c_lon, (Math.cos((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed)) , acHeading * 1.0).lon;
 
-			GPX_File = GPX_File + "    <trkpt lat=\"" + c_lat + "\" lon=\"" + c_lon + "\">\n";
+			GPX_File = GPX_File + "    <trkpt lat=\"" + c_lat_new + "\" lon=\"" + c_lon_new + "\">\n";
 			GPX_File = GPX_File + "     <ele>" + ele_reg_const + "</ele>\n";
-
-            c_lat = c_lat_new;
+            
+			c_lat = c_lat_new;
             c_lon = c_lon_new;
+			
+			route_map_disp.push([c_lat,c_lon,ele_reg_const]);
         }
 
 		//write all other data

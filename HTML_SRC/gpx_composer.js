@@ -219,7 +219,7 @@ function gps_chart() {
 	//color light
 	if(document.getElementById("tn_color").value == 2){
 		layout = {
-			autosize: true,
+			autosize: false,
 			scene: {
 				aspectmode: "auto",
 				bgcolor: "#ffffff",
@@ -269,21 +269,24 @@ function gps_chart() {
 	};
 	Plotly.newPlot("trackChart_opt", [{
 		type: "scatter3d",
+		//mode: "lines+markers",
 		mode: "lines+markers",
 		x: x,
 		y: y,
 		z: z,
 		line: {
 			width: 6,
-			color: c,
-			colorscale: "Hot"
+			color: "#993300",
+			colorscale: "Hot",
+			cmin: -(x.length/5),
+			cmax: x.length
 		},
 		marker: {
 			size: 3.5,
 			color: c,
 			colorscale: "Hot",
-			cmin: -20,
-			cmax: 50
+			cmin: -(x.length/5),
+			cmax: x.length
 		}
 	}, ], layout, config);
 	

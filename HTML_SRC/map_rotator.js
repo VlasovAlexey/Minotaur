@@ -95,7 +95,7 @@ function updatemap() {  // Update the current player location on map
             map.invalidateSize();
             map.panTo([lat_reg,lon_reg]);
             
-            route_map_disp.push([lat_reg,lon_reg,ele_reg]);
+            //route_map_disp.push([lat_reg,lon_reg,ele_reg]);
             draw_path();
             
         } else {
@@ -104,7 +104,7 @@ function updatemap() {  // Update the current player location on map
             map.invalidateSize();
             map.panTo([c_lat,c_lon]);
             
-            route_map_disp.push([c_lat,c_lon,ele_reg_const]);
+            //route_map_disp.push([c_lat,c_lon,ele_reg_const]);
             draw_path();           
         }
     }
