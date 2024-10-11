@@ -149,9 +149,9 @@ function btn_record() {
 		z = [];
 		c = [];
 		for (i = 0; i < route_map_disp.length; i++) {
-			x.push((route_map_disp[i][0]));
-			y.push((route_map_disp[i][1]));
-			z.push((route_map_disp[i][2]));
+			x.push((route_map_disp[i][0]).toFixed(9)/1000);
+			y.push((route_map_disp[i][1]).toFixed(9)/1000);
+			z.push((route_map_disp[i][2]).toFixed(9)/1000);
 			c.push(i);
 		}
 		//draw new 3d chart with new data
@@ -212,8 +212,8 @@ function geolocation_pos_watcher() {
 			orient_a = Math.round(event.alpha);
 			orient_b = Math.round(event.beta);
 			orient_g = Math.round(event.gamma);
-			document.getElementById("data-test1").textContent = String("orient_bt: " + orient_bt + " ele_reg_const: " + ele_reg_const + " ele_reg: " + ele_reg);
-			document.getElementById("data-test2").textContent = String("ele_line_min: " + ele_line_min + " ele_line_max: " + ele_line_max);
+			//document.getElementById("data-test1").textContent = String("orient_bt: " + orient_bt + " ele_reg_const: " + ele_reg_const + " ele_reg: " + ele_reg);
+			//document.getElementById("data-test2").textContent = String("ele_line_min: " + ele_line_min + " ele_line_max: " + ele_line_max);
 			
 		});
 

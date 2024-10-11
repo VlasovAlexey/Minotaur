@@ -162,6 +162,7 @@ for (i = 0; i < pointCount; i++) {
 	z.push(i);
 	c.push(i)
 }
+
 var layout = 0;
 //crappy code for centering graph
 var width_calc = (window.innerWidth/100*(88+((window.innerWidth-500)/650)));
@@ -276,7 +277,7 @@ function gps_chart() {
 		z: z,
 		line: {
 			width: 6,
-			color: "#993300",
+			color: c,
 			colorscale: "Hot",
 			cmin: -(x.length/5),
 			cmax: x.length
