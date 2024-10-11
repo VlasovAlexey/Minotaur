@@ -16,6 +16,7 @@ var default_ele_usr = "0,0";
 var data_format_usr = 1;
 
 var igrf_13_val_usr = "0,0";
+var track_name_usr = "Minotaur Explorer";
 
 function default_set() {
 	lngs_usr = 1;
@@ -36,6 +37,7 @@ function default_set() {
 
 	data_format_usr = 1;
 	igrf_13_val_usr = "0,0";
+	track_name_usr = "Minotaur Explorer";
 }
 
 var lng_arr = [{
@@ -333,6 +335,7 @@ function write_cookie() {
 	setCookie("data_format_usr1", return_val("data_format_opt"));
 	
 	setCookie("igrf_13_val_usr1", return_val("igrf_13_val_opt"));
+	setCookie("track_name_usr1", return_val("track_name_opt"));
 }
 
 function read_cookie() {
@@ -354,6 +357,7 @@ function read_cookie() {
 
 	data_format_usr = getCookie("data_format_usr1");
 	igrf_13_val_usr = getCookie("igrf_13_val_usr1");
+	track_name_usr = getCookie("track_name_usr1");
 }
 
 function return_idx(html_ids) {
@@ -431,6 +435,7 @@ function dim_cng() {
 	data_format = $("#data_format_opt").val();
 	
 	igrf_13_val = $("#igrf_13_val_opt").val();
+	track_name = $("#track_name_opt").val();
 	
 	create_html();
 	init_global();
@@ -479,7 +484,8 @@ function create_html() {
 
 	del_html_elem("tr_igrf_13_val");
 	create_input_val_sign("tr_igrf_13_val", "igrf_13_val_opt", igrf_13_val_usr);
-	
+	del_html_elem("tr_track_name");
+	create_input_val_text("tr_track_name", "track_name_opt", track_name_usr);
 
 	//Re create watchers for changes
 	tn_cng_color = document.getElementById("tn_color");
@@ -519,6 +525,9 @@ function create_html() {
 
 	w_igrf_13_val = document.getElementById("igrf_13_val_opt");
 	w_igrf_13_val.addEventListener('change', upd_all);
+	track_name = document.getElementById("track_name_opt");
+	track_name.addEventListener('change', upd_all);
+
 }
 
 create_custom_option_arr("tr_lng_sel", "tn_lng", lngs_usr, lng_arr);
@@ -542,6 +551,7 @@ create_input_val_sign("tr_default_ele", "default_ele_opt", default_ele_usr);
 create_custom_option_arr("tr_data_format", "data_format_opt", data_format_usr, data_format_arr);
 
 create_input_val_sign("tr_igrf_13_val", "igrf_13_val_opt", igrf_13_val_usr);
+create_input_val_text("tr_track_name", "track_name_opt", track_name_usr);
 
 var force_lng = 0;
 
@@ -588,4 +598,6 @@ function init_global() {
 
 	w_igrf_13_val = document.getElementById("igrf_13_val_opt");
 	w_igrf_13_val.addEventListener('change', upd_all);
+	track_name = document.getElementById("track_name_opt");
+	track_name.addEventListener('change', upd_all);
 }

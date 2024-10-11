@@ -207,6 +207,8 @@
     	lang = {
     		1: {
     			//Eng
+				".tn_track_name" : "Explorer Name",
+				".btn_share_track" : "Share Your Route",
 				".btn_wmm": "Calculate Magnetic Declination",
 				".btn_close_map_picker": "Get Coordinates",
 				".btn_get_lat_lon": "Pick from Map",
@@ -287,6 +289,8 @@
 
     		//Rus
     		2: {
+				".tn_track_name" : "Имя исследователя",
+				".btn_share_track" : "Поделиться своим треком",
 				".btn_wmm": "Вычислить магнитное склонение",
 				".btn_close_map_picker": "Получить текущие координаты",
 				".btn_get_lat_lon": "Взять значения с карты",
@@ -369,6 +373,8 @@
     		
     		3: {
 				//Spa
+				".tn_track_name" : "Nombre del Explorador",
+				".btn_share_track" : "Comparte tu Ruta",
 				".btn_wmm": "Calcular Declinación Magnética",
 				".btn_close_map_picker": "Obtener Сoordenadas",
 				".btn_get_lat_lon": "Elija en el Mapa",
@@ -449,6 +455,8 @@
     		},
     		4: {
     			//Prt
+				".tn_track_name" : "Nome do Explorador",
+				".btn_share_track" : "Partilhe a sua Rota",
 				".btn_wmm": "Calcular Declinação Magnética",
 				".btn_close_map_picker": "Obter Coordenadas С",
 				".btn_get_lat_lon": "Escolher no Mapa",
@@ -530,6 +538,8 @@
     		},
     		5: {
     			//China
+				".tn_track_name" : "探索者名稱",
+				".btn_share_track" : "分享您的路線",
 				".btn_wmm": "運算磁偏角",
 				".btn_close_map_picker": "取得坐標",
 				".btn_get_lat_lon": "從地圖挑選",
@@ -610,6 +620,8 @@
     		},
     		6: {
     			//Bulgarian
+				".tn_track_name" : "Име на изследователя",
+				".btn_share_track" : "Споделете маршрута",
 				".btn_wmm": "Изчисляване на магнитно отклонение",
 				".btn_close_map_picker": "Получаване на координати",
 				".btn_get_lat_lon": "Избор от картата",
@@ -687,6 +699,8 @@
     		},
     		7: {
 				//Fr
+				".tn_track_name" : "Nom de l'explorateur",
+				".btn_share_track" : "Partagez votre itinéraire",
 				".btn_wmm": "Calculer la déclinaison magnétique",
 				".btn_close_map_picker": "Obtenir des coordonnées Сoordinates",
 				".btn_get_lat_lon": "Choisir sur la carte",
@@ -764,6 +778,8 @@
     		},
     		8: {
     			//Korean
+				".tn_track_name" : "탐색기 이름",
+				".btn_share_track" : "경로 공유",
 				".btn_wmm": "자기 편각 계산하기",
 				".btn_close_map_picker": "좌표 가져오기",
 				".btn_get_lat_lon": "지도 위에서 선택",
@@ -842,6 +858,8 @@
     		},
     		9: {
 				//Italian
+				".tn_track_name" : "Nomi esploratori",
+				".btn_share_track" : "Condividi il tuo percorso",
 				".btn_wmm": "Calcolare la declinazione magnetica",
 				".btn_close_map_picker": "Ottieni le coordinate",
 				".btn_get_lat_lon": "Selezionare su una mappa",

@@ -149,9 +149,9 @@ function btn_record() {
 		z = [];
 		c = [];
 		for (i = 0; i < route_map_disp.length; i++) {
-			x.push((route_map_disp[i][0]).toFixed(9)/1000);
-			y.push((route_map_disp[i][1]).toFixed(9)/1000);
-			z.push((route_map_disp[i][2]).toFixed(9)/1000);
+			x.push((route_map_disp[i][0]));
+			y.push((route_map_disp[i][1]));
+			z.push((route_map_disp[i][2]));
 			c.push(i);
 		}
 		//draw new 3d chart with new data

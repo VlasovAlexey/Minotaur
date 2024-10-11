@@ -446,10 +446,13 @@
                   <div id="trackChart"><!-- Plotly chart will be drawn inside this DIV --></div>
                </div>
                <div class="div_block" id="div_block">
+                  <div id="tn_track_name" class="tn_track_name"></div>
+                  <div id="tr_track_name" class="tr_track_name"></div>
                   <input type="file" id="gpx_file" class="gpx_file" accept=".gpx"></button>
                   <label for="gpx_file" id="btn_add_track" class="btn_add_track"></label>
                   <button type="button" id="btn_delete_track" class="btn_delete_track" onClick="btn_delete_track();"></button>
                   <button type="button" id="btn_save_track" class="btn_save_track" onClick="gpx_final_save();"></button>
+                  <button type="button" id="btn_share_track" class="btn_share_track" onClick="btn_share_track();"></button>
                </div>
             </div>
             <div class="header" id="6-header">
@@ -561,6 +564,7 @@
       
       <!--<load other files>-->
       <script src="plotly.min.js"></script>
+      <script src="turf.min.js"></script>
       <script src="jquery-3.6.0.js"></script>
       
       <script src="jszip.js"></script>
@@ -605,7 +609,7 @@
       <script src="nodejs_fn.js?v0.1818244152v611134573356113591213415" charset="UTF-8"></script>
       <script src="FileSaver.js?v0.88426171111v4113453335625191123145" charset="UTF-8"></script>
       
-      <script src="gpx_editor.js" charset="UTF-8"></script>
+      <script src="track_editor.js" charset="UTF-8"></script>
       <script src="gpx_composer.js" charset="UTF-8"></script>
       <script src="track_recorder.js?011" charset="UTF-8"></script>
       <script src="map_rotator.js" charset="UTF-8"></script>

@@ -48,7 +48,6 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 
 	// file reading finished successfully
 	reader.addEventListener('load', function(e) {
-	    //var text = e.target.result;
         gpx_file = e.target.result;
 		gpx_file_to_massive(e.target.result);
 	});
@@ -162,6 +161,39 @@ for (i = 0; i < pointCount; i++) {
 	z.push(i);
 	c.push(i)
 }
+var GeoJSON_arr = [];
+var d_data = [];
+for (i = 0; i < pointCount; i++) {
+	d_data.push([[x[i] , y[i]]]);
+}
+
+GeoJSON_arr = turf.polygon([
+	[
+	  [-70.603637, -33.399918],
+	  [-70.614624, -33.395332],
+	  [-70.639343, -33.392466],
+	  [-70.659942, -33.394759],
+	  [-70.683975, -33.404504],
+	  [-70.697021, -33.419406],
+	  [-70.701141, -33.434306],
+	  [-70.700454, -33.446339],
+	  [-70.694274, -33.458369],
+	  [-70.682601, -33.465816],
+	  [-70.668869, -33.472117],
+	  [-70.646209, -33.473835],
+	  [-70.624923, -33.472117],
+	  [-70.609817, -33.468107],
+	  [-70.595397, -33.458369],
+	  [-70.587158, -33.442901],
+	  [-70.587158, -33.426283],
+	  [-70.590591, -33.414248],
+	  [-70.594711, -33.406224],
+	  [-70.603637, -33.399918],
+	],]);
+
+var options = { tolerance: 0.02, highQuality: false };
+var simplified = turf.simplify(GeoJSON_arr, options);
+console.log(simplified.geometry.coordinates[0]);
 
 var layout = 0;
 //crappy code for centering graph
