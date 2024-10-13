@@ -174,8 +174,8 @@ function opt3D_Line(optFactor){
 	
 	var s_data_filtered = simplify(s_data , optFactor , true);
 	for (i = 0; i < s_data_filtered.length; i++) {
-		x.push(s_data_filtered[i].y);
-		y.push(s_data_filtered[i].z);
+		x.push(s_data_filtered[i].x);
+		y.push(s_data_filtered[i].y);
 		z.push(s_data_filtered[i].z);
 		c.push(i);
 	}
