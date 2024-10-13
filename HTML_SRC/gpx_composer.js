@@ -174,13 +174,13 @@ function opt3D_Line(optFactor){
 	
 	var s_data_filtered = simplify(s_data , optFactor , true);
 	for (i = 0; i < s_data_filtered.length; i++) {
-		x.push(s_data_filtered[i].x);
-		y.push(s_data_filtered[i].y);
+		x.push(s_data_filtered[i].y);
+		y.push(s_data_filtered[i].z);
 		z.push(s_data_filtered[i].z);
 		c.push(i);
 	}
 }
-opt3D_Line(0.5);
+opt3D_Line(0.05);
 
 var layout = 0;
 //crappy code for centering graph
