@@ -159,41 +159,28 @@ for (i = 0; i < pointCount; i++) {
 	x.push(r * Math.cos(i*0.01));
 	y.push(r * Math.sin(i*0.01));
 	z.push(i);
-	c.push(i)
-}
-var GeoJSON_arr = [];
-var d_data = [];
-for (i = 0; i < pointCount; i++) {
-	d_data.push([[x[i] , y[i]]]);
+	//c.push(i);
 }
 
-GeoJSON_arr = turf.polygon([
-	[
-	  [-70.603637, -33.399918],
-	  [-70.614624, -33.395332],
-	  [-70.639343, -33.392466],
-	  [-70.659942, -33.394759],
-	  [-70.683975, -33.404504],
-	  [-70.697021, -33.419406],
-	  [-70.701141, -33.434306],
-	  [-70.700454, -33.446339],
-	  [-70.694274, -33.458369],
-	  [-70.682601, -33.465816],
-	  [-70.668869, -33.472117],
-	  [-70.646209, -33.473835],
-	  [-70.624923, -33.472117],
-	  [-70.609817, -33.468107],
-	  [-70.595397, -33.458369],
-	  [-70.587158, -33.442901],
-	  [-70.587158, -33.426283],
-	  [-70.590591, -33.414248],
-	  [-70.594711, -33.406224],
-	  [-70.603637, -33.399918],
-	],]);
-
-var options = { tolerance: 0.02, highQuality: false };
-var simplified = turf.simplify(GeoJSON_arr, options);
-console.log(simplified.geometry.coordinates[0]);
+function opt3D_Line(optFactor){
+	var s_data = [];
+	for (i = 0; i < x.length; i++) {
+		s_data.push({x: x[i], y: y[i], z: z[i]});
+	}
+	
+	x = [];
+	y = [];
+	z = [];
+	
+	var s_data_filtered = simplify(s_data , optFactor , true);
+	for (i = 0; i < s_data_filtered.length; i++) {
+		x.push(s_data_filtered[i].x);
+		y.push(s_data_filtered[i].y);
+		z.push(s_data_filtered[i].z);
+		c.push(i);
+	}
+}
+opt3D_Line(0.5);
 
 var layout = 0;
 //crappy code for centering graph
@@ -324,5 +311,164 @@ function gps_chart() {
 	}, ], layout, config);
 	
 }
-
 gps_chart();
+
+function getSquareDistance(p1, p2) { // square distance between 2 points
+
+	var dx = p1.x - p2.x,
+		dz = p1.z - p2.z,
+		dy = p1.y - p2.y;
+  
+	return dx * dx +
+		   dz * dz +
+		   dy * dy;
+  }
+  
+  function getSquareSegmentDistance(p, p1, p2) { // square distance from a point to a segment
+  
+	var x = p1.x,
+		y = p1.y,
+		z = p1.z,
+  
+		dx = p2.x - x,
+		dy = p2.y - y,
+		dz = p2.z - z,
+  
+		t;
+  
+	if (dx !== 0 || dy !== 0) {
+  
+	  t = ((p.x - x) * dx +
+		   (p.z - z) * dz +
+		   (p.y - y) * dy) /
+			  (dx * dx +
+			   dz * dz +
+			   dy * dy);
+  
+	  if (t > 1) {
+		x = p2.x;
+		y = p2.y;
+		z = p2.z;
+  
+	  } else if (t > 0) {
+		x += dx * t;
+		y += dy * t;
+		z += dz * t;
+	  }
+	}
+  
+	dx = p.x - x;
+	dy = p.y - y;
+	dz = p.z - z;
+  
+	return dx * dx +
+		   dz * dz +
+		   dy * dy;
+  }
+  
+  
+	  // distance-based simplification
+	function simplifyRadialDistance(points, sqTolerance) {
+  
+	  var i,
+		  len = points.length,
+		  point,
+		  prevPoint = points[0],
+		  newPoints = [prevPoint];
+  
+	  for (i = 1; i < len; i++) {
+		point = points[i];
+  
+		if (getSquareDistance(point, prevPoint) > sqTolerance) {
+		  newPoints.push(point);
+		  prevPoint = point;
+		}
+	  }
+  
+	  if (prevPoint !== point) {
+		newPoints.push(point);
+	  }
+  
+	  return newPoints;
+	}
+  
+  
+	// simplification using optimized Douglas-Peucker algorithm with recursion elimination
+  
+	function simplifyDouglasPeucker(points, sqTolerance) {
+  
+	  var len = points.length,
+  
+		  MarkerArray = (typeof Uint8Array !== undefined + '')
+					  ? Uint8Array
+					  : Array,
+  
+		  markers = new MarkerArray(len),
+  
+		  first = 0,
+		  last  = len - 1,
+  
+		  i,
+		  maxSqDist,
+		  sqDist,
+		  index,
+  
+		  firstStack = [],
+		  lastStack  = [],
+  
+		  newPoints  = [];
+  
+	  markers[first] = markers[last] = 1;
+  
+	  while (last) {
+  
+		maxSqDist = 0;
+  
+		for (i = first + 1; i < last; i++) {
+		  sqDist = getSquareSegmentDistance(points[i], points[first], points[last]);
+  
+		  if (sqDist > maxSqDist) {
+			index = i;
+			maxSqDist = sqDist;
+		  }
+		}
+  
+		if (maxSqDist > sqTolerance) {
+		  markers[index] = 1;
+  
+		  firstStack.push(first);
+		  lastStack.push(index);
+  
+		  firstStack.push(index);
+		  lastStack.push(last);
+		}
+  
+		first = firstStack.pop();
+		last = lastStack.pop();
+	  }
+  
+	  for (i = 0; i < len; i++) {
+		if (markers[i]) {
+		  newPoints.push(points[i]);
+		}
+	  }
+  
+	  return newPoints;
+	}
+  
+  
+	function simplify(points, tolerance, highestQuality) {
+  
+	  var sqTolerance = (tolerance !== undefined)
+					  ? tolerance * tolerance
+					  : 1;
+  
+	  if (!highestQuality) {
+		points = simplifyRadialDistance(points, sqTolerance);
+	  }
+	  points = simplifyDouglasPeucker(points, sqTolerance);
+  
+	  return points;
+	};
+
+	

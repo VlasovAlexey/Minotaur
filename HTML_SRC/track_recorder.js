@@ -154,6 +154,8 @@ function btn_record() {
 			z.push((route_map_disp[i][2]));
 			c.push(i);
 		}
+		opt3D_Line(0.00001);
+
 		//draw new 3d chart with new data
 		del_html_elem("trackChart_opt");
 		gps_chart();
