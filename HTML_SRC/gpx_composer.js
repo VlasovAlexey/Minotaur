@@ -195,7 +195,8 @@ function gps_chart() {
 	if(document.getElementById("tn_color").value == 1){
 		layout = {
 			scene: {
-				aspectmode: "auto",
+				aspectmode: "manual",
+				aspectratio: {x: 1.0, y: 1.0, z: 0.2},
 				bgcolor: "#2b2b2c",
 				xaxis: {
 					color: "#929292",
@@ -241,7 +242,8 @@ function gps_chart() {
 		layout = {
 			autosize: false,
 			scene: {
-				aspectmode: "auto",
+				aspectmode: "manual",
+				aspectratio: {x: 1.0, y: 1.0, z: 0.2},
 				bgcolor: "#ffffff",
 				xaxis: {
 					color: "#202020",

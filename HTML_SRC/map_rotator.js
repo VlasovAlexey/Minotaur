@@ -117,17 +117,25 @@ function updatemap() {  // Update the current player location on map
 
 }
 
-var ele_line_min = ele_reg_const;
-var ele_line_max = ele_reg_const + 1;
+
+if($("#data_format_opt").val() * 1.0 == 1){
+    //regular GPS track
+    var ele_line_min = ele_reg - 10;
+    var ele_line_max = ele_reg + 10;
+}  else {
+    //constant speed track
+    var ele_line_min = ele_reg_const - 10;
+    var ele_line_max = ele_reg_const + 10;
+}
 
 function draw_path() {
     if($("#data_format_opt").val() * 1.0 == 1){
         //regular GPS track
-        //if(ele_line_min > ele_reg_const){ele_line_min = ele_reg};
-        if(ele_line_max < ele_reg_const){ele_line_max = ele_reg};
+        if(ele_line_min > ele_reg){ele_line_min = ele_reg};
+        if(ele_line_max < ele_reg){ele_line_max = ele_reg};
     }  else {
         //constant speed track
-        //if(ele_line_min > ele_reg_const){ele_line_min = ele_reg_const};
+        if(ele_line_min > ele_reg_const){ele_line_min = ele_reg_const};
         if(ele_line_max < ele_reg_const){ele_line_max = ele_reg_const};
     }
 
@@ -136,12 +144,14 @@ function draw_path() {
         max: ele_line_min,
         palette: {
             0.0: '#ff0000',
-            0.5: '#ffff00',
-            1.0: '#008800'
+            0.25: '#ffff00',
+            0.5: '#008800',
+            0.75: '#ffff00',
+            1.0: '#ff0000'
         },
         weight: 10,
         outlineColor: '#000000',
         outlineWidth: 2,
-        smoothFactor: 2
+        smoothFactor: 1
     }).addTo(map);
 }
