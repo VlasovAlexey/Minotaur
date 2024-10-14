@@ -38,6 +38,10 @@ function btn_record() {
 				c_lat = lat_reg * 1.0;
 				c_lon = lon_reg * 1.0;
 				route_map_disp = [[lat_reg * 1.0 , lon_reg * 1.0]];
+
+				//start min\max value for line coloring for map rotator
+				ele_line_min = ele_reg - 10;
+				ele_line_max = ele_reg + 10;
 			} else {
 				//constant speed track and sensors on
 				c_lat = document.getElementById("default_lat_opt").value;
@@ -47,6 +51,10 @@ function btn_record() {
 				c_lon = (c_lon.replace(",", ".")) * 1.0;
 				route_map_disp = [[c_lat, c_lon]];
 				ele_reg_const = parseFloat((document.getElementById("default_ele_opt").value).replace(",", "."));
+				
+				//start min\max value for line coloring for map rotator
+				ele_line_min = ele_reg_const - 10;
+				ele_line_max = ele_reg_const + 10;
 			}
 		} else {
 			//bad news - sensor data or internet not available and get start value from default for all track modes
@@ -58,10 +66,12 @@ function btn_record() {
 			route_map_disp = [[c_lat, c_lon]];
 
 			ele_reg_const = parseFloat((document.getElementById("default_ele_opt").value).replace(",", "."));
+			
+			//start min\max value for line coloring for map rotator
+			ele_line_min = ele_reg_const - 10;
+			ele_line_max = ele_reg_const + 10;
 		}
 		
-		ele_line_min = ele_reg_const;
-		ele_line_max = ele_reg_const + 1;
 
 		document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
@@ -374,15 +384,31 @@ function GlobalWatch() {
 		GPX_File = GPX_File + "    </trkpt>\n";
 		meas_tick = 0;
 		if (rec_first_start == 0) {
-			lat_start = lat_reg;
-			lon_start = lon_reg;
-			ele_start = ele_reg;
+			if($("#data_format_opt").val() * 1.0 == 1){
+				//regular GPS
+				lat_start = lat_reg;
+				lon_start = lon_reg;
+				ele_start = ele_reg;
+			} else {
+				//constant speed DPV
+				lat_start = c_lat;
+				lon_start = c_lon;
+				ele_start = ele_reg_const;
+			}
 
 			rec_first_start = 1;
 		} else {
-			lat_end = lat_reg;
-			lon_end = lon_reg;
-			ele_end = ele_reg;
+			if($("#data_format_opt").val() * 1.0 == 1){
+				//regular GPS
+				lat_end = lat_reg;
+				lon_end = lon_reg;
+				ele_end = ele_reg;
+			} else {
+				//constant speed DPV
+				lat_end = c_lat;
+				lon_end = c_lon;
+				ele_end = ele_reg_const;
+			}
 		}
 
 		if (lat_start == null || lat_start == undefined) {

@@ -117,16 +117,10 @@ function updatemap() {  // Update the current player location on map
 
 }
 
+var ele_line_min = 0;
+var ele_line_max = 0;
 
-if($("#data_format_opt").val() * 1.0 == 1){
-    //regular GPS track
-    var ele_line_min = ele_reg - 10;
-    var ele_line_max = ele_reg + 10;
-}  else {
-    //constant speed track
-    var ele_line_min = ele_reg_const - 10;
-    var ele_line_max = ele_reg_const + 10;
-}
+
 
 function draw_path() {
     if($("#data_format_opt").val() * 1.0 == 1){
@@ -139,14 +133,18 @@ function draw_path() {
         if(ele_line_max < ele_reg_const){ele_line_max = ele_reg_const};
     }
 
+    //cc = document.getElementById("default_ele_opt").value;
+    //cc = (c_speed.replace(",", ".")) * 1.0;
+    
+    //c_offset1 = (1 - ele_line_min) / (ele_line_max - ele_line_min);
+    //console.log(c_offset1);
+
     path1 = L.hotline(route_map_disp, {
         min: ele_line_max,
         max: ele_line_min,
         palette: {
             0.0: '#ff0000',
-            0.25: '#ffff00',
             0.5: '#008800',
-            0.75: '#ffff00',
             1.0: '#ff0000'
         },
         weight: 10,

@@ -298,15 +298,15 @@ function gps_chart() {
 		z: z,
 		line: {
 			width: 6,
-			color: c,
-			colorscale: "Hot",
+			color: ["rgb(255,0,0)","#ffff00","#00ff00"],
+			color_discrete_map: "identity",
 			cmin: -(x.length/5),
 			cmax: x.length
 		},
 		marker: {
 			size: 3.5,
-			color: c,
-			colorscale: "Hot",
+			color: ["rgb(255,0,0)","#ffff00","#00ff00"],
+			color_discrete_map: "identity",
 			cmin: -(x.length/5),
 			cmax: x.length
 		}
