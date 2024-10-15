@@ -243,7 +243,7 @@ function gps_chart() {
 			autosize: false,
 			scene: {
 				aspectmode: "manual",
-				aspectratio: {x: 1.0, y: 1.0, z: 0.2},
+				aspectratio: {x: 1.0, y: 1.0, z: 0.3},
 				bgcolor: "#ffffff",
 				xaxis: {
 					color: "#202020",
@@ -298,17 +298,21 @@ function gps_chart() {
 		z: z,
 		line: {
 			width: 6,
-			color: ["rgb(255,0,0)","#ffff00","#00ff00"],
-			color_discrete_map: "identity",
-			cmin: -(x.length/5),
-			cmax: x.length
+			//color: ["rgb(255,0,0)","#ffff00","#00ff00"],
+			//color_discrete_map: "identity",
+			color: c,
+			colorscale: "Minotaur",
+			cmin: ele_line_min,
+			cmax: ele_line_max
 		},
 		marker: {
 			size: 3.5,
-			color: ["rgb(255,0,0)","#ffff00","#00ff00"],
-			color_discrete_map: "identity",
-			cmin: -(x.length/5),
-			cmax: x.length
+			//color: ["rgb(255,0,0)","#ffff00","#00ff00"],
+			//color_discrete_map: "identity",
+			color: c,
+			colorscale: "Minotaur",
+			cmin: ele_line_min,
+			cmax: ele_line_max
 		}
 	}, ], layout, config);
 	
