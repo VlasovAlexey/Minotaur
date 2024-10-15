@@ -199,6 +199,7 @@ function gps_chart() {
 				aspectratio: {x: 1.0, y: 1.0, z: 0.2},
 				bgcolor: "#2b2b2c",
 				xaxis: {
+					mirror: True,
 					color: "#929292",
 					spikecolor: "#000000",
 					title: plan_lng("gps_lat"),
