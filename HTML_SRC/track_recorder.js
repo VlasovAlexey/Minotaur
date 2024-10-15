@@ -159,7 +159,7 @@ function btn_record() {
 		z = [];
 		c = [];
 		for (i = 0; i < route_map_disp.length; i++) {
-			x.push((route_map_disp[i][0]));
+			x.push((route_map_disp[i][0]*(-1.0)));
 			y.push((route_map_disp[i][1]));
 			z.push((route_map_disp[i][2]));
 			c.push(i);
