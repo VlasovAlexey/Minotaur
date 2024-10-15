@@ -300,7 +300,7 @@ function gps_chart() {
 			width: 6,
 			//color: ["rgb(255,0,0)","#ffff00","#00ff00"],
 			//color_discrete_map: "identity",
-			color: c,
+			color: z,
 			colorscale: "Minotaur",
 			cmin: ele_line_min,
 			cmax: ele_line_max
@@ -309,7 +309,7 @@ function gps_chart() {
 			size: 3.5,
 			//color: ["rgb(255,0,0)","#ffff00","#00ff00"],
 			//color_discrete_map: "identity",
-			color: c,
+			color: z,
 			colorscale: "Minotaur",
 			cmin: ele_line_min,
 			cmax: ele_line_max

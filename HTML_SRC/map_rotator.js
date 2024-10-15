@@ -121,6 +121,10 @@ var ele_line_min = 0;
 var ele_line_max = 150;
 var ele_tmp = 0;
 
+var factor_scale = 1;
+if (getOS() == "Windows" || getOS() == "Linux" || getOS() == "Mac OS"){
+    factor_scale = 0;
+}
 
 function draw_path() {
     if($("#data_format_opt").val() * 1.0 == 1){
@@ -179,6 +183,6 @@ function draw_path() {
         weight: 10,
         outlineColor: '#000000',
         outlineWidth: 2,
-        smoothFactor: 1
+        smoothFactor: factor_scale
     }).addTo(map);
 }
