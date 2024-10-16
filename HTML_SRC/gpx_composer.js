@@ -214,12 +214,12 @@ function gps_chart() {
 	y_tmp = y_tmp[1] - y_tmp[0];
 	
 	if ((x_tmp/y_tmp) > 1) {
-		x_aspect = 1;
-		y_aspect = 1 + (1 - (y_tmp/x_tmp));
+		y_aspect = 1;
+		x_aspect = 1 + (1 - (y_tmp/x_tmp));
 	}
 	if ((x_tmp/y_tmp) < 1) {
-		y_aspect = 1;
-		x_aspect = 1 + (1 - (x_tmp/y_tmp));
+		x_aspect = 1;
+		y_aspect = 1 + (1 - (x_tmp/y_tmp));
 	}
 	
 	create_html_text("trackChart","trackChart_opt","");
