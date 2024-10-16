@@ -5723,15 +5723,7 @@ var ukrainianFlag = '<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" 
  */
 
 var Attribution = Control.extend({
-	// @section
-	// @aka Control.Attribution options
-	options: {
-		position: 'bottomright',
-
-		// @option prefix: String|false = 'Leaflet'
-		// The HTML text shown before the attributions. Pass `false` to disable.
-		prefix: '<a href="https://leafletjs.com" title="A JavaScript library for interactive maps">' + (Browser.inlineSvg ? ukrainianFlag + ' ' : '') + 'Leaflet</a>'
-	},
+	
 
 	initialize: function (options) {
 		setOptions(this, options);

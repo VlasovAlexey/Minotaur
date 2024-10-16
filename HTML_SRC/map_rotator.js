@@ -2,6 +2,21 @@ var route_map_disp = [];
 var c_lat = 0;
 var c_lon = 0;
 
+
+
+// map.setBearing(90);
+// map.touchRotate.enable();
+
+// map.touchZoom.disable()
+// map.compassBearing.disable()
+// map.touchGestures.enable()
+
+// map.zoomControl.setPosition('bottomleft');
+// map.rotateControl.setPosition('bottomleft');
+// map.setMaxBounds([[-90,-180], [90,180]]);
+
+
+var layers_map;
 var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     id: 'mapbox.streets',
     maxZoom: 24,
@@ -17,6 +32,7 @@ var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     // noWrap: true
 });
 
+var first_start_map_rot = 1;
 var map = L.map('map', {
     center: [lat_reg, lon_reg],
     zoom: 17,
@@ -42,26 +58,130 @@ var map = L.map('map', {
     // touchRotate: true,
     // touchZoom: true
 });
+function lng_map_rot(){
+    td_lng = lng_opt.options[lng_opt.selectedIndex].value * 1.0;
+    if (first_start_map_rot == 1){
+        first_start_map_rot = 0;
+    } else {
+        map.remove();
+        map = L.map('map', {
+            center: [lat_reg, lon_reg],
+            zoom: 17,
+            layers: [esri],
+            zoomAnimation: false,
+            rotate: true,
+            rotateControl: {
+                closeOnZeroBearing: false,
+                position: 'bottomleft',
+            },
+            bearing: 30,
+            zoomControl: false,
+            rotateControl: false,
+            compassBearing: true,
+        });
+    }
+    //eng
+    if (td_lng == 1) {
+        layers_map = L.control.layers({
+            "Empty": L.tileLayer(""),
+            "Streets": osm,
+            "Satellite": esri,
+        }, null, {
+            collapsed: true,
+            position: "bottomright"
+        }).addTo(map);
+    }
+    //ru
+    if (td_lng == 2) {
+        layers_map = L.control.layers({
+            "Пустая карта": L.tileLayer(""),
+            "Улицы": osm,
+            "Спутниковая карта": esri,
+        }, null, {
+            collapsed: true,
+            position: "bottomright"
+        }).addTo(map);
+    }
+    //sp
+    if (td_lng == 3) {
+        layers_map = L.control.layers({
+            "Vacío": L.tileLayer(""),
+            "Calles": osm,
+            "Satélite": esri,
+        }, null, {
+            collapsed: true,
+            position: "bottomright"
+        }).addTo(map);
+    }
+    //pt
+    if (td_lng == 4) {
+        layers_map = L.control.layers({
+            "Vazio": L.tileLayer(""),
+            "Ruas": osm,
+            "Satélite": esri,
+        }, null, {
+            collapsed: true,
+            position: "bottomright"
+        }).addTo(map);
+    }
+    //ch
+    if (td_lng == 5) {
+        layers_map = L.control.layers({
+            "空": L.tileLayer(""),
+            "街道": osm,
+            "衛星": esri,
+        }, null, {
+            collapsed: true,
+            position: "bottomright"
+        }).addTo(map);
+    }
+    //br
+    if (td_lng == 6) {
+        layers_map = L.control.layers({
+            "Празен": L.tileLayer(""),
+            "Улици": osm,
+            "Сателит": esri,
+        }, null, {
+            collapsed: true,
+            position: "bottomright"
+        }).addTo(map);
+    }
+    //fr
+    if (td_lng == 7) {
+        layers_map = L.control.layers({
+            "Vide": L.tileLayer(""),
+            "Rues": osm,
+            "Satellite": esri,
+        }, null, {
+            collapsed: true,
+            position: "bottomright"
+        }).addTo(map);
+    }
+    //kr
+    if (td_lng == 8) {
+        layers_map = L.control.layers({
+            "비어 있음": L.tileLayer(""),
+            "거리": osm,
+            "위성": esri,
+        }, null, {
+            collapsed: true,
+            position: "bottomright"
+        }).addTo(map);
+    }
+    //it
+    if (td_lng == 9) {
+        layers_map = L.control.layers({
+            "Vuoto": L.tileLayer(""),
+            "Strade": osm,
+            "Il satellite": esri,
+        }, null, {
+            collapsed: true,
+            position: "bottomright"
+        }).addTo(map);
+    }
+    playerLoc = new L.Marker(map.getCenter()).addTo(map);
+}
 
-// map.setBearing(90);
-// map.touchRotate.enable();
-
-// map.touchZoom.disable()
-// map.compassBearing.disable()
-// map.touchGestures.enable()
-
-// map.zoomControl.setPosition('bottomleft');
-// map.rotateControl.setPosition('bottomleft');
-// map.setMaxBounds([[-90,-180], [90,180]]);
-
-var layers = L.control.layers({
-    "Empty": L.tileLayer(""),
-    "Streets": osm,
-    "Satellite": esri,
-}, null, {
-    collapsed: true,
-    position: "bottomright"
-}).addTo(map);
 
 //draw main line with outline
 //function draw_line(){}

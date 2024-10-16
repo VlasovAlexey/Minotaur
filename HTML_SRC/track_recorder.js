@@ -161,7 +161,7 @@ function btn_record() {
 		for (i = 0; i < route_map_disp.length; i++) {
 			x.push((route_map_disp[i][1]));
 			y.push((route_map_disp[i][0]));
-			z.push((route_map_disp[i][2])*0.001);
+			z.push((route_map_disp[i][2]));
 			c.push(i);
 		}
 		opt3D_Line(0.0000001);

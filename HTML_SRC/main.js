@@ -55,7 +55,8 @@ function upd_all() {
 
 	gps_chart();
 	compass_upd_main();
-
+	lng_map_rot();
+	
 	//auto save all settings
 	btn_save();
 	changeGuiDim();

@@ -190,7 +190,7 @@ function opt3D_Line(optFactor){
 	for (i = 0; i < s_data_filtered.length; i++) {
 		x.push(s_data_filtered[i].x);
 		y.push(s_data_filtered[i].y);
-		z.push(s_data_filtered[i].z *0.01);
+		z.push(s_data_filtered[i].z);
 		c.push(i);
 	}
 }
@@ -215,25 +215,22 @@ function gps_chart() {
 	
 	if ((x_tmp/y_tmp) > 1) {
 		y_aspect = 1;
-		x_aspect = (1 - (y_tmp/x_tmp));
+		x_aspect = ((y_tmp/x_tmp));
 	}
 	if ((x_tmp/y_tmp) < 1) {
 		x_aspect = 1;
-		y_aspect = (1 - (x_tmp/y_tmp));
+		y_aspect = ((x_tmp/y_tmp));
 	}
-
-	x.push(x_tmp[0],x_tmp[1]);
-	y.push(y_tmp[0],y_tmp[1]);
-
+	//console.log(x_tmp,y_tmp);
 	create_html_text("trackChart","trackChart_opt","");
 	//color dark
 	if(document.getElementById("tn_color").value == 1){
 		layout = {
 			//autosize: true,
 			scene: {
-				//aspectmode: "manual",
-				//aspectratio: {x: y_aspect, y: x_aspect, z: 0.2},
-				aspectmode: "data",
+				aspectmode: "manual",
+				aspectratio: {x: y_aspect, y: x_aspect, z: 0.2},
+				//aspectmode: "data",
 				bgcolor: "#2b2b2c",
 				xaxis: {
 					//mirror: "true",
@@ -281,9 +278,10 @@ function gps_chart() {
 		layout = {
 			//autosize: true,
 			scene: {
-				//aspectmode: "manual",
-				//aspectratio: {x: 1.0, y: 1.0, z: 0.3},
-				aspectmode: "data",
+				aspectmode: "manual",
+				aspectratio: {x: y_aspect, y: x_aspect, z: 0.3},
+				//aspectmode: "cube",
+				//aspectmode: "data",
 				bgcolor: "#ffffff",
 				xaxis: {
 					//mirror: "true",
@@ -344,8 +342,8 @@ function gps_chart() {
 			//color_discrete_map: "identity",
 			color: z,
 			colorscale: "Minotaur",
-			cmin: ele_line_min*0.001,
-			cmax: ele_line_max*0.001
+			cmin: ele_line_min,
+			cmax: ele_line_max
 		},
 		marker: {
 			size: 3,
@@ -353,8 +351,8 @@ function gps_chart() {
 			//color_discrete_map: "identity",
 			color: z,
 			colorscale: "Minotaur",
-			cmin: ele_line_min*0.001,
-			cmax: ele_line_max*0.001
+			cmin: ele_line_min,
+			cmax: ele_line_max
 		}
 	}, ], layout, config);
 	
