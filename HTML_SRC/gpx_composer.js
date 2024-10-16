@@ -190,7 +190,7 @@ function opt3D_Line(optFactor){
 	for (i = 0; i < s_data_filtered.length; i++) {
 		x.push(s_data_filtered[i].x);
 		y.push(s_data_filtered[i].y);
-		z.push(s_data_filtered[i].z);
+		z.push(s_data_filtered[i].z *0.01);
 		c.push(i);
 	}
 }
@@ -205,7 +205,7 @@ var width_calc = (window.innerWidth/100*(88+((window.innerWidth-500)/650)));
 function gps_chart() {
 	
 	//compute aspect for proper 3d lines proportions
-	/*var x_tmp = min_max_arr(x);
+	var x_tmp = min_max_arr(x);
 	var y_tmp = min_max_arr(y);
 	var x_aspect = 1.0;
 	var y_aspect = 1.0;
@@ -221,12 +221,15 @@ function gps_chart() {
 		x_aspect = 1;
 		y_aspect = (1 - (x_tmp/y_tmp));
 	}
-	*/
+	
+	x.push(x_tmp[0],x_tmp[1]);
+	y.push(y_tmp[0],y_tmp[1]);
 
 	create_html_text("trackChart","trackChart_opt","");
 	//color dark
 	if(document.getElementById("tn_color").value == 1){
 		layout = {
+			autosize: true,
 			scene: {
 				//aspectmode: "manual",
 				//aspectratio: {x: y_aspect, y: x_aspect, z: 0.2},
@@ -276,7 +279,7 @@ function gps_chart() {
 	//color light
 	if(document.getElementById("tn_color").value == 2){
 		layout = {
-			autosize: false,
+			autosize: true,
 			scene: {
 				//aspectmode: "manual",
 				//aspectratio: {x: 1.0, y: 1.0, z: 0.3},
