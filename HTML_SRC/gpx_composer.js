@@ -228,7 +228,7 @@ function gps_chart() {
 		layout = {
 			scene: {
 				aspectmode: "manual",
-				aspectratio: {x: x_aspect, y: y_aspect, z: 0.2},
+				aspectratio: {x: y_aspect, y: x_aspect, z: 0.2},
 				bgcolor: "#2b2b2c",
 				xaxis: {
 					//mirror: "true",
