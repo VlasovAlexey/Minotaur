@@ -205,7 +205,7 @@ var width_calc = (window.innerWidth/100*(88+((window.innerWidth-500)/650)));
 function gps_chart() {
 	
 	//compute aspect for proper 3d lines proportions
-	var x_tmp = min_max_arr(x);
+	/*var x_tmp = min_max_arr(x);
 	var y_tmp = min_max_arr(y);
 	var x_aspect = 1.0;
 	var y_aspect = 1.0;
@@ -221,14 +221,16 @@ function gps_chart() {
 		x_aspect = 1;
 		y_aspect = (1 - (x_tmp/y_tmp));
 	}
-	
+	*/
+
 	create_html_text("trackChart","trackChart_opt","");
 	//color dark
 	if(document.getElementById("tn_color").value == 1){
 		layout = {
 			scene: {
-				aspectmode: "manual",
-				aspectratio: {x: y_aspect, y: x_aspect, z: 0.2},
+				//aspectmode: "manual",
+				//aspectratio: {x: y_aspect, y: x_aspect, z: 0.2},
+				aspectmode: "data",
 				bgcolor: "#2b2b2c",
 				xaxis: {
 					//mirror: "true",
@@ -276,8 +278,9 @@ function gps_chart() {
 		layout = {
 			autosize: false,
 			scene: {
-				aspectmode: "manual",
-				aspectratio: {x: 1.0, y: 1.0, z: 0.3},
+				//aspectmode: "manual",
+				//aspectratio: {x: 1.0, y: 1.0, z: 0.3},
+				aspectmode: "data",
 				bgcolor: "#ffffff",
 				xaxis: {
 					//mirror: "true",
@@ -338,17 +341,17 @@ function gps_chart() {
 			//color_discrete_map: "identity",
 			color: z,
 			colorscale: "Minotaur",
-			cmin: ele_line_min,
-			cmax: ele_line_max
+			cmin: ele_line_min*0.00001,
+			cmax: ele_line_max*0.00001
 		},
 		marker: {
-			size: 3.5,
+			size: 3,
 			//color: ["rgb(255,0,0)","#ffff00","#00ff00"],
 			//color_discrete_map: "identity",
 			color: z,
 			colorscale: "Minotaur",
-			cmin: ele_line_min,
-			cmax: ele_line_max
+			cmin: ele_line_min*0.00001,
+			cmax: ele_line_max*0.00001
 		}
 	}, ], layout, config);
 	
