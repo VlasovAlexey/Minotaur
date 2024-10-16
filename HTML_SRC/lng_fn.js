@@ -962,6 +962,10 @@
     	};
     	//eng
     	if (td_lng == 1) {
+			
+			if (val == "map_rot_empty") {
+    			val = "Empty"
+    		}
 			if (val == "ch_WMMWarn") {
     			val = "Warning!<br>The WMM calculation algorithm works correctly until December 2025. After this date, the values may not be accurate.<br>Please update Minotaur in January 2026!<br>"
     		}

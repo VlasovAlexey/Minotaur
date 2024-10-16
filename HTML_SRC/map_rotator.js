@@ -55,12 +55,12 @@ var map = L.map('map', {
 // map.setMaxBounds([[-90,-180], [90,180]]);
 
 var layers = L.control.layers({
-    'Empty': L.tileLayer(''),
-    'Streets': osm,
-    'Satellite': esri,
+    "Empty": L.tileLayer(""),
+    "Streets": osm,
+    "Satellite": esri,
 }, null, {
     collapsed: true,
-    position: 'bottomright'
+    position: "bottomright"
 }).addTo(map);
 
 //draw main line with outline

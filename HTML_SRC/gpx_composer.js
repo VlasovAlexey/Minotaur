@@ -146,6 +146,18 @@ function gpx_final_save(){
 	}
 }
 
+function min_max_arr(array_z) {
+	var tmp_arr = [];
+	var min = array_z[0];
+	var max = array_z[0];
+	for (i = 0; i < array_z.length; i++) {
+		if ( min > array_z[i]) {min = array_z[i];}
+		if ( max < array_z[i]) {max = array_z[i];}
+	}
+	tmp_arr.push(min , max);
+	return tmp_arr;
+}
+
 //draw gps tracks chart
 //del_html_elem("trackChart");
 var pointCount = 300;
@@ -162,6 +174,7 @@ for (i = 0; i < pointCount; i++) {
 	//c.push(i);
 }
 
+//optimize 3d line before draw on screen
 function opt3D_Line(optFactor){
 	var s_data = [];
 	for (i = 0; i < x.length; i++) {
@@ -172,6 +185,7 @@ function opt3D_Line(optFactor){
 	y = [];
 	z = [];
 	
+	//optimize by simplify function
 	var s_data_filtered = simplify(s_data , optFactor , true);
 	for (i = 0; i < s_data_filtered.length; i++) {
 		x.push(s_data_filtered[i].x);
@@ -186,9 +200,27 @@ var layout = 0;
 //crappy code for centering graph
 var width_calc = (window.innerWidth/100*(88+((window.innerWidth-500)/650)));
 
+
+
 function gps_chart() {
-	//class="plot-container plotly"
-	//id="trackChart"
+	
+	//compute aspect for proper 3d lines proportions
+	var x_tmp = min_max_arr(x);
+	var y_tmp = min_max_arr(y);
+	var x_aspect = 1.0;
+	var y_aspect = 1.0;
+	
+	x_tmp = x_tmp[1] - x_tmp[0];
+	y_tmp = y_tmp[1] - y_tmp[0];
+	
+	if ((x_tmp/y_tmp) > 1) {
+		x_aspect = 1;
+		y_aspect = y_tmp/x_tmp;
+	}
+	if ((x_tmp/y_tmp) < 1) {
+		y_aspect = 1;
+		x_aspect = x_tmp/y_tmp;
+	}
 	
 	create_html_text("trackChart","trackChart_opt","");
 	//color dark
@@ -196,7 +228,7 @@ function gps_chart() {
 		layout = {
 			scene: {
 				aspectmode: "manual",
-				aspectratio: {x: 1.0, y: 1.0, z: 0.2},
+				aspectratio: {x: x_aspect, y: y_aspect, z: 0.2},
 				bgcolor: "#2b2b2c",
 				xaxis: {
 					//mirror: "true",
