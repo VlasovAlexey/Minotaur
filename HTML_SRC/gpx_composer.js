@@ -221,7 +221,7 @@ function gps_chart() {
 		x_aspect = 1;
 		y_aspect = (1 - (x_tmp/y_tmp));
 	}
-	
+
 	x.push(x_tmp[0],x_tmp[1]);
 	y.push(y_tmp[0],y_tmp[1]);
 
@@ -229,7 +229,7 @@ function gps_chart() {
 	//color dark
 	if(document.getElementById("tn_color").value == 1){
 		layout = {
-			autosize: true,
+			//autosize: true,
 			scene: {
 				//aspectmode: "manual",
 				//aspectratio: {x: y_aspect, y: x_aspect, z: 0.2},
@@ -279,7 +279,7 @@ function gps_chart() {
 	//color light
 	if(document.getElementById("tn_color").value == 2){
 		layout = {
-			autosize: true,
+			//autosize: true,
 			scene: {
 				//aspectmode: "manual",
 				//aspectratio: {x: 1.0, y: 1.0, z: 0.3},
@@ -344,8 +344,8 @@ function gps_chart() {
 			//color_discrete_map: "identity",
 			color: z,
 			colorscale: "Minotaur",
-			cmin: ele_line_min*0.00001,
-			cmax: ele_line_max*0.00001
+			cmin: ele_line_min*0.001,
+			cmax: ele_line_max*0.001
 		},
 		marker: {
 			size: 3,
@@ -353,8 +353,8 @@ function gps_chart() {
 			//color_discrete_map: "identity",
 			color: z,
 			colorscale: "Minotaur",
-			cmin: ele_line_min*0.00001,
-			cmax: ele_line_max*0.00001
+			cmin: ele_line_min*0.001,
+			cmax: ele_line_max*0.001
 		}
 	}, ], layout, config);
 	
