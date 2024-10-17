@@ -130,6 +130,7 @@ var paintpolygonControl = L.control.paintPolygon(
 }).addTo(map_editor);
 
 //move camera to default lat lon
+/*
 var sec = 0;
 var caricon = L.icon({
   iconUrl: 'leaflet/nope.png',
@@ -151,9 +152,5 @@ timer = setInterval(
     }
   }
   , 300);
+*/
 
-map_editor.panTo([c_lat,c_lon]);
-map_editor.setView(new L.LatLng(0,0), 15 );
-map_editor.invalidateSize();
-map_editor.panTo([c_lat,c_lon]);
-map_editor.setView(new L.LatLng(c_lat,c_lon), 15 );

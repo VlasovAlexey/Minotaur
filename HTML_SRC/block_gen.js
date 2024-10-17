@@ -42,7 +42,11 @@ Slider.prototype.open = function(i, e) {
 		(e.currentTarget.scrollIntoView(true)) + 30
 	});
 	//this.body.eq(this.current).slideDown(this.duration);
-
+	map_editor.panTo([c_lat,c_lon]);
+	map_editor.setView(new L.LatLng(0,0), 15 );
+	map_editor.invalidateSize();
+	map_editor.panTo([c_lat,c_lon]);
+	map_editor.setView(new L.LatLng(c_lat,c_lon), 15 );
 };
 
 
