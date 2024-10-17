@@ -48,7 +48,7 @@ var osm_editor = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
 var map_editor = L.map('map_editor', {
     fullscreenControl: {
-      pseudoFullscreen: false
+      pseudoFullscreen: true
     },
     center: [c_lat, c_lon],
     zoom: 17,
@@ -130,15 +130,29 @@ var paintpolygonControl = L.control.paintPolygon(
 }).addTo(map_editor);
 
 //move camera to default lat lon
-function delay(time) {
-  return new Promise(resolve => setTimeout(resolve, time));
-}
-
-map_editor.on('load', function(e){
-  map_editor.setZoom(15);
+/*
+var sec = 0;
+var caricon = L.icon({
+  iconUrl: 'leaflet/fullscreen.jpg',
+  iconSize: [32, 32]
 });
+car = L.marker([44.4294834, 26.1002004], {
+  icon: caricon
+}).addTo(map_editor);
 
+var pointList = 5;
+timer = setInterval(
+  function() {
+    if (sec < pointList) {
+      sec++;
+      map_editor.panTo([44.4294834, 26.1002004]);
+      //map_editor.setZoom(11)
+      car.setLatLng([44.4294134, 26.1002014]);
+    }
+  }
 
+  , 300);
+*/
 map_editor.panTo([c_lat,c_lon]);
 map_editor.setView(new L.LatLng(0,0), 15 );
 map_editor.invalidateSize();
