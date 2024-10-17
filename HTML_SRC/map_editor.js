@@ -79,6 +79,7 @@ var layers_map_editor = L.control.layers({
 }).addTo(map_editor);
 
 //draw primitives adding geoman controls
+/*
 map_editor.pm.addControls({
     drawMarker: true,
     drawPolygon: true,
@@ -111,7 +112,7 @@ map_editor.pm.addControls({
     // finishOn: 'contextmenu',
     finishOnDoubleClick: true,
   });
-
+*/
 //paint polygon settings
 var paintpolygonControl = L.control.paintPolygon(
 {
