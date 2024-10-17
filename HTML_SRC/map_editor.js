@@ -45,6 +45,7 @@ var osm_editor = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     // noWrap: true
 });
 
+
 var map_editor = L.map('map_editor', {
     fullscreenControl: {
       pseudoFullscreen: false
@@ -53,7 +54,7 @@ var map_editor = L.map('map_editor', {
     zoom: 17,
     layers: [esri_editor],
     zoomAnimation: true,
-    rotate: false, //we use rotator version of leaflet and need disable rotator functionality for map editor usage
+    rotate: true, //we use rotator version of leaflet and need disable rotator functionality for map editor usage
     rotateControl: {
         closeOnZeroBearing: false,
         position: 'bottomleft',
@@ -130,5 +131,7 @@ var paintpolygonControl = L.control.paintPolygon(
 
 //move camera to default lat lon
 map_editor.panTo([c_lat,c_lon]);
-map_editor.setView(new L.LatLng(c_lat,c_lon), 15 );
+map_editor.setView(new L.LatLng(0,0), 15 );
 map_editor.invalidateSize();
+map_editor.panTo([c_lat,c_lon]);
+map_editor.setView(new L.LatLng(c_lat,c_lon), 15 );
