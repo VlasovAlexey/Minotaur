@@ -46,7 +46,7 @@ var map = L.map('map', {
         closeOnZeroBearing: false,
         position: 'bottomleft',
     },
-    bearing: 30,
+    bearing: 0,
     zoomControl: false,
     rotateControl: false,
     // attributionControl: false,
