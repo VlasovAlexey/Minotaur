@@ -1,7 +1,11 @@
 .leaflet-control-fullscreen a {
   background:#ff0000 url(fullscreen.jpg) no-repeat 0 0;
-  margin: 10 0 0 0;
-  background-size:26px 52px;
+  width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	background-position: center center;
+  background-size: 26px 52px;
   }
   .leaflet-touch .leaflet-control-fullscreen a {
     background-position: 2px 2px;
