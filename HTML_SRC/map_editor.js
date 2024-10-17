@@ -46,10 +46,13 @@ var osm_editor = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 });
 
 var map_editor = L.map('map_editor', {
+    fullscreenControl: {
+      pseudoFullscreen: false
+    },
     center: [c_lat, c_lon],
     zoom: 17,
     layers: [esri_editor],
-    zoomAnimation: false,
+    zoomAnimation: true,
     rotate: false, //we use rotator version of leaflet and need disable rotator functionality for map editor usage
     rotateControl: {
         closeOnZeroBearing: false,
@@ -66,40 +69,47 @@ L.control.betterscale().addTo(map_editor);
 
 var drawnItems = L.featureGroup().addTo(map_editor);
 var layers_map_editor = L.control.layers({
-    "Empty": L.tileLayer(""),
-    "Streets": osm_editor,
-    "Satellite": esri_editor,
-}, null, {
-    collapsed: true,
-    position: "bottomright"
-}, { //draw primitives settings start here
-    'drawlayer': drawnItems
-},{
-    position: 'topleft',
-    collapsed: false
+        "Empty": L.tileLayer(""),
+        "Streets": osm_editor,
+        "Satellite": esri_editor,
+    }, null, {
+        collapsed: true,
+        position: "bottomright"
 }).addTo(map_editor);
 
-//draw primitives adding controls
-map_editor.addControl(new L.Control.Draw({
-    edit: {
-        featureGroup: drawnItems,
-        poly: {
-            allowIntersection: false
-        }
+//draw primitives adding geoman controls
+map_editor.pm.addControls({
+    drawMarker: true,
+    drawPolygon: true,
+    editMode: true,
+    drawPolyline: true,
+    removalMode: true,
+  });
+
+  const markerStyle = {
+    opacity: 0.5,
+    draggable: false,
+  };
+  
+  map_editor.pm.enableDraw('Polygon', {
+    snappable: true,
+    templineStyle: {
+      color: 'blue',
     },
-    draw: {
-        polygon: {
-            allowIntersection: false,
-            showArea: true
-        }
-    }
-}));
-
-map_editor.on(L.Draw.Event.CREATED, function (event) {
-    var layer = event.layer;
-
-    drawnItems.addLayer(layer);
-});
+    hintlineStyle: {
+      color: 'blue',
+      dashArray: [5, 5],
+    },
+    pathOptions: {
+      color: 'red',
+      fillColor: 'orange',
+      fillOpacity: 0.7,
+    },
+    markerStyle,
+    cursorMarker: false,
+    // finishOn: 'contextmenu',
+    finishOnDoubleClick: true,
+  });
 
 //paint polygon settings
 var paintpolygonControl = L.control.paintPolygon(
