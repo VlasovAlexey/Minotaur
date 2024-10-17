@@ -79,7 +79,6 @@ var layers_map_editor = L.control.layers({
 }).addTo(map_editor);
 
 //draw primitives adding geoman controls
-/*
 map_editor.pm.addControls({
     drawMarker: true,
     drawPolygon: true,
@@ -112,7 +111,7 @@ map_editor.pm.addControls({
     // finishOn: 'contextmenu',
     finishOnDoubleClick: true,
   });
-*/
+
 //paint polygon settings
 var paintpolygonControl = L.control.paintPolygon(
 {
@@ -131,10 +130,9 @@ var paintpolygonControl = L.control.paintPolygon(
 }).addTo(map_editor);
 
 //move camera to default lat lon
-
 var sec = 0;
 var caricon = L.icon({
-  iconUrl: 'leaflet/fullscreen.jpg',
+  iconUrl: 'leaflet/nope.png',
   iconSize: [32, 32]
 });
 car = L.marker([44.4294834, 26.1002004], {
@@ -146,13 +144,12 @@ timer = setInterval(
   function() {
     if (sec < pointList) {
       sec++;
-      map_editor.panTo([44.4294834, 26.1002004]);
+      map_editor.panTo([c_lat, c_lon]);
       map_editor.setZoom(11)
       map_editor.invalidateSize();
-      car.setLatLng([44.4294134, 26.1002014]);
+      car.setLatLng([c_lat, c_lon]);
     }
   }
-
   , 300);
 
 map_editor.panTo([c_lat,c_lon]);
