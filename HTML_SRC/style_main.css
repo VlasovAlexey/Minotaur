@@ -683,9 +683,14 @@ br{
 #trackChart {
     width: 100%;
     height: 500px;
-  }
+}
 
-#map {
+#map_editor {
+    width: 100%;
+    height: 800px;
+}
+
+#map, #map_editor {
     height: 65vh;
     width: 100%;
     border: 1px solid #444444;

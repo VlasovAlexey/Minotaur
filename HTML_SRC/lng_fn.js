@@ -259,7 +259,7 @@
     			".header4": "Route Recorder",
     			".header5": "Route Builder",
     			".header6": "Routes Viewer",
-    			".header7": "",
+    			".header7": "Map Editor",
     			".header8": "",
 
     			".header9": "Learning Tools",

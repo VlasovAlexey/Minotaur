@@ -461,16 +461,21 @@
             </div>
             <div class="content" id="6-content">
                <div id="div_block_rec">
+                  <!-- 
                  <iframe id="div_block_rec" class="div_block_rec" src="viewer/index.html" width="100%" height="700px" style="border:none;"></iframe>
+                  -->
                </div>
             </div>
             <div class="header" id="7-header">
                <div class="header7"></div>
             </div>
             <div class="content" id="7-content">
-              <!-- <div id="div_block_rec">
-                  <iframe id="div_block_rec" class="div_block_rec" src="https://opoto.github.io/wtracks/" width="100%" height="700px" style="border:none;"></iframe>
-               </div>-->
+               <div id="div_block_rec">
+                  <div class="div_block">
+                     <div id="map_editor" class="map_editor"></div>
+                  </div>
+                  
+               </div>
             </div>
             <div class="header" id="8-header">
                <div class="header8"></div>
@@ -593,13 +598,56 @@
 
 		<!-- Leaflet-Rotate -->
 		<script src="leaflet/leaflet-rotate-src.js"></script>
+      
+      <!-- Leaflet-Draw -->
+      <script src="leaflet_draw/Leaflet.draw.js"></script>
+      <script src="leaflet_draw/Leaflet.Draw.Event.js"></script>
+         
+      <link rel="stylesheet" href="leaflet_draw/leaflet.draw.css" />
+
+      <script src="leaflet_draw/Toolbar.js"></script>
+      <script src="leaflet_draw/Tooltip.js"></script>
+
+      <script src="leaflet_draw/ext/GeometryUtil.js"></script>
+      <script src="leaflet_draw/ext/LatLngUtil.js"></script>
+      <script src="leaflet_draw/ext/LineUtil.Intersect.js"></script>
+      <script src="leaflet_draw/ext/Polygon.Intersect.js"></script>
+      <script src="leaflet_draw/ext/Polyline.Intersect.js"></script>
+      <script src="leaflet_draw/ext/TouchEvents.js"></script>
+
+      <script src="leaflet_draw/draw/DrawToolbar.js"></script>
+      <script src="leaflet_draw/draw/handler/Draw.Feature.js"></script>
+      <script src="leaflet_draw/draw/handler/Draw.SimpleShape.js"></script>
+      <script src="leaflet_draw/draw/handler/Draw.Polyline.js"></script>
+      <script src="leaflet_draw/draw/handler/Draw.Marker.js"></script>
+      <script src="leaflet_draw/draw/handler/Draw.CircleMarker.js"></script>
+      <script src="leaflet_draw/draw/handler/Draw.Circle.js"></script>
+      <script src="leaflet_draw/draw/handler/Draw.Polygon.js"></script>
+      <script src="leaflet_draw/draw/handler/Draw.Rectangle.js"></script>
+
+      <script src="leaflet_draw/edit/EditToolbar.js"></script>
+      <script src="leaflet_draw/edit/handler/EditToolbar.Edit.js"></script>
+      <script src="leaflet_draw/edit/handler/EditToolbar.Delete.js"></script>
+
+      <script src="leaflet_draw/Control.Draw.js"></script>
+
+      <script src="leaflet_draw/edit/handler/Edit.Poly.js"></script>
+      <script src="leaflet_draw/edit/handler/Edit.SimpleShape.js"></script>
+      <script src="leaflet_draw/edit/handler/Edit.Marker.js"></script>
+      <script src="leaflet_draw/edit/handler/Edit.CircleMarker.js"></script>
+      <script src="leaflet_draw/edit/handler/Edit.Circle.js"></script>
+      <script src="leaflet_draw/edit/handler/Edit.Rectangle.js"></script>
 
 		<!-- include some miscellaneous -->
+      <script src="leaflet/Leaflet.PaintPolygon.js"></script>
 		<script src="leaflet/route.js"></script>
 		<script src="leaflet/places.js"></script>
 		<script src="leaflet/loremIpsum.js"></script>
 		<script src="leaflet/debug.js"></script>
       <script src="leaflet/leaflet.hotline.js"></script>
+      
+      <link rel="stylesheet" href="leaflet/L.Control.BetterScale.css" />
+      <script src="leaflet/L.Control.BetterScale.js"></script>
 
       <script src="lng_fn.js?v0.110267w1a134g215f1145v3613313112"charset="UTF-8"></script>
       
@@ -609,11 +657,11 @@
       <!-- Very important place only here node js check functions! -->
       <script src="nodejs_fn.js?v0.1818244152v611134573356113591213415" charset="UTF-8"></script>
       <script src="FileSaver.js?v0.88426171111v4113453335625191123145" charset="UTF-8"></script>
-      
-      <script src="track_editor.js" charset="UTF-8"></script>
-      
+
       <script src="track_recorder.js?011" charset="UTF-8"></script>
       <script src="map_rotator.js" charset="UTF-8"></script>
+      <script src="map_editor.js" charset="UTF-8"></script>
+
       <script src="gpx_composer.js" charset="UTF-8"></script>
       <script src="compass_display.js?0111" charset="UTF-8"></script>
       <script src="main.js?v0.188124541156511911v1313452335672113415aw" charset="UTF-8"></script>
