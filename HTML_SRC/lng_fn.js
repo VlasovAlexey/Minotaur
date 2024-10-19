@@ -1536,22 +1536,22 @@
     }
 
 	//translate layer map selector
-function translate_map_selector(td_lng){
+function translate_map_selector(td_lng, lr1, lr2){
     var translate = [];
     //eng
     if (td_lng == 1) {
         translate = {
             "Empty": L.tileLayer(""),
-            "Streets": osm,
-            "Satellite": esri,
+            "Streets": lr1,
+            "Satellite": lr2,
         }
     }
     //ru
     if (td_lng == 2) {
         translate = {
             "Пустая карта": L.tileLayer(""),
-            "Улицы": osm,
-            "Спутниковая карта": esri,
+            "Улицы": lr1,
+            "Спутниковая карта": lr2,
         }
     }
     //sp
@@ -1566,48 +1566,48 @@ function translate_map_selector(td_lng){
     if (td_lng == 4) {
         translate = {
             "Vazio": L.tileLayer(""),
-            "Ruas": osm,
-            "Satélite": esri,
+            "Ruas": lr1,
+            "Satélite": lr2,
         }
     }
     //ch
     if (td_lng == 5) {
         translate = {
             "空": L.tileLayer(""),
-            "街道": osm,
-            "衛星": esri,
+            "街道": lr1,
+            "衛星": lr2,
         }
     }
     //br
     if (td_lng == 6) {
         translate = {
             "Празен": L.tileLayer(""),
-            "Улици": osm,
-            "Сателит": esri,
+            "Улици": lr1,
+            "Сателит": lr2,
         }
     }
     //fr
     if (td_lng == 7) {
         translate = {
             "Vide": L.tileLayer(""),
-            "Rues": osm,
-            "Satellite": esri,
+            "Rues": lr1,
+            "Satellite": lr2,
         }
     }
     //kr
     if (td_lng == 8) {
         translate = {
             "비어 있음": L.tileLayer(""),
-            "거리": osm,
-            "위성": esri,
+            "거리": lr1,
+            "위성": lr2,
         }
     }
     //it
     if (td_lng == 9) {
         translate = {
             "Vuoto": L.tileLayer(""),
-            "Strade": osm,
-            "Il satellite": esri,
+            "Strade": lr1,
+            "Il satellite": lr2,
         }
     }
     return translate;

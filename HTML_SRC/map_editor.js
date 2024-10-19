@@ -74,7 +74,7 @@ function lng_map_editor(){
       layers_map_editor.remove();
       
   }
-  layers_map_editor = L.control.layers(translate_map_selector(td_lng), null, {
+  layers_map_editor = L.control.layers(translate_map_selector(td_lng,osm_editor,esri_editor), null, {
       collapsed: true,
       position: "bottomright"
   }).addTo(map_editor);

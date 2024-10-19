@@ -68,7 +68,7 @@ function lng_map_rot(){
         //spd_textbox.remove();
     }
     
-    layers_map = L.control.layers(translate_map_selector(td_lng), null, {
+    layers_map = L.control.layers(translate_map_selector(td_lng,osm,esri), null, {
         collapsed: true,
         position: "bottomright"
     }).addTo(map);
