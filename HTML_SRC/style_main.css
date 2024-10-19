@@ -745,3 +745,25 @@ br{
     bottom: 0;
     height: 100%;
 }
+
+.ele_info_text {
+    text-align: center;
+    line-height: 0.35;
+    font-size: 1.6em;
+    -webkit-text-fill-color:white;
+    letter-spacing: -2px;
+    font-weight: 1700;
+    font-family: "Helvetica", sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.ele_val_text {
+    text-align: center;
+    line-height: 0.8;
+    font-size: 5.3em;
+    -webkit-text-fill-color:white;
+    letter-spacing: -6px;
+    font-weight: 1700;
+    font-family: "Helvetica", sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+}

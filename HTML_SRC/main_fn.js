@@ -49,6 +49,7 @@ function hide_unused_elements() {
 	element_id_hide("6-header");
 	element_id_hide("8-header");
 	element_id_hide("9-header");
+	
 	element_id_hide("11-header");
 	element_id_hide("td_warn_div");
 

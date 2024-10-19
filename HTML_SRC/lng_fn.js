@@ -207,6 +207,11 @@
     	lang = {
     		1: {
     			//Eng
+				".ele_info_text" : "ALTITUDE",
+				".time_info_text" : "DURATION",
+				".speed_info_text" : "SPEED",
+				".distance_info_text" : "DISTANCE",
+
 				".tn_track_name" : "Explorer Name",
 				".btn_share_track" : "Share Your Route",
 				".btn_wmm": "Calculate Magnetic Declination",
@@ -289,6 +294,11 @@
 
     		//Rus
     		2: {
+				".ele_info_text" : "АЛЬТИТУДА",
+				".time_info_text" : "ПРОДОЛЖИТЕЛЬНОСТЬ",
+				".speed_info_text" : "СКОРОСТЬ",
+				".distance_info_text" : "ДИСТАНЦИЯ",
+
 				".tn_track_name" : "Имя исследователя",
 				".btn_share_track" : "Поделиться своим треком",
 				".btn_wmm": "Вычислить магнитное склонение",
@@ -342,7 +352,7 @@
     			".header4": "Запись маршрутов",
     			".header5": "Конструктор маршрутов",
     			".header6": "Просмотрщик маршрутов",
-    			".header7": "Расход газов",
+    			".header7": "Редактор карт",
     			".header8": "Стоимость газов",
 
     			".header9": "Инструменты обучения",
@@ -373,6 +383,11 @@
     		
     		3: {
 				//Spa
+				".ele_info_text" : "ALTITUD",
+				".time_info_text" : "DURACIÓN",
+				".speed_info_text" : "VELOCIDAD",
+				".distance_info_text" : "DISTANCIA",
+
 				".tn_track_name" : "Nombre del Explorador",
 				".btn_share_track" : "Comparte tu Ruta",
 				".btn_wmm": "Calcular Declinación Magnética",
@@ -425,7 +440,7 @@
     			".header3": "Gases",
     			".header4": "Grabador de Rutas",
     			".header5": "Creador de Rutas",
-    			".header6": "Visor de Rutas",
+    			".header6": "Editor del mapa",
     			".header7": "Consumo Gas",
     			".header8": "Precio Gas",
 
@@ -455,6 +470,11 @@
     		},
     		4: {
     			//Prt
+				".ele_info_text" : "ALTITUDE",
+				".time_info_text" : "DDURAÇÃO",
+				".speed_info_text" : "SVELOCIDADE",
+				".distance_info_text" : "DISTÂNCIA",
+
 				".tn_track_name" : "Nome do Explorador",
 				".btn_share_track" : "Partilhe a sua Rota",
 				".btn_wmm": "Calcular Declinação Magnética",
@@ -508,7 +528,7 @@
     			".header4": "Gravador de Rotas",
     			".header5": "Criador de Rotas",
     			".header6": "Visualizador de Rotas",
-    			".header7": "Consumo de Gás",
+    			".header7": "Editor de Mapas",
     			".header8": "Preço do Gás",
 
     			".header9": "Ferramentas de Ensino",
@@ -538,6 +558,11 @@
     		},
     		5: {
     			//China
+				".ele_info_text" : "緯度",
+				".time_info_text" : "持續時間",
+				".speed_info_text" : "速度",
+				".distance_info_text" : "距離",
+
 				".tn_track_name" : "探索者名稱",
 				".btn_share_track" : "分享您的路線",
 				".btn_wmm": "運算磁偏角",
@@ -591,7 +616,7 @@
     			".header4": "路线记录器",
     			".header5": "路线生成器",
     			".header6": "路线查看器",
-    			".header7": "气体消费计算",
+    			".header7": "地圖編輯器",
     			".header8": "气体价格",
 
     			".header9": "学习工具",
@@ -620,6 +645,11 @@
     		},
     		6: {
     			//Bulgarian
+				".ele_info_text" : "АЛТИТУДА",
+				".time_info_text" : "ПРОДЪЛЖИТЕЛНОСТ",
+				".speed_info_text" : "СКОРОСТ",
+				".distance_info_text" : "РАЗСТОЯНИЕ",
+
 				".tn_track_name" : "Име на изследователя",
 				".btn_share_track" : "Споделете маршрута",
 				".btn_wmm": "Изчисляване на магнитно отклонение",
@@ -673,7 +703,7 @@
     			".header4": "Записване на маршрута",
     			".header5": "Създаване на маршрути",
     			".header6": "Преглед на маршрути",
-    			".header7": "Разход на газа",
+    			".header7": "Редактор на карта",
     			".header8": "Цена на газа",
 
     			".header9": "Инструменти за обучение",
@@ -699,6 +729,11 @@
     		},
     		7: {
 				//Fr
+				".ele_info_text" : "ALTITUDE",
+				".time_info_text" : "DURÉE",
+				".speed_info_text" : "VITESSE",
+				".distance_info_text" : "DISTANCE",
+
 				".tn_track_name" : "Nom de l'explorateur",
 				".btn_share_track" : "Partagez votre itinéraire",
 				".btn_wmm": "Calculer la déclinaison magnétique",
@@ -752,7 +787,7 @@
     			".header4": "Enregistreur d'itinéraire",
     			".header5": "Constructeur d'itinéraires",
     			".header6": "Visualisateur d'itinéraires",
-    			".header7": "Consommation de gaz",
+    			".header7": "Éditeur de cartes",
     			".header8": "Prix du gaz",
 
     			".header9": "Outils d’apprentissage",
@@ -778,6 +813,11 @@
     		},
     		8: {
     			//Korean
+				".ele_info_text" : "고도",
+				".time_info_text" : "기간",
+				".speed_info_text" : "속도",
+				".distance_info_text" : "거리",
+
 				".tn_track_name" : "탐색기 이름",
 				".btn_share_track" : "경로 공유",
 				".btn_wmm": "자기 편각 계산하기",
@@ -832,7 +872,7 @@
     			".header4": "경로 레코더",
     			".header5": "경로 빌더",
     			".header6": "경로 뷰어",
-    			".header7": "가스 소비",
+    			".header7": "지도 편집기",
     			".header8": "기체 금액 계산",
     			".header9": "기체 혼합",
 
@@ -858,6 +898,11 @@
     		},
     		9: {
 				//Italian
+				".ele_info_text" : "ALTITUDINE",
+				".time_info_text" : " DURATA",
+				".speed_info_text" : "VELOCITÀ",
+				".distance_info_text" : "DISTANZA",
+
 				".tn_track_name" : "Nomi esploratori",
 				".btn_share_track" : "Condividi il tuo percorso",
 				".btn_wmm": "Calcolare la declinazione magnetica",
@@ -912,7 +957,7 @@
     			".header4": "Registratore di percorso",
     			".header5": "Costruttore di percorsi",
     			".header6": "Visualizzatore di percorsi",
-    			".header7": "Consumo di Gas",
+    			".header7": "Editor mappe",
     			".header8": "Costo dei Gas",
 
     			".header9": "Strumento di apprendimento",
@@ -1489,3 +1534,81 @@
     	}
     	return (val.toString());
     }
+
+	//translate layer map selector
+function translate_map_selector(td_lng){
+    var translate = [];
+    //eng
+    if (td_lng == 1) {
+        translate = {
+            "Empty": L.tileLayer(""),
+            "Streets": osm,
+            "Satellite": esri,
+        }
+    }
+    //ru
+    if (td_lng == 2) {
+        translate = {
+            "Пустая карта": L.tileLayer(""),
+            "Улицы": osm,
+            "Спутниковая карта": esri,
+        }
+    }
+    //sp
+    if (td_lng == 3) {
+        translate = {
+            "Vacío": L.tileLayer(""),
+            "Calles": osm,
+            "Satélite": esri,
+        }
+    }
+    //pt
+    if (td_lng == 4) {
+        translate = {
+            "Vazio": L.tileLayer(""),
+            "Ruas": osm,
+            "Satélite": esri,
+        }
+    }
+    //ch
+    if (td_lng == 5) {
+        translate = {
+            "空": L.tileLayer(""),
+            "街道": osm,
+            "衛星": esri,
+        }
+    }
+    //br
+    if (td_lng == 6) {
+        translate = {
+            "Празен": L.tileLayer(""),
+            "Улици": osm,
+            "Сателит": esri,
+        }
+    }
+    //fr
+    if (td_lng == 7) {
+        translate = {
+            "Vide": L.tileLayer(""),
+            "Rues": osm,
+            "Satellite": esri,
+        }
+    }
+    //kr
+    if (td_lng == 8) {
+        translate = {
+            "비어 있음": L.tileLayer(""),
+            "거리": osm,
+            "위성": esri,
+        }
+    }
+    //it
+    if (td_lng == 9) {
+        translate = {
+            "Vuoto": L.tileLayer(""),
+            "Strade": osm,
+            "Il satellite": esri,
+        }
+    }
+    return translate;
+}

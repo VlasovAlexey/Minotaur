@@ -45,38 +45,46 @@ var osm_editor = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     // noWrap: true
 });
 
-
 var map_editor = L.map('map_editor', {
-    fullscreenControl: {
-      pseudoFullscreen: false
-    },
-    center: [c_lat, c_lon],
-    zoom: 17,
-    layers: [esri_editor],
-    zoomAnimation: true,
-    rotate: true, //we use rotator version of leaflet and need disable rotator functionality for map editor usage
-    rotateControl: {
-        closeOnZeroBearing: false,
-        position: 'bottomleft',
-    },
-    bearing: 0,
-    zoomControl: false,
-    rotateControl: false,
-    compassBearing: false,
+  fullscreenControl: {
+    pseudoFullscreen: false
+  },
+  center: [c_lat, c_lon],
+  zoom: 17,
+  layers: [esri_editor],
+  zoomAnimation: true,
+  rotate: true, //we use rotator version of leaflet and need disable rotator functionality for map editor usage
+  rotateControl: {
+      closeOnZeroBearing: false,
+      position: 'bottomleft',
+  },
+  bearing: 0,
+  zoomControl: false,
+  rotateControl: false,
+  compassBearing: false,
 });
+
+var first_start_map_editor = 1;
+//main function for update lng on map editor
+function lng_map_editor(){
+  td_lng = lng_opt.options[lng_opt.selectedIndex].value * 1.0;
+  if (first_start_map_editor == 1){
+    first_start_map_editor = 0;
+  } else {
+      layers_map_editor.remove();
+      
+  }
+  layers_map_editor = L.control.layers(translate_map_selector(td_lng), null, {
+      collapsed: true,
+      position: "bottomright"
+  }).addTo(map_editor);
+}
+
 
 //add meters line
 L.control.betterscale().addTo(map_editor);
 
 var drawnItems = L.featureGroup().addTo(map_editor);
-var layers_map_editor = L.control.layers({
-        "Empty": L.tileLayer(""),
-        "Streets": osm_editor,
-        "Satellite": esri_editor,
-    }, null, {
-        collapsed: true,
-        position: "bottomright"
-}).addTo(map_editor);
 
 //draw primitives adding geoman controls
 map_editor.pm.addControls({
@@ -128,29 +136,4 @@ var paintpolygonControl = L.control.paintPolygon(
         weight: 2
     }
 }).addTo(map_editor);
-
-//move camera to default lat lon
-/*
-var sec = 0;
-var caricon = L.icon({
-  iconUrl: 'leaflet/nope.png',
-  iconSize: [32, 32]
-});
-car = L.marker([44.4294834, 26.1002004], {
-  icon: caricon
-}).addTo(map_editor);
-
-var pointList = 30;
-timer = setInterval(
-  function() {
-    if (sec < pointList) {
-      sec++;
-      map_editor.panTo([c_lat, c_lon]);
-      map_editor.setZoom(11)
-      map_editor.invalidateSize();
-      car.setLatLng([c_lat, c_lon]);
-    }
-  }
-  , 300);
-*/
 
