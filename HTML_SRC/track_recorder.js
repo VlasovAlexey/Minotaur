@@ -29,6 +29,19 @@ var meas_tick = 0;
 
 var rec_first_start = 0;
 
+var t_time = 0;
+var t_time_interval;
+//track only display time on gui
+function start_t_time(){
+    t_time_interval = setInterval(()=>{
+        t_time = t_time + 1;
+    }, (1000));
+}
+function stop_t_time(){
+	clearInterval(t_time_interval);
+	t_time = 0;
+}
+
 function btn_record() {
 	if (record_state == 0) {
 		//map rotator clear tracks and try create first point
@@ -81,7 +94,9 @@ function btn_record() {
 		element_id_hide("tn_btn_restore");
 		
 		record_state = 1;
-
+		
+		start_t_time();
+		
 		//clear once map path on realtime
 		route_map_disp = [];
 		
@@ -149,6 +164,8 @@ function btn_record() {
 		var blob = new Blob([GPX_File], {
 			type: "application/gpx;charset=utf-8"
 		});
+		stop_t_time();
+
 		saveAs(blob, fl_name);
 		GPX_File = [];
 

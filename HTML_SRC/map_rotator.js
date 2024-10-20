@@ -2,21 +2,8 @@ var route_map_disp = [];
 var c_lat = 0;
 var c_lon = 0;
 
-
-
-// map.setBearing(90);
-// map.touchRotate.enable();
-
-// map.touchZoom.disable()
-// map.compassBearing.disable()
-// map.touchGestures.enable()
-
-// map.zoomControl.setPosition('bottomleft');
-// map.rotateControl.setPosition('bottomleft');
-// map.setMaxBounds([[-90,-180], [90,180]]);
-
-
 var layers_map;
+
 var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     id: 'mapbox.streets',
     maxZoom: 24,
@@ -73,14 +60,6 @@ function lng_map_rot(){
         position: "bottomright"
     }).addTo(map);
 }
-
-  
-    /*
-    ".info_text_elevation" : "ELEVATION",
-				".info_text_speed" : "SPEED",
-				".info_text_distance" : "DISTANCE",
-				".info_text_duration" : "DURATION",
-    */
 draw_path();
 
 //disable heading button
@@ -102,26 +81,23 @@ function updatemap() {  // Update the current player location on map
     //button record pressed
     if (record_state == 1){
         path1.removeFrom(map);
-        //path2.removeFrom(map);
         if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking
             playerLoc.setLatLng([lat_reg,lon_reg]);
             map.invalidateSize();
             map.panTo([lat_reg,lon_reg]);
-            
-            //route_map_disp.push([lat_reg,lon_reg,ele_reg]);
             draw_path();
             document.getElementById("ele_val_text").innerHTML = ele_reg.toFixed(1);
+            document.getElementById("time_val_text").innerHTML = dec_sec_to_time_format(t_time);
             
         } else {
             //all others modes with Constant Speed
             playerLoc.setLatLng([c_lat,c_lon]);
             map.invalidateSize();
             map.panTo([c_lat,c_lon]);
-            
-            //route_map_disp.push([c_lat,c_lon,ele_reg_const]);
             draw_path();    
             document.getElementById("ele_val_text").innerHTML = ele_reg_const.toFixed(1);
+            document.getElementById("time_val_text").innerHTML = dec_sec_to_time_format(t_time);
         }
     }
     //button record not pressed
@@ -131,7 +107,22 @@ function updatemap() {  // Update the current player location on map
         map.panTo([lat_reg,lon_reg]);
 
         document.getElementById("ele_val_text").innerHTML = parseFloat((document.getElementById("default_ele_opt").value).replace(",", ".")).toFixed(1);
+        //document.getElementById("time_val_text").innerHTML = "00:00:00";
+        //document.getElementById("speed_val_text").innerHTML = "0";
+        //document.getElementById("distance_val_text").innerHTML = "0";
     }
+}
+
+//convert decimal time in seconds to regular time format xx:xx:xx
+function dec_sec_to_time_format(sec_num){
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0" + hours;}
+    if (minutes < 10) {minutes = "0" + minutes;}
+    if (seconds < 10) {seconds = "0" + seconds;}
+    return hours + ":" + minutes + ":" + seconds;
 }
 
 var ele_line_min = 0;
@@ -160,15 +151,6 @@ function draw_path() {
                 ele_line_min = ele_line_min - ele_tmp;
             }
         };
-        
-        /*
-        if((ele_line_max - ele_start) > (ele_start - ele_line_min)){
-            ele_line_min = ele_line_min - ((ele_line_max - ele_start) - (ele_start - ele_line_min));
-        };
-        if((ele_line_max - ele_start) < (ele_start - ele_line_min)){
-            ele_line_max = ele_line_max + ((ele_start - ele_line_min) - (ele_line_max - ele_start));
-        };
-        */
     }  else {
         //constant speed track
         if(ele_line_min > ele_reg_const){
@@ -223,3 +205,64 @@ var ele_textbox = L.Control.extend({
     },
 });
 new ele_textbox({ position: 'bottomleft' }).addTo(map);
+
+//distance value to the map
+var distance_val_textbox = L.Control.extend({
+    onAdd: function() {
+        t1_text = L.DomUtil.create('div');
+        t1_text.innerHTML = "<div id=\"distance_val_text\" class=\"distance_val_text\">345</div>"
+        return t1_text;
+    },
+});
+new distance_val_textbox({ position: 'bottomleft' }).addTo(map);
+
+//distance text to the map
+var distance_textbox = L.Control.extend({
+    onAdd: function() {
+        t1_text = L.DomUtil.create('div');
+        t1_text.innerHTML = "<div id=\"distance_info_text\" class=\"distance_info_text\"></div>"
+        return t1_text;
+    },
+});
+new distance_textbox({ position: 'bottomleft' }).addTo(map);
+
+
+//time text to the map
+var time_textbox = L.Control.extend({
+    onAdd: function() {
+        t1_text = L.DomUtil.create('div');
+        t1_text.innerHTML = "<div id=\"time_info_text\" class=\"time_info_text\"></div>"
+        return t1_text;
+    },
+});
+new time_textbox({ position: 'topleft' }).addTo(map);
+
+//time value to the map
+var time_val_textbox = L.Control.extend({
+    onAdd: function() {
+        t2_text = L.DomUtil.create('div');
+        t2_text.innerHTML = "<div id=\"time_val_text\" class=\"time_val_text\">00:00:00</div>"
+        return t2_text;
+    },
+});
+new time_val_textbox({ position: 'topleft' }).addTo(map);
+
+//speed value to the map
+var speed_val_textbox = L.Control.extend({
+    onAdd: function() {
+        t1_text = L.DomUtil.create('div');
+        t1_text.innerHTML = "<div id=\"speed_val_text\" class=\"speed_val_text\">0</div>"
+        return t1_text;
+    },
+});
+new speed_val_textbox({ position: 'bottomright' }).addTo(map);
+
+//speed text to the map
+var speed_textbox = L.Control.extend({
+    onAdd: function() {
+        t1_text = L.DomUtil.create('div');
+        t1_text.innerHTML = "<div id=\"speed_info_text\" class=\"speed_info_text\">0</div>"
+        return t1_text;
+    },
+});
+new speed_textbox({ position: 'bottomright' }).addTo(map);
