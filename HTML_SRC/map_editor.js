@@ -151,6 +151,36 @@ map_editor.pm.enableDraw('Line', {
 });
 map_editor.pm.disableDraw();
 
+//add save and load buttons to geoman
+let gjson_load = new L.Control.PMButton({
+  title: "load gjson",
+  actions: [""],
+  //actions: ["cancel"],
+  onClick: () => {
+    console.log("test");
+  },
+  afterClick: () => {},
+  doToggle: false,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-load',
+});
+let gjson_save = new L.Control.PMButton({
+  title: "save gjson",
+  actions: [],
+  onClick: () => {
+    console.log("test");
+  },
+  afterClick: () => {},
+  doToggle: false,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-save',
+});
+
+map_editor.addControl(gjson_load);
+map_editor.addControl(gjson_save);
+
 //paint polygon settings
 var paintpolygonControl = L.control.paintPolygon(
 {
