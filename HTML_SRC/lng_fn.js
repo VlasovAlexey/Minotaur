@@ -295,7 +295,7 @@
     		//Rus
     		2: {
 				".ele_info_text" : "АЛЬТИТУДА",
-				".time_info_text" : "ПРОДОЛЖИТЕЛЬНОСТЬ",
+				".time_info_text" : "ВРЕМЯ",
 				".speed_info_text" : "СКОРОСТЬ",
 				".distance_info_text" : "ДИСТАНЦИЯ",
 

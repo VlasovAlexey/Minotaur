@@ -95,6 +95,7 @@ function btn_record() {
 		
 		record_state = 1;
 		
+		//start time track display for gui
 		start_t_time();
 		
 		//clear once map path on realtime

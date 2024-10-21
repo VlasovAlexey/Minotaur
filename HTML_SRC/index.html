@@ -262,19 +262,21 @@
          </div>
          <div class="content" id="0-content">
             <div class="div_block">
+               <div id="tn_track_name" class="tn_track_name"></div>
+               <div id="tr_track_name" class="tr_track_name"></div>
                <div id="tr_lng" class="tr_lng"></div>
                <div id="tr_lng_sel" class="tr_lng_sel"></div>
-               <div id="tr_dmn" class="tr_dmn"></div>
-               <div id="tr_dmn_sel" class="tr_dmn_sel"></div>
                <div id="data_format" class="data_format">
+                  <div id="tr_dmn" class="tr_dmn"></div>
+                  <div id="tr_dmn_sel" class="tr_dmn_sel"></div>
                   <div id="tn_data_format" class="tn_data_format"></div>
-               <div id="tr_data_format" class="tr_data_format"></div>
+                  <div id="tr_data_format" class="tr_data_format"></div>
+                  <div id="tn_rec_freq" class="tn_rec_freq"></div>
+                  <div id="tr_rec_freq" class="tr_rec_freq"></div>
                </div>
             </div>
             <div id="main_parameters">
                <div class="div_block" id="div_block_dpv1">
-                  <div id="tn_rec_freq" class="tn_rec_freq"></div>
-                  <div id="tr_rec_freq" class="tr_rec_freq"></div>
    
                   <div id="tn_meas_len" class="tn_meas_len"></div>
                   <div id="tr_meas_len" class="tr_meas_len"></div>
@@ -345,7 +347,7 @@
             <div id="data-test1"></div>
             <div id="data-test2"></div>
             <div id="rec_base" style="width:100%; height:0px;">
-               <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:80px; position:sticky; top: 0px; z-index:3000"></div>
+               <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:100px; position:sticky; top: 0px; z-index:3000"></div>
             </div>
             <div id="map_hide">
                <div id="map"></div>
@@ -447,8 +449,6 @@
                   <div id="trackChart"><!-- Plotly chart will be drawn inside this DIV --></div>
                </div>
                <div class="div_block" id="div_block">
-                  <div id="tn_track_name" class="tn_track_name"></div>
-                  <div id="tr_track_name" class="tr_track_name"></div>
                   <input type="file" id="gpx_file" class="gpx_file" accept=".gpx"></button>
                   <label for="gpx_file" id="btn_add_track" class="btn_add_track"></label>
                   <button type="button" id="btn_delete_track" class="btn_delete_track" onClick="btn_delete_track();"></button>

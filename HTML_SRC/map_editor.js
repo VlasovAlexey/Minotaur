@@ -74,10 +74,20 @@ function lng_map_editor(){
       layers_map_editor.remove();
       
   }
-  layers_map_editor = L.control.layers(translate_map_selector(td_lng,osm_editor,esri_editor), null, {
+  layers_map_editor = L.control.layers(translate_map_selector(td_lng , osm_editor , esri_editor), null, {
       collapsed: true,
       position: "bottomright"
   }).addTo(map_editor);
+
+  if(td_lng == 1){ map_editor.pm.setLang("en");}
+  if(td_lng == 2){ map_editor.pm.setLang("ru");}
+  if(td_lng == 3){ map_editor.pm.setLang("es");}
+  if(td_lng == 4){ map_editor.pm.setLang("pt");}
+  if(td_lng == 5){ map_editor.pm.setLang("zh");}
+  if(td_lng == 6){ map_editor.pm.setLang("bg");}
+  if(td_lng == 7){ map_editor.pm.setLang("fr");}
+  if(td_lng == 8){ map_editor.pm.setLang("ko");}
+  if(td_lng == 9){ map_editor.pm.setLang("it");}
 }
 
 
@@ -119,6 +129,12 @@ map_editor.pm.addControls({
     // finishOn: 'contextmenu',
     finishOnDoubleClick: true,
   });
+
+  const customTranslation = {
+    tooltips: {
+      placeMarker: "Custom Marker Translation",
+    },
+  };
 
 //paint polygon settings
 var paintpolygonControl = L.control.paintPolygon(

@@ -87,7 +87,7 @@ function updatemap() {  // Update the current player location on map
             map.invalidateSize();
             map.panTo([lat_reg,lon_reg]);
             draw_path();
-            document.getElementById("ele_val_text").innerHTML = ele_reg.toFixed(1);
+            document.getElementById("ele_val_text").innerHTML = (ele_reg * 1.0).toFixed(1);
             document.getElementById("time_val_text").innerHTML = dec_sec_to_time_format(t_time);
             
         } else {
@@ -107,9 +107,6 @@ function updatemap() {  // Update the current player location on map
         map.panTo([lat_reg,lon_reg]);
 
         document.getElementById("ele_val_text").innerHTML = parseFloat((document.getElementById("default_ele_opt").value).replace(",", ".")).toFixed(1);
-        //document.getElementById("time_val_text").innerHTML = "00:00:00";
-        //document.getElementById("speed_val_text").innerHTML = "0";
-        //document.getElementById("distance_val_text").innerHTML = "0";
     }
 }
 
@@ -225,7 +222,6 @@ var distance_textbox = L.Control.extend({
     },
 });
 new distance_textbox({ position: 'bottomleft' }).addTo(map);
-
 
 //time text to the map
 var time_textbox = L.Control.extend({
