@@ -105,36 +105,51 @@ map_editor.pm.addControls({
     removalMode: true,
   });
 
-  const markerStyle = {
+const markerStyle = {
     opacity: 0.5,
     draggable: false,
-  };
+};
   
-  map_editor.pm.enableDraw('Polygon', {
+//styling geoman primitives
+map_editor.pm.enableDraw('Polygon', {
     snappable: true,
     templineStyle: {
-      color: 'blue',
+      color: '#2c8aff',
     },
     hintlineStyle: {
-      color: 'blue',
+      color: '#2c8aff',
       dashArray: [5, 5],
     },
     pathOptions: {
-      color: 'red',
-      fillColor: 'orange',
+      color: '#2c8aff',
+      fillColor: '#2c8aff',
+      fillOpacity: 0.25,
+    },
+    markerStyle,
+    cursorMarker: false,
+    // finishOn: 'contextmenu',
+    finishOnDoubleClick: true,
+});
+map_editor.pm.enableDraw('Line', {
+    snappable: true,
+    templineStyle: {
+      color: '#2c8aff',
+    },
+    hintlineStyle: {
+      color: '#2c8aff',
+      dashArray: [5, 5],
+    },
+    pathOptions: {
+      color: 'black',
+      fillColor: '#2c8aff',
       fillOpacity: 0.7,
     },
     markerStyle,
     cursorMarker: false,
     // finishOn: 'contextmenu',
     finishOnDoubleClick: true,
-  });
-
-  const customTranslation = {
-    tooltips: {
-      placeMarker: "Custom Marker Translation",
-    },
-  };
+});
+map_editor.pm.disableDraw();
 
 //paint polygon settings
 var paintpolygonControl = L.control.paintPolygon(
