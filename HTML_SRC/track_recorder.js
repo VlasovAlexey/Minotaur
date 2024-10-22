@@ -30,6 +30,7 @@ var t_time_interval;
 
 var distance_map = 0;
 var speed_map = 0;
+var speed_map_arr = [];
 var g84 = geodesic.Geodesic.WGS84;
 
 //track only display time on gui
@@ -443,10 +444,19 @@ function GlobalWatch() {
 			var lon_2 = route_map_disp[arr_size][1]
 			// Do the classic `geodetic inversion` computation
 			g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
-			// Present the solution (only the geodetic distance)
 			distance_map = distance_map + g84inv.s12;
 			speed_map = ((1/document.getElementById("rec_freq_opt").value) * g84inv.s12 * 3600) / 1000;
+			
+			speed_map_arr.push(speed_map);
+			if(speed_map_arr.length > 100) {speed_map_arr.splice((speed_map_arr[0]) , 1);}
+
+			var total = 0;
+			for (i = 0; i < speed_map_arr.length; i++){
+				total = total + speed_map_arr[i];
+			}
+			speed_map = total / speed_map_arr.length;
 		}
+		
 		//error handler
 		if (lat_start == null || lat_start == undefined) {
 			lat_start = "0.0"

@@ -22,6 +22,10 @@
     			lng_min = ", min";
     			lng_ltr = ", liters";
     			lng_temper = ", <sup><small>o</small></sup>C";
+				
+				lng_meters_gui = " <small> m</small>";
+				lng_kph_gui = " <small> kph</small>";
+				lng_km_gui = " <small> km</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 2) {
     			lng_sec_s = ", сек";
@@ -32,6 +36,10 @@
     			lng_min = ", мин.";
     			lng_ltr = ", литры";
     			lng_temper = ", <sup><small>o</small></sup>C";
+
+				lng_meters_gui = " <small> м</small>";
+				lng_kph_gui = " <small> км/ч</small>";
+				lng_km_gui = " <small> км</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 3) {
     			lng_sec_s = ", seg";
@@ -42,6 +50,10 @@
     			lng_min = ", min";
     			lng_ltr = ", l";
     			lng_temper = ", <sup><small>o</small></sup>C";
+
+				lng_meters_gui = " <small> m</small>";
+				lng_kph_gui = " <small> kph</small>";
+				lng_km_gui = " <small> km</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 4) {
     			lng_sec_s = ", seg";
@@ -52,6 +64,10 @@
     			lng_min = ", min";
     			lng_ltr = ", l";
     			lng_temper = ", <sup><small>o</small></sup>C";
+
+				lng_meters_gui = " <small>  m</small>";
+				lng_kph_gui = " <small> kph</small>";
+				lng_km_gui = " <small> km</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 5) {
     			lng_sec_s = ", 秒钟";
@@ -62,6 +78,10 @@
     			lng_min = ", 分钟";
     			lng_ltr = ", 升";
     			lng_temper = ", <sup><small>o</small></sup>C";
+
+				lng_meters_gui = " <small> 米</small>";
+				lng_kph_gui = " <small> 公里/小時</small>";
+				lng_km_gui = " <small> 公里</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 6) {
     			lng_sec_s = ", сек";
@@ -72,6 +92,10 @@
     			lng_min = ", мин";
     			lng_ltr = ", литри";
     			lng_temper = ", <sup><small>o</small></sup>C";
+
+				lng_meters_gui = " <small> м</small>";
+				lng_kph_gui = " <small> км/ч</small>";
+				lng_km_gui = " <small> км</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 7) {
     			lng_sec_s = ", sec";
@@ -82,6 +106,10 @@
     			lng_min = ", min";
     			lng_ltr = ", litres";
     			lng_temper = ", <sup><small>o</small></sup>C";
+
+				lng_meters_gui = " <small> m</small>";
+				lng_kph_gui = " <small> kph</small>";
+				lng_km_gui = " <small> km</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 8) {
     			lng_sec_s = ", 초";
@@ -92,6 +120,14 @@
     			lng_min = ", min";
     			lng_ltr = ", liters";
     			lng_temper = ", <sup><small>o</small></sup>C";
+
+				lng_meters_gui = " <small> m</small>";
+				lng_kph_gui = " <small> kph</small>";
+				lng_km_gui = " <small> km</small>";
+
+				lng_meters_gui = " <small> m</small>";
+				lng_kph_gui = " <small> kph</small>";
+				lng_km_gui = " <small> km</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 9) {
     			lng_sec_s = ", sec";
@@ -102,6 +138,10 @@
     			lng_min = ", min";
     			lng_ltr = ", litri";
     			lng_temper = ", <sup><small>o</small></sup>C";
+
+				lng_meters_gui = " <small> m</small>";
+				lng_kph_gui = " <small> kph</small>";
+				lng_km_gui = " <small> km</small>";
     		}
 
     	} else {
@@ -114,6 +154,10 @@
     			lng_min = ", min";
     			lng_ltr = ", ft<sup><small>3</small></sup>";
     			lng_temper = ", <sup><small>o</small></sup>F";
+
+				lng_meters_gui = " <small> ft</small>";
+				lng_kph_gui = " <small> mph</small>";
+				lng_km_gui = " <small> mi</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 2) {
     			lng_sec_s = ", сек";
@@ -124,6 +168,10 @@
     			lng_min = ", мин.";
     			lng_ltr = ", футы<sup><small>3</small></sup>";
     			lng_temper = ", <sup><small>o</small></sup>F";
+				
+				lng_meters_gui = " <small> футов</small>";
+				lng_kph_gui = " <small> футов/ч</small>";
+				lng_km_gui = " <small> миль</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 3) {
     			lng_sec_s = ", seg";
@@ -134,6 +182,10 @@
     			lng_min = ", min";
     			lng_ltr = ", ft<sup><small>3</small></sup>";
     			lng_temper = ", <sup><small>o</small></sup>F";
+
+				lng_meters_gui = " <small> ft</small>";
+				lng_kph_gui = " <small> mph</small>";
+				lng_km_gui = " <small> mi</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 4) {
     			lng_sec_s = ", seg";
@@ -144,6 +196,10 @@
     			lng_min = ", min";
     			lng_ltr = ", pés<sup><small>3</small></sup>";
     			lng_temper = ", <sup><small>o</small></sup>F";
+
+				lng_meters_gui = " <small> ft</small>";
+				lng_kph_gui = " <small> mph</small>";
+				lng_km_gui = " <small> mi</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 5) {
     			lng_sec_s = ", 秒钟";
@@ -154,6 +210,10 @@
     			lng_min = ", 分钟";
     			lng_ltr = ", 英尺<sup><small>3</small></sup>";
     			lng_temper = ", <sup><small>o</small></sup>F";
+
+				lng_meters_gui = " <small> 英尺</small>";
+				lng_kph_gui = " <small> 英里</small>";
+				lng_km_gui = " <small> 英里</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 6) {
     			lng_sec_s = ", сек";
@@ -164,6 +224,10 @@
     			lng_min = ", мин";
     			lng_ltr = ", фт<sup><small>3</small></sup>";
     			lng_temper = ", <sup><small>o</small></sup>F";
+
+				lng_meters_gui = " <small> фт</small>";
+				lng_kph_gui = " <small> фт/ч</small>";
+				lng_km_gui = " <small> миль</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 7) {
     			lng_sec_s = ", sec";
@@ -174,6 +238,10 @@
     			lng_min = ", min";
     			lng_ltr = ", ft<sup><small>3</small></sup>";
     			lng_temper = ", <sup><small>o</small></sup>F";
+
+				lng_meters_gui = " <small> ft</small>";
+				lng_kph_gui = " <small> mph</small>";
+				lng_km_gui = " <small> mi</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 8) {
     			lng_sec_s = ", 초";
@@ -184,6 +252,10 @@
     			lng_min = ", min";
     			lng_ltr = ", ft<sup><small>3</small></sup>";
     			lng_temper = ", <sup><small>o</small></sup>F";
+
+				lng_meters_gui = " <small> ft</small>";
+				lng_kph_gui = " <small> mph</small>";
+				lng_km_gui = " <small> mi</small>";
     		}
     		if (lng_opt.options[lng_opt.selectedIndex].value == 9) {
     			lng_sec_s = ", sec";
@@ -194,6 +266,10 @@
     			lng_min = ", min";
     			lng_ltr = ", ft<sup><small>3</small></sup>";
     			lng_temper = ", <sup><small>o</small></sup>F"
+
+				lng_meters_gui = " <small> ft</small>";
+				lng_kph_gui = " <small> mph</small>";
+				lng_km_gui = " <small> mi</small>";
     		}
     	}
     	AssignLng();
@@ -207,10 +283,10 @@
     	lang = {
     		1: {
     			//Eng
-				".ele_info_text" : "ALTITUDE",
+				".ele_info_text" : "ALTITUDE" + lng_meters_gui,
 				".time_info_text" : "DURATION",
-				".speed_info_text" : "SPEED",
-				".distance_info_text" : "DISTANCE",
+				".speed_info_text" : "SPEED" + lng_kph_gui,
+				".distance_info_text" : "DISTANCE" + lng_km_gui,
 
 				".tn_track_name" : "Explorer Name",
 				".btn_share_track" : "Share Your Route",
@@ -294,10 +370,10 @@
 
     		//Rus
     		2: {
-				".ele_info_text" : "АЛЬТИТУДА",
+				".ele_info_text" : "АЛЬТИТУДА" + lng_meters_gui,
 				".time_info_text" : "ВРЕМЯ",
-				".speed_info_text" : "СКОРОСТЬ",
-				".distance_info_text" : "ДИСТАНЦИЯ",
+				".speed_info_text" : "СКОРОСТЬ" + lng_kph_gui,
+				".distance_info_text" : "ДИСТАНЦИЯ" + lng_km_gui,
 
 				".tn_track_name" : "Имя исследователя",
 				".btn_share_track" : "Поделиться своим треком",
@@ -383,10 +459,10 @@
     		
     		3: {
 				//Spa
-				".ele_info_text" : "ALTITUD",
+				".ele_info_text" : "ALTITUD" + lng_meters_gui,
 				".time_info_text" : "DURACIÓN",
-				".speed_info_text" : "VELOCIDAD",
-				".distance_info_text" : "DISTANCIA",
+				".speed_info_text" : "VELOCIDAD" + lng_kph_gui,
+				".distance_info_text" : "DISTANCIA" + lng_km_gui,
 
 				".tn_track_name" : "Nombre del Explorador",
 				".btn_share_track" : "Comparte tu Ruta",
@@ -470,10 +546,10 @@
     		},
     		4: {
     			//Prt
-				".ele_info_text" : "ALTITUDE",
+				".ele_info_text" : "ALTITUDE" + lng_meters_gui,
 				".time_info_text" : "DDURAÇÃO",
-				".speed_info_text" : "SVELOCIDADE",
-				".distance_info_text" : "DISTÂNCIA",
+				".speed_info_text" : "SVELOCIDADE" + lng_kph_gui,
+				".distance_info_text" : "DISTÂNCIA" + lng_km_gui,
 
 				".tn_track_name" : "Nome do Explorador",
 				".btn_share_track" : "Partilhe a sua Rota",
@@ -558,10 +634,10 @@
     		},
     		5: {
     			//China
-				".ele_info_text" : "緯度",
+				".ele_info_text" : "緯度" + lng_meters_gui,
 				".time_info_text" : "持續時間",
-				".speed_info_text" : "速度",
-				".distance_info_text" : "距離",
+				".speed_info_text" : "速度" + lng_kph_gui,
+				".distance_info_text" : "距離" + lng_km_gui,
 
 				".tn_track_name" : "探索者名稱",
 				".btn_share_track" : "分享您的路線",
@@ -645,10 +721,10 @@
     		},
     		6: {
     			//Bulgarian
-				".ele_info_text" : "АЛТИТУДА",
+				".ele_info_text" : "АЛТИТУДА" + lng_meters_gui,
 				".time_info_text" : "ПРОДЪЛЖИТЕЛНОСТ",
-				".speed_info_text" : "СКОРОСТ",
-				".distance_info_text" : "РАЗСТОЯНИЕ",
+				".speed_info_text" : "СКОРОСТ" + lng_kph_gui,
+				".distance_info_text" : "РАЗСТОЯНИЕ" + lng_km_gui,
 
 				".tn_track_name" : "Име на изследователя",
 				".btn_share_track" : "Споделете маршрута",
@@ -729,10 +805,10 @@
     		},
     		7: {
 				//Fr
-				".ele_info_text" : "ALTITUDE",
+				".ele_info_text" : "ALTITUDE" + lng_meters_gui,
 				".time_info_text" : "DURÉE",
-				".speed_info_text" : "VITESSE",
-				".distance_info_text" : "DISTANCE",
+				".speed_info_text" : "VITESSE" + lng_kph_gui,
+				".distance_info_text" : "DISTANCE" + lng_km_gui,
 
 				".tn_track_name" : "Nom de l'explorateur",
 				".btn_share_track" : "Partagez votre itinéraire",
@@ -813,10 +889,10 @@
     		},
     		8: {
     			//Korean
-				".ele_info_text" : "고도",
+				".ele_info_text" : "고도" + lng_meters_gui,
 				".time_info_text" : "기간",
-				".speed_info_text" : "속도",
-				".distance_info_text" : "거리",
+				".speed_info_text" : "속도" + lng_kph_gui,
+				".distance_info_text" : "거리" + lng_km_gui,
 
 				".tn_track_name" : "탐색기 이름",
 				".btn_share_track" : "경로 공유",
@@ -898,10 +974,10 @@
     		},
     		9: {
 				//Italian
-				".ele_info_text" : "ALTITUDINE",
+				".ele_info_text" : "ALTITUDINE" + lng_meters_gui,
 				".time_info_text" : " DURATA",
-				".speed_info_text" : "VELOCITÀ",
-				".distance_info_text" : "DISTANZA",
+				".speed_info_text" : "VELOCITÀ" + lng_kph_gui,
+				".distance_info_text" : "DISTANZA" + lng_km_gui,
 
 				".tn_track_name" : "Nomi esploratori",
 				".btn_share_track" : "Condividi il tuo percorso",
