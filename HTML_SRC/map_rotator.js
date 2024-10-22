@@ -89,6 +89,8 @@ function updatemap() {  // Update the current player location on map
             draw_path();
             document.getElementById("ele_val_text").innerHTML = (ele_reg * 1.0).toFixed(1);
             document.getElementById("time_val_text").innerHTML = dec_sec_to_time_format(t_time);
+            document.getElementById("speed_val_text").innerHTML = speed_map.toFixed(1);
+            document.getElementById("distance_val_text").innerHTML = (distance_map / 1000).toFixed(2);
             
         } else {
             //all others modes with Constant Speed
@@ -98,6 +100,8 @@ function updatemap() {  // Update the current player location on map
             draw_path();    
             document.getElementById("ele_val_text").innerHTML = ele_reg_const.toFixed(1);
             document.getElementById("time_val_text").innerHTML = dec_sec_to_time_format(t_time);
+            document.getElementById("speed_val_text").innerHTML = speed_map.toFixed(1);
+            document.getElementById("distance_val_text").innerHTML = (distance_map / 1000).toFixed(2);
         }
     }
     //button record not pressed
@@ -207,7 +211,7 @@ new ele_textbox({ position: 'bottomleft' }).addTo(map);
 var distance_val_textbox = L.Control.extend({
     onAdd: function() {
         t1_text = L.DomUtil.create('div');
-        t1_text.innerHTML = "<div id=\"distance_val_text\" class=\"distance_val_text\">345</div>"
+        t1_text.innerHTML = "<div id=\"distance_val_text\" class=\"distance_val_text\">0.0</div>"
         return t1_text;
     },
 });

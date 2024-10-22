@@ -9,10 +9,7 @@ var ele_start = "0.0";
 
 var lat_reg = "0.0";
 var lon_reg = "0.0";
-//var lat_reg = document.getElementById("default_lat_opt").value;
-//lat_reg = (lat_reg.replace(",", "."));
-//var lon_reg = document.getElementById("default_lon_opt").value;
-//lon_reg = (lon_reg.replace(",", "."));
+
 var ele_reg = "0.0";
 var ele_reg_const = 0;
 var speed_reg = document.getElementById("const_spd_opt").value;
@@ -26,11 +23,15 @@ var lon_end = "0.0";
 var ele_end = "0.0";
 
 var meas_tick = 0;
-
 var rec_first_start = 0;
 
 var t_time = 0;
 var t_time_interval;
+
+var distance_map = 0;
+var speed_map = 0;
+var g84 = geodesic.Geodesic.WGS84;
+
 //track only display time on gui
 function start_t_time(){
     t_time_interval = setInterval(()=>{
@@ -97,6 +98,10 @@ function btn_record() {
 		
 		//start time track display for gui
 		start_t_time();
+
+		//reset previous distance and speed if exist
+		distance_map = 0;
+		speed_map = 0;
 		
 		//clear once map path on realtime
 		route_map_disp = [];
@@ -428,7 +433,21 @@ function GlobalWatch() {
 				ele_end = ele_reg_const;
 			}
 		}
-
+		
+		//calculate speed and distance
+		if(route_map_disp.length > 1){
+			var arr_size = route_map_disp.length - 1
+			var lat_1 = route_map_disp[arr_size - 1][0]
+			var lon_1 = route_map_disp[arr_size - 1][1]
+			var lat_2 = route_map_disp[arr_size][0]
+			var lon_2 = route_map_disp[arr_size][1]
+			// Do the classic `geodetic inversion` computation
+			g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
+			// Present the solution (only the geodetic distance)
+			distance_map = distance_map + g84inv.s12;
+			speed_map = ((1/document.getElementById("rec_freq_opt").value) * g84inv.s12 * 3600) / 1000;
+		}
+		//error handler
 		if (lat_start == null || lat_start == undefined) {
 			lat_start = "0.0"
 		};
