@@ -44,8 +44,15 @@ function stop_t_time(){
 	t_time = 0;
 }
 
+
+
 function btn_record() {
 	if (record_state == 0) {
+		//move map rotator to fullscreen if it is on
+		document.getElementById("map").className = "map_fullscreen";
+		map.invalidateSize();
+		document.getElementById("btn_rec_fullscreen").className = "map_button_rec_fullscreen";
+
 		//map rotator clear tracks and try create first point
 		if (lat_reg != "0.0" && lon_reg != "0.0"){
 			if($("#data_format_opt").val() * 1.0 == 1){
@@ -122,6 +129,12 @@ function btn_record() {
 		GPX_File = GPX_File + " <trk>\n  <name>Minotaur_Track_" + get_date() + "</name>\n  <trkseg>\n";
 
 	} else {
+		//restore map size and remove overlay button
+		document.getElementById("map").className = "map_fullscreen_stop";
+		map.panTo([c_lat,c_lon]);
+		map.invalidateSize();
+		document.getElementById("btn_rec_fullscreen").className = ".map_button_rec_hided";
+
 		document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #969696";
 		element_id_hide("rec_blinking");
