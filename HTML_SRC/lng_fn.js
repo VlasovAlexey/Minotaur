@@ -547,8 +547,8 @@
     		4: {
     			//Prt
 				".ele_info_text" : "ALTITUDE" + lng_meters_gui,
-				".time_info_text" : "DDURAÇÃO",
-				".speed_info_text" : "SVELOCIDADE" + lng_kph_gui,
+				".time_info_text" : "DURAÇÃO",
+				".speed_info_text" : "VELOCIDADE" + lng_kph_gui,
 				".distance_info_text" : "DISTÂNCIA" + lng_km_gui,
 
 				".tn_track_name" : "Nome do Explorador",
