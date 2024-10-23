@@ -48,10 +48,9 @@ function stop_t_time(){
 
 function btn_record() {
 	if (record_state == 0) {
-		//move map rotator to fullscreen if it is on
-		document.getElementById("map").className = "map_fullscreen";
-		map.invalidateSize();
-		document.getElementById("btn_rec_fullscreen").className = "map_button_rec_fullscreen";
+		//move map rotator to fullscreen
+		meas_state = 0;
+		btn_meas_click();
 
 		//map rotator clear tracks and try create first point
 		if (lat_reg != "0.0" && lon_reg != "0.0"){
@@ -130,11 +129,11 @@ function btn_record() {
 
 	} else {
 		//restore map size and remove overlay button
-		document.getElementById("map").className = "map_fullscreen_stop";
+		/*document.getElementById("map").className = "map_fullscreen_stop";
 		map.panTo([c_lat,c_lon]);
 		map.invalidateSize();
 		document.getElementById("btn_rec_fullscreen").className = ".map_button_rec_hided";
-
+		*/
 		document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #969696";
 		element_id_hide("rec_blinking");
@@ -206,6 +205,18 @@ function btn_record() {
 		//draw new 3d chart with new data
 		del_html_elem("trackChart_opt");
 		gps_chart();
+
+		//draw middle speed value after all
+		speed_map = 0;
+		for (i = 1; i < route_map_disp.length - 1; i++) {
+			lat_1 = route_map_disp[i-1][0];
+			lon_1 = route_map_disp[i-1][1];
+			lat_2 = route_map_disp[i][0];
+			lon_2 = route_map_disp[i][1];
+			g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
+			speed_map = speed_map + ((1 / document.getElementById("rec_freq_opt").value) * g84inv.s12);
+		}
+		speed_map = (speed_map/(route_map_disp.length - 1)) * 3600 / 1000;
 	}
 }
 
@@ -218,6 +229,8 @@ element_id_hide("map_hide");
 function btn_meas_click() {
 	meas_tick = meas_tick + 1;
 	if (meas_state == 0) {
+		document.getElementById("btn_rec_fullscreen").className = "map_button_rec_fullscreen";
+
 		document.getElementById("btn_meas").style.background = "url(meas_press.svg) no-repeat center center";
 		document.getElementById("btn_meas").style.border = "6px solid #188958";
 		meas_state = 1;
@@ -228,6 +241,8 @@ function btn_meas_click() {
 		element_id_hide("info_glob");
 		element_id_hide("compas_head_box");
 	} else {
+		document.getElementById("btn_rec_fullscreen").className = "map_button_rec_hided";
+
 		document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
 		document.getElementById("btn_meas").style.border = "6px solid #969696";
 		meas_state = 0;
@@ -448,27 +463,56 @@ function GlobalWatch() {
 			}
 		}
 		
-		//calculate speed and distance
-		if(route_map_disp.length > 1){
-			var arr_size = route_map_disp.length - 1
-			var lat_1 = route_map_disp[arr_size - 1][0]
-			var lon_1 = route_map_disp[arr_size - 1][1]
-			var lat_2 = route_map_disp[arr_size][0]
-			var lon_2 = route_map_disp[arr_size][1]
-			// Do the classic `geodetic inversion` computation
-			g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
-			distance_map = distance_map + g84inv.s12;
-			speed_map = ((1/document.getElementById("rec_freq_opt").value) * g84inv.s12 * 3600) / 1000;
-			
-			speed_map_arr.push(speed_map);
-			if(speed_map_arr.length > 100) {speed_map_arr.splice((speed_map_arr[0]) , 1);}
-
-			var total = 0;
-			for (i = 0; i < speed_map_arr.length; i++){
-				total = total + speed_map_arr[i];
+		//if($("#data_format_opt").val() * 1.0 == 1){
+            //Regular GPS Tracking need get bigger distances between points
+			if(route_map_disp.length > 20){
+				var arr_size = route_map_disp.length - 1;
+				var lat_1 = route_map_disp[arr_size - 1][0];
+				var lon_1 = route_map_disp[arr_size - 1][1];
+				var lat_2 = route_map_disp[arr_size][0];
+				var lon_2 = route_map_disp[arr_size][1];
+				// Do the classic `geodesic inversion` computation
+				g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
+				distance_map = distance_map + g84inv.s12;
+				
+				//compute highly approximated speed
+				speed_map = 0;
+				for (i = route_map_disp.length - 20; i < route_map_disp.length - 1; i++) {
+					lat_1 = route_map_disp[i-1][0];
+					lon_1 = route_map_disp[i-1][1];
+					lat_2 = route_map_disp[i][0];
+					lon_2 = route_map_disp[i][1];
+					g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
+					speed_map = (speed_map + ((1 / document.getElementById("rec_freq_opt").value) * g84inv.s12));
+					speed_map = speed_map.toFixed(6) * 1.0;
+					console.log(speed_map, ((1 / document.getElementById("rec_freq_opt").value) * g84inv.s12));
+				}
+				speed_map = (speed_map/19) * 3600 / 1000;
+				console.log(speed_map);
 			}
-			speed_map = total / speed_map_arr.length;
-		}
+		//} else {
+			//calculate speed and distance for constant speed DPV
+			/*if(route_map_disp.length > 1){
+				var arr_size = route_map_disp.length - 1;
+				var lat_1 = route_map_disp[arr_size - 1][0];
+				var lon_1 = route_map_disp[arr_size - 1][1];
+				var lat_2 = route_map_disp[arr_size][0];
+				var lon_2 = route_map_disp[arr_size][1];
+				// Do the classic `geodesic inversion` computation
+				g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
+				distance_map = distance_map + g84inv.s12;
+				speed_map = (((1/document.getElementById("rec_freq_opt").value) * g84inv.s12 * 3600) / 1000);
+			
+				speed_map_arr.push(speed_map);
+				if(speed_map_arr.length > 100) {speed_map_arr.splice((speed_map_arr[0]) , 1);}
+
+				var total = 0;
+				for (i = 0; i < speed_map_arr.length; i++){
+					total = total + speed_map_arr[i];
+				}
+				speed_map = total / speed_map_arr.length;
+			}
+		}*/
 		
 		//error handler
 		if (lat_start == null || lat_start == undefined) {

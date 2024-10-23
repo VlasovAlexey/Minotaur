@@ -57,7 +57,7 @@ function lng_map_rot(){
     
     layers_map = L.control.layers(translate_map_selector(td_lng,osm,esri), null, {
         collapsed: true,
-        position: "bottomright"
+        position: "topright"
     }).addTo(map);
 }
 draw_path();
@@ -67,8 +67,12 @@ document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.displa
 
 // Display some debug info
 //L.Rotate.debug(map);
-
-var playerLoc = new L.Marker(map.getCenter()).addTo(map);
+var PlayerIcon = L.icon({
+    iconUrl: 'leaflet/images/person_marker-icon-2x.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 30] 
+});
+var playerLoc = new L.Marker(map.getCenter() , {icon: PlayerIcon}).addTo(map);
 function start_draw_path(){
     setInterval(()=>{
         updatemap();
@@ -110,6 +114,7 @@ function updatemap() {  // Update the current player location on map
         map.invalidateSize();
         map.panTo([lat_reg,lon_reg]);
 
+        document.getElementById("speed_val_text").innerHTML = speed_map.toFixed(1);
         document.getElementById("ele_val_text").innerHTML = parseFloat((document.getElementById("default_ele_opt").value).replace(",", ".")).toFixed(1);
     }
 }
