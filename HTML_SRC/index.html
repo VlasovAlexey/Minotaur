@@ -347,9 +347,12 @@
             <div id="data-test1"></div>
             <div id="data-test2"></div>
             <div id="rec_base" style="width:100%; height:0px;">
-               <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:100px; position:sticky; top: 0px; z-index:3000"></div>
+               <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:70px; right: 0; position:relative; top: 0px; z-index:10"></div>
             </div>
             <div id="map_hide">
+               <div id="rec_blinking" style="width:100%; height:0px;">
+                  <div id="rec_blinking_map_rotator" style="background: url(rec_blink.svg) no-repeat right center; width:90%; height:70px; left: 20; position:absolute; top: 80px; z-index:3000"></div>
+               </div>
                <div id="map" class="map_fullscreen"></div>
                <button type="button" id="btn_rec_fullscreen" onClick="btn_meas_click();"></button>
             </div>
@@ -612,9 +615,13 @@
       <script src="geographic_lib/geographiclib-geodesic.js"></script>
       <script src="geographic_lib/geographiclib-dms.js"></script>
       
-      <!-- Leaflet-Fullscreen-Button -->
-      <link rel="stylesheet" href="leaflet/Leaflet.fullscreen.css?3232" />
-      <script src="leaflet/Leaflet.fullscreen.js?2342"></script>
+      <!-- Leaflet-Fullscreen -->
+      <link rel="stylesheet" href="leaflet/Control.FullScreen.css" />
+      <script src="leaflet/Control.FullScreen.js"></script>
+      
+      <!-- Leaflet-Easy-Button -->
+      <link rel="stylesheet" href="leaflet/easy-button.css?3" />
+      <script src="leaflet/easy-button.js?2"></script>
 
 		<!-- include some miscellaneous -->
       <script src="leaflet/Leaflet.PaintPolygon.js"></script>

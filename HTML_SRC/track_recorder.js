@@ -1,5 +1,6 @@
 //Recording button start here
 element_id_hide("rec_blinking");
+element_id_hide("rec_blinking_map_rotator");
 
 var GPX_File = "";
 var GPX_file_num = 1;
@@ -97,6 +98,7 @@ function btn_record() {
 		document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
 		element_id_show("rec_blinking");
+		element_id_show("rec_blinking_map_rotator");
 		element_id_hide("main_parameters");
 		element_id_hide("data_format");
 		element_id_hide("tn_btn_restore");
@@ -137,6 +139,7 @@ function btn_record() {
 		document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #969696";
 		element_id_hide("rec_blinking");
+		element_id_hide("rec_blinking_map_rotator");
 		element_id_show("main_parameters");
 		element_id_show("data_format");
 		element_id_show("tn_btn_restore");
@@ -240,6 +243,7 @@ function btn_meas_click() {
 		element_id_hide("dialContainer");
 		element_id_hide("info_glob");
 		element_id_hide("compas_head_box");
+		element_id_hide("map_editor");
 	} else {
 		document.getElementById("btn_rec_fullscreen").className = "map_button_rec_hided";
 
@@ -252,6 +256,7 @@ function btn_meas_click() {
 		element_id_show("dialContainer");
 		element_id_show("info_glob");
 		element_id_show("compas_head_box");
+		element_id_show("map_editor");
 	}
 }
 
@@ -465,7 +470,7 @@ function GlobalWatch() {
 		
 		//if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking need get bigger distances between points
-			if(route_map_disp.length > 70){
+			if(route_map_disp.length > 40){
 				var arr_size = route_map_disp.length - 1;
 				var lat_1 = route_map_disp[arr_size - 1][0];
 				var lon_1 = route_map_disp[arr_size - 1][1];
@@ -477,7 +482,7 @@ function GlobalWatch() {
 				
 				//compute highly approximated speed
 				speed_map = 0;
-				for (i = route_map_disp.length - 70; i < route_map_disp.length - 1; i++) {
+				for (i = route_map_disp.length - 40; i < route_map_disp.length - 1; i++) {
 					lat_1 = route_map_disp[i-1][0];
 					lon_1 = route_map_disp[i-1][1];
 					lat_2 = route_map_disp[i][0];
@@ -487,7 +492,7 @@ function GlobalWatch() {
 					speed_map = speed_map.toFixed(6) * 1.0;
 					//console.log(speed_map, ((1 / document.getElementById("rec_freq_opt").value) * g84inv.s12));
 				}
-				speed_map = (speed_map/69) * 3600 / 1000;
+				speed_map = (speed_map/39) * 3600 / 1000;
 				//console.log(speed_map);
 			}
 		//} else {

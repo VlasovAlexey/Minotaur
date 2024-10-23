@@ -46,11 +46,14 @@ var osm_editor = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 });
 
 var map_editor = L.map('map_editor', {
-  fullscreenControl: {
-    pseudoFullscreen: false
-  },
   center: [c_lat, c_lon],
   zoom: 17,
+  fullscreenControl: true,
+	fullscreenControlOptions: {
+					// optional
+					title: 'Show me the fullscreen !',
+					titleCancel: 'Exit fullscreen mode'
+				},
   layers: [esri_editor],
   zoomAnimation: true,
   rotate: true, //we use rotator version of leaflet and need disable rotator functionality for map editor usage
@@ -63,6 +66,7 @@ var map_editor = L.map('map_editor', {
   rotateControl: false,
   compassBearing: false,
 });
+
 
 var first_start_map_editor = 1;
 //main function for update lng on map editor
@@ -197,4 +201,26 @@ var paintpolygonControl = L.control.paintPolygon(
         weight: 2
     }
 }).addTo(map_editor);
+
+/*
+var stateChangingButton = L.easyButton({
+  states: [{
+          stateName: 'zoom-to-forest',        // name the state
+          icon:      'leaflet/fullscreen.png',               // and define its properties
+          title:     'zoom to a forest',      // like its title
+          onClick: function(btn, map) {       // and its callback
+              map.setView([46.25,-121.8],10);
+              btn.state('zoom-to-school');    // change state on click!
+          }
+      }]
+})
+stateChangingButton.addTo(map_editor);
+
+L.easyButton('<img src="leaflet/fullscreen.png">', function(btn, map){
+  var antarctica = [-77,70];
+  map.setView(antarctica);
+  var container = L.DomUtil.create('div', 'leaflet-control-fullscreen leaflet-bar leaflet-control');
+  L.DomUtil.addClass(container, 'leaflet-fullscreen-on');
+}).addTo(map_editor);
+*/
 
