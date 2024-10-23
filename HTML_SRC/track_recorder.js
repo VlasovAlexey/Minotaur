@@ -465,7 +465,7 @@ function GlobalWatch() {
 		
 		//if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking need get bigger distances between points
-			if(route_map_disp.length > 20){
+			if(route_map_disp.length > 70){
 				var arr_size = route_map_disp.length - 1;
 				var lat_1 = route_map_disp[arr_size - 1][0];
 				var lon_1 = route_map_disp[arr_size - 1][1];
@@ -477,7 +477,7 @@ function GlobalWatch() {
 				
 				//compute highly approximated speed
 				speed_map = 0;
-				for (i = route_map_disp.length - 20; i < route_map_disp.length - 1; i++) {
+				for (i = route_map_disp.length - 70; i < route_map_disp.length - 1; i++) {
 					lat_1 = route_map_disp[i-1][0];
 					lon_1 = route_map_disp[i-1][1];
 					lat_2 = route_map_disp[i][0];
@@ -485,10 +485,10 @@ function GlobalWatch() {
 					g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
 					speed_map = (speed_map + ((1 / document.getElementById("rec_freq_opt").value) * g84inv.s12));
 					speed_map = speed_map.toFixed(6) * 1.0;
-					console.log(speed_map, ((1 / document.getElementById("rec_freq_opt").value) * g84inv.s12));
+					//console.log(speed_map, ((1 / document.getElementById("rec_freq_opt").value) * g84inv.s12));
 				}
-				speed_map = (speed_map/19) * 3600 / 1000;
-				console.log(speed_map);
+				speed_map = (speed_map/69) * 3600 / 1000;
+				//console.log(speed_map);
 			}
 		//} else {
 			//calculate speed and distance for constant speed DPV
