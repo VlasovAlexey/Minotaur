@@ -41,7 +41,12 @@ function upd_all() {
 	if (GlobalInterval == 0 || GlobalInterval != 0) {
 		clearTimeout(GlobalInterval);
 	};
-	GlobalInterval = setInterval(GlobalWatch, (1000 * document.getElementById("rec_freq_opt").value));
+	var rec_vls = document.getElementById("rec_freq_opt").value * 1000.0;
+	if($("#data_format_opt").val() * 1.0 == 1){
+        //regular GPS track
+        rec_vls = 1000;
+    }
+	GlobalInterval = setInterval(GlobalWatch, rec_vls);
 
 	//get and set frequency for accelerometer
 	if (AccelInterval == 0 || AccelInterval != 0) {

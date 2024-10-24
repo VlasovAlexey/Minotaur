@@ -169,7 +169,14 @@ function btn_record() {
 		GPX_File = GPX_File + "    </wpt>\n";
 		GPX_File = GPX_File + "    <extensions>\n";
 		GPX_File = GPX_File + "     <speed>" + speed_reg + "</speed>\n";
-		GPX_File = GPX_File + "     <freq>" + (document.getElementById("rec_freq_opt").value) + "</freq>\n";
+		
+		var rec_vls = document.getElementById("rec_freq_opt").value;
+		if($("#data_format_opt").val() * 1.0 == 1){
+        	//regular GPS track
+        	rec_vls = 1;
+    	}
+
+		GPX_File = GPX_File + "     <freq>" + rec_vls + "</freq>\n";
 		GPX_File = GPX_File + "     <meas_len>" + ((document.getElementById("meas_len_opt").value).replace(",", ".")) + "</meas_len>\n";
 		GPX_File = GPX_File + "     <calib_f>" + ((document.getElementById("calib_f_opt").value).replace(",", ".")) + "</calib_f>\n";
 		GPX_File = GPX_File + "    </extensions>\n";
@@ -217,7 +224,13 @@ function btn_record() {
 			lat_2 = route_map_disp[i][0];
 			lon_2 = route_map_disp[i][1];
 			g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
-			speed_map = speed_map + ((1 / document.getElementById("rec_freq_opt").value) * g84inv.s12);
+			
+			var rec_vls = document.getElementById("rec_freq_opt").value;
+			if($("#data_format_opt").val() * 1.0 == 1){
+        		//regular GPS track
+        		rec_vls = 1;
+    		}
+			speed_map = speed_map + ((1 / rec_vls) * g84inv.s12);
 		}
 		speed_map = (speed_map/(route_map_disp.length - 1)) * 3600 / 1000;
 	}
@@ -488,36 +501,16 @@ function GlobalWatch() {
 					lat_2 = route_map_disp[i][0];
 					lon_2 = route_map_disp[i][1];
 					g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
-					speed_map = (speed_map + ((1 / document.getElementById("rec_freq_opt").value) * g84inv.s12));
+					var rec_vls = document.getElementById("rec_freq_opt").value;
+					if($("#data_format_opt").val() * 1.0 == 1){
+        				//regular GPS track
+        				rec_vls = 1;
+    				}
+					speed_map = (speed_map + ((1 / rec_vls) * g84inv.s12));
 					speed_map = speed_map.toFixed(6) * 1.0;
-					//console.log(speed_map, ((1 / document.getElementById("rec_freq_opt").value) * g84inv.s12));
 				}
 				speed_map = (speed_map/39) * 3600 / 1000;
-				//console.log(speed_map);
 			}
-		//} else {
-			//calculate speed and distance for constant speed DPV
-			/*if(route_map_disp.length > 1){
-				var arr_size = route_map_disp.length - 1;
-				var lat_1 = route_map_disp[arr_size - 1][0];
-				var lon_1 = route_map_disp[arr_size - 1][1];
-				var lat_2 = route_map_disp[arr_size][0];
-				var lon_2 = route_map_disp[arr_size][1];
-				// Do the classic `geodesic inversion` computation
-				g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
-				distance_map = distance_map + g84inv.s12;
-				speed_map = (((1/document.getElementById("rec_freq_opt").value) * g84inv.s12 * 3600) / 1000);
-			
-				speed_map_arr.push(speed_map);
-				if(speed_map_arr.length > 100) {speed_map_arr.splice((speed_map_arr[0]) , 1);}
-
-				var total = 0;
-				for (i = 0; i < speed_map_arr.length; i++){
-					total = total + speed_map_arr[i];
-				}
-				speed_map = total / speed_map_arr.length;
-			}
-		}*/
 		
 		//error handler
 		if (lat_start == null || lat_start == undefined) {

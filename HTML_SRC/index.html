@@ -271,13 +271,12 @@
                   <div id="tr_dmn_sel" class="tr_dmn_sel"></div>
                   <div id="tn_data_format" class="tn_data_format"></div>
                   <div id="tr_data_format" class="tr_data_format"></div>
-                  <div id="tn_rec_freq" class="tn_rec_freq"></div>
-                  <div id="tr_rec_freq" class="tr_rec_freq"></div>
                </div>
             </div>
             <div id="main_parameters">
                <div class="div_block" id="div_block_dpv1">
-   
+                  <div id="tn_rec_freq" class="tn_rec_freq"></div>
+                  <div id="tr_rec_freq" class="tr_rec_freq"></div>
                   <div id="tn_meas_len" class="tn_meas_len"></div>
                   <div id="tr_meas_len" class="tr_meas_len"></div>
                   <div id="tn_const_spd" class="tn_const_spd"></div>
@@ -453,7 +452,7 @@
                   <div id="trackChart"><!-- Plotly chart will be drawn inside this DIV --></div>
                </div>
                <div class="div_block" id="div_block">
-                  <input type="file" id="gpx_file" class="gpx_file" accept=".gpx"></button>
+                  <input type="file" id="gpx_file" class="gpx_file" accept=".kml"></button>
                   <label for="gpx_file" id="btn_add_track" class="btn_add_track"></label>
                   <button type="button" id="btn_delete_track" class="btn_delete_track" onClick="btn_delete_track();"></button>
                   <button type="button" id="btn_save_track" class="btn_save_track" onClick="gpx_final_save();"></button>
@@ -632,6 +631,8 @@
       
       <link rel="stylesheet" href="leaflet/L.Control.BetterScale.css" />
       <script src="leaflet/L.Control.BetterScale.js"></script>
+
+      <script src="import/togeojson.umd.js"></script>
 
       <script src="lng_fn.js?v0.110267w1a134g215f1145v3613313112"charset="UTF-8"></script>
       

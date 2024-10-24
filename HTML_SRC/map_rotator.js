@@ -73,10 +73,18 @@ var PlayerIcon = L.icon({
     iconAnchor: [12, 30] 
 });
 var playerLoc = new L.Marker(map.getCenter() , {icon: PlayerIcon}).addTo(map);
+var rec_vls;
 function start_draw_path(){
+    rec_vls = document.getElementById("rec_freq_opt").value * 1000.0;
+    if($("#data_format_opt").val() * 1.0 == 1){
+        //regular GPS track
+        rec_vls = 1000;
+    } else {
+        //constant speed DPV track
+    }
     setInterval(()=>{
         updatemap();
-    }, (document.getElementById("rec_freq_opt").value * 1000.0));
+    }, rec_vls);
 }
 start_draw_path();
 
