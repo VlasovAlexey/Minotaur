@@ -244,6 +244,8 @@ var options = {
     //title: "Import a layer", // Plugin Button Text
   //},
 };
+
+//error handlers for file importing
 L.Control.betterFileLayer(options).addTo(map_editor);
 map_editor.on("bfl:layerloaded", () => {
   console.log("Layer was successful added to the map canvas!");
