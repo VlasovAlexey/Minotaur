@@ -51,8 +51,8 @@ var map_editor = L.map('map_editor', {
   fullscreenControl: true,
 	fullscreenControlOptions: {
 					// optional
-					title: 'Show me the fullscreen !',
-					titleCancel: 'Exit fullscreen mode'
+					title: "", //'Fullscreen mode',
+					titleCancel: "",// 'Exit fullscreen mode'
 				},
   layers: [esri_editor],
   zoomAnimation: true,
@@ -224,3 +224,39 @@ L.easyButton('<img src="leaflet/fullscreen.png">', function(btn, map){
 }).addTo(map_editor);
 */
 
+//import file button
+var options = {
+  position: 'topright', // Leaflet control position
+  fileSizeLimit: 50024, // File size limit in kb (default: 1024 kb)
+  //style: () => {}, // Overwrite the default BFL GeoJSON style function
+  onEachFeature: () => {}, // Overwrite the default BFL GeoJSON onEachFeature function
+  //layer: L.customLayer, // If you want a custom layer to be used (must be a GeoJSON class inheritance)
+  // Restrict accepted file formats (default: .gpx, .kml, .kmz, .geojson, .json, .csv, .topojson, .wkt, .shp, .shx, .prj, .dbf, .zip)
+  formats:['.geojson', '.kml', '.gpx', '.kmz', '.csv', '.zip'],
+  importOptions: { // Some file types may have import options, for now, just csv is documented
+    csv: {
+      delimiter: ';',
+      latfield: 'LAT',
+      lonfield: 'LONG',
+    },
+  },
+  //text: { // If you need translate
+    //title: "Import a layer", // Plugin Button Text
+  //},
+};
+L.Control.betterFileLayer(options).addTo(map_editor);
+map_editor.on("bfl:layerloaded", () => {
+  console.log("Layer was successful added to the map canvas!");
+});
+
+map_editor.on("bfl:layerloaderror", ({layer}) => {
+  console.log("Ops! Your file have an error!, please check it. File name: ", layer);
+});
+
+map_editor.on("bfl:filenotsupported", ({layer}) => {
+  console.log("Your file type is not supported!, the list are: geojson, json, kml, kmz, topojson, wkt, csv, polyline, gpx, (.shp, .shx, .prj, .dbf), or zip with (.shp, .shx, .prj, .dbf) inside", layer);
+});
+
+map_editor.on("bfl:filesizelimit", ({file}) => {
+  console.log("Your file is too big! Please, the file have to be bellow 50 Megabyte.", file);          
+});
