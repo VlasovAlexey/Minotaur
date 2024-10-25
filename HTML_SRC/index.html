@@ -350,7 +350,7 @@
             </div>
             <div id="map_hide">
                <div id="rec_blinking" style="width:100%; height:0px;">
-                  <div id="rec_blinking_map_rotator" style="background: url(rec_blink.svg) no-repeat right center; width:90%; height:70px; left: 20; position:absolute; top: 80px; z-index:3000"></div>
+                  <div id="rec_blinking_map_rotator" style="background: url(rec_blink.svg) no-repeat right center; width:92%; height:70px; left: 10; position:absolute; top: 20px; z-index:3000"></div>
                </div>
                <div id="map" class="map_fullscreen"></div>
                <button type="button" id="btn_rec_fullscreen" onClick="btn_meas_click();"></button>
@@ -452,6 +452,7 @@
                   <div id="trackChart"><!-- Plotly chart will be drawn inside this DIV --></div>
                </div>
                <div class="div_block" id="div_block">
+                  <input type="file" id="btn_import" multiple accept=".gpx,.kml,.geojson,.json,.csv,.topojson,.wkt,.shp,.shx,.prj,.dbf,.zip"/>
                   <input type="file" id="gpx_file" class="gpx_file" accept=".kml"></button>
                   <label for="gpx_file" id="btn_add_track" class="btn_add_track"></label>
                   <button type="button" id="btn_delete_track" class="btn_delete_track" onClick="btn_delete_track();"></button>
@@ -671,8 +672,8 @@
                document.getElementById("preloader").style.opacity = "0";
                setTimeout(function() {
                    document.getElementById("preloader").style.display = "none";
-               }, 1000);
-             }, 1200);
+               }, 100);
+             }, 200);
          };
       </script>
       <!--<Preloader_End>-->

@@ -24,6 +24,8 @@ function btn_share_track() {
 
 }
 
+var editor_file_num = 1;
+
 c_lat = document.getElementById("default_lat_opt").value;
 c_lat = (c_lat.replace(",", ".")) * 1.0;
 
@@ -155,13 +157,17 @@ map_editor.pm.enableDraw('Line', {
 });
 map_editor.pm.disableDraw();
 
+
+
 //add save and load buttons to geoman
 let gjson_load = new L.Control.PMButton({
   title: "load gjson",
   actions: [""],
   //actions: ["cancel"],
   onClick: () => {
-    console.log("test");
+    //import any files
+    document.getElementById("btn_import").click();
+    //console.log(map.pm.Draw.getShapes());
   },
   afterClick: () => {},
   doToggle: false,
@@ -173,7 +179,33 @@ let gjson_save = new L.Control.PMButton({
   title: "save gjson",
   actions: [],
   onClick: () => {
-    console.log("test");
+
+    //save current map
+    function toGeoJSON() {
+      var allLayers = new L.featureGroup();
+      map_editor.eachLayer(function (layer) {
+        if (layer instanceof L.Path) {
+          allLayers.addLayer(layer);
+        } else {
+          if (layer instanceof L.Marker) {
+            allLayers.addLayer(layer);
+          }
+        }
+      });
+      var geojson = allLayers.toGeoJSON();
+      console.log(JSON.stringify(geojson));
+      //and write file
+		  scr_n_add = "";
+		  if (GPX_file_num < 10 ) {
+			  scr_n_add = "0";
+		  }
+		  var fl_name = scr_n_add + editor_file_num + "_" + (track_name.value).toString() + "_" + get_date_hr() + ".geojson";
+      var blob = new Blob([JSON.stringify(geojson)], {type: "application/geojson;charset=utf-8"});
+      saveAs(blob, fl_name);
+
+      editor_file_num = editor_file_num + 1;
+    }
+    toGeoJSON();
   },
   afterClick: () => {},
   doToggle: false,
@@ -226,6 +258,7 @@ L.easyButton('<img src="leaflet/fullscreen.png">', function(btn, map){
 
 //import file button
 var options = {
+  button: document.getElementById("btn_import"),
   position: 'topright', // Leaflet control position
   fileSizeLimit: 50024, // File size limit in kb (default: 1024 kb)
   //style: () => {}, // Overwrite the default BFL GeoJSON style function
@@ -244,9 +277,9 @@ var options = {
     //title: "Import a layer", // Plugin Button Text
   //},
 };
+L.Control.betterFileLayer(options).addTo(map_editor);
 
 //error handlers for file importing
-L.Control.betterFileLayer(options).addTo(map_editor);
 map_editor.on("bfl:layerloaded", () => {
   console.log("Layer was successful added to the map canvas!");
 });

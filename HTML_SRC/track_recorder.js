@@ -188,14 +188,13 @@ function btn_record() {
 		if (GPX_file_num < 10 ) {
 			scr_n_add = "0";
 		}
-		var fl_name = scr_n_add + GPX_file_num + "_minotaur_" + get_date_hr() + ".gpx";
+		var fl_name = scr_n_add + GPX_file_num + "_" + (track_name.value).toString() + "_" + get_date_hr() + ".gpx";
 		GPX_file_num = GPX_file_num + 1;
 		var blob = new Blob([GPX_File], {
 			type: "application/gpx;charset=utf-8"
 		});
-		stop_t_time();
-
 		saveAs(blob, fl_name);
+		stop_t_time();
 		GPX_File = [];
 
 		//send to 3d view new recorded track

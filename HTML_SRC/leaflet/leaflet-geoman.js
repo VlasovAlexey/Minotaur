@@ -4716,6 +4716,7 @@
                 let e = {
                     tool: t.block,
                     className: t.className,
+                    idName: t.idName,
                     title: t.title || "",
                     jsClass: t.name,
                     onClick: t.onClick,

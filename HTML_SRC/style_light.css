@@ -655,7 +655,7 @@ br{
 }
 
 
-#gpx_file {display: none;}
+#gpx_file, #btn_import {display: none;}
 
 #trackChart {
     width: 100%;
