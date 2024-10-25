@@ -41,7 +41,7 @@ The constant measurement mode allows you to take pictures regardless of location
 |Using pulsation to calculate average speed|$\textcolor{green}{\textsf{Yes}}$|No|$\textcolor{green}{\textsf{Yes}}$|
 |Memory maximum routes |$\textcolor{green}{\textsf{Depend of phone memory +/- 1 000 000}}$|50| +/- 5000|
 |Working with multiple routes|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
-|Manual map drawing|[Use WTracks](https://opoto.github.io/wtracks/)|$\textcolor{green}{\textsf{Yes}}$|No|
+|Manual map drawing|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
 |Add LRUD data|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
 |Building complex profiles|$\textcolor{green}{\textsf{Yes}}$|$\textcolor{green}{\textsf{Yes}}$|No|
 |Multilingual software GUI|$\textcolor{green}{\textsf{Yes}}$|No|No|
