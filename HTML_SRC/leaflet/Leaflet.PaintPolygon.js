@@ -283,7 +283,7 @@
         }, e
     }
 }, function(n, e) {
-    n.exports = "leaflet/PaintPolygon.svg"
+    n.exports = "leaflet/PaintPolygon.svg?12344"
 }, function(n, e, t) {
     var i, r, o = {},
         s = (i = function() {
