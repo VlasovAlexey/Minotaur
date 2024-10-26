@@ -180,6 +180,17 @@ let gjson_save = new L.Control.PMButton({
   actions: [],
   onClick: () => {
 
+    //test
+    var layers = L.PM.Utils.findLayers(map_editor);
+    var group = L.featureGroup();
+    layers.forEach((layer)=>{
+      group.addLayer(layer);
+    });
+    console.log(group);
+    shapes = group.toGeoJSON();
+    //console.log(JSON.stringify(shapes));
+    
+
     //save current map
     function toGeoJSON() {
       var allLayers = new L.featureGroup();
@@ -193,7 +204,8 @@ let gjson_save = new L.Control.PMButton({
         }
       });
       var geojson = allLayers.toGeoJSON();
-      console.log(JSON.stringify(geojson));
+      //console.log(JSON.stringify(geojson));
+
       //and write file
 		  scr_n_add = "";
 		  if (GPX_file_num < 10 ) {
