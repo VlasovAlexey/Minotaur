@@ -46,6 +46,7 @@
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
+    
 }
 .leaflet-control-paintpolygon-menu-content  {
     padding: 5px;

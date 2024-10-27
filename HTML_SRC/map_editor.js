@@ -157,8 +157,6 @@ map_editor.pm.enableDraw('Line', {
 });
 map_editor.pm.disableDraw();
 
-
-
 //add save and load buttons to geoman
 let gjson_load = new L.Control.PMButton({
   title: "load gjson",
@@ -225,9 +223,29 @@ let gjson_save = new L.Control.PMButton({
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-save',
 });
-
 map_editor.addControl(gjson_load);
 map_editor.addControl(gjson_save);
+
+/*add measure button
+let measure_line = new L.Control.PMButton({
+  title: "load gjson",
+  actions: [""],
+  onClick: () => {
+    document.getElementById("measure_line_button").click();
+  },
+  afterClick: () => {},
+  doToggle: false,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-measure',
+});
+map_editor.addControl(measure_line);
+
+const options_meas = {
+  button: document.getElementById("measure_line_button")
+};
+L.Control.qgsmeasure(options_meas).addTo(map_editor);
+*/
 
 //paint polygon settings
 var paintpolygonControl = L.control.paintPolygon(
@@ -273,7 +291,7 @@ var options = {
   button: document.getElementById("btn_import"),
   position: 'topright', // Leaflet control position
   fileSizeLimit: 50024, // File size limit in kb (default: 1024 kb)
-  //style: () => {}, // Overwrite the default BFL GeoJSON style function
+  style: () => {}, // Overwrite the default BFL GeoJSON style function
   onEachFeature: () => {}, // Overwrite the default BFL GeoJSON onEachFeature function
   //layer: L.customLayer, // If you want a custom layer to be used (must be a GeoJSON class inheritance)
   // Restrict accepted file formats (default: .gpx, .kml, .kmz, .geojson, .json, .csv, .topojson, .wkt, .shp, .shx, .prj, .dbf, .zip)
