@@ -34,6 +34,8 @@ var speed_map = 0;
 var speed_map_arr = [];
 var g84 = geodesic.Geodesic.WGS84;
 
+var first_start_app = 1;
+
 //track only display time on gui
 function start_t_time(){
     t_time_interval = setInterval(()=>{
@@ -52,6 +54,7 @@ function btn_record() {
 		//move map rotator to fullscreen
 		meas_state = 0;
 		btn_meas_click();
+		first_start_app = 0;
 
 		//map rotator clear tracks and try create first point
 		if (lat_reg != "0.0" && lon_reg != "0.0"){
@@ -130,12 +133,7 @@ function btn_record() {
 		GPX_File = GPX_File + " <trk>\n  <name>Minotaur_Track_" + get_date() + "</name>\n  <trkseg>\n";
 
 	} else {
-		//restore map size and remove overlay button
-		/*document.getElementById("map").className = "map_fullscreen_stop";
-		map.panTo([c_lat,c_lon]);
-		map.invalidateSize();
-		document.getElementById("btn_rec_fullscreen").className = ".map_button_rec_hided";
-		*/
+		
 		document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #969696";
 		element_id_hide("rec_blinking");
@@ -232,6 +230,7 @@ function btn_record() {
 			speed_map = speed_map + ((1 / rec_vls) * g84inv.s12);
 		}
 		speed_map = (speed_map/(route_map_disp.length - 1)) * 3600 / 1000;
+		
 	}
 }
 
@@ -242,10 +241,15 @@ document.getElementById("btn_meas").style.border = "6px solid #969696";
 element_id_hide("map_hide");
 
 function btn_meas_click() {
+	//move all GUI to up every time if used full screen map rotator
+	//this keep record button position on one place
+	document.getElementById("8-header").click();
+	document.getElementById("4-header").click();
+
 	meas_tick = meas_tick + 1;
 	if (meas_state == 0) {
 		document.getElementById("btn_rec_fullscreen").className = "map_button_rec_fullscreen";
-
+		
 		document.getElementById("btn_meas").style.background = "url(meas_press.svg) no-repeat center center";
 		document.getElementById("btn_meas").style.border = "6px solid #188958";
 		meas_state = 1;
@@ -256,6 +260,37 @@ function btn_meas_click() {
 		element_id_hide("info_glob");
 		element_id_hide("compas_head_box");
 		element_id_hide("map_editor");
+
+		if (first_start_app == 0){
+			//app already written track
+			map.invalidateSize();
+			map.fitBounds(path1.getBounds(), {
+				padding: [20, 20]
+			});
+			first_start_app = 2;
+		   /* 
+			var html2canvasConfiguration = {
+				allowTaint: true,
+				foreignObjectRendering: true,
+				useCORS: true,
+				width: map._size.x,
+				height: map._size.y,
+				backgroundColor: null,
+				logging: true,
+				imageTimeout: 0
+			};
+			
+			var elementToCapture = map._container.getElementsByClassName('leaflet-pane leaflet-map-pane')[0];
+			html2canvas(elementToCapture, html2canvasConfiguration).then(function (canvas) {
+				var link = document.createElement('a');
+				link.download = 'test_a.png';
+				link.href = canvas.toDataURL();
+				link.click();
+				link.remove();
+			})
+			*/
+		}
+
 	} else {
 		document.getElementById("btn_rec_fullscreen").className = "map_button_rec_hided";
 

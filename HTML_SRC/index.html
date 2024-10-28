@@ -348,7 +348,7 @@
             <div id="rec_base" style="width:100%; height:0px;">
                <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:70px; right: 0; position:relative; top: 0px; z-index:10"></div>
             </div>
-            <div id="map_hide">
+            <div id="map_hide" class="map_hide">
                <div id="rec_blinking" style="width:100%; height:0px;">
                   <div id="rec_blinking_map_rotator" style="background: url(rec_blink.svg) no-repeat right center; width:92%; height:70px; left: 10; position:absolute; top: 20px; z-index:3000"></div>
                </div>
@@ -644,6 +644,17 @@
       <!-- Leaflet import some geodesic formats -->
       <link rel="stylesheet" href="leaflet/leaflet.betterfilelayer.css"/>
       <script src="leaflet/leaflet.betterfilelayer.js"></script>
+      
+      <script>
+         HTMLCanvasElement.prototype.getContext = function(origFn) {
+           return function(type, attribs) {
+             attribs = attribs || {};
+             attribs.preserveDrawingBuffer = true;
+             return origFn.call(this, type, attribs);
+           };
+         }(HTMLCanvasElement.prototype.getContext);
+      </script>
+      <script src="html2canvas.min.js"></script>
       
       <script src="lng_fn.js?v0.110267w1a134g215f1145v3613313112"charset="UTF-8"></script>
       

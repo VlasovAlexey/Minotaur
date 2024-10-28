@@ -165,9 +165,48 @@ let gjson_load = new L.Control.PMButton({
   onClick: () => {
     //import any files
     document.getElementById("btn_import").click();
-    //console.log(map.pm.Draw.getShapes());
   },
-  afterClick: () => {},
+  afterClick: () => {
+    map_editor.pm.enableDraw('Polygon', {
+      snappable: true,
+      templineStyle: {
+        color: '#2c8aff',
+      },
+      hintlineStyle: {
+        color: '#2c8aff',
+        dashArray: [5, 5],
+      },
+      pathOptions: {
+        color: '#2c8aff',
+        fillColor: '#2c8aff',
+        fillOpacity: 0.25,
+      },
+      markerStyle,
+      cursorMarker: false,
+      // finishOn: 'contextmenu',
+      finishOnDoubleClick: true,
+  });
+  map_editor.pm.enableDraw('Line', {
+      snappable: true,
+      templineStyle: {
+        color: '#2c8aff',
+      },
+      hintlineStyle: {
+        color: '#2c8aff',
+        dashArray: [5, 5],
+      },
+      pathOptions: {
+        color: 'black',
+        fillColor: '#2c8aff',
+        fillOpacity: 0.7,
+      },
+      markerStyle,
+      cursorMarker: false,
+      // finishOn: 'contextmenu',
+      finishOnDoubleClick: true,
+  });
+  map_editor.pm.disableDraw();
+  },
   doToggle: false,
   toggleStatus: false,
   disableOtherButtons: true,
@@ -291,8 +330,12 @@ var options = {
   button: document.getElementById("btn_import"),
   position: 'topright', // Leaflet control position
   fileSizeLimit: 50024, // File size limit in kb (default: 1024 kb)
-  style: () => {}, // Overwrite the default BFL GeoJSON style function
-  onEachFeature: () => {}, // Overwrite the default BFL GeoJSON onEachFeature function
+  style: () => {
+    
+  }, // Overwrite the default BFL GeoJSON style function
+  onEachFeature: () => {
+    
+  }, // Overwrite the default BFL GeoJSON onEachFeature function
   //layer: L.customLayer, // If you want a custom layer to be used (must be a GeoJSON class inheritance)
   // Restrict accepted file formats (default: .gpx, .kml, .kmz, .geojson, .json, .csv, .topojson, .wkt, .shp, .shx, .prj, .dbf, .zip)
   formats:['.geojson', '.kml', '.gpx', '.kmz', '.csv', '.zip'],
@@ -325,3 +368,4 @@ map_editor.on("bfl:filenotsupported", ({layer}) => {
 map_editor.on("bfl:filesizelimit", ({file}) => {
   console.log("Your file is too big! Please, the file have to be bellow 50 Megabyte.", file);          
 });
+

@@ -3,7 +3,6 @@ var c_lat = 0;
 var c_lon = 0;
 
 var layers_map;
-
 var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     id: 'mapbox.streets',
     maxZoom: 24,
@@ -118,12 +117,15 @@ function updatemap() {  // Update the current player location on map
     }
     //button record not pressed
     if (record_state == 0){
-        playerLoc.setLatLng([lat_reg,lon_reg]);
-        map.invalidateSize();
-        map.panTo([lat_reg,lon_reg]);
-
-        document.getElementById("speed_val_text").innerHTML = speed_map.toFixed(1);
-        document.getElementById("ele_val_text").innerHTML = parseFloat((document.getElementById("default_ele_opt").value).replace(",", ".")).toFixed(1);
+        
+        if (first_start_app == 1){
+            //first app start
+            playerLoc.setLatLng([lat_reg,lon_reg]);
+            map.invalidateSize();
+            map.panTo([lat_reg,lon_reg]);
+            document.getElementById("speed_val_text").innerHTML = speed_map.toFixed(1);
+            //document.getElementById("ele_val_text").innerHTML = parseFloat((document.getElementById("default_ele_opt").value).replace(",", ".")).toFixed(1);
+        }
     }
 }
 

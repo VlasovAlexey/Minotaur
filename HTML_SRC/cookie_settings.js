@@ -176,36 +176,6 @@ var data_format_arr = [{
 
 var record_step_arr = [
 	{
-		text: "0,025",
-		id: "r_step_01",
-		value: "0.025",
-		isdisable: "enabled"
-	},
-	{
-		text: "0,033",
-		id: "r_step_02",
-		value: "0.033",
-		isdisable: "enabled"
-	},
-	{
-		text: "0,05",
-		id: "r_step_03",
-		value: "0.05",
-		isdisable: "enabled"
-	},
-	{
-		text: "0,1",
-		id: "r_step_04",
-		value: "0.1",
-		isdisable: "enabled"
-	},
-	{
-		text: "0,25",
-		id: "r_step_05",
-		value: "0.25",
-		isdisable: "enabled"
-	},
-	{
 		text: "0,5",
 		id: "r_step_06",
 		value: "0.5",
