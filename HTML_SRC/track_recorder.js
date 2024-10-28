@@ -123,15 +123,6 @@ function btn_record() {
 
 		//start sensor watchers for path writing
 		geolocation_pos_watcher();
-
-		//start writing to gpx array data
-		//Add header
-		GPX_File = GPX_File + "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-
-		GPX_File = GPX_File + "<gpx creator=\"Minotaur https://vlasovalexey.github.io/Minotaur/HTML_SRC/\" version=\"0.1\" xmlns=\"https://vlasovalexey.github.io/Minotaur/HTML_SRC/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"https://vlasovalexey.github.io/Minotaur/HTML_SRC/\">\n";
-		GPX_File = GPX_File + " <metadata>\n <time>" + get_date() + "</time>\n </metadata>\n";
-		GPX_File = GPX_File + " <trk>\n  <name>Minotaur_Track_" + get_date() + "</name>\n  <trkseg>\n";
-
 	} else {
 		
 		document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
@@ -143,43 +134,8 @@ function btn_record() {
 		element_id_show("tn_btn_restore");
 		record_state = 0;
 		rec_first_start = 0;
-		//close trk
-		GPX_File = GPX_File + "  </trkseg>\n </trk>\n";
 
-		//add two way points
-		GPX_File = GPX_File + "    <wpt lat=\"" + lat_start + "\" lon=\"" + lon_start + "\">\n";
-		GPX_File = GPX_File + "     <ele>" + ele_start + "</ele>\n";
-		GPX_File = GPX_File + "     <name>Track Minotaur Start " + lat_start + ", " + lon_start + "</name>\n";
-		GPX_File = GPX_File + "     <desc>Track Minotaur Start " + lat_start + ", " + lon_start + "</desc>\n";
-		GPX_File = GPX_File + "    </wpt>\n";
-
-		GPX_File = GPX_File + "    <wpt lat=\"" + lat_end + "\" lon=\"" + lon_end + "\">\n";
-		
-		if($("#data_format_opt").val() * 1.0 == 1){
-			//regular GPS file
-			GPX_File = GPX_File + "     <ele>" + ele_end + "</ele>\n";
-		} else {
-			//constant speed DPV file other variations
-			GPX_File = GPX_File + "     <ele>" + ele_reg_const + "</ele>\n";
-		}
-		GPX_File = GPX_File + "     <name>Track Minotaur End " + lat_end + ", " + lon_end + "</name>\n";
-		GPX_File = GPX_File + "     <desc>Track Minotaur End " + lat_end + ", " + lon_end + "</desc>\n";
-		GPX_File = GPX_File + "    </wpt>\n";
-		GPX_File = GPX_File + "    <extensions>\n";
-		GPX_File = GPX_File + "     <speed>" + speed_reg + "</speed>\n";
-		
-		var rec_vls = document.getElementById("rec_freq_opt").value;
-		if($("#data_format_opt").val() * 1.0 == 1){
-        	//regular GPS track
-        	rec_vls = 1;
-    	}
-
-		GPX_File = GPX_File + "     <freq>" + rec_vls + "</freq>\n";
-		GPX_File = GPX_File + "     <meas_len>" + ((document.getElementById("meas_len_opt").value).replace(",", ".")) + "</meas_len>\n";
-		GPX_File = GPX_File + "     <calib_f>" + ((document.getElementById("calib_f_opt").value).replace(",", ".")) + "</calib_f>\n";
-		GPX_File = GPX_File + "    </extensions>\n";
-		//end create gpx array
-		GPX_File = GPX_File + "</gpx>\n";
+		GPX_File = arr_to_gpx(route_map_disp);
 
 		//and write file
 		scr_n_add = "";
@@ -432,10 +388,11 @@ function GlobalWatch() {
 		//write to file
 		if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking
-			route_map_disp.push([lat_reg,lon_reg,ele_reg]);
-            GPX_File = GPX_File + "    <trkpt lat=\"" + lat_reg + "\" lon=\"" + lon_reg + "\">\n";
-			GPX_File = GPX_File + "     <ele>" + ele_reg + "</ele>\n";
-
+			if(document.getElementById("accel_use_opt").value == 1){
+				route_map_disp.push([c_lat,c_lon,ele_reg_const,course_reg,orient_a,orient_b,orient_g,meas_tick,accel_arr]);
+			} else {
+				route_map_disp.push([lat_reg,lon_reg,ele_reg,course_reg,orient_a,orient_b,orient_g,meas_tick,""]);
+			}
         } else {
             //all others modes with Constant Speed e.g.
             c_time_freq = document.getElementById("rec_freq_opt").value;
@@ -451,41 +408,25 @@ function GlobalWatch() {
 				if (orient_b < -89){orient_bt = -89;}
 			}
 
-			//make new elevation calculation
-			
+			//make new altitude calculation
 			if (orient_bt >= 0) {
 				ele_reg_const = ele_reg_const + (Math.sin((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed));
 			} else {
 				ele_reg_const = ele_reg_const - (Math.sin((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed));
 			}
-
             c_lat_new = destinationPoint(c_lat, c_lon, (Math.cos((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed)) , acHeading * 1.0).lat;
 			c_lon_new = destinationPoint(c_lat, c_lon, (Math.cos((Math.PI * Math.abs(orient_bt)) / 180) * (c_time_freq * c_speed)) , acHeading * 1.0).lon;
-
-			GPX_File = GPX_File + "    <trkpt lat=\"" + c_lat_new + "\" lon=\"" + c_lon_new + "\">\n";
-			GPX_File = GPX_File + "     <ele>" + ele_reg_const + "</ele>\n";
-            
 			c_lat = c_lat_new;
             c_lon = c_lon_new;
-			
-			route_map_disp.push([c_lat,c_lon,ele_reg_const]);
-        }
 
-		//write all other data
-		GPX_File = GPX_File + "     <course>" + course_reg + "</course>\n";
-		GPX_File = GPX_File + "     <extensions>\n";
-		GPX_File = GPX_File + "      <orient_a>" + orient_a + "</orient_a>\n";
-		GPX_File = GPX_File + "      <orient_b>" + orient_b + "</orient_b>\n";
-		GPX_File = GPX_File + "      <orient_g>" + orient_g + "</orient_g>\n";
-		GPX_File = GPX_File + "      <meas_tick>" + meas_tick + "</meas_tick>\n";
-		
-		if(document.getElementById("accel_use_opt").value == 1){
-			GPX_File = GPX_File + accel_arr;
-		}
+			if(document.getElementById("accel_use_opt").value == 1){
+				route_map_disp.push([c_lat,c_lon,ele_reg_const,course_reg,orient_a,orient_b,orient_g,meas_tick,accel_arr]);
+			} else {
+				route_map_disp.push([c_lat,c_lon,ele_reg_const,course_reg,orient_a,orient_b,orient_g,meas_tick,""]);
+			}
+        }
 		accel_arr = [];
-		
-		GPX_File = GPX_File + "     </extensions>\n";
-		GPX_File = GPX_File + "    </trkpt>\n";
+
 		meas_tick = 0;
 		if (rec_first_start == 0) {
 			if($("#data_format_opt").val() * 1.0 == 1){
@@ -541,7 +482,7 @@ function GlobalWatch() {
         				rec_vls = 1;
     				}
 					speed_map = (speed_map + ((1 / rec_vls) * g84inv.s12));
-					speed_map = speed_map.toFixed(6) * 1.0;
+					//speed_map = speed_map.toFixed(6) * 1.0;
 				}
 				speed_map = (speed_map/39) * 3600 / 1000;
 			}
@@ -586,9 +527,6 @@ function updateGeo(c) {
 	lat_reg = c.latitude;
 	lon_reg = c.longitude;
 	ele_reg = c.altitude;
-
-	//document.getElementById(`data-latitude`).textContent = lat_reg;
-	//document.getElementById(`data-longitude`).textContent = lon_reg;
 }
 
 const Second = 1000;
@@ -614,7 +552,6 @@ function errorHidden() {
 // good paragraph.
 function updateError(err) {
 	errorHidden();
-
 	let t;
 	switch (err.code) {
 		case NONAVIGATION:

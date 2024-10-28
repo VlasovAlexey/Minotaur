@@ -184,8 +184,11 @@ function draw_path() {
             }
         };
     }
-
-    path1 = L.hotline(route_map_disp, {
+    var tree_size_arr = [];
+    for (i = 0; i < route_map_disp.length; i++) {
+        tree_size_arr.push([route_map_disp[i][0],route_map_disp[i][1],route_map_disp[i][2]]);
+    }
+    path1 = L.hotline(tree_size_arr, {
         min: ele_line_max,
         max: ele_line_min,
         palette: {
