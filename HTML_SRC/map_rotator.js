@@ -186,7 +186,7 @@ function draw_path() {
     }
     var tree_size_arr = [];
     for (i = 0; i < route_map_disp.length; i++) {
-        tree_size_arr.push([route_map_disp[i][0],route_map_disp[i][1],route_map_disp[i][2]]);
+        tree_size_arr.push([route_map_disp[i].x,route_map_disp[i].y,route_map_disp[i].z]);
     }
     path1 = L.hotline(tree_size_arr, {
         min: ele_line_max,

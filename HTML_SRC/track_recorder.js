@@ -284,9 +284,6 @@ function geolocation_pos_watcher() {
 			orient_a = Math.round(event.alpha);
 			orient_b = Math.round(event.beta);
 			orient_g = Math.round(event.gamma);
-			//document.getElementById("data-test1").textContent = String("orient_bt: " + orient_bt + " ele_reg_const: " + ele_reg_const + " ele_reg: " + ele_reg);
-			//document.getElementById("data-test2").textContent = String("ele_line_min: " + ele_line_min + " ele_line_max: " + ele_line_max);
-			
 		});
 
 		//acceleration 
@@ -297,8 +294,6 @@ function geolocation_pos_watcher() {
 			rot_rate_a = parseFloat(event.rotationRate.alpha).toFixed(3);
 			rot_rate_b = parseFloat(event.rotationRate.beta).toFixed(3);
 			rot_rate_g = parseFloat(event.rotationRate.gamma).toFixed(3);
-			//document.getElementById("data-test1").textContent = String(accel_x + " : " + accel_y + " : " + accel_z);
-			//document.getElementById("data-test2").textContent = String(rot_rate_a + " : " + rot_rate_b + " : " + rot_rate_g);
 		});
 		navigator.geolocation.watchPosition(g => {
 			//document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
@@ -389,9 +384,29 @@ function GlobalWatch() {
 		if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking
 			if(document.getElementById("accel_use_opt").value == 1){
-				route_map_disp.push([c_lat,c_lon,ele_reg_const,course_reg,orient_a,orient_b,orient_g,meas_tick,accel_arr]);
+				route_map_disp.push({
+					x: lat_reg,
+					y: lon_reg,
+					z: ele_reg,
+					course: course_reg,
+					a: orient_a,
+					b: orient_b,
+					g: orient_g,
+					meas: meas_tick,
+					accel: accel_arr
+				});
 			} else {
-				route_map_disp.push([lat_reg,lon_reg,ele_reg,course_reg,orient_a,orient_b,orient_g,meas_tick,""]);
+				route_map_disp.push({
+					x: lat_reg,
+					y: lon_reg,
+					z: ele_reg,
+					course: course_reg,
+					a: orient_a,
+					b: orient_b,
+					g: orient_g,
+					meas: meas_tick,
+					accel: ""
+				});
 			}
         } else {
             //all others modes with Constant Speed e.g.
@@ -420,13 +435,34 @@ function GlobalWatch() {
             c_lon = c_lon_new;
 
 			if(document.getElementById("accel_use_opt").value == 1){
-				route_map_disp.push([c_lat,c_lon,ele_reg_const,course_reg,orient_a,orient_b,orient_g,meas_tick,accel_arr]);
+				//route_map_disp.push([c_lat,c_lon,ele_reg_const,course_reg,orient_a,orient_b,orient_g,meas_tick,accel_arr]);
+				route_map_disp.push({
+					x: c_lat,
+					y: c_lon,
+					z: ele_reg_const,
+					course: course_reg,
+					a: orient_a,
+					b: orient_b,
+					g: orient_g,
+					meas: meas_tick,
+					accel: accel_arr
+				});
 			} else {
-				route_map_disp.push([c_lat,c_lon,ele_reg_const,course_reg,orient_a,orient_b,orient_g,meas_tick,""]);
+				//route_map_disp.push([c_lat,c_lon,ele_reg_const,course_reg,orient_a,orient_b,orient_g,meas_tick,""]);
+				route_map_disp.push({
+					x: c_lat,
+					y: c_lon,
+					z: ele_reg_const,
+					course: course_reg,
+					a: orient_a,
+					b: orient_b,
+					g: orient_g,
+					meas: meas_tick,
+					accel: ""
+				});
 			}
         }
 		accel_arr = [];
-
 		meas_tick = 0;
 		if (rec_first_start == 0) {
 			if($("#data_format_opt").val() * 1.0 == 1){
