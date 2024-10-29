@@ -51,7 +51,6 @@ function lng_map_rot(){
         first_start_map_rot = 0;
     } else {
         layers_map.remove();
-        //spd_textbox.remove();
     }
     
     layers_map = L.control.layers(translate_map_selector(td_lng,osm,esri), null, {
@@ -91,6 +90,7 @@ function updatemap() {  // Update the current player location on map
     
     //button record pressed
     if (record_state == 1){
+        map.options.compassBearing = true;
         path1.removeFrom(map);
         if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking
@@ -123,9 +123,40 @@ function updatemap() {  // Update the current player location on map
             playerLoc.setLatLng([lat_reg,lon_reg]);
             map.invalidateSize();
             map.panTo([lat_reg,lon_reg]);
+            map.options.compassBearing = true;
             document.getElementById("speed_val_text").innerHTML = speed_map.toFixed(1);
             //document.getElementById("ele_val_text").innerHTML = parseFloat((document.getElementById("default_ele_opt").value).replace(",", ".")).toFixed(1);
         }
+        if (first_start_app == 0){
+			//app already written track
+			map.invalidateSize();
+			map.fitBounds(path1.getBounds(), {
+				padding: [20, 20]
+			});
+			first_start_app = 2;
+            map.options.compassBearing = false;
+		   /* 
+			var html2canvasConfiguration = {
+				allowTaint: true,
+				foreignObjectRendering: true,
+				useCORS: true,
+				width: map._size.x,
+				height: map._size.y,
+				backgroundColor: null,
+				logging: true,
+				imageTimeout: 0
+			};
+			
+			var elementToCapture = map._container.getElementsByClassName('leaflet-pane leaflet-map-pane')[0];
+			html2canvas(elementToCapture, html2canvasConfiguration).then(function (canvas) {
+				var link = document.createElement('a');
+				link.download = 'test_a.png';
+				link.href = canvas.toDataURL();
+				link.click();
+				link.remove();
+			})
+			*/
+		}
     }
 }
 

@@ -158,9 +158,9 @@ function btn_record() {
 		z = [];
 		c = [];
 		for (i = 0; i < route_map_disp.length; i++) {
-			x.push((route_map_disp[i][1]));
-			y.push((route_map_disp[i][0]));
-			z.push((route_map_disp[i][2]));
+			x.push((route_map_disp[i].y));
+			y.push((route_map_disp[i].x));
+			z.push((route_map_disp[i].z));
 			c.push(i);
 		}
 		opt3D_Line(0.0000001);
@@ -171,11 +171,11 @@ function btn_record() {
 
 		//draw middle speed value after all
 		speed_map = 0;
-		for (i = 1; i < route_map_disp.length - 1; i++) {
-			lat_1 = route_map_disp[i-1][0];
-			lon_1 = route_map_disp[i-1][1];
-			lat_2 = route_map_disp[i][0];
-			lon_2 = route_map_disp[i][1];
+		for (i = 1; i < route_map_disp.length-1; i++) {
+			lat_1 = route_map_disp[i-1].x;
+			lon_1 = route_map_disp[i-1].y;
+			lat_2 = route_map_disp[i].x;
+			lon_2 = route_map_disp[i].y;
 			g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
 			
 			var rec_vls = document.getElementById("rec_freq_opt").value;
@@ -216,36 +216,6 @@ function btn_meas_click() {
 		element_id_hide("info_glob");
 		element_id_hide("compas_head_box");
 		element_id_hide("map_editor");
-
-		if (first_start_app == 0){
-			//app already written track
-			map.invalidateSize();
-			map.fitBounds(path1.getBounds(), {
-				padding: [20, 20]
-			});
-			first_start_app = 2;
-		   /* 
-			var html2canvasConfiguration = {
-				allowTaint: true,
-				foreignObjectRendering: true,
-				useCORS: true,
-				width: map._size.x,
-				height: map._size.y,
-				backgroundColor: null,
-				logging: true,
-				imageTimeout: 0
-			};
-			
-			var elementToCapture = map._container.getElementsByClassName('leaflet-pane leaflet-map-pane')[0];
-			html2canvas(elementToCapture, html2canvasConfiguration).then(function (canvas) {
-				var link = document.createElement('a');
-				link.download = 'test_a.png';
-				link.href = canvas.toDataURL();
-				link.click();
-				link.remove();
-			})
-			*/
-		}
 
 	} else {
 		document.getElementById("btn_rec_fullscreen").className = "map_button_rec_hided";
@@ -494,23 +464,23 @@ function GlobalWatch() {
 		
 		//if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking need get bigger distances between points
-			if(route_map_disp.length > 40){
+			if(route_map_disp.length > 20){
 				var arr_size = route_map_disp.length - 1;
-				var lat_1 = route_map_disp[arr_size - 1][0];
-				var lon_1 = route_map_disp[arr_size - 1][1];
-				var lat_2 = route_map_disp[arr_size][0];
-				var lon_2 = route_map_disp[arr_size][1];
+				var lat_1 = route_map_disp[arr_size - 1].x;
+				var lon_1 = route_map_disp[arr_size - 1].y;
+				var lat_2 = route_map_disp[arr_size].x;
+				var lon_2 = route_map_disp[arr_size].y;
 				// Do the classic `geodesic inversion` computation
 				g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
 				distance_map = distance_map + g84inv.s12;
 				
 				//compute highly approximated speed
 				speed_map = 0;
-				for (i = route_map_disp.length - 40; i < route_map_disp.length - 1; i++) {
-					lat_1 = route_map_disp[i-1][0];
-					lon_1 = route_map_disp[i-1][1];
-					lat_2 = route_map_disp[i][0];
-					lon_2 = route_map_disp[i][1];
+				for (i = route_map_disp.length - 20; i < route_map_disp.length - 1; i++) {
+					lat_1 = route_map_disp[i-1].x;
+					lon_1 = route_map_disp[i-1].y;
+					lat_2 = route_map_disp[i].x;
+					lon_2 = route_map_disp[i].y;
 					g84inv = g84.Inverse(lat_1, lon_1, lat_2, lon_2);
 					var rec_vls = document.getElementById("rec_freq_opt").value;
 					if($("#data_format_opt").val() * 1.0 == 1){
@@ -520,7 +490,8 @@ function GlobalWatch() {
 					speed_map = (speed_map + ((1 / rec_vls) * g84inv.s12));
 					//speed_map = speed_map.toFixed(6) * 1.0;
 				}
-				speed_map = (speed_map/39) * 3600 / 1000;
+				//display in kilometers per hour
+				speed_map = (speed_map/19) * 3600 / 1000;
 			}
 		
 		//error handler
