@@ -90,7 +90,7 @@ function updatemap() {  // Update the current player location on map
     
     //button record pressed
     if (record_state == 1){
-        map.options.compassBearing = true;
+        //map.options.compassBearing = true;
         path1.removeFrom(map);
         if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking
@@ -133,8 +133,8 @@ function updatemap() {  // Update the current player location on map
 			map.fitBounds(path1.getBounds(), {
 				padding: [20, 20]
 			});
-			first_start_app = 2;
-            map.options.compassBearing = false;
+			//first_start_app = 2;
+            //map.options.compassBearing = false;
 		   /* 
 			var html2canvasConfiguration = {
 				allowTaint: true,
