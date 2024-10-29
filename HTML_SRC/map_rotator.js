@@ -118,7 +118,7 @@ function updatemap() {  // Update the current player location on map
     //button record not pressed
     if (record_state == 0){
         
-        if (first_start_app == 1){
+        //if (first_start_app == 1){
             //first app start
             playerLoc.setLatLng([lat_reg,lon_reg]);
             map.invalidateSize();
@@ -126,7 +126,7 @@ function updatemap() {  // Update the current player location on map
             //map.options.rotate = true;
             document.getElementById("speed_val_text").innerHTML = speed_map.toFixed(1);
             //document.getElementById("ele_val_text").innerHTML = parseFloat((document.getElementById("default_ele_opt").value).replace(",", ".")).toFixed(1);
-        }
+        //}
         /*
         if (first_start_app == 0){
 			//app already written track
