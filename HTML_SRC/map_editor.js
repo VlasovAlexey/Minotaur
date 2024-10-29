@@ -369,3 +369,16 @@ map_editor.on("bfl:filesizelimit", ({file}) => {
   console.log("Your file is too big! Please, the file have to be bellow 50 Megabyte.", file);          
 });
 
+// copy a rectangle and customize its name, block, title and actions
+map_editor.pm.Toolbar.copyDrawControl("Rectangle", {
+  name: "RectangleCopy",
+  block: "custom",
+  title: "Display text on hover button"
+});
+
+map_editor.pm.addControls({
+  positions: {
+    draw: "topright",
+    edit: "topleft",
+  },
+});

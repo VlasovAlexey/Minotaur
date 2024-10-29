@@ -130,9 +130,9 @@ function updatemap() {  // Update the current player location on map
         
         if (first_start_app == 0){
 			//app already written track
-            playerLoc.setLatLng(path1.getBounds()[0]);
+            playerLoc.setLatLng(path1.getBounds().getCenter());
 			map.invalidateSize();
-            map.panTo(path1.getBounds()[0]);
+            map.panTo(path1.getBounds().getCenter());
 			//map.fitBounds(path1.getBounds(), {
 			//	padding: [20, 20]
 			//});
