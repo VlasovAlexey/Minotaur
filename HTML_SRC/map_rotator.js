@@ -129,11 +129,14 @@ function updatemap() {  // Update the current player location on map
         }
         if (first_start_app == 0){
 			//app already written track
-			map.invalidateSize();
+            playerLoc.setLatLng([lat_reg,lon_reg]);
+            map.invalidateSize();
+            map.panTo([lat_reg,lon_reg]);
 			map.fitBounds(path1.getBounds(), {
 				padding: [20, 20]
 			});
-			first_start_app = 2;
+            map.invalidateSize();
+			//first_start_app = 2;
             map.options.rotate = false;
 		 
 		}
