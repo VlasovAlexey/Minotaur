@@ -90,7 +90,7 @@ function updatemap() {  // Update the current player location on map
     
     //button record pressed
     if (record_state == 1){
-        map.options.rotate = true;
+        //map.options.rotate = true;
         path1.removeFrom(map);
         if($("#data_format_opt").val() * 1.0 == 1){
             //Regular GPS Tracking
@@ -123,23 +123,22 @@ function updatemap() {  // Update the current player location on map
             playerLoc.setLatLng([lat_reg,lon_reg]);
             map.invalidateSize();
             map.panTo([lat_reg,lon_reg]);
-            map.options.rotate = true;
+            //map.options.rotate = true;
             document.getElementById("speed_val_text").innerHTML = speed_map.toFixed(1);
             //document.getElementById("ele_val_text").innerHTML = parseFloat((document.getElementById("default_ele_opt").value).replace(",", ".")).toFixed(1);
         }
+        /*
         if (first_start_app == 0){
 			//app already written track
-            playerLoc.setLatLng([lat_reg,lon_reg]);
-            map.invalidateSize();
-            map.panTo([lat_reg,lon_reg]);
+			map.invalidateSize();
 			map.fitBounds(path1.getBounds(), {
 				padding: [20, 20]
 			});
-            map.invalidateSize();
 			//first_start_app = 2;
-            map.options.rotate = false;
+            //map.options.rotate = false;
 		 
 		}
+        */
     }
 }
 
