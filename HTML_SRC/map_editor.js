@@ -212,7 +212,9 @@ let gjson_load = new L.Control.PMButton({
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-load',
 });
+
 let gjson_save = new L.Control.PMButton({
+  block: "custom",
   title: "save gjson",
   actions: [],
   onClick: () => {
@@ -369,16 +371,20 @@ map_editor.on("bfl:filesizelimit", ({file}) => {
   console.log("Your file is too big! Please, the file have to be bellow 50 Megabyte.", file);          
 });
 
-// copy a rectangle and customize its name, block, title and actions
-map_editor.pm.Toolbar.copyDrawControl("Rectangle", {
-  name: "RectangleCopy",
+//custom buttons for custom features
+map_editor.pm.Toolbar.createCustomControl({
+  name: "custom1",
   block: "custom",
-  title: "Display text on hover button"
+
+});
+map_editor.pm.Toolbar.createCustomControl({
+  name: "custom2",
+  block: "custom",
+
 });
 
 map_editor.pm.addControls({
   positions: {
-    draw: "topright",
-    edit: "topleft",
+    custom: "topright",
   },
 });
