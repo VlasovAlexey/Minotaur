@@ -55,7 +55,7 @@ function lng_map_rot(){
     
     layers_map = L.control.layers(translate_map_selector(td_lng,osm,esri), null, {
         collapsed: true,
-        position: "bottomright"
+        position: "topleft",
     }).addTo(map);
 }
 draw_path();
