@@ -13,15 +13,15 @@ function arr_to_gpx(t_arr){
         out_file = out_file + "    <trkpt lat=\"" + t_arr[i].x + "\" lon=\"" + t_arr[i].y + "\">\n";
 		out_file = out_file + "     <ele>" + t_arr[i].z + "</ele>\n";
         //write all other data
-		out_file = out_file + "     <course>" + t_arr[i].course + "</course>\n";
+		if(t_arr[i].course != undefined){out_file = out_file + "     <course>" + t_arr[i].course + "</course>\n";}
 		out_file = out_file + "     <extensions>\n";
-		out_file = out_file + "      <orient_a>" + t_arr[i].a + "</orient_a>\n";
-		out_file = out_file + "      <orient_b>" + t_arr[i].b + "</orient_b>\n";
-		out_file = out_file + "      <orient_g>" + t_arr[i].g + "</orient_g>\n";
-		out_file = out_file + "      <meas_tick>" + t_arr[i].meas + "</meas_tick>\n";
+		if(t_arr[i].a != undefined){out_file = out_file + "      <orient_a>" + t_arr[i].a + "</orient_a>\n";}
+		if(t_arr[i].b != undefined){out_file = out_file + "      <orient_b>" + t_arr[i].b + "</orient_b>\n";}
+		if(t_arr[i].g != undefined){out_file = out_file + "      <orient_g>" + t_arr[i].g + "</orient_g>\n";}
+		if(t_arr[i].meas != undefined){out_file = out_file + "      <meas_tick>" + t_arr[i].meas + "</meas_tick>\n";}
+		if(t_arr[i].accel != undefined){out_file = out_file + t_arr[i].accel;}
         out_file = out_file + "     </extensions>\n";
 		out_file = out_file + "    </trkpt>\n";
-        out_file = out_file + t_arr[i].accel;
     }
 
     //closed  track info

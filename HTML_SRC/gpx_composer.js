@@ -1,6 +1,7 @@
 var gpx_file = "";
 document.querySelector("#gpx_file").addEventListener('change', function() {
-
+	//Show progress bar
+	Pbar_Show();
 	// files that user has chosen
 	var all_files = this.files;
 	if(all_files.length == 0) {
@@ -48,8 +49,31 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 
 	// file reading finished successfully
 	reader.addEventListener('load', function(e) {
+		gpx_file = [];
         gpx_file = e.target.result;
 		gpx_file_to_massive(e.target.result);
+		arr = gpx_file_to_arr(gpx_file);
+
+		//send to 3d view new recorded track
+		//clear previous data
+		x = [];
+		y = [];
+		z = [];
+		c = [];
+		for (i = 0; i < arr.length; i++) {
+			x.push((arr[i].y));
+			y.push((arr[i].x));
+			z.push((arr[i].z));
+			c.push(i);
+		}
+		opt3D_Line(0.00001);
+
+		//draw new 3d chart with new data
+		del_html_elem("trackChart_opt");
+		gps_chart();
+
+		//Hide progress bar
+		Pbar_Hide();
 	});
 
 	// file reading failed
@@ -70,21 +94,51 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 	reader.readAsText(file);
 });
 
-//save final glued gpx file
-function gpx_final_save(){
+function gpx_file_to_arr(arr){
+	console.log(arr);
+return arr;
+}
+
+//save current track from rout builder
+function gpx_save_current_track(){
+	var arr =[];
+
+	for (i = 0; i < x.length; i++) {
+		arr.push({
+			x: y[i],
+			y: x[i],
+			z: z[i],
+		});
+	}
+	arr = arr_to_gpx(arr);
+	//and write file marked as EDITED
+	var fl_name = "EDITED_" + (track_name.value).toString() + "_" + get_date_hr() + ".gpx";
+	GPX_file_num = GPX_file_num + 1;
+	var blob = new Blob([arr], {
+		type: "application/gpx;charset=utf-8"
+	});
+	saveAs(blob, fl_name);
+}
+
+//convert loaded gpx text to array
+function gpx_file_to_arr(gpx_file){
 	if(gpx_file != ""){
 		let str = gpx_file;
+		var arr = [];
 		let target1 = "<trkpt "; // searching begin
-		let target2 = ">"; //end
-		let pos = 0;
-		let first_f = 0;
-		let c_lat = 0;
-		let c_lon = 0;
-		let fPos1 = 0;
-		let fPos2 = 0;
-		let c_speed = 0;
-		let c_time_freq = 0;
-		let c_course_m = 0;
+		let target2 = "</trkpt>"; //end
+		let pos = 0.0;
+		let c_ele = 0.0;
+		let c_lat = 0.0;
+		let c_lon = 0.0;
+		let fPos1 = 0.0;
+		let fPos2 = 0.0;
+		let c_speed = 0.0;
+		let c_time_freq = 0.0;
+		let c_course_m = 0.0;
+		let c_orient_a = 0.0;
+		let c_orient_b = 0.0;
+		let c_orient_g = 0.0;
 
 		while (true) {
   			let foundPos = str.indexOf(target1, pos);
@@ -93,56 +147,72 @@ function gpx_final_save(){
 			
 			let cut = str.slice(foundPos + 1,foundPos2);
 
-			if(first_f == 0){
-				first_f = 1;
+			
 				//find current lat
 				fPos1 = cut.indexOf("lat=", 0);
 				fPos2 = cut.indexOf("\"", fPos1 + 5);
-				c_lat = parseFloat(cut.slice(fPos1 + 5 ,fPos2 - 1));
+				c_lat = parseFloat((cut.slice(fPos1 + 5 ,fPos2 - 1))*1.0);
 			
 				//find current lon
 				fPos1 = cut.indexOf("lon=", 0);
 				fPos2 = cut.indexOf("\"", fPos1 + 5);
-				c_lon = parseFloat(cut.slice(fPos1 + 5 ,fPos2 - 1));
+				c_lon = parseFloat((cut.slice(fPos1 + 5 ,fPos2 - 1))*1.0);
+
+				//find elevation
+				c_ele = cut;
+				fPos1 = c_ele.indexOf("<ele>", 0);
+				fPos2 = c_ele.indexOf("</ele>", fPos1 + 5);
+				c_ele = parseFloat((c_ele.slice(fPos1 + 5 ,fPos2)*1.0));
+				
+				//find course
+				c_course_m = cut;
+				fPos1 = c_course_m.indexOf("<course>", 0);
+				fPos2 = c_course_m.indexOf("</course>", fPos1 + 8);
+				c_course_m = parseFloat((c_course_m.slice(fPos1 + 8 ,fPos2)*1.0));
+
+				//find orient a
+				c_orient_a = cut;
+				fPos1 = c_orient_a.indexOf("<orient_a>", 0);
+				fPos2 = c_orient_a.indexOf("</orient_a>", fPos1 + 10);
+				c_orient_a = parseFloat((c_orient_a.slice(fPos1 + 10 ,fPos2)*1.0));
+
+				//find orient b
+				c_orient_b = cut;
+				fPos1 = c_orient_b.indexOf("<orient_b>", 0);
+				fPos2 = c_orient_b.indexOf("</orient_b>", fPos1 + 10);
+				c_orient_b = parseFloat((c_orient_b.slice(fPos1 + 10 ,fPos2)*1.0));
+
+				//find orient g
+				c_orient_g = cut;
+				fPos1 = c_orient_g.indexOf("<orient_g>", 0);
+				fPos2 = c_orient_g.indexOf("</orient_g>", fPos1 + 10);
+				c_orient_g = parseFloat((c_orient_g.slice(fPos1 + 10 ,fPos2)*1.0));
 
 				//find speed
 				fPos1 = str.indexOf("<speed>", 0);
 				fPos2 = str.indexOf("</speed>", fPos1 + 7);
-				c_speed = parseFloat(str.slice(fPos1 + 7 ,fPos2));
+				c_speed = parseFloat((str.slice(fPos1 + 7 ,fPos2))*1.0);
 
 				//find freq
 				fPos1 = str.indexOf("<freq>", 0);
 				fPos2 = str.indexOf("</freq>", fPos1 + 6);
-				c_time_freq = parseFloat(str.slice(fPos1 + 6 ,fPos2));
-
-				//console.log(c_lat,c_lon,c_speed,c_time_freq);
-			}
-			else{
-				//find course
-				fPos1 = str.indexOf("<course>", foundPos2 + 1);
-				fPos2 = str.indexOf("</course>", fPos1 + 8);
-				c_course_m = parseFloat(str.slice(fPos1 + 8 ,fPos2));
-				//console.log(c_course_m);
-
-				//destinationPoint(c_lat, c_lon, c_time_freq * c_speed, c_course_m).lat
-
-				//insert new coordinates
-				c_lat_wrt = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, c_course_m).lat;
-				c_lon_wrt = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, c_course_m).lon;
-
-				str = str.replace(str.slice(foundPos,foundPos2 + 1),"<trkpt lat=\""+ c_lat_wrt + "\" lon=\""+ c_lon_wrt + "\">");
-				//str = str.replace(str.slice(foundPos + 1,foundPos2),"<trkpt lat=\"" + destinationPoint(c_lat, c_lon, c_time_freq * c_speed, c_course_m).lat + "\" lon=\"" + destinationPoint(c_lat, c_lon, c_time_freq * c_speed, c_course_m).lon + "\"");
-
-				//update old position with new calculated position
-				c_lat = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, c_course_m).lat;
-				c_lon = destinationPoint(c_lat, c_lon, c_time_freq * c_speed, c_course_m).lon;
-			}
+				c_time_freq = parseFloat((str.slice(fPos1 + 6 ,fPos2))*1.0);
+			
   			pos = foundPos + 1; // continued search from next one position
+			//console.log(c_lat,c_lon,c_ele, c_orient_a, c_orient_b, c_orient_g);
+			arr.push({
+				x: c_lat,
+				y: c_lon,
+				z: c_ele,
+				course: c_course_m,
+				a: c_orient_a,
+				b: c_orient_b,
+				g: c_orient_g,
+				speed: c_speed,
+				time_frequency: c_time_freq
+			});
 		}
-		//and write file
-        var blob = new Blob([str], {type: "application/gpx;charset=utf-8"});
-        saveAs(blob, "res.gpx");
-		//console.log(str);
+		return arr;
 	}
 }
 

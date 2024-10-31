@@ -485,9 +485,9 @@ br{
     display: none;
 }
 .overlay_progress {
-    height: 0%;
+    height: 100%;
     width: 100%;
-    position: fixed;
+    position: absolute !important;
     z-index: 9999;
     top: 0;
     left: 0;
@@ -505,7 +505,7 @@ br{
     background: rgba(0,0,0, 0.0);
     text-align: center;
     text-align-last: center;
-    top: 20%;
+    top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
