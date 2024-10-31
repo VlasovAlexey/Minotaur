@@ -206,8 +206,8 @@ function draw_path() {
         min: ele_line_max,
         max: ele_line_min,
         palette: {
-            0.0: '#ff0000',
-            0.25: '#ffff00',
+            0.0: '#5abdff',
+            0.25: '#007acc',
             0.5: '#008800',
             0.75: '#ffff00',
             1.0: '#ff0000'

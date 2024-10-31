@@ -203,7 +203,6 @@ var width_calc = (window.innerWidth/100*(88+((window.innerWidth-500)/650)));
 
 
 function gps_chart() {
-	
 	//compute aspect for proper 3d lines proportions
 	var x_tmp = min_max_arr(x);
 	var y_tmp = min_max_arr(y);
@@ -221,6 +220,26 @@ function gps_chart() {
 		x_aspect = 1;
 		y_aspect = ((x_tmp/y_tmp));
 	}
+
+	//compute min/max value for color gradient
+	var color_max = z[0] + 1;
+	var color_min = z[0] - 1;
+
+	for (i = 0; i < z.length; i++) {
+		if(z[i] > color_max){
+			color_max = z[i];
+		}
+		if(z[i] < color_min){
+			color_min = z[i];
+		}
+	}
+
+	if(Math.abs(color_max - z[0]) > Math.abs(z[0] - color_min)){
+		color_min = z[0] - Math.abs(color_max - z[0]);
+	} else {
+		color_max = z[0] + Math.abs(z[0] - color_min);
+	}
+
 	//console.log(x_tmp,y_tmp);
 	create_html_text("trackChart","trackChart_opt","");
 	//color dark
@@ -341,18 +360,18 @@ function gps_chart() {
 			//color: ["rgb(255,0,0)","#ffff00","#00ff00"],
 			//color_discrete_map: "identity",
 			color: z,
-			colorscale: "Minotaur",
-			cmin: ele_line_min,
-			cmax: ele_line_max
+			colorscale: "Minotaur_colored",
+			cmin: color_min,
+			cmax: color_max
 		},
 		marker: {
 			size: 3,
 			//color: ["rgb(255,0,0)","#ffff00","#00ff00"],
 			//color_discrete_map: "identity",
 			color: z,
-			colorscale: "Minotaur",
-			cmin: ele_line_min,
-			cmax: ele_line_max
+			colorscale: "Minotaur_colored",
+			cmin: color_min,
+			cmax: color_max
 		}
 	}, ], layout, config);
 	
