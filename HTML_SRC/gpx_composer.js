@@ -54,23 +54,26 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 		Pbar_Show();
 		setTimeout(function() {
 			gpx_file = [];
+			arr = [];
         	gpx_file = e.target.result;
 			gpx_file_to_massive(e.target.result);
 			arr = gpx_file_to_arr(gpx_file);
 
-			//send to 3d view new recorded track
+			//optimize loaded gpx track
+			result = opt3D_Line(arr , 0.000001);
+
 			//clear previous data
+			//send to 3d view new recorded track
 			x = [];
 			y = [];
 			z = [];
 			c = [];
-			for (i = 0; i < arr.length; i++) {
-				x.push((arr[i].y));
-				y.push((arr[i].x));
-				z.push((arr[i].z));
+			for (i = 0; i < result.length; i++) {
+				x.push((result[i].y));
+				y.push((result[i].x));
+				z.push((result[i].z));
 				c.push(i);
 			}
-			opt3D_Line(0.000001);
 
 			//draw new 3d chart with new data
 			del_html_elem("trackChart_opt");
@@ -195,6 +198,7 @@ function gpx_file_to_arr(gpx_file){
 		let c_orient_b = 0.0;
 		let c_orient_g = 0.0;
 
+		numerator = 0;
 		while (true) {
   			let foundPos = str.indexOf(target1, pos);
   			if (foundPos == -1) break;
@@ -254,7 +258,8 @@ function gpx_file_to_arr(gpx_file){
 				c_time_freq = ((str.slice(fPos1 + 6 ,fPos2))*1.0);
 			
   			pos = foundPos + 1; // continued search from next one position
-			//console.log(c_lat,c_lon,c_ele, c_orient_a, c_orient_b, c_orient_g);
+			console.log(numerator,c_lat,c_lon,c_ele);
+			numerator = numerator + 1;
 			arr.push({
 				x: c_lat,
 				y: c_lon,
@@ -300,26 +305,11 @@ for (i = 0; i < pointCount; i++) {
 }
 
 //optimize 3d line before draw on screen
-function opt3D_Line(optFactor){
-	var s_data = [];
-	for (i = 0; i < x.length; i++) {
-		s_data.push({x: x[i], y: y[i], z: z[i]});
-	}
-	
-	x = [];
-	y = [];
-	z = [];
+function opt3D_Line(arr, optFactor){
 	
 	//optimize by simplify function
-	var s_data_filtered = simplify(s_data , optFactor , true);
-	for (i = 0; i < s_data_filtered.length; i++) {
-		x.push(s_data_filtered[i].x);
-		y.push(s_data_filtered[i].y);
-		z.push(s_data_filtered[i].z);
-		c.push(i);
-	}
+	return simplify(arr , optFactor , true);
 }
-opt3D_Line(0.05);
 
 var layout = 0;
 //crappy code for centering graph

@@ -152,18 +152,19 @@ function btn_record() {
 		GPX_File = [];
 
 		//send to 3d view new recorded track
+		result = opt3D_Line(route_map_disp , 0.0000001);
+
 		//clear previous data
 		x = [];
 		y = [];
 		z = [];
 		c = [];
-		for (i = 0; i < route_map_disp.length; i++) {
-			x.push((route_map_disp[i].y));
-			y.push((route_map_disp[i].x));
-			z.push((route_map_disp[i].z));
+		for (i = 0; i < result.length; i++) {
+			x.push((result[i].y));
+			y.push((result[i].x));
+			z.push((result[i].z));
 			c.push(i);
 		}
-		opt3D_Line(0.0000001);
 
 		//draw new 3d chart with new data
 		del_html_elem("trackChart_opt");
