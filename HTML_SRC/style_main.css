@@ -487,8 +487,7 @@ br{
 .overlay_progress {
     height: 100%;
     width: 100%;
-    position: absolute !important;
-    z-index: 9999;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: rgba(0,0,0, 0.0);
@@ -497,19 +496,23 @@ br{
     -webkit-transition: opacity 200ms ease-in-out;
     -moz-transition: opacity 200ms ease-in-out;
     transition: opacity 200ms ease-in-out;
+    
+    z-index: 9999;
+    pointer-events: none;
 }
 .overlay-content-progress
 {
-    position: absolute;
+    position: fixed;
     width: 50%;
     background: rgba(0,0,0, 0.0);
     text-align: center;
     text-align-last: center;
-    top: 50%;
+    top: 40%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
     border-radius: 15px;
+    
 }
 .overlay_progress div,
 .overlay .tn_overlay_text_progress

@@ -4,9 +4,18 @@ element_id_hide("map_picker_base");
 //show map if button pick map pressed
 function btn_open_map_picker(){
     element_id_show("map_picker_base");
-    
-    map_picker.panTo([lat_reg,lon_reg]);
-    map_picker.invalidateSize();
+    if (first_start_app == 1){
+        map_picker.panTo([lat_reg,lon_reg]);
+        map_picker.invalidateSize();
+    }
+    if (first_start_app == 0){
+        map_picker.panTo(path1.getBounds().getCenter());
+        map_picker.invalidateSize();
+    }
+    if (first_start_app == 3){
+        map_picker.panTo(path_gray_picker.getBounds().getCenter());
+        map_picker.invalidateSize();
+    }
 }
 
 //hide on exit

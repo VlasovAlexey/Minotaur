@@ -49,32 +49,102 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 
 	// file reading finished successfully
 	reader.addEventListener('load', function(e) {
-		gpx_file = [];
-        gpx_file = e.target.result;
-		gpx_file_to_massive(e.target.result);
-		arr = gpx_file_to_arr(gpx_file);
+		
+		setTimeout(function() {
+			gpx_file = [];
+        	gpx_file = e.target.result;
+			gpx_file_to_massive(e.target.result);
+			arr = gpx_file_to_arr(gpx_file);
 
-		//send to 3d view new recorded track
-		//clear previous data
-		x = [];
-		y = [];
-		z = [];
-		c = [];
-		for (i = 0; i < arr.length; i++) {
-			x.push((arr[i].y));
-			y.push((arr[i].x));
-			z.push((arr[i].z));
-			c.push(i);
-		}
-		opt3D_Line(0.00001);
+			//send to 3d view new recorded track
+			//clear previous data
+			x = [];
+			y = [];
+			z = [];
+			c = [];
+			for (i = 0; i < arr.length; i++) {
+				x.push((arr[i].y));
+				y.push((arr[i].x));
+				z.push((arr[i].z));
+				c.push(i);
+			}
+			opt3D_Line(0.000001);
 
-		//draw new 3d chart with new data
-		del_html_elem("trackChart_opt");
-		gps_chart();
+			//draw new 3d chart with new data
+			del_html_elem("trackChart_opt");
+			gps_chart();
 
-		//Hide progress bar
-		Pbar_Hide();
+			//send loaded data to map rotator
+			first_start_app = 3;
+			
+			//prepare data
+			var tree_size_arr = [];
+			var z_tmp = [];
+    		for (i = 0; i < arr.length; i++) {
+        		tree_size_arr.push([arr[i].x,arr[i].y,arr[i].z]);
+    		}
+			for (i = 0; i < arr.length; i++) {
+        		z_tmp.push(arr[i].z);
+    		}
+			//compute min/max value for color gradient
+			var color_max = z_tmp[0] + 1;
+			var color_min = z_tmp[0] - 1;
+
+			for (i = 0; i < z_tmp.length; i++) {
+				if(z_tmp[i] > color_max){
+					color_max = z_tmp[i];
+				}
+				if(z_tmp[i] < color_min){
+					color_min = z_tmp[i];
+				}
+			}
+
+			if(Math.abs(color_max - z_tmp[0]) > Math.abs(z_tmp[0] - color_min)){
+				color_min = z_tmp[0] - Math.abs(color_max - z_tmp[0]);
+			} else {
+				color_max = z_tmp[0] + Math.abs(z_tmp[0] - color_min);
+			}
+
+			//push to map picker
+			/*path_gray_picker = L.hotline(tree_size_arr, {
+				min: color_min,
+				max: color_max,
+				palette: {
+					0.0: '#000000',
+					0.25: '#3b3b3b',
+					0.5: '#808080',
+					0.75: '#a9a9a9',
+					1.0: '#cdcdcd'
+				},
+				weight: 10,
+				outlineColor: '#eeeeee',
+				outlineWidth: 2,
+				smoothFactor: factor_scale
+			}).addTo(map_picker);
+			*/
+			//push to map rotator
+			path_gray = L.hotline(tree_size_arr, {
+				min: color_min,
+				max: color_max,
+				palette: {
+					0.0: '#000000',
+					0.25: '#3b3b3b',
+					0.5: '#808080',
+					0.75: '#a9a9a9',
+					1.0: '#cdcdcd'
+				},
+				weight: 10,
+				outlineColor: '#eeeeee',
+				outlineWidth: 2,
+				smoothFactor: factor_scale
+			}).addTo(map);
+
+
+			//Hide progress bar
+			Pbar_Hide();
+		}, 1000);
 	});
+
 
 	// file reading failed
 	reader.addEventListener('error', function() {
@@ -94,15 +164,9 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 	reader.readAsText(file);
 });
 
-function gpx_file_to_arr(arr){
-	console.log(arr);
-return arr;
-}
-
 //save current track from rout builder
 function gpx_save_current_track(){
 	var arr =[];
-
 	for (i = 0; i < x.length; i++) {
 		arr.push({
 			x: y[i],
@@ -151,52 +215,52 @@ function gpx_file_to_arr(gpx_file){
 				//find current lat
 				fPos1 = cut.indexOf("lat=", 0);
 				fPos2 = cut.indexOf("\"", fPos1 + 5);
-				c_lat = parseFloat((cut.slice(fPos1 + 5 ,fPos2 - 1))*1.0);
+				c_lat = ((cut.slice(fPos1 + 5 ,fPos2 - 1))*1.0);
 			
 				//find current lon
 				fPos1 = cut.indexOf("lon=", 0);
 				fPos2 = cut.indexOf("\"", fPos1 + 5);
-				c_lon = parseFloat((cut.slice(fPos1 + 5 ,fPos2 - 1))*1.0);
+				c_lon = ((cut.slice(fPos1 + 5 ,fPos2 - 1))*1.0);
 
 				//find elevation
 				c_ele = cut;
 				fPos1 = c_ele.indexOf("<ele>", 0);
 				fPos2 = c_ele.indexOf("</ele>", fPos1 + 5);
-				c_ele = parseFloat((c_ele.slice(fPos1 + 5 ,fPos2)*1.0));
+				c_ele = ((c_ele.slice(fPos1 + 5 ,fPos2)*1.0));
 				
 				//find course
 				c_course_m = cut;
 				fPos1 = c_course_m.indexOf("<course>", 0);
 				fPos2 = c_course_m.indexOf("</course>", fPos1 + 8);
-				c_course_m = parseFloat((c_course_m.slice(fPos1 + 8 ,fPos2)*1.0));
+				c_course_m = ((c_course_m.slice(fPos1 + 8 ,fPos2)*1.0));
 
 				//find orient a
 				c_orient_a = cut;
 				fPos1 = c_orient_a.indexOf("<orient_a>", 0);
 				fPos2 = c_orient_a.indexOf("</orient_a>", fPos1 + 10);
-				c_orient_a = parseFloat((c_orient_a.slice(fPos1 + 10 ,fPos2)*1.0));
+				c_orient_a = ((c_orient_a.slice(fPos1 + 10 ,fPos2)*1.0));
 
 				//find orient b
 				c_orient_b = cut;
 				fPos1 = c_orient_b.indexOf("<orient_b>", 0);
 				fPos2 = c_orient_b.indexOf("</orient_b>", fPos1 + 10);
-				c_orient_b = parseFloat((c_orient_b.slice(fPos1 + 10 ,fPos2)*1.0));
+				c_orient_b = ((c_orient_b.slice(fPos1 + 10 ,fPos2)*1.0));
 
 				//find orient g
 				c_orient_g = cut;
 				fPos1 = c_orient_g.indexOf("<orient_g>", 0);
 				fPos2 = c_orient_g.indexOf("</orient_g>", fPos1 + 10);
-				c_orient_g = parseFloat((c_orient_g.slice(fPos1 + 10 ,fPos2)*1.0));
+				c_orient_g = ((c_orient_g.slice(fPos1 + 10 ,fPos2)*1.0));
 
 				//find speed
 				fPos1 = str.indexOf("<speed>", 0);
 				fPos2 = str.indexOf("</speed>", fPos1 + 7);
-				c_speed = parseFloat((str.slice(fPos1 + 7 ,fPos2))*1.0);
+				c_speed = ((str.slice(fPos1 + 7 ,fPos2))*1.0);
 
 				//find freq
 				fPos1 = str.indexOf("<freq>", 0);
 				fPos2 = str.indexOf("</freq>", fPos1 + 6);
-				c_time_freq = parseFloat((str.slice(fPos1 + 6 ,fPos2))*1.0);
+				c_time_freq = ((str.slice(fPos1 + 6 ,fPos2))*1.0);
 			
   			pos = foundPos + 1; // continued search from next one position
 			//console.log(c_lat,c_lon,c_ele, c_orient_a, c_orient_b, c_orient_g);

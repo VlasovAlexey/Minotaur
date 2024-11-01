@@ -149,3 +149,6 @@ function openWMMWarn() {
 //reset gps and location icons to disabled state
 document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
 document.getElementById("btn_nav").style.background = "url(nav_no.svg) no-repeat left center";
+
+//var smoothLine = smooth([[ 1, 1 ], [ 1, 2 ], [ 2, 2 ], [ 2, 1 ]]);
+//console.log(smoothLine);

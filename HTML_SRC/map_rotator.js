@@ -133,12 +133,13 @@ function updatemap() {  // Update the current player location on map
             playerLoc.setLatLng(path1.getBounds().getCenter());
 			map.invalidateSize();
             map.panTo(path1.getBounds().getCenter());
-			//map.fitBounds(path1.getBounds(), {
-			//	padding: [20, 20]
-			//});
-			//first_start_app = 2;
-            //map.options.rotate = false;
-		 
+		}
+        //loaded data from 
+        if (first_start_app == 3){
+			//focus on loaded track from route builder
+            playerLoc.setLatLng(path_gray.getBounds().getCenter());
+			map.invalidateSize();
+            map.panTo(path_gray.getBounds().getCenter());
 		}
     }
 }

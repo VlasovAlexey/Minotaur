@@ -473,18 +473,21 @@ br{
     -webkit-transition: opacity 200ms ease-in-out;
     -moz-transition: opacity 200ms ease-in-out;
     transition: opacity 200ms ease-in-out;
+
+    z-index: 9999;
+    pointer-events: none;
 }
 .overlay-content-progress
 {
-    position: absolute;
+    position: fixed;
     width: 50%;
     background: rgba(0,0,0, 0.0);
     text-align: center;
     text-align-last: center;
-    top: 20%;
+    top: 40%;
     left: 50%;
+    transform: translate(-50%, -40%);
     margin-right: -50%;
-    transform: translate(-50%, -50%);
     border-radius: 15px;
 }
 .overlay_progress div,
