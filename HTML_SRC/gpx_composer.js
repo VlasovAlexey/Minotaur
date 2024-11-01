@@ -1,7 +1,5 @@
 var gpx_file = "";
 document.querySelector("#gpx_file").addEventListener('change', function() {
-	//Show progress bar
-	Pbar_Show();
 	// files that user has chosen
 	var all_files = this.files;
 	if(all_files.length == 0) {
@@ -9,6 +7,7 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("gpx_no_file"));
 		document.getElementById("AlertOverlay").style.height = "100%";
 		document.getElementById("AlertOverlay").style.opacity = "1";
+		Pbar_Hide();
 		return;
 	}
 
@@ -24,16 +23,18 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("gpx_bad_ext_file"));
 		document.getElementById("AlertOverlay").style.height = "100%";
 		document.getElementById("AlertOverlay").style.opacity = "1";
+		Pbar_Hide();
 		return;
 	}
 
-	// Max 2 MB allowed
+	// Max 30 MB allowed
 	var max_size_allowed = 30*1024*1024
 	if(file.size > max_size_allowed) {
 		del_html_elem("tn_overlay_text");
 		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("gpx_big_file"));
 		document.getElementById("AlertOverlay").style.height = "100%";
 		document.getElementById("AlertOverlay").style.opacity = "1";
+		Pbar_Hide();
 		return;
 	}
 
@@ -49,7 +50,8 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 
 	// file reading finished successfully
 	reader.addEventListener('load', function(e) {
-		
+		//Show progress bar
+		Pbar_Show();
 		setTimeout(function() {
 			gpx_file = [];
         	gpx_file = e.target.result;
@@ -106,22 +108,11 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 			}
 
 			//push to map picker
-			/*path_gray_picker = L.hotline(tree_size_arr, {
-				min: color_min,
-				max: color_max,
-				palette: {
-					0.0: '#000000',
-					0.25: '#3b3b3b',
-					0.5: '#808080',
-					0.75: '#a9a9a9',
-					1.0: '#cdcdcd'
-				},
+			path_gray_picker = L.polyline(tree_size_arr, {
 				weight: 10,
-				outlineColor: '#eeeeee',
-				outlineWidth: 2,
-				smoothFactor: factor_scale
+				color: "gray",
 			}).addTo(map_picker);
-			*/
+
 			//push to map rotator
 			path_gray = L.hotline(tree_size_arr, {
 				min: color_min,
@@ -135,10 +126,9 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 				},
 				weight: 10,
 				outlineColor: '#eeeeee',
-				outlineWidth: 2,
+				outlineWidth: 0,
 				smoothFactor: factor_scale
 			}).addTo(map);
-
 
 			//Hide progress bar
 			Pbar_Hide();
@@ -149,6 +139,7 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 	// file reading failed
 	reader.addEventListener('error', function() {
 	    alert('Error : Failed to read file');
+		Pbar_Hide();
 	});
 
 	// file read progress 
