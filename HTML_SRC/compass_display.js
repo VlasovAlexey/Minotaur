@@ -186,7 +186,7 @@ function compass_upd(compass_data){
 		heading = (wmm_correction(heading));
 	}
 	
-	levelDisp.style.top = 150 - (levelY + 150) + "px";
+	levelDisp.style.top = 150 - ((-levelY*3) + 150) + "px";
 	levelDisp.style.left = (levelX + 50) + "%";
 
 	var labelAngle = 0;
