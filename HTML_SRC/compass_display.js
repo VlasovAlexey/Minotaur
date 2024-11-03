@@ -212,8 +212,8 @@ function compass_upd(compass_data){
 		labelAngle = (Math.abs(360 - heading));
 		dial.style.transform = "rotate(" + (heading - 360) + "deg)"
 		acHeading = (Math.abs(360 - Math.round(heading)));
-		cross_01.style.transform = "translate(-50%, -50%) rotate(-" + (heading + 360) + "deg)"
-		cross_02.style.transform = "translate(-50%, -50%) rotate(-" + (heading + 360) + "deg)"
+		cross_01.style.transform = "translate(-50%, -50%)"
+		cross_02.style.transform = "translate(-50%, -50%)"
 
 	}
 

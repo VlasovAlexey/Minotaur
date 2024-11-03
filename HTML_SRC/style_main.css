@@ -579,7 +579,6 @@ br{
 
 .CrossContainer {
     position: relative;
-    top: -150px;
     -khtml-user-select: none;
     user-select: none;
 }
