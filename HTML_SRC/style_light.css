@@ -557,6 +557,13 @@ br{
     top: -90%;
   }
 
+.CrossContainer {
+    position: relative;
+    top: -150px;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
 /* compass styles */
 .dialContainer {
     width: 300px;

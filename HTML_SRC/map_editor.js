@@ -341,6 +341,7 @@ var options = {
   //layer: L.customLayer, // If you want a custom layer to be used (must be a GeoJSON class inheritance)
   // Restrict accepted file formats (default: .gpx, .kml, .kmz, .geojson, .json, .csv, .topojson, .wkt, .shp, .shx, .prj, .dbf, .zip)
   formats:['.geojson', '.kml', '.gpx', '.kmz', '.csv', '.zip'],
+
   importOptions: { // Some file types may have import options, for now, just csv is documented
     csv: {
       delimiter: ';',
