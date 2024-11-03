@@ -18,7 +18,7 @@ function assign_css_style() {
 
 
 	if (tn_color_idx * 1.0 === 1) {
-		CSSLoad("style_main.css?v01141811113111345");
+		CSSLoad("style_main.css?v01141811ds113111345");
 		document.getElementById("compass_svg").src = "compass_main.svg";
 		if (record_state != 1) {
 			document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
@@ -31,7 +31,7 @@ function assign_css_style() {
 		}
 	}
 	if (tn_color_idx * 1.0 === 2) {
-		CSSLoad("style_light.css?v51111104113131113");
+		CSSLoad("style_light.css?v511111041sd13131113");
 		document.getElementById("compass_svg").src = "compass_light.svg";
 		if (record_state != 1) {
 			document.getElementById("btn_rec").style.background = "url(rec_light.svg) no-repeat center center";
