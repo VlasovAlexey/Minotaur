@@ -102,13 +102,18 @@ L.control.betterscale().addTo(map_editor);
 
 var drawnItems = L.featureGroup().addTo(map_editor);
 
-//draw primitives adding geoman controls
+//customize buttons for draw primitives adding geoman controls
 map_editor.pm.addControls({
     drawMarker: true,
     drawPolygon: true,
+    drawCircle: false,
+    drawCircleMarker: false,
+
     editMode: true,
     drawPolyline: true,
     removalMode: true,
+    dragMode: true,
+
   });
 
 const markerStyle = {
@@ -218,8 +223,6 @@ let gjson_save = new L.Control.PMButton({
   title: "save gjson",
   actions: [],
   onClick: () => {
-
-    //test
     var layers = L.PM.Utils.findLayers(map_editor);
     var group = L.featureGroup();
     layers.forEach((layer)=>{
@@ -229,7 +232,6 @@ let gjson_save = new L.Control.PMButton({
     shapes = group.toGeoJSON();
     //console.log(JSON.stringify(shapes));
     
-
     //save current map
     function toGeoJSON() {
       var allLayers = new L.featureGroup();
@@ -267,27 +269,6 @@ let gjson_save = new L.Control.PMButton({
 map_editor.addControl(gjson_load);
 map_editor.addControl(gjson_save);
 
-/*add measure button
-let measure_line = new L.Control.PMButton({
-  title: "load gjson",
-  actions: [""],
-  onClick: () => {
-    document.getElementById("measure_line_button").click();
-  },
-  afterClick: () => {},
-  doToggle: false,
-  toggleStatus: false,
-  disableOtherButtons: true,
-  className: 'control-icon leaflet-pm-icon-measure',
-});
-map_editor.addControl(measure_line);
-
-const options_meas = {
-  button: document.getElementById("measure_line_button")
-};
-L.Control.qgsmeasure(options_meas).addTo(map_editor);
-*/
-
 //paint polygon settings
 var paintpolygonControl = L.control.paintPolygon(
 {
@@ -304,28 +285,6 @@ var paintpolygonControl = L.control.paintPolygon(
         weight: 2
     }
 }).addTo(map_editor);
-
-/*
-var stateChangingButton = L.easyButton({
-  states: [{
-          stateName: 'zoom-to-forest',        // name the state
-          icon:      'leaflet/fullscreen.png',               // and define its properties
-          title:     'zoom to a forest',      // like its title
-          onClick: function(btn, map) {       // and its callback
-              map.setView([46.25,-121.8],10);
-              btn.state('zoom-to-school');    // change state on click!
-          }
-      }]
-})
-stateChangingButton.addTo(map_editor);
-
-L.easyButton('<img src="leaflet/fullscreen.png">', function(btn, map){
-  var antarctica = [-77,70];
-  map.setView(antarctica);
-  var container = L.DomUtil.create('div', 'leaflet-control-fullscreen leaflet-bar leaflet-control');
-  L.DomUtil.addClass(container, 'leaflet-fullscreen-on');
-}).addTo(map_editor);
-*/
 
 //import file button
 var options = {
@@ -372,20 +331,122 @@ map_editor.on("bfl:filesizelimit", ({file}) => {
   console.log("Your file is too big! Please, the file have to be bellow 50 Megabyte.", file);          
 });
 
+map_editor.pm.Toolbar.setBlockPosition("custom", "topright");
+
 //custom buttons for custom features
+//measure
 map_editor.pm.Toolbar.createCustomControl({
-  name: "custom1",
   block: "custom",
+  name: "measure",
+  title: "",
+  actions: ["cancel",],
+  onClick: () => {
+    //start measure
 
-});
-map_editor.pm.Toolbar.createCustomControl({
-  name: "custom2",
-  block: "custom",
-
-});
-
-map_editor.pm.addControls({
-  positions: {
-    custom: "topright",
   },
+  afterClick: () => {
+
+  },
+  doToggle: true,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-measure',
+});
+
+
+//import ariane files
+const ariane = [
+  "cancel",
+  {
+    text: "Import CSV",
+    onClick: () => {
+      alert("🙋‍♂️");
+    },
+  },
+  {
+    text: "Import TML",
+    onClick: () => {
+      alert("🙋‍♂️");
+    },
+  },
+];
+
+map_editor.pm.Toolbar.createCustomControl({
+  block: "custom",
+  name: "ariane import",
+  actions: ariane,
+  title: "",
+  onClick: () => {
+
+  },
+  afterClick: () => {
+
+  },
+  doToggle: true,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-ariane',
+});
+
+
+//import seacraft files
+const seacraft = [
+  "cancel",
+  {
+    text: "Import CSV",
+    onClick: () => {
+      alert("🙋‍♂️");
+    },
+  },
+  {
+    text: "Import KML",
+    onClick: () => {
+      alert("🙋‍♂️");
+    },
+  },
+];
+
+map_editor.pm.Toolbar.createCustomControl({
+  block: "custom",
+  name: "seacraft import",
+  actions: seacraft,
+  title: "",
+  onClick: () => {
+
+  },
+  afterClick: () => {
+
+  },
+  doToggle: true,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-seacraft',
+});
+
+//save map as image
+const save_image = [
+  "cancel",
+  {
+    text: "Save Map as Image",
+    onClick: () => {
+      alert("🙋‍♂️");
+    },
+  },
+];
+
+map_editor.pm.Toolbar.createCustomControl({
+  block: "custom",
+  name: "save image",
+  actions: save_image,
+  title: "",
+  onClick: () => {
+
+  },
+  afterClick: () => {
+
+  },
+  doToggle: true,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-save-image',
 });
