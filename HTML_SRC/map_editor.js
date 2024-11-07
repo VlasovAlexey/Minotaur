@@ -333,6 +333,7 @@ map_editor.on("bfl:filesizelimit", ({file}) => {
 
 map_editor.pm.Toolbar.setBlockPosition("custom", "topright");
 
+
 //custom buttons for custom features
 //measure
 map_editor.pm.Toolbar.createCustomControl({
@@ -356,19 +357,9 @@ map_editor.pm.Toolbar.createCustomControl({
 
 //import ariane files
 const ariane = [
+  "ariane_import_csv",
+  "ariane_import_tml",
   "cancel",
-  {
-    text: "Import CSV",
-    onClick: () => {
-      alert("🙋‍♂️");
-    },
-  },
-  {
-    text: "Import TML",
-    onClick: () => {
-      alert("🙋‍♂️");
-    },
-  },
 ];
 
 map_editor.pm.Toolbar.createCustomControl({
@@ -377,10 +368,8 @@ map_editor.pm.Toolbar.createCustomControl({
   actions: ariane,
   title: "",
   onClick: () => {
-
   },
   afterClick: () => {
-
   },
   doToggle: true,
   toggleStatus: false,
@@ -391,19 +380,9 @@ map_editor.pm.Toolbar.createCustomControl({
 
 //import seacraft files
 const seacraft = [
+  "seacraft_import_csv",
+  "seacraft_import_kml",
   "cancel",
-  {
-    text: "Import CSV",
-    onClick: () => {
-      alert("🙋‍♂️");
-    },
-  },
-  {
-    text: "Import KML",
-    onClick: () => {
-      alert("🙋‍♂️");
-    },
-  },
 ];
 
 map_editor.pm.Toolbar.createCustomControl({
@@ -412,10 +391,8 @@ map_editor.pm.Toolbar.createCustomControl({
   actions: seacraft,
   title: "",
   onClick: () => {
-
   },
   afterClick: () => {
-
   },
   doToggle: true,
   toggleStatus: false,
@@ -450,3 +427,4 @@ map_editor.pm.Toolbar.createCustomControl({
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-save-image',
 });
+

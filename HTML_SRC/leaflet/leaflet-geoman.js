@@ -2381,7 +2381,11 @@
         actions: {
             finish: "Finish",
             cancel: "Cancel",
-            removeLastVertex: "Remove Last Vertex"
+            removeLastVertex: "Remove Last Vertex",
+            ariane_import_csv: "Import CSV",
+            ariane_import_tml: "Import TML",
+            seacraft_import_csv:"Import CSV",
+            seacraft_import_kml:"Import KML",
         },
         buttonTitles: {
             drawMarkerButton: "Draw Marker",
@@ -2578,7 +2582,11 @@
         actions: {
             finish: "\u0417\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u044C",
             cancel: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C",
-            removeLastVertex: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435"
+            removeLastVertex: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435",
+            ariane_import_csv: "Импорт CSV",
+            ariane_import_tml: "Импорт TML",
+            seacraft_import_csv:"Импорт CSV",
+            seacraft_import_kml:"Импорт KML",
         },
         buttonTitles: {
             drawMarkerButton: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043C\u0430\u0440\u043A\u0435\u0440",
@@ -4312,6 +4320,36 @@
                 let n = L.DomUtil.create("div", `leaflet-pm-actions-container ${e}`, i),
                     s = t.actions,
                     a = {
+                        //minotaur interface start
+                        ariane_import_csv: {
+                            text: V("actions.ariane_import_csv"),
+                            title: V("actions.ariane_import_csv"),
+                            onClick() {
+                                alert("🙋‍♂️");
+                            }
+                        },
+                        ariane_import_tml: {
+                            text: V("actions.ariane_import_tml"),
+                            title: V("actions.ariane_import_tml"),
+                            onClick() {
+                                alert("🙋‍♂️");
+                            }
+                        },
+                        seacraft_import_csv: {
+                            text: V("actions.seacraft_import_csv"),
+                            title: V("actions.seacraft_import_csv"),
+                            onClick() {
+                                alert("🙋‍♂️");
+                            }
+                        },
+                        seacraft_import_kml: {
+                            text: V("actions.seacraft_import_kml"),
+                            title: V("actions.seacraft_import_kml"),
+                            onClick() {
+                                alert("🙋‍♂️");
+                            }
+                        },
+                        //minotaur interface end
                         cancel: {
                             text: V("actions.cancel"),
                             title: V("actions.cancel"),
