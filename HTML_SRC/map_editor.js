@@ -34,7 +34,7 @@ c_lon = (c_lon.replace(",", ".")) * 1.0;
 
 var esri_editor = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     id: 'mapbox.streets',
-    maxZoom: 24,
+    maxZoom: 19,
     maxNativeZoom: 18,
     //attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
     // noWrap: true
@@ -88,7 +88,7 @@ function lng_map_editor(){
   if(td_lng == 1){ map_editor.pm.setLang("en");}
   if(td_lng == 2){ map_editor.pm.setLang("ru");}
   if(td_lng == 3){ map_editor.pm.setLang("es");}
-  if(td_lng == 4){ map_editor.pm.setLang("pt");}
+  if(td_lng == 4){ map_editor.pm.setLang("pt_br");}
   if(td_lng == 5){ map_editor.pm.setLang("zh");}
   if(td_lng == 6){ map_editor.pm.setLang("bg");}
   if(td_lng == 7){ map_editor.pm.setLang("fr");}
@@ -108,7 +108,7 @@ map_editor.pm.addControls({
     drawPolygon: true,
     drawCircle: false,
     drawCircleMarker: false,
-
+    drawRectangle: false,
     editMode: true,
     drawPolyline: true,
     removalMode: true,
@@ -172,51 +172,13 @@ let gjson_load = new L.Control.PMButton({
     document.getElementById("btn_import").click();
   },
   afterClick: () => {
-    map_editor.pm.enableDraw('Polygon', {
-      snappable: true,
-      templineStyle: {
-        color: '#2c8aff',
-      },
-      hintlineStyle: {
-        color: '#2c8aff',
-        dashArray: [5, 5],
-      },
-      pathOptions: {
-        color: '#2c8aff',
-        fillColor: '#2c8aff',
-        fillOpacity: 0.25,
-      },
-      markerStyle,
-      cursorMarker: false,
-      // finishOn: 'contextmenu',
-      finishOnDoubleClick: true,
-  });
-  map_editor.pm.enableDraw('Line', {
-      snappable: true,
-      templineStyle: {
-        color: '#2c8aff',
-      },
-      hintlineStyle: {
-        color: '#2c8aff',
-        dashArray: [5, 5],
-      },
-      pathOptions: {
-        color: 'black',
-        fillColor: '#2c8aff',
-        fillOpacity: 0.7,
-      },
-      markerStyle,
-      cursorMarker: false,
-      // finishOn: 'contextmenu',
-      finishOnDoubleClick: true,
-  });
-  map_editor.pm.disableDraw();
   },
   doToggle: false,
   toggleStatus: false,
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-load',
 });
+map_editor.addControl(gjson_load);
 
 let gjson_save = new L.Control.PMButton({
   block: "custom",
@@ -266,7 +228,6 @@ let gjson_save = new L.Control.PMButton({
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-save',
 });
-map_editor.addControl(gjson_load);
 map_editor.addControl(gjson_save);
 
 //paint polygon settings
@@ -402,29 +363,58 @@ map_editor.pm.Toolbar.createCustomControl({
 
 //save map as image
 const save_image = [
-  "cancel",
-  {
-    text: "Save Map as Image",
-    onClick: () => {
-      alert("🙋‍♂️");
-    },
-  },
+  "cancel", 
 ];
-
 map_editor.pm.Toolbar.createCustomControl({
   block: "custom",
   name: "save image",
-  actions: save_image,
   title: "",
   onClick: () => {
-
+      alert("🙋‍♂️");
   },
   afterClick: () => {
-
+    
   },
-  doToggle: true,
+  doToggle: false,
   toggleStatus: false,
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-save-image',
 });
 
+//add overlay image
+const overlay_image = [
+  "cancel",
+];
+
+map_editor.pm.Toolbar.createCustomControl({
+  block: "custom",
+  name: "overlay image",
+  title: "",
+  onClick: () => {
+  },
+  doToggle: true,
+  toggleStatus: true,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-overlay-image',
+});
+
+//add special objects creation button
+const special_objects_list = [
+  "special_objects_boulders",
+  "special_objects_stalactites",
+  "cancel",
+];
+
+map_editor.pm.Toolbar.createCustomControl({
+  block: "custom",
+  name: "special objects",
+  actions: special_objects_list,
+  title: "",
+  onClick: () => {
+
+  },
+  doToggle: true,
+  toggleStatus: true,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-special-objects',
+});

@@ -2363,6 +2363,65 @@
         }
     };
     var Pi = xt(Ne());
+    var Bg_ba = {
+        tooltips: {
+            placeMarker: "Кликнете, за да поставите маркер",
+            firstVertex: "Кликнете, за да поставите първия връх",
+            continueLine: "Щракнете, за да продължите да чертаете",
+            finishLine: "Щракнете върху всеки съществуващ маркер, за да завършите",
+            finishPoly: "Щракнете върху първия маркер, за да завършите",
+            finishRect: "Кликнете, за да завършите",
+            startCircle: "Щракнете, за да поставите центъра на кръга",
+            finishCircle: "Щракнете, за да завършите кръга",
+            placeCircleMarker: "Щракнете, за да поставите маркер на кръга",
+            placeText: "Кликнете, за да поставите текст",
+            selectFirstLayerFor: "Изберете първия слой за {действие}",
+            selectSecondLayerFor: "Изберете втори слой за {действие}"
+        },
+        actions: {
+            finish: "Завършете",
+            cancel: "Отмяна",
+            removeLastVertex: "Премахване на последния връх",
+            ariane_import_csv: "Импортиране на CSV",
+            ariane_import_tml: "IИмпортиране на TML",
+            seacraft_import_csv:"Импортиране на CSV",
+            seacraft_import_kml:"Импортиране на KML",
+            special_objects_boulders: "Камъни",
+            special_objects_stalactites: "Сталактити",
+        },
+        buttonTitles: {
+            drawMarkerButton: "Маркер за рисуване",
+            drawPolyButton: "Рисуване на полигони",
+            drawLineButton: "Рисуване на полилинии",
+            drawCircleButton: "Начертайте кръг",
+            drawRectButton: "Изготвяне на правоъгълник",
+            editButton: "Редактиране на слоеве",
+            dragButton: "Плъзгане на слоеве",
+            cutButton: "Изрязване на слоеве",
+            deleteButton: "Премахване на слоеве",
+            drawCircleMarkerButton: "Начертаване на кръгов маркер",
+            snappingButton: "Прихващане на плъзгания маркер към други слоеве и върхове",
+            pinningButton: "Свързване на споделени върхове",
+            rotateButton: "Завъртете слоевете",
+            drawTextButton: "Рисуване на текст",
+            scaleButton: "Мащабиране на слоеве",
+            autoTracingButton: "Автоматично проследяване на линия",
+            snapGuidesButton: "Показване на водачи за щракване",
+            unionButton: "Слоеве на съюза",
+            differenceButton: "Изваждане на слоеве"
+        },
+        measurements: {
+            totalLength: "LДължина",
+            segmentLength: "Дължина на сегмента",
+            area: "Площ",
+            radius: "Радиус",
+            perimeter: "Периметър",
+            height: "Височина",
+            width: "Ширина",
+            coordinates: "Позиция",
+            coordinatesMarker: "Маркер за позиция"
+        }
+    };
     var Ga = {
         tooltips: {
             placeMarker: "Click to place marker",
@@ -2386,6 +2445,12 @@
             ariane_import_tml: "Import TML",
             seacraft_import_csv:"Import CSV",
             seacraft_import_kml:"Import KML",
+            special_objects_boulders: "Boulders",
+            special_objects_stalactites: "Stalactites",
+            //send_online: "Share Your Map",
+            //overlay_image: "Load Overlay Image",
+            //save_image: "Save Map Image",
+
         },
         buttonTitles: {
             drawMarkerButton: "Draw Marker",
@@ -2483,7 +2548,13 @@
         actions: {
             finish: "Termina",
             cancel: "Annulla",
-            removeLastVertex: "Rimuovi l'ultimo vertice"
+            removeLastVertex: "Rimuovi l'ultimo vertice",
+            ariane_import_csv: "Importazione CSV",
+            ariane_import_tml: "Importazione TML",
+            seacraft_import_csv:"Importazione CSV",
+            seacraft_import_kml:"Importazione KML",
+            special_objects_boulders: "Pietre",
+            special_objects_stalactites: "Stalattiti",
         },
         buttonTitles: {
             drawMarkerButton: "Disegna Marker",
@@ -2587,6 +2658,8 @@
             ariane_import_tml: "Импорт TML",
             seacraft_import_csv:"Импорт CSV",
             seacraft_import_kml:"Импорт KML",
+            special_objects_boulders: "Камни",
+            special_objects_stalactites: "Сталактиты",
         },
         buttonTitles: {
             drawMarkerButton: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043C\u0430\u0440\u043A\u0435\u0440",
@@ -2619,7 +2692,13 @@
         actions: {
             finish: "Finalizar",
             cancel: "Cancelar",
-            removeLastVertex: "Eliminar \xFAltimo v\xE9rtice"
+            removeLastVertex: "Eliminar \xFAltimo v\xE9rtice",
+            ariane_import_csv: "Importación CSV",
+            ariane_import_tml: "Importación TML",
+            seacraft_import_csv:"Importación CSV",
+            seacraft_import_kml:"Importación KML",
+            special_objects_boulders: "Piedras",
+            special_objects_stalactites: "Estalactitas",
         },
         buttonTitles: {
             drawMarkerButton: "Dibujar Marcador",
@@ -2685,7 +2764,13 @@
         actions: {
             finish: "Terminer",
             cancel: "Annuler",
-            removeLastVertex: "Retirer le dernier sommet"
+            removeLastVertex: "Retirer le dernier sommet",
+            ariane_import_csv: "Importation CSV",
+            ariane_import_tml: "Importation TML",
+            seacraft_import_csv:"Importation CSV",
+            seacraft_import_kml:"Importation KML",
+            special_objects_boulders: "Pierres",
+            special_objects_stalactites: "Stalactites",
         },
         buttonTitles: {
             drawMarkerButton: "Placer des marqueurs",
@@ -2718,7 +2803,13 @@
         actions: {
             finish: "\u5B8C\u6210",
             cancel: "\u53D6\u6D88",
-            removeLastVertex: "\u79FB\u9664\u6700\u540E\u7684\u9876\u70B9"
+            removeLastVertex: "\u79FB\u9664\u6700\u540E\u7684\u9876\u70B9",
+            ariane_import_csv: "CSV 导入",
+            ariane_import_tml: "TML 导入",
+            seacraft_import_csv:"CSV 导入",
+            seacraft_import_kml:"KML 导入",
+            special_objects_boulders: "石头",
+            special_objects_stalactites: "钟乳石",
         },
         buttonTitles: {
             drawMarkerButton: "\u7ED8\u5236\u6807\u8BB0",
@@ -2785,7 +2876,13 @@
         actions: {
             finish: "Finalizar",
             cancel: "Cancelar",
-            removeLastVertex: "Remover \xFAltimo v\xE9rtice"
+            removeLastVertex: "Remover \xFAltimo v\xE9rtice",
+            ariane_import_csv: "Importação CSV",
+            ariane_import_tml: "Importação TML",
+            seacraft_import_csv:"Importação CSV",
+            seacraft_import_kml:"Importação KML",
+            special_objects_boulders: "Pedras",
+            special_objects_stalactites: "Estalactites",
         },
         buttonTitles: {
             drawMarkerButton: "Desenhar Marcador",
@@ -3326,7 +3423,13 @@
         actions: {
             finish: "\uB05D\uB0B4\uAE30",
             cancel: "\uCDE8\uC18C",
-            removeLastVertex: "\uB9C8\uC9C0\uB9C9 \uAF2D\uC9C0\uC810 \uC81C\uAC70"
+            removeLastVertex: "\uB9C8\uC9C0\uB9C9 \uAF2D\uC9C0\uC810 \uC81C\uAC70",
+            ariane_import_csv: "CSV 가져오기",
+            ariane_import_tml: "TML 가져오기",
+            seacraft_import_csv:"CSV 가져오기",
+            seacraft_import_kml:"KML 가져오기",
+            special_objects_boulders: "스톤",
+            special_objects_stalactites: "종유석",
         },
         buttonTitles: {
             drawMarkerButton: "\uB9C8\uCEE4 \uADF8\uB9AC\uAE30",
@@ -3394,6 +3497,7 @@
         }
     };
     var Nt = {
+        bg: Bg_ba,
         en: Ga,
         de: qa,
         it: Na,
@@ -4325,7 +4429,11 @@
                             text: V("actions.ariane_import_csv"),
                             title: V("actions.ariane_import_csv"),
                             onClick() {
-                                alert("🙋‍♂️");
+                               // create a red polygon from an array of LatLng points
+                                var latlngs1 = [[37, -109.05],[41, -109.03],[41, -102.05],[37, -102.04]];
+                                var polygon1 = L.polygon(latlngs1, {color: 'red'}).addTo(map_editor);
+                                // zoom the map to the polygon
+                                map_editor.fitBounds(polygon1.getBounds());
                             }
                         },
                         ariane_import_tml: {
@@ -4345,6 +4453,20 @@
                         seacraft_import_kml: {
                             text: V("actions.seacraft_import_kml"),
                             title: V("actions.seacraft_import_kml"),
+                            onClick() {
+                                alert("🙋‍♂️");
+                            }
+                        },
+                        special_objects_stalactites: {
+                            text: V("actions.special_objects_stalactites"),
+                            title: V("actions.special_objects_stalactites"),
+                            onClick() {
+                                alert("🙋‍♂️");
+                            }
+                        },
+                        special_objects_boulders: {
+                            text: V("actions.special_objects_boulders"),
+                            title: V("actions.special_objects_boulders"),
                             onClick() {
                                 alert("🙋‍♂️");
                             }
