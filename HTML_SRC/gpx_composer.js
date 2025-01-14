@@ -141,8 +141,11 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 
 	// file reading failed
 	reader.addEventListener('error', function() {
-	    alert('Error : Failed to read file');
-		Pbar_Hide();
+	    del_html_elem("tn_overlay_text");
+		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("gpx_bad_file"));
+		document.getElementById("AlertOverlay").style.height = "100%";
+		document.getElementById("AlertOverlay").style.opacity = "1";
+        Pbar_Hide();
 	});
 
 	// file read progress 

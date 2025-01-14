@@ -664,8 +664,7 @@ br{
     width: 200px;
 }
 
-
-#gpx_file, #btn_import, #measure_line_button {display: none;}
+#ariane_tml_file, #ariane_csv_file, #seacraft_kml_file, #seacraft_csv_file, #gpx_file, #btn_import, #measure_line_button {display: none;}
 
 #trackChart {
     width: 100%;

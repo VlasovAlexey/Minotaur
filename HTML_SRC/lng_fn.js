@@ -1083,10 +1083,32 @@
     	};
     	//eng
     	if (td_lng == 1) {
-			
-			if (val == "map_rot_empty") {
-    			val = "Empty"
+			if (val == "csv_no_file") {
+    			val = "Warning!<br>Please select any CSV file.<br>Thank you!<br>"
     		}
+			if (val == "csv_bad_ext_file") {
+    			val = "Error!<br>Incorrect file type.<br>Only CSV file extension alloved!<br>"
+    		}
+			if (val == "csv_big_file") {
+    			val = "Error!<br>Exceeded size 30MB.<br>Only 30Mb CSV data can be alloved!<br>"
+    		}
+			if (val == "csv_bad_file") {
+    			val = "Error!<br>An unexpected error occurred while reading the file.<br>Check the connection and the correctness of the media!<br>"
+    		}
+
+			if (val == "kml_no_file") {
+    			val = "Warning!<br>Please select any KML file.<br>Thank you!<br>"
+    		}
+			if (val == "kml_bad_ext_file") {
+    			val = "Error!<br>Incorrect file type.<br>Only KML file extension alloved!<br>"
+    		}
+			if (val == "kml_big_file") {
+    			val = "Error!<br>Exceeded size 30MB.<br>Only 30Mb KML data can be alloved!<br>"
+    		}
+			if (val == "kml_bad_file") {
+    			val = "Error!<br>An unexpected error occurred while reading the file.<br>Check the connection and the correctness of the media!<br>"
+    		}
+
 			if (val == "ch_WMMWarn") {
     			val = "Warning!<br>The WMM calculation algorithm works correctly until December 2025. After this date, the values may not be accurate.<br>Please update Minotaur in January 2026!<br>"
     		}
@@ -1104,6 +1126,9 @@
     		}
 			if (val == "gpx_big_file") {
     			val = "Error!<br>Exceeded size 30MB.<br>Only 30Mb GPX data can be alloved!<br>"
+    		}
+			if (val == "gpx_bad_file") {
+    			val = "Error!<br>An unexpected error occurred while reading the file.<br>Check the connection and the correctness of the media!<br>"
     		}
     		if (val == "gps_lat") {
     			val = "Latitude"
@@ -1145,6 +1170,32 @@
     	}
     	//rus
     	if (td_lng == 2) {
+			if (val == "csv_no_file") {
+    			val = "Внимание!<br>Выбирите хотя бы один CSV файл.<br>Спасибо!<br>"
+    		}
+			if (val == "csv_bad_ext_file") {
+    			val = "Ошибка!<br>Не коректный тип файла.<br>Только файлы с расширением CSV могут быть загружены!<br>"
+    		}
+			if (val == "csv_big_file") {
+    			val = "Ошибка!<br>Превышен размер файла в 30Mб.<br>Допускаются файлы размером не более 30Mб!<br>"
+    		}
+			if (val == "csv_bad_file") {
+    			val = "Ошибка!<br>Во время чтения файла произошла непредвиденная ошибка.<br>Проверьте подключение и исправность носителя!<br>"
+    		}
+
+			if (val == "kml_no_file") {
+    			val = "Внимание!<br>Выбирите хотя бы один KML файл.<br>Спасибо!<br>"
+    		}
+			if (val == "kml_bad_ext_file") {
+    			val = "Ошибка!<br>Не коректный тип файла.<br>Только файлы с расширением KML могут быть загружены!<br>"
+    		}
+			if (val == "kml_big_file") {
+    			val = "Ошибка!<br>Превышен размер файла в 30Mб.<br>Допускаются файлы размером не более 30Mб!<br>"
+    		}
+			if (val == "kml_bad_file") {
+    			val = "Ошибка!<br>Во время чтения файла произошла непредвиденная ошибка.<br>Проверьте подключение и исправность носителя!<br>"
+    		}
+
 			if (val == "ch_WMMWarn") {
     			val = "Внимание!<br>Алгоритм расчета WMM корректно работает до декабря 2025 года. После этой даты значения могут быть неточными.<br>Пожалуйста, обновите Минотавр в январе 2026 года!<br>"
     		}			
@@ -1162,6 +1213,9 @@
     		}
 			if (val == "gpx_big_file") {
     			val = "Ошибка!<br>Превышен размер файла в 30Mб.<br>Допускаются файлы размером не более 30Mб!<br>"
+    		}
+			if (val == "gpx_bad_file") {
+    			val = "Ошибка!<br>Во время чтения файла произошла непредвиденная ошибка.<br>Проверьте подключение и исправность носителя!<br>"
     		}
     		if (val == "gps_lat") {
     			val = "Широта"
@@ -1203,6 +1257,33 @@
     	}
     	//sp
     	if (td_lng == 3) {
+			if (val == "csv_no_file") {
+    			val = "¡Atención!<br>Por favor, seleccione cualquier archivo CSV.<br>¡Gracias!<br>"
+    		}
+			if (val == "csv_bad_ext_file") {
+    			val = "¡Error!<br>Tipo de archivo incorrecto.<br>¡Sólo se permite la extensión CSV!<br>"
+    		}
+			if (val == "csv_big_file") {
+    			val = "¡Error!<br>El tamaño del archivo supera los 30 MB.<br>¡Sólo se admiten archivos CSV de 30 MB!<br>"
+    		}
+			if (val == "csv_bad_file") {
+    			val = "¡Error!<br>Se ha producido un error inesperado al leer el archivo.<br>Compruebe la conexión y la corrección del soporte!<br>"
+    		}
+
+			if (val == "kml_no_file") {
+    			val = "¡Atención!<br>Por favor, seleccione cualquier archivo KML.<br>¡Gracias!<br>"
+    		}
+			if (val == "kml_bad_ext_file") {
+    			val = "¡Error!<br>Tipo de archivo incorrecto.<br>¡Sólo se permite la extensión KML!<br>"
+    		}
+			if (val == "kml_big_file") {
+    			val = "¡Error!<br>El tamaño del archivo supera los 30 MB.<br>¡Sólo se admiten archivos KML de 30 MB!<br>"
+    		}
+			if (val == "kml_bad_file") {
+    			val = "¡Error!<br>Se ha producido un error inesperado al leer el archivo.<br>Compruebe la conexión y la corrección del soporte!<br>"
+    		}
+			
+
 			if (val == "ch_WMMWarn") {
     			val = "¡Atención!<br>El algoritmo de cálculo del MMM funciona correctamente hasta diciembre de 2025. Después de esta fecha, los valores pueden no ser exactos.<br>Por favor, ¡actualice Minotauro en enero de 2026!<br>"
     		}			
@@ -1220,6 +1301,9 @@
     		}
 			if (val == "gpx_big_file") {
     			val = "¡Error!<br>El tamaño del archivo supera los 30 MB.<br>¡Sólo se admiten archivos GPX de 30 MB!<br>"
+    		}
+			if (val == "gpx_bad_file") {
+    			val = "¡Error!<br>Se ha producido un error inesperado al leer el archivo.<br>Compruebe la conexión y la corrección del soporte!<br>"
     		}
     		if (val == "gps_lat") {
     			val = "Latitud"
@@ -1260,6 +1344,32 @@
     		}
     	}
     	//pt
+		if (val == "csv_no_file") {
+			val = "Aviso!<br>Por favor, seleccione qualquer ficheiro CSV.<br>Obrigado!<br>"
+		}
+		if (val == "csv_bad_ext_file") {
+			val = "Erro!<br>Tipo de ficheiro incorreto.<br>Só é permitida a extensão de ficheiro CSV!<br>"
+		}
+		if (val == "csv_big_file") {
+			val = "Erro!<br>O tamanho do ficheiro excedeu 30 MB.<br>Só são suportados ficheiros CSV de 30 MB!<br>"
+		}
+		if (val == "csv_bad_file") {
+			val = "Erro!<br>Ocorreu um erro inesperado durante a leitura do ficheiro.<br>Verifique a ligação e a correção do suporte!<br>"
+		}
+
+		if (val == "kml_no_file") {
+			val = "Aviso!<br>Por favor, seleccione qualquer ficheiro KML.<br>Obrigado!<br>"
+		}
+		if (val == "kml_bad_ext_file") {
+			val = "Erro!<br>Tipo de ficheiro incorreto.<br>Só é permitida a extensão de ficheiro KML!<br>"
+		}
+		if (val == "kml_big_file") {
+			val = "Erro!<br>O tamanho do ficheiro excedeu 30 MB.<br>Só são suportados ficheiros KML de 30 MB!<br>"
+		}
+		if (val == "kml_bad_file") {
+			val = "Erro!<br>Ocorreu um erro inesperado durante a leitura do ficheiro.<br>Verifique a ligação e a correção do suporte!<br>"
+		}
+
 		if (val == "ch_WMMWarn") {
 			val = "Aviso!<br>O algoritmo de cálculo do WMM funciona corretamente até dezembro de 2025. Após esta data, os valores podem não ser exactos.<br>Por favor, actualize o Minotaur em janeiro de 2026!<br>"
 		}		
@@ -1277,6 +1387,9 @@
 		}
 		if (val == "gpx_big_file") {
 			val = "Erro!<br>O tamanho do ficheiro excedeu 30 MB.<br>Só são suportados ficheiros GPX de 30 MB!<br>"
+		}
+		if (val == "gpx_bad_file") {
+			val = "Erro!<br>Ocorreu um erro inesperado durante a leitura do ficheiro.<br>Verifique a ligação e a correção do suporte!<br>"
 		}
     	if (td_lng == 4) {
     		if (val == "gps_lat") {
@@ -1318,6 +1431,32 @@
     		}
     	}
     	//ch
+		if (val == "csv_no_file") {
+			val = "警告!<br>请选择任何 CSV 文件。<br>谢谢！<br>"
+		}
+		if (val == "csv_bad_ext_file") {
+			val = "错误!<br>文件类型不正确。<br>只允许 CSV 文件扩展名！<br>"
+		}
+		if (val == "csv_big_file") {
+			val = "错误!<br>文件大小超过 30 MB。<br>只支持 30 MB 的 CSV 文件！<br>"
+		}
+		if (val == "csv_bad_file") {
+			val = "错误!<br>读取文件时发生意外错误。<br>请检查连接和介质的正确性！<br>"
+		}
+
+		if (val == "kml_no_file") {
+			val = "警告!<br>请选择任何 KML 文件。<br>谢谢！<br>"
+		}
+		if (val == "kml_bad_ext_file") {
+			val = "错误!<br>文件类型不正确。<br>只允许 KML 文件扩展名！<br>"
+		}
+		if (val == "kml_big_file") {
+			val = "错误!<br>文件大小超过 30 MB。<br>只支持 30 MB 的 KML 文件！<br>"
+		}
+		if (val == "kml_bad_file") {
+			val = "错误!<br>读取文件时发生意外错误。<br>请检查连接和介质的正确性！<br>"
+		}
+
 		if (val == "ch_WMMWarn") {
 			val = "警告!<br>WMM 計算演算法可正常運作至 2025 年 12 月。<br>請於 2026 年 1 月更新 Minotaur！<br>"
 		}		
@@ -1331,10 +1470,13 @@
 			val = "警告!<br>请选择任何 GPX 文件。<br>谢谢！<br>"
 		}
 		if (val == "gpx_bad_ext_file") {
-			val = "错误！!<br>文件类型不正确。<br>只允许 GPX 文件扩展名！<br>"
+			val = "错误!<br>文件类型不正确。<br>只允许 GPX 文件扩展名！<br>"
 		}
 		if (val == "gpx_big_file") {
-			val = "错误！!<br>文件大小超过 30 MB。<br>只支持 30 MB 的 GPX 文件！<br>"
+			val = "错误!<br>文件大小超过 30 MB。<br>只支持 30 MB 的 GPX 文件！<br>"
+		}
+		if (val == "gpx_bad_file") {
+			val = "错误!<br>读取文件时发生意外错误。<br>请检查连接和介质的正确性！<br>"
 		}
     	if (td_lng == 5) {
     		if (val == "gps_lat") {
@@ -1376,6 +1518,32 @@
     		}
     	}
     	//br
+		if (val == "csv_no_file") {
+			val = "Предупреждение!<br>Изберете произволен CSV файл.<br>Благодаря ви!<br>"
+		}
+		if (val == "csv_bad_ext_file") {
+			val = "Грешка!<br>Неправилен тип файл.<br>Разрешено е само разширението на файла CSV!<br>"
+		}
+		if (val == "csv_big_file") {
+			val = "Грешка!<br>Размерът на файла е над 30 MB.<br>Поддържат се само 30 MB CSV файлове!<br>"
+		}
+		if (val == "csv_bad_file") {
+			val = "Грешка!<br>По време на четенето на файла е възникнала неочаквана грешка.<br>Моля, проверете правилната връзка и медия!<br>"
+		}
+
+		if (val == "kml_no_file") {
+			val = "Предупреждение!<br>Изберете произволен KML файл.<br>Благодаря ви!<br>"
+		}
+		if (val == "kml_bad_ext_file") {
+			val = "Грешка!<br>Неправилен тип файл.<br>Разрешено е само разширението на файла KML!<br>"
+		}
+		if (val == "kml_big_file") {
+			val = "Грешка!<br>Размерът на файла е над 30 MB.<br>Поддържат се само 30 MB KML файлове!<br>"
+		}
+		if (val == "kml_bad_file") {
+			val = "Грешка!<br>По време на четенето на файла е възникнала неочаквана грешка.<br>Моля, проверете правилната връзка и медия!<br>"
+		}
+
 		if (val == "ch_WMMWarn") {
 			val = "Предупреждение!<br>Алгоритъмът за изчисляване на ВММ работи правилно до декември 2025 г. След тази дата стойностите може да не са точни.<br>Моля, актуализирайте Minotaur през януари 2026 г.!<br>"
 		}		
@@ -1393,6 +1561,9 @@
 		}
 		if (val == "gpx_big_file") {
 			val = "Грешка!<br>Размерът на файла е над 30 MB.<br>Поддържат се само 30 MB GPX файлове!<br>"
+		}
+		if (val == "gpx_bad_file") {
+			val = "Грешка!<br>По време на четенето на файла е възникнала неочаквана грешка.<br>Моля, проверете правилната връзка и медия!<br>"
 		}
     	if (td_lng == 6) {
     		if (val == "gps_lat") {
@@ -1434,6 +1605,32 @@
     		}
     	}
     	//fr
+		if (val == "csv_no_file") {
+			val = "Attention !<br>Veuillez sélectionner n'importe quel fichier CSV.<br>Merci d'avance !<br>"
+		}
+		if (val == "csv_bad_ext_file") {
+			val = "Erreur !<br>Type de fichier incorrect.<br>Seule l'extension de fichier CSV est autorisée !<br>"
+		}
+		if (val == "csv_big_file") {
+			val = "Erreur !<br>La taille du fichier a dépassé 30 Mo.<br>Seuls les fichiers CSV de 30 Mo sont pris en charge !<br>"
+		}
+		if (val == "csv_bad_file") {
+			val = "Erreur !<br>Une erreur inattendue s'est produite lors de la lecture du fichier.<br>Veuillez vérifier que la connexion et le support sont corrects !<br>"
+		}
+
+		if (val == "kml_no_file") {
+			val = "Attention !<br>Veuillez sélectionner n'importe quel fichier KML.<br>Merci d'avance !<br>"
+		}
+		if (val == "kml_bad_ext_file") {
+			val = "Erreur !<br>Type de fichier incorrect.<br>Seule l'extension de fichier KML est autorisée !<br>"
+		}
+		if (val == "kml_big_file") {
+			val = "Erreur !<br>La taille du fichier a dépassé 30 Mo.<br>Seuls les fichiers KML de 30 Mo sont pris en charge !<br>"
+		}
+		if (val == "kml_bad_file") {
+			val = "Erreur !<br>Une erreur inattendue s'est produite lors de la lecture du fichier.<br>Veuillez vérifier que la connexion et le support sont corrects !<br>"
+		}
+
 		if (val == "ch_WMMWarn") {
 			val = "ATTENTION !<br>L'algorithme de calcul du WMM fonctionne correctement jusqu'en décembre 2025. Après cette date, les valeurs risquent de ne plus être exactes.<br>Veuillez mettre à jour le Minotaure en janvier 2026 !<br>"
 		}		
@@ -1451,6 +1648,9 @@
 		}
 		if (val == "gpx_big_file") {
 			val = "Erreur !<br>La taille du fichier a dépassé 30 Mo.<br>Seuls les fichiers GPX de 30 Mo sont pris en charge !<br>"
+		}
+		if (val == "gpx_bad_file") {
+			val = "Erreur !<br>Une erreur inattendue s'est produite lors de la lecture du fichier.<br>Veuillez vérifier que la connexion et le support sont corrects !<br>"
 		}
     	if (td_lng == 7) {
     		if (val == "gps_lat") {
@@ -1510,6 +1710,9 @@
 		if (val == "gpx_big_file") {
 			val = "오류!<br>파일 크기가 30MB를 초과했습니다.<br>30MB GPX 파일만 지원됩니다!<br>"
 		}
+		if (val == "gpx_bad_file") {
+			val = "오류!<br>파일을 읽는 동안 예기치 않은 오류가 발생했습니다.<br>올바른 연결 및 미디어를 확인하세요!<br>"
+		}
     	if (td_lng == 8) {
     		if (val == "gps_lat") {
     			val = "위도"
@@ -1550,6 +1753,32 @@
     		}
     	}
     	//it
+		if (val == "csv_no_file") {
+			val = "Attenzione!<br>Selezionare un file CSV qualsiasi.<br>Grazie!<br>"
+		}
+		if (val == "csv_bad_ext_file") {
+			val = "Errore!<br>Tipo di file non corretto.<br>È consentita solo l'estensione CSV!<br>"
+		}
+		if (val == "csv_big_file") {
+			val = "Errore!<br>La dimensione del file ha superato i 30 MB.<br>Sono supportati solo i file CSV da 30 MB!<br>"
+		}
+		if (val == "csv_bad_file") {
+			val = "Errore!<br>Si è verificato un errore imprevisto durante la lettura del file.<br>Controllare la connessione e il supporto corretti!<br>"
+		}
+
+		if (val == "kml_no_file") {
+			val = "Attenzione!<br>Selezionare un file KML qualsiasi.<br>Grazie!<br>"
+		}
+		if (val == "kml_bad_ext_file") {
+			val = "Errore!<br>Tipo di file non corretto.<br>È consentita solo l'estensione KML!<br>"
+		}
+		if (val == "kml_big_file") {
+			val = "Errore!<br>La dimensione del file ha superato i 30 MB.<br>Sono supportati solo i file KML da 30 MB!<br>"
+		}
+		if (val == "kml_bad_file") {
+			val = "Errore!<br>Si è verificato un errore imprevisto durante la lettura del file.<br>Controllare la connessione e il supporto corretti!<br>"
+		}
+
 		if (val == "ch_WMMWarn") {
 			val = "ATTENZIONE!<br>L'algoritmo di calcolo del WMM funziona correttamente fino al dicembre 2025. Dopo questa data, i valori potrebbero non essere accurati.<br>Si prega di aggiornare Minotauro nel gennaio 2026!<br>"
 		}		
@@ -1567,6 +1796,9 @@
 		}
 		if (val == "gpx_big_file") {
 			val = "Errore!<br>La dimensione del file ha superato i 30 MB.<br>Sono supportati solo i file GPX da 30 MB!<br>"
+		}
+		if (val == "gpx_bad_file") {
+			val = "Errore!<br>Si è verificato un errore imprevisto durante la lettura del file.<br>Controllare la connessione e il supporto corretti!<br>"
 		}
     	if (td_lng == 9) {
     		if (val == "gps_lat") {

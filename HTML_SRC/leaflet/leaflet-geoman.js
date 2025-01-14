@@ -2411,7 +2411,7 @@
             differenceButton: "Изваждане на слоеве"
         },
         measurements: {
-            totalLength: "LДължина",
+            totalLength: "Дължина",
             segmentLength: "Дължина на сегмента",
             area: "Площ",
             radius: "Радиус",
@@ -4429,32 +4429,35 @@
                             text: V("actions.ariane_import_csv"),
                             title: V("actions.ariane_import_csv"),
                             onClick() {
+                                document.getElementById("ariane_csv_file").click();
+                                /*
                                // create a red polygon from an array of LatLng points
                                 var latlngs1 = [[37, -109.05],[41, -109.03],[41, -102.05],[37, -102.04]];
                                 var polygon1 = L.polygon(latlngs1, {color: 'red'}).addTo(map_editor);
                                 // zoom the map to the polygon
                                 map_editor.fitBounds(polygon1.getBounds());
+                                */
                             }
                         },
                         ariane_import_tml: {
                             text: V("actions.ariane_import_tml"),
                             title: V("actions.ariane_import_tml"),
                             onClick() {
-                                alert("🙋‍♂️");
+                                document.getElementById("ariane_tml_file").click();
                             }
                         },
                         seacraft_import_csv: {
                             text: V("actions.seacraft_import_csv"),
                             title: V("actions.seacraft_import_csv"),
                             onClick() {
-                                alert("🙋‍♂️");
+                                document.getElementById("seacraft_csv_file").click();
                             }
                         },
                         seacraft_import_kml: {
                             text: V("actions.seacraft_import_kml"),
                             title: V("actions.seacraft_import_kml"),
                             onClick() {
-                                alert("🙋‍♂️");
+                                document.getElementById("seacraft_kml_file").click();
                             }
                         },
                         special_objects_stalactites: {
