@@ -1109,6 +1109,19 @@
     			val = "Error!<br>An unexpected error occurred while reading the file.<br>Check the connection and the correctness of the media!<br>"
     		}
 
+			if (val == "tml_no_file") {
+    			val = "Warning!<br>Please select any TML file.<br>Thank you!<br>"
+    		}
+			if (val == "tml_bad_ext_file") {
+    			val = "Error!<br>Incorrect file type.<br>Only TML file extension alloved!<br>"
+    		}
+			if (val == "tml_big_file") {
+    			val = "Error!<br>Exceeded size 30MB.<br>Only 30Mb TML data can be alloved!<br>"
+    		}
+			if (val == "tml_bad_file") {
+    			val = "Error!<br>An unexpected error occurred while reading the file.<br>Check the connection and the correctness of the media!<br>"
+    		}
+
 			if (val == "ch_WMMWarn") {
     			val = "Warning!<br>The WMM calculation algorithm works correctly until December 2025. After this date, the values may not be accurate.<br>Please update Minotaur in January 2026!<br>"
     		}
@@ -1193,6 +1206,19 @@
     			val = "Ошибка!<br>Превышен размер файла в 30Mб.<br>Допускаются файлы размером не более 30Mб!<br>"
     		}
 			if (val == "kml_bad_file") {
+    			val = "Ошибка!<br>Во время чтения файла произошла непредвиденная ошибка.<br>Проверьте подключение и исправность носителя!<br>"
+    		}
+
+			if (val == "tml_no_file") {
+    			val = "Внимание!<br>Выбирите хотя бы один TML файл.<br>Спасибо!<br>"
+    		}
+			if (val == "tml_bad_ext_file") {
+    			val = "Ошибка!<br>Не коректный тип файла.<br>Только файлы с расширением TML могут быть загружены!<br>"
+    		}
+			if (val == "tml_big_file") {
+    			val = "Ошибка!<br>Превышен размер файла в 30Mб.<br>Допускаются файлы размером не более 30Mб!<br>"
+    		}
+			if (val == "tml_bad_file") {
     			val = "Ошибка!<br>Во время чтения файла произошла непредвиденная ошибка.<br>Проверьте подключение и исправность носителя!<br>"
     		}
 
@@ -1283,6 +1309,18 @@
     			val = "¡Error!<br>Se ha producido un error inesperado al leer el archivo.<br>Compruebe la conexión y la corrección del soporte!<br>"
     		}
 			
+			if (val == "tml_no_file") {
+    			val = "¡Atención!<br>Por favor, seleccione cualquier archivo TML.<br>¡Gracias!<br>"
+    		}
+			if (val == "tml_bad_ext_file") {
+    			val = "¡Error!<br>Tipo de archivo incorrecto.<br>¡Sólo se permite la extensión TML!<br>"
+    		}
+			if (val == "tml_big_file") {
+    			val = "¡Error!<br>El tamaño del archivo supera los 30 MB.<br>¡Sólo se admiten archivos TML de 30 MB!<br>"
+    		}
+			if (val == "tml_bad_file") {
+    			val = "¡Error!<br>Se ha producido un error inesperado al leer el archivo.<br>Compruebe la conexión y la corrección del soporte!<br>"
+    		}
 
 			if (val == "ch_WMMWarn") {
     			val = "¡Atención!<br>El algoritmo de cálculo del MMM funciona correctamente hasta diciembre de 2025. Después de esta fecha, los valores pueden no ser exactos.<br>Por favor, ¡actualice Minotauro en enero de 2026!<br>"
@@ -1367,6 +1405,19 @@
 			val = "Erro!<br>O tamanho do ficheiro excedeu 30 MB.<br>Só são suportados ficheiros KML de 30 MB!<br>"
 		}
 		if (val == "kml_bad_file") {
+			val = "Erro!<br>Ocorreu um erro inesperado durante a leitura do ficheiro.<br>Verifique a ligação e a correção do suporte!<br>"
+		}
+
+		if (val == "tml_no_file") {
+			val = "Aviso!<br>Por favor, seleccione qualquer ficheiro TML.<br>Obrigado!<br>"
+		}
+		if (val == "tml_bad_ext_file") {
+			val = "Erro!<br>Tipo de ficheiro incorreto.<br>Só é permitida a extensão de ficheiro TML!<br>"
+		}
+		if (val == "tml_big_file") {
+			val = "Erro!<br>O tamanho do ficheiro excedeu 30 MB.<br>Só são suportados ficheiros TML de 30 MB!<br>"
+		}
+		if (val == "tml_bad_file") {
 			val = "Erro!<br>Ocorreu um erro inesperado durante a leitura do ficheiro.<br>Verifique a ligação e a correção do suporte!<br>"
 		}
 
@@ -1457,6 +1508,19 @@
 			val = "错误!<br>读取文件时发生意外错误。<br>请检查连接和介质的正确性！<br>"
 		}
 
+		if (val == "tml_no_file") {
+			val = "警告!<br>请选择任何 TML 文件。<br>谢谢！<br>"
+		}
+		if (val == "tml_bad_ext_file") {
+			val = "错误!<br>文件类型不正确。<br>只允许 TML 文件扩展名！<br>"
+		}
+		if (val == "tml_big_file") {
+			val = "错误!<br>文件大小超过 30 MB。<br>只支持 30 MB 的 TML 文件！<br>"
+		}
+		if (val == "tml_bad_file") {
+			val = "错误!<br>读取文件时发生意外错误。<br>请检查连接和介质的正确性！<br>"
+		}
+
 		if (val == "ch_WMMWarn") {
 			val = "警告!<br>WMM 計算演算法可正常運作至 2025 年 12 月。<br>請於 2026 年 1 月更新 Minotaur！<br>"
 		}		
@@ -1541,6 +1605,19 @@
 			val = "Грешка!<br>Размерът на файла е над 30 MB.<br>Поддържат се само 30 MB KML файлове!<br>"
 		}
 		if (val == "kml_bad_file") {
+			val = "Грешка!<br>По време на четенето на файла е възникнала неочаквана грешка.<br>Моля, проверете правилната връзка и медия!<br>"
+		}
+
+		if (val == "tml_no_file") {
+			val = "Предупреждение!<br>Изберете произволен TML файл.<br>Благодаря ви!<br>"
+		}
+		if (val == "tml_bad_ext_file") {
+			val = "Грешка!<br>Неправилен тип файл.<br>Разрешено е само разширението на файла TML!<br>"
+		}
+		if (val == "tml_big_file") {
+			val = "Грешка!<br>Размерът на файла е над 30 MB.<br>Поддържат се само 30 MB TML файлове!<br>"
+		}
+		if (val == "tml_bad_file") {
 			val = "Грешка!<br>По време на четенето на файла е възникнала неочаквана грешка.<br>Моля, проверете правилната връзка и медия!<br>"
 		}
 
@@ -1631,6 +1708,19 @@
 			val = "Erreur !<br>Une erreur inattendue s'est produite lors de la lecture du fichier.<br>Veuillez vérifier que la connexion et le support sont corrects !<br>"
 		}
 
+		if (val == "tml_no_file") {
+			val = "Attention !<br>Veuillez sélectionner n'importe quel fichier TML.<br>Merci d'avance !<br>"
+		}
+		if (val == "tml_bad_ext_file") {
+			val = "Erreur !<br>Type de fichier incorrect.<br>Seule l'extension de fichier TML est autorisée !<br>"
+		}
+		if (val == "tml_big_file") {
+			val = "Erreur !<br>La taille du fichier a dépassé 30 Mo.<br>Seuls les fichiers TML de 30 Mo sont pris en charge !<br>"
+		}
+		if (val == "tml_bad_file") {
+			val = "Erreur !<br>Une erreur inattendue s'est produite lors de la lecture du fichier.<br>Veuillez vérifier que la connexion et le support sont corrects !<br>"
+		}
+
 		if (val == "ch_WMMWarn") {
 			val = "ATTENTION !<br>L'algorithme de calcul du WMM fonctionne correctement jusqu'en décembre 2025. Après cette date, les valeurs risquent de ne plus être exactes.<br>Veuillez mettre à jour le Minotaure en janvier 2026 !<br>"
 		}		
@@ -1692,6 +1782,45 @@
     		}
     	}
     	//kr
+		if (val == "csv_no_file") {
+			val = "경고!<br>CSV 파일을 선택하세요.<br>감사합니다!<br>"
+		}
+		if (val == "csv_bad_ext_file") {
+			val = "오류!<br>파일 형식이 잘못되었습니다.<br>CSV 파일 확장자만 허용됩니다!<br>"
+		}
+		if (val == "csv_big_file") {
+			val = "오류!<br>파일 크기가 30MB를 초과했습니다.<br>30MB CSV 파일만 지원됩니다!<br>"
+		}
+		if (val == "csv_bad_file") {
+			val = "오류!<br>파일을 읽는 동안 예기치 않은 오류가 발생했습니다.<br>올바른 연결 및 미디어를 확인하세요!<br>"
+		}
+
+		if (val == "kml_no_file") {
+			val = "경고!<br>KML 파일을 선택하세요.<br>감사합니다!<br>"
+		}
+		if (val == "kml_bad_ext_file") {
+			val = "오류!<br>파일 형식이 잘못되었습니다.<br>KML 파일 확장자만 허용됩니다!<br>"
+		}
+		if (val == "kml_big_file") {
+			val = "오류!<br>파일 크기가 30MB를 초과했습니다.<br>30MB KML 파일만 지원됩니다!<br>"
+		}
+		if (val == "kml_bad_file") {
+			val = "오류!<br>파일을 읽는 동안 예기치 않은 오류가 발생했습니다.<br>올바른 연결 및 미디어를 확인하세요!<br>"
+		}
+
+		if (val == "tml_no_file") {
+			val = "경고!<br>TML 파일을 선택하세요.<br>감사합니다!<br>"
+		}
+		if (val == "tml_bad_ext_file") {
+			val = "오류!<br>파일 형식이 잘못되었습니다.<br>TML 파일 확장자만 허용됩니다!<br>"
+		}
+		if (val == "tml_big_file") {
+			val = "오류!<br>파일 크기가 30MB를 초과했습니다.<br>30MB TML 파일만 지원됩니다!<br>"
+		}
+		if (val == "tml_bad_file") {
+			val = "오류!<br>파일을 읽는 동안 예기치 않은 오류가 발생했습니다.<br>올바른 연결 및 미디어를 확인하세요!<br>"
+		}
+
 		if (val == "ch_WMMWarn") {
 			val = "경고!<br>WMM 계산 알고리즘은 2025년 12월까지 올바르게 작동합니다. 이 날짜 이후에는 값이 정확하지 않을 수 있습니다.<br>2026년 1월에 미노타우로스를 업데이트해 주세요!<br>"
 		}		
@@ -1776,6 +1905,19 @@
 			val = "Errore!<br>La dimensione del file ha superato i 30 MB.<br>Sono supportati solo i file KML da 30 MB!<br>"
 		}
 		if (val == "kml_bad_file") {
+			val = "Errore!<br>Si è verificato un errore imprevisto durante la lettura del file.<br>Controllare la connessione e il supporto corretti!<br>"
+		}
+
+		if (val == "tml_no_file") {
+			val = "Attenzione!<br>Selezionare un file TML qualsiasi.<br>Grazie!<br>"
+		}
+		if (val == "tml_bad_ext_file") {
+			val = "Errore!<br>Tipo di file non corretto.<br>È consentita solo l'estensione TML!<br>"
+		}
+		if (val == "tml_big_file") {
+			val = "Errore!<br>La dimensione del file ha superato i 30 MB.<br>Sono supportati solo i file TML da 30 MB!<br>"
+		}
+		if (val == "tml_bad_file") {
 			val = "Errore!<br>Si è verificato un errore imprevisto durante la lettura del file.<br>Controllare la connessione e il supporto corretti!<br>"
 		}
 

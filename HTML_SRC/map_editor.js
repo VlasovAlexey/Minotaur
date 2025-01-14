@@ -34,14 +34,14 @@ c_lon = (c_lon.replace(",", ".")) * 1.0;
 
 var esri_editor = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     id: 'mapbox.streets',
-    maxZoom: 19,
-    maxNativeZoom: 18,
+    maxZoom: 22,
+    maxNativeZoom: 19,
     //attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
     // noWrap: true
 });
 
 var osm_editor = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 24,
+    maxZoom: 22,
     maxNativeZoom: 19,
     //attribution: '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     // noWrap: true
@@ -49,7 +49,7 @@ var osm_editor = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
 var map_editor = L.map('map_editor', {
   center: [c_lat, c_lon],
-  zoom: 17,
+  zoom: 18,
   fullscreenControl: true,
 	fullscreenControlOptions: {
 					// optional
