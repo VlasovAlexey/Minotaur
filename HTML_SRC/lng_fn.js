@@ -1083,6 +1083,9 @@
     	};
     	//eng
     	if (td_lng == 1) {
+			if (val == "bad_file_format") {
+    			val = "Error!<br>Bad file format or corrupted data or incompatible data.<br>Please double check save or export settings or file data consistency!<br>"
+    		}
 			if (val == "csv_no_file") {
     			val = "Warning!<br>Please select any CSV file.<br>Thank you!<br>"
     		}
@@ -1183,6 +1186,9 @@
     	}
     	//rus
     	if (td_lng == 2) {
+			if (val == "bad_file_format") {
+    			val = "Ошибка!<br>Плохой формат файла, поврежденные данные или несовместимые данные.<br>Пожалуйста, проверьте настройки сохранения или экспорта, или согласованность данных файла!<br>"
+    		}
 			if (val == "csv_no_file") {
     			val = "Внимание!<br>Выбирите хотя бы один CSV файл.<br>Спасибо!<br>"
     		}
@@ -1283,6 +1289,9 @@
     	}
     	//sp
     	if (td_lng == 3) {
+			if (val == "bad_file_format") {
+    			val = "¡Error!<br>Formato de archivo incorrecto o datos dañados o incompatibles.<br>Compruebe la configuración de guardado o exportación o la coherencia de los datos del archivo!<br>"
+    		}
 			if (val == "csv_no_file") {
     			val = "¡Atención!<br>Por favor, seleccione cualquier archivo CSV.<br>¡Gracias!<br>"
     		}
@@ -1382,6 +1391,9 @@
     		}
     	}
     	//pt
+		if (val == "bad_file_format") {
+			val = "Erro!<br>Formato de ficheiro incorreto ou dados danificados ou incompatíveis.<br>Verifique as definições de gravação ou exportação ou a consistência dos dados do ficheiro!<br>"
+		}
 		if (val == "csv_no_file") {
 			val = "Aviso!<br>Por favor, seleccione qualquer ficheiro CSV.<br>Obrigado!<br>"
 		}
@@ -1482,6 +1494,9 @@
     		}
     	}
     	//ch
+		if (val == "bad_file_format") {
+			val = "错误!<br>文件格式不正确或数据已损坏或不兼容。<br>检查保存或导出设置或文件数据的一致性！<br>"
+		}
 		if (val == "csv_no_file") {
 			val = "警告!<br>请选择任何 CSV 文件。<br>谢谢！<br>"
 		}
@@ -1582,6 +1597,9 @@
     		}
     	}
     	//br
+		if (val == "bad_file_format") {
+			val = "Грешка!<br>Неправилен файлов формат или повредени или несъвместими данни.<br>Проверете настройките за запазване или експортиране или съвместимостта на данните във файла!<br>"
+		}
 		if (val == "csv_no_file") {
 			val = "Предупреждение!<br>Изберете произволен CSV файл.<br>Благодаря ви!<br>"
 		}
@@ -1682,6 +1700,9 @@
     		}
     	}
     	//fr
+		if (val == "bad_file_format") {
+			val = "Erreur !<br>Format de fichier incorrect ou données endommagées ou incompatibles.<br>Vérifier les paramètres d'enregistrement ou d'exportation ou la cohérence des données du fichier !<br>"
+		}
 		if (val == "csv_no_file") {
 			val = "Attention !<br>Veuillez sélectionner n'importe quel fichier CSV.<br>Merci d'avance !<br>"
 		}
@@ -1782,6 +1803,9 @@
     		}
     	}
     	//kr
+		if (val == "bad_file_format") {
+			val = "오류!<br>파일 형식이 잘못되었거나 데이터가 손상되었거나 호환되지 않습니다.<br>저장 또는 내보내기 설정 또는 파일 데이터 일관성을 확인하세요!<br>"
+		}
 		if (val == "csv_no_file") {
 			val = "경고!<br>CSV 파일을 선택하세요.<br>감사합니다!<br>"
 		}
@@ -1882,6 +1906,9 @@
     		}
     	}
     	//it
+		if (val == "bad_file_format") {
+			val = "Errore!<br>Il formato del file non è valido, i dati sono corrotti o incompatibili.<br>Controllare le impostazioni di salvataggio o esportazione o la coerenza dei dati del file!<br>"
+		}
 		if (val == "csv_no_file") {
 			val = "Attenzione!<br>Selezionare un file CSV qualsiasi.<br>Grazie!<br>"
 		}

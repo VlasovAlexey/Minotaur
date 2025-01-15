@@ -56,14 +56,33 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 			ariane_csv_file = [];
         	ariane_csv_file = e.target.result;
 			
-            console.log(ariane_csv_file);
+			//search for right format marker
+			if (ariane_csv_file.indexOf("StationID;Longitude(DD);Latitude(DD);Elevation(m);") != -1) {
+				//all is ok and truing read
+				var pos_start = -1;
+				var pos_old = 0
+				var xy_arr = [];
+				while ((pos_start = ariane_csv_file.indexOf("\n", pos_start + 1)) != -1) {
+					var tmp = ariane_csv_file.slice(pos_old, pos_start - 1).split(";");
+					//skip first line element
+					if(pos_old != 0){
+						xy_arr.push([tmp[2],tmp[1]]);
+					}				
+					pos_old = pos_start + 1
+				}
 
-			//push to map picker
-			/*path_gray_picker = L.polyline(tree_size_arr, {
-				weight: 10,
-				color: "gray",
-			}).addTo(map_picker);*/
-
+				//add data to map in map editor
+				var polygon1 = L.polyline([xy_arr], {color: 'red'}).addTo(map_editor);
+				// zoom the map to the polygon
+				map_editor.fitBounds(polygon1.getBounds());
+				
+			} else {
+				//bad format
+				del_html_elem("tn_overlay_text");
+				create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("bad_file_format"));
+				document.getElementById("AlertOverlay").style.height = "100%";
+				document.getElementById("AlertOverlay").style.opacity = "1";
+			}
 			//Hide progress bar
 			Pbar_Hide();
 		}, 1000);
