@@ -749,7 +749,7 @@
         },
         _getCircleAsPolygon: function(n, e, t) {
             var i = n.lat;
-            return void 0 === this._metersPerPixel[e] && (this._metersPerPixel[e] = 40075016.686 * Math.abs(Math.cos(i * Math.PI / 180)) / Math.pow(2, e + 8)), v.circle(this._latLngAsGeoJSON(n), this._metersPerPixel[e] * t / 1e3, {})
+            return void 0 === this._metersPerPixel[e] && (this._metersPerPixel[e] = 40075016.686 * Math.abs(Math.cos(i * Math.PI / 180)) / Math.pow(2, e + 8)), turf.circle(this._latLngAsGeoJSON(n), this._metersPerPixel[e] * t / 1e3, {steps: 10})
         },
         _draw: function(n, e, t) {
             if (void 0 === this._data || null === this._data) this.setData(this._getCircleAsPolygon(n, e, t));
@@ -758,7 +758,9 @@
                     type: "FeatureCollection",
                     features: [this._data, this._getCircleAsPolygon(n, e, t)]
                 };
-                this.setData(v.union(i))
+                //minotaur interface
+                this.setData(turf.union(i))
+                //this.setData(v.union(i))
             }
         },
         _erase: function(n, e, t) {

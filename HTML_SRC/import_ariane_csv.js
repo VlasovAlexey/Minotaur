@@ -62,29 +62,81 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 				var pos_start = -1;
 				var pos_old = 0
 				var xy_arr = [];
+				var xy_arr_inv = [];
 				while ((pos_start = ariane_csv_file.indexOf("\n", pos_start + 1)) != -1) {
 					var tmp = ariane_csv_file.slice(pos_old, pos_start - 1).split(";");
 					//skip first line element
 					if(pos_old != 0){
-						xy_arr.push([tmp[2],tmp[1]]);
+						xy_arr.push([(1.0*tmp[2]),(1.0*tmp[1])]);
+
+						//WARNING! Lat Lon inverted for GeoJSON!
+						xy_arr_inv.push([(1.0*tmp[1]),(1.0*tmp[2])]);
 					}				
 					pos_old = pos_start + 1
 				}
 
-				//add data to map in map editor
-				var polygon1 = L.polyline([xy_arr], {color: 'red'}).addTo(map_editor);
-				// zoom the map to the polygon
-				map_editor.fitBounds(polygon1.getBounds());
+				//build data for leaflet geojson layers
+				var myLines = [];
+				for (i = 0; i < xy_arr_inv.length - 1; i++) {
+					myLines.push({
+						"type": "LineString",
+						"properties": {"color": "orange"},
+						"coordinates": [xy_arr_inv[i] , xy_arr_inv[i + 1]]
+					});
+				}
+
+				//highlight mouse over elements on the map
+				var geojson;
+				function highlightFeature(e) {
+  					var layer = e.target;
+  					layer.setStyle({
+      					weight: 7,
+      					color: '#ffffff',
+      					fillOpacity: 0.99
+  					});
+  					layer.bringToFront();
+				}
+
+				function resetHighlight(e) {
+					geojson.resetStyle(e.target);
+				}
+
+				function style(feature) {
+    				return {
+        				"color": "#ff7800",
+						"weight": 5,
+						"opacity": 0.99
+    				};
+				}
 				
+				function onEachFeature(feature, layer) {
+  					layer.on({
+      					mouseover: highlightFeature,
+      					mouseout: resetHighlight
+  					});
+				}
+
+				geojson = L.geoJson(myLines, {
+  					style: style,
+  					onEachFeature: onEachFeature
+				}).addTo(map_editor);
+
+				// zoom the map to the polygon after data loaded
+				var fit_polygon = L.polyline([xy_arr], {color: 'red'}).addTo(map_editor);
+				map_editor.fitBounds(fit_polygon.getBounds());
+				fit_polygon.remove();
+				
+				//Hide progress bar
+				Pbar_Hide();
 			} else {
 				//bad format
 				del_html_elem("tn_overlay_text");
 				create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("bad_file_format"));
 				document.getElementById("AlertOverlay").style.height = "100%";
 				document.getElementById("AlertOverlay").style.opacity = "1";
+				Pbar_Hide();
 			}
-			//Hide progress bar
-			Pbar_Hide();
+			
 		}, 1000);
 	});
 
@@ -100,3 +152,4 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 	// read as text file
 	reader.readAsText(file);
 });
+

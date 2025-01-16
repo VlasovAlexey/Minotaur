@@ -190,9 +190,9 @@ let gjson_save = new L.Control.PMButton({
     layers.forEach((layer)=>{
       group.addLayer(layer);
     });
-    console.log(group);
+    //console.log(group);
     shapes = group.toGeoJSON();
-    //console.log(JSON.stringify(shapes));
+    console.log(JSON.stringify(shapes));
     
     //save current map
     function toGeoJSON() {
@@ -418,3 +418,5 @@ map_editor.pm.Toolbar.createCustomControl({
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-special-objects',
 });
+
+
