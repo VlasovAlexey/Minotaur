@@ -1,6 +1,6 @@
 //watcher function for seacraft file reading
-var ariane_csv_file = [];
-document.querySelector("#ariane_csv_file").addEventListener('change', function() {
+var ariane_kml_file = [];
+document.querySelector("#ariane_kml_file").addEventListener('change', function() {
 	// files that user has chosen
 	var all_files = this.files;
 	if(all_files.length == 0) {
@@ -19,7 +19,7 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 	var allowed_name = "";
   
   allowed_name = file.name.slice((Math.max(0, file.name.lastIndexOf(".")) || Infinity) + 1);
-	if(allowed_name != "csv") {
+	if(allowed_name != "kml") {
 		del_html_elem("tn_overlay_text");
 		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("csv_bad_ext_file"));
 		document.getElementById("AlertOverlay").style.height = "100%";
@@ -53,41 +53,19 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 		//Show progress bar
 		Pbar_Show();
 		setTimeout(function() {
-			ariane_csv_file = [];
-        	ariane_csv_file = e.target.result;
+			ariane_kml_file = [];
+        	ariane_kml_file = e.target.result;
 			
-			//search for right format marker
-			if (ariane_csv_file.indexOf("StationID;Longitude(DD);Latitude(DD);Elevation(m);") != -1) {
-				//all is ok and truing read
-				var pos_start = -1;
-				var pos_old = 0
-				var xy_arr = [];
-				
-				while ((pos_start = ariane_csv_file.indexOf("\n", pos_start + 1)) != -1) {
-					var tmp = ariane_csv_file.slice(pos_old, pos_start - 1).split(";");
-					//skip first line element
-					if(pos_old != 0){
-						xy_arr.push([(1.0*tmp[2]),(1.0*tmp[1])]);
+            console.log(ariane_kml_file);
 
-						//WARNING! Lat Lon inverted for GeoJSON!
-						//xy_arr_inv.push([(1.0*tmp[1]),(1.0*tmp[2])]);
-					}				
-					pos_old = pos_start + 1;
-				}
+			//push to map picker
+			/*path_gray_picker = L.polyline(tree_size_arr, {
+				weight: 10,
+				color: "gray",
+			}).addTo(map_picker);*/
 
-				//add loaded data to map editor
-				add_line_arr(xy_arr, "#ff7800", 5);				
-				Pbar_Hide();
-
-			} else {
-				//bad format
-				del_html_elem("tn_overlay_text");
-				create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("bad_file_format"));
-				document.getElementById("AlertOverlay").style.height = "100%";
-				document.getElementById("AlertOverlay").style.opacity = "1";
-				Pbar_Hide();
-			}
-			
+			//Hide progress bar
+			Pbar_Hide();
 		}, 1000);
 	});
 
@@ -103,4 +81,3 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 	// read as text file
 	reader.readAsText(file);
 });
-

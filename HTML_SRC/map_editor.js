@@ -320,6 +320,7 @@ map_editor.pm.Toolbar.createCustomControl({
 const ariane = [
   "ariane_import_csv",
   "ariane_import_tml",
+  "ariane_import_kml",
   "cancel",
 ];
 
@@ -419,4 +420,59 @@ map_editor.pm.Toolbar.createCustomControl({
   className: 'control-icon leaflet-pm-icon-special-objects',
 });
 
+//add to editor lines from xy_arr array
+//xy_arr - array with lat lon
+//color_line - line color format 
+//weight_line - weight_line ;)
+function add_line_arr(xy_arr, color_line, weight_line){
+	//build data for leaflet geojson layers
+	var myLines = [];
+	for (i = 0; i < xy_arr.length - 1; i++) {
+		myLines.push({
+			"type": "LineString",
+			"properties": {"color": color_line},
+			"coordinates": [[xy_arr[i][1],xy_arr[i][0]] , [xy_arr[i+1][1],xy_arr[i+1][0]]]
+		});
+	}
 
+	//highlight mouse over elements on the map
+	var geojson;
+	function highlightFeature(e) {
+		  var layer = e.target;
+		  layer.setStyle({
+			  weight: 7,
+			  color: '#ffffff',
+			  fillOpacity: 0.99
+		  });
+		  layer.bringToFront();
+	}
+
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+	}
+
+	function style(feature) {
+		return {
+			"color": color_line,
+			"weight": weight_line,
+			"opacity": 0.99
+		};
+	}
+	
+	function onEachFeature(feature, layer) {
+		  layer.on({
+			  mouseover: highlightFeature,
+			  mouseout: resetHighlight
+		  });
+	}
+
+	geojson = L.geoJson(myLines, {
+		  style: style,
+		  onEachFeature: onEachFeature
+	}).addTo(map_editor);
+
+	// zoom the map to the polygon after data loaded
+	var fit_polygon = L.polyline([xy_arr], {color: color_line}).addTo(map_editor);
+	map_editor.fitBounds(fit_polygon.getBounds());
+	fit_polygon.remove();
+}

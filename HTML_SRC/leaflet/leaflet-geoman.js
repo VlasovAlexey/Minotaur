@@ -2384,6 +2384,7 @@
             removeLastVertex: "Премахване на последния връх",
             ariane_import_csv: "Импортиране на CSV",
             ariane_import_tml: "IИмпортиране на TML",
+            ariane_import_kml: "IИмпортиране на KML",
             seacraft_import_csv:"Импортиране на CSV",
             seacraft_import_kml:"Импортиране на KML",
             special_objects_boulders: "Камъни",
@@ -2443,6 +2444,7 @@
             removeLastVertex: "Remove Last Vertex",
             ariane_import_csv: "Import CSV",
             ariane_import_tml: "Import TML",
+            ariane_import_kml: "Import KML",
             seacraft_import_csv:"Import CSV",
             seacraft_import_kml:"Import KML",
             special_objects_boulders: "Boulders",
@@ -2551,6 +2553,7 @@
             removeLastVertex: "Rimuovi l'ultimo vertice",
             ariane_import_csv: "Importazione CSV",
             ariane_import_tml: "Importazione TML",
+            ariane_import_kml: "Importazione KML",
             seacraft_import_csv:"Importazione CSV",
             seacraft_import_kml:"Importazione KML",
             special_objects_boulders: "Pietre",
@@ -2656,6 +2659,7 @@
             removeLastVertex: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435",
             ariane_import_csv: "Импорт CSV",
             ariane_import_tml: "Импорт TML",
+            ariane_import_kml: "Импорт KML",
             seacraft_import_csv:"Импорт CSV",
             seacraft_import_kml:"Импорт KML",
             special_objects_boulders: "Камни",
@@ -2695,6 +2699,7 @@
             removeLastVertex: "Eliminar \xFAltimo v\xE9rtice",
             ariane_import_csv: "Importación CSV",
             ariane_import_tml: "Importación TML",
+            ariane_import_kml: "Importación KML",
             seacraft_import_csv:"Importación CSV",
             seacraft_import_kml:"Importación KML",
             special_objects_boulders: "Piedras",
@@ -2767,6 +2772,7 @@
             removeLastVertex: "Retirer le dernier sommet",
             ariane_import_csv: "Importation CSV",
             ariane_import_tml: "Importation TML",
+            ariane_import_kml: "Importation KML",
             seacraft_import_csv:"Importation CSV",
             seacraft_import_kml:"Importation KML",
             special_objects_boulders: "Pierres",
@@ -2806,6 +2812,7 @@
             removeLastVertex: "\u79FB\u9664\u6700\u540E\u7684\u9876\u70B9",
             ariane_import_csv: "CSV 导入",
             ariane_import_tml: "TML 导入",
+            ariane_import_kml: "KML 导入",
             seacraft_import_csv:"CSV 导入",
             seacraft_import_kml:"KML 导入",
             special_objects_boulders: "石头",
@@ -2879,6 +2886,7 @@
             removeLastVertex: "Remover \xFAltimo v\xE9rtice",
             ariane_import_csv: "Importação CSV",
             ariane_import_tml: "Importação TML",
+            ariane_import_kml: "Importação KML",
             seacraft_import_csv:"Importação CSV",
             seacraft_import_kml:"Importação KML",
             special_objects_boulders: "Pedras",
@@ -3426,6 +3434,7 @@
             removeLastVertex: "\uB9C8\uC9C0\uB9C9 \uAF2D\uC9C0\uC810 \uC81C\uAC70",
             ariane_import_csv: "CSV 가져오기",
             ariane_import_tml: "TML 가져오기",
+            ariane_import_kml: "KML 가져오기",
             seacraft_import_csv:"CSV 가져오기",
             seacraft_import_kml:"KML 가져오기",
             special_objects_boulders: "스톤",
@@ -4430,13 +4439,6 @@
                             title: V("actions.ariane_import_csv"),
                             onClick() {
                                 document.getElementById("ariane_csv_file").click();
-                                /*
-                               // create a red polygon from an array of LatLng points
-                                var latlngs1 = [[37, -109.05],[41, -109.03],[41, -102.05],[37, -102.04]];
-                                var polygon1 = L.polygon(latlngs1, {color: 'red'}).addTo(map_editor);
-                                // zoom the map to the polygon
-                                map_editor.fitBounds(polygon1.getBounds());
-                                */
                             }
                         },
                         ariane_import_tml: {
@@ -4444,6 +4446,13 @@
                             title: V("actions.ariane_import_tml"),
                             onClick() {
                                 document.getElementById("ariane_tml_file").click();
+                            }
+                        },
+                        ariane_import_kml: {
+                            text: V("actions.ariane_import_kml"),
+                            title: V("actions.ariane_import_kml"),
+                            onClick() {
+                                document.getElementById("ariane_kml_file").click();
                             }
                         },
                         seacraft_import_csv: {
