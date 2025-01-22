@@ -5,7 +5,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 	var all_files = this.files;
 	if(all_files.length == 0) {
 		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("csv_no_file"));
+		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("kml_no_file"));
 		document.getElementById("AlertOverlay").style.height = "100%";
 		document.getElementById("AlertOverlay").style.opacity = "1";
 		Pbar_Hide();
@@ -21,7 +21,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
   allowed_name = file.name.slice((Math.max(0, file.name.lastIndexOf(".")) || Infinity) + 1);
 	if(allowed_name != "kml") {
 		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("csv_bad_ext_file"));
+		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("kml_bad_ext_file"));
 		document.getElementById("AlertOverlay").style.height = "100%";
 		document.getElementById("AlertOverlay").style.opacity = "1";
 		Pbar_Hide();
@@ -32,7 +32,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 	var max_size_allowed = 30*1024*1024
 	if(file.size > max_size_allowed) {
 		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("csv_big_file"));
+		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("kml_big_file"));
 		document.getElementById("AlertOverlay").style.height = "100%";
 		document.getElementById("AlertOverlay").style.opacity = "1";
 		Pbar_Hide();
@@ -58,12 +58,6 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 			
             console.log(ariane_kml_file);
 
-			//push to map picker
-			/*path_gray_picker = L.polyline(tree_size_arr, {
-				weight: 10,
-				color: "gray",
-			}).addTo(map_picker);*/
-
 			//Hide progress bar
 			Pbar_Hide();
 		}, 1000);
@@ -72,7 +66,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 	// file reading failed
 	reader.addEventListener('error', function() {
 	    del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("csv_bad_file"));
+		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("kml_bad_file"));
 		document.getElementById("AlertOverlay").style.height = "100%";
 		document.getElementById("AlertOverlay").style.opacity = "1";
         Pbar_Hide();
