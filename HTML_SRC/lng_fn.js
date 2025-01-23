@@ -1099,6 +1099,19 @@
     			val = "Error!<br>An unexpected error occurred while reading the file.<br>Check the connection and the correctness of the media!<br>"
     		}
 
+			if (val == "geojson_no_file") {
+    			val = "Warning!<br>Please select any GeoJSON file.<br>Thank you!<br>"
+    		}
+			if (val == "geojson_bad_ext_file") {
+    			val = "Error!<br>Incorrect file type.<br>Only GeoJSON file extension alloved!<br>"
+    		}
+			if (val == "geojson_big_file") {
+    			val = "Error!<br>Exceeded size 30MB.<br>Only 30Mb GeoJSON data can be alloved!<br>"
+    		}
+			if (val == "geojson_bad_file") {
+    			val = "Error!<br>An unexpected error occurred while reading the file.<br>Check the connection and the correctness of the media!<br>"
+    		}
+
 			if (val == "kml_no_file") {
     			val = "Warning!<br>Please select any KML file.<br>Thank you!<br>"
     		}
@@ -1199,6 +1212,19 @@
     			val = "Ошибка!<br>Превышен размер файла в 30Mб.<br>Допускаются файлы размером не более 30Mб!<br>"
     		}
 			if (val == "csv_bad_file") {
+    			val = "Ошибка!<br>Во время чтения файла произошла непредвиденная ошибка.<br>Проверьте подключение и исправность носителя!<br>"
+    		}
+
+			if (val == "geojson_no_file") {
+    			val = "Внимание!<br>Выбирите хотя бы один GeoJSON файл.<br>Спасибо!<br>"
+    		}
+			if (val == "geojson_bad_ext_file") {
+    			val = "Ошибка!<br>Не коректный тип файла.<br>Только файлы с расширением GeoJSON могут быть загружены!<br>"
+    		}
+			if (val == "geojson_big_file") {
+    			val = "Ошибка!<br>Превышен размер файла в 30Mб.<br>Допускаются GeoJSON файлы размером не более 30Mб!<br>"
+    		}
+			if (val == "geojson_bad_file") {
     			val = "Ошибка!<br>Во время чтения файла произошла непредвиденная ошибка.<br>Проверьте подключение и исправность носителя!<br>"
     		}
 
@@ -1305,6 +1331,19 @@
     			val = "¡Error!<br>Se ha producido un error inesperado al leer el archivo.<br>Compruebe la conexión y la corrección del soporte!<br>"
     		}
 
+			if (val == "geojson_no_file") {
+    			val = "¡Atención!<br>Por favor, seleccione cualquier archivo GeoJSON.<br>¡Gracias!<br>"
+    		}
+			if (val == "geojson_bad_ext_file") {
+    			val = "¡Error!<br>Tipo de archivo incorrecto.<br>¡Sólo se permite la extensión GeoJSON!<br>"
+    		}
+			if (val == "geojson_big_file") {
+    			val = "¡Error!<br>El tamaño del archivo supera los 30 MB.<br>¡Sólo se admiten archivos GeoJSON de 30 MB!<br>"
+    		}
+			if (val == "geojson_bad_file") {
+    			val = "¡Error!<br>Se ha producido un error inesperado al leer el archivo.<br>Compruebe la conexión y la corrección del soporte!<br>"
+    		}
+
 			if (val == "kml_no_file") {
     			val = "¡Atención!<br>Por favor, seleccione cualquier archivo KML.<br>¡Gracias!<br>"
     		}
@@ -1404,6 +1443,19 @@
 			val = "Erro!<br>O tamanho do ficheiro excedeu 30 MB.<br>Só são suportados ficheiros CSV de 30 MB!<br>"
 		}
 		if (val == "csv_bad_file") {
+			val = "Erro!<br>Ocorreu um erro inesperado durante a leitura do ficheiro.<br>Verifique a ligação e a correção do suporte!<br>"
+		}
+
+		if (val == "geojson_no_file") {
+			val = "Aviso!<br>Por favor, seleccione qualquer ficheiro GeoJSON.<br>Obrigado!<br>"
+		}
+		if (val == "geojson_bad_ext_file") {
+			val = "Erro!<br>Tipo de ficheiro incorreto.<br>Só é permitida a extensão de ficheiro GeoJSON!<br>"
+		}
+		if (val == "geojson_big_file") {
+			val = "Erro!<br>O tamanho do ficheiro excedeu 30 MB.<br>Só são suportados ficheiros GeoJSON de 30 MB!<br>"
+		}
+		if (val == "geojson_bad_file") {
 			val = "Erro!<br>Ocorreu um erro inesperado durante a leitura do ficheiro.<br>Verifique a ligação e a correção do suporte!<br>"
 		}
 
@@ -1510,6 +1562,19 @@
 			val = "错误!<br>读取文件时发生意外错误。<br>请检查连接和介质的正确性！<br>"
 		}
 
+		if (val == "geojson_no_file") {
+			val = "警告!<br>请选择任何 GeoJSON 文件。<br>谢谢！<br>"
+		}
+		if (val == "geojson_bad_ext_file") {
+			val = "错误!<br>文件类型不正确。<br>只允许 GeoJSON 文件扩展名！<br>"
+		}
+		if (val == "geojson_big_file") {
+			val = "错误!<br>文件大小超过 30 MB。<br>只支持 30 MB 的 GeoJSON 文件！<br>"
+		}
+		if (val == "geojson_bad_file") {
+			val = "错误!<br>读取文件时发生意外错误。<br>请检查连接和介质的正确性！<br>"
+		}
+
 		if (val == "kml_no_file") {
 			val = "警告!<br>请选择任何 KML 文件。<br>谢谢！<br>"
 		}
@@ -1610,6 +1675,19 @@
 			val = "Грешка!<br>Размерът на файла е над 30 MB.<br>Поддържат се само 30 MB CSV файлове!<br>"
 		}
 		if (val == "csv_bad_file") {
+			val = "Грешка!<br>По време на четенето на файла е възникнала неочаквана грешка.<br>Моля, проверете правилната връзка и медия!<br>"
+		}
+
+		if (val == "geojson_no_file") {
+			val = "Предупреждение!<br>Изберете произволен GeoJSON файл.<br>Благодаря ви!<br>"
+		}
+		if (val == "geojson_bad_ext_file") {
+			val = "Грешка!<br>Неправилен тип файл.<br>Разрешено е само разширението на файла GeoJSON!<br>"
+		}
+		if (val == "geojson_big_file") {
+			val = "Грешка!<br>Размерът на файла е над 30 MB.<br>Поддържат се само 30 MB GeoJSON файлове!<br>"
+		}
+		if (val == "geojson_bad_file") {
 			val = "Грешка!<br>По време на четенето на файла е възникнала неочаквана грешка.<br>Моля, проверете правилната връзка и медия!<br>"
 		}
 
@@ -1716,6 +1794,19 @@
 			val = "Erreur !<br>Une erreur inattendue s'est produite lors de la lecture du fichier.<br>Veuillez vérifier que la connexion et le support sont corrects !<br>"
 		}
 
+		if (val == "geojson_no_file") {
+			val = "Attention !<br>Veuillez sélectionner n'importe quel fichier GeoJSON.<br>Merci d'avance !<br>"
+		}
+		if (val == "geojson_bad_ext_file") {
+			val = "Erreur !<br>Type de fichier incorrect.<br>Seule l'extension de fichier GeoJSON est autorisée !<br>"
+		}
+		if (val == "geojson_big_file") {
+			val = "Erreur !<br>La taille du fichier a dépassé 30 Mo.<br>Seuls les fichiers GeoJSON de 30 Mo sont pris en charge !<br>"
+		}
+		if (val == "geojson_bad_file") {
+			val = "Erreur !<br>Une erreur inattendue s'est produite lors de la lecture du fichier.<br>Veuillez vérifier que la connexion et le support sont corrects !<br>"
+		}
+
 		if (val == "kml_no_file") {
 			val = "Attention !<br>Veuillez sélectionner n'importe quel fichier KML.<br>Merci d'avance !<br>"
 		}
@@ -1819,6 +1910,19 @@
 			val = "오류!<br>파일을 읽는 동안 예기치 않은 오류가 발생했습니다.<br>올바른 연결 및 미디어를 확인하세요!<br>"
 		}
 
+		if (val == "geojson_no_file") {
+			val = "경고!<br>GeoJSON 파일을 선택하세요.<br>감사합니다!<br>"
+		}
+		if (val == "geojson_bad_ext_file") {
+			val = "오류!<br>파일 형식이 잘못되었습니다.<br>GeoJSON 파일 확장자만 허용됩니다!<br>"
+		}
+		if (val == "geojson_big_file") {
+			val = "오류!<br>파일 크기가 30MB를 초과했습니다.<br>30MB GeoJSON 파일만 지원됩니다!<br>"
+		}
+		if (val == "geojson_bad_file") {
+			val = "오류!<br>파일을 읽는 동안 예기치 않은 오류가 발생했습니다.<br>올바른 연결 및 미디어를 확인하세요!<br>"
+		}
+
 		if (val == "kml_no_file") {
 			val = "경고!<br>KML 파일을 선택하세요.<br>감사합니다!<br>"
 		}
@@ -1919,6 +2023,19 @@
 			val = "Errore!<br>La dimensione del file ha superato i 30 MB.<br>Sono supportati solo i file CSV da 30 MB!<br>"
 		}
 		if (val == "csv_bad_file") {
+			val = "Errore!<br>Si è verificato un errore imprevisto durante la lettura del file.<br>Controllare la connessione e il supporto corretti!<br>"
+		}
+
+		if (val == "geojson_no_file") {
+			val = "Attenzione!<br>Selezionare un file GeoJSON qualsiasi.<br>Grazie!<br>"
+		}
+		if (val == "geojson_bad_ext_file") {
+			val = "Errore!<br>Tipo di file non corretto.<br>È consentita solo l'estensione GeoJSON!<br>"
+		}
+		if (val == "geojson_big_file") {
+			val = "Errore!<br>La dimensione del file ha superato i 30 MB.<br>Sono supportati solo i file GeoJSON da 30 MB!<br>"
+		}
+		if (val == "geojson_bad_file") {
 			val = "Errore!<br>Si è verificato un errore imprevisto durante la lettura del file.<br>Controllare la connessione e il supporto corretti!<br>"
 		}
 

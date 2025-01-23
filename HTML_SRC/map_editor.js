@@ -162,14 +162,17 @@ map_editor.pm.enableDraw('Line', {
 });
 map_editor.pm.disableDraw();
 
-//add save and load buttons to geoman
+//load geojson with styles button to geoman
 let gjson_load = new L.Control.PMButton({
-  title: "load gjson",
+  title: "load geojson",
   actions: [""],
   //actions: ["cancel"],
   onClick: () => {
-    //import any files
-    document.getElementById("btn_import").click();
+    //import any files with betterFileLayer plugin
+    //document.getElementById("btn_import").click();
+
+    //native import with styled geojson
+    document.getElementById("geojson_with_styles_file").click();
   },
   afterClick: () => {
   },
@@ -180,166 +183,12 @@ let gjson_load = new L.Control.PMButton({
 });
 map_editor.addControl(gjson_load);
 
-function objectToString (obj) {
-  var str = '';
-  var i=0;
-  for (var key in obj) {
-      if (obj.hasOwnProperty(key)) {
-          if(typeof obj[key] == 'object')
-          {
-              if(obj[key] instanceof Array)
-              {
-                  str+= key + ' : [ ';
-                  for(var j=0;j<obj[key].length;j++)
-                  {
-                      if(typeof obj[key][j]=='object') {
-                          str += '{' + objectToString(obj[key][j]) + (j > 0 ? ',' : '') + '}';
-                      }
-                      else
-                      {
-                          str += '\'' + obj[key][j] + '\'' + (j > 0 ? ',' : ''); //non objects would be represented as strings
-                      }
-                  }
-                  str+= ']' + (i > 0 ? ',' : '')
-              }
-              else
-              {
-                  str += key + ' : { ' + objectToString(obj[key]) + '} ' + (i > 0 ? ',' : '');
-              }
-          }
-          else {
-              str +=key + ':\'' + obj[key] + '\'' + (i > 0 ? ',' : '');
-          }
-          i++;
-      }
-  }
-  return str;
-}
-
-function drawnItemsToJSON(ilayer) {
-
-    var dOut = '';
-    var dOut1 = '';
-    var dOut2 = '';
-    var ditems = ilayer.getLayers();
-    dOut = '{"type":"FeatureCollection","features":[';
-    for (iIndex = 0; iIndex < ditems.length; ++iIndex) {
-        if (ditems[iIndex] instanceof L.Point || ditems[iIndex] instanceof L.Marker) {
-            dOut1 = dOut1 + ',{"type":"Feature","properties":{';
-            if ('icon' in ditems[iIndex].options) {
-                if ('options' in ditems[iIndex].options.icon) {
-                    dOut1 = dOut1 + '"markerOptions":{';
-                    dOut2 = '';
-                    if ('iconSize' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconSize":[' + ditems[iIndex].options.icon.options.iconSize[0] + ',' + ditems[iIndex].options.icon.options.iconSize[0] + ']' };
-                    if ('iconUrl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
-                    dOut1 = dOut1 + dOut2.substring(1) + '}';
-                };
-            };
-            dOut1 = dOut1 + '},"geometry":{"type":"Point","coordinates":['
-                + ditems[iIndex]._latlng.lng
-                + ',' + ditems[iIndex]._latlng.lat
-                + ']},"style":{';
-            dOut2 = '';
-            if ('stroke' in ditems[iIndex].options) { if (!ditems[iIndex].options.stroke !== null) { dOut2 = dOut2 + ',"stroke":' + ditems[iIndex].options.stroke } };
-            if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"color":"' + ditems[iIndex].options.color + '"' } };
-            if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"weight":' + ditems[iIndex].options.weight } };
-            if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"opacity":' + ditems[iIndex].options.opacity } };
-            if ('fill' in ditems[iIndex].options) { if (!ditems[iIndex].options.fill !== null) { dOut2 = dOut2 + ',"fill":' + ditems[iIndex].options.fill } };
-            if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fillColor":"' + ditems[iIndex].options.fillColor + '"' } };
-            if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fillOpacity":' + ditems[iIndex].options.fillOpacity } };
-            if ('fillRule' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillRule !== null) { dOut2 = dOut2 + ',"fillRule":"' + ditems[iIndex].options.fillRule + '"' } };
-            if ('dashArray' in ditems[iIndex].options) { if (!ditems[iIndex].options.dashArray !== null) { dOut2 = dOut2 + ',"dashArray":"' + ditems[iIndex].options.dashArray + '"' } };
-            if ('lineCap' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineCap !== null) { dOut2 = dOut2 + ',"lineCap":"' + ditems[iIndex].options.lineCap + '"' } };
-            if ('lineJoin' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineJoin !== null) { dOut2 = dOut2 + ',"lineJoin":"' + ditems[iIndex].options.lineJoin + '"' } };
-            if ('clickable' in ditems[iIndex].options) { if (!ditems[iIndex].options.clickable !== null) { dOut2 = dOut2 + ',"clickable":' + ditems[iIndex].options.clickable } };
-            if ('pointerEvents' in ditems[iIndex].options) { if (!ditems[iIndex].options.pointerEvents !== null) { dOut2 = dOut2 + ',"pointerEvents":"' + ditems[iIndex].options.pointerEvents + '"' } };
-            if ('className' in ditems[iIndex].options) { if (!ditems[iIndex].options.className !== null) { dOut2 = dOut2 + ',"className":"' + ditems[iIndex].options.className + '"' } };
-
-            if (dOut2.length > 1) {
-                dOut1 = dOut1 + dOut2.substring(1) + '}';
-            };
-            dOut2 = '';
-            dOut1 = dOut1 + '}';
-        } else if (ditems[iIndex] instanceof L.Polygon) {
-            dOut1 = dOut1 + ',{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[['
-            dOut2 = '';
-            for (ll = 0; ll < ditems[iIndex]._latlngs[0].length; ll++) {
-                dOut2 = dOut2 + ',[' + ditems[iIndex]._latlngs[0][ll].lng + ',' + ditems[iIndex]._latlngs[0][ll].lat + ']';
-            };
-            dOut2 = dOut2 + ',[' + ditems[iIndex]._latlngs[0][0].lng + ',' + ditems[iIndex]._latlngs[0][0].lat + ']';
-            dOut1 = dOut1 + dOut2.substring(1) + ']]},"style":{';
-            dOut2 = '';
-            if ('stroke' in ditems[iIndex].options) { if (!ditems[iIndex].options.stroke !== null) { dOut2 = dOut2 + ',"stroke":' + ditems[iIndex].options.stroke } };
-            if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"color":"' + ditems[iIndex].options.color + '"' } };
-            if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"weight":' + ditems[iIndex].options.weight } };
-            if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"opacity":' + ditems[iIndex].options.opacity } };
-            if ('fill' in ditems[iIndex].options) { if (!ditems[iIndex].options.fill !== null) { dOut2 = dOut2 + ',"fill":' + ditems[iIndex].options.fill } };
-            if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fillColor":"' + ditems[iIndex].options.fillColor + '"' } };
-            if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fillOpacity":' + ditems[iIndex].options.fillOpacity } };
-            if ('fillRule' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillRule !== null) { dOut2 = dOut2 + ',"fillRule":"' + ditems[iIndex].options.fillRule + '"' } };
-            if ('dashArray' in ditems[iIndex].options) { if (!ditems[iIndex].options.dashArray !== null) { dOut2 = dOut2 + ',"dashArray":"' + ditems[iIndex].options.dashArray + '"' } };
-            if ('lineCap' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineCap !== null) { dOut2 = dOut2 + ',"lineCap":"' + ditems[iIndex].options.lineCap + '"' } };
-            if ('lineJoin' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineJoin !== null) { dOut2 = dOut2 + ',"lineJoin":"' + ditems[iIndex].options.lineJoin + '"' } };
-            if ('clickable' in ditems[iIndex].options) { if (!ditems[iIndex].options.clickable !== null) { dOut2 = dOut2 + ',"clickable":' + ditems[iIndex].options.clickable } };
-            if ('pointerEvents' in ditems[iIndex].options) { if (!ditems[iIndex].options.pointerEvents !== null) { dOut2 = dOut2 + ',"pointerEvents":"' + ditems[iIndex].options.pointerEvents + '"' } };
-            if ('className' in ditems[iIndex].options) { if (!ditems[iIndex].options.className !== null) { dOut2 = dOut2 + ',"className":"' + ditems[iIndex].options.className + '"' } };
-            if ('icon' in ditems[iIndex].options) {
-                if ('options' in ditems[iIndex].options.icon) {
-                    if ('iconSize' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconSize":[' + ditems[iIndex].options.icon.options.iconSize[0] + ',' + ditems[iIndex].options.icon.options.iconSize[0] + ']"' };
-                    if ('iconurl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
-                };
-            };
-            if (dOut2.length > 1) {
-                dOut1 = dOut1 + dOut2.substring(1) + '}';
-            };
-            dOut2 = '';
-            dOut1 = dOut1 + '}';
-        } else if (ditems[iIndex] instanceof L.Polyline) {
-            
-            dOut1 = dOut1 + ',{"type":"Feature","properties":{},"geometry":{"type":"Polyline","coordinates":[['
-            dOut2 = '';
-            for (ll = 0; ll < ditems[iIndex]._latlngs[0].length; ll++) {
-                dOut2 = dOut2 + ',[' + ditems[iIndex]._latlngs[0][ll].lng + ',' + ditems[iIndex]._latlngs[0][ll].lat + ']';
-            };
-            dOut1 = dOut1 + dOut2.substring(1) + ']]},"style":{';
-            dOut2 = '';
-            if ('stroke' in ditems[iIndex].options) { if (!ditems[iIndex].options.stroke !== null) { dOut2 = dOut2 + ',"stroke":' + ditems[iIndex].options.stroke } };
-            if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"color":"' + ditems[iIndex].options.color + '"' } };
-            if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"weight":' + ditems[iIndex].options.weight } };
-            if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"opacity":' + ditems[iIndex].options.opacity } };
-            if ('fill' in ditems[iIndex].options) { if (!ditems[iIndex].options.fill !== null) { dOut2 = dOut2 + ',"fill":' + ditems[iIndex].options.fill } };
-            if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fillColor":"' + ditems[iIndex].options.fillColor + '"' } };
-            if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fillOpacity":' + ditems[iIndex].options.fillOpacity } };
-            if ('fillRule' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillRule !== null) { dOut2 = dOut2 + ',"fillRule":"' + ditems[iIndex].options.fillRule + '"' } };
-            if ('dashArray' in ditems[iIndex].options) { if (!ditems[iIndex].options.dashArray !== null) { dOut2 = dOut2 + ',"dashArray":"' + ditems[iIndex].options.dashArray + '"' } };
-            if ('lineCap' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineCap !== null) { dOut2 = dOut2 + ',"lineCap":"' + ditems[iIndex].options.lineCap + '"' } };
-            if ('lineJoin' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineJoin !== null) { dOut2 = dOut2 + ',"lineJoin":"' + ditems[iIndex].options.lineJoin + '"' } };
-            if ('clickable' in ditems[iIndex].options) { if (!ditems[iIndex].options.clickable !== null) { dOut2 = dOut2 + ',"clickable":' + ditems[iIndex].options.clickable } };
-            if ('pointerEvents' in ditems[iIndex].options) { if (!ditems[iIndex].options.pointerEvents !== null) { dOut2 = dOut2 + ',"pointerEvents":"' + ditems[iIndex].options.pointerEvents + '"' } };
-            if ('className' in ditems[iIndex].options) { if (!ditems[iIndex].options.className !== null) { dOut2 = dOut2 + ',"className":"' + ditems[iIndex].options.className + '"' } };
-            if ('icon' in ditems[iIndex].options) {
-                if ('options' in ditems[iIndex].options.icon) {
-                    if ('iconSize' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconSize":[' + ditems[iIndex].options.icon.options.iconSize[0] + ',' + ditems[iIndex].options.icon.options.iconSize[0] + ']"' };
-                    if ('iconurl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
-                };
-            };
-            if (dOut2.length > 1) {
-                dOut1 = dOut1 + dOut2.substring(1) + '}';
-            };
-            dOut2 = '';
-            dOut1 = dOut1 + '}';
-        };
-    };
-    //console.log(dOut + dOut1.substring(1) + ']}');
-    return dOut + dOut1.substring(1) + ']}';
-};
-
+//save geojson with styles button to geoman
 let gjson_save = new L.Control.PMButton({
   block: "custom",
   title: "save gjson",
   actions: [],
   onClick: () => {
-    
     
     //save current map
     function toGeoJSON() {
@@ -353,11 +202,6 @@ let gjson_save = new L.Control.PMButton({
           }
         }
       });
-      
-      console.log(drawnItemsToJSON(allLayers));
-
-      var geojson = allLayers.toGeoJSON();
-      //var geojson = drawnItemsToJSON(allLayers);
 
       //and write file
 		  scr_n_add = "";
@@ -365,9 +209,8 @@ let gjson_save = new L.Control.PMButton({
 			  scr_n_add = "0";
 		  }
 		  var fl_name = scr_n_add + editor_file_num + "_" + (track_name.value).toString() + "_" + get_date_hr() + ".geojson";
-      var blob = new Blob([JSON.stringify(geojson)], {type: "application/geojson;charset=utf-8"});
+      var blob = new Blob([drawnItemsToJSON(allLayers)], {type: "application/geojson;charset=utf-8"});
       saveAs(blob, fl_name);
-
       editor_file_num = editor_file_num + 1;
     }
     toGeoJSON();
@@ -394,10 +237,15 @@ var paintpolygonControl = L.control.paintPolygon(
     eraseOptions: {
         color: 'red',
         weight: 2
+    },
+    menu: {                   // Customize menu, set to false to prevent adding control UI on map, you need to build your own UI (on map or not)
+      drawErase: true,
+        size: true,
+        eraseAll: true
     }
 }).addTo(map_editor);
 
-//import file button
+//import file button configuration
 var options = {
   button: document.getElementById("btn_import"),
   position: 'topright', // Leaflet control position
@@ -410,7 +258,7 @@ var options = {
   }, // Overwrite the default BFL GeoJSON onEachFeature function
   //layer: L.customLayer, // If you want a custom layer to be used (must be a GeoJSON class inheritance)
   // Restrict accepted file formats (default: .gpx, .kml, .kmz, .geojson, .json, .csv, .topojson, .wkt, .shp, .shx, .prj, .dbf, .zip)
-  formats:['.geojson', '.kml', '.gpx', '.kmz', '.csv', '.zip'],
+  formats:['.geojson', '.kml', '.gpx', '.kmz', '.csv', '.zip', '.gjson','.topojson'],
 
   importOptions: { // Some file types may have import options, for now, just csv is documented
     csv: {
@@ -427,19 +275,31 @@ L.Control.betterFileLayer(options).addTo(map_editor);
 
 //error handlers for file importing
 map_editor.on("bfl:layerloaded", () => {
-  console.log("Layer was successful added to the map canvas!");
+  console.log("Was successful added!");
 });
 
 map_editor.on("bfl:layerloaderror", ({layer}) => {
-  console.log("Ops! Your file have an error!, please check it. File name: ", layer);
+  del_html_elem("tn_overlay_text");
+	create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("geojson_bad_file"));
+	document.getElementById("AlertOverlay").style.height = "100%";
+	document.getElementById("AlertOverlay").style.opacity = "1";
+  Pbar_Hide();
 });
 
 map_editor.on("bfl:filenotsupported", ({layer}) => {
-  console.log("Your file type is not supported!, the list are: geojson, json, kml, kmz, topojson, wkt, csv, polyline, gpx, (.shp, .shx, .prj, .dbf), or zip with (.shp, .shx, .prj, .dbf) inside", layer);
+  del_html_elem("tn_overlay_text");
+	create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("geojson_bad_ext_file"));
+	document.getElementById("AlertOverlay").style.height = "100%";
+	document.getElementById("AlertOverlay").style.opacity = "1";
+	Pbar_Hide();
 });
 
 map_editor.on("bfl:filesizelimit", ({file}) => {
-  console.log("Your file is too big! Please, the file have to be bellow 50 Megabyte.", file);          
+  del_html_elem("tn_overlay_text");
+	create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("geojson_big_file"));
+	document.getElementById("AlertOverlay").style.height = "100%";
+	document.getElementById("AlertOverlay").style.opacity = "1";
+	Pbar_Hide();
 });
 
 map_editor.pm.Toolbar.setBlockPosition("custom", "topright");
@@ -626,3 +486,137 @@ function add_line_arr(xy_arr, color_line, weight_line){
 	map_editor.fitBounds(fit_polygon.getBounds());
 	fit_polygon.remove();
 }
+
+//converting Javascript Leaflet objects to styled geoJSON layers as text
+function drawnItemsToJSON(ilayer) {
+  var dOut = '';
+  var dOut1 = '';
+  var dOut2 = '';
+  var ditems = ilayer.getLayers();
+  dOut = '{"type":"FeatureCollection","features":[';
+  for (iIndex = 0; iIndex < ditems.length; ++iIndex) {
+      if (ditems[iIndex] instanceof L.Point || ditems[iIndex] instanceof L.Marker) {
+          dOut1 = dOut1 + ',{"type":"Feature","properties":{';
+          if ('icon' in ditems[iIndex].options) {
+              if ('options' in ditems[iIndex].options.icon) {
+                  dOut1 = dOut1 + '"markerOptions":{';
+                  dOut2 = '';
+                  if ('iconSize' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconSize":[' + ditems[iIndex].options.icon.options.iconSize[0] + ',' + ditems[iIndex].options.icon.options.iconSize[0] + ']' };
+                  if ('iconUrl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
+                  dOut1 = dOut1 + dOut2.substring(1) + '}';
+              };
+          };
+          dOut1 = dOut1 + '},"geometry":{"type":"Point","coordinates":['
+              + ditems[iIndex]._latlng.lng
+              + ',' + ditems[iIndex]._latlng.lat
+              + ']},"style":{';
+          dOut2 = '';
+          if ('stroke' in ditems[iIndex].options) { if (!ditems[iIndex].options.stroke !== null) { dOut2 = dOut2 + ',"stroke":' + ditems[iIndex].options.stroke } };
+          if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"color":"' + ditems[iIndex].options.color + '"' } };
+          if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"weight":' + ditems[iIndex].options.weight } };
+          if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"opacity":' + ditems[iIndex].options.opacity } };
+          if ('fill' in ditems[iIndex].options) { if (!ditems[iIndex].options.fill !== null) { dOut2 = dOut2 + ',"fill":' + ditems[iIndex].options.fill } };
+          if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fillColor":"' + ditems[iIndex].options.fillColor + '"' } };
+          if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fillOpacity":' + ditems[iIndex].options.fillOpacity } };
+          if ('fillRule' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillRule !== null) { dOut2 = dOut2 + ',"fillRule":"' + ditems[iIndex].options.fillRule + '"' } };
+          if ('dashArray' in ditems[iIndex].options) { if (!ditems[iIndex].options.dashArray !== null) { dOut2 = dOut2 + ',"dashArray":"' + ditems[iIndex].options.dashArray + '"' } };
+          if ('lineCap' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineCap !== null) { dOut2 = dOut2 + ',"lineCap":"' + ditems[iIndex].options.lineCap + '"' } };
+          if ('lineJoin' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineJoin !== null) { dOut2 = dOut2 + ',"lineJoin":"' + ditems[iIndex].options.lineJoin + '"' } };
+          if ('clickable' in ditems[iIndex].options) { if (!ditems[iIndex].options.clickable !== null) { dOut2 = dOut2 + ',"clickable":' + ditems[iIndex].options.clickable } };
+          if ('pointerEvents' in ditems[iIndex].options) { if (!ditems[iIndex].options.pointerEvents !== null) { dOut2 = dOut2 + ',"pointerEvents":"' + ditems[iIndex].options.pointerEvents + '"' } };
+          if ('className' in ditems[iIndex].options) { if (!ditems[iIndex].options.className !== null) { dOut2 = dOut2 + ',"className":"' + ditems[iIndex].options.className + '"' } };
+
+          if (dOut2.length > 1) {
+              dOut1 = dOut1 + dOut2.substring(1) + '}';
+          };
+          dOut2 = '';
+          dOut1 = dOut1 + '}';
+      } else if (ditems[iIndex] instanceof L.Polygon) {
+        dOut1 = dOut1 + ',{"type":"Feature","properties":{'
+        dOut2 = '';
+        if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"stroke":"' + ditems[iIndex].options.color + '"' } };
+        if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"stroke-width":' + ditems[iIndex].options.weight } };
+        if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"stroke-opacity":' + ditems[iIndex].options.opacity } };
+        if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fill":"' + ditems[iIndex].options.fillColor + '"' } };
+        if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fill-opacity":' + ditems[iIndex].options.fillOpacity } };
+        dOut1 = dOut1 + dOut2.substring(1);
+        
+        dOut1 = dOut1 + '},"geometry":{"type":"Polygon","coordinates":[['
+          dOut2 = '';
+          for (ll = 0; ll < ditems[iIndex]._latlngs[0].length; ll++) {
+              dOut2 = dOut2 + ',[' + ditems[iIndex]._latlngs[0][ll].lng + ',' + ditems[iIndex]._latlngs[0][ll].lat + ']';
+          };
+          dOut2 = dOut2 + ',[' + ditems[iIndex]._latlngs[0][0].lng + ',' + ditems[iIndex]._latlngs[0][0].lat + ']';
+          dOut1 = dOut1 + dOut2.substring(1) + ']]},"style":{';
+          dOut2 = '';
+          if ('stroke' in ditems[iIndex].options) { if (!ditems[iIndex].options.stroke !== null) { dOut2 = dOut2 + ',"stroke":' + ditems[iIndex].options.stroke } };
+          if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"color":"' + ditems[iIndex].options.color + '"' } };
+          if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"weight":' + ditems[iIndex].options.weight } };
+          if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"opacity":' + ditems[iIndex].options.opacity } };
+          if ('fill' in ditems[iIndex].options) { if (!ditems[iIndex].options.fill !== null) { dOut2 = dOut2 + ',"fill":' + ditems[iIndex].options.fill } };
+          if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fillColor":"' + ditems[iIndex].options.fillColor + '"' } };
+          if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fillOpacity":' + ditems[iIndex].options.fillOpacity } };
+          if ('fillRule' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillRule !== null) { dOut2 = dOut2 + ',"fillRule":"' + ditems[iIndex].options.fillRule + '"' } };
+          if ('dashArray' in ditems[iIndex].options) { if (!ditems[iIndex].options.dashArray !== null) { dOut2 = dOut2 + ',"dashArray":"' + ditems[iIndex].options.dashArray + '"' } };
+          if ('lineCap' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineCap !== null) { dOut2 = dOut2 + ',"lineCap":"' + ditems[iIndex].options.lineCap + '"' } };
+          if ('lineJoin' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineJoin !== null) { dOut2 = dOut2 + ',"lineJoin":"' + ditems[iIndex].options.lineJoin + '"' } };
+          if ('clickable' in ditems[iIndex].options) { if (!ditems[iIndex].options.clickable !== null) { dOut2 = dOut2 + ',"clickable":' + ditems[iIndex].options.clickable } };
+          if ('pointerEvents' in ditems[iIndex].options) { if (!ditems[iIndex].options.pointerEvents !== null) { dOut2 = dOut2 + ',"pointerEvents":"' + ditems[iIndex].options.pointerEvents + '"' } };
+          if ('className' in ditems[iIndex].options) { if (!ditems[iIndex].options.className !== null) { dOut2 = dOut2 + ',"className":"' + ditems[iIndex].options.className + '"' } };
+          if ('icon' in ditems[iIndex].options) {
+              if ('options' in ditems[iIndex].options.icon) {
+                  if ('iconSize' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconSize":[' + ditems[iIndex].options.icon.options.iconSize[0] + ',' + ditems[iIndex].options.icon.options.iconSize[0] + ']"' };
+                  if ('iconurl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
+              };
+          };
+          if (dOut2.length > 1) {
+              dOut1 = dOut1 + dOut2.substring(1) + '}';
+          };
+          dOut2 = '';
+          dOut1 = dOut1 + '}';
+      } else if (ditems[iIndex] instanceof L.Polyline) {
+          dOut2 = '';
+          dOut1 = dOut1 + ',{"type":"Feature","properties":{'
+          if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"stroke":"' + ditems[iIndex].options.color + '"' } };
+          if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"stroke-width":' + ditems[iIndex].options.weight } };
+          if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"stroke-opacity":' + ditems[iIndex].options.opacity } };
+          if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fill":"' + ditems[iIndex].options.fillColor + '"' } };
+          if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fill-opacity":' + ditems[iIndex].options.fillOpacity } };
+          dOut1 = dOut1 + dOut2.substring(1);
+          dOut1 = dOut1 + '},"geometry":{"type":"LineString","coordinates":['
+          dOut2 = '';
+          for (ll = 0; ll < ditems[iIndex]._latlngs.length; ll++) {
+              dOut2 = dOut2 + ',[' + ditems[iIndex]._latlngs[ll].lng + ',' + ditems[iIndex]._latlngs[ll].lat + ']';
+          };
+          dOut1 = dOut1 + dOut2.substring(1) + ']},"style":{';
+          dOut2 = '';
+          if ('stroke' in ditems[iIndex].options) { if (!ditems[iIndex].options.stroke !== null) { dOut2 = dOut2 + ',"stroke":' + ditems[iIndex].options.stroke } };
+          if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"color":"' + ditems[iIndex].options.color + '"' } };
+          if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"weight":' + ditems[iIndex].options.weight } };
+          if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"opacity":' + ditems[iIndex].options.opacity } };
+          if ('fill' in ditems[iIndex].options) { if (!ditems[iIndex].options.fill !== null) { dOut2 = dOut2 + ',"fill":' + ditems[iIndex].options.fill } };
+          if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fillColor":"' + ditems[iIndex].options.fillColor + '"' } };
+          if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fillOpacity":' + ditems[iIndex].options.fillOpacity } };
+          if ('fillRule' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillRule !== null) { dOut2 = dOut2 + ',"fillRule":"' + ditems[iIndex].options.fillRule + '"' } };
+          if ('dashArray' in ditems[iIndex].options) { if (!ditems[iIndex].options.dashArray !== null) { dOut2 = dOut2 + ',"dashArray":"' + ditems[iIndex].options.dashArray + '"' } };
+          if ('lineCap' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineCap !== null) { dOut2 = dOut2 + ',"lineCap":"' + ditems[iIndex].options.lineCap + '"' } };
+          if ('lineJoin' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineJoin !== null) { dOut2 = dOut2 + ',"lineJoin":"' + ditems[iIndex].options.lineJoin + '"' } };
+          if ('clickable' in ditems[iIndex].options) { if (!ditems[iIndex].options.clickable !== null) { dOut2 = dOut2 + ',"clickable":' + ditems[iIndex].options.clickable } };
+          if ('pointerEvents' in ditems[iIndex].options) { if (!ditems[iIndex].options.pointerEvents !== null) { dOut2 = dOut2 + ',"pointerEvents":"' + ditems[iIndex].options.pointerEvents + '"' } };
+          if ('className' in ditems[iIndex].options) { if (!ditems[iIndex].options.className !== null) { dOut2 = dOut2 + ',"className":"' + ditems[iIndex].options.className + '"' } };
+          if ('icon' in ditems[iIndex].options) {
+              if ('options' in ditems[iIndex].options.icon) {
+                  if ('iconSize' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconSize":[' + ditems[iIndex].options.icon.options.iconSize[0] + ',' + ditems[iIndex].options.icon.options.iconSize[0] + ']"' };
+                  if ('iconurl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
+              };
+          };
+          if (dOut2.length > 1) {
+              dOut1 = dOut1 + dOut2.substring(1) + '}';
+          };
+          dOut2 = '';
+          dOut1 = dOut1 + '}';
+      };
+  };
+  //console.log(dOut + dOut1.substring(1) + ']}');
+  return dOut + dOut1.substring(1) + ']}';
+};

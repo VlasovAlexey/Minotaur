@@ -689,7 +689,7 @@
             this.setData()
         },
         _createMenu: function() {
-            if (!1 !== this.options.menu.drawErase && (this._iconDraw = L.DomUtil.create("a", "leaflet-control-paintpolygon-icon leaflet-control-paintpolygon-icon-brush", this._container), this._iconErase = L.DomUtil.create("a", "leaflet-control-paintpolygon-icon leaflet-control-paintpolygon-icon-eraser", this._container), L.DomEvent.on(this._iconDraw, "click mousedown", this._clickDraw, this), L.DomEvent.on(this._iconErase, "click mousedown", this._clickErase, this)), !1 !== this.options.menu.size) {
+            if (!1 !== this.options.menu.drawErase && (this._iconDraw = L.DomUtil.create("a", "leaflet-control-paintpolygon-icon leaflet-control-paintpolygon-icon-brush", this._container), L.DomEvent.on(this._iconDraw, "click mousedown", this._clickDraw, this)), !1 !== this.options.menu.size) {
                 this._iconSize = L.DomUtil.create("a", "leaflet-control-paintpolygon-icon leaflet-control-paintpolygon-icon-size", this._container), this._menu = L.DomUtil.create("div", "leaflet-bar leaflet-control-paintpolygon-menu", this._container), L.DomEvent.disableClickPropagation(this._menu);
                 var n = L.DomUtil.create("div", "leaflet-control-paintpolygon-menu-content", this._menu),
                     e = L.DomUtil.create("input", "", n);
@@ -699,17 +699,27 @@
         _clickDraw: function(n) {
             "mousedown" != n.type ? (this._resetMenu(), "draw" == this._action ? this.stop() : (this.startDraw(), this._activeIconStyle(this._iconDraw))) : L.DomEvent.stop(n)
         },
-        _clickErase: function(n) {
-            "mousedown" != n.type ? (this._resetMenu(), "erase" == this._action ? this.stop() : (this.startErase(), this._activeIconStyle(this._iconErase))) : L.DomEvent.stop(n)
-        },
         _clickSize: function(n) {
             "mousedown" != n.type ? L.DomUtil.hasClass(this._menu, "leaflet-control-paintpolygon-menu-open") ? this._closeMenu() : this._openMenu() : L.DomEvent.stop(n)
         },
         _clickEraseAll: function(n) {
+            //minotaur interface start            
+            map_editor.eachLayer(function (layer) {
+                //erase only paths and markers layers
+                if (layer instanceof L.Path) {
+                    map_editor.removeLayer(layer);
+                } else {
+                  if (layer instanceof L.Marker) {
+                    map_editor.removeLayer(layer);
+                  }
+                }
+              });
+      
+            //minotaur interface end
             this.eraseAll()
         },
         _resetMenu: function() {
-            L.DomUtil.removeClass(this._iconDraw, "leaflet-control-paintpolygon-icon-active"), L.DomUtil.removeClass(this._iconErase, "leaflet-control-paintpolygon-icon-active")
+            L.DomUtil.removeClass(this._iconDraw, "leaflet-control-paintpolygon-icon-active")
         },
         _activeIconStyle: function(n) {
             L.DomUtil.addClass(n, "leaflet-control-paintpolygon-icon-active")
