@@ -56,13 +56,13 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 			geojson_with_styles_file = [];
         	geojson_with_styles_file = e.target.result;
 			
-            console.log(geojson_with_styles_file);
-
-			//push to map picker
-			/*path_gray_picker = L.polyline(tree_size_arr, {
-				weight: 10,
-				color: "gray",
-			}).addTo(map_picker);*/
+			var json = JSON.parse(geojson_with_styles_file);
+			var loaded_data = L.geoJson(json, {
+				style: function (f) {
+					return f.properties;
+				}
+			}).addTo(map_editor);
+			map_editor.fitBounds(loaded_data.getBounds());
 
 			//Hide progress bar
 			Pbar_Hide();
