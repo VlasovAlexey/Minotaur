@@ -56,12 +56,52 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 			geojson_with_styles_file = [];
         	geojson_with_styles_file = e.target.result;
 			
+			//parse loaded text to json objects
 			var json = JSON.parse(geojson_with_styles_file);
 			var loaded_data = L.geoJson(json, {
+				
+				//assign styles to properties objects
 				style: function (f) {
 					return f.properties;
-				}
+				},
+        		onEachFeature: function (feature, my_Layer) {
+					if (feature.properties.name != undefined){
+						//my_Layer.bindTooltip(feature.properties.name, {permanent: true, direction: "top", className: "my-labels"}).openTooltip();
+						//my_Layer.setOpacity
+						//console.log(feature.geometry.coordinates[1]);
+						L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
+							textMarker: true,
+							text: feature.properties.name,
+							textMarkerCentered: true,
+						  }).addTo(map_editor);
+
+						  //my_Layer.removeFrom(map_editor);
+					}
+            		//my_Layer.bindPopup("ID : "+feature.properties.id+"<br />Name : "+feature.properties.name);
+        		}
 			}).addTo(map_editor);
+			
+			var layers = loaded_data.getLayers();
+			//console.log(layers);
+			for (var i = 0; i < layers.length; i++) {
+				if (layers[i].feature.properties.name != undefined){
+					map_editor.removeLayer(layers[i]);
+				}
+				//layers[i].feature.properties.name = "text";
+				//layers[i].feature.properties.name = "text";
+			}
+				//added labels if exist
+				/*L.geoJson(json, {
+					onEachFeature: function (feature, layer) {
+	
+						if (feature.properties.name != undefined){
+							layer.bindTooltip(feature.properties.name, {permanent: true, direction: "center", className: "my-labels"}).openTooltip();
+						}
+						
+					}
+				  }).addTo(map_editor);
+				*/
+
 			map_editor.fitBounds(loaded_data.getBounds());
 
 			//Hide progress bar

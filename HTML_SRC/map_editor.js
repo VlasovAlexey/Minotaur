@@ -95,12 +95,6 @@ function lng_map_editor(){
   if(td_lng == 7){ map_editor.pm.setLang("fr");}
   if(td_lng == 8){ map_editor.pm.setLang("ko");}
   if(td_lng == 9){ map_editor.pm.setLang("it");}
-
-  //test
-  //drawnItems = L.featureGroup().addTo(map_editor);
-  //L.control.layers({
-    //'drawlayer': drawnItems
-  //}).addTo(map_editor);
 }
 
 
@@ -171,13 +165,10 @@ map_editor.pm.disableDraw();
 
 //load geojson with styles button to geoman
 let gjson_load = new L.Control.PMButton({
-  title: "load geojson",
+  title: "Load Styled GeoJSON",
   actions: [""],
   //actions: ["cancel"],
   onClick: () => {
-    //import any files with betterFileLayer plugin
-    //document.getElementById("btn_import").click();
-
     //native import with styled geojson
     document.getElementById("geojson_with_styles_file").click();
   },
@@ -190,10 +181,28 @@ let gjson_load = new L.Control.PMButton({
 });
 map_editor.addControl(gjson_load);
 
+//import any files with styles button to geoman
+let importer_file = new L.Control.PMButton({
+  title: "Import Files",
+  actions: [""],
+  //actions: ["cancel"],
+  onClick: () => {
+    //import any files with betterFileLayer plugin
+    document.getElementById("btn_import").click();
+  },
+  afterClick: () => {
+  },
+  doToggle: false,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-import',
+});
+map_editor.addControl(importer_file);
+
 //save geojson with styles button to geoman
 let gjson_save = new L.Control.PMButton({
   block: "custom",
-  title: "save gjson",
+  title: "Save Styled GeoJSON",
   actions: [],
   onClick: () => {
     
@@ -265,7 +274,7 @@ var options = {
   }, // Overwrite the default BFL GeoJSON onEachFeature function
   //layer: L.customLayer, // If you want a custom layer to be used (must be a GeoJSON class inheritance)
   // Restrict accepted file formats (default: .gpx, .kml, .kmz, .geojson, .json, .csv, .topojson, .wkt, .shp, .shx, .prj, .dbf, .zip)
-  formats:['.geojson', '.kml', '.gpx', '.kmz', '.csv', '.zip', '.gjson','.topojson'],
+  formats:['.json', '.kml', '.gpx', '.kmz', '.csv', '.zip', '.gjson','.topojson','.wkt', '.shp', '.shx', '.prj', '.dbf'],
 
   importOptions: { // Some file types may have import options, for now, just csv is documented
     csv: {
@@ -502,17 +511,24 @@ function drawnItemsToJSON(ilayer) {
   var ditems = ilayer.getLayers();
   dOut = '{"type":"FeatureCollection","features":[';
   for (iIndex = 0; iIndex < ditems.length; ++iIndex) {
-      if (ditems[iIndex] instanceof L.Point || ditems[iIndex] instanceof L.Marker) {
+      if (ditems[iIndex] instanceof L.Marker) {
           dOut1 = dOut1 + ',{"type":"Feature","properties":{';
-          if ('icon' in ditems[iIndex].options) {
+          dOut2 = '';
+          if ('text' in ditems[iIndex].options) { if (!ditems[iIndex].options.text !== null) { dOut2 = dOut2 + ',"name":"' + ditems[iIndex].options.text + '"'} };
+          /*if ('icon' in ditems[iIndex].options) {
               if ('options' in ditems[iIndex].options.icon) {
                   dOut1 = dOut1 + '"markerOptions":{';
                   dOut2 = '';
+                  //here
                   if ('iconSize' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconSize":[' + ditems[iIndex].options.icon.options.iconSize[0] + ',' + ditems[iIndex].options.icon.options.iconSize[0] + ']' };
                   if ('iconUrl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
+                  
                   dOut1 = dOut1 + dOut2.substring(1) + '}';
               };
-          };
+          };*/
+          if (dOut2.length > 1) {
+            dOut1 = dOut1 + dOut2.substring(1);
+        };
           dOut1 = dOut1 + '},"geometry":{"type":"Point","coordinates":['
               + ditems[iIndex]._latlng.lng
               + ',' + ditems[iIndex]._latlng.lat
@@ -538,14 +554,66 @@ function drawnItemsToJSON(ilayer) {
           };
           dOut2 = '';
           dOut1 = dOut1 + '}';
+      } else if (ditems[iIndex] instanceof L.Point) {
+        dOut1 = dOut1 + ',{"type":"Feature","properties":{';
+        
+        if ('icon' in ditems[iIndex].options) {
+            if ('options' in ditems[iIndex].options.icon) {
+                dOut1 = dOut1 + '"markerOptions":{';
+                dOut2 = '';
+                if ('iconSize' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconSize":[' + ditems[iIndex].options.icon.options.iconSize[0] + ',' + ditems[iIndex].options.icon.options.iconSize[0] + ']' };
+                if ('iconUrl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
+                dOut1 = dOut1 + dOut2.substring(1) + '}';
+            };
+        };
+        dOut1 = dOut1 + '},"geometry":{"type":"Point","coordinates":['
+            + ditems[iIndex]._latlng.lng
+            + ',' + ditems[iIndex]._latlng.lat
+            + ']},"style":{';
+        dOut2 = '';
+        if ('stroke' in ditems[iIndex].options) { if (!ditems[iIndex].options.stroke !== null) { dOut2 = dOut2 + ',"stroke":' + ditems[iIndex].options.stroke } };
+        if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"color":"' + ditems[iIndex].options.color + '"' } };
+        if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"weight":' + ditems[iIndex].options.weight } };
+        if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"opacity":' + ditems[iIndex].options.opacity } };
+        if ('fill' in ditems[iIndex].options) { if (!ditems[iIndex].options.fill !== null) { dOut2 = dOut2 + ',"fill":' + ditems[iIndex].options.fill } };
+        if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fillColor":"' + ditems[iIndex].options.fillColor + '"' } };
+        if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fillOpacity":' + ditems[iIndex].options.fillOpacity } };
+        if ('fillRule' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillRule !== null) { dOut2 = dOut2 + ',"fillRule":"' + ditems[iIndex].options.fillRule + '"' } };
+        if ('dashArray' in ditems[iIndex].options) { if (!ditems[iIndex].options.dashArray !== null) { dOut2 = dOut2 + ',"dashArray":"' + ditems[iIndex].options.dashArray + '"' } };
+        if ('lineCap' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineCap !== null) { dOut2 = dOut2 + ',"lineCap":"' + ditems[iIndex].options.lineCap + '"' } };
+        if ('lineJoin' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineJoin !== null) { dOut2 = dOut2 + ',"lineJoin":"' + ditems[iIndex].options.lineJoin + '"' } };
+        if ('clickable' in ditems[iIndex].options) { if (!ditems[iIndex].options.clickable !== null) { dOut2 = dOut2 + ',"clickable":' + ditems[iIndex].options.clickable } };
+        if ('pointerEvents' in ditems[iIndex].options) { if (!ditems[iIndex].options.pointerEvents !== null) { dOut2 = dOut2 + ',"pointerEvents":"' + ditems[iIndex].options.pointerEvents + '"' } };
+        if ('className' in ditems[iIndex].options) { if (!ditems[iIndex].options.className !== null) { dOut2 = dOut2 + ',"className":"' + ditems[iIndex].options.className + '"' } };
+
+        if (dOut2.length > 1) {
+            dOut1 = dOut1 + dOut2.substring(1) + '}';
+        };
+        dOut2 = '';
+        dOut1 = dOut1 + '}';
+
       } else if (ditems[iIndex] instanceof L.Polygon) {
         dOut1 = dOut1 + ',{"type":"Feature","properties":{'
         dOut2 = '';
-        if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"stroke":"' + ditems[iIndex].options.color + '"' } };
-        if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"stroke-width":' + ditems[iIndex].options.weight } };
-        if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"stroke-opacity":' + ditems[iIndex].options.opacity } };
-        if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fill":"' + ditems[iIndex].options.fillColor + '"' } };
-        if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fill-opacity":' + ditems[iIndex].options.fillOpacity } };
+        if ('stroke' in ditems[iIndex].options) { if (!ditems[iIndex].options.stroke !== null) { dOut2 = dOut2 + ',"stroke":' + ditems[iIndex].options.stroke } };
+        if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"color":"' + ditems[iIndex].options.color + '"' } };
+        if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"weight":' + ditems[iIndex].options.weight } };
+        if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"opacity":' + ditems[iIndex].options.opacity } };
+        if ('fill' in ditems[iIndex].options) { if (!ditems[iIndex].options.fill !== null) { dOut2 = dOut2 + ',"fill":' + ditems[iIndex].options.fill } };
+        if ('fillColor' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillColor !== null) { dOut2 = dOut2 + ',"fillColor":"' + ditems[iIndex].options.fillColor + '"' } };
+        if ('fillOpacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillOpacity !== null) { dOut2 = dOut2 + ',"fillOpacity":' + ditems[iIndex].options.fillOpacity } };
+        if ('fillRule' in ditems[iIndex].options) { if (!ditems[iIndex].options.fillRule !== null) { dOut2 = dOut2 + ',"fillRule":"' + ditems[iIndex].options.fillRule + '"' } };
+        if ('dashArray' in ditems[iIndex].options) { if (!ditems[iIndex].options.dashArray !== null) { dOut2 = dOut2 + ',"dashArray":"' + ditems[iIndex].options.dashArray + '"' } };
+        if ('lineCap' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineCap !== null) { dOut2 = dOut2 + ',"lineCap":"' + ditems[iIndex].options.lineCap + '"' } };
+        if ('lineJoin' in ditems[iIndex].options) { if (!ditems[iIndex].options.lineJoin !== null) { dOut2 = dOut2 + ',"lineJoin":"' + ditems[iIndex].options.lineJoin + '"' } };          if ('clickable' in ditems[iIndex].options) { if (!ditems[iIndex].options.clickable !== null) { dOut2 = dOut2 + ',"clickable":' + ditems[iIndex].options.clickable } };
+        if ('pointerEvents' in ditems[iIndex].options) { if (!ditems[iIndex].options.pointerEvents !== null) { dOut2 = dOut2 + ',"pointerEvents":"' + ditems[iIndex].options.pointerEvents + '"' } };
+        if ('className' in ditems[iIndex].options) { if (!ditems[iIndex].options.className !== null) { dOut2 = dOut2 + ',"className":"' + ditems[iIndex].options.className + '"' } };
+        if ('icon' in ditems[iIndex].options) {
+            if ('options' in ditems[iIndex].options.icon) {
+                if ('iconSize' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconSize":[' + ditems[iIndex].options.icon.options.iconSize[0] + ',' + ditems[iIndex].options.icon.options.iconSize[0] + ']"' };
+                if ('iconurl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
+            };
+        };
         dOut1 = dOut1 + dOut2.substring(1);
         
         dOut1 = dOut1 + '},"geometry":{"type":"Polygon","coordinates":[['
@@ -576,9 +644,9 @@ function drawnItemsToJSON(ilayer) {
                   if ('iconurl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
               };
           };
-          if (dOut2.length > 1) {
-              dOut1 = dOut1 + dOut2.substring(1) + '}';
-          };
+          
+          dOut1 = dOut1 + dOut2.substring(1) + '}';
+        
           dOut2 = '';
           dOut1 = dOut1 + '}';
       } else if (ditems[iIndex] instanceof L.Polyline) {
