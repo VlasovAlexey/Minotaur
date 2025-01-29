@@ -79,6 +79,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 					}
             		//my_Layer.bindPopup("ID : "+feature.properties.id+"<br />Name : "+feature.properties.name);
         		}
+				, onEachFeature: onEachFeatureClick
 			}).addTo(map_editor);
 			
 			var layers = loaded_data.getLayers();
@@ -101,7 +102,15 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 					}
 				  }).addTo(map_editor);
 				*/
-
+			function onEachFeatureClick(feature, layer) {
+				//bind click
+				layer.on({
+					click: whenClicked
+				});
+			}
+			function whenClicked(e) {
+				console.log(e.target.options.color);			
+			}
 			map_editor.fitBounds(loaded_data.getBounds());
 
 			//Hide progress bar
