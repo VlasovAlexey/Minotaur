@@ -244,7 +244,9 @@ var paintpolygonControl = L.control.paintPolygon(
 {
     layerOptions: {
         color: '#2c8aff',
-        weight: 3
+        fillColor: '#2c8aff',
+        fillOpacity: 0.25,
+        weight: 3,
     },
      drawOptions: {
         color: '#2c8aff',

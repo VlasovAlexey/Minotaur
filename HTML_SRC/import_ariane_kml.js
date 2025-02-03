@@ -56,7 +56,10 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 			ariane_kml_file = [];
         	ariane_kml_file = e.target.result;
 			
-            console.log(ariane_kml_file);
+			var xotree = new XML.ObjTree();
+			var tree = xotree.parseXML(ariane_kml_file);       	// source to tree
+			console.log(tree);
+    		console.log(tree.kml.Document.Folder[3].Placemark.length);
 
 			//Hide progress bar
 			Pbar_Hide();

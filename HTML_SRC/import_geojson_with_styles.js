@@ -53,9 +53,11 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 		//Show progress bar
 		Pbar_Show();
 		setTimeout(function() {
-			geojson_with_styles_file = [];
+			//geojson_with_styles_file = [];
         	geojson_with_styles_file = e.target.result;
 			
+			//remove any \n or \r for GeoJSON compatibility
+			geojson_with_styles_file = geojson_with_styles_file.replace(/(\r\n|\n|\r)/gm,"");
 			//parse loaded text to json objects
 			var json = JSON.parse(geojson_with_styles_file);
 			var loaded_data = L.geoJson(json, {
