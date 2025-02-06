@@ -62,11 +62,13 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 				var pos_start = -1;
 				var pos_old = 0
 				var xy_arr = [];
+				var z_arr = [];
 				while ((pos_start = ariane_csv_file.indexOf("\n", pos_start + 1)) != -1) {
 					var tmp = ariane_csv_file.slice(pos_old, pos_start - 1).split(";");
 					//skip first line element
 					if(pos_old != 0){
 						xy_arr.push([(1.0*tmp[2]),(1.0*tmp[1])]);
+						z_arr.push((1.0*tmp[3]));
 
 						//add markers with depth postfix
 						var depth_text = String(Math.abs(Math.round((1.0*tmp[3]) * 100) / 100)) + plan_lng("ch_mtr");
@@ -82,7 +84,7 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 				}
 
 				//add loaded data to map editor
-				add_line_arr(xy_arr, "#ff7800", 5);				
+				add_line_arr(xy_arr, "#ff7800", 5, z_arr);	
 				Pbar_Hide();
 
 			} else {

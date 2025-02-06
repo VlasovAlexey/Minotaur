@@ -496,9 +496,9 @@ function add_line_arr(xy_arr, color_line, weight_line){
 
 	geojson = L.geoJson(myLines, {
 		  style: style,
-		  onEachFeature: onEachFeature
+		  onEachFeature: onEachFeature,
 	}).addTo(map_editor);
-
+  
 	// zoom the map to the polygon after data loaded
 	var fit_polygon = L.polyline([xy_arr], {color: color_line}).addTo(map_editor);
 	map_editor.fitBounds(fit_polygon.getBounds());

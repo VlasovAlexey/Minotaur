@@ -1,9 +1,17 @@
-//watcher function for seacraft file reading
+//watcher function for Ariane tml file reading
+	//generate zip file example and save
+	/*
+	var zip = new JSZip();
+	zip.file("hello.txt", "Hello World\n");
+	zip.generateAsync({type:"blob"})
+		.then(function (blob) {
+    saveAs(blob, "hello.zip");
+	});
+	*/
 var ariane_tml_file = [];
-document.querySelector("#ariane_tml_file").addEventListener('change', function() {
-	// files that user has chosen
-	var all_files = this.files;
-	if(all_files.length == 0) {
+function onTMLload(fileInput) {
+	if(fileInput.files[0] == undefined) {
+		//file is not selected
 		del_html_elem("tn_overlay_text");
 		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("tml_no_file"));
 		document.getElementById("AlertOverlay").style.height = "100%";
@@ -12,13 +20,18 @@ document.querySelector("#ariane_tml_file").addEventListener('change', function()
 		return;
 	}
 
-	// first file selected by user
-	var file = all_files[0];
+	// Max 30 MB allowed
+	var max_size_allowed = 30*1024*1024
+	if(fileInput.files[0].size > max_size_allowed) {
+		del_html_elem("tn_overlay_text");
+		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("tml_big_file"));
+		document.getElementById("AlertOverlay").style.height = "100%";
+		document.getElementById("AlertOverlay").style.opacity = "1";
+		Pbar_Hide();
+		return;
+	}
 
-	// files types allowed
-	var allowed_name = "";
-  
-  allowed_name = file.name.slice((Math.max(0, file.name.lastIndexOf(".")) || Infinity) + 1);
+	allowed_name = fileInput.files[0].name.slice((Math.max(0, fileInput.files[0].name.lastIndexOf(".")) || Infinity) + 1);
 	if(allowed_name != "tml") {
 		del_html_elem("tn_overlay_text");
 		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("tml_bad_ext_file"));
@@ -28,56 +41,31 @@ document.querySelector("#ariane_tml_file").addEventListener('change', function()
 		return;
 	}
 
-	// Max 30 MB allowed
-	var max_size_allowed = 30*1024*1024
-	if(file.size > max_size_allowed) {
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("tml_big_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
-		Pbar_Hide();
-		return;
-	}
-
-	// file validation is successful
-	// we will now read the file
 	var reader = new FileReader();
-
-	// file reading started
-	reader.addEventListener('loadstart', function() {
-	    //document.querySelector("#file-input-label").style.display = 'none'; 
-	});
-
-	// file reading finished successfully
-	reader.addEventListener('load', function(e) {
-		//Show progress bar
-		Pbar_Show();
-		setTimeout(function() {
-			ariane_tml_file = [];
-        	ariane_tml_file = e.target.result;
-			
-            console.log(ariane_tml_file);
-
-			//push to map picker
-			/*path_gray_picker = L.polyline(tree_size_arr, {
-				weight: 10,
-				color: "gray",
-			}).addTo(map_picker);*/
-
-			//Hide progress bar
-			Pbar_Hide();
-		}, 1000);
-	});
-
-	// file reading failed
-	reader.addEventListener('error', function() {
-	    del_html_elem("tn_overlay_text");
+	reader.onload = function(ev) {
+		JSZip.loadAsync(ev.target.result).then(function(zip) {
+			zip.file("Data.xml").async("string").then(function(data) {
+				
+				// data is a string
+				console.log(data);
+			})
+		}).catch(function(err) {
+			//bad file or file structure
+			del_html_elem("tn_overlay_text");
+			create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("bad_file_format"));
+			document.getElementById("AlertOverlay").style.height = "100%";
+			document.getElementById("AlertOverlay").style.opacity = "1";
+        	Pbar_Hide();
+			return;
+		})
+	};
+	reader.onerror = function(err) {
+		//bad file format
+		del_html_elem("tn_overlay_text");
 		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("tml_bad_file"));
 		document.getElementById("AlertOverlay").style.height = "100%";
 		document.getElementById("AlertOverlay").style.opacity = "1";
         Pbar_Hide();
-	});
-
-	// read as text file
-	reader.readAsText(file);
-});
+	}
+	reader.readAsArrayBuffer(fileInput.files[0]);
+}
