@@ -56,9 +56,27 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
         	ariane_kml_file = e.target.result;
 			
 			ariane_kml_file = new XML.ObjTree();
-			ariane_kml_file = ariane_kml_file.parseXML(e.target.result);       	// source to tree
+			ariane_kml_file = ariane_kml_file.parseXML(e.target.result);
+
+			//create placemarks if exist
+			for (i = 0; i < ariane_kml_file.kml.Document.Folder.length; i++) {
+				if(ariane_kml_file.kml.Document.Folder[i].name == "Stations") {
+					for (f = 0; f < ariane_kml_file.kml.Document.Folder[i].Placemark.length; f++) {
+						if(ariane_kml_file.kml.Document.Folder[i].Placemark[f].Point != undefined){
+
+							var coord = String(ariane_kml_file.kml.Document.Folder[i].Placemark[f].Point.coordinates).split(",");
+							var pls_text_depth = ariane_kml_file.kml.Document.Folder[i].Placemark[f].name + ":" + String(Math.abs(Math.round((1.0*coord[2]) * 100) / 100)) + plan_lng("ch_mtr");
+							L.marker([coord[1],coord[0]], {
+								textMarker: true,
+								text: pls_text_depth,
+								textMarkerCentered: true,
+							  }).addTo(map_editor);
+						}
+					}
+				}
+			}
 			console.log(ariane_kml_file);
-    		console.log(ariane_kml_file.kml.Document.Folder[3].Placemark.length);
+    		//console.log(ariane_kml_file.kml.Document.Folder[3].Placemark.length);
 
 			//Hide progress bar
 			Pbar_Hide();

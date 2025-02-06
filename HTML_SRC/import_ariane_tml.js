@@ -45,9 +45,10 @@ function onTMLload(fileInput) {
 	reader.onload = function(ev) {
 		JSZip.loadAsync(ev.target.result).then(function(zip) {
 			zip.file("Data.xml").async("string").then(function(data) {
-				
 				// data is a string
-				console.log(data);
+				ariane_tml_file = new XML.ObjTree();
+				ariane_tml_file = ariane_tml_file.parseXML(data);
+				console.log(ariane_tml_file);
 			})
 		}).catch(function(err) {
 			//bad file or file structure
