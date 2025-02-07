@@ -71,13 +71,34 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 						//my_Layer.bindTooltip(feature.properties.name, {permanent: true, direction: "top", className: "my-labels"}).openTooltip();
 						//my_Layer.setOpacity
 						//console.log(feature.geometry.coordinates[1]);
-						L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
-							textMarker: true,
-							text: feature.properties.name,
-							textMarkerCentered: true,
-						  }).addTo(map_editor);
-
-						  //my_Layer.removeFrom(map_editor);
+						if (feature.properties.depth != undefined){
+							if(feature.properties.name.search(":") != -1){
+								//markers with additional info and depth
+								var new_txt = feature.properties.name.split(":");
+								L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
+									textMarker: true,
+									text: new_txt[0] + ":" + feature.properties.depth + plan_lng("ch_mtr"),
+									textMarkerCentered: true,
+									depth: feature.properties.depth
+								}).addTo(map_editor);
+							} else {
+								//marker with depth
+								L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
+									textMarker: true,
+									text: feature.properties.depth + plan_lng("ch_mtr"),
+									textMarkerCentered: true,
+									depth: feature.properties.depth
+								}).addTo(map_editor);
+							}
+						} else {
+							//marker without depth only with text info
+							L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
+								textMarker: true,
+								text: feature.properties.name,
+								textMarkerCentered: true,
+							}).addTo(map_editor);
+						}
+						//my_Layer.removeFrom(map_editor);
 					}
             		//my_Layer.bindPopup("ID : "+feature.properties.id+"<br />Name : "+feature.properties.name);
         		}

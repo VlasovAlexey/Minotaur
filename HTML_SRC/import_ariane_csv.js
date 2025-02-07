@@ -1,3 +1,4 @@
+
 //watcher function for seacraft file reading
 var ariane_csv_file = [];
 document.querySelector("#ariane_csv_file").addEventListener('change', function() {
@@ -71,11 +72,12 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 						z_arr.push((1.0*tmp[3]));
 
 						//add markers with depth postfix
-						var depth_text = String(Math.abs(Math.round((1.0*tmp[3]) * 100) / 100)) + plan_lng("ch_mtr");
-						L.marker([(1.0*tmp[2]),(1.0*tmp[1])], {
+						var depth_text = String(Math.abs(Math.round((1.0*tmp[3]) * 100) / 100))
+						new Marker3d([(1.0*tmp[2]),(1.0*tmp[1])], {
 							textMarker: true,
-							text: depth_text,
+							text: depth_text + plan_lng("ch_mtr"),
 							textMarkerCentered: true,
+							depth: depth_text
 						  }).addTo(map_editor);
 						//WARNING! Lat Lon inverted for GeoJSON!
 						//xy_arr_inv.push([(1.0*tmp[1]),(1.0*tmp[2])]);

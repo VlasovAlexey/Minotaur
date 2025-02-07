@@ -2,6 +2,14 @@
 //global arr to gpx tracks
 gpx_arr_glb = [];
 
+//custom properties for marker with depth options
+Marker3d = L.Marker.extend({
+	options: { 
+	   depth: 0.0,
+	   bearing: 0.0
+	}
+});
+  
 //convert GPX file format and adding to global arr tracks
 function gpx_file_to_massive(res){
     return gpx_arr_glb + res;
@@ -517,6 +525,7 @@ function drawnItemsToJSON(ilayer) {
           dOut1 = dOut1 + ',{"type":"Feature","properties":{';
           dOut2 = '';
           if ('text' in ditems[iIndex].options) { if (!ditems[iIndex].options.text !== null) { dOut2 = dOut2 + ',"name":"' + ditems[iIndex].options.text + '"'} };
+          if ('depth' in ditems[iIndex].options) { if (!ditems[iIndex].options.depth !== null) { dOut2 = dOut2 + ',"depth":"' + ditems[iIndex].options.depth + '"'} };
           /*if ('icon' in ditems[iIndex].options) {
               if ('options' in ditems[iIndex].options.icon) {
                   dOut1 = dOut1 + '"markerOptions":{';
