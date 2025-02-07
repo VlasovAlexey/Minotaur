@@ -1,6 +1,9 @@
 //watcher function for seacraft file reading
 var seacraft_kml_file = [];
 document.querySelector("#seacraft_kml_file").addEventListener('change', function() {
+	//Show progress bar
+	Pbar_Show();
+
 	// files that user has chosen
 	var all_files = this.files;
 	if(all_files.length == 0) {
@@ -50,19 +53,43 @@ document.querySelector("#seacraft_kml_file").addEventListener('change', function
 
 	// file reading finished successfully
 	reader.addEventListener('load', function(e) {
-		//Show progress bar
-		Pbar_Show();
 		setTimeout(function() {
-			seacraft_kml_file = [];
-        	seacraft_kml_file = e.target.result;
-			
+			// data is a string
+			seacraft_kml_file = new XML.ObjTree();
+			seacraft_kml_file = seacraft_kml_file.parseXML(e.target.result);
             console.log(seacraft_kml_file);
+			
+			//read and create Placemarks if exist
+			for (i = 0; i < seacraft_kml_file.Document.Placemark.length; i++) {
+				if(seacraft_kml_file.Document.Placemark[i].styleUrl == "#SpecialPointF" || seacraft_kml_file.Document.Placemark[i].styleUrl == "#SpecialPointR"){
+					var coord = String(seacraft_kml_file.Document.Placemark[i].Point.coordinates).split(",");
+					var pls_text_depth = seacraft_kml_file.Document.Placemark[i].name.split(" ");
+					pls_text_depth = pls_text_depth[0] + String(Math.abs(Math.round((1.0*coord[2]) * 100) / 100));
+					var depth_text = String(Math.abs(Math.round((1.0*coord[2]) * 100) / 100))
+					new Marker3d([coord[1],coord[0]], {
+						textMarker: true,
+						text: pls_text_depth + plan_lng("ch_mtr"),
+						textMarkerCentered: true,
+						depth: depth_text
+					}).addTo(map_editor);
+				}
+			}
 
-			//push to map picker
-			/*path_gray_picker = L.polyline(tree_size_arr, {
-				weight: 10,
-				color: "gray",
-			}).addTo(map_picker);*/
+			//read and create lines if exist
+			var xy_arr = [];
+			var z_arr = [];
+			for (i = 0; i < seacraft_kml_file.Document.Placemark.length; i++) {
+				if(seacraft_kml_file.Document.Placemark[i].styleUrl == "#MainLine"){
+					var a = seacraft_kml_file.Document.Placemark[i].Track["gx:coord"];
+					for (s = 0; s < a.length-1; s++) {
+						var coord = String(seacraft_kml_file.Document.Placemark[i].Track["gx:coord"][s]["#text"]).split(" ");
+						xy_arr.push([(1.0*coord[1]) , (1.0*coord[0])]);
+					}
+				}
+			}
+
+			//add loaded data to map editor
+			add_line_arr(xy_arr, "#ff7800", 5, z_arr);
 
 			//Hide progress bar
 			Pbar_Hide();
