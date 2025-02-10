@@ -301,7 +301,7 @@ L.Control.betterFileLayer(options).addTo(map_editor);
 
 //error handlers for file importing
 map_editor.on("bfl:layerloaded", () => {
-  console.log("Was successful added!");
+  //console.log("Was successful added!");
 });
 
 map_editor.on("bfl:layerloaderror", ({layer}) => {
@@ -460,16 +460,32 @@ map_editor.pm.Toolbar.createCustomControl({
 //xy_arr - array with lat lon
 //color_line - line color format 
 //weight_line - weight_line ;)
-function add_line_arr(xy_arr, color_line, weight_line){
+function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 	//build data for leaflet geojson layers
 	var myLines = [];
-	for (i = 0; i < xy_arr.length - 1; i++) {
-		myLines.push({
-			"type": "LineString",
-			"properties": {"color": color_line},
-			"coordinates": [[xy_arr[i][1],xy_arr[i][0]] , [xy_arr[i+1][1],xy_arr[i+1][0]]]
-		});
-	}
+  if(line_status == "false"){
+    for (i = 0; i < xy_arr.length - 1; i++) {
+      //line with two points
+      myLines.push({
+        "type": "LineString",
+        "properties": {"color": color_line},
+        "coordinates": [[xy_arr[i][1],xy_arr[i][0]] , [xy_arr[i+1][1],xy_arr[i+1][0]]]
+      });
+    }
+  }
+
+  if(line_status == "true") {
+    var xy_arr_done = []
+    for (i = 0; i < xy_arr.length; i++) {
+      xy_arr_done.push([xy_arr[i][1],xy_arr[i][0]]);
+    }
+      //one big line
+      myLines.push({
+        "type": "LineString",
+        "properties": {"color": color_line},
+        "coordinates": xy_arr_done
+      });
+  }
 
 	//highlight mouse over elements on the map
 	var geojson;
@@ -723,6 +739,26 @@ function drawnItemsToJSON(ilayer) {
           dOut1 = dOut1 + '}';
       };
   };
-  //console.log(dOut + dOut1.substring(1) + ']}');
   return dOut + dOut1.substring(1) + ']}';
 };
+
+// Add event listener to the featureGroup layer for when a new shape is created for STYLE changing on click
+var newColor = 'white';
+map_editor.on('pm:create', function(e) {
+  var layer = e.layer;
+  // Attach click event to the new shape
+  layer.on('click', function() {
+    //console.log('Current Color:', this.options.color);
+    // Check if the clicked layer is a polygon or polyline
+    if (layer instanceof L.Polygon) {
+      selectedPolygon = layer;
+      selectedPolygon.setStyle({ fillColor: newColor });
+      selectedPolygon.setStyle({ color: newColor });    
+    } else {
+      if (layer instanceof L.Polyline) {
+        selectedPolygon = layer;
+        selectedPolygon.setStyle({ color: newColor });    
+      }
+    }
+  });
+});

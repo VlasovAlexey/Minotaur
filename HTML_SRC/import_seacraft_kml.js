@@ -55,9 +55,18 @@ document.querySelector("#seacraft_kml_file").addEventListener('change', function
 	reader.addEventListener('load', function(e) {
 		setTimeout(function() {
 			// data is a string
+			seacraft_kml_file = e.target.result;
+			if (seacraft_kml_file.indexOf("<styleUrl>#MainLine</styleUrl>") == -1){
+				//wrong file
+				del_html_elem("tn_overlay_text");
+				create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("bad_file_format"));
+				document.getElementById("AlertOverlay").style.height = "100%";
+				document.getElementById("AlertOverlay").style.opacity = "1";
+        		Pbar_Hide();
+				return;
+			}
 			seacraft_kml_file = new XML.ObjTree();
 			seacraft_kml_file = seacraft_kml_file.parseXML(e.target.result);
-            console.log(seacraft_kml_file);
 			
 			//read and create Placemarks if exist
 			for (i = 0; i < seacraft_kml_file.Document.Placemark.length; i++) {
@@ -84,12 +93,13 @@ document.querySelector("#seacraft_kml_file").addEventListener('change', function
 					for (s = 0; s < a.length-1; s++) {
 						var coord = String(seacraft_kml_file.Document.Placemark[i].Track["gx:coord"][s]["#text"]).split(" ");
 						xy_arr.push([(1.0*coord[1]) , (1.0*coord[0])]);
+						z_arr.push((1.0*coord[2]));
 					}
 				}
 			}
 
 			//add loaded data to map editor
-			add_line_arr(xy_arr, "#ff7800", 5, z_arr);
+			add_line_arr(xy_arr, "#ff7800", 5, z_arr, "true");
 
 			//Hide progress bar
 			Pbar_Hide();

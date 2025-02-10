@@ -60,22 +60,40 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 			geojson_with_styles_file = geojson_with_styles_file.replace(/(\r\n|\n|\r)/gm,"");
 			//parse loaded text to json objects
 			var json = JSON.parse(geojson_with_styles_file);
+			var marker = [];
 			var loaded_data = L.geoJson(json, {
 				
 				//assign styles to properties objects
 				style: function (f) {
 					return f.properties;
 				},
-        		onEachFeature: function (feature, my_Layer) {
+				//assign function for color changing
+        		onEachFeature: function (feature, layer) {
+					layer.on({  
+						click: function(e){
+							  // Reset style
+								layer.setStyle({
+							  //weight: 2,
+							  //opacity: 1,
+							  color: 'white',
+							  //dashArray: '',
+							  //fillOpacity: 0.25,
+							  fillColor: 'white'
+						  });
+						  
+						  //bring to front selected layer
+						  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+							layer.bringToFront();
+						  }
+						}
+					  });
+					//setup loaded markers
 					if (feature.properties.name != undefined){
-						//my_Layer.bindTooltip(feature.properties.name, {permanent: true, direction: "top", className: "my-labels"}).openTooltip();
-						//my_Layer.setOpacity
-						//console.log(feature.geometry.coordinates[1]);
 						if (feature.properties.depth != undefined){
 							if(feature.properties.name.search(":") != -1){
 								//markers with additional info and depth
 								var new_txt = feature.properties.name.split(":");
-								L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
+								marker = L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
 									textMarker: true,
 									text: new_txt[0] + ":" + feature.properties.depth + plan_lng("ch_mtr"),
 									textMarkerCentered: true,
@@ -83,7 +101,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 								}).addTo(map_editor);
 							} else {
 								//marker with depth
-								L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
+								marker = L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
 									textMarker: true,
 									text: feature.properties.depth + plan_lng("ch_mtr"),
 									textMarkerCentered: true,
@@ -92,16 +110,19 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 							}
 						} else {
 							//marker without depth only with text info
-							L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
+							marker = L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
 								textMarker: true,
 								text: feature.properties.name,
 								textMarkerCentered: true,
 							}).addTo(map_editor);
 						}
-						//my_Layer.removeFrom(map_editor);
+						//marker.bindTooltip(feature.properties.name, {permanent: true, direction: "top", className: "my-labels"}).openTooltip();
+						//marker.bindPopup("LatLon : "+ feature.geometry.coordinates +"<br />Name : "+feature.properties.name);
+						//marker.removeFrom(map_editor);
 					}
-            		//my_Layer.bindPopup("ID : "+feature.properties.id+"<br />Name : "+feature.properties.name);
         		}
+				//add styles changer
+				//,onEachFeature: onEachFeatureClick,
 			}).addTo(map_editor);
 			
 			var layers = loaded_data.getLayers();
@@ -110,8 +131,6 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 				if (layers[i].feature.properties.name != undefined){
 					map_editor.removeLayer(layers[i]);
 				}
-				//layers[i].feature.properties.name = "text";
-				//layers[i].feature.properties.name = "text";
 			}
 				//added labels if exist
 				/*L.geoJson(json, {
@@ -144,3 +163,5 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 	// read as text file
 	reader.readAsText(file);
 });
+
+

@@ -1,6 +1,9 @@
 //watcher function for seacraft file reading
 var seacraft_csv_file = [];
 document.querySelector("#seacraft_csv_file").addEventListener('change', function() {
+	//Show progress bar
+	Pbar_Show();
+
 	// files that user has chosen
 	var all_files = this.files;
 	if(all_files.length == 0) {
@@ -32,7 +35,7 @@ document.querySelector("#seacraft_csv_file").addEventListener('change', function
 	var max_size_allowed = 30*1024*1024
 	if(file.size > max_size_allowed) {
 		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("csv_big_file"));
+		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng(""));
 		document.getElementById("AlertOverlay").style.height = "100%";
 		document.getElementById("AlertOverlay").style.opacity = "1";
 		Pbar_Hide();
@@ -50,19 +53,49 @@ document.querySelector("#seacraft_csv_file").addEventListener('change', function
 
 	// file reading finished successfully
 	reader.addEventListener('load', function(e) {
-		//Show progress bar
-		Pbar_Show();
 		setTimeout(function() {
 			seacraft_csv_file = [];
         	seacraft_csv_file = e.target.result;
 			
-            console.log(seacraft_csv_file);
+			if (seacraft_csv_file.indexOf("Date,Time,Pos3Dx,Pos3Dy,Pos3Dz,Course,Pitch,Roll,Distance,Speed,Temp,BattV") == -1){
+				//wrong file
+				del_html_elem("tn_overlay_text");
+				create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("bad_file_format"));
+				document.getElementById("AlertOverlay").style.height = "100%";
+				document.getElementById("AlertOverlay").style.opacity = "1";
+        		Pbar_Hide();
+				return;
+			}
 
-			//push to map picker
-			/*path_gray_picker = L.polyline(tree_size_arr, {
-				weight: 10,
-				color: "gray",
-			}).addTo(map_picker);*/
+			seacraft_csv_file = seacraft_csv_file.split("\n");
+			var data_start = 0;
+			var xy_arr = [];
+			var z_arr = [];
+			var lat_tmp = parseFloat(document.getElementById("default_lat_opt").value.replace("," , "."));
+			var lon_tmp = parseFloat(document.getElementById("default_lon_opt").value.replace("," , "."));
+
+			for (i = 0; i < seacraft_csv_file.length-1; i++) {
+				if (seacraft_csv_file[i].indexOf("Date,Time,Pos3Dx,Pos3Dy,Pos3Dz,Course,Pitch,Roll,Distance,Speed,Temp,BattV") != -1 ){
+					data_start = 1;
+					i = i + 1;
+				}
+				if (data_start == 1){
+					var data = seacraft_csv_file[i].split(",");
+					var distance_heading = xy_to_distance_heading(data[3], data[2]);
+
+					var lat_new_tmp = destinationPoint(lat_tmp, lon_tmp, distance_heading[0] , distance_heading[1]).lat;
+					var lon_new_tmp = destinationPoint(lat_tmp, lon_tmp, distance_heading[0] , distance_heading[1]).lon;
+					
+					if (lat_new_tmp == undefined || lon_new_tmp ==undefined){
+						lat_new_tmp = lat_tmp;
+						lon_new_tmp = lon_tmp;
+					}
+					xy_arr.push([(lat_new_tmp) , (lon_new_tmp)]);
+					z_arr.push(1.0*data[4]);
+				}
+			}
+			//add loaded data to map editor
+			add_line_arr(xy_arr, "#ff7800", 5, z_arr, "true");
 
 			//Hide progress bar
 			Pbar_Hide();
@@ -81,3 +114,33 @@ document.querySelector("#seacraft_csv_file").addEventListener('change', function
 	// read as text file
 	reader.readAsText(file);
 });
+
+//convert 2d text coordinates to distance and heading values
+function xy_to_distance_heading(x,y) {
+	x = 1.0*x;
+	y = 1.0*y;
+	var distance = 0.0;
+	var heading = 0.0;
+	result = [];
+	var x1 = Math.abs(x);
+	var y1 = Math.abs(y);
+	if(x>=0 && y>=0){
+		heading = 90 - Math.atan(y1/x1)*(180/Math.PI);
+	}
+	if(x>=0 && y<0){
+		heading = 90 + Math.atan(y1/x1)*(180/Math.PI);
+	}
+	if(x<0 && y<0){
+		heading = 180 + (90 - Math.atan(y1/x1)*(180/Math.PI));
+	}
+	if(x<0 && y>=0){
+		heading = 270 + Math.atan(y1/x1)*(180/Math.PI);
+	}
+	
+	distance = Math.sqrt(Math.pow(x1,2) + Math.pow(y1,2));
+	if(isNaN(distance)){distance = 0};
+	if(isNaN(heading)){heading = 0};
+
+	result.push(distance,heading);
+	return (result);
+}
