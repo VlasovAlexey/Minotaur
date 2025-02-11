@@ -71,6 +71,50 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
         		onEachFeature: function (feature, layer) {
 					layer.on({  
 						click: function(e){
+							//layer styling on click
+							if(style_line_edit_mode == 1){
+								if(newStyle == 1){
+									layer.setStyle({
+										weight: 3,
+									});	
+								}
+								if(newStyle == 2){
+									layer.setStyle({
+										weight: 5,
+									});
+								}
+								if(newStyle == 3){
+									layer.setStyle({
+										weight: 8,
+									});	
+								}
+								if(newStyle == 4){
+									layer.setStyle({
+										opacity: 1,
+										dashArray: '10000',
+									});	
+								}
+								if(newStyle == 5){
+									layer.setStyle({
+										opacity: 1,
+										dashArray: '0 8 0',
+									});	
+								}
+								if(newStyle == 6){
+									layer.setStyle({
+										opacity: 1,
+										dashArray: '0 5 5',
+									});	
+								}
+								if(newStyle == 7){
+									if (layer instanceof L.Polygon) {
+										layer.setStyle({
+											opacity: 0,
+										});	
+									}
+								}
+							}
+
     						// Check if the clicked layer is a polygon or polyline
     						if(color_edit_mode == 1){
         						var clr = idx_color_to_color(newColor);
@@ -83,43 +127,19 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 									fillColor: clr
 								});
     						}
-						  //bring to front selected layer function
-						  //if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToFront();}
+							if(layer_style_edit_mode == 1){
+								if(LayerOrder == 1){
+									//bring to front selected layer function
+						  			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToFront();}
+								}
+								if(LayerOrder == 2){
+									//bring to front selected layer function
+						  			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToBack();}
+								}
+							};
 						}
-					  });
-					//setup loaded markers
-					if (feature.properties.name != undefined){
-						if (feature.properties.depth != undefined){
-							if(feature.properties.name.search(":") != -1){
-								//markers with additional info and depth
-								var new_txt = feature.properties.name.split(":");
-								marker = L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
-									textMarker: true,
-									text: new_txt[0] + ":" + feature.properties.depth + plan_lng("ch_mtr"),
-									textMarkerCentered: true,
-									depth: feature.properties.depth
-								}).addTo(map_editor);
-							} else {
-								//marker with depth
-								marker = L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
-									textMarker: true,
-									text: feature.properties.depth + plan_lng("ch_mtr"),
-									textMarkerCentered: true,
-									depth: feature.properties.depth
-								}).addTo(map_editor);
-							}
-						} else {
-							//marker without depth only with text info
-							marker = L.marker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]], {
-								textMarker: true,
-								text: feature.properties.name,
-								textMarkerCentered: true,
-							}).addTo(map_editor);
-						}
-						//marker.bindTooltip(feature.properties.name, {permanent: true, direction: "top", className: "my-labels"}).openTooltip();
-						//marker.bindPopup("LatLon : "+ feature.geometry.coordinates +"<br />Name : "+feature.properties.name);
-						//marker.removeFrom(map_editor);
-					}
+					});
+				
         		}
 				//add styles changer
 				//,onEachFeature: onEachFeatureClick,
@@ -128,6 +148,39 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 			var layers = loaded_data.getLayers();
 			//console.log(layers);
 			for (var i = 0; i < layers.length; i++) {
+					//setup loaded markers
+					if (layers[i].feature.properties.name != undefined){
+						if (layers[i].feature.properties.depth != undefined){
+							if(layers[i].feature.properties.name.search(":") != -1){
+								//markers with additional info and depth
+								var new_txt = layers[i].feature.properties.name.split(":");
+								marker = L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {
+									textMarker: true,
+									text: new_txt[0] + ":" + layers[i].feature.properties.depth + plan_lng("ch_mtr"),
+									textMarkerCentered: true,
+									depth: layers[i].feature.properties.depth
+								}).addTo(map_editor);
+							} else {
+								//marker with depth
+								marker = L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {
+									textMarker: true,
+									text: layers[i].feature.properties.depth + plan_lng("ch_mtr"),
+									textMarkerCentered: true,
+									depth: layers[i].feature.properties.depth
+								}).addTo(map_editor);
+							}
+						} else {
+							//marker without depth only with text info
+							marker = L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {
+								textMarker: true,
+								text: layers[i].feature.properties.name,
+								textMarkerCentered: true,
+							}).addTo(map_editor);
+						}
+						//marker.bindTooltip(feature.properties.name, {permanent: true, direction: "top", className: "my-labels"}).openTooltip();
+						//marker.bindPopup("LatLon : "+ feature.geometry.coordinates +"<br />Name : "+feature.properties.name);
+						//marker.removeFrom(map_editor);
+					}
 				if (layers[i].feature.properties.name != undefined){
 					map_editor.removeLayer(layers[i]);
 				}

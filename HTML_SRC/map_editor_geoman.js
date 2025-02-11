@@ -91,9 +91,6 @@ map_editor.pm.enableDraw('Line', {
 });
 map_editor.pm.disableDraw();
 
-
-//default color on start
-var newColor = 1;
 // Add event listener to the featureGroup layer for when a new shape is created for STYLE changing on click
 map_editor.on('pm:create', function(e) {
   var layer = e.layer;
@@ -114,6 +111,17 @@ map_editor.on('pm:create', function(e) {
             }
         }   
     }
+    //layer ordering
+    if(layer_style_edit_mode == 1){
+        if(LayerOrder == 1){
+            //bring to front selected layer function
+              if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToFront();}
+        }
+        if(LayerOrder == 2){
+            //bring to front selected layer function
+              if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToBack();}
+        }
+    };
   });
 });
 
