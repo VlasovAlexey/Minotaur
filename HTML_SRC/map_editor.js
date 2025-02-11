@@ -1,4 +1,7 @@
 //track editor here
+var color_edit_mode = 0;
+var style_line_edit_mode = 0;
+var layer_style_edit_mode = 0;
 //global arr to gpx tracks
 gpx_arr_glb = [];
 
@@ -199,7 +202,7 @@ const ariane = [
   "ariane_import_csv",
   "ariane_import_tml",
   "ariane_import_kml",
-  "cancel",
+  //"cancel",
 ];
 
 map_editor.pm.Toolbar.createCustomControl({
@@ -222,7 +225,7 @@ map_editor.pm.Toolbar.createCustomControl({
 const seacraft = [
   "seacraft_import_csv",
   "seacraft_import_kml",
-  "cancel",
+  //"cancel",
 ];
 
 map_editor.pm.Toolbar.createCustomControl({
@@ -240,6 +243,83 @@ map_editor.pm.Toolbar.createCustomControl({
   className: 'control-icon leaflet-pm-icon-seacraft',
 });
 
+//color picker
+const color_picker = [
+  "color_picker_blue",
+  "color_picker_gold",
+  "color_picker_gray",
+  "color_picker_black",
+  "color_picker_white",
+  "color_picker_red",
+  //"cancel",
+];
+map_editor.pm.Toolbar.createCustomControl({
+  block: "custom",
+  name: "color picker",
+  actions: color_picker,
+  title: "",
+  onClick: () => {
+    color_edit_mode = 1;
+  },
+  afterClick: () => {
+    color_edit_mode = 0;
+  },
+  doToggle: true,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-color-picker',
+});
+
+//line style picker
+const line_style_picker = [
+  "line_style_picker_3",
+  "line_style_picker_5",
+  "line_style_picker_8",
+  "line_style_picker_line",
+  "line_style_picker_dash",
+  "line_style_picker_dot",
+  "line_style_picker_none",
+  //"cancel",
+];
+map_editor.pm.Toolbar.createCustomControl({
+  block: "custom",
+  name: "line styling",
+  actions: line_style_picker,
+  title: "",
+  onClick: () => {
+    style_line_edit_mode = 1;
+  },
+  afterClick: () => {
+    style_line_edit_mode = 0;
+  },
+  doToggle: true,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-line-style',
+});
+
+//layers modification
+const layer_style = [
+  "layer_to_front",
+  "layer_to_back",
+  "cancel",
+];
+map_editor.pm.Toolbar.createCustomControl({
+  block: "custom",
+  name: "layer styling",
+  actions: layer_style,
+  title: "",
+  onClick: () => {
+    layer_style_edit_mode = 1;
+  },
+  afterClick: () => {
+    layer_style_edit_mode = 0;
+  },
+  doToggle: true,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-layer-style',
+});
 
 //save map as image
 /*

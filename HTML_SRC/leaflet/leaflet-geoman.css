@@ -231,6 +231,8 @@
 	border-right: 0
 }
 
+
+
 .button-container .leaflet-pm-actions-container .leaflet-pm-action {
 	padding: 0 10px;
 	background-color: #666;
@@ -244,7 +246,6 @@
 	line-height: 29px;
 	vertical-align: middle
 }
-
 .leaflet-pm-toolbar .button-container:first-child.pos-right.active a.leaflet-buttons-control-button {
 	border-top-left-radius: 0
 }
@@ -258,6 +259,57 @@
 	cursor: pointer;
 	background-color: #777
 }
+/* Minotaur interface start */
+.leaflet-pm-action.pos-right.action-color_picker_blue{
+	background-color:#089cff;
+}
+.leaflet-pm-action.pos-right.action-color_picker_blue:hover,
+.leaflet-pm-action.pos-right.action-color_picker_blue:focus {
+	cursor: pointer;
+	background-color: #4ab6ff;
+}
+.leaflet-pm-action.pos-right.action-color_picker_gold{
+	background-color:#ffc400;
+}
+.leaflet-pm-action.pos-right.action-color_picker_gold:hover,
+.leaflet-pm-action.pos-right.action-color_picker_gold:focus {
+	cursor: pointer;
+	background-color: #fcce38;
+}
+.leaflet-pm-action.pos-right.action-color_picker_gray{
+	background-color:#808080;
+}
+.leaflet-pm-action.pos-right.action-color_picker_gray:hover,
+.leaflet-pm-action.pos-right.action-color_picker_gray:focus {
+	cursor: pointer;
+	background-color: #909090;
+}
+.leaflet-pm-action.pos-right.action-color_picker_black{
+	background-color:#000;
+}
+.leaflet-pm-action.pos-right.action-color_picker_black:hover,
+.leaflet-pm-action.pos-right.action-color_picker_black:focus {
+	cursor: pointer;
+	background-color: #222222;
+}
+.leaflet-pm-action.pos-right.action-color_picker_white{
+	background-color:#fff;
+}
+.leaflet-pm-action.pos-right.action-color_picker_white:hover,
+.leaflet-pm-action.pos-right.action-color_picker_white:focus {
+	cursor: pointer;
+	background-color: #e4e4e4;
+}
+.leaflet-pm-action.pos-right.action-color_picker_red{
+	background-color:#ff0000;
+}
+.leaflet-pm-action.pos-right.action-color_picker_red:hover,
+.leaflet-pm-action.pos-right.action-color_picker_red:focus {
+	cursor: pointer;
+	background-color: #fc3838;
+}
+/* Minotaur interface end */
+
 
 .leaflet-pm-toolbar.activeChild {
 	z-index: 801

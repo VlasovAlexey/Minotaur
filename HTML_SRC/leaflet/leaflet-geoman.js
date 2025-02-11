@@ -4434,6 +4434,54 @@
                     s = t.actions,
                     a = {
                         //minotaur interface start
+                        color_picker_blue: {
+                            text: V(" "),
+                            title: V("blue"),
+                            onClick() {
+                                color_edit_mode = 1;
+                                newColor = 1;
+                            }
+                        },
+                        color_picker_gold: {
+                            text: V(" "),
+                            title: V("gold"),
+                            onClick() {
+                                color_edit_mode = 1;
+                                newColor = 2;
+                            }
+                        },
+                        color_picker_gray: {
+                            text: V(" "),
+                            title: V("gray"),
+                            onClick() {
+                                color_edit_mode = 1;
+                                newColor = 3;
+                            }
+                        },
+                        color_picker_black: {
+                            text: V(" "),
+                            title: V("black"),
+                            onClick() {
+                                color_edit_mode = 1;
+                                newColor = 4;
+                            }
+                        },
+                        color_picker_white: {
+                            text: V(" "),
+                            title: V("white"),
+                            onClick() {
+                                color_edit_mode = 1;
+                                newColor = 5;
+                            }
+                        },
+                        color_picker_red: {
+                            text: V(" "),
+                            title: V("red"),
+                            onClick() {
+                                color_edit_mode = 1;
+                                newColor = 6;
+                            }
+                        },
                         ariane_import_csv: {
                             text: V("actions.ariane_import_csv"),
                             title: V("actions.ariane_import_csv"),

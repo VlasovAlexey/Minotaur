@@ -71,20 +71,20 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
         		onEachFeature: function (feature, layer) {
 					layer.on({  
 						click: function(e){
-							  // Reset style
-								layer.setStyle({
-							  //weight: 2,
-							  //opacity: 1,
-							  color: 'white',
-							  //dashArray: '',
-							  //fillOpacity: 0.25,
-							  fillColor: 'white'
-						  });
-						  
-						  //bring to front selected layer
-						  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-							layer.bringToFront();
-						  }
+    						// Check if the clicked layer is a polygon or polyline
+    						if(color_edit_mode == 1){
+        						var clr = idx_color_to_color(newColor);
+			  					layer.setStyle({
+									//weight: 2,
+									//opacity: 1,
+									color: clr,
+									//dashArray: '',
+									//fillOpacity: 0.25,
+									fillColor: clr
+								});
+    						}
+						  //bring to front selected layer function
+						  //if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToFront();}
 						}
 					  });
 					//setup loaded markers
