@@ -2,10 +2,6 @@
 var color_edit_mode = 0;
 var style_line_edit_mode = 0;
 var layer_style_edit_mode = 0;
-
-var newColor = 1;
-var newStyle = 1;
-var LayerOrder = 1;
 //global arr to gpx tracks
 gpx_arr_glb = [];
 
@@ -459,3 +455,4 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 	map_editor.fitBounds(fit_polygon.getBounds());
 	fit_polygon.remove();
 }
+
