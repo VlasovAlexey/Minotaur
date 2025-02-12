@@ -17,7 +17,7 @@ function lng_map_editor(){
   if(td_lng == 1){ map_editor.pm.setLang("en");}
   if(td_lng == 2){ map_editor.pm.setLang("ru");}
   if(td_lng == 3){ map_editor.pm.setLang("es");}
-  if(td_lng == 4){ map_editor.pm.setLang("pt_br");}
+  if(td_lng == 4){ map_editor.pm.setLang("pt_pt");}
   if(td_lng == 5){ map_editor.pm.setLang("zh");}
   if(td_lng == 6){ map_editor.pm.setLang("bg");}
   if(td_lng == 7){ map_editor.pm.setLang("fr");}
@@ -91,29 +91,18 @@ map_editor.pm.enableDraw('Line', {
 });
 map_editor.pm.disableDraw();
 
-
-//default color on start
-var newColor = 1;
 // Add event listener to the featureGroup layer for when a new shape is created for STYLE changing on click
 map_editor.on('pm:create', function(e) {
   var layer = e.layer;
   // Attach click event to the new shape
   layer.on('click', function() {
-    //console.log('Current Color:', this.options.color, color_edit_mode);
     // Check if the clicked layer is a polygon or polyline
-    if(color_edit_mode == 1){
-        var clr = idx_color_to_color(newColor);
-        if (layer instanceof L.Polygon) {
-            selectedPolygon = layer;
-            selectedPolygon.setStyle({ fillColor: clr });
-            selectedPolygon.setStyle({ color: clr });    
-        } else {
-            if (layer instanceof L.Polyline) {
-              selectedPolygon = layer;
-              selectedPolygon.setStyle({ color: clr });
-            }
-        }   
+    if (layer instanceof L.Polygon) {
+      layer_styling(layer, true);
     }
+    if (layer instanceof L.Polyline) {
+      layer_styling(layer, false);
+    }      
   });
 });
 

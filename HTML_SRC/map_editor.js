@@ -2,6 +2,10 @@
 var color_edit_mode = 0;
 var style_line_edit_mode = 0;
 var layer_style_edit_mode = 0;
+
+var newColor = 1;
+var newStyle = 1;
+var LayerOrder = 1;
 //global arr to gpx tracks
 gpx_arr_glb = [];
 
@@ -185,17 +189,17 @@ map_editor.pm.Toolbar.createCustomControl({
   actions: ["cancel",],
   onClick: () => {
     //start measure
-
+    
+    
   },
   afterClick: () => {
-
+    document.querySelector('.leaflet-control-measure.leaflet-bar-part.leaflet-bar-part-top-and-bottom').click();
   },
   doToggle: true,
   toggleStatus: false,
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-measure',
 });
-
 
 //import ariane files
 const ariane = [
@@ -439,20 +443,50 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 	}
 	
 	function onEachFeature(feature, layer) {
-		  layer.on({
-			  mouseover: highlightFeature,
-			  mouseout: resetHighlight
-		  });
+    layer_styling(layer,true);
+	  //layer.on({
+		  //mouseover: highlightFeature,
+		  //mouseout: resetHighlight
+	  //});
 	}
 
 	geojson = L.geoJson(myLines, {
 		  style: style,
-		  onEachFeature: onEachFeature,
+		  onEachFeature: function (feature, layer) {
+        layer.on({  
+          click: function(e){
+            layer_styling(layer, true);
+          }
+        });
+      }
 	}).addTo(map_editor);
-  
+   
 	// zoom the map to the polygon after data loaded
 	var fit_polygon = L.polyline([xy_arr], {color: color_line}).addTo(map_editor);
 	map_editor.fitBounds(fit_polygon.getBounds());
 	fit_polygon.remove();
 }
 
+//add measure tools to the map editor
+var plugin = L.control.measure({
+  //  control position
+  position: 'bottomleft',
+  //  weather to use keyboard control for this plugin
+  keyboard: true,
+  //  shortcut to activate measure
+  activeKeyCode: 'M'.charCodeAt(0),
+  //  shortcut to cancel measure, defaults to 'Esc'
+  cancelKeyCode: 27,
+  //  line color
+  lineColor: 'red',
+  //  line weight
+  lineWeight: 2,
+  //  line dash
+  lineDashArray: '6, 6',
+  //  line opacity
+  lineOpacity: 1,
+  //  distance formatter
+  // formatDistance: function (val) {
+  //   return Math.round(1000 * val / 1609.344) / 1000 + 'mile';
+  // }
+}).addTo(map_editor);

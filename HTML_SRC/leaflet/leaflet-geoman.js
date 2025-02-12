@@ -2379,6 +2379,16 @@
             selectSecondLayerFor: "Изберете втори слой за {действие}"
         },
         actions: {
+            layer_to_front: "Към предната част",
+            layer_to_back: "Към гърба",
+            line_style_picker_3: "3.0",
+            line_style_picker_5: "5.0",
+            line_style_picker_8: "8.0",
+            line_style_picker_line: "Линия",
+            line_style_picker_dash: "Тире",
+            line_style_picker_dot: "Точка",
+            line_style_picker_none: "Няма",
+            
             finish: "Завършете",
             cancel: "Отмяна",
             removeLastVertex: "Премахване на последния връх",
@@ -2439,6 +2449,16 @@
             selectSecondLayerFor: "Select second layer for {action}"
         },
         actions: {
+            layer_to_front: "To front",
+            layer_to_back: "To back",
+            line_style_picker_3: "3.0",
+            line_style_picker_5: "5.0",
+            line_style_picker_8: "8.0",
+            line_style_picker_line: "Line",
+            line_style_picker_dash: "Dash",
+            line_style_picker_dot: "Dot",
+            line_style_picker_none: "None",
+
             finish: "Finish",
             cancel: "Cancel",
             removeLastVertex: "Remove Last Vertex",
@@ -2548,6 +2568,16 @@
             placeCircleMarker: "Clicca per posizionare un Marker del cherchio"
         },
         actions: {
+            layer_to_front: "Davanti",
+            layer_to_back: "Verso il retro",
+            line_style_picker_3: "3.0",
+            line_style_picker_5: "5.0",
+            line_style_picker_8: "8.0",
+            line_style_picker_line: "Linea",
+            line_style_picker_dash: "Trattino",
+            line_style_picker_dot: "Punto",
+            line_style_picker_none: "Nessuno",
+
             finish: "Termina",
             cancel: "Annulla",
             removeLastVertex: "Rimuovi l'ultimo vertice",
@@ -2654,6 +2684,16 @@
             placeCircleMarker: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u043A\u0440\u0443\u0433\u043E\u0432\u043E\u0439 \u043C\u0430\u0440\u043A\u0435\u0440"
         },
         actions: {
+            layer_to_front: "Вверх",
+            layer_to_back: "Вниз",
+            line_style_picker_3: "3.0",
+            line_style_picker_5: "5.0",
+            line_style_picker_8: "8.0",
+            line_style_picker_line: "Линия",
+            line_style_picker_dash: "Тире",
+            line_style_picker_dot: "Точка",
+            line_style_picker_none: "Нет",
+
             finish: "\u0417\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u044C",
             cancel: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C",
             removeLastVertex: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435",
@@ -2694,6 +2734,16 @@
             placeCircleMarker: "Presiona para colocar un marcador de c\xEDrculo"
         },
         actions: {
+            layer_to_front: "Arriba",
+            layer_to_back: "Abajo",
+            line_style_picker_3: "3.0",
+            line_style_picker_5: "5.0",
+            line_style_picker_8: "8.0",
+            line_style_picker_line: "Línea",
+            line_style_picker_dash: "Guión",
+            line_style_picker_dot: "Punto",
+            line_style_picker_none: "Ninguno",
+
             finish: "Finalizar",
             cancel: "Cancelar",
             removeLastVertex: "Eliminar \xFAltimo v\xE9rtice",
@@ -2767,6 +2817,16 @@
             placeCircleMarker: "Cliquez pour placer le marqueur circulaire"
         },
         actions: {
+            layer_to_front: "Vers le haut",
+            layer_to_back: "Bas de page",
+            line_style_picker_3: "3.0",
+            line_style_picker_5: "5.0",
+            line_style_picker_8: "8.0",
+            line_style_picker_line: "Ligne",
+            line_style_picker_dash: "Trait",
+            line_style_picker_dot: "Point",
+            line_style_picker_none: "Aucun",
+
             finish: "Terminer",
             cancel: "Annuler",
             removeLastVertex: "Retirer le dernier sommet",
@@ -2807,6 +2867,16 @@
             placeCircleMarker: "\u70B9\u51FB\u653E\u7F6E\u5706\u5F62\u6807\u8BB0"
         },
         actions: {
+            layer_to_front: "向上",
+            layer_to_back: "向下",
+            line_style_picker_3: "3.0",
+            line_style_picker_5: "5.0",
+            line_style_picker_8: "8.0",
+            line_style_picker_line: "線",
+            line_style_picker_dash: "短線",
+            line_style_picker_dot: "圓點",
+            line_style_picker_none: "無",
+
             finish: "\u5B8C\u6210",
             cancel: "\u53D6\u6D88",
             removeLastVertex: "\u79FB\u9664\u6700\u540E\u7684\u9876\u70B9",
@@ -2881,6 +2951,16 @@
             placeText: "Clique para inserir texto"
         },
         actions: {
+            layer_to_front: "Para cima",
+            layer_to_back: "Para baixo",
+            line_style_picker_3: "3.0",
+            line_style_picker_5: "5.0",
+            line_style_picker_8: "8.0",
+            line_style_picker_line: "Linha",
+            line_style_picker_dash: "Traço",
+            line_style_picker_dot: "Ponto",
+            line_style_picker_none: "Nenhum",
+
             finish: "Finalizar",
             cancel: "Cancelar",
             removeLastVertex: "Remover \xFAltimo v\xE9rtice",
@@ -2936,9 +3016,26 @@
             placeText: "Clique para colocar texto"
         },
         actions: {
+            layer_to_front: "Para cima",
+            layer_to_back: "Para baixo",
+            line_style_picker_3: "3.0",
+            line_style_picker_5: "5.0",
+            line_style_picker_8: "8.0",
+            line_style_picker_line: "Linha",
+            line_style_picker_dash: "Traço",
+            line_style_picker_dot: "Ponto",
+            line_style_picker_none: "Nenhum",
+
             finish: "Terminar",
             cancel: "Cancelar",
-            removeLastVertex: "Remover \xDAltimo V\xE9rtice"
+            removeLastVertex: "Remover \xDAltimo V\xE9rtice",
+            ariane_import_csv: "Importação CSV",
+            ariane_import_tml: "Importação TML",
+            ariane_import_kml: "Importação KML",
+            seacraft_import_csv:"Importação CSV",
+            seacraft_import_kml:"Importação KML",
+            special_objects_boulders: "Pedras",
+            special_objects_stalactites: "Estalactites",
         },
         buttonTitles: {
             drawMarkerButton: "Desenhar Marcador",
@@ -3429,6 +3526,16 @@
             placeText: "\uD14D\uC2A4\uD2B8 \uC704\uCE58\uB97C \uD074\uB9AD\uD558\uC138\uC694"
         },
         actions: {
+            layer_to_front: "앞으로",
+            layer_to_back: "뒤로",
+            line_style_picker_3: "3.0",
+            line_style_picker_5: "5.0",
+            line_style_picker_8: "8.0",
+            line_style_picker_line: "라인",
+            line_style_picker_dash: "대시",
+            line_style_picker_dot: "도트",
+            line_style_picker_none: "없음",
+
             finish: "\uB05D\uB0B4\uAE30",
             cancel: "\uCDE8\uC18C",
             removeLastVertex: "\uB9C8\uC9C0\uB9C9 \uAF2D\uC9C0\uC810 \uC81C\uAC70",
@@ -4434,6 +4541,78 @@
                     s = t.actions,
                     a = {
                         //minotaur interface start
+                        layer_to_front: {
+                            text: V("actions.layer_to_front"),
+                            title: V("actions.layer_to_front"),
+                            onClick() {
+                                layer_style_edit_mode = 1;
+                                LayerOrder = 1;
+                            }
+                        },
+                        layer_to_back: {
+                            text: V("actions.layer_to_back"),
+                            title: V("actions.layer_to_back"),
+                            onClick() {
+                                layer_style_edit_mode = 1;
+                                LayerOrder = 2;
+                            }
+                        },
+                        line_style_picker_line: {
+                            text: V("actions.line_style_picker_line"),
+                            title: V("actions.line_style_picker_line"),
+                            onClick() {
+                                style_line_edit_mode = 1;
+                                newStyle = 4;
+                            }
+                        },
+                        line_style_picker_dash: {
+                            text: V("actions.line_style_picker_dash"),
+                            title: V("actions.line_style_picker_dash"),
+                            onClick() {
+                                style_line_edit_mode = 1;
+                                newStyle = 5;
+                            }
+                        },
+                        line_style_picker_dot: {
+                            text: V("actions.line_style_picker_dot"),
+                            title: V("actions.line_style_picker_dot"),
+                            onClick() {
+                                style_line_edit_mode = 1;
+                                newStyle = 6;
+                            }
+                        },
+                        line_style_picker_none: {
+                            text: V("actions.line_style_picker_none"),
+                            title: V("actions.line_style_picker_none"),
+                            onClick() {
+                                style_line_edit_mode = 1;
+                                newStyle = 7;
+                            }
+                        },
+                        line_style_picker_3: {
+                            text: V("actions.line_style_picker_3"),
+                            title: V("actions.line_style_picker_3"),
+                            onClick() {
+                                style_line_edit_mode = 1;
+                                newStyle = 1;
+                            }
+                        },
+                        line_style_picker_5: {
+                            text: V("actions.line_style_picker_5"),
+                            title: V("actions.line_style_picker_5"),
+                            onClick() {
+                                style_line_edit_mode = 1;
+                                newStyle = 2;
+                            }
+                        },
+                        line_style_picker_8: {
+                            text: V("actions.line_style_picker_8"),
+                            title: V("actions.line_style_picker_8"),
+                            onClick() {
+                                style_line_edit_mode = 1;
+                                newStyle = 3;
+                            }
+                        },
                         color_picker_blue: {
                             text: V(" "),
                             title: V("blue"),
