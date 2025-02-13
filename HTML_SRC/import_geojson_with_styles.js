@@ -1,28 +1,6 @@
 //watcher function for seacraft file reading
 var geojson_with_styles_file = [];
 
-//combiner for 3d marker properties
-function marker_3d_prop(text, depth){
-	var i = {depth: depth};
-	if(depth == undefined){i = {}}
-	var ret = {
-		textMarker: true,
-		text: text,
-		textMarkerCentered: true,
-		i,
-		//context menu assign default disable
-		contextmenu: false,
-		contextmenuItems: [{
-			text: text,
-			index: 0
-		}, {
-			separator: true,
-			index: 1
-		}]
-	}
-	return ret;
-}
-
 document.querySelector("#geojson_with_styles_file").addEventListener('change', function() {
 	// files that user has chosen
 	var all_files = this.files;
@@ -132,10 +110,23 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 						//marker.bindPopup("LatLon : "+ feature.geometry.coordinates +"<br />Name : "+feature.properties.name);
 						//marker.removeFrom(map_editor);
 					}
-				if (layers[i].feature.properties.name != undefined){
-					map_editor.removeLayer(layers[i]);
+					
+					//create markers with special icons
+					if(layers[i].feature.properties.markerOptions.iconBase != undefined){
+						
+						var Icon = L.icon({
+							iconUrl: layers[i].feature.properties.markerOptions.iconUrl,
+							iconSize: [25, 41],
+							iconAnchor: [12, 30],
+							iconBase: "true",
+						});
+						new L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {icon: Icon}).addTo(map_editor);
+						map_editor.removeLayer(layers[i]);
+					}
+					if (layers[i].feature.properties.name != undefined){
+						map_editor.removeLayer(layers[i]);
+					}
 				}
-			}
 				//added labels if exist
 				/*L.geoJson(json, {
 					onEachFeature: function (feature, layer) {
@@ -168,77 +159,3 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 	reader.readAsText(file);
 });
 
-//
-function layer_styling(layer,is_polygon){
-	//layer styling on click
-	if(style_line_edit_mode == 1){
-		if(newStyle == 1){
-			layer.setStyle({
-				weight: 3,
-			});	
-		}
-		if(newStyle == 2){
-			layer.setStyle({
-				weight: 5,
-			});
-		}
-		if(newStyle == 3){
-			layer.setStyle({
-				weight: 8,
-			});	
-		}
-		if(newStyle == 4){
-			layer.setStyle({
-				opacity: 1,
-				dashArray: '10000',
-			});	
-		}
-		if(newStyle == 5){
-			layer.setStyle({
-				opacity: 1,
-				dashArray: '0 8 0',
-			});	
-		}
-		if(newStyle == 6){
-			layer.setStyle({
-				opacity: 1,
-				dashArray: '0 0 0 8',
-			});	
-		}
-		if(newStyle == 7){
-			if (layer instanceof L.Polygon) {
-				layer.setStyle({
-					opacity: 0,
-				});	
-			}
-		}
-	}
-
-	// Check if the clicked layer is a polygon or polyline
-	if(color_edit_mode == 1){
-		var clr = idx_color_to_color(newColor);
-		if(is_polygon == true){
-			layer.setStyle({
-				color: clr,
-				//fillOpacity: 0.25,
-				fillColor: clr
-			});
-		} else {
-			layer.setStyle({
-				color: clr,
-			});
-		}
-		  
-	}
-	//layer ordering
-	if(layer_style_edit_mode == 1){
-		if(LayerOrder == 1){
-			//bring to front selected layer function
-			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToFront();}
-		}
-		if(LayerOrder == 2){
-			//bring to front selected layer function
-			  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToBack();}
-		}
-	};
-}

@@ -4541,6 +4541,69 @@
                     s = t.actions,
                     a = {
                         //minotaur interface start
+                        m_rest_major: {
+                            text: V("actions.m_rest_major"),
+                            title: V("actions.m_rest_major"),
+                            onClick() {
+                                layer_marker_type = 1;
+                            }
+                        },
+                        m_rest_minor: {
+                            text: V("actions.m_rest_minor"),
+                            title: V("actions.m_rest_minor"),
+                            onClick() {
+                                layer_marker_type = 2;
+                            }
+                        },
+                        m_zero_datum: {
+                            text: V("actions.m_zero_datum"),
+                            title: V("actions.m_zero_datum"),
+                            onClick() {
+                                layer_marker_type = 3;
+                            }
+                        },
+                        m_entrance: {
+                            text: V("actions.m_entrance"),
+                            title: V("actions.m_entrance"),
+                            onClick() {
+                                layer_marker_type = 4;
+                            }
+                        },
+                        m_max_depth: {
+                            text: V("actions.m_max_depth"),
+                            title: V("actions.m_max_depth"),
+                            onClick() {
+                                layer_marker_type = 5;
+                            }
+                        },
+                        m_spell: {
+                            text: V("actions.m_spell"),
+                            title: V("actions.m_spell"),
+                            onClick() {
+                                layer_marker_type = 6;
+                            }
+                        },
+                        m_bones: {
+                            text: V("actions.m_bones"),
+                            title: V("actions.m_bones"),
+                            onClick() {
+                                layer_marker_type = 7;
+                            }
+                        },
+                        m_artifact: {
+                            text: V("actions.m_artifact"),
+                            title: V("actions.m_artifact"),
+                            onClick() {
+                                layer_marker_type = 8;
+                            }
+                        },
+                        m_gold_marker: {
+                            text: V("actions.m_gold_marker"),
+                            title: V("actions.m_gold_marker"),
+                            onClick() {
+                                layer_marker_type = 9;
+                            }
+                        },
                         layer_to_front: {
                             text: V("actions.layer_to_front"),
                             title: V("actions.layer_to_front"),

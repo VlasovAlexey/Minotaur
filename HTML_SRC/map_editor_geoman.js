@@ -33,7 +33,7 @@ var drawnItems = L.featureGroup().addTo(map_editor);
 
 //customize buttons for draw primitives adding geoman controls
 map_editor.pm.addControls({
-    drawMarker: true,
+    drawMarker: false,
     drawPolygon: true,
     drawCircle: false,
     drawCircleMarker: false,

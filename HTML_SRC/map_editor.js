@@ -6,6 +6,10 @@ var layer_style_edit_mode = 0;
 var newColor = 1;
 var newStyle = 1;
 var LayerOrder = 1;
+
+var layer_marker1_create_mode = 0;
+var layer_marker2_create_mode = 0;
+var layer_marker_type = 0;
 //global arr to gpx tracks
 gpx_arr_glb = [];
 
@@ -199,57 +203,7 @@ map_editor.on("bfl:filesizelimit", ({file}) => {
 	document.getElementById("AlertOverlay").style.opacity = "1";
 	Pbar_Hide();
 });
-
 map_editor.pm.Toolbar.setBlockPosition("custom", "topright");
-
-
-//custom markers1
-const custom_markers1 = [
-  "m_rest_minore",
-  "m_rest_major",
-  "m_zero_datum",
-  "m_entrance",
-  "max_depth",
-];
-map_editor.pm.Toolbar.createCustomControl({
-  block: "draw",
-  name: custom_markers1,
-  title: "",
-  actions: ["cancel",],
-  onClick: () => {
-    
-  },
-  afterClick: () => {
-    //star here
-  },
-  doToggle: true,
-  toggleStatus: false,
-  disableOtherButtons: true,
-  className: 'control-icon leaflet-pm-custom-markers1',
-});
-
-//custom markers1
-const custom_markers2 = [
-  "m_speleo",
-  "m_bones",
-  "m_artifact",
-];
-map_editor.pm.Toolbar.createCustomControl({
-  block: "draw",
-  name: custom_markers2,
-  title: "",
-  actions: ["cancel",],
-  onClick: () => {
-    
-  },
-  afterClick: () => {
-    //star here
-  },
-  doToggle: true,
-  toggleStatus: false,
-  disableOtherButtons: true,
-  className: 'control-icon leaflet-pm-custom-markers1',
-});
 
 //custom buttons for custom features
 //measure
@@ -557,4 +511,176 @@ map_editor.zoomIn();
 
 function zoomOut (e) {
 map_editor.zoomOut();
+}
+
+//combiner for 3d marker properties
+function marker_3d_prop(text, depth){
+	var i = {depth: depth};
+	if(depth == undefined){i = {}}
+	var ret = {
+		textMarker: true,
+		text: text,
+		textMarkerCentered: true,
+		i,
+		//context menu assign default disable
+		contextmenu: false,
+		contextmenuItems: [{
+			text: text,
+			index: 0
+		}, {
+			separator: true,
+			index: 1
+		}]
+	}
+	return ret;
+}
+
+//layer styling for map editor
+function layer_styling(layer,is_polygon){
+	//layer styling on click
+	if(style_line_edit_mode == 1){
+		if(newStyle == 1){
+			layer.setStyle({
+				weight: 3,
+			});	
+		}
+		if(newStyle == 2){
+			layer.setStyle({
+				weight: 5,
+			});
+		}
+		if(newStyle == 3){
+			layer.setStyle({
+				weight: 8,
+			});	
+		}
+		if(newStyle == 4){
+			layer.setStyle({
+				opacity: 1,
+				dashArray: '10000',
+			});	
+		}
+		if(newStyle == 5){
+			layer.setStyle({
+				opacity: 1,
+				dashArray: '0 8 0',
+			});	
+		}
+		if(newStyle == 6){
+			layer.setStyle({
+				opacity: 1,
+				dashArray: '0 0 0 8',
+			});	
+		}
+		if(newStyle == 7){
+			if (layer instanceof L.Polygon) {
+				layer.setStyle({
+					opacity: 0,
+				});	
+			}
+		}
+	}
+
+	// Check if the clicked layer is a polygon or polyline
+	if(color_edit_mode == 1){
+		var clr = idx_color_to_color(newColor);
+		if(is_polygon == true){
+			layer.setStyle({
+				color: clr,
+				//fillOpacity: 0.25,
+				fillColor: clr
+			});
+		} else {
+			layer.setStyle({
+				color: clr,
+			});
+		}
+		  
+	}
+	//layer ordering
+	if(layer_style_edit_mode == 1){
+		if(LayerOrder == 1){
+			//bring to front selected layer function
+			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToFront();}
+		}
+		if(LayerOrder == 2){
+			//bring to front selected layer function
+			  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToBack();}
+		}
+	};
+}
+
+//custom markers1
+const custom_markers1 = [
+  "m_rest_major",
+  "m_rest_minor",
+  "m_zero_datum",
+  "m_entrance",
+  "m_max_depth",
+];
+map_editor.pm.Toolbar.createCustomControl({
+  block: "draw",
+  name: "custom_markers1",
+  title: "",
+  actions: custom_markers1,
+  onClick: () => {  
+  },
+  afterClick: () => {
+    //star here
+    if(layer_marker1_create_mode == 1) {layer_marker1_create_mode = 0; layer_marker_type = 0} else {layer_marker1_create_mode = 1;}
+  },
+  doToggle: true,
+  toggleStatus: true,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-custom-markers1',
+});
+
+//custom markers2
+const custom_markers2 = [
+  "m_spell",
+  "m_bones",
+  "m_artifact",
+  "m_gold_marker",
+];
+map_editor.pm.Toolbar.createCustomControl({
+  block: "draw",
+  name: "custom_markers2",
+  title: "",
+  actions: custom_markers2,
+  onClick: () => {
+  },
+  afterClick: () => {
+    //star here
+    if(layer_marker2_create_mode == 1) {layer_marker2_create_mode = 0; layer_marker_type = 0} else {layer_marker2_create_mode = 1;}
+  },
+  doToggle: true,
+  toggleStatus: true,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-custom-markers2',
+});
+
+//adding markers on click
+map_editor.on('click', addMarker);
+function addMarker(e){
+  
+  if(layer_marker1_create_mode == 1){
+    if(layer_marker_type == 1){
+      // Add rest_major marker
+      var Icon = L.icon({
+        iconUrl: 'leaflet/images/person_marker-icon-2x.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 30],
+        iconBase: "true",
+      });
+      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
+    }
+  
+  }
+
+  if(layer_marker2_create_mode == 1){
+    if(layer_marker_type == 9){
+      // Add gold marker
+      new L.marker(e.latlng).addTo(map_editor);    
+    } 
+  }
 }

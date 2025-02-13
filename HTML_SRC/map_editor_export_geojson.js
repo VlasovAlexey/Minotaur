@@ -51,19 +51,21 @@ function drawnItemsToJSON(ilayer) {
             dOut2 = '';
             if ('text' in ditems[iIndex].options) { if (!ditems[iIndex].options.text !== null) { dOut2 = dOut2 + ',"name":"' + ditems[iIndex].options.text + '"'} };
             if ('depth' in ditems[iIndex].options) { if (!ditems[iIndex].options.depth !== null) { dOut2 = dOut2 + ',"depth":"' + ditems[iIndex].options.depth + '"'} };
-            /*if ('icon' in ditems[iIndex].options) {
+            if ('icon' in ditems[iIndex].options) {
                 if ('options' in ditems[iIndex].options.icon) {
                     dOut1 = dOut1 + '"markerOptions":{';
                     dOut2 = '';
                     //here
+                    
                     if ('iconSize' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconSize":[' + ditems[iIndex].options.icon.options.iconSize[0] + ',' + ditems[iIndex].options.icon.options.iconSize[0] + ']' };
                     if ('iconUrl' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconUrl":"' + ditems[iIndex].options.icon.options.iconUrl + '"' };
-                    
+                    if ('iconBase' in ditems[iIndex].options.icon.options) { dOut2 = dOut2 + ',"iconBase":"' + ditems[iIndex].options.icon.options.iconBase + '"' };
+
                     dOut1 = dOut1 + dOut2.substring(1) + '}';
                 };
-            };*/
+            };
             if (dOut2.length > 1) {
-              dOut1 = dOut1 + dOut2.substring(1);
+              //dOut1 = dOut1 + dOut2.substring(1);
           };
             dOut1 = dOut1 + '},"geometry":{"type":"Point","coordinates":['
                 + ditems[iIndex]._latlng.lng
