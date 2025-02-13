@@ -62,9 +62,32 @@ var osm_editor = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     // noWrap: true
 });
 
+var context_menu_list = [//{
+  //text: 'Show coordinates',
+  //callback: showCoordinates
+//},
+{
+  text: 'Center map here',
+  callback: centerMap
+}, '-', {
+  text: 'Zoom in',
+  icon: 'images/zoom-in.png',
+  callback: zoomIn
+}, {
+  text: 'Zoom out',
+  icon: 'images/zoom-out.png',
+  callback: zoomOut
+}]
+
 var map_editor = L.map('map_editor', {
   center: [c_lat, c_lon],
+  maxZoom: 25,
   zoom: 18,
+  //add context menu
+  contextmenu: false,
+  contextmenuWidth: 140,
+  contextmenuItems: context_menu_list,
+  //add fullscreen control
   fullscreenControl: true,
 	fullscreenControlOptions: {
 					// optional
@@ -179,6 +202,54 @@ map_editor.on("bfl:filesizelimit", ({file}) => {
 
 map_editor.pm.Toolbar.setBlockPosition("custom", "topright");
 
+
+//custom markers1
+const custom_markers1 = [
+  "m_rest_minore",
+  "m_rest_major",
+  "m_zero_datum",
+  "m_entrance",
+  "max_depth",
+];
+map_editor.pm.Toolbar.createCustomControl({
+  block: "draw",
+  name: custom_markers1,
+  title: "",
+  actions: ["cancel",],
+  onClick: () => {
+    
+  },
+  afterClick: () => {
+    //star here
+  },
+  doToggle: true,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-custom-markers1',
+});
+
+//custom markers1
+const custom_markers2 = [
+  "m_speleo",
+  "m_bones",
+  "m_artifact",
+];
+map_editor.pm.Toolbar.createCustomControl({
+  block: "draw",
+  name: custom_markers2,
+  title: "",
+  actions: ["cancel",],
+  onClick: () => {
+    
+  },
+  afterClick: () => {
+    //star here
+  },
+  doToggle: true,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-custom-markers1',
+});
 
 //custom buttons for custom features
 //measure
@@ -418,22 +489,6 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
       });
   }
 
-	//highlight mouse over elements on the map
-	var geojson;
-	function highlightFeature(e) {
-		  var layer = e.target;
-		  layer.setStyle({
-			  weight: 7,
-			  color: '#ffffff',
-			  fillOpacity: 0.99
-		  });
-		  layer.bringToFront();
-	}
-
-	function resetHighlight(e) {
-		geojson.resetStyle(e.target);
-	}
-
 	function style(feature) {
 		return {
 			"color": color_line,
@@ -444,10 +499,6 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 	
 	function onEachFeature(feature, layer) {
     layer_styling(layer,true);
-	  //layer.on({
-		  //mouseover: highlightFeature,
-		  //mouseout: resetHighlight
-	  //});
 	}
 
 	geojson = L.geoJson(myLines, {
@@ -490,3 +541,20 @@ var plugin = L.control.measure({
   //   return Math.round(1000 * val / 1609.344) / 1000 + 'mile';
   // }
 }).addTo(map_editor);
+
+//context menu functions
+function showCoordinates (e) {
+alert(e.latlng);
+}
+
+function centerMap (e) {
+map_editor.panTo(e.latlng);
+}
+
+function zoomIn (e) {
+map_editor.zoomIn();
+}
+
+function zoomOut (e) {
+map_editor.zoomOut();
+}

@@ -75,12 +75,7 @@ document.querySelector("#seacraft_kml_file").addEventListener('change', function
 					var pls_text_depth = seacraft_kml_file.Document.Placemark[i].name.split(" ");
 					pls_text_depth = pls_text_depth[0] + String(Math.abs(Math.round((1.0*coord[2]) * 100) / 100));
 					var depth_text = String(Math.abs(Math.round((1.0*coord[2]) * 100) / 100))
-					new Marker3d([coord[1],coord[0]], {
-						textMarker: true,
-						text: pls_text_depth + plan_lng("ch_mtr"),
-						textMarkerCentered: true,
-						depth: depth_text
-					}).addTo(map_editor);
+					new Marker3d([coord[1],coord[0]], marker_3d_prop(pls_text_depth + plan_lng("ch_mtr"), depth_text)).addTo(map_editor);
 				}
 			}
 

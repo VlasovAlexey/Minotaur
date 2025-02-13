@@ -76,12 +76,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 							var coord = String(ariane_kml_file.kml.Document.Folder[i].Placemark[f].Point.coordinates).split(",");
 							var pls_text_depth = ariane_kml_file.kml.Document.Folder[i].Placemark[f].name + ":" + String(Math.abs(Math.round((1.0*coord[2]) * 100) / 100));
 							var depth_text = String(Math.abs(Math.round((1.0*coord[2]) * 100) / 100))
-							new Marker3d([coord[1],coord[0]], {
-								textMarker: true,
-								text: pls_text_depth + plan_lng("ch_mtr"),
-								textMarkerCentered: true,
-								depth: depth_text
-							}).addTo(map_editor);
+							new Marker3d([coord[1],coord[0]], marker_3d_prop(pls_text_depth + plan_lng("ch_mtr"), depth_text)).addTo(map_editor);
 						}
 					}
 				}

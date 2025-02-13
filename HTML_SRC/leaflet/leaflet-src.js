@@ -12056,11 +12056,11 @@
   	options: {
   		// @option minZoom: Number = 0
   		// The minimum zoom level down to which this layer will be displayed (inclusive).
-  		minZoom: 0,
+  		minZoom: 3,
 
   		// @option maxZoom: Number = 18
   		// The maximum zoom level up to which this layer will be displayed (inclusive).
-  		maxZoom: 18,
+  		maxZoom: 25,
 
   		// @option subdomains: String|String[] = 'abc'
   		// Subdomains of the tile service. Can be passed in the form of one string (where each letter is a subdomain name) or an array of strings.

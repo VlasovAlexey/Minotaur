@@ -1,5 +1,28 @@
 //watcher function for seacraft file reading
 var geojson_with_styles_file = [];
+
+//combiner for 3d marker properties
+function marker_3d_prop(text, depth){
+	var i = {depth: depth};
+	if(depth == undefined){i = {}}
+	var ret = {
+		textMarker: true,
+		text: text,
+		textMarkerCentered: true,
+		i,
+		//context menu assign default disable
+		contextmenu: false,
+		contextmenuItems: [{
+			text: text,
+			index: 0
+		}, {
+			separator: true,
+			index: 1
+		}]
+	}
+	return ret;
+}
+
 document.querySelector("#geojson_with_styles_file").addEventListener('change', function() {
 	// files that user has chosen
 	var all_files = this.files;
@@ -86,28 +109,24 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 							if(layers[i].feature.properties.name.search(":") != -1){
 								//markers with additional info and depth
 								var new_txt = layers[i].feature.properties.name.split(":");
-								marker = L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {
-									textMarker: true,
-									text: new_txt[0] + ":" + layers[i].feature.properties.depth + plan_lng("ch_mtr"),
-									textMarkerCentered: true,
-									depth: layers[i].feature.properties.depth
-								}).addTo(map_editor);
+								var text = new_txt[0] + ":" + layers[i].feature.properties.depth + plan_lng("ch_mtr")
+								var depth = layers[i].feature.properties.depth;
+								marker = L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]],
+									marker_3d_prop(text, depth)
+								).addTo(map_editor);
 							} else {
 								//marker with depth
-								marker = L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {
-									textMarker: true,
-									text: layers[i].feature.properties.depth + plan_lng("ch_mtr"),
-									textMarkerCentered: true,
-									depth: layers[i].feature.properties.depth
-								}).addTo(map_editor);
+								var text = layers[i].feature.properties.depth + plan_lng("ch_mtr");
+								var depth = layers[i].feature.properties.depth;
+								marker = L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], 
+									marker_3d_prop(text, depth)
+								).addTo(map_editor);
 							}
 						} else {
 							//marker without depth only with text info
-							marker = L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {
-								textMarker: true,
-								text: layers[i].feature.properties.name,
-								textMarkerCentered: true,
-							}).addTo(map_editor);
+							marker = L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]],
+								marker_3d_prop(layers[i].feature.properties.name, undefined),
+							).addTo(map_editor);
 						}
 						//marker.bindTooltip(feature.properties.name, {permanent: true, direction: "top", className: "my-labels"}).openTooltip();
 						//marker.bindPopup("LatLon : "+ feature.geometry.coordinates +"<br />Name : "+feature.properties.name);
