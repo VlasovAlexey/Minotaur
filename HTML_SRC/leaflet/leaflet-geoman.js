@@ -2379,6 +2379,20 @@
             selectSecondLayerFor: "Изберете втори слой за {действие}"
         },
         actions: {
+            layer_optimize_1: "Нисък",
+            layer_optimize_2: "Среден",
+            layer_optimize_3: "Тежък",
+            layer_optimize_4: "Максимален",
+            m_spell: "▼",
+            m_bones: "B",
+            m_artifact: "℧",
+            m_gold_marker: "Златист маркер",
+            m_rest_major: "X",
+            m_rest_minor: "r",
+            m_zero_datum: "▉",
+            m_entrance: "◉",
+            m_max_depth: "⟱",
+
             layer_to_front: "Към предната част",
             layer_to_back: "Към гърба",
             line_style_picker_3: "3.0",
@@ -2449,6 +2463,20 @@
             selectSecondLayerFor: "Select second layer for {action}"
         },
         actions: {
+            layer_optimize_1: "Low",
+            layer_optimize_2: "Medium",
+            layer_optimize_3: "Heavy",
+            layer_optimize_4: "Maximum",
+            m_spell: "▼",
+            m_bones: "B",
+            m_artifact: "℧",
+            m_gold_marker: "Goldy marker",
+            m_rest_major: "X",
+            m_rest_minor: "r",
+            m_zero_datum: "▉",
+            m_entrance: "◉",
+            m_max_depth: "⟱",
+
             layer_to_front: "To front",
             layer_to_back: "To back",
             line_style_picker_3: "3.0",
@@ -2568,6 +2596,20 @@
             placeCircleMarker: "Clicca per posizionare un Marker del cherchio"
         },
         actions: {
+            layer_optimize_1: "Basso",
+            layer_optimize_2: "Medio",
+            layer_optimize_3: "Pesante",
+            layer_optimize_4: "Massimo",
+            m_spell: "▼",
+            m_bones: "B",
+            m_artifact: "℧",
+            m_gold_marker: "Marcatore dorato",
+            m_rest_major: "X",
+            m_rest_minor: "r",
+            m_zero_datum: "▉",
+            m_entrance: "◉",
+            m_max_depth: "⟱",
+
             layer_to_front: "Davanti",
             layer_to_back: "Verso il retro",
             line_style_picker_3: "3.0",
@@ -2684,6 +2726,20 @@
             placeCircleMarker: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u043A\u0440\u0443\u0433\u043E\u0432\u043E\u0439 \u043C\u0430\u0440\u043A\u0435\u0440"
         },
         actions: {
+            layer_optimize_1: "Слабый",
+            layer_optimize_2: "Средний",
+            layer_optimize_3: "Сильный",
+            layer_optimize_4: "Максимальный",
+            m_spell: "▼",
+            m_bones: "B",
+            m_artifact: "℧",
+            m_gold_marker: "Золотой маркер",
+            m_rest_major: "X",
+            m_rest_minor: "r",
+            m_zero_datum: "▉",
+            m_entrance: "◉",
+            m_max_depth: "⟱",
+
             layer_to_front: "Вверх",
             layer_to_back: "Вниз",
             line_style_picker_3: "3.0",
@@ -2734,6 +2790,20 @@
             placeCircleMarker: "Presiona para colocar un marcador de c\xEDrculo"
         },
         actions: {
+            layer_optimize_1: "Bajo",
+            layer_optimize_2: "Media",
+            layer_optimize_3: "Pesado",
+            layer_optimize_4: "Máximo",
+            m_spell: "▼",
+            m_bones: "B",
+            m_artifact: "℧",
+            m_gold_marker: "Marcador dorado",
+            m_rest_major: "X",
+            m_rest_minor: "r",
+            m_zero_datum: "▉",
+            m_entrance: "◉",
+            m_max_depth: "⟱",
+
             layer_to_front: "Arriba",
             layer_to_back: "Abajo",
             line_style_picker_3: "3.0",
@@ -2817,6 +2887,20 @@
             placeCircleMarker: "Cliquez pour placer le marqueur circulaire"
         },
         actions: {
+            layer_optimize_1: "Faible",
+            layer_optimize_2: "Moyenne",
+            layer_optimize_3: "Lourd",
+            layer_optimize_4: "Maximum",
+            m_spell: "▼",
+            m_bones: "B",
+            m_artifact: "℧",
+            m_gold_marker: "Marqueur doré",
+            m_rest_major: "X",
+            m_rest_minor: "r",
+            m_zero_datum: "▉",
+            m_entrance: "◉",
+            m_max_depth: "⟱",
+
             layer_to_front: "Vers le haut",
             layer_to_back: "Bas de page",
             line_style_picker_3: "3.0",
@@ -2867,6 +2951,20 @@
             placeCircleMarker: "\u70B9\u51FB\u653E\u7F6E\u5706\u5F62\u6807\u8BB0"
         },
         actions: {
+            layer_optimize_1: "低",
+            layer_optimize_2: "中",
+            layer_optimize_3: "重型",
+            layer_optimize_4: "最高",
+            m_spell: "▼",
+            m_bones: "B",
+            m_artifact: "℧",
+            m_gold_marker: "金色標記",
+            m_rest_major: "X",
+            m_rest_minor: "r",
+            m_zero_datum: "▉",
+            m_entrance: "◉",
+            m_max_depth: "⟱",
+
             layer_to_front: "向上",
             layer_to_back: "向下",
             line_style_picker_3: "3.0",
@@ -2951,6 +3049,20 @@
             placeText: "Clique para inserir texto"
         },
         actions: {
+            layer_optimize_1: "Baixa",
+            layer_optimize_2: "Média",
+            layer_optimize_3: "Pesado",
+            layer_optimize_4: "Máximo",
+            m_spell: "▼",
+            m_bones: "B",
+            m_artifact: "℧",
+            m_gold_marker: "Marcador dourado",
+            m_rest_major: "X",
+            m_rest_minor: "r",
+            m_zero_datum: "▉",
+            m_entrance: "◉",
+            m_max_depth: "⟱",
+
             layer_to_front: "Para cima",
             layer_to_back: "Para baixo",
             line_style_picker_3: "3.0",
@@ -3016,6 +3128,20 @@
             placeText: "Clique para colocar texto"
         },
         actions: {
+            layer_optimize_1: "Baixa",
+            layer_optimize_2: "Médio",
+            layer_optimize_3: "Pesado",
+            layer_optimize_4: "Máximo",
+            m_spell: "▼",
+            m_bones: "B",
+            m_artifact: "℧",
+            m_gold_marker: "Marcador dourado",
+            m_rest_major: "X",
+            m_rest_minor: "r",
+            m_zero_datum: "▉",
+            m_entrance: "◉",
+            m_max_depth: "⟱",
+
             layer_to_front: "Para cima",
             layer_to_back: "Para baixo",
             line_style_picker_3: "3.0",
@@ -3526,6 +3652,20 @@
             placeText: "\uD14D\uC2A4\uD2B8 \uC704\uCE58\uB97C \uD074\uB9AD\uD558\uC138\uC694"
         },
         actions: {
+            layer_optimize_1: "낮음",
+            layer_optimize_2: "중간",
+            layer_optimize_3: "무거운",
+            layer_optimize_4: "최대",
+            m_spell: "▼",
+            m_bones: "B",
+            m_artifact: "℧",
+            m_gold_marker: "금색 마커",
+            m_rest_major: "X",
+            m_rest_minor: "r",
+            m_zero_datum: "▉",
+            m_entrance: "◉",
+            m_max_depth: "⟱",
+
             layer_to_front: "앞으로",
             layer_to_back: "뒤로",
             line_style_picker_3: "3.0",
@@ -4541,6 +4681,34 @@
                     s = t.actions,
                     a = {
                         //minotaur interface start
+                        layer_optimize_1: {
+                            text: V("actions.layer_optimize_1"),
+                            title: V("actions.layer_optimize_1"),
+                            onClick() {
+                                layer_optimize_mode_val = 1;
+                            }
+                        },
+                        layer_optimize_2: {
+                            text: V("actions.layer_optimize_2"),
+                            title: V("actions.layer_optimize_2"),
+                            onClick() {
+                                layer_optimize_mode_val = 2;
+                            }
+                        },
+                        layer_optimize_3: {
+                            text: V("actions.layer_optimize_3"),
+                            title: V("actions.layer_optimize_3"),
+                            onClick() {
+                                layer_optimize_mode_val = 3;
+                            }
+                        },
+                        layer_optimize_4: {
+                            text: V("actions.layer_optimize_4"),
+                            title: V("actions.layer_optimize_4"),
+                            onClick() {
+                                layer_optimize_mode_val = 4;
+                            }
+                        },
                         m_rest_major: {
                             text: V("actions.m_rest_major"),
                             title: V("actions.m_rest_major"),
@@ -4618,6 +4786,14 @@
                             onClick() {
                                 layer_style_edit_mode = 1;
                                 LayerOrder = 2;
+                            }
+                        },
+                        layer_copy: {
+                            text: V("actions.layer_copy"),
+                            title: V("actions.layer_copy"),
+                            onClick() {
+                                layer_style_edit_mode = 1;
+                                LayerOrder = 3;
                             }
                         },
                         line_style_picker_line: {

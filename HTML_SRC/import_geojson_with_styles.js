@@ -112,16 +112,18 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 					}
 					
 					//create markers with special icons
-					if(layers[i].feature.properties.markerOptions.iconBase != undefined){
+					if(layers[i].feature.properties.markerOptions != undefined){
+						if(layers[i].feature.properties.markerOptions.iconBase != undefined){
 						
-						var Icon = L.icon({
-							iconUrl: layers[i].feature.properties.markerOptions.iconUrl,
-							iconSize: [25, 41],
-							iconAnchor: [12, 30],
-							iconBase: "true",
-						});
-						new L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {icon: Icon}).addTo(map_editor);
-						map_editor.removeLayer(layers[i]);
+							var Icon = L.icon({
+								iconUrl: layers[i].feature.properties.markerOptions.iconUrl,
+								iconSize: [25, 41],
+								iconAnchor: [12, 30],
+								iconBase: "true",
+							});
+							new L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {icon: Icon}).addTo(map_editor);
+							map_editor.removeLayer(layers[i]);
+						}
 					}
 					if (layers[i].feature.properties.name != undefined){
 						map_editor.removeLayer(layers[i]);

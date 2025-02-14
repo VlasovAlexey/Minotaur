@@ -10,6 +10,9 @@ var LayerOrder = 1;
 var layer_marker1_create_mode = 0;
 var layer_marker2_create_mode = 0;
 var layer_marker_type = 0;
+
+var layer_optimize_mode = 0;
+var layer_optimize_mode_val = 0;
 //global arr to gpx tracks
 gpx_arr_glb = [];
 
@@ -329,8 +332,9 @@ map_editor.pm.Toolbar.createCustomControl({
 
 //layers modification
 const layer_style = [
+  "layer_copy",
   "layer_to_front",
-  "layer_to_back",
+  //"layer_to_back",
   "cancel",
 ];
 map_editor.pm.Toolbar.createCustomControl({
@@ -601,7 +605,21 @@ function layer_styling(layer,is_polygon){
 	if(layer_style_edit_mode == 1){
 		if(LayerOrder == 1){
 			//bring to front selected layer function
-			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToFront();}
+      L.geoJson(layer.toGeoJSON(), {
+				style: function (f) {
+					return layer.options
+				},
+				//assign function for color changing
+        		onEachFeature: function (feature, layer) {
+					layer.on({  
+						click: function(e){
+							layer_styling(layer, true);
+						}
+					});
+        		}
+			}).addTo(map_editor);
+      map_editor.removeLayer(layer);
+			//if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToFront();}
 		}
 		if(LayerOrder == 2){
 			//bring to front selected layer function
@@ -684,3 +702,26 @@ function addMarker(e){
     } 
   }
 }
+
+//layers optimize
+const layer_optimize = [
+  "layer_optimize_1",
+  "layer_optimize_2",
+  "layer_optimize_3",
+  "layer_optimize_4",
+];
+map_editor.pm.Toolbar.createCustomControl({
+  block: "edit",
+  name: "layer optimize",
+  actions: layer_optimize,
+  title: "",
+  onClick: () => {
+  },
+  afterClick: () => {
+    if(layer_optimize_mode == 1) {layer_optimize_mode = 0; layer_optimize_mode_val = 0} else {layer_optimize_mode = 1;}
+  },
+  doToggle: true,
+  toggleStatus: true,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-layer-optimize',
+});
