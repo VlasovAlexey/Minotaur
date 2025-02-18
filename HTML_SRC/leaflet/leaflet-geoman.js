@@ -2379,6 +2379,7 @@
             selectSecondLayerFor: "Изберете втори слой за {действие}"
         },
         actions: {
+            layer_copy:"Копие",
             layer_optimize_1: "Нисък",
             layer_optimize_2: "Среден",
             layer_optimize_3: "Тежък",
@@ -2463,6 +2464,7 @@
             selectSecondLayerFor: "Select second layer for {action}"
         },
         actions: {
+            layer_copy:"Copy",
             layer_optimize_1: "Low",
             layer_optimize_2: "Medium",
             layer_optimize_3: "Heavy",
@@ -2596,6 +2598,7 @@
             placeCircleMarker: "Clicca per posizionare un Marker del cherchio"
         },
         actions: {
+            layer_copy:"Copia",
             layer_optimize_1: "Basso",
             layer_optimize_2: "Medio",
             layer_optimize_3: "Pesante",
@@ -2726,6 +2729,7 @@
             placeCircleMarker: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u043A\u0440\u0443\u0433\u043E\u0432\u043E\u0439 \u043C\u0430\u0440\u043A\u0435\u0440"
         },
         actions: {
+            layer_copy:"Копировать",
             layer_optimize_1: "Слабый",
             layer_optimize_2: "Средний",
             layer_optimize_3: "Сильный",
@@ -2790,6 +2794,7 @@
             placeCircleMarker: "Presiona para colocar un marcador de c\xEDrculo"
         },
         actions: {
+            layer_copy:"Copia",
             layer_optimize_1: "Bajo",
             layer_optimize_2: "Media",
             layer_optimize_3: "Pesado",
@@ -2887,6 +2892,7 @@
             placeCircleMarker: "Cliquez pour placer le marqueur circulaire"
         },
         actions: {
+            layer_copy:"Copie",
             layer_optimize_1: "Faible",
             layer_optimize_2: "Moyenne",
             layer_optimize_3: "Lourd",
@@ -2951,6 +2957,7 @@
             placeCircleMarker: "\u70B9\u51FB\u653E\u7F6E\u5706\u5F62\u6807\u8BB0"
         },
         actions: {
+            layer_copy:"複製",
             layer_optimize_1: "低",
             layer_optimize_2: "中",
             layer_optimize_3: "重型",
@@ -3049,6 +3056,7 @@
             placeText: "Clique para inserir texto"
         },
         actions: {
+            layer_copy:"Reprodução",
             layer_optimize_1: "Baixa",
             layer_optimize_2: "Média",
             layer_optimize_3: "Pesado",
@@ -3128,6 +3136,7 @@
             placeText: "Clique para colocar texto"
         },
         actions: {
+            layer_copy:"Reprodução",
             layer_optimize_1: "Baixa",
             layer_optimize_2: "Médio",
             layer_optimize_3: "Pesado",
@@ -3652,6 +3661,7 @@
             placeText: "\uD14D\uC2A4\uD2B8 \uC704\uCE58\uB97C \uD074\uB9AD\uD558\uC138\uC694"
         },
         actions: {
+            layer_copy:"복제",
             layer_optimize_1: "낮음",
             layer_optimize_2: "중간",
             layer_optimize_3: "무거운",

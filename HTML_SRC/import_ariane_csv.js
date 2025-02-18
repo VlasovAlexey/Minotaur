@@ -73,7 +73,7 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 						z_arr.push((1.0*tmp[3]));
 
 						//add markers with depth postfix
-						var depth_text = String(Math.abs(Math.round((1.0*tmp[3]) * 100) / 100))
+						var depth_text = String(Math.abs(Math.round((1.0*tmp[3]) * 100) / 100));
 						new Marker3d([(1.0*tmp[2]),(1.0*tmp[1])], marker_3d_prop(depth_text + plan_lng("ch_mtr"), depth_text)).addTo(map_editor);
 						//WARNING! Lat Lon inverted for GeoJSON!
 						//xy_arr_inv.push([(1.0*tmp[1]),(1.0*tmp[2])]);

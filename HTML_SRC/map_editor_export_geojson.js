@@ -17,7 +17,6 @@ let gjson_save = new L.Control.PMButton({
             }
           }
         });
-  
         //and write file
             scr_n_add = "";
             if (GPX_file_num < 10 ) {
@@ -51,6 +50,9 @@ function drawnItemsToJSON(ilayer) {
             dOut2 = '';
             if ('text' in ditems[iIndex].options) { if (!ditems[iIndex].options.text !== null) { dOut2 = dOut2 + ',"name":"' + ditems[iIndex].options.text + '"'} };
             if ('depth' in ditems[iIndex].options) { if (!ditems[iIndex].options.depth !== null) { dOut2 = dOut2 + ',"depth":"' + ditems[iIndex].options.depth + '"'} };
+            if (dOut2.length > 1) {
+                dOut1 = dOut1 + dOut2.substring(1) + ',';
+            };
             if ('icon' in ditems[iIndex].options) {
                 if ('options' in ditems[iIndex].options.icon) {
                     dOut1 = dOut1 + '"markerOptions":{';

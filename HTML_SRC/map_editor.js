@@ -519,23 +519,38 @@ map_editor.zoomOut();
 
 //combiner for 3d marker properties
 function marker_3d_prop(text, depth){
-	var i = {depth: depth};
-	if(depth == undefined){i = {}}
-	var ret = {
-		textMarker: true,
-		text: text,
-		textMarkerCentered: true,
-		i,
-		//context menu assign default disable
-		contextmenu: false,
-		contextmenuItems: [{
-			text: text,
-			index: 0
-		}, {
-			separator: true,
-			index: 1
-		}]
-	}
+	if(depth == undefined){
+    var ret = {
+      textMarker: true,
+      text: text,
+      textMarkerCentered: true,
+      //context menu assign default disable
+      contextmenu: false,
+      contextmenuItems: [{
+        text: text,
+        index: 0
+      }, {
+        separator: true,
+        index: 1
+      }]
+    }
+  } else {
+    var ret = {
+      textMarker: true,
+      text: text,
+      textMarkerCentered: true,
+      depth: depth,
+      //context menu assign default disable
+      contextmenu: false,
+      contextmenuItems: [{
+        text: text,
+        index: 0
+      }, {
+        separator: true,
+        index: 1
+      }]
+    }
+  }
 	return ret;
 }
 
@@ -725,3 +740,5 @@ map_editor.pm.Toolbar.createCustomControl({
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-layer-optimize',
 });
+
+

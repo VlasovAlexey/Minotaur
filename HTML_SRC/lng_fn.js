@@ -339,7 +339,7 @@
                 ".header3": "",
                 ".header4": "Route Recorder",
                 ".header5": "Route Builder",
-                ".header6": "Routes Viewer",
+                ".header6": "Sketchbook",
                 ".header7": "Map Editor",
                 ".header8": "",
 
@@ -427,7 +427,7 @@
                 ".header3": "Смеси погружения",
                 ".header4": "Запись маршрутов",
                 ".header5": "Конструктор маршрутов",
-                ".header6": "Просмотрщик маршрутов",
+                ".header6": "Блокнот",
                 ".header7": "Редактор карт",
                 ".header8": "Стоимость газов",
 
@@ -516,7 +516,7 @@
                 ".header3": "Gases",
                 ".header4": "Grabador de Rutas",
                 ".header5": "Creador de Rutas",
-                ".header6": "Editor del mapa",
+                ".header6": "Sketchbook",
                 ".header7": "Consumo Gas",
                 ".header8": "Precio Gas",
 
@@ -603,7 +603,7 @@
                 ".header3": "Gases",
                 ".header4": "Gravador de Rotas",
                 ".header5": "Criador de Rotas",
-                ".header6": "Visualizador de Rotas",
+                ".header6": "Caderno de esboços",
                 ".header7": "Editor de Mapas",
                 ".header8": "Preço do Gás",
 
@@ -691,7 +691,7 @@
                 ".header3": "潜水气体设定",
                 ".header4": "路线记录器",
                 ".header5": "路线生成器",
-                ".header6": "路线查看器",
+                ".header6": "素描本",
                 ".header7": "地圖編輯器",
                 ".header8": "气体价格",
 
@@ -778,7 +778,7 @@
                 ".header3": "Дайв газове",
                 ".header4": "Записване на маршрута",
                 ".header5": "Създаване на маршрути",
-                ".header6": "Преглед на маршрути",
+                ".header6": "Скицник",
                 ".header7": "Редактор на карта",
                 ".header8": "Цена на газа",
 
@@ -862,7 +862,7 @@
                 ".header3": "Gaz de plongée",
                 ".header4": "Enregistreur d'itinéraire",
                 ".header5": "Constructeur d'itinéraires",
-                ".header6": "Visualisateur d'itinéraires",
+                ".header6": "Carnet de croquis",
                 ".header7": "Éditeur de cartes",
                 ".header8": "Prix du gaz",
 
@@ -947,7 +947,7 @@
                 ".header3": "다이빙 기체",
                 ".header4": "경로 레코더",
                 ".header5": "경로 빌더",
-                ".header6": "경로 뷰어",
+                ".header6": "스케치북",
                 ".header7": "지도 편집기",
                 ".header8": "기체 금액 계산",
                 ".header9": "기체 혼합",
@@ -1032,7 +1032,7 @@
                 ".header3": "Gas per l’immersione",
                 ".header4": "Registratore di percorso",
                 ".header5": "Costruttore di percorsi",
-                ".header6": "Visualizzatore di percorsi",
+                ".header6": "Quaderno di schizzi",
                 ".header7": "Editor mappe",
                 ".header8": "Costo dei Gas",
 
