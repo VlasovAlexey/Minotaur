@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24px"
+   height="24px"
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="icon_cave_artifact.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <ellipse
+     style="fill:#ffffff;stroke:#666666;stroke-width:1.60507;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1"
+     id="path7"
+     cx="12.054914"
+     cy="11.942538"
+     rx="11.101227"
+     ry="11.026231" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="16.091788"
+     inkscape:cx="9.6011705"
+     inkscape:cy="2.2682377"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title1">Atoms/Icons/Tools/Marker</title>
+  <desc
+     id="desc1">Created with Sketch.</desc>
+  <defs
+     id="defs1">
+    <path
+       d="M15.5,24.8782959 C15.2909201,24.8772219 15.1744857,24.8467817 14.6590866,24.2354163 C10.2196955,19.4118054 8,15.5014392 8,12.5043177 C8,8.35979746 11.3578644,5 15.5,5 C19.6421356,5 23,8.35979746 23,12.5043177 C23,17 18.2878217,21.9268378 16.3336601,24.2440186 C15.8224622,24.8501802 15.7090799,24.8793699 15.5,24.8782959 Z M15.5,15.5326948 C17.275201,15.5326948 18.7142857,14.1180004 18.7142857,12.3728864 C18.7142857,10.6277723 17.275201,9.21307792 15.5,9.21307792 C13.724799,9.21307792 12.2857143,10.6277723 12.2857143,12.3728864 C12.2857143,14.1180004 13.724799,15.5326948 15.5,15.5326948 Z"
+       id="path-1" />
+  </defs>
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Atoms/Icons/Tools/Marker</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     d="m 12.017876,16.486949 q 1.704782,0 2.500347,-0.923423 0.795565,-0.937631 0.795565,-2.557173 0,-1.420652 -0.525641,-2.57138 Q 14.262506,9.2842454 12.9413,8.3324087 V 7.3095395 h 4.091477 v 1.1223148 h -2.52876 q 0.909217,0.6961194 1.534303,1.8610537 0.625087,1.164934 0.625087,2.756065 0,1.392238 -0.539847,2.415108 -0.539849,1.022868 -1.576924,1.591129 -1.037075,0.554054 -2.52876,0.554054 -1.505891,0 -2.5429664,-0.554054 -1.0370758,-0.554054 -1.5769234,-1.576924 -0.5398477,-1.022868 -0.5398477,-2.415107 0,-1.605337 0.6108802,-2.770271 Q 8.5941055,9.1279737 9.5033226,8.4318543 H 6.9887691 V 7.3095395 h 4.0914769 v 1.0228692 q -1.3212062,0.9376301 -1.8610537,2.1025643 -0.5256412,1.164935 -0.5256412,2.57138 0,1.619542 0.795565,2.557173 0.8097709,0.923423 2.5287599,0.923423 z"
+     id="text8"
+     style="font-size:18.2498px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#666666;stroke-width:0.355162"
+     aria-label="℧ " />
+</svg>

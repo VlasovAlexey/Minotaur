@@ -700,17 +700,82 @@ function addMarker(e){
     if(layer_marker_type == 1){
       // Add rest_major marker
       var Icon = L.icon({
-        iconUrl: 'leaflet/images/person_marker-icon-2x.png',
+        iconUrl: 'icons/icon_cave_x.svg',
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
       });
       new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
     }
-  
+    if(layer_marker_type == 2){
+      // Add rest minor marker
+      var Icon = L.icon({
+        iconUrl: 'icons/icon_cave_restriction_small.svg',
+        iconSize: [25, 41],
+        iconAnchor: [12, 30],
+        iconBase: "true",
+      });
+      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
+    }
+    if(layer_marker_type == 3){
+      // Add zero datum marker
+      var Icon = L.icon({
+        iconUrl: 'icons/icon_cave_zero_datum.svg',
+        iconSize: [25, 41],
+        iconAnchor: [12, 30],
+        iconBase: "true",
+      });
+      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
+    }
+    
+    if(layer_marker_type == 4){
+      // Add distance from zero datum marker
+      var icon_distance = new L.marker(e.latlng, {icon: Icon, textMarker: true, text: "depth"}).addTo(map_editor);    
+      //mrsnew.pm.getElement().style = "color:#000; background: #ff0000; text-decoration-line: overline; font-weight: bold;";
+      icon_distance.pm.getElement().style.textDecorationLine = "overline";
+      icon_distance.pm.getElement().style.fontWeight = "bold";
+    }
+    if(layer_marker_type == 5){
+      // Add depth marker
+      var icon_depth = new L.marker(e.latlng, {icon: Icon, textMarker: true, text: "distance"}).addTo(map_editor);    
+      //mrsnew.pm.getElement().style = "color:#000; background: #ff0000; text-decoration-line: overline; font-weight: bold;";
+      icon_depth.pm.getElement().style.borderRadius = "50%";
+      icon_depth.pm.getElement().style.fontWeight = "bold";
+      icon_depth.pm.getElement().style.border = "2px solid #404040";
+    }
   }
 
   if(layer_marker2_create_mode == 1){
+    if(layer_marker_type == 6){
+      // Add speleothemes marker
+      var Icon = L.icon({
+        iconUrl: 'icons/icon_cave_speleothems.svg',
+        iconSize: [25, 41],
+        iconAnchor: [12, 30],
+        iconBase: "true",
+      });
+      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
+    }
+    if(layer_marker_type == 7){
+      // Add bones and bodies marker
+      var Icon = L.icon({
+        iconUrl: 'icons/icon_cave_bones.svg',
+        iconSize: [25, 41],
+        iconAnchor: [12, 30],
+        iconBase: "true",
+      });
+      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
+    }
+    if(layer_marker_type == 8){
+      // Add artifacts marker
+      var Icon = L.icon({
+        iconUrl: 'icons/icon_cave_artifact.svg',
+        iconSize: [25, 41],
+        iconAnchor: [12, 30],
+        iconBase: "true",
+      });
+      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
+    }
     if(layer_marker_type == 9){
       // Add gold marker
       new L.marker(e.latlng).addTo(map_editor);    
