@@ -1083,6 +1083,12 @@
         };
         //eng
         if (td_lng == 1) {
+            if (val == "td_depth") {
+                val = "depth"
+            }
+            if (val == "td_distance") {
+                val = "distance"
+            }
             if (val == "bad_file_format") {
                 val = "Error!<br>Bad file format or corrupted data or incompatible data.<br>Please double check save or export settings or file data consistency!<br>"
             }
@@ -1199,6 +1205,12 @@
         }
         //rus
         if (td_lng == 2) {
+            if (val == "td_depth") {
+                val = "глубина"
+            }
+            if (val == "td_distance") {
+                val = "дистанция"
+            }
             if (val == "bad_file_format") {
                 val = "Ошибка!<br>Плохой формат файла, поврежденные данные или несовместимые данные.<br>Пожалуйста, проверьте настройки сохранения или экспорта, или согласованность данных файла!<br>"
             }
@@ -1315,6 +1327,12 @@
         }
         //sp
         if (td_lng == 3) {
+            if (val == "td_depth") {
+                val = "profundidad"
+            }
+            if (val == "td_distance") {
+                val = "distancia"
+            }
             if (val == "bad_file_format") {
                 val = "¡Error!<br>Formato de archivo incorrecto o datos dañados o incompatibles.<br>Compruebe la configuración de guardado o exportación o la coherencia de los datos del archivo!<br>"
             }
@@ -1431,6 +1449,12 @@
         }
         //pt
         if (td_lng == 4) {
+            if (val == "td_depth") {
+                val = "profundidade"
+            }
+            if (val == "td_distance") {
+                val = "distância"
+            }
             if (val == "bad_file_format") {
                 val = "Erro!<br>Formato de ficheiro incorreto ou dados danificados ou incompatíveis.<br>Verifique as definições de gravação ou exportação ou a consistência dos dados do ficheiro!<br>"
             }
@@ -1548,6 +1572,12 @@
         }
         //ch
         if (td_lng == 5) {
+            if (val == "td_depth") {
+                val = "深度"
+            }
+            if (val == "td_distance") {
+                val = "距離"
+            }
             if (val == "bad_file_format") {
                 val = "错误!<br>文件格式不正确或数据已损坏或不兼容。<br>检查保存或导出设置或文件数据的一致性！<br>"
             }
@@ -1665,6 +1695,12 @@
         }
         //br
         if (td_lng == 6) {
+            if (val == "td_depth") {
+                val = "дълбочина"
+            }
+            if (val == "td_distance") {
+                val = "разстояние"
+            }
             if (val == "bad_file_format") {
                 val = "Грешка!<br>Неправилен файлов формат или повредени или несъвместими данни.<br>Проверете настройките за запазване или експортиране или съвместимостта на данните във файла!<br>"
             }
@@ -1781,6 +1817,12 @@
         }
         //fr
         if (td_lng == 7) {
+            if (val == "td_depth") {
+                val = "profondeur"
+            }
+            if (val == "td_distance") {
+                val = "distance"
+            }
             if (val == "bad_file_format") {
                 val = "Erreur !<br>Format de fichier incorrect ou données endommagées ou incompatibles.<br>Vérifier les paramètres d'enregistrement ou d'exportation ou la cohérence des données du fichier !<br>"
             }
@@ -1898,6 +1940,12 @@
         }
         //kr
         if (td_lng == 8) {
+            if (val == "td_depth") {
+                val = "깊이"
+            }
+            if (val == "td_distance") {
+                val = "거리"
+            }
             if (val == "bad_file_format") {
                 val = "오류!<br>파일 형식이 잘못되었거나 데이터가 손상되었거나 호환되지 않습니다.<br>저장 또는 내보내기 설정 또는 파일 데이터 일관성을 확인하세요!<br>"
             }
@@ -2014,6 +2062,12 @@
         }
         //it
         if (td_lng == 9) {
+            if (val == "td_depth") {
+                val = "profondità"
+            }
+            if (val == "td_distance") {
+                val = "distanza"
+            }
             if (val == "bad_file_format") {
                 val = "Errore!<br>Il formato del file non è valido, i dati sono corrotti o incompatibili.<br>Controllare le impostazioni di salvataggio o esportazione o la coerenza dei dati del file!<br>"
             }

@@ -730,18 +730,28 @@ function addMarker(e){
     
     if(layer_marker_type == 4){
       // Add distance from zero datum marker
-      var icon_distance = new L.marker(e.latlng, {icon: Icon, textMarker: true, text: "depth"}).addTo(map_editor);    
-      //mrsnew.pm.getElement().style = "color:#000; background: #ff0000; text-decoration-line: overline; font-weight: bold;";
+      var icon_distance = new L.marker(e.latlng, {
+        textMarker: true,
+        text: plan_lng("td_distance"),
+        textMarkerCentered: true
+      }).addTo(map_editor);    
       icon_distance.pm.getElement().style.textDecorationLine = "overline";
       icon_distance.pm.getElement().style.fontWeight = "bold";
+      icon_distance.pm.getElement().style.color = "#666666";
+      icon_distance.pm.getElement().style.borderRadius = "10px";
+      icon_distance.pm.getElement().style.border = "2px solid #666666";
     }
     if(layer_marker_type == 5){
       // Add depth marker
-      var icon_depth = new L.marker(e.latlng, {icon: Icon, textMarker: true, text: "distance"}).addTo(map_editor);    
-      //mrsnew.pm.getElement().style = "color:#000; background: #ff0000; text-decoration-line: overline; font-weight: bold;";
+      var icon_depth = new L.marker(e.latlng, {
+        textMarker: true,
+        text: plan_lng("td_depth"),
+        textMarkerCentered: true
+      }).addTo(map_editor);    
       icon_depth.pm.getElement().style.borderRadius = "50%";
+      icon_depth.pm.getElement().style.color = "#666666";
       icon_depth.pm.getElement().style.fontWeight = "bold";
-      icon_depth.pm.getElement().style.border = "2px solid #404040";
+      icon_depth.pm.getElement().style.border = "2px solid #666666";
     }
   }
 
