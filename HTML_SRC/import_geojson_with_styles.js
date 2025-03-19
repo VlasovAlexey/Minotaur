@@ -82,7 +82,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 			//console.log(layers);
 			for (var i = 0; i < layers.length; i++) {
 					//setup loaded markers
-					if (layers[i].feature.properties.name != undefined){
+					if (layers[i].feature.properties.name != undefined && layers[i].feature.properties.markerType == undefined){
 						if (layers[i].feature.properties.depth != undefined){
 							if(layers[i].feature.properties.name.search(":") != -1){
 								//markers with additional info and depth
@@ -110,7 +110,11 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 						//marker.bindPopup("LatLon : "+ feature.geometry.coordinates +"<br />Name : "+feature.properties.name);
 						//marker.removeFrom(map_editor);
 					}
-					
+					//create markers with custom shapes
+					if(layers[i].feature.properties.markerType != undefined){
+						marker_custom_shape([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], layers[i].feature.properties.markerType, layers[i].feature.properties.name);
+						map_editor.removeLayer(layers[i]);
+					}
 					//create markers with special icons
 					if(layers[i].feature.properties.markerOptions != undefined){
 						if(layers[i].feature.properties.markerOptions.iconBase != undefined){

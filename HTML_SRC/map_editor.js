@@ -730,28 +730,11 @@ function addMarker(e){
     
     if(layer_marker_type == 4){
       // Add distance from zero datum marker
-      var icon_distance = new L.marker(e.latlng, {
-        textMarker: true,
-        text: plan_lng("td_distance"),
-        textMarkerCentered: true
-      }).addTo(map_editor);    
-      icon_distance.pm.getElement().style.textDecorationLine = "overline";
-      icon_distance.pm.getElement().style.fontWeight = "bold";
-      icon_distance.pm.getElement().style.color = "#666666";
-      icon_distance.pm.getElement().style.borderRadius = "10px";
-      icon_distance.pm.getElement().style.border = "2px solid #666666";
+      marker_custom_shape(e.latlng, 1, plan_lng("td_distance"));
     }
     if(layer_marker_type == 5){
       // Add depth marker
-      var icon_depth = new L.marker(e.latlng, {
-        textMarker: true,
-        text: plan_lng("td_depth"),
-        textMarkerCentered: true
-      }).addTo(map_editor);    
-      icon_depth.pm.getElement().style.borderRadius = "50%";
-      icon_depth.pm.getElement().style.color = "#666666";
-      icon_depth.pm.getElement().style.fontWeight = "bold";
-      icon_depth.pm.getElement().style.border = "2px solid #666666";
+      marker_custom_shape(e.latlng, 2, plan_lng("td_depth"));
     }
   }
 
@@ -790,6 +773,35 @@ function addMarker(e){
       // Add gold marker
       new L.marker(e.latlng).addTo(map_editor);    
     } 
+  }
+}
+
+//create custom shape markers
+function marker_custom_shape(latlng, type, name){
+  if(type == 1){
+    var icon_distance = new L.marker(latlng, {
+      markerType: 1,
+      textMarker: true,
+      text: name,
+      textMarkerCentered: true
+    }).addTo(map_editor);    
+    icon_distance.pm.getElement().style.textDecorationLine = "overline";
+    icon_distance.pm.getElement().style.fontWeight = "bold";
+    icon_distance.pm.getElement().style.color = "#666666";
+    icon_distance.pm.getElement().style.borderRadius = "10px";
+    icon_distance.pm.getElement().style.border = "2px solid #666666";
+  }
+  if(type == 2){
+    var icon_depth = new L.marker(latlng, {
+      markerType: 2,
+      textMarker: true,
+      text: name,
+      textMarkerCentered: true
+    }).addTo(map_editor);    
+    icon_depth.pm.getElement().style.borderRadius = "50%";
+    icon_depth.pm.getElement().style.color = "#666666";
+    icon_depth.pm.getElement().style.fontWeight = "bold";
+    icon_depth.pm.getElement().style.border = "2px solid #666666";
   }
 }
 
