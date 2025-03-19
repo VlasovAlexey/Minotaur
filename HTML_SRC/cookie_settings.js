@@ -213,9 +213,9 @@ function openLnkWrn() {
 
 function share_plan_link_gen(){
     //add to var for plan sharing link
-    link_buffer = host_name + "?=3:mtr=3:"
+    link_buffer = host_name + "?mtr=3:"
     //link_buffer += "decomix_usr1=" + deco_mix_arr.join(",") + ":";
-    link_buffer += "mtr_end=3" + ":";
+    link_buffer += ":mtr_end";
     return link_buffer;
 }
 
@@ -360,18 +360,24 @@ function read_cookie() {
 	igrf_13_val_usr = getCookie("igrf_13_val_usr1");
 	track_name_usr = getCookie("track_name_usr1");
 
-	//assign values from url if present and recognised
-    if(search != "" ){
-        //data present
-        url_arr = search;
-        if(url_arr.indexOf("%") != -1){
-            url_arr = decodeURIComponent(url_arr);
-        }
-        if(url_arr.length > 3){
-            url_arr = url_arr.split(":");
-			console.log(url_arr);
-        }
-    }
+	
+    //assign values from url if present and recognised
+	if(search == "" ){
+		//do nothing but in future :)
+	}
+	else
+	{
+	//data present	
+		url_arr = search;
+		console.log(url_arr);
+		if(url_arr.indexOf("%") != -1){
+			url_arr = decodeURIComponent(url_arr);
+		}
+
+		if(url_arr.length > 10){
+			url_arr = url_arr.split(":");
+		}
+	}
 }
 
 function return_idx(html_ids) {
