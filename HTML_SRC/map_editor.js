@@ -217,8 +217,6 @@ map_editor.pm.Toolbar.createCustomControl({
   actions: ["cancel",],
   onClick: () => {
     //start measure
-    
-    
   },
   afterClick: () => {
     document.querySelector('.leaflet-control-measure.leaflet-bar-part.leaflet-bar-part-top-and-bottom').click();
@@ -415,6 +413,31 @@ map_editor.pm.Toolbar.createCustomControl({
   className: 'control-icon leaflet-pm-icon-special-objects',
 });
 */
+
+//create link from map editor
+var lnk_status = 0;
+map_editor.pm.Toolbar.createCustomControl({
+  block: "custom",
+  name: "create_link",
+  title: "",
+  //actions: ["cancel",],
+  onClick: () => {
+  },
+  afterClick: () => {
+    if(lnk_status == 0){
+      btn_link();
+    }
+    lnk_status = lnk_status + 1;
+    if(lnk_status > 1){
+      lnk_status = 0;
+    }
+    document.querySelector('.control-icon.leaflet-pm-icon-link-gen').click();
+  },
+  doToggle: false,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-link-gen',
+});
 
 //add to editor lines from xy_arr array
 //xy_arr - array with lat lon

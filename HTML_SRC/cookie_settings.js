@@ -1,3 +1,11 @@
+//current page location constants creation
+const {
+    host, hostname, href, origin, pathname, port, protocol, search
+  } = window.location
+
+var host_name = "https://vlasovalexey.github.io/Minotaur/HTML_SRC/";
+var link_buffer = "";
+
 var lngs_usr = 1;
 var dmns_usr = 1;
 var color_usr = 1;
@@ -188,6 +196,29 @@ var record_step_arr = [
 		isdisable: "enabled"
 	}
 ];
+
+//put to clipboard plan
+function btn_link() {
+    navigator.clipboard.writeText(share_plan_link_gen());
+    openLnkWrn();
+}
+
+//Open overlay window with copy link warning
+function openLnkWrn() {
+    del_html_elem("tn_overlay_text");
+    create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("ch_lnkClipboard"));
+    document.getElementById("AlertOverlay").style.height = "100%";
+    document.getElementById("AlertOverlay").style.opacity = "1";
+}
+
+function share_plan_link_gen(){
+    //add to var for plan sharing link
+    link_buffer = host_name + "?=3:mtr=3:"
+    //link_buffer += "decomix_usr1=" + deco_mix_arr.join(",") + ":";
+    link_buffer += "mtr_end=3" + ":";
+    return link_buffer;
+}
+
 //os detector
 function getOS() {
 	var userAgent = window.navigator.userAgent,
@@ -328,6 +359,19 @@ function read_cookie() {
 	data_format_usr = getCookie("data_format_usr1");
 	igrf_13_val_usr = getCookie("igrf_13_val_usr1");
 	track_name_usr = getCookie("track_name_usr1");
+
+	//assign values from url if present and recognised
+    if(search != "" ){
+        //data present
+        url_arr = search;
+        if(url_arr.indexOf("%") != -1){
+            url_arr = decodeURIComponent(url_arr);
+        }
+        if(url_arr.length > 3){
+            url_arr = url_arr.split(":");
+			console.log(url_arr);
+        }
+    }
 }
 
 function return_idx(html_ids) {
@@ -344,9 +388,7 @@ function return_val(html_ids) {
 
 //settings doesn`t saved ad it is first start. it will be saved now
 if (getCookie("default_ele_usr1") == undefined) {
-	//need explanation for me. If uncomment below line all is don`t work on Android
-	//upd_all();
-	//console.log("cookie not found!");
+	
 } else
 // read if exist but it is second start
 {
