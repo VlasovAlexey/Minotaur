@@ -40,26 +40,18 @@ function share_plan_link_gen(){
     return link_buffer;
 }
 
-//paste and open to full screen if link containing info
+//paste and open data if link containing info
 function paste_link(){
     var url_arr = search;
-    
-    //assign values from url if present and recognized
-	if(search == "" ){
-		//do nothing but in future :)
-	}
-	else
-	{
 	//data present
-		if(url_arr.indexOf("%") != -1){
-			url_arr = decodeURIComponent(url_arr);
-		}
-		if(url_arr.length > 10){
-			url_arr = url_arr.split(":");
-		}
-        if(url_arr[1] == "mtr=3"){
-            geojson_styled_import(atob(url_arr[2]), 1);
-        }
+	if(url_arr.indexOf("%") != -1){
+		url_arr = decodeURIComponent(url_arr);
 	}
+	if(url_arr.length > 10){
+		url_arr = url_arr.split(":");
+	}
+    if(url_arr[1] == "mtr=3"){
+        geojson_styled_import(atob(url_arr[2]), 1);
+    }
 }
 paste_link();

@@ -49,6 +49,8 @@ Slider.prototype.open = function(i, e) {
 	map_editor.invalidateSize();
 	map_editor.panTo([c_lat,c_lon]);
 	map_editor.setView(new L.LatLng(c_lat,c_lon), 17);
+
+	paste_link();
 };
 
 
