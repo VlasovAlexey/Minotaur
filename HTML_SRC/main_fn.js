@@ -46,7 +46,7 @@ function hide_unused_elements() {
 	element_id_hide("1-header");
 	element_id_hide("2-header");
 	element_id_hide("3-header");
-	//element_id_hide("6-header");
+	element_id_hide("6-header");
 	element_id_hide("8-header");
 	element_id_hide("9-header");
 	
