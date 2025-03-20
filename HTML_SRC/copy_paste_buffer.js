@@ -42,8 +42,8 @@ function share_plan_link_gen(){
 
 //paste and open to full screen if link containing info
 function paste_link(){
-    url_arr = search;
-    //console.log(url_arr);
+    var url_arr = search;
+    console.log(url_arr + "test");
     //assign values from url if present and recognized
 	if(search == "" ){
 		//do nothing but in future :)
