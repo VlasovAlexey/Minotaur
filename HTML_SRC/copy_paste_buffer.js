@@ -45,6 +45,7 @@ var first_start = 0;
 function paste_link(){
     if(first_start == 0){
         first_start = 1;
+        url_loaded = 1;
         document.getElementById("7-header").click();
         var url_arr = search;
 	    //data present
