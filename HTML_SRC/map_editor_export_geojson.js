@@ -18,11 +18,11 @@ let gjson_save = new L.Control.PMButton({
           }
         });
         //and write file
-            scr_n_add = "";
-            if (GPX_file_num < 10 ) {
-                scr_n_add = "0";
-            }
-            var fl_name = scr_n_add + editor_file_num + "_" + (track_name.value).toString() + "_" + get_date_hr() + ".geojson";
+        scr_n_add = "";
+        if (GPX_file_num < 10 ) {
+            scr_n_add = "0";
+        }
+        var fl_name = scr_n_add + editor_file_num + "_" + (track_name.value).toString() + "_" + get_date_hr() + ".geojson";
         var blob = new Blob([drawnItemsToJSON(allLayers)], {type: "application/geojson;charset=utf-8"});
         saveAs(blob, fl_name);
         editor_file_num = editor_file_num + 1;

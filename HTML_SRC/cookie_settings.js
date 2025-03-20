@@ -1,11 +1,3 @@
-//current page location constants creation
-const {
-    host, hostname, href, origin, pathname, port, protocol, search
-  } = window.location
-
-var host_name = "https://vlasovalexey.github.io/Minotaur/HTML_SRC/";
-var link_buffer = "";
-
 var lngs_usr = 1;
 var dmns_usr = 1;
 var color_usr = 1;
@@ -197,28 +189,6 @@ var record_step_arr = [
 	}
 ];
 
-//put to clipboard plan
-function btn_link() {
-    navigator.clipboard.writeText(share_plan_link_gen());
-    openLnkWrn();
-}
-
-//Open overlay window with copy link warning
-function openLnkWrn() {
-    del_html_elem("tn_overlay_text");
-    create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("ch_lnkClipboard"));
-    document.getElementById("AlertOverlay").style.height = "100%";
-    document.getElementById("AlertOverlay").style.opacity = "1";
-}
-
-function share_plan_link_gen(){
-    //add to var for plan sharing link
-    link_buffer = host_name + "?mtr=3:"
-    //link_buffer += "decomix_usr1=" + deco_mix_arr.join(",") + ":";
-    link_buffer += ":mtr_end";
-    return link_buffer;
-}
-
 //os detector
 function getOS() {
 	var userAgent = window.navigator.userAgent,
@@ -359,25 +329,6 @@ function read_cookie() {
 	data_format_usr = getCookie("data_format_usr1");
 	igrf_13_val_usr = getCookie("igrf_13_val_usr1");
 	track_name_usr = getCookie("track_name_usr1");
-
-	
-    //assign values from url if present and recognised
-	if(search == "" ){
-		//do nothing but in future :)
-	}
-	else
-	{
-	//data present	
-		url_arr = search;
-		console.log(url_arr);
-		if(url_arr.indexOf("%") != -1){
-			url_arr = decodeURIComponent(url_arr);
-		}
-
-		if(url_arr.length > 10){
-			url_arr = url_arr.split(":");
-		}
-	}
 }
 
 function return_idx(html_ids) {
