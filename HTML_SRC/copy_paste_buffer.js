@@ -43,7 +43,7 @@ function share_plan_link_gen(){
 //paste and open to full screen if link containing info
 function paste_link(){
     var url_arr = search;
-    console.log(url_arr + "test");
+    
     //assign values from url if present and recognized
 	if(search == "" ){
 		//do nothing but in future :)
@@ -59,8 +59,12 @@ function paste_link(){
 		if(url_arr.length > 10){
 			url_arr = url_arr.split(":");
 		}
-        if(url_arr[2] == "mtr=3"){
-            geojson_styled_import(atob(url_arr[3]), 1);
+        if(url_arr[1] == "mtr=3"){
+            console.log(url_arr);
+            //setTimeout(function(){
+                geojson_styled_import(atob(url_arr[3]), 1);
+            //},500);
+            
         }
 	}
 }
