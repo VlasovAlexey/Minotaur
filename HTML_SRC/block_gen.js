@@ -1,4 +1,4 @@
-var url_loaded = 0;
+
 function Slider(selector, currentId) {
 	var self = this;
 	this.duration = 200;

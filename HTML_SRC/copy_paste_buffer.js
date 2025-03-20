@@ -42,11 +42,13 @@ function share_plan_link_gen(){
 
 //paste and open data if link containing info
 var first_start = 0;
+var url_loaded = 0;
 function paste_link(){
     if(first_start == 0){
+
         first_start = 1;
         url_loaded = 1;
-        document.getElementById("7-header").click();
+        
         var url_arr = search;
 	    //data present
 	    if(url_arr.indexOf("%") != -1){
@@ -57,6 +59,8 @@ function paste_link(){
 	    }
         if(url_arr[1] == "mtr=3"){        
             geojson_styled_import(atob(url_arr[2]), 1);
+            document.getElementById("7-header").click();
+            map_editor.toggleFullscreen();
         }
     }
 }
