@@ -54,6 +54,10 @@ function paste_link(){
 	    if(url_arr.indexOf("%") != -1){
 		    url_arr = decodeURIComponent(url_arr);
 	    }
+        else{
+            map_editor.panTo([c_lat,c_lon]);
+		    map_editor.setView(new L.LatLng(c_lat,c_lon), 17);
+        }
 	    if(url_arr.length > 10){
 		    url_arr = url_arr.split(":");
 	    }
@@ -64,4 +68,5 @@ function paste_link(){
         }
     }
 }
+paste_link();
 
