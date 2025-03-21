@@ -50,6 +50,12 @@ function check_data_URL(){
         document.getElementById("AlertOverlay_URL").style.height = "100%";
         document.getElementById("AlertOverlay_URL").style.opacity = "1";
     }
+    if(url_arr.indexOf("?:mtr=1:") != -1){
+        del_html_elem("tn_overlay_text_URL");
+        create_html_text("tn_overlay_text_URL", "opt_overlay_text_URL", plan_lng("ch_lnkClipboard_URL"));
+        document.getElementById("AlertOverlay_URL").style.height = "100%";
+        document.getElementById("AlertOverlay_URL").style.opacity = "1";
+    }
 }
 check_data_URL();
 
@@ -73,7 +79,7 @@ function paste_link(){
 	    if(url_arr.indexOf("%") != -1){
 		    url_arr = decodeURIComponent(url_arr);
 	    }
-	    if(url_arr.length > 10){
+	    if(url_arr.length > 5){
 		    url_arr = url_arr.split(":");
 	    }
         if(url_arr[1] == "mtr=3"){        
@@ -81,6 +87,23 @@ function paste_link(){
             document.getElementById("7-header").click();
             map_editor.toggleFullscreen();
         }
+        if(url_arr[1] == "mtr=1"){
+            console.log("opa");
+            loadFileAndPrintToConsole('https://vlasovalexey.github.io/Minotaur/HTML_SRC/example_maps/Lila_cave_Matanzas_Cuba.geojson');
+        }
+
     }
 }
 
+//file:///H:/Minotaur/HTML_SRC/index.html?:mtr=1:
+async function loadFileAndPrintToConsole(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.text();
+        geojson_styled_import(data, 1);
+        document.getElementById("7-header").click();
+        map_editor.toggleFullscreen();
+    } catch (err) {
+      console.error(err);
+    }
+  }
