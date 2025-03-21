@@ -1207,6 +1207,7 @@
         }
         //rus
         if (td_lng == 2) {
+            if(val  == "ch_lnkClipboard_URL"){val = "Поздравляем!<br>Карта успешно загружена и готова к просмотру.<br>Пожалуйста, нажмите для просмотра карты!"}
             if(val  == "ch_lnkClipboard"){val = "Ссылка на ваш план скопирована в буфер обмена!"}
             if (val == "td_depth") {
                 val = "глубина"
@@ -1330,6 +1331,7 @@
         }
         //sp
         if (td_lng == 3) {
+            if(val  == "ch_lnkClipboard_URL"){val = "¡Enhorabuena!<br>El mapa se ha cargado correctamente y está listo para verse.<br>Por favor, pulse para ver el mapa!"}
             if(val  == "ch_lnkClipboard"){val = "El enlace de su plan se ha copiado en el portapapeles!"}
             if (val == "td_depth") {
                 val = "profundidad"
@@ -1453,6 +1455,7 @@
         }
         //pt
         if (td_lng == 4) {
+            if(val  == "ch_lnkClipboard_URL"){val = "Parabéns!<br>O mapa foi carregado com êxito e está pronto a ser visualizado.<br>Por favor, toque para ver o mapa!"}
             if(val  == "ch_lnkClipboard"){val = "A ligação do seu plano é copiada para a área de transferência!"}
             if (val == "td_depth") {
                 val = "profundidade"
@@ -1577,6 +1580,7 @@
         }
         //ch
         if (td_lng == 5) {
+            if(val  == "ch_lnkClipboard_URL"){val = "恭喜！<br>地圖已成功載入並可檢視。<br>請點選檢視地圖！"}
             if(val  == "ch_lnkClipboard"){val = "您的计划链接已复制到剪贴板！"}
             if (val == "td_depth") {
                 val = "深度"
@@ -1701,6 +1705,7 @@
         }
         //br
         if (td_lng == 6) {
+            if(val  == "ch_lnkClipboard_URL"){val = "Поздравления!<br>Картата е успешно заредена и готова за преглед.<br>Моля, докоснете, за да видите картата!"}
             if(val  == "ch_lnkClipboard"){val = "Връзката с вашия план е копирана в клипборда!"}
             if (val == "td_depth") {
                 val = "дълбочина"
@@ -1824,6 +1829,7 @@
         }
         //fr
         if (td_lng == 7) {
+            if(val  == "ch_lnkClipboard_URL"){val = "Félicitations!<br>La carte a été chargée avec succès et est prête à être visualisée.<br>Tapez sur la carte pour la visualiser !"}
             if(val  == "ch_lnkClipboard"){val = "Le lien avec votre plan a été copié dans le presse-papiers !"}
             if (val == "td_depth") {
                 val = "profondeur"
@@ -1948,6 +1954,7 @@
         }
         //kr
         if (td_lng == 8) {
+            if(val  == "ch_lnkClipboard_URL"){val = "축하합니다!<br>지도가 성공적으로 로드되어 볼 준비가 되었습니다.<br>지도를 보려면 탭하세요!"}
             if(val  == "ch_lnkClipboard"){val = "요금제 링크가 클립보드에 복사되었습니다!"}
             if (val == "td_depth") {
                 val = "깊이"
@@ -2071,6 +2078,7 @@
         }
         //it
         if (td_lng == 9) {
+            if(val  == "ch_lnkClipboard_URL"){val = "Congratulazioni!<br>La mappa è stata caricata con successo ed è pronta per essere visualizzata.<br>Toccare per visualizzare la mappa!"}
             if(val  == "ch_lnkClipboard"){val = "Il link al piano è stato copiato negli appunti!"}
             if (val == "td_depth") {
                 val = "profondità"
