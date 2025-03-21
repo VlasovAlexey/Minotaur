@@ -808,10 +808,9 @@ function marker_custom_shape(latlng, type, name){
       text: name,
       textMarkerCentered: true
     }).addTo(map_editor);    
-    icon_distance.pm.getElement().style.textDecorationLine = "overline";
-    icon_distance.pm.getElement().style.fontWeight = "bold";
+    icon_distance.pm.getElement().style.borderRadius = "50%";
     icon_distance.pm.getElement().style.color = "#666666";
-    icon_distance.pm.getElement().style.borderRadius = "10px";
+    icon_distance.pm.getElement().style.fontWeight = "bold";
     icon_distance.pm.getElement().style.border = "2px solid #666666";
   }
   if(type == 2){
@@ -820,10 +819,11 @@ function marker_custom_shape(latlng, type, name){
       textMarker: true,
       text: name,
       textMarkerCentered: true
-    }).addTo(map_editor);    
-    icon_depth.pm.getElement().style.borderRadius = "50%";
-    icon_depth.pm.getElement().style.color = "#666666";
+    }).addTo(map_editor);
+    icon_depth.pm.getElement().style.textDecorationLine = "overline";
     icon_depth.pm.getElement().style.fontWeight = "bold";
+    icon_depth.pm.getElement().style.color = "#666666";
+    icon_depth.pm.getElement().style.borderRadius = "10px";
     icon_depth.pm.getElement().style.border = "2px solid #666666";
   }
 }
