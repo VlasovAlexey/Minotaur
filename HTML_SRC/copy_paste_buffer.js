@@ -41,12 +41,6 @@ function share_plan_link_gen(){
     return link_buffer;
 }
 function check_data_URL(){
-    if(url_arr.indexOf("?:mtr=3:") != -1){
-        del_html_elem("tn_overlay_text_URL");
-        create_html_text("tn_overlay_text_URL", "opt_overlay_text_URL", plan_lng("ch_lnkClipboard_URL"));
-        document.getElementById("AlertOverlay_URL").style.height = "100%";
-        document.getElementById("AlertOverlay_URL").style.opacity = "1";
-    }
     if(url_arr.indexOf("?:mtr=1:") != -1){
         del_html_elem("tn_overlay_text_URL");
         create_html_text("tn_overlay_text_URL", "opt_overlay_text_URL", plan_lng("ch_lnkClipboard_URL"));
@@ -54,6 +48,12 @@ function check_data_URL(){
         document.getElementById("AlertOverlay_URL").style.opacity = "1";
     }
     if(url_arr.indexOf("?:mtr=2:") != -1){
+        del_html_elem("tn_overlay_text_URL");
+        create_html_text("tn_overlay_text_URL", "opt_overlay_text_URL", plan_lng("ch_lnkClipboard_URL"));
+        document.getElementById("AlertOverlay_URL").style.height = "100%";
+        document.getElementById("AlertOverlay_URL").style.opacity = "1";
+    }
+    if(url_arr.indexOf("?:mtr=3:") != -1){
         del_html_elem("tn_overlay_text_URL");
         create_html_text("tn_overlay_text_URL", "opt_overlay_text_URL", plan_lng("ch_lnkClipboard_URL"));
         document.getElementById("AlertOverlay_URL").style.height = "100%";

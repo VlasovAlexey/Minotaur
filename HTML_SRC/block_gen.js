@@ -43,6 +43,13 @@ Slider.prototype.open = function(i, e) {
 		(e.currentTarget.scrollIntoView(true)) + 30
 	});
 	//this.body.eq(this.current).slideDown(this.duration);
+
+	//leaflet map need recreation after slider opened an size changed for mobile devices
+	map_editor.panTo([c_lat,c_lon]);
+	map_editor.setView(new L.LatLng(0,0), 17);
+	map_editor.invalidateSize();
+	map_editor.panTo([c_lat,c_lon]);
+	map_editor.setView(new L.LatLng(c_lat,c_lon), 17);
 };
 
 
