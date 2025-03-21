@@ -1,7 +1,11 @@
 //current page location constants creation
 const {
     host, hostname, href, origin, pathname, port, protocol, search
-  } = window.location
+} = window.location
+
+var url_arr = search;
+var first_start = 0;
+var url_loaded = 0;
 
 var host_name = "https://vlasovalexey.github.io/Minotaur/HTML_SRC/";
 var link_buffer = "";
@@ -39,10 +43,25 @@ function share_plan_link_gen(){
     link_buffer += btoa(drawnItemsToJSON(allLayers));
     return link_buffer;
 }
+function check_data_URL(){
+    if(url_arr.indexOf("?:mtr=3:") != -1){
+        del_html_elem("tn_overlay_text_URL");
+        create_html_text("tn_overlay_text_URL", "opt_overlay_text_URL", plan_lng("ch_lnkClipboard_URL"));
+        document.getElementById("AlertOverlay_URL").style.height = "100%";
+        document.getElementById("AlertOverlay_URL").style.opacity = "1";
+    }
+}
+check_data_URL();
+
+function load_data_URL(){
+    paste_link();
+    setTimeout(function() {
+		document.getElementById("AlertOverlay_URL").style.height = "0%";
+	}, 400);
+	document.getElementById("AlertOverlay_URL").style.opacity = "0";
+}
 
 //paste and open data if link containing info
-var first_start = 0;
-var url_loaded = 0;
 function paste_link(){
     if(first_start == 0){
 
@@ -54,10 +73,6 @@ function paste_link(){
 	    if(url_arr.indexOf("%") != -1){
 		    url_arr = decodeURIComponent(url_arr);
 	    }
-        else{
-            map_editor.panTo([c_lat,c_lon]);
-		    map_editor.setView(new L.LatLng(c_lat,c_lon), 17);
-        }
 	    if(url_arr.length > 10){
 		    url_arr = url_arr.split(":");
 	    }
@@ -68,5 +83,4 @@ function paste_link(){
         }
     }
 }
-paste_link();
 

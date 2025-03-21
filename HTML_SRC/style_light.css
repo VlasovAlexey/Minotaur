@@ -371,11 +371,25 @@ select
 br{
     font-size: 0px;
 }
-.overlay {
+.overlay_URL div,
+.overlay_URL .tn_overlay_text_URL
+{
+    padding: 8px;
+    background: #137fc5;
+    color: #ffffff;
+    font-family: FirstFont;
+    font-size: 16px;
+    cursor: pointer;
+    -khtml-user-select: none;
+    user-select: none;
+    text-align-last: center;
+    display: block;
+}
+.overlay, .overlay_URL {
     height: 0%;
     width: 100%;
     position: fixed;
-    z-index: 999999;
+    z-index: 99999;
     top: 0;
     left: 0;
     background-color: rgb(0,0,0);
@@ -386,7 +400,7 @@ br{
     -moz-transition: opacity 400ms ease-in-out;
     transition: opacity 400ms ease-in-out;
 }
-.overlay-content
+.overlay-content, .overlay-content_URL
 {
     position: absolute;
     width: 80%;

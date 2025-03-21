@@ -1083,6 +1083,7 @@
         };
         //eng
         if (td_lng == 1) {
+            if(val  == "ch_lnkClipboard_URL"){val = "Congratulations!<br>Map is successful loaded and ready to view.<br>Please tap to view map!"}
             if(val  == "ch_lnkClipboard"){val = "The share link is in your clipboard!"}
             if (val == "td_depth") {
                 val = "depth"
