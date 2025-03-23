@@ -210,22 +210,72 @@ map_editor.pm.Toolbar.setBlockPosition("custom", "topright");
 
 //custom buttons for custom features
 //measure
+
+const measure_menu = [
+  "measure_clear",
+  "cancel",
+];
 map_editor.pm.Toolbar.createCustomControl({
   block: "custom",
   name: "measure",
   title: "",
-  actions: ["cancel",],
+  actions: measure_menu,
   onClick: () => {
     //start measure
   },
   afterClick: () => {
-    document.querySelector('.leaflet-control-measure.leaflet-bar-part.leaflet-bar-part-top-and-bottom').click();
+    document.querySelector('.polyline-measure-unicode-icon').click();
   },
   doToggle: true,
   toggleStatus: false,
-  disableOtherButtons: true,
+  disableOtherButtons: false,
   className: 'control-icon leaflet-pm-icon-measure',
 });
+
+//add measure with bearing
+var polylineMeasure = L.control.polylineMeasure({position:'topright', unit:'metres', showBearings:true, clearMeasurementsOnStop: false, showClearControl: true,
+  tempLine: {                     // Styling settings for the temporary dashed line
+    color: '#d40000',              // Dashed line color
+    weight: 2                   // Dashed line weight
+},          
+fixedLine: {                    // Styling for the solid line
+    color: '#d40000',              // Solid line color
+    weight: 2                   // Solid line weight
+},
+arrow: {                        // Styling of the midway arrow 
+    color: '#d40000',              // Color of the arrow
+},
+startCircle: {                  // Style settings for circle marker indicating the starting point of the polyline
+    color: '#d40000',              // Color of the border of the circle
+    weight: 1,                  // Weight of the circle
+    fillColor: '#fff',          // Fill color of the circle
+    fillOpacity: 1,             // Fill opacity of the circle
+    radius: 10                   // Radius of the circle
+},
+intermedCircle: {               // Style settings for all circle markers between startCircle and endCircle
+    color: '#d40000',              // Color of the border of the circle
+    weight: 1,                  // Weight of the circle
+    fillColor: '#ff0',          // Fill color of the circle
+    fillOpacity: 1,             // Fill opacity of the circle
+    radius: 10                 // Radius of the circle
+},
+currentCircle: {                // Style settings for circle marker indicating the latest point of the polyline during drawing a line
+    color: '#d40000',              // Color of the border of the circle
+    weight: 1,                  // Weight of the circle
+    fillColor: '#f0f',          // Fill color of the circle
+    fillOpacity: 1,             // Fill opacity of the circle
+    radius: 10                  // Radius of the circle
+},
+endCircle: {                    // Style settings for circle marker indicating the last point of the polyline
+    color: '#d40000',              // Color of the border of the circle
+    weight: 1,                  // Weight of the circle
+    fillColor: '#fff',          // Fill color of the circle
+    fillOpacity: 1,             // Fill opacity of the circle
+    radius: 10                  // Radius of the circle
+},
+})
+polylineMeasure.addTo(map_editor);
+document.querySelector('.leaflet-bar-measure.leaflet-control').style.display = 'none';
 
 //import ariane files
 const ariane = [
@@ -500,6 +550,7 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 }
 
 //add measure tools to the map editor
+/*
 var plugin = L.control.measure({
   //  control position
   position: 'bottomleft',
@@ -522,7 +573,7 @@ var plugin = L.control.measure({
   //   return Math.round(1000 * val / 1609.344) / 1000 + 'mile';
   // }
 }).addTo(map_editor);
-
+*/
 //context menu functions
 function showCoordinates (e) {
 alert(e.latlng);

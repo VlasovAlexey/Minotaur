@@ -1074,7 +1074,6 @@
     lng_opt.addEventListener('change', changeLang);
     changeLang();
 
-
     function plan_lng(val) {
         if (force_lng == 1) {
             var td_lng = 1

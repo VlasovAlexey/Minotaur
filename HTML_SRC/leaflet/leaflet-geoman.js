@@ -2379,6 +2379,7 @@
             selectSecondLayerFor: "Изберете втори слой за {действие}"
         },
         actions: {
+            measure_clear: "Изчистете",
             layer_copy:"Копие",
             layer_optimize_1: "Нисък",
             layer_optimize_2: "Среден",
@@ -2464,6 +2465,7 @@
             selectSecondLayerFor: "Select second layer for {action}"
         },
         actions: {
+            measure_clear: "Clear",
             layer_copy:"Copy",
             layer_optimize_1: "Low",
             layer_optimize_2: "Medium",
@@ -2598,6 +2600,7 @@
             placeCircleMarker: "Clicca per posizionare un Marker del cherchio"
         },
         actions: {
+            measure_clear: "Libero",
             layer_copy:"Copia",
             layer_optimize_1: "Basso",
             layer_optimize_2: "Medio",
@@ -2729,6 +2732,7 @@
             placeCircleMarker: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u043A\u0440\u0443\u0433\u043E\u0432\u043E\u0439 \u043C\u0430\u0440\u043A\u0435\u0440"
         },
         actions: {
+            measure_clear: "Очистить",
             layer_copy:"Копировать",
             layer_optimize_1: "Слабый",
             layer_optimize_2: "Средний",
@@ -2794,6 +2798,7 @@
             placeCircleMarker: "Presiona para colocar un marcador de c\xEDrculo"
         },
         actions: {
+            measure_clear: "Despejar",
             layer_copy:"Copia",
             layer_optimize_1: "Bajo",
             layer_optimize_2: "Media",
@@ -2892,6 +2897,7 @@
             placeCircleMarker: "Cliquez pour placer le marqueur circulaire"
         },
         actions: {
+            measure_clear: "Clair",
             layer_copy:"Copie",
             layer_optimize_1: "Faible",
             layer_optimize_2: "Moyenne",
@@ -2957,6 +2963,7 @@
             placeCircleMarker: "\u70B9\u51FB\u653E\u7F6E\u5706\u5F62\u6807\u8BB0"
         },
         actions: {
+            measure_clear: "清除",
             layer_copy:"複製",
             layer_optimize_1: "低",
             layer_optimize_2: "中",
@@ -3056,6 +3063,7 @@
             placeText: "Clique para inserir texto"
         },
         actions: {
+            measure_clear: "Limpo",
             layer_copy:"Reprodução",
             layer_optimize_1: "Baixa",
             layer_optimize_2: "Média",
@@ -3136,6 +3144,7 @@
             placeText: "Clique para colocar texto"
         },
         actions: {
+            measure_clear: "Limpo",
             layer_copy:"Reprodução",
             layer_optimize_1: "Baixa",
             layer_optimize_2: "Médio",
@@ -3661,6 +3670,7 @@
             placeText: "\uD14D\uC2A4\uD2B8 \uC704\uCE58\uB97C \uD074\uB9AD\uD558\uC138\uC694"
         },
         actions: {
+            measure_clear: "지우기",
             layer_copy:"복제",
             layer_optimize_1: "낮음",
             layer_optimize_2: "중간",
@@ -4691,6 +4701,13 @@
                     s = t.actions,
                     a = {
                         //minotaur interface start
+                        measure_clear: {
+                            text: V("actions.measure_clear"),
+                            title: V("actions.measure_clear"),
+                            onClick() {
+                                document.querySelector('.polyline-measure-unicode-icon.polyline-measure-clearControl').click();
+                            }
+                        },
                         layer_optimize_1: {
                             text: V("actions.layer_optimize_1"),
                             title: V("actions.layer_optimize_1"),
