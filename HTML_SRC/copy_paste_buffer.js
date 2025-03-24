@@ -4,6 +4,7 @@ const {
 } = window.location
 
 var url_arr = search;
+
 var host_name = "https://vlasovalexey.github.io/Minotaur/HTML_SRC/";
 var link_buffer = "";
 
@@ -72,7 +73,6 @@ function load_data_URL(){
 
 //paste and open data if link containing info
 function paste_link(){        
-    var url_arr = search;
     //data present
 	if(url_arr.indexOf("%") != -1){
 	    url_arr = decodeURIComponent(url_arr);
@@ -82,14 +82,14 @@ function paste_link(){
 	}
     if(url_arr[1] == "mtr=3"){        
         geojson_styled_import(atob(url_arr[2]), 1);
-        document.getElementById("7-header").click();
+        //document.getElementById("7-header").click();
         map_editor.toggleFullscreen();
     }
     if(url_arr[1] == "mtr=1"){
-        loadFile('https://vlasovalexey.github.io/Minotaur/HTML_SRC/example_maps/Lila_cave_Matanzas_Cuba.geojson');
+        loadFile(host_name + 'example_maps/Lila_cave_Matanzas_Cuba.geojson');
     }
     if(url_arr[1] == "mtr=2"){
-        loadFile('https://vlasovalexey.github.io/Minotaur/HTML_SRC/example_maps/El_Brinco_2_cave_Matanzas_Cuba.geojson');
+        loadFile(host_name + 'example_maps/El_Brinco_2_cave_Matanzas_Cuba.geojson');
     }
 }
 

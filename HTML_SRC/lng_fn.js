@@ -1069,6 +1069,21 @@
         for (var i in lang[td_lng]) {
             document.querySelector(i).innerHTML = lang[td_lng][i];
         }
+
+        //update language for measure tool in map editor
+        map_editor.eachLayer(function (layer) {
+            //erase only paths and markers layers
+            if (layer instanceof L.Path) {
+                map_editor.removeLayer(layer);
+            } else {
+              if (layer instanceof L.Marker) {
+                map_editor.removeLayer(layer);
+              }
+            }
+          });
+  
+        measure_polyline_add();
+
     }
 
     lng_opt.addEventListener('change', changeLang);
