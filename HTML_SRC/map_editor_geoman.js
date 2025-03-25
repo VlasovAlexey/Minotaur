@@ -25,10 +25,6 @@ function lng_map_editor(){
   if(td_lng == 9){ map_editor.pm.setLang("it");}
 }
 
-
-//add meters line
-L.control.betterscale().addTo(map_editor);
-
 var drawnItems = L.featureGroup().addTo(map_editor);
 
 //customize buttons for draw primitives adding geoman controls

@@ -948,3 +948,7 @@ input[type=range] {
   input[type=range]:focus::-ms-fill-upper {
     background: #d5d5d5;
   }
+
+  .leaflet-notification-message{
+    color: #ffffff;
+  }

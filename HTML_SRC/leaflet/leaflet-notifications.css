@@ -1,0 +1,236 @@
+.leaflet-notification {
+    width: 300px;
+    min-height: 50px;
+    padding: 10px;
+    margin: 0 0 1rem 0;
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    text-align: center;
+}
+
+.leaflet-notification.dismissable {
+    cursor: pointer;
+}
+
+.leaflet-notification.alert > .leaflet-notification-icon > i,
+.leaflet-notification.alert > .leaflet-notification-close-button {
+    color: rgb(138, 7, 20);
+}
+
+.leaflet-notification.info > .leaflet-notification-icon > i,
+.leaflet-notification.info > .leaflet-notification-close-button {
+    color: rgb(55, 134, 170);
+}
+
+.leaflet-notification.success > .leaflet-notification-icon > i,
+.leaflet-notification.success > .leaflet-notification-close-button {
+    color: rgb(48, 131, 51);
+}
+
+.leaflet-notification.warning > .leaflet-notification-icon > i,
+.leaflet-notification.warning > .leaflet-notification-close-button {
+    color: rgb(197, 103, 2);
+}
+
+.leaflet-notification.custom > .leaflet-notification-icon > i,
+.leaflet-notification.custom > .leaflet-notification-close-button {
+    color: rgb(162, 162, 162);
+}
+
+.leaflet-notification.alert {
+    background-color: rgba(199, 66, 67, 0.95);
+    color: #f3f3f3;
+    border: solid rgb(138, 7, 20);
+    border-width: 0 0 0 4px;
+}
+
+.leaflet-notification.info {
+    background-color: rgba(61, 171, 198, 0.95);
+    color: #f3f3f3;
+    border: solid rgb(55, 134, 170);
+    border-width: 0 0 0 4px;
+}
+
+.leaflet-notification.success {
+    background-color: rgba(74, 162, 85, 0.95);
+    color: #ffffff;
+    border: solid rgb(48, 131, 51);
+    border-width: 0 0 0 4px;
+
+}
+
+.leaflet-notification.warning {
+    background-color: rgba(237, 154, 71, 0.95);
+    color: #f3f3f3;
+    border: solid rgb(197, 103, 2);
+    border-width: 0 0 0 4px;
+}
+
+.leaflet-notification.custom {
+    background-color: rgba(228, 228, 228, 0.95);
+    color: rgb(73, 73, 73);
+    border: solid rgb(162, 162, 162);
+    border-width: 0 0 0 4px;
+}
+
+.leaflet-notification-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.leaflet-notification-title,
+.leaflet-notification-message {
+    margin-left: 10px;
+}
+
+.leaflet-notification > .leaflet-notification-content > .leaflet-notification-title {
+    font-weight: 800;
+}
+
+.leaflet-notification-close-button {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    float: right;
+}
+
+.leaflet-notification-close-button:hover {
+    font-size: 22px;
+    color: red;
+}
+
+.leaflet-notification-icon {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 22pt;
+    width: 30px;
+}
+
+/* pastel styles */
+.pastel > .leaflet-notification.alert {
+    background-color: rgba(248, 215, 218, 0.95);
+    color: rgb(114, 28, 36);
+    border: solid rgb(114, 28, 36);
+    border-width: 0 0 0 4px;
+}
+
+.pastel > .leaflet-notification.success {
+    background-color: rgba(212, 237, 218, 0.95);
+    color: rgb(21, 87, 36);
+    border: solid rgb(21, 87, 36);
+    border-width: 0 0 0 4px;
+}
+
+.pastel > .leaflet-notification.warning {
+    background-color: rgba(255, 243, 205, 0.95);
+    color: rgb(133, 100, 4);
+    border: solid rgb(133, 100, 4);
+    border-width: 0 0 0 4px;
+}
+
+.pastel > .leaflet-notification.info {
+    background-color: rgba(209, 236, 241, 0.95);
+    color: rgb(12, 84, 96);
+    border: solid rgb(12, 84, 96);
+    border-width: 0 0 0 4px;
+}
+
+.pastel > .leaflet-notification.custom {
+    background-color: rgba(235, 235, 235, 0.95);
+    color: rgb(80, 80, 80);
+    border: solid rgb(80, 80, 80);
+    border-width: 0 0 0 4px;
+}
+
+.pastel > .leaflet-notification.alert > .leaflet-notification-icon > i,
+.pastel > .leaflet-notification.alert > .leaflet-notification-close-button {
+    color: rgb(114, 28, 36);
+}
+
+.pastel > .leaflet-notification.info > .leaflet-notification-icon > i,
+.pastel > .leaflet-notification.info > .leaflet-notification-close-button {
+    color: rgb(12, 84, 96);
+}
+
+.pastel > .leaflet-notification.success > .leaflet-notification-icon > i,
+.pastel > .leaflet-notification.success > .leaflet-notification-close-button {
+    color: rgb(21, 87, 36);
+}
+
+.pastel > .leaflet-notification.warning > .leaflet-notification-icon > i,
+.pastel > .leaflet-notification.warning > .leaflet-notification-close-button {
+    color: rgb(133, 100, 4);
+}
+
+.pastel > .leaflet-notification.custom > .leaflet-notification-icon > i,
+.pastel > .leaflet-notification.custom > .leaflet-notification-close-button {
+    color: rgb(80, 80, 80);
+}
+
+/* modern styles */
+
+.modern > .leaflet-notification {
+    border-radius: 2px;
+    color: rgb(51, 51, 51);
+}
+
+.modern > .leaflet-notification.alert {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: solid rgb(204, 39, 56);
+    border-width: 0 0 0 4px;
+}
+
+.modern > .leaflet-notification.success {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: solid rgb(50, 218, 63);
+    border-width: 0 0 0 4px;
+}
+
+.modern > .leaflet-notification.warning {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: solid rgb(254, 190, 20);
+    border-width: 0 0 0 4px;
+}
+
+.modern > .leaflet-notification.info {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: solid rgb(26, 118, 229);
+    border-width: 0 0 0 4px;
+}
+
+.modern > .leaflet-notification.custom {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: solid rgb(94, 94, 94);
+    border-width: 0 0 0 4px;
+}
+
+.modern > .leaflet-notification.alert > .leaflet-notification-icon > i {
+    color: rgb(204, 39, 56);
+}
+
+.modern > .leaflet-notification.info > .leaflet-notification-icon > i {
+    color: rgb(26, 118, 229);
+}
+
+.modern > .leaflet-notification.success > .leaflet-notification-icon > i {
+    color: rgb(50, 218, 63);
+}
+
+.modern > .leaflet-notification.warning > .leaflet-notification-icon > i {
+    color: rgb(254, 190, 20);
+}
+
+.modern > .leaflet-notification.custom > .leaflet-notification-icon > i {
+    color: rgb(94, 94, 94);
+}
+
+.modern > .leaflet-notification .leaflet-notification-content .leaflet-notification-message,
+.modern > .leaflet-notification > .leaflet-notification-close-button {
+    color: rgb(118, 118, 118);
+}

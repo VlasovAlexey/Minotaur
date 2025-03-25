@@ -44,5 +44,6 @@ function assign_css_style() {
 		}
 		
 	}
+	CSSLoad("leaflet/font-awesome.css");
 }
 assign_css_style();

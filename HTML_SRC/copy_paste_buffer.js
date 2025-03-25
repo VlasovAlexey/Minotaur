@@ -16,10 +16,12 @@ function btn_link() {
 
 //Open overlay window with copy link warning
 function openLnkWrn() {
-    del_html_elem("tn_overlay_text");
-    create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("ch_lnkClipboard"));
-    document.getElementById("AlertOverlay").style.height = "100%";
-    document.getElementById("AlertOverlay").style.opacity = "1";
+    notification.success('', plan_lng("ch_lnkClipboard"));
+    //notification.alert('Alert', 'some alert message');
+    //notification.info('Info', 'some infomessage');
+    //notification.success('Success', 'some successmessage');
+    //notification.warning('Warning', 'some warning message');
+    //notification.custom('Custom', 'some <span>custom</span> message');
 }
 
 function share_plan_link_gen(){

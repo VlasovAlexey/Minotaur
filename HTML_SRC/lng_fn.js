@@ -1081,7 +1081,6 @@
               }
             }
           });
-  
         measure_polyline_add();
 
     }

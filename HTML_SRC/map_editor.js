@@ -225,9 +225,9 @@ map_editor.pm.Toolbar.createCustomControl({
   afterClick: () => {
     document.querySelector('.polyline-measure-unicode-icon').click();
   },
-  doToggle: false,
-  toggleStatus: false,
-  disableOtherButtons: false,
+  doToggle: true,
+  toggleStatus: true,
+  disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-measure',
 });
 
@@ -936,5 +936,17 @@ map_editor.pm.Toolbar.createCustomControl({
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-layer-optimize',
 });
+
+//add meters line
+L.control.betterscale().addTo(map_editor);
+
+//add notifications to map editor
+var notification = L.control.notifications({
+  timeout: 3000,
+  position: 'bottomleft',
+  closable: true,
+  dismissable: true,
+}).addTo(map_editor);
+
 
 

@@ -5,10 +5,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 	// files that user has chosen
 	var all_files = this.files;
 	if(all_files.length == 0) {
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("geojson_no_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert('', plan_lng("geojson_no_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -21,10 +18,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
   
   allowed_name = file.name.slice((Math.max(0, file.name.lastIndexOf(".")) || Infinity) + 1);
 	if(allowed_name != "geojson") {
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("geojson_bad_ext_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert('', plan_lng("geojson_bad_ext_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -32,10 +26,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 	// Max 30 MB allowed
 	var max_size_allowed = 30*1024*1024
 	if(file.size > max_size_allowed) {
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("geojson_big_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert('', plan_lng("geojson_big_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -56,10 +47,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 
 	// file reading failed
 	reader.addEventListener('error', function() {
-	    del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("geojson_bad_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert('', plan_lng("geojson_bad_file"));
         Pbar_Hide();
 	});
 

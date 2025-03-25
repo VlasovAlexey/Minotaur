@@ -97,5 +97,5 @@ function measure_tool_create(){
     },
     })
     polylineMeasure.addTo(map_editor);
-    document.querySelector('.leaflet-bar-measure.leaflet-control').style.display = 'none';
+    //document.querySelector('.leaflet-bar-measure.leaflet-control').style.display = 'none';
   }
