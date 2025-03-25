@@ -942,7 +942,7 @@ L.control.betterscale().addTo(map_editor);
 
 //add notifications to map editor
 var notification = L.control.notifications({
-  timeout: 300000000,
+  timeout: 7000,
   position: 'bottomleft',
   closable: false,
   dismissable: true,
