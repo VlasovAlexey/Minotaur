@@ -6,10 +6,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 	// files that user has chosen
 	var all_files = this.files;
 	if(all_files.length == 0) {
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("kml_no_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert(plan_lng("ch_alert"), plan_lng("kml_no_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -22,10 +19,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
   
   allowed_name = file.name.slice((Math.max(0, file.name.lastIndexOf(".")) || Infinity) + 1);
 	if(allowed_name != "kml") {
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("kml_bad_ext_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert(plan_lng("ch_alert"), plan_lng("kml_bad_ext_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -33,10 +27,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 	// Max 30 MB allowed
 	var max_size_allowed = 30*1024*1024
 	if(file.size > max_size_allowed) {
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("kml_big_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert(plan_lng("ch_alert"), plan_lng("kml_big_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -57,10 +48,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
         	ariane_kml_file = e.target.result;
 			if (ariane_kml_file.indexOf("</Folder></Document></kml>") == -1){
 				//wrong file
-				del_html_elem("tn_overlay_text");
-				create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("kml_bad_file"));
-				document.getElementById("AlertOverlay").style.height = "100%";
-				document.getElementById("AlertOverlay").style.opacity = "1";
+				notification.alert(plan_lng("ch_alert"), plan_lng("kml_bad_file"));
         		Pbar_Hide();
 				return;
 			}

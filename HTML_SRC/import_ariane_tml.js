@@ -12,10 +12,7 @@ var ariane_tml_file = [];
 function onTMLload(fileInput) {
 	if(fileInput.files[0] == undefined) {
 		//file is not selected
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("tml_no_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert(plan_lng("ch_alert"), plan_lng("tml_no_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -23,20 +20,14 @@ function onTMLload(fileInput) {
 	// Max 30 MB allowed
 	var max_size_allowed = 30*1024*1024
 	if(fileInput.files[0].size > max_size_allowed) {
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("tml_big_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert(plan_lng("ch_alert"), plan_lng("tml_big_file"));
 		Pbar_Hide();
 		return;
 	}
 
 	allowed_name = fileInput.files[0].name.slice((Math.max(0, fileInput.files[0].name.lastIndexOf(".")) || Infinity) + 1);
 	if(allowed_name != "tml") {
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("tml_bad_ext_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert(plan_lng("ch_alert"), plan_lng("tml_bad_ext_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -52,10 +43,7 @@ function onTMLload(fileInput) {
 			})
 		}).catch(function(err) {
 			//bad file or file structure
-			del_html_elem("tn_overlay_text");
-			create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("bad_file_format"));
-			document.getElementById("AlertOverlay").style.height = "100%";
-			document.getElementById("AlertOverlay").style.opacity = "1";
+			notification.alert(plan_lng("ch_alert"), plan_lng("bad_file_format"));
         	Pbar_Hide();
 			return;
 		})

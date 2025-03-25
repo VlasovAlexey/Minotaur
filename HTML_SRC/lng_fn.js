@@ -1096,6 +1096,12 @@
         };
         //eng
         if (td_lng == 1) {
+            if (val == "ch_alert") {val = "Alert"}
+            if (val == "ch_info") {val = "Info"}
+            if (val == "ch_suc") {val = "Success"}
+            if (val == "ch_warn") {val = "Warning"}
+            if (val == "ch_cus") {val = "Custom"}
+
             if (val == "td_in") {val = "In"}
             if (val == "td_out") {val = "Out"}
             if (val == "td_f_line") {val = "Click to <b>finish line</b><br>"}
@@ -1232,7 +1238,13 @@
             }
         }
         //rus
-        if (td_lng == 2) {
+        if (td_lng == 2) {            
+            if (val == "ch_alert") {val = "Оповещение"}
+            if (val == "ch_info") {val = "Информация"}
+            if (val == "ch_suc") {val = "Успех"}
+            if (val == "ch_warn") {val = "Предупреждение"}
+            if (val == "ch_cus") {val = "Пользовательский"}
+
             if (val == "td_in") {val = "От"}
             if (val == "td_out") {val = "До"}
             if (val == "td_f_line") {val = "Нажмите для <b>завершения линии</b><br>"}
@@ -1370,6 +1382,12 @@
         }
         //sp
         if (td_lng == 3) {
+            if (val == "ch_alert") {val = "Alerta"}
+            if (val == "ch_info") {val = "Información"}
+            if (val == "ch_suc") {val = "Éxito"}
+            if (val == "ch_warn") {val = "Advertencia"}
+            if (val == "ch_cus") {val = "Personalizado"}
+
             if (val == "td_in") {val = "Entrada"}
             if (val == "td_out") {val = "Salida"}
             if (val == "td_f_line") {val = "Haz clic para <b>terminar línea</b><br>"}
@@ -1507,6 +1525,12 @@
         }
         //pt
         if (td_lng == 4) {
+            if (val == "ch_alert") {val = "Alerta"}
+            if (val == "ch_info") {val = "Info"}
+            if (val == "ch_suc") {val = "Sucesso"}
+            if (val == "ch_warn") {val = "Aviso"}
+            if (val == "ch_cus") {val = "Personalizado"}
+
             if (val == "td_in") {val = "Em"}
             if (val == "td_out") {val = "Fora"}
             if (val == "td_f_line") {val = "Clique para <b>chegar à meta</b><br>"}
@@ -1645,6 +1669,12 @@
         }
         //ch
         if (td_lng == 5) {
+            if (val == "ch_alert"){val = "警報"}
+            if (val == "ch_info"){val = "訊息"}
+            if(val == "ch_suc") {val = "成功"}
+            if (val == "ch_warn") {val = "警告"}
+            if (val == "ch_cus") {val = "自訂"}
+
             if (val == "td_in") {val = "在"}
             if (val == "td_out") {val ="輸出"}
             if (val == "td_f_line") {val = "點選<b>終點</b><br>"}
@@ -1783,6 +1813,12 @@
         }
         //br
         if (td_lng == 6) {
+            if (val == "ch_alert") {val = "Оповещение"}
+            if (val == "ch_info") {val = "Информация"}
+            if (val == "ch_suc") {val = "Успех"}
+            if (val == "ch_warn") {val = "Предупреждение"}
+            if (val == "ch_cus") {val = "Пользовательский"}
+
             if (val == "td_in") {val = "В"}
             if (val == "td_out") {val = "Извън"}
             if (val == "td_f_line") {val = "Щракнете за <b>финална линия</b><br>"}
@@ -1920,6 +1956,12 @@
         }
         //fr
         if (td_lng == 7) {
+            if (val == "ch_alert") {val = "Alerte"}
+            if (val == "ch_info") {val = "Info"}
+            if (val == "ch_suc") {val = "Succès"}
+            if (val == "ch_warn") {val = "Avertissement"}
+            if (val == "ch_cus") {val = "Personnalisé"}
+
             if (val == "td_in") {val = "Entrée"}
             if (val == "td_out") {val = "Sortie"}
             if (val == "td_f_line") {val = "Cliquez pour <b>arriver</b><br>"}
@@ -2058,6 +2100,12 @@
         }
         //kr
         if (td_lng == 8) {
+            if (val == "ch_alert") {val = "경고"}
+            if (val == "ch_info") {val = "정보"}
+            if (val == "ch_suc") {val = "성공"}
+            if (val == "ch_warn") {val = "경고"}
+            if (val == "ch_cus") {val = "사용자 지정"}
+
             if (val == "td_in") {val = "에"}
             if (val == "td_out") {val = "아웃"}
             if (val == "td_f_line") {val = "클릭하여 <b>라인을 완성</b><br>"}
@@ -2195,6 +2243,12 @@
         }
         //it
         if (td_lng == 9) {
+            if (val == "ch_alert") {val = "Avviso"}
+            if (val == "ch_info") {val = "Info"}
+            if (val == "ch_suc") {val = "Successo"}
+            if (val == "ch_warn") {val = "Avviso"}
+            if (val == "ch_cus") {val = "Personalizzato"}
+
             if (val == "td_in") {val = "In"}
             if (val == "td_out") {val = "Out"}
             if (val == "td_f_line") {val = "Clicca per <b>traguardo</b><br>"}

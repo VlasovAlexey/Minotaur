@@ -979,7 +979,13 @@ input[type=range] {
   }
 
   .leaflet-notification-message{
+    font-family: sans-serif;
     color: #ffffff;
   }
-
- 
+  .leaflet-notification-title{
+    font-optical-sizing: auto;
+    font-weight: bold !important; 
+    font-variant-caps: small-caps;
+    color: #dddddd;
+    font-family: sans-serif;
+  }

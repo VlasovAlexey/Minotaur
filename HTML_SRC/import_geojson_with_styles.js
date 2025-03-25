@@ -5,7 +5,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 	// files that user has chosen
 	var all_files = this.files;
 	if(all_files.length == 0) {
-		notification.alert('', plan_lng("geojson_no_file"));
+		notification.alert(plan_lng("ch_alert"), plan_lng("geojson_no_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -18,7 +18,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
   
   allowed_name = file.name.slice((Math.max(0, file.name.lastIndexOf(".")) || Infinity) + 1);
 	if(allowed_name != "geojson") {
-		notification.alert('', plan_lng("geojson_bad_ext_file"));
+		notification.alert(plan_lng("ch_alert"), plan_lng("geojson_bad_ext_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -26,7 +26,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 	// Max 30 MB allowed
 	var max_size_allowed = 30*1024*1024
 	if(file.size > max_size_allowed) {
-		notification.alert('', plan_lng("geojson_big_file"));
+		notification.alert(plan_lng("ch_alert"), plan_lng("geojson_big_file"));
 		Pbar_Hide();
 		return;
 	}
@@ -47,7 +47,7 @@ document.querySelector("#geojson_with_styles_file").addEventListener('change', f
 
 	// file reading failed
 	reader.addEventListener('error', function() {
-		notification.alert('', plan_lng("geojson_bad_file"));
+		notification.alert(plan_lng("ch_alert"), plan_lng("geojson_bad_file"));
         Pbar_Hide();
 	});
 

@@ -16,7 +16,7 @@ function btn_link() {
 
 //Open overlay window with copy link warning
 function openLnkWrn() {
-    notification.success('', plan_lng("ch_lnkClipboard"));
+    notification.success(plan_lng("ch_suc"), plan_lng("ch_lnkClipboard"));
     //notification.alert('Alert', 'some alert message');
     //notification.info('Info', 'some infomessage');
     //notification.success('Success', 'some successmessage');
