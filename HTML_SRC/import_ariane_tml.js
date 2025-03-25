@@ -40,6 +40,10 @@ function onTMLload(fileInput) {
 				ariane_tml_file = new XML.ObjTree();
 				ariane_tml_file = ariane_tml_file.parseXML(data);
 				console.log(ariane_tml_file);
+
+				//finish loading file
+				map_editor.toggleFullscreen();
+				Pbar_Hide();
 			})
 		}).catch(function(err) {
 			//bad file or file structure
@@ -50,10 +54,7 @@ function onTMLload(fileInput) {
 	};
 	reader.onerror = function(err) {
 		//bad file format
-		del_html_elem("tn_overlay_text");
-		create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("tml_bad_file"));
-		document.getElementById("AlertOverlay").style.height = "100%";
-		document.getElementById("AlertOverlay").style.opacity = "1";
+		notification.alert(plan_lng("ch_alert"), plan_lng("tml_bad_file"));
         Pbar_Hide();
 	}
 	reader.readAsArrayBuffer(fileInput.files[0]);

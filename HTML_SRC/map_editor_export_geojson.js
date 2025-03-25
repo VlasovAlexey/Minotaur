@@ -27,7 +27,9 @@ let gjson_save = new L.Control.PMButton({
         saveAs(blob, fl_name);
         editor_file_num = editor_file_num + 1;
       }
+      Pbar_Show();
       toGeoJSON();
+      Pbar_Hide();
     },
     afterClick: () => {},
     doToggle: false,

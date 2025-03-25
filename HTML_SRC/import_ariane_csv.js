@@ -73,7 +73,10 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 				}
 
 				//add loaded data to map editor
-				add_line_arr(xy_arr, "#ff7800", 5, z_arr, "false");	
+				add_line_arr(xy_arr, "#ff7800", 5, z_arr, "false");
+
+				//finish loading data to the map editor
+				map_editor.toggleFullscreen();
 				Pbar_Hide();
 
 			} else {
