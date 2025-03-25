@@ -1097,6 +1097,19 @@
         };
         //eng
         if (td_lng == 1) {
+            if (val == "td_in") {val = "In"}
+            if (val == "td_out") {val = "Out"}
+            if (val == "td_f_line") {val = "Click to <b>finish line</b><br>"}
+            if (val == "td_delete_pnt") {val = "Press SHIFT-key and click to <b>delete point</b>"}
+            if (val == "td_move_pnt") {val = "Click and drag to <b>move point</b><br>"}
+            if (val == "td_res_line") {val = "<br>Press CTRL-key and click to <b>resume line</b>"}
+            if (val == "td_add_pnt") {val = "Press CTRL-key and click to <b>add point</b>"}
+            if (val == "td_mtr") {val = "m"}
+            if (val == "td_km") {val = "km"}
+            if (val == "td_ft") {val = "ft"}
+            if (val == "td_mi") {val = "mi"}
+            if (val == "td_nm") {val = "nm"}
+
             if(val  == "ch_lnkClipboard_URL"){val = "Congratulations!<br>Map is successful loaded and ready to view.<br>Please tap to view map!"}
             if(val  == "ch_lnkClipboard"){val = "The share link is in your clipboard!"}
             if (val == "td_depth") {
@@ -1221,6 +1234,19 @@
         }
         //rus
         if (td_lng == 2) {
+            if (val == "td_in") {val = "От"}
+            if (val == "td_out") {val = "До"}
+            if (val == "td_f_line") {val = "Нажмите для <b>завершения линии</b><br>"}
+            if (val == "td_delete_pnt") {val = "Нажмите SHIFT-key и щелкните для <b>удаления точки</b>"}
+            if (val == "td_move_pnt") {val = "Щелкните и перетащите для <b>перемещения точки</b><br>"}
+            if (val == "td_res_line") {val = "<br>Нажмите CTRL-key и щелкните для <b>продолжения линии</b>"}
+            if (val == "td_add_pnt") {val = "Зажмите CTRL-key и щелкните для <b>добавления точки</b>"}
+            if (val == "td_mtr") {val = "м"}
+            if (val == "td_km") {val = "км"}
+            if (val == "td_ft") {val = "фт"}
+            if (val == "td_mi") {val = "ми"}
+            if (val == "td_nm") {val = "нм"}
+
             if(val  == "ch_lnkClipboard_URL"){val = "Поздравляем!<br>Карта успешно загружена и готова к просмотру.<br>Пожалуйста, нажмите для просмотра карты!"}
             if(val  == "ch_lnkClipboard"){val = "Ссылка на ваш план скопирована в буфер обмена!"}
             if (val == "td_depth") {
@@ -1345,6 +1371,19 @@
         }
         //sp
         if (td_lng == 3) {
+            if (val == "td_in") {val = "Entrada"}
+            if (val == "td_out") {val = "Salida"}
+            if (val == "td_f_line") {val = "Haz clic para <b>terminar línea</b><br>"}
+            if (val == "td_delete_pnt") {val = "Presiona la tecla MAYÚS y haz clic para <b>eliminar punto</b>"}
+            if (val == "td_move_pnt") {val = "Haz clic y arrastra para <b>mover punto</b><br>"}
+            if (val == "td_res_line") {val = "<br>Presiona la tecla CTRL y haz clic para <b>reanudar línea</b>"}
+            if (val == "td_add_pnt") {val = "Presiona la tecla CTRL y haz clic para <b>añadir punto</b>"}
+            if (val == "td_mtr") {val = "m"}
+            if (val == "td_km") {val = "km"}
+            if (val == "td_ft") {val = "ft"}
+            if (val == "td_mi") {val = "mi"}
+            if (val == "td_nm") {val = "nm"}
+
             if(val  == "ch_lnkClipboard_URL"){val = "¡Enhorabuena!<br>El mapa se ha cargado correctamente y está listo para verse.<br>Por favor, pulse para ver el mapa!"}
             if(val  == "ch_lnkClipboard"){val = "El enlace de su plan se ha copiado en el portapapeles!"}
             if (val == "td_depth") {
@@ -1469,6 +1508,19 @@
         }
         //pt
         if (td_lng == 4) {
+            if (val == "td_in") {val = "Em"}
+            if (val == "td_out") {val = "Fora"}
+            if (val == "td_f_line") {val = "Clique para <b>chegar à meta</b><br>"}
+            if (val == "td_delete_pnt") {val = "Pressione a tecla SHIFT e clique para <b>apagar ponto</b>"}
+            if (val == "td_move_pnt") {val = "Clique e arraste para <b>mover o ponto</b><br>"}
+            if (val == "td_res_line") {val = "<br>Pressione a tecla CTRL e clique para <b>retomar a linha</b>"}
+            if (val == "td_add_pnt") {val = "Pressione a tecla CTRL e clique para <b>adicionar ponto</b>"}
+            if (val == "td_mtr") {val = "m"}
+            if (val == "td_km") {val = "km"}
+            if (val == "td_ft") {val = "pés"}
+            if (val == "td_mi") {val = "mi"}
+            if (val == "td_nm") {val = "nm"}
+
             if(val  == "ch_lnkClipboard_URL"){val = "Parabéns!<br>O mapa foi carregado com êxito e está pronto a ser visualizado.<br>Por favor, toque para ver o mapa!"}
             if(val  == "ch_lnkClipboard"){val = "A ligação do seu plano é copiada para a área de transferência!"}
             if (val == "td_depth") {
@@ -1594,6 +1646,19 @@
         }
         //ch
         if (td_lng == 5) {
+            if (val == "td_in") {val = "在"}
+            if (val == "td_out") {val ="輸出"}
+            if (val == "td_f_line") {val = "點選<b>終點</b><br>"}
+            if (val == "td_delete_pnt") {val = "按下 SHIFT 鍵並點選以<b>刪除點</b>"}
+            if (val == "td_move_pnt") {val = "點選並拖曳以<b>移動點</b><br>"}
+            if (val == "td_res_line") {val = "<br>按下 CTRL 鍵並點選以<b>恢復行</b>"}
+            if (val == "td_add_pnt") {val = "按下 CTRL 鍵並點選以<b>新增點</b>"}
+            if (val == "td_mtr") {val ="米"}
+            if (val == "td_km") {val = "公里"}
+            if (val == "td_ft") {val = "英尺"}
+            if (val == "td_mi") {val = "英里"}
+            if (val == "td_nm") {val = "海裡"}
+
             if(val  == "ch_lnkClipboard_URL"){val = "恭喜！<br>地圖已成功載入並可檢視。<br>請點選檢視地圖！"}
             if(val  == "ch_lnkClipboard"){val = "您的计划链接已复制到剪贴板！"}
             if (val == "td_depth") {
@@ -1719,6 +1784,19 @@
         }
         //br
         if (td_lng == 6) {
+            if (val == "td_in") {val = "В"}
+            if (val == "td_out") {val = "Извън"}
+            if (val == "td_f_line") {val = "Щракнете за <b>финална линия</b><br>"}
+            if (val == "td_delete_pnt") {val = "Натиснете клавиша SHIFT и щракнете, за да <b>изтриете точка</b>"}
+            if (val == "td_move_pnt") {val = "Щракнете и плъзнете, за да <b>преместите точка</b><br>"}
+            if (val == "td_res_line") {val = "<br>Натиснете клавиша CTRL и щракнете, за да <b>възобновите ред</b>"}
+            if (val == "td_add_pnt") {val = "Натиснете клавиша CTRL и щракнете, за да <b>добавите точка</b>"}
+            if (val == "td_mtr") {val = "м"}
+            if (val == "td_km") {val = "км"}
+            if (val == "td_ft") {val = "фт"}
+            if (val == "td_mi") {val = "mi"}
+            if (val == "td_nm") {val = "nm"}
+
             if(val  == "ch_lnkClipboard_URL"){val = "Поздравления!<br>Картата е успешно заредена и готова за преглед.<br>Моля, докоснете, за да видите картата!"}
             if(val  == "ch_lnkClipboard"){val = "Връзката с вашия план е копирана в клипборда!"}
             if (val == "td_depth") {
@@ -1843,6 +1921,19 @@
         }
         //fr
         if (td_lng == 7) {
+            if (val == "td_in") {val = "Entrée"}
+            if (val == "td_out") {val = "Sortie"}
+            if (val == "td_f_line") {val = "Cliquez pour <b>arriver</b><br>"}
+            if (val == "td_delete_pnt") {val = "Appuyez sur la touche MAJ et cliquez pour <b>supprimer un point</b>"}
+            if (val == "td_move_pnt") {val = "Cliquez et faites glisser pour <b>déplacer un point</b><br>"}
+            if (val == "td_res_line") {val = "<br>Appuyez sur la touche CTRL et cliquez pour <b>reprendre la ligne</b>"}
+            if (val == "td_add_pnt") {val = "Appuyez sur la touche CTRL et cliquez pour <b>ajouter un point</b>"}
+            if (val == "td_mtr") {val = "m"}
+            if (val == "td_km") {val = "km"}
+            if (val == "td_ft") {val = "ft"}
+            if (val == "td_mi") {val = "mi"}
+            if (val == "td_nm") {val = "nm"}
+
             if(val  == "ch_lnkClipboard_URL"){val = "Félicitations!<br>La carte a été chargée avec succès et est prête à être visualisée.<br>Tapez sur la carte pour la visualiser !"}
             if(val  == "ch_lnkClipboard"){val = "Le lien avec votre plan a été copié dans le presse-papiers !"}
             if (val == "td_depth") {
@@ -1968,6 +2059,19 @@
         }
         //kr
         if (td_lng == 8) {
+            if (val == "td_in") {val = "에"}
+            if (val == "td_out") {val = "아웃"}
+            if (val == "td_f_line") {val = "클릭하여 <b>라인을 완성</b><br>"}
+            if (val == "td_delete_pnt") {val = "SHIFT 키를 누르고 클릭하여 <b>포인트를 삭제</b>"}
+            if (val == "td_move_pnt") {val = "클릭하여 드래그하여 <b>포인트를 이동</b><br>"}
+            if (val == "td_res_line") {val = "<br>CTRL 키를 누르고 클릭하여 <b>라인을 다시 시작합니다</b>"}
+            if (val == "td_add_pnt") {val = "CTRL 키를 누르고 클릭하여 <b>포인트를 추가합니다</b>"}
+            if (val == "td_mtr") {val = "m"}
+            if (val == "td_km") {val = "km"}
+            if (val == "td_ft") {val = "ft"}
+            if (val == "td_mi") {val = "mi"}
+            if (val == "td_nm") {val = "nm"}
+
             if(val  == "ch_lnkClipboard_URL"){val = "축하합니다!<br>지도가 성공적으로 로드되어 볼 준비가 되었습니다.<br>지도를 보려면 탭하세요!"}
             if(val  == "ch_lnkClipboard"){val = "요금제 링크가 클립보드에 복사되었습니다!"}
             if (val == "td_depth") {
@@ -2092,6 +2196,19 @@
         }
         //it
         if (td_lng == 9) {
+            if (val == "td_in") {val = "In"}
+            if (val == "td_out") {val = "Out"}
+            if (val == "td_f_line") {val = "Clicca per <b>traguardo</b><br>"}
+            if (val == "td_delete_pnt") {val = "Premi il tasto MAIUSC e clicca per <b>eliminare il punto</b>"}
+            if (val == "td_move_pnt") {val = "Clicca e trascina per <b>spostare il punto</b><br>"}
+            if (val == "td_res_line") {val = "<br>Premi il tasto CTRL e clicca per <b>riprendere la linea</b>"}
+            if (val == "td_add_pnt") {val = "Premi il tasto CTRL e clicca per <b>aggiungere un punto</b>"}
+            if (val == "td_mtr") {val = "m"}
+            if (val == "td_km") {val = "km"}
+            if (val == "td_ft") {val = "ft"}
+            if (val == "td_mi") {val = "mi"}
+            if (val == "td_nm") {val = "nm"}
+
             if(val  == "ch_lnkClipboard_URL"){val = "Congratulazioni!<br>La mappa è stata caricata con successo ed è pronta per essere visualizzata.<br>Toccare per visualizzare la mappa!"}
             if(val  == "ch_lnkClipboard"){val = "Il link al piano è stato copiato negli appunti!"}
             if (val == "td_depth") {

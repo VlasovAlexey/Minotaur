@@ -9,6 +9,7 @@
 
 a.polyline-measure-controlOnBgColor, a.polyline-measure-controlOnBgColor:hover {
     background-color: rgb(146, 146, 146);
+    z-index: 9999999;
 }
 
 .polyline-measure-unicode-icon {

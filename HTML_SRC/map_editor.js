@@ -225,7 +225,7 @@ map_editor.pm.Toolbar.createCustomControl({
   afterClick: () => {
     document.querySelector('.polyline-measure-unicode-icon').click();
   },
-  doToggle: true,
+  doToggle: false,
   toggleStatus: false,
   disableOtherButtons: false,
   className: 'control-icon leaflet-pm-icon-measure',
@@ -239,13 +239,13 @@ function measure_polyline_add(){
     polylineMeasure.remove(map_editor);
   }
   polylineMeasure = L.control.polylineMeasure({position:'topright', unit:'metres', showBearings:true, clearMeasurementsOnStop: false, showClearControl: true,
-    bearingTextIn: plan_lng(`td_depth`),            // language dependend label for inbound bearings
-    bearingTextOut: 'Out',          // language dependend label for outbound bearings
-    tooltipTextFinish: 'Click to <b>finish line</b><br>',
-    tooltipTextDelete: 'Press SHIFT-key and click to <b>delete point</b>',
-    tooltipTextMove: 'Click and drag to <b>move point</b><br>',
-    tooltipTextResume: '<br>Press CTRL-key and click to <b>resume line</b>',
-    tooltipTextAdd: 'Press CTRL-key and click to <b>add point</b>',
+    bearingTextIn: plan_lng(`td_in`),            // language dependend label for inbound bearings
+    bearingTextOut: plan_lng(`td_out`),          // language dependend label for outbound bearings
+    tooltipTextFinish: plan_lng(`td_f_line`),
+    tooltipTextDelete: plan_lng(`td_delete_pnt`),
+    tooltipTextMove: plan_lng(`td_move_pnt`),
+    tooltipTextResume: plan_lng(`td_res_line`),
+    tooltipTextAdd: plan_lng(`td_add_pnt`),
     measureControlTitleOn: 'Turn on PolylineMeasure',   // Title for the Measure Control going to be switched on
     measureControlTitleOff: 'Turn off PolylineMeasure', // Title for the Measure Control going to be switched off
     unitControlUnits: ["kilometres", "landmiles", "nauticalmiles"],
@@ -256,11 +256,11 @@ function measure_polyline_add(){
       nauticalmiles: 'nautical miles'
   },
   unitControlLabel: {             // Unit symbols to show in the Unit Control and measurement labels
-      metres: 'm',
-      kilometres: 'km',
-      feet: 'ft',
-      landmiles: 'mi',
-      nauticalmiles: 'nm'
+      metres: plan_lng(`td_mtr`),
+      kilometres: plan_lng(`td_km`),
+      feet: plan_lng(`td_ft`),
+      landmiles: plan_lng(`td_mi`),
+      nauticalmiles: plan_lng(`td_nm`)
   },
     tempLine: {                     // Styling settings for the temporary dashed line
       color: '#d40000',              // Dashed line color
@@ -867,15 +867,21 @@ function addMarker(e){
       var Icon = L.icon({
         iconUrl: 'icons/icon_cave_artifact.svg',
         iconSize: [25, 41],
-        iconAnchor: [12, 30],
+        iconAnchor: [12, 35],
         iconBase: "true",
       });
-      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
+      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);
     }
     if(layer_marker_type == 9){
       // Add gold marker
-      new L.marker(e.latlng).addTo(map_editor);    
-    } 
+      var Icon = L.icon({
+      iconUrl: 'icons/gold_marker_01.svg',
+      iconSize: [30, 50],
+      iconAnchor: [15, 39],
+      iconBase: "true",
+      });
+      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);
+    }
   }
 }
 
