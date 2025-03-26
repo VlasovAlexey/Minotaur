@@ -33,6 +33,7 @@ function share_plan_link_gen(){
     });
     
     link_buffer += btoa(drawnItemsToJSON(allLayers));
+    console.log(link_buffer.length)
     return link_buffer;
 }
 function check_data_URL(){
@@ -66,7 +67,7 @@ function load_data_URL(){
 }
 
 //paste and open data if link containing info
-function paste_link(){        
+function paste_link(){
     //data present
 	if(url_arr.indexOf("%") != -1){
 	    url_arr = decodeURIComponent(url_arr);
@@ -74,9 +75,9 @@ function paste_link(){
 	if(url_arr.length > 5){
 	   url_arr = url_arr.split(":");
 	}
-    if(url_arr[1] == "mtr=3"){        
+    if(url_arr[1] == "mtr=3"){
         geojson_styled_import(atob(url_arr[2]), 1);
-        //document.getElementById("7-header").click();
+        document.getElementById("7-header").click();
         map_editor.toggleFullscreen();
     }
     if(url_arr[1] == "mtr=1"){
