@@ -731,13 +731,6 @@
       <!-- <script src="resize.js?v0.1881412131" charset="UTF-8"></script>-->
       <!-- Preloader Info Wait when all Page Loaded-->
       <script type="text/javascript">
-         var supports = {
-         geolocation: !!navigator.geolocation // will be `true` if geolocation is defined
-         };
-
-         // In your tests...
-         navigator.geolocation = false;
-
          window.onload = function() {
              setTimeout( function(){
                document.getElementById("preloader").style.opacity = "0";

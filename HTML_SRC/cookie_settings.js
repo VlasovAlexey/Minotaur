@@ -1,3 +1,12 @@
+//current page location constants creation
+const {
+    host, hostname, href, origin, pathname, port, protocol, search
+} = window.location
+
+var url_arr = search;
+
+var host_name = "https://vlasovalexey.github.io/Minotaur/HTML_SRC/";
+var link_buffer = "";
 var lngs_usr = 1;
 var dmns_usr = 1;
 var color_usr = 1;

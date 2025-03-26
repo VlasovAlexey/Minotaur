@@ -280,7 +280,12 @@ function geolocation_pos_watcher() {
 		//once: true,
 	});
 }
-geolocation_pos_watcher();
+
+//important request for interface geolocation here!
+if(url_arr.indexOf("?:mtr") != -1){
+} else {
+	geolocation_pos_watcher();
+}
 
 //acceleration watch sensor write info to arr
 var accel_arr = [];
