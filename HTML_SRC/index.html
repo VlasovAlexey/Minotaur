@@ -618,7 +618,7 @@
       
       <script src="cookie_settings.js?v0.112285311142534516313311111836441521679123457wa123" charset="UTF-8"></script>
       <!-- Leaflet JS / CSS -->
-		<script src="leaflet/leaflet-src.js"></script>
+		<script src="leaflet/leaflet.js"></script>
 		<link rel="stylesheet" href="leaflet/leaflet.css">
 
 		<!-- Leaflet-Rotate -->
@@ -660,6 +660,10 @@
       <link rel="stylesheet" href="leaflet/leaflet-notifications.css"/>
       <script src="leaflet/leaflet-notifications.js"></script>
       
+      <!-- Leaflet image downloader map editor -->
+      
+      
+      <!-- Leaflet spinner progress bar inside map editor -->
       <script src="leaflet/spin.js" charset="utf-8"></script>
       <script src="leaflet/leaflet.spin.js" charset="utf-8"></script>
 
@@ -727,6 +731,13 @@
       <!-- <script src="resize.js?v0.1881412131" charset="UTF-8"></script>-->
       <!-- Preloader Info Wait when all Page Loaded-->
       <script type="text/javascript">
+         var supports = {
+         geolocation: !!navigator.geolocation // will be `true` if geolocation is defined
+         };
+
+         // In your tests...
+         navigator.geolocation = false;
+
          window.onload = function() {
              setTimeout( function(){
                document.getElementById("preloader").style.opacity = "0";

@@ -87,6 +87,9 @@ var context_menu_list = [//{
 }]
 
 var map_editor = L.map('map_editor', {
+  attributionControl: false,
+  preferCanvas: true,
+  renderer: L.canvas(),
   center: [c_lat, c_lon],
   maxZoom: 25,
   zoom: 18,
@@ -947,6 +950,3 @@ var notification = L.control.notifications({
   closable: false,
   dismissable: true,
 }).addTo(map_editor);
-
-
-

@@ -98,7 +98,7 @@ var opt_spin = {
 };
 */
 function Pbar_Show() {
-	map_editor.spin(true, {lines: 12, color: '#eeeeee', fadeColor: '#555',radius: 20});
+	//map_editor.spin(true, {lines: 12, color: '#eeeeee', fadeColor: '#555',radius: 20});
 	if (f_start == 1) {
 		f_start = 0;
 	}
@@ -115,7 +115,7 @@ function Pbar_Hide() {
 		document.getElementById("Overlay_progress").style.height = "0%";
 		document.getElementById("Overlay_progress").style.opacity = "0";
 	}, 200);
-	map_editor.spin(false, {lines: 12, color: '#eeeeee', fadeColor: '#555',radius: 20});
+	//map_editor.spin(false, {lines: 12, color: '#eeeeee', fadeColor: '#555',radius: 20});
 }
 
 //Main Function for AnyErrors
