@@ -3,7 +3,6 @@
 //put to clipboard plan
 function btn_link() {
     navigator.clipboard.writeText(share_plan_link_gen());
-    openLnkWrn();
 }
 
 //Open overlay window with copy link warning
@@ -33,7 +32,12 @@ function share_plan_link_gen(){
     });
     
     link_buffer += btoa(drawnItemsToJSON(allLayers));
-    console.log(link_buffer.length)
+    if(link_buffer.length > 7999){
+        notification.alert(plan_lng("ch_alert"), plan_lng("big_file_url"));
+        link_buffer = "";
+    } else {
+        openLnkWrn();
+    }
     return link_buffer;
 }
 function check_data_URL(){

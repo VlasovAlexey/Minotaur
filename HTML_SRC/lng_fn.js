@@ -1096,6 +1096,7 @@
         };
         //eng
         if (td_lng == 1) {
+            if (val == "big_file_url") {val = "Too many elements on the map for URI link! Please remove some of the elements to reduce the size of the map. The size of the URI link cannot exceed 8000 characters."}
             if (val == "ch_alert") {val = "Alert"}
             if (val == "ch_info") {val = "Info"}
             if (val == "ch_suc") {val = "Success"}
@@ -1238,7 +1239,8 @@
             }
         }
         //rus
-        if (td_lng == 2) {            
+        if (td_lng == 2) {
+            if (val == "big_file_url") {val = "Слишком много элементов на карте для URI ссылки! Пожалуйста удалите часть элементов для уменьшения размера карты. Размер URI ссылки не может превышать 8000 символов."}
             if (val == "ch_alert") {val = "Оповещение"}
             if (val == "ch_info") {val = "Информация"}
             if (val == "ch_suc") {val = "Успех"}
@@ -1382,6 +1384,7 @@
         }
         //sp
         if (td_lng == 3) {
+            if (val == "big_file_url") {val = "¡Demasiados elementos en el mapa para el enlace URI! Por favor, elimine algunos elementos para reducir el tamaño del mapa. El tamaño del enlace URI no puede superar los 8000 caracteres."}
             if (val == "ch_alert") {val = "Alerta"}
             if (val == "ch_info") {val = "Información"}
             if (val == "ch_suc") {val = "Éxito"}
@@ -1525,6 +1528,7 @@
         }
         //pt
         if (td_lng == 4) {
+            if (val == "big_file_url") {val = "Demasiados elementos no mapa para a ligação URI! Remova alguns dos elementos para reduzir o tamanho do mapa. O tamanho da ligação URI não pode exceder 8000 caracteres."}
             if (val == "ch_alert") {val = "Alerta"}
             if (val == "ch_info") {val = "Info"}
             if (val == "ch_suc") {val = "Sucesso"}
@@ -1669,6 +1673,7 @@
         }
         //ch
         if (td_lng == 5) {
+            if (val == "big_file_url") {val = "地圖上的 URI 連結元素太多！請移除部分元素以縮小地圖的大小。URI 連結的大小不能超過 8000 個字元。"}
             if (val == "ch_alert"){val = "警報"}
             if (val == "ch_info"){val = "訊息"}
             if(val == "ch_suc") {val = "成功"}
@@ -1813,6 +1818,7 @@
         }
         //br
         if (td_lng == 6) {
+            if (val == "big_file_url") {val = "Твърде много елементи на картата за връзка с URI! Моля, премахнете някои от елементите, за да намалите размера на картата. Размерът на URI връзката не може да надвишава 8000 символа."}
             if (val == "ch_alert") {val = "Оповещение"}
             if (val == "ch_info") {val = "Информация"}
             if (val == "ch_suc") {val = "Успех"}
@@ -1956,6 +1962,7 @@
         }
         //fr
         if (td_lng == 7) {
+            if (val == "big_file_url") {val = "Trop d'éléments sur la carte pour le lien URI ! Veuillez supprimer certains éléments pour réduire la taille de la carte. La taille du lien URI ne doit pas dépasser 8000 caractères."}
             if (val == "ch_alert") {val = "Alerte"}
             if (val == "ch_info") {val = "Info"}
             if (val == "ch_suc") {val = "Succès"}
@@ -2100,6 +2107,7 @@
         }
         //kr
         if (td_lng == 8) {
+            if (val == "big_file_url") {val = "지도의 요소가 너무 많아 URI 링크가 불가능합니다! 지도의 크기를 줄이려면 일부 요소를 제거하세요. URI 링크의 크기는 8000자를 초과할 수 없습니다."}
             if (val == "ch_alert") {val = "경고"}
             if (val == "ch_info") {val = "정보"}
             if (val == "ch_suc") {val = "성공"}
@@ -2243,6 +2251,7 @@
         }
         //it
         if (td_lng == 9) {
+            if (val == "big_file_url") {val = "Troppi elementi sulla mappa per il link URI! Si prega di rimuovere alcuni elementi per ridurre le dimensioni della mappa. La dimensione del link URI non può superare gli 8000 caratteri."}
             if (val == "ch_alert") {val = "Avviso"}
             if (val == "ch_info") {val = "Info"}
             if (val == "ch_suc") {val = "Successo"}

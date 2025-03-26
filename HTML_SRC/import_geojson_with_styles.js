@@ -158,7 +158,6 @@ function geojson_styled_import(e, type){
 		map_editor.fitBounds(loaded_data.getBounds());
 		
 		//finish loading data to the map editor
-		//map_editor.toggleFullscreen();
 		Pbar_Hide();
 	}, 1000);
 }
