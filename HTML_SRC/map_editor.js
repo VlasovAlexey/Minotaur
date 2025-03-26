@@ -950,3 +950,47 @@ var notification = L.control.notifications({
   closable: false,
   dismissable: true,
 }).addTo(map_editor);
+
+//Add custom path
+var path_status = 0;
+map_editor.pm.Toolbar.createCustomControl({
+  block: "custom",
+  name: "create_path",
+  title: "",
+  //actions: ["cancel",],
+  onClick: () => {
+  },
+  afterClick: () => {
+    draw_custom_path();
+    if(path_status == 0){
+      
+    }
+    path_status = path_status + 1;
+    if(path_status > 1){
+      path_status = 0;
+    }
+    //document.querySelector('.control-icon.leaflet-pm-icon-path-gen').click();
+  },
+  doToggle: false,
+  toggleStatus: false,
+  disableOtherButtons: true,
+  className: 'control-icon leaflet-pm-icon-path-gen',
+});
+
+function draw_custom_path(){
+  if(path_status == 1){
+    document.getElementsByClassName('input_path_create')[0].style.display = 'none';
+  } else {
+    document.getElementsByClassName('input_path_create')[0].style.display = 'block';
+  }
+}
+
+function finish_path(){
+  var array = JSON.parse("[" + $("input").val() + "]");
+  var marker = L.marker([array[0], array[1]], {
+    draggable: true,
+    title: "Resource location",
+    alt: "Resource Location",
+    riseOnHover: true
+  }).addTo(map_editor)
+}
