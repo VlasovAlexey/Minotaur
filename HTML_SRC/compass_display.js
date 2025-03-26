@@ -62,12 +62,13 @@ function grantPremission() {
 	}
 }
 
-//experimental hide on mobile devices GUI interface request for geolocation
-//need deep test with peoples about usage
-document.getElementById("accessbutton").style.display = "none";
-document.getElementById("accessblur").style.opacity = "0";
-document.getElementById("accessblur").style.display = "none";
-document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
+//disable geolocation on loading map or data from URL
+if(url_arr.indexOf("?:mtr") != -1){
+	document.getElementById("accessbutton").style.display = "none";
+	document.getElementById("accessblur").style.opacity = "0";
+	document.getElementById("accessblur").style.display = "none";
+	document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
+}
 
 const startBtn = document.querySelector(".start-btn");
 const isIOS = navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
