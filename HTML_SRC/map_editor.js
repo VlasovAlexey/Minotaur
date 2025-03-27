@@ -994,3 +994,26 @@ function finish_path(){
     riseOnHover: true
   }).addTo(map_editor)
 }
+
+//add custom leaflet button example
+
+L.Control.Button = L.Control.extend({
+  options: {
+      position: 'topright'
+  },
+  onAdd: function (map) {
+      var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+      container.className = "input_path_create";
+      //var button = L.DomUtil.create('a', 'leaflet-control-button', container);
+      container.innerHTML = '<div class="input_path_create"><button type="button" >asssasini</button><input type="text">Lat</input></div>';
+
+
+      container.title = "Title";
+
+      return container;
+  },
+  onRemove: function(map) {},
+});
+var control = new L.Control.Button();
+control.addTo(map_editor);
+document.getElementsByClassName('input_path_create')[0].style.display = 'none';

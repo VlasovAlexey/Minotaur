@@ -994,13 +994,15 @@ input[type=range] {
   }
 
   .input_path_create {
-    position: absolute;
-    top: 10;
-    width: 100%;
+    top: 0;
+    height: 100px;
+    width: 200px;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8px;
-    display: none;
+    background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+    
   }
   
