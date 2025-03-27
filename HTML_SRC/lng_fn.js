@@ -283,6 +283,15 @@
         lang = {
             1: {
                 //Eng
+                ".opt_line_lat": "Latitude",
+                ".opt_line_lon": "Longitude",
+                ".opt_line_distance": "Distance",
+                ".opt_line_azimuth": "Azimuth",
+                ".opt_line_depth": "Depth",
+                ".opt_button_get_coord": "Pick from Map Center",
+                ".opt_button_add_point": "Add Station",
+                ".opt_button_finish_line": "Finish Line",
+
                 ".ele_info_text": "ALTITUDE" + lng_meters_gui,
                 ".time_info_text": "DURATION",
                 ".speed_info_text": "SPEED" + lng_kph_gui,
@@ -370,6 +379,15 @@
 
             //Rus
             2: {
+                ".opt_line_lat": "Широта",
+                ".opt_line_lon": "Долгота",
+                ".opt_line_distance": "Расстояние",
+                ".opt_line_azimuth": "Азимут",
+                ".opt_line_depth": "Глубина",
+                ".opt_button_get_coord": "Выбрать из центра карты",
+                ".opt_button_add_point": "Добавить станцию",
+                ".opt_button_finish_line": "Завершить",
+
                 ".ele_info_text": "АЛЬТИТУДА" + lng_meters_gui,
                 ".time_info_text": "ВРЕМЯ",
                 ".speed_info_text": "СКОРОСТЬ" + lng_kph_gui,
@@ -459,6 +477,15 @@
 
             3: {
                 //Spa
+                ".opt_line_lat": "Latitud",
+                ".opt_line_lon": "Longitud",
+                ".opt_line_distance": "Distancia",
+                ".opt_line_azimuth": "Acimut",
+                ".opt_line_depth": "Profundidad",
+                ".opt_button_get_coord": "Seleccionar del centro del mapa",
+                ".opt_button_add_point": "Añadir estación",
+                ".opt_button_finish_line": "Finalizar",
+
                 ".ele_info_text": "ALTITUD" + lng_meters_gui,
                 ".time_info_text": "DURACIÓN",
                 ".speed_info_text": "VELOCIDAD" + lng_kph_gui,
@@ -546,6 +573,15 @@
             },
             4: {
                 //Prt
+                ".opt_line_lat": "Latitude",
+                ".opt_line_lon": "Longitude",
+                ".opt_line_distance": "Distância",
+                ".opt_line_azimuth": "Azimute",
+                ".opt_line_depth": "Profundidade",
+                ".opt_button_get_coord": "Selecionar no Centro do Mapa",
+                ".opt_button_add_point": "Adicionar estação",
+                ".opt_button_finish_line": "Finalizar",
+
                 ".ele_info_text": "ALTITUDE" + lng_meters_gui,
                 ".time_info_text": "DURAÇÃO",
                 ".speed_info_text": "VELOCIDADE" + lng_kph_gui,
@@ -634,6 +670,15 @@
             },
             5: {
                 //China
+                ".opt_line_lat": "緯度",
+                ".opt_line_lon": "經度",
+                ".opt_line_distance": "距離",
+                ".opt_line_azimuth": "方位角",
+                ".opt_line_depth": "深度",
+                ".opt_button_get_coord": "從地圖中心選擇",
+                ".opt_button_add_point": "新增網站",
+                ".opt_button_finish_line": "完成",
+
                 ".ele_info_text": "緯度" + lng_meters_gui,
                 ".time_info_text": "持續時間",
                 ".speed_info_text": "速度" + lng_kph_gui,
@@ -721,6 +766,15 @@
             },
             6: {
                 //Bulgarian
+                ".opt_line_lat": "Географска ширина",
+                ".opt_line_lon": "Дължина",
+                ".opt_line_distance": "Разстояние",
+                ".opt_line_azimuth": "Азимут",
+                ".opt_line_depth": "Дълбочина",
+                ".opt_button_get_coord": "Избор от центъра на картата",
+                ".opt_button_add_point": "Добавяне на станция",
+                ".opt_button_finish_line": "Финална линия",
+
                 ".ele_info_text": "АЛТИТУДА" + lng_meters_gui,
                 ".time_info_text": "ПРОДЪЛЖИТЕЛНОСТ",
                 ".speed_info_text": "СКОРОСТ" + lng_kph_gui,
@@ -805,6 +859,15 @@
             },
             7: {
                 //Fr
+                ".opt_line_lat": "Latitude",
+                ".opt_line_lon": "Longitude",
+                ".opt_line_distance": "Distance",
+                ".opt_line_azimuth": "Azimut",
+                ".opt_line_depth": "Profondeur",
+                ".opt_button_get_coord": "Choisir depuis le centre de la carte",
+                ".opt_button_add_point": "Ajouter une station",
+                ".opt_button_finish_line": "Ligne d'arrivée",
+
                 ".ele_info_text": "ALTITUDE" + lng_meters_gui,
                 ".time_info_text": "DURÉE",
                 ".speed_info_text": "VITESSE" + lng_kph_gui,
@@ -889,6 +952,15 @@
             },
             8: {
                 //Korean
+                ".opt_line_lat": "위도",
+                ".opt_line_lon": "경도",
+                ".opt_line_distance": "거리",
+                ".opt_line_azimuth": "방위",
+                ".opt_line_depth": "깊이",
+                ".opt_button_get_coord": "지도 센터에서 선택",
+                ".opt_button_add_point": "스테이션 추가",
+                ".opt_button_finish_line": "도착 지점",
+
                 ".ele_info_text": "고도" + lng_meters_gui,
                 ".time_info_text": "기간",
                 ".speed_info_text": "속도" + lng_kph_gui,
@@ -974,6 +1046,15 @@
             },
             9: {
                 //Italian
+                ".opt_line_lat": "Latitudine",
+                ".opt_line_lon": "Longitudine",
+                ".opt_line_distance": "Distanza",
+                ".opt_line_azimuth": "Azimut",
+                ".opt_line_depth": "Profondità",
+                ".opt_button_get_coord": "Scegli dal centro della mappa",
+                ".opt_button_add_point": "Aggiungi stazione",
+                ".opt_button_finish_line": "Traguardo",
+
                 ".ele_info_text": "ALTITUDINE" + lng_meters_gui,
                 ".time_info_text": " DURATA",
                 ".speed_info_text": "VELOCITÀ" + lng_kph_gui,
