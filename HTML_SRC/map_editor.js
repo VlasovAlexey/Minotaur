@@ -16,6 +16,32 @@ var layer_optimize_mode_val = 0;
 //global arr to gpx tracks
 gpx_arr_glb = [];
 
+L.Map.include({
+  _initControlPos: function () {
+    var corners = this._controlCorners = {},
+      l = 'leaflet-',
+      container = this._controlContainer =
+        L.DomUtil.create('div', l + 'control-container', this._container);
+
+    function createCorner(vSide, hSide) {
+      var className = l + vSide + ' ' + l + hSide;
+
+      corners[vSide + hSide] = L.DomUtil.create('div', className, container);
+    }
+
+    createCorner('top', 'left');
+    createCorner('top', 'right');
+    createCorner('bottom', 'left');
+    createCorner('bottom', 'right');
+
+    createCorner('top', 'center');
+    createCorner('middle', 'center');
+    createCorner('middle', 'left');
+    createCorner('middle', 'right');
+    createCorner('bottom', 'center');
+  }
+});
+
 //custom properties for marker with depth options
 Marker3d = L.Marker.extend({
 	options: { 
@@ -995,11 +1021,9 @@ function finish_path(){
   }).addTo(map_editor)
 }
 
-//add custom leaflet button example
-
-L.Control.Button = L.Control.extend({
+L.window = L.Control.extend({
   options: {
-      position: 'topright'
+      position: 'topcenter'
   },
   onAdd: function (map) {
       var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
@@ -1014,6 +1038,6 @@ L.Control.Button = L.Control.extend({
   },
   onRemove: function(map) {},
 });
-var control = new L.Control.Button();
+var control = new L.window();
 control.addTo(map_editor);
 document.getElementsByClassName('input_path_create')[0].style.display = 'none';

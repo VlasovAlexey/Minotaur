@@ -963,3 +963,32 @@ input[type=range] {
     color: #dddddd;
     font-family: sans-serif;
   }
+ 
+/* leaflet extension for center and different positioning styles */
+.leaflet-center {
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+.leaflet-middle {
+    top: 50%;
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    transform: translate(0%, -50%);
+}
+.leaflet-center.leaflet-middle {
+    transform: translate(-50%, -50%);
+}
+
+/* input line parameters window style */
+.input_path_create {
+    top: 0;
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	text-decoration: none;
+	color: black; 
+}
