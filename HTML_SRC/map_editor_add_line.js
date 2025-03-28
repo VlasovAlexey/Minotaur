@@ -41,12 +41,13 @@ L.marker_center = L.Control.extend({
   onAdd: function (map) {
       var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
       container.className = "input_center_map_editor";
-      container.id = "input_path_create";
-      container.innerHTML = `<div>O</div>`;
+      container.id = "input_center_map_editor";
+      container.innerHTML = `<div style="color:#ee0000; font-size: 40px;">☉</div>`;
       //container.title = "Title";
       return container;
   },
   onRemove: function(map) {},
+  
 });
 var control = new L.marker_center();
 control.addTo(map_editor);
@@ -57,21 +58,29 @@ L.window = L.Control.extend({
   },
   onAdd: function (map) {
       var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+      
+      //disable touch and zoom on window
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.disableScrollPropagation(container);
+
+      //window class and id
       container.className = "input_path_create";
       container.id = "input_path_create";
-      var table_1 = '<table class="input_path_table"><thead><tr><td class="input_path_lat" id="input_path_lat"></td><td class="input_path_lon" id="input_path_lon"></td></tr></thead></table>'
-      var table_2 = `<table class="input_path_table"><thead><tr><td class="input_btn_coord" id="input_btn_coord"></td></tr></thead></table>`
-      var table_3 = '<table class="input_path_table"><thead><tr><td class="input_path_distance" id="input_path_distance"></td><td class="input_path_azimuth" id="input_path_azimuth"></td><td class="input_path_depth" id="input_path_depth"></td></tr></thead></table>'
-      var table_4 = '<table class="input_path_table"><thead><tr><td class="input_add_point" id="input_add_point"></td><td class="input_finish_line" id="input_finish_line"></td></tr></thead></table>'
+      var table_1 = '<table class="input_table_style"><thead><tr class="input_table_style"><td class="input_table_style" id="input_path_lat"></td><td class="input_table_style" id="input_path_lon"></td></tr></thead></table>'
+      var table_2 = `<table class="input_table_style"><thead><tr class="input_table_style"><td class="input_table_style" id="input_btn_coord"></td></tr></thead></table>`
+      var table_3 = '<table class="input_table_style"><thead><tr class="input_table_style"><td class="input_table_style" id="input_path_distance"></td><td class="input_table_style" id="input_path_azimuth"></td><td class="input_table_style" id="input_path_depth"></td></tr></thead></table>'
+      var table_4 = '<table class="input_table_style"><thead><tr class="input_table_style"><td class="input_table_style" id="input_add_point"></td><td class="input_table_style" id="input_finish_line"></td></tr></thead></table>'
       container.innerHTML = table_1 + table_2 + table_3 + table_4;
       //container.title = "Title";
       return container;
   },
   onRemove: function(map) {},
+
 });
 var control = new L.window();
 control.addTo(map_editor);
 
+//create all interface element inside created window
 create_html_text("input_path_lat","opt_line_lat" ,"");
 create_input_val("input_path_lat", "opt_input_create_lat", "1.0");
 create_html_text("input_path_lon","opt_line_lon" ,"");
@@ -85,8 +94,9 @@ create_html_text("input_path_depth", "opt_line_depth", "");
 create_input_val("input_path_depth", "opt_input_create_depth", "0.0");
 create_html_button("input_add_point", "opt_button_add_point", "add_point_map_editor();")
 create_html_button("input_finish_line", "opt_button_finish_line", "finish_line_map_editor();")
-document.getElementsByClassName('input_path_create')[0].style.display = 'none';
 
+document.getElementsByClassName('input_path_create')[0].style.display = 'none';
+document.getElementsByClassName('input_center_map_editor')[0].style.display = 'none';
 function get_data_from_center_map_editor(){
   console.log("get_data_from_center_map_editor");
 }
@@ -98,3 +108,4 @@ function add_point_map_editor(){
 function finish_line_map_editor(){
   console.log("finish_line_map_editor");
 }
+

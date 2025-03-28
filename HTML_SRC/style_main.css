@@ -56,14 +56,12 @@ td {
     color: #969696;
     padding: 9px 2px;
     transition: .3s linear;
-    border-bottom: 1px solid #ccc;
     border-collapse: collapse;
     text-align: center;
     text-align-last: center;
 }
 tr:hover td{
     color: steelblue;
-    background: #e8edff;
 }
 body,html {
     text-align: center;
@@ -1030,8 +1028,7 @@ input[type=range] {
 	color: black;
 }
 
-.input_path_table, .input_path_lat, .input_path_lon, .input_btn_coord, .input_path_distance, .input_path_azimuth, .input_path_depth,
-.input_add_point, .input_finish_line {
+.input_table_style {
     margin-bottom: 0px;
     margin-top: 0px;
     border: 0px;
@@ -1043,6 +1040,16 @@ input[type=range] {
 
     margin-left: 5px auto;
     margin-right: 5px auto;
+    background-color: #fff;
+
+    background-clip: padding-box;
+    border: 2px solid rgba(0,0,0,0.0);
+}
+
+.input_table_style:hover {
+    background: #fff;
+    background-clip: padding-box;
+    border: 2px solid rgba(0,0,0,0.0);
 }
 
 .opt_line_lat, .opt_line_lon, .opt_line_distance, .opt_line_azimuth, .opt_line_depth {
@@ -1089,7 +1096,20 @@ input[type=range] {
 
     border-radius: 4px;
     border: 1px solid #969696;
+    background: #ddd;
     transition: .2s ease-in-out;
     cursor: pointer;
     width: 150px; 
+}
+
+.opt_button_get_coord:hover, .opt_button_add_point:hover, .opt_button_finish_line:hover {
+    background: #eee;
+}
+
+.opt_button_get_coord:active, .opt_button_add_point:active, .opt_button_finish_line:active 
+{
+    padding-top: 1px;
+    margin-top: 2px;
+    background: #fff;
+    color: #000000;
 }
