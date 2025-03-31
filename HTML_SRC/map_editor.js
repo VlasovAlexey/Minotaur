@@ -551,6 +551,7 @@ map_editor.pm.Toolbar.createCustomControl({
 //xy_arr - array with lat lon
 //color_line - line color format 
 //weight_line - weight_line ;)
+//line_status - true if we need one polyline. if false - we build line by small part from point to point
 function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 	//build data for leaflet geojson layers
 	var myLines = [];
@@ -582,7 +583,7 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 		return {
 			"color": color_line,
 			"weight": weight_line,
-			"opacity": 0.99
+			"opacity": 0.99,
 		};
 	}
 	
@@ -591,6 +592,7 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 	}
 
 	geojson = L.geoJson(myLines, {
+      depth_polyline: z_arr,
 		  style: style,
 		  onEachFeature: function (feature, layer) {
         layer.on({  
@@ -955,6 +957,7 @@ function marker_custom_shape(latlng, type, name){
 }
 
 //layers optimize
+/*
 const layer_optimize = [
   "layer_optimize_1",
   "layer_optimize_2",
@@ -976,6 +979,7 @@ map_editor.pm.Toolbar.createCustomControl({
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-layer-optimize',
 });
+*/
 
 //add meters line
 L.control.betterscale().addTo(map_editor);

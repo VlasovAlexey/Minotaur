@@ -195,6 +195,7 @@ function drawnItemsToJSON(ilayer) {
         } else if (ditems[iIndex] instanceof L.Polyline) {
             dOut2 = '';
             dOut1 = dOut1 + ',{"type":"Feature","properties":{'
+            if ('depth_polyline' in ditems[iIndex].options) { if (!ditems[iIndex].options.depth_polyline !== null) { dOut2 = dOut2 + ',"depth_polyline":"' + ditems[iIndex].options.depth_polyline + `"` } };
             //if ('color' in ditems[iIndex].options) { if (ditems[iIndex].options.color !== null) { dOut2 = dOut2 + ',"stroke":"' + ditems[iIndex].options.color + '"' } };
             //if ('weight' in ditems[iIndex].options) { if (!ditems[iIndex].options.weight !== null) { dOut2 = dOut2 + ',"stroke-width":' + ditems[iIndex].options.weight } };
             //if ('opacity' in ditems[iIndex].options) { if (!ditems[iIndex].options.opacity !== null) { dOut2 = dOut2 + ',"stroke-opacity":' + ditems[iIndex].options.opacity } };

@@ -75,25 +75,20 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 			var z_arr =[]
 			//all is fine
 			for (i = 0; i < ariane_kml_file.kml.Document.Folder.length; i++) {
-				if(ariane_kml_file.kml.Document.Folder[i].name == "Line") {
+				if(ariane_kml_file.kml.Document.Folder[i].name == "Line") {					
 					for (f = 0; f < ariane_kml_file.kml.Document.Folder[i].Placemark.length; f++) {
 						if(ariane_kml_file.kml.Document.Folder[i].Placemark[f].LineString.coordinates != undefined){
 							var coord = ariane_kml_file.kml.Document.Folder[i].Placemark[f].LineString.coordinates.split(" ");
 							for (s = 0; s < coord.length-1; s++){
 								var coord1 = coord[s].split(",");
 								xy_arr.push([(1.0*coord1[1]) , (1.0*coord1[0])]);
-								z_arr.push((1.0*coord[2]));
-								/*
-								L.polyline([xy_arr] , {
-									color: "red",
-									weight: 5,
-								}).addTo(map_editor);
-								*/
-								//xy_arr = [];	
+								z_arr.push((1.0*coord1[2]));
 							}
 						}
 					}
+					
 				}
+	
 			}
 			//add loaded data to map editor
 			add_line_arr(xy_arr, "#ff7800", 5, z_arr, "false");
