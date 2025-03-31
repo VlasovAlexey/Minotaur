@@ -283,6 +283,7 @@
         lang = {
             1: {
                 //Eng
+                ".opt_line_depth_start": "Start Depth",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
                 ".opt_line_distance": "Distance",
@@ -379,6 +380,7 @@
 
             //Rus
             2: {
+                ".opt_line_depth_start": "Начальная глубина",
                 ".opt_line_lat": "Широта",
                 ".opt_line_lon": "Долгота",
                 ".opt_line_distance": "Расстояние",
@@ -477,6 +479,7 @@
 
             3: {
                 //Spa
+                ".opt_line_depth_start": "Profundidad de inicio",
                 ".opt_line_lat": "Latitud",
                 ".opt_line_lon": "Longitud",
                 ".opt_line_distance": "Distancia",
@@ -573,6 +576,7 @@
             },
             4: {
                 //Prt
+                ". opt_line_depth_start": "Profundidade inicial",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
                 ".opt_line_distance": "Distância",
@@ -670,6 +674,7 @@
             },
             5: {
                 //China
+                ".opt_line_depth_start": "起始深度",
                 ".opt_line_lat": "緯度",
                 ".opt_line_lon": "經度",
                 ".opt_line_distance": "距離",
@@ -766,6 +771,7 @@
             },
             6: {
                 //Bulgarian
+                ".opt_line_depth_start": "Начална дълбочина",
                 ".opt_line_lat": "Географска ширина",
                 ".opt_line_lon": "Дължина",
                 ".opt_line_distance": "Разстояние",
@@ -859,6 +865,7 @@
             },
             7: {
                 //Fr
+                ".opt_line_depth_start": "Profondeur de départ",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
                 ".opt_line_distance": "Distance",
@@ -952,6 +959,7 @@
             },
             8: {
                 //Korean
+                ".opt_line_depth_start": "시작 깊이",
                 ".opt_line_lat": "위도",
                 ".opt_line_lon": "경도",
                 ".opt_line_distance": "거리",
@@ -1046,6 +1054,7 @@
             },
             9: {
                 //Italian
+                ".opt_line_depth_start": "Profondità di inizio",
                 ".opt_line_lat": "Latitudine",
                 ".opt_line_lon": "Longitudine",
                 ".opt_line_distance": "Distanza",

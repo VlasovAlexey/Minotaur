@@ -591,7 +591,7 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
     layer_styling(layer,true);
 	}
 
-	geojson = L.geoJson(myLines, {
+	currentgeojson = L.geoJson(myLines, {
       depth_polyline: z_arr,
 		  style: style,
 		  onEachFeature: function (feature, layer) {
@@ -771,7 +771,7 @@ function layer_styling(layer,is_polygon){
 			//if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToFront();}
 		}
 		if(LayerOrder == 2){
-			//bring to front selected layer function
+			//bring to back selected layer function
 			  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { layer.bringToBack();}
 		}
 	};

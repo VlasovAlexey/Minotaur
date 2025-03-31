@@ -91,6 +91,10 @@ function geojson_styled_import(e, type){
 		var layers = loaded_data.getLayers();
 		//console.log(layers);
 		for (var i = 0; i < layers.length; i++) {
+				//debug only
+				if (layers[i].feature.properties.depth_polyline != undefined){
+					console.log(layers[i].feature.properties.depth_polyline);
+				}
 				//setup loaded markers
 				if (layers[i].feature.properties.name != undefined && layers[i].feature.properties.markerType == undefined){
 					if (layers[i].feature.properties.depth != undefined){
