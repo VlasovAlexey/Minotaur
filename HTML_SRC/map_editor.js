@@ -782,6 +782,7 @@ const custom_markers1 = [
   "m_zero_datum",
   "m_entrance",
   "m_max_depth",
+  "m_quest"
 ];
 map_editor.pm.Toolbar.createCustomControl({
   block: "draw",
@@ -832,7 +833,7 @@ function addMarker(e){
     if(layer_marker_type == 1){
       // Add rest_major marker
       var Icon = L.icon({
-        iconUrl: 'icons/icon_cave_x.svg',
+        iconUrl: icon_cave_x,
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
@@ -842,7 +843,7 @@ function addMarker(e){
     if(layer_marker_type == 2){
       // Add rest minor marker
       var Icon = L.icon({
-        iconUrl: 'icons/icon_cave_restriction_small.svg',
+        iconUrl: icon_cave_restriction_small,
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
@@ -852,7 +853,7 @@ function addMarker(e){
     if(layer_marker_type == 3){
       // Add zero datum marker
       var Icon = L.icon({
-        iconUrl: 'icons/icon_cave_zero_datum.svg',
+        iconUrl: icon_cave_zero_datum,
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
@@ -868,13 +869,23 @@ function addMarker(e){
       // Add depth marker
       marker_custom_shape(e.latlng, 2, plan_lng("td_depth"));
     }
+    if(layer_marker_type == 10){
+      // Add gold marker
+      var Icon = L.icon({
+      iconUrl: icon_cave_quest,
+      iconSize: [25, 41],
+      iconAnchor: [12, 30],
+      iconBase: "true",
+      });
+      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);
+    }
   }
 
   if(layer_marker2_create_mode == 1){
     if(layer_marker_type == 6){
       // Add speleothemes marker
       var Icon = L.icon({
-        iconUrl: 'icons/icon_cave_speleothems.svg',
+        iconUrl: icon_cave_speleothems,
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
@@ -884,7 +895,7 @@ function addMarker(e){
     if(layer_marker_type == 7){
       // Add bones and bodies marker
       var Icon = L.icon({
-        iconUrl: 'icons/icon_cave_bones.svg',
+        iconUrl: icon_cave_bones,
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
@@ -894,7 +905,7 @@ function addMarker(e){
     if(layer_marker_type == 8){
       // Add artifacts marker
       var Icon = L.icon({
-        iconUrl: 'icons/icon_cave_artifact.svg',
+        iconUrl: icon_cave_artifact,
         iconSize: [25, 41],
         iconAnchor: [12, 35],
         iconBase: "true",
@@ -904,7 +915,7 @@ function addMarker(e){
     if(layer_marker_type == 9){
       // Add gold marker
       var Icon = L.icon({
-      iconUrl: 'icons/gold_marker_01.svg',
+      iconUrl: gold_marker_01,
       iconSize: [30, 50],
       iconAnchor: [15, 39],
       iconBase: "true",
@@ -976,4 +987,3 @@ var notification = L.control.notifications({
   closable: false,
   dismissable: true,
 }).addTo(map_editor);
-

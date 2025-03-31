@@ -981,13 +981,107 @@ input[type=range] {
 
 /* input line parameters window style */
 .input_path_create {
-    top: 0;
-    height: 100px;
-    width: 200px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+    text-align: center;
+    height: auto;
+    width: auto;
     text-align: center;
     background-color: #fff;
-	border-bottom: 1px solid #ccc;
+    background-clip: padding-box;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    
 	text-align: center;
 	text-decoration: none;
-	color: black; 
+	color: black;
+}
+
+.input_table_style {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    border: 0px;
+    
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    margin-left: 5px auto;
+    margin-right: 5px auto;
+    background-color: #fff;
+
+    background-clip: padding-box;
+    border: 2px solid rgba(0,0,0,0.0);
+}
+
+.input_table_style:hover {
+    background: #fff;
+    background-clip: padding-box;
+    border: 2px solid rgba(0,0,0,0.0);
+}
+
+.opt_line_lat, .opt_line_lon, .opt_line_distance, .opt_line_azimuth, .opt_line_depth {
+    text-align: center;
+    text-align-last: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+
+    color: #000000;
+}
+
+.opt_input_create_lat, .opt_input_create_lon, .opt_input_create_distance, .opt_input_create_azimuth, .opt_input_create_depth {
+    text-align: center;
+    text-align-last: center;
+    margin-bottom: 2px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+
+    position: center;
+    display: block;
+    outline: none;
+
+    border-radius: 4px;
+    border: 1px solid #969696;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    width: 100px;
+}
+
+.opt_button_get_coord, .opt_button_add_point, .opt_button_finish_line {
+    text-align: center;
+    text-align-last: center;
+    display: block;
+
+    margin-bottom: 5px;
+    margin-top: 2px;
+    margin-left: auto;
+    margin-right: auto;
+
+    outline: none;
+
+    border-radius: 4px;
+    border: 1px solid #969696;
+    background: #ddd;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    width: 150px; 
+}
+
+.opt_button_get_coord:hover, .opt_button_add_point:hover, .opt_button_finish_line:hover {
+    background: #eee;
+}
+
+.opt_button_get_coord:active, .opt_button_add_point:active, .opt_button_finish_line:active 
+{
+    padding-top: 1px;
+    margin-top: 2px;
+    background: #fff;
+    color: #000000;
 }

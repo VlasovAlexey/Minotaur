@@ -2394,6 +2394,7 @@
             m_zero_datum: "▉",
             m_entrance: "③",
             m_max_depth: "▔",
+            m_quest: "?",
 
             layer_to_front: "Към предната част",
             layer_to_back: "Към гърба",
@@ -2480,6 +2481,7 @@
             m_zero_datum: "▉",
             m_entrance: "③",
             m_max_depth: "▔",
+            m_quest: "?",
 
             layer_to_front: "To front",
             layer_to_back: "To back",
@@ -2615,6 +2617,7 @@
             m_zero_datum: "▉",
             m_entrance: "③",
             m_max_depth: "▔",
+            m_quest: "?",
 
             layer_to_front: "Davanti",
             layer_to_back: "Verso il retro",
@@ -2747,6 +2750,7 @@
             m_zero_datum: "▉",
             m_entrance: "③",
             m_max_depth: "▔",
+            m_quest: "?",
 
             layer_to_front: "Вверх",
             layer_to_back: "Вниз",
@@ -2813,6 +2817,7 @@
             m_zero_datum: "▉",
             m_entrance: "③",
             m_max_depth: "▔",
+            m_quest: "?",
 
             layer_to_front: "Arriba",
             layer_to_back: "Abajo",
@@ -2912,6 +2917,7 @@
             m_zero_datum: "▉",
             m_entrance: "③",
             m_max_depth: "▔",
+            m_quest: "?",
 
             layer_to_front: "Vers le haut",
             layer_to_back: "Bas de page",
@@ -2978,6 +2984,7 @@
             m_zero_datum: "▉",
             m_entrance: "③",
             m_max_depth: "▔",
+            m_quest: "?",
 
             layer_to_front: "向上",
             layer_to_back: "向下",
@@ -3078,6 +3085,7 @@
             m_zero_datum: "▉",
             m_entrance: "③",
             m_max_depth: "▔",
+            m_quest: "?",
 
             layer_to_front: "Para cima",
             layer_to_back: "Para baixo",
@@ -3159,6 +3167,7 @@
             m_zero_datum: "▉",
             m_entrance: "③",
             m_max_depth: "▔",
+            m_quest: "?",
 
             layer_to_front: "Para cima",
             layer_to_back: "Para baixo",
@@ -3685,6 +3694,7 @@
             m_zero_datum: "▉",
             m_entrance: "③",
             m_max_depth: "▔",
+            m_quest: "?",
 
             layer_to_front: "앞으로",
             layer_to_back: "뒤로",
@@ -4797,6 +4807,13 @@
                             title: V("actions.m_gold_marker"),
                             onClick() {
                                 layer_marker_type = 9;
+                            }
+                        },
+                        m_quest: {
+                            text: V("actions.m_quest"),
+                            title: V("actions.m_quest"),
+                            onClick() {
+                                layer_marker_type = 10;
                             }
                         },
                         layer_to_front: {

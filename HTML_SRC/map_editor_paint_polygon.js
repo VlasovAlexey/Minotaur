@@ -16,8 +16,8 @@ var paintpolygonControl = L.control.paintPolygon(
             weight: 2
         },
         menu: {                   // Customize menu, set to false to prevent adding control UI on map, you need to build your own UI (on map or not)
-          drawErase: true,
-            size: true,
+          drawErase: false,
+            size: false,
             eraseAll: true
         }
     }).addTo(map_editor);
