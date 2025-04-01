@@ -32,6 +32,8 @@ map_editor.pm.Toolbar.createCustomControl({
     className: 'control-icon leaflet-pm-icon-overlay-image',
 });
 
+
+
 var point1 = [map_editor.getBounds().getSouth(), map_editor.getBounds().getWest()];
 var point2 = [map_editor.getBounds().getSouth(), map_editor.getBounds().getEast()];
 var point3 = [map_editor.getBounds().getNorth(), map_editor.getBounds().getWest()];
@@ -55,7 +57,7 @@ function ovl_image_default(){
         var	bounds = new L.LatLngBounds(point1, point2).extend(point3);
         map_editor.fitBounds(bounds, {padding: [10,10]});
 
-        overlay = L.imageOverlay.rotated("./icons/ovl_image_default.jpg", point1, point2, point3, {
+        overlay = L.imageOverlay.rotated(ovl_pic, point1, point2, point3, {
             opacity: 0.4,
             interactive: true,
         });
