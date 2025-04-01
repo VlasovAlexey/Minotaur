@@ -481,24 +481,7 @@ map_editor.pm.Toolbar.createCustomControl({
   className: 'control-icon leaflet-pm-icon-save-image',
 });
 */
-//add overlay image
-/*
-const overlay_image = [
-  "cancel",
-];
 
-map_editor.pm.Toolbar.createCustomControl({
-  block: "custom",
-  name: "overlay image",
-  title: "",
-  onClick: () => {
-  },
-  doToggle: true,
-  toggleStatus: true,
-  disableOtherButtons: true,
-  className: 'control-icon leaflet-pm-icon-overlay-image',
-});
-*/
 //add special objects creation button
 /*
 const special_objects_list = [
@@ -609,31 +592,6 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 	fit_polygon.remove();
 }
 
-//add measure tools to the map editor
-/*
-var plugin = L.control.measure({
-  //  control position
-  position: 'bottomleft',
-  //  weather to use keyboard control for this plugin
-  keyboard: true,
-  //  shortcut to activate measure
-  activeKeyCode: 'M'.charCodeAt(0),
-  //  shortcut to cancel measure, defaults to 'Esc'
-  cancelKeyCode: 27,
-  //  line color
-  lineColor: 'red',
-  //  line weight
-  lineWeight: 2,
-  //  line dash
-  lineDashArray: '6, 6',
-  //  line opacity
-  lineOpacity: 1,
-  //  distance formatter
-  // formatDistance: function (val) {
-  //   return Math.round(1000 * val / 1609.344) / 1000 + 'mile';
-  // }
-}).addTo(map_editor);
-*/
 //context menu functions
 function showCoordinates (e) {
 alert(e.latlng);

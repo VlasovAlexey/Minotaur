@@ -2379,6 +2379,11 @@
             selectSecondLayerFor: "Изберете втори слой за {действие}"
         },
         actions: {
+            ovl_image_20: "20%",
+            ovl_image_50: "50%",
+            ovl_image_100: "100%",
+            ovl_image_load: "Изчистване",
+            ovl_image_clear: "Зареждане на изображение",
             measure_clear: "Изчистете",
             layer_copy:"Копие",
             layer_optimize_1: "Нисък",
@@ -2466,6 +2471,11 @@
             selectSecondLayerFor: "Select second layer for {action}"
         },
         actions: {
+            ovl_image_20: "20%",
+            ovl_image_50: "50%",
+            ovl_image_100: "100%",
+            ovl_image_load: "Clear",
+            ovl_image_clear: "Load Image",
             measure_clear: "Clear",
             layer_copy:"Copy",
             layer_optimize_1: "Low",
@@ -2602,6 +2612,11 @@
             placeCircleMarker: "Clicca per posizionare un Marker del cherchio"
         },
         actions: {
+            ovl_image_20: "20%",
+            ovl_image_50: "50%",
+            ovl_image_100: "100%",
+            ovl_image_load: "Cancella",
+            ovl_image_clear: "Carica immagine",
             measure_clear: "Libero",
             layer_copy:"Copia",
             layer_optimize_1: "Basso",
@@ -2735,6 +2750,11 @@
             placeCircleMarker: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u043A\u0440\u0443\u0433\u043E\u0432\u043E\u0439 \u043C\u0430\u0440\u043A\u0435\u0440"
         },
         actions: {
+            ovl_image_20: "20%",
+            ovl_image_50: "50%",
+            ovl_image_100: "100%",
+            ovl_image_load: "Очистить",
+            ovl_image_clear: "Загрузить изображение",
             measure_clear: "Очистить",
             layer_copy:"Копировать",
             layer_optimize_1: "Слабый",
@@ -2802,6 +2822,11 @@
             placeCircleMarker: "Presiona para colocar un marcador de c\xEDrculo"
         },
         actions: {
+            ovl_image_20: "20%",
+            ovl_image_50: "50%",
+            ovl_image_100: "100%",
+            ovl_image_load: "Borrar",
+            ovl_image_clear: "Cargar imagen",
             measure_clear: "Despejar",
             layer_copy:"Copia",
             layer_optimize_1: "Bajo",
@@ -2902,6 +2927,9 @@
             placeCircleMarker: "Cliquez pour placer le marqueur circulaire"
         },
         actions: {
+            ovl_image_20: "20%",
+            ovl_image_50: "50%",
+            ovl_image_100: "100%",
             measure_clear: "Clair",
             layer_copy:"Copie",
             layer_optimize_1: "Faible",
@@ -2969,6 +2997,11 @@
             placeCircleMarker: "\u70B9\u51FB\u653E\u7F6E\u5706\u5F62\u6807\u8BB0"
         },
         actions: {
+            ovl_image_20: "20%",
+            ovl_image_50: "50%",
+            ovl_image_100: "100%",
+            ovl_image_load:"清除",
+            ovl_image_clear:"載入映像",
             measure_clear: "清除",
             layer_copy:"複製",
             layer_optimize_1: "低",
@@ -3070,6 +3103,11 @@
             placeText: "Clique para inserir texto"
         },
         actions: {
+            ovl_image_20: "20%",
+            ovl_image_50: "50%",
+            ovl_image_100: "100%",
+            ovl_image_load: "Limpar",
+            ovl_image_clear: "Carregar imagem",
             measure_clear: "Limpo",
             layer_copy:"Reprodução",
             layer_optimize_1: "Baixa",
@@ -3152,6 +3190,11 @@
             placeText: "Clique para colocar texto"
         },
         actions: {
+            ovl_image_20: "20%",
+            ovl_image_50: "50%",
+            ovl_image_100: "100%",
+            ovl_image_load: "Limpar",
+            ovl_image_clear: "Carregar imagem",
             measure_clear: "Limpo",
             layer_copy:"Reprodução",
             layer_optimize_1: "Baixa",
@@ -3679,6 +3722,11 @@
             placeText: "\uD14D\uC2A4\uD2B8 \uC704\uCE58\uB97C \uD074\uB9AD\uD558\uC138\uC694"
         },
         actions: {
+            ovl_image_20: "20%",
+            ovl_image_50: "50%",
+            ovl_image_100: "100%",
+            ovl_image_load: "지우기",
+            ovl_image_clear: "이미지 로드",
             measure_clear: "지우기",
             layer_copy:"복제",
             layer_optimize_1: "낮음",
@@ -4711,6 +4759,41 @@
                     s = t.actions,
                     a = {
                         //minotaur interface start
+                        ovl_image_20: {
+                            text: V("actions.ovl_image_20"),
+                            title: V("actions.ovl_image_20"),
+                            onClick() {
+                                setOverlayOpacity(0.3);
+                            }
+                        },
+                        ovl_image_50: {
+                            text: V("actions.ovl_image_50"),
+                            title: V("actions.ovl_image_50"),
+                            onClick() {
+                                setOverlayOpacity(0.6);
+                            }
+                        },
+                        ovl_image_100: {
+                            text: V("actions.ovl_image_100"),
+                            title: V("actions.ovl_image_100"),
+                            onClick() {
+                                setOverlayOpacity(1.0);
+                            }
+                        },
+                        ovl_image_load: {
+                            text: V("actions.ovl_image_clear"),
+                            title: V("actions.ovl_image_clear"),
+                            onClick() {
+                                ovl_image_load();
+                            }
+                        },
+                        ovl_image_clear: {
+                            text: V("actions.ovl_image_load"),
+                            title: V("actions.ovl_image_load"),
+                            onClick() {
+                                ovl_image_clear();
+                            }
+                        },
                         measure_clear: {
                             text: V("actions.measure_clear"),
                             title: V("actions.measure_clear"),
