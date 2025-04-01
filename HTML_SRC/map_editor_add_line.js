@@ -83,9 +83,9 @@ control.addTo(map_editor);
 
 //create all interface element inside created window
 create_html_text("input_path_lat","opt_line_lat" ,"");
-create_input_val("input_path_lat", "opt_input_create_lat", document.getElementById("default_lat_opt").value);
+create_input_val_sign("input_path_lat", "opt_input_create_lat", document.getElementById("default_lat_opt").value);
 create_html_text("input_path_lon","opt_line_lon" ,"");
-create_input_val("input_path_lon", "opt_input_create_lon", document.getElementById("default_lon_opt").value);
+create_input_val_sign("input_path_lon", "opt_input_create_lon", document.getElementById("default_lon_opt").value);
 create_html_text("input_path_depth_start","opt_line_depth_start" ,"");
 create_input_val("input_path_depth_start", "opt_input_create_depth_start", document.getElementById("default_ele_opt").value);
 create_html_button("input_btn_coord", "opt_button_get_coord", "get_data_from_center_map_editor();")
@@ -115,72 +115,85 @@ function get_data_from_center_map_editor(){
 }
 
 function add_point_map_editor(){
+  var sp_start_depth = document.getElementById("opt_input_create_depth_start").value.replace("," , ".");
+  var sp_next_depth = document.getElementById("opt_input_create_depth").value.replace("," , ".");
+  var sp_lat = document.getElementById("opt_input_create_lat").value.replace("," , ".");
+  var sp_lon = document.getElementById("opt_input_create_lon").value.replace("," , ".");
+
+  var azmt = parseFloat(document.getElementById("opt_input_create_azimuth").value.replace("," , "."));
+  var dst_nt = parseFloat(document.getElementById("opt_input_create_distance").value.replace("," , "."));
+  
   if (line_add_first_start == 0){
-    //first add marker with start depth
-    var text = document.getElementById("opt_input_create_depth_start").value.replace("," , ".") + plan_lng("ch_mtr");
-    var depth = (1.0*document.getElementById("opt_input_create_depth_start").value.replace("," , "."));
-    marker = L.marker([1.0*(document.getElementById("opt_input_create_lat").value.replace("," , ".")) , 1.0*(document.getElementById("opt_input_create_lon").value.replace("," , "."))], 
-      marker_3d_prop(text, depth)
-    ).addTo(map_editor);
+    if ((Math.abs(parseFloat(sp_start_depth) - parseFloat(sp_next_depth)) > parseFloat(dst_nt))){
+      //depth > distance error notice
+      notification.alert(plan_lng("ch_alert"), plan_lng("ch_big_depth"));
+    } else {
+      //all is ok
+      //first add marker with start depth
+      var text = sp_start_depth + plan_lng("ch_mtr");
+      var depth = parseFloat(sp_start_depth);
+      marker = L.marker([parseFloat(sp_lat) , parseFloat(sp_lon)], 
+        marker_3d_prop(text, depth)
+      ).addTo(map_editor);
 
-    //compute values for line
-    xy_line_array_add.push([1.0*(document.getElementById("opt_input_create_lat").value.replace("," , ".")) , 1.0*(document.getElementById("opt_input_create_lon").value.replace("," , "."))]);
-    z_line_array_add.push((1.0*document.getElementById("opt_input_create_depth_start").value.replace("," , ".")));
+      //compute values for line
+      xy_line_array_add.push([parseFloat(sp_lat), parseFloat(sp_lon)]);
+      z_line_array_add.push((sp_start_depth));
 
-    var azmt = 1.0*document.getElementById("opt_input_create_azimuth").value.replace("," , ".");
-    var dst_nt = 1.0*document.getElementById("opt_input_create_distance").value.replace("," , ".");
-    var z_nt = 1.0*(document.getElementById("opt_input_create_depth").value.replace("," , "."))
+      //correct for top projection distance value
+      dst_nt = Math.sqrt(Math.abs((Math.pow(dst_nt, 2)) - (Math.pow(Math.abs(sp_next_depth - z_line_array_add[z_line_array_add.length-1]), 2))));
+
+      var lat_new_tmp = destinationPoint(xy_line_array_add[xy_line_array_add.length-1][0], xy_line_array_add[xy_line_array_add.length-1][1], dst_nt, azmt).lat;
+		  var lon_new_tmp = destinationPoint(xy_line_array_add[xy_line_array_add.length-1][0], xy_line_array_add[xy_line_array_add.length-1][1], dst_nt, azmt).lon;
+      
+		  if (lat_new_tmp == undefined || lon_new_tmp ==undefined){
+			  lat_new_tmp = xy_line_array_add[xy_line_array_add.length-1][0];
+			  lon_new_tmp = xy_line_array_add[xy_line_array_add.length-1][1];
+		  }
+      xy_line_array_add.push([lat_new_tmp , lon_new_tmp]);
+      z_line_array_add.push(sp_next_depth);
+      add_line_arr(xy_line_array_add, "#ff7800", 5, z_line_array_add, "false");
     
-    //correct for top projection distance value
-    dst_nt = Math.sqrt(Math.abs((Math.pow(dst_nt, 2)) - (Math.pow(Math.abs(z_nt - z_line_array_add[z_line_array_add.length-1]), 2))));
+      //add second marker with depth
+      var text = sp_next_depth + plan_lng("ch_mtr");
+      var depth = parseFloat(sp_next_depth);
+      marker = L.marker([lat_new_tmp , lon_new_tmp], 
+        marker_3d_prop(text, depth)
+      ).addTo(map_editor);
 
-    var lat_new_tmp = destinationPoint(xy_line_array_add[xy_line_array_add.length-1][0], xy_line_array_add[xy_line_array_add.length-1][1], dst_nt, azmt).lat;
-		var lon_new_tmp = destinationPoint(xy_line_array_add[xy_line_array_add.length-1][0], xy_line_array_add[xy_line_array_add.length-1][1], dst_nt, azmt).lon;
-					
-		if (lat_new_tmp == undefined || lon_new_tmp ==undefined){
-			lat_new_tmp = xy_line_array_add[xy_line_array_add.length-1][0];
-			lon_new_tmp = xy_line_array_add[xy_line_array_add.length-1][1];
-		}
-    xy_line_array_add.push([lat_new_tmp , lon_new_tmp]);
-    z_line_array_add.push(z_nt);
-    add_line_arr(xy_line_array_add, "#ff7800", 5, z_line_array_add, "false");
-    
-    //add second marker with depth
-    var text = document.getElementById("opt_input_create_depth").value.replace("," , ".") + plan_lng("ch_mtr");
-    var depth = (1.0*document.getElementById("opt_input_create_depth").value.replace("," , "."));
-    marker = L.marker([lat_new_tmp , lon_new_tmp], 
-      marker_3d_prop(text, depth)
-    ).addTo(map_editor);
-
-    line_add_first_start = 1;
+      line_add_first_start = 1;
+    }
   } else {
-    var azmt = 1.0*document.getElementById("opt_input_create_azimuth").value.replace("," , ".");
-    var dst_nt = 1.0*document.getElementById("opt_input_create_distance").value.replace("," , ".");
-    var z_nt = 1.0*(document.getElementById("opt_input_create_depth").value.replace("," , "."))
+    if ((Math.abs(parseFloat(z_line_array_add[z_line_array_add.length-1]) - parseFloat(sp_next_depth)) > parseFloat(dst_nt))){
+      //depth > distance error notice
+      notification.alert(plan_lng("ch_alert"), plan_lng("ch_big_depth"));
 
-    //correct for top projection distance value
-    dst_nt = Math.sqrt(Math.abs((Math.pow(dst_nt, 2)) - (Math.pow(Math.abs(z_nt - z_line_array_add[z_line_array_add.length-1]), 2))));
+    } else {
+      //all is ok
+      //correct for top projection distance value
+      dst_nt = Math.sqrt(Math.abs((Math.pow(dst_nt, 2)) - (Math.pow(Math.abs(sp_next_depth - z_line_array_add[z_line_array_add.length-1]), 2))));
 
-    var lat_new_tmp = destinationPoint(xy_line_array_add[xy_line_array_add.length-1][0], xy_line_array_add[xy_line_array_add.length-1][1], dst_nt, azmt).lat;
-		var lon_new_tmp = destinationPoint(xy_line_array_add[xy_line_array_add.length-1][0], xy_line_array_add[xy_line_array_add.length-1][1], dst_nt, azmt).lon;
+      var lat_new_tmp = destinationPoint(xy_line_array_add[xy_line_array_add.length-1][0], xy_line_array_add[xy_line_array_add.length-1][1], dst_nt, azmt).lat;
+		  var lon_new_tmp = destinationPoint(xy_line_array_add[xy_line_array_add.length-1][0], xy_line_array_add[xy_line_array_add.length-1][1], dst_nt, azmt).lon;
 					
-		if (lat_new_tmp == undefined || lon_new_tmp ==undefined){
-			lat_new_tmp = xy_line_array_add[xy_line_array_add.length-1][0];
-			lon_new_tmp = xy_line_array_add[xy_line_array_add.length-1][1];
-		}
-    xy_line_array_add.push([lat_new_tmp , lon_new_tmp]);
-    z_line_array_add.push(z_nt);
-    currentgeojson.remove();
-    add_line_arr(xy_line_array_add, "#ff7800", 5, z_line_array_add, "true");
+		  if (lat_new_tmp == undefined || lon_new_tmp ==undefined){
+			  lat_new_tmp = xy_line_array_add[xy_line_array_add.length-1][0];
+			  lon_new_tmp = xy_line_array_add[xy_line_array_add.length-1][1];
+		  }
+      xy_line_array_add.push([lat_new_tmp , lon_new_tmp]);
+      z_line_array_add.push(sp_next_depth);
+      currentgeojson.remove();
+      add_line_arr(xy_line_array_add, "#ff7800", 5, z_line_array_add, "true");
 
-    //add next marker with depth
-    var text = document.getElementById("opt_input_create_depth").value.replace("," , ".") + plan_lng("ch_mtr");
-    var depth = z_nt;
-    marker = L.marker([lat_new_tmp , lon_new_tmp], 
-      marker_3d_prop(text, depth)
-    ).addTo(map_editor);
+      //add next marker with depth
+      var text = sp_next_depth + plan_lng("ch_mtr");
+      var depth = sp_next_depth;
+      marker = L.marker([lat_new_tmp , lon_new_tmp], 
+        marker_3d_prop(text, depth)
+      ).addTo(map_editor);
 
-    line_add_first_start = line_add_first_start + 1;
+      line_add_first_start = line_add_first_start + 1;
+    }
   }
 }
 
@@ -194,7 +207,7 @@ function finish_line_map_editor(){
     xy_line_array_add = [];
     z_line_array_add = [];
     line_add_first_start = 0;
-    document.querySelector('.control-icon.leaflet-pm-icon-path-gen').click();
+    document.querySelector('.leaflet-pm-icon-path-gen').click();
   }
 }
 
