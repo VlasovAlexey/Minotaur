@@ -1186,6 +1186,19 @@
         };
         //eng
         if (td_lng == 1) {
+            if (val == "jpg_no_file") {
+                val = "Warning!<br>Please select any JPG file.<br>Thank you!<br>"
+            }
+            if (val == "jpg_bad_ext_file") {
+                val = "Error!<br>Incorrect file type.<br>Only JPG file extension alloved!<br>"
+            }
+            if (val == "jpg_big_file") {
+                val = "Error!<br>Exceeded size 30MB.<br>Only 30Mb JPG data can be alloved!<br>"
+            }
+            if (val == "jpg_bad_file") {
+                val = "Error!<br>An unexpected error occurred while reading the file.<br>Check the connection and the correctness of the media!<br>"
+            }
+
             if (val == "ch_big_depth") {val = "The difference in depth value exceeds the distance! It is not possible to build a route with these parameters. Please correct the distance or the depth. The distance value must be greater than the difference between the current depth and the created depth."}
 
             if (val == "big_file_url") {val = "Too many elements on the map for URI link! Please remove some of the elements to reduce the size of the map. The size of the URI link cannot exceed 8000 characters."}
@@ -1332,6 +1345,19 @@
         }
         //rus
         if (td_lng == 2) {
+            if (val == "jpg_no_file") {
+                val = "Внимание!<br>Выбирите хотя бы один JPG файл.<br>Спасибо!<br>"
+            }
+            if (val == "jpg_bad_ext_file") {
+                val = "Ошибка!<br>Не коректный тип файла.<br>Только файлы с расширением JPG могут быть загружены!<br>"
+            }
+            if (val == "jpg_big_file") {
+                val = "Ошибка!<br>Превышен размер файла в 30Mб.<br>Допускаются JPG файлы размером не более 30Mб!<br>"
+            }
+            if (val == "jpg_bad_file") {
+                val = "Ошибка!<br>Во время чтения файла произошла непредвиденная ошибка.<br>Проверьте подключение и исправность носителя!<br>"
+            }
+
             if (val == "ch_big_depth") {val = "Разница в значении глубины превышает дистанцию! Невозможно построить маршрут с такими параметрами. Пожалуйста, исправьте дистанцию или глубину. Значение дистанции быть больше, чем разница между текущей и создаваемой глубиной."}
             if (val == "big_file_url") {val = "Слишком много элементов на карте для URI ссылки! Пожалуйста удалите часть элементов для уменьшения размера карты. Размер URI ссылки не может превышать 8000 символов."}
             if (val == "ch_alert") {val = "Оповещение"}
@@ -1477,6 +1503,19 @@
         }
         //sp
         if (td_lng == 3) {
+            if (val == "jpg_no_file") {
+                val = "¡Atención!<br>Por favor, seleccione cualquier archivo JPG.<br>¡Gracias!<br>"
+            }
+            if (val == "jpg_bad_ext_file") {
+                val = "¡Error!<br>Tipo de archivo incorrecto.<br>¡Sólo se permite la extensión JPG!<br>"
+            }
+            if (val == "jpg_big_file") {
+                val = "¡Error!<br>El tamaño del archivo supera los 30 MB.<br>¡Sólo se admiten archivos JPG de 30 MB!<br>"
+            }
+            if (val == "jpg_bad_file") {
+                val = "¡Error!<br>Se ha producido un error inesperado al leer el archivo.<br>Compruebe la conexión y la corrección del soporte!<br>"
+            }
+
             if (val == "ch_big_depth") {val = "¡La diferencia en el valor de profundidad excede la distancia! No es posible construir una ruta con estos parámetros. Corrija la distancia o la profundidad. El valor de la distancia debe ser mayor que la diferencia entre la profundidad actual y la profundidad creada."}
 
             if (val == "big_file_url") {val = "¡Demasiados elementos en el mapa para el enlace URI! Por favor, elimine algunos elementos para reducir el tamaño del mapa. El tamaño del enlace URI no puede superar los 8000 caracteres."}
@@ -1623,6 +1662,19 @@
         }
         //pt
         if (td_lng == 4) {
+            if (val == "jpg_no_file") {
+                val = "Aviso!<br>Por favor, seleccione qualquer ficheiro JPG.<br>Obrigado!<br>"
+            }
+            if (val == "jpg_bad_ext_file") {
+                val = "Erro!<br>Tipo de ficheiro incorreto.<br>Só é permitida a extensão de ficheiro JPG!<br>"
+            }
+            if (val == "jpg_big_file") {
+                val = "Erro!<br>O tamanho do ficheiro excedeu 30 MB.<br>Só são suportados ficheiros JPG de 30 MB!<br>"
+            }
+            if (val == "jpg_bad_file") {
+                val = "Erro!<br>Ocorreu um erro inesperado durante a leitura do ficheiro.<br>Verifique a ligação e a correção do suporte!<br>"
+            }
+            
             if (val == "ch_big_depth") {val = "A diferença no valor de profundidade excede a distância! Não é possível construir um percurso com estes parâmetros. Corrija a distância ou a profundidade. O valor da distância deve ser superior à diferença entre a profundidade actual e a profundidade criada."}
 
             if (val == "big_file_url") {val = "Demasiados elementos no mapa para a ligação URI! Remova alguns dos elementos para reduzir o tamanho do mapa. O tamanho da ligação URI não pode exceder 8000 caracteres."}
@@ -1770,6 +1822,19 @@
         }
         //ch
         if (td_lng == 5) {
+            if (val == "jpg_no_file") {
+                val = "警告!<br>请选择任何 JPG 文件。<br>谢谢！<br>"
+            }
+            if (val == "jpg_bad_ext_file") {
+                val = "错误!<br>文件类型不正确。<br>只允许 JPG 文件扩展名！<br>"
+            }
+            if (val == "jpg_big_file") {
+                val = "错误!<br>文件大小超过 30 MB。<br>只支持 30 MB 的 JPG 文件！<br>"
+            }
+            if (val == "jpg_bad_file") {
+                val = "错误!<br>读取文件时发生意外错误。<br>请检查连接和介质的正确性！<br>"
+            }
+
             if (val == "ch_big_depth") {val = "深度值的差異超過了距離！無法使用這些參數建立路線。請修正距離或深度。距離值必須大於目前深度和建立的深度之間的差異。"}
 
             if (val == "big_file_url") {val = "地圖上的 URI 連結元素太多！請移除部分元素以縮小地圖的大小。URI 連結的大小不能超過 8000 個字元。"}
@@ -1917,6 +1982,19 @@
         }
         //br
         if (td_lng == 6) {
+            if (val == "jpg_no_file") {
+                val = "Предупреждение!<br>Изберете произволен JPG файл.<br>Благодаря ви!<br>"
+            }
+            if (val == "jpg_bad_ext_file") {
+                val = "Грешка!<br>Неправилен тип файл.<br>Разрешено е само разширението на файла JPG!<br>"
+            }
+            if (val == "jpg_big_file") {
+                val = "Грешка!<br>Размерът на файла е над 30 MB.<br>Поддържат се само 30 MB JPG файлове!<br>"
+            }
+            if (val == "jpg_bad_file") {
+                val = "Грешка!<br>По време на четенето на файла е възникнала неочаквана грешка.<br>Моля, проверете правилната връзка и медия!<br>"
+            }
+
             if (val == "ch_big_depth") {val = "Разликата в стойността на дълбочината надвишава разстоянието! Не е възможно да се изгради маршрут с тези параметри. Моля, коригирайте разстоянието или дълбочината. Стойността на разстоянието трябва да е по-голяма от разликата между текущата дълбочина и създадената дълбочина."}
 
             if (val == "big_file_url") {val = "Твърде много елементи на картата за връзка с URI! Моля, премахнете някои от елементите, за да намалите размера на картата. Размерът на URI връзката не може да надвишава 8000 символа."}
@@ -2063,6 +2141,19 @@
         }
         //fr
         if (td_lng == 7) {
+            if (val == "jpg_no_file") {
+                val = "Attention !<br>Veuillez sélectionner n'importe quel fichier JPG.<br>Merci d'avance !<br>"
+            }
+            if (val == "jpg_bad_ext_file") {
+                val = "Erreur !<br>Type de fichier incorrect.<br>Seule l'extension de fichier JPG est autorisée !<br>"
+            }
+            if (val == "jpg_big_file") {
+                val = "Erreur !<br>La taille du fichier a dépassé 30 Mo.<br>Seuls les fichiers JPG de 30 Mo sont pris en charge !<br>"
+            }
+            if (val == "jpg_bad_file") {
+                val = "Erreur !<br>Une erreur inattendue s'est produite lors de la lecture du fichier.<br>Veuillez vérifier que la connexion et le support sont corrects !<br>"
+            }
+
             if (val == "ch_big_depth") {val = "La différence de profondeur dépasse la distance! Impossible de construire un itinéraire avec ces paramètres. Veuillez corriger la distance ou la profondeur. La valeur de distance doit être supérieure à la différence entre la profondeur actuelle et la profondeur créée."}
 
             if (val == "big_file_url") {val = "Trop d'éléments sur la carte pour le lien URI ! Veuillez supprimer certains éléments pour réduire la taille de la carte. La taille du lien URI ne doit pas dépasser 8000 caractères."}
@@ -2210,6 +2301,19 @@
         }
         //kr
         if (td_lng == 8) {
+            if (val == "jpg_no_file") {
+                val = "경고!<br>JPG 파일을 선택하세요.<br>감사합니다!<br>"
+            }
+            if (val == "jpg_bad_ext_file") {
+                val = "오류!<br>파일 형식이 잘못되었습니다.<br>JPG 파일 확장자만 허용됩니다!<br>"
+            }
+            if (val == "jpg_big_file") {
+                val = "오류!<br>파일 크기가 30MB를 초과했습니다.<br>30MB JPG 파일만 지원됩니다!<br>"
+            }
+            if (val == "jpg_bad_file") {
+                val = "오류!<br>파일을 읽는 동안 예기치 않은 오류가 발생했습니다.<br>올바른 연결 및 미디어를 확인하세요!<br>"
+            }
+
             if (val == "ch_big_depth") {val = "깊이 값의 차이가 거리를 초과합니다! 이 매개변수로 경로를 구축할 수 없습니다. 거리 또는 깊이를 수정하세요. 거리 값은 현재 깊이와 생성된 깊이의 차이보다 커야 합니다."}
 
             if (val == "big_file_url") {val = "지도의 요소가 너무 많아 URI 링크가 불가능합니다! 지도의 크기를 줄이려면 일부 요소를 제거하세요. URI 링크의 크기는 8000자를 초과할 수 없습니다."}
@@ -2356,6 +2460,19 @@
         }
         //it
         if (td_lng == 9) {
+            if (val == "jpg_no_file") {
+                val = "Attenzione!<br>Selezionare un file JPG qualsiasi.<br>Grazie!<br>"
+            }
+            if (val == "jpg_bad_ext_file") {
+                val = "Errore!<br>Tipo di file non corretto.<br>È consentita solo l'estensione JPG!<br>"
+            }
+            if (val == "jpg_big_file") {
+                val = "Errore!<br>La dimensione del file ha superato i 30 MB.<br>Sono supportati solo i file JPG da 30 MB!<br>"
+            }
+            if (val == "jpg_bad_file") {
+                val = "Errore!<br>Si è verificato un errore imprevisto durante la lettura del file.<br>Controllare la connessione e il supporto corretti!<br>"
+            }
+
             if (val == "ch_big_depth") {val = "La differenza nel valore di profondità supera la distanza! Non è possibile creare un percorso con questi parametri. Correggi la distanza o la profondità. Il valore di distanza deve essere maggiore della differenza tra la profondità corrente e la profondità creata."}
 
             if (val == "big_file_url") {val = "Troppi elementi sulla mappa per il link URI! Si prega di rimuovere alcuni elementi per ridurre le dimensioni della mappa. La dimensione del link URI non può superare gli 8000 caratteri."}
