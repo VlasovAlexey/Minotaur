@@ -713,6 +713,8 @@
                     map_editor.removeLayer(layer);
                   }
                 }
+                //remove overlay image if exist
+                //map_editor.removeLayer(overlay);
               });
       
             //minotaur interface end

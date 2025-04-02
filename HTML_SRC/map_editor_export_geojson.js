@@ -50,6 +50,16 @@ function drawnItemsToJSON(ilayer) {
         if (ditems[iIndex] instanceof L.Marker) {
             dOut1 = dOut1 + ',{"type":"Feature","properties":{';
             dOut2 = '';
+            
+            if ('OvlPic' in ditems[iIndex].options) {
+                if (!ditems[iIndex].options.OvlPic !== null) {
+                    dOut2 = dOut2 + ',"OvlPic":"' + ovl_pic + '"';
+                    dOut2 = dOut2 + ',"OvlPt1":"' + ovl_marker1.getLatLng() + '"';
+                    dOut2 = dOut2 + ',"OvlPt2":"' + ovl_marker2.getLatLng() + '"';
+                    dOut2 = dOut2 + ',"OvlPt3":"' + ovl_marker3.getLatLng() + '"';
+                }
+            };
+            if ('rSv' in ditems[iIndex].options) { if (!ditems[iIndex].options.rSv !== null) { dOut2 = dOut2 + ',"rSv":"' + ditems[iIndex].options.rSv + '"'} };
             if ('text' in ditems[iIndex].options) { if (!ditems[iIndex].options.text !== null) { dOut2 = dOut2 + ',"name":"' + ditems[iIndex].options.text + '"'} };
             if ('depth' in ditems[iIndex].options) { if (!ditems[iIndex].options.depth !== null) { dOut2 = dOut2 + ',"depth":"' + ditems[iIndex].options.depth + '"'} };
             if ('markerType' in ditems[iIndex].options) { if (!ditems[iIndex].options.markerType !== null) {dOut2 = dOut2 + ',"markerType":' + ditems[iIndex].options.markerType} };

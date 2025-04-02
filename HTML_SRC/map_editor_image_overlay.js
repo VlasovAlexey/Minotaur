@@ -137,7 +137,7 @@ function ovl_image_load(){
 //create layer with existing parameters
 function ovl_create_layer(){
     overlay = L.imageOverlay.rotated(ovl_pic, point1, point2, point3, {
-        opacity: 0.4,
+        opacity: 0.5,
         interactive: true,
     });
     var Icon = L.icon({
@@ -146,9 +146,11 @@ function ovl_create_layer(){
         iconAnchor: [15, 15],
         iconBase: "true",
     });
-    ovl_marker1 = L.marker(point1, {draggable: true, icon: Icon} ).addTo(map_editor);
-    ovl_marker2 = L.marker(point2, {draggable: true, icon: Icon} ).addTo(map_editor);
-    ovl_marker3 = L.marker(point3, {draggable: true, icon: Icon} ).addTo(map_editor);    
+    //OvlPic - add picture to save icon options as base64 image
+    //rSv - "false" to disable saving to file this object
+    ovl_marker1 = L.marker(point1, {draggable: true, rSv: "1", icon: Icon} ).addTo(map_editor);
+    ovl_marker2 = L.marker(point2, {draggable: true, rSv: "2", icon: Icon} ).addTo(map_editor);
+    ovl_marker3 = L.marker(point3, {draggable: true, rSv: "3", OvlPic: "true", icon: Icon} ).addTo(map_editor);    
 
     ovl_marker1.on('drag dragend', repositionImage);
     ovl_marker2.on('drag dragend', repositionImage);

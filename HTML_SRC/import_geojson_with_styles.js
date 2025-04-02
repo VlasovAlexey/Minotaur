@@ -89,12 +89,28 @@ function geojson_styled_import(e, type){
 		}).addTo(map_editor);
 		
 		var layers = loaded_data.getLayers();
-		//console.log(layers);
+		
 		for (var i = 0; i < layers.length; i++) {
+				if (layers[i].feature.properties.rSv == "1"){
+					point1 = [layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]];
+					
+				}
+				if (layers[i].feature.properties.rSv == "2"){
+					point2 = [layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]];
+					
+				}
+				if (layers[i].feature.properties.rSv == "3"){
+					point3 = [layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]];
+					ovl_pic = layers[i].feature.properties.OvlPic;
+					ovl_image_status = 1;
+					ovl_create_layer();
+					
+				}
 				//debug only
 				if (layers[i].feature.properties.depth_polyline != undefined){
 					console.log(layers[i].feature.properties.depth_polyline);
 				}
+				
 				//setup loaded markers
 				if (layers[i].feature.properties.name != undefined && layers[i].feature.properties.markerType == undefined){
 					if (layers[i].feature.properties.depth != undefined){
@@ -124,6 +140,7 @@ function geojson_styled_import(e, type){
 					//marker.bindPopup("LatLon : "+ feature.geometry.coordinates +"<br />Name : "+feature.properties.name);
 					//marker.removeFrom(map_editor);
 				}
+				
 				//create markers with custom shapes
 				if(layers[i].feature.properties.markerType != undefined){
 					marker_custom_shape([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], layers[i].feature.properties.markerType, layers[i].feature.properties.name);
@@ -139,13 +156,20 @@ function geojson_styled_import(e, type){
 							iconAnchor: [12, 30],
 							iconBase: "true",
 						});
-						new L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {icon: Icon}).addTo(map_editor);
+						if(layers[i].feature.properties.rSv == "1" || layers[i].feature.properties.rSv == "2" || layers[i].feature.properties.rSv == "3"){
+							//do nothing... it stupid place of code but work...
+						} else {
+							new L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {icon: Icon}).addTo(map_editor);
+						}
+						
 						map_editor.removeLayer(layers[i]);
 					}
 				}
 				if (layers[i].feature.properties.name != undefined){
 					map_editor.removeLayer(layers[i]);
 				}
+				
+					
 			}
 			//added labels if exist
 			/*L.geoJson(json, {

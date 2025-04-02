@@ -677,7 +677,7 @@ br{
     width: 200px;
 }
 
-#geojson_with_styles_file, #ariane_kml_file, #ariane_tml_file, #ariane_csv_file, #seacraft_kml_file, #seacraft_csv_file, #gpx_file, #btn_import, #measure_line_button {display: none;}
+#bitmap_file, #geojson_with_styles_file, #ariane_kml_file, #ariane_tml_file, #ariane_csv_file, #seacraft_kml_file, #seacraft_csv_file, #gpx_file, #btn_import, #measure_line_button {display: none;}
 
 #trackChart {
     width: 100%;
