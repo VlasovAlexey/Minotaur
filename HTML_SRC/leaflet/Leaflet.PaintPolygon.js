@@ -713,10 +713,12 @@
                     map_editor.removeLayer(layer);
                   }
                 }
-                //remove overlay image if exist
-                //map_editor.removeLayer(overlay);
+                
               });
-      
+              if (overlay != undefined) {
+                map_editor.removeLayer(overlay);
+                ovl_image_status = 0;
+            }
             //minotaur interface end
             this.eraseAll()
         },
