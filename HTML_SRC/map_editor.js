@@ -731,36 +731,39 @@ function layer_styling(layer,is_polygon){
 		}
     
     if(LayerOrder == 3){
-      //if(frst > 1){
-        //copy layer
+      //copy layer
       var l_arr = layer.toGeoJSON();
       var offset_bnd_x = ((layer.getBounds().getNorth() - layer.getBounds().getSouth()))*((Math.random(10.0345)*0.2));
       var offset_bnd_y = ((layer.getBounds().getNorth() - layer.getBounds().getSouth()))*((Math.random(10.0345)*0.2));
-      //console.log(offset_bnd);
-      for (var i = 0; i < l_arr.geometry.coordinates[0].length; i++) {
-        l_arr.geometry.coordinates[0][i] = [l_arr.geometry.coordinates[0][i][0] + (offset_bnd_x) , l_arr.geometry.coordinates[0][i][1] + (offset_bnd_y)];
-      }
-      //console.log(l_arr);
+      console.log(l_arr);
       
+      //for polygons
+      if(l_arr.geometry.type == "Polygon"){
+        for (var i = 0; i < l_arr.geometry.coordinates[0].length; i++) {
+          l_arr.geometry.coordinates[0][i] = [l_arr.geometry.coordinates[0][i][0] + (offset_bnd_x) , l_arr.geometry.coordinates[0][i][1] + (offset_bnd_y)];
+        }    
+      }
+      //for polyline
+      if(l_arr.geometry.type == "LineString"){
+        for (var i = 0; i < l_arr.geometry.coordinates.length; i++) {
+          l_arr.geometry.coordinates[i] = [l_arr.geometry.coordinates[i][0] + (offset_bnd_x) , l_arr.geometry.coordinates[i][1] + (offset_bnd_y)];
+        }    
+      }
       L.geoJson(l_arr, {
 				style: function (f) {
-					return l_arr.options
+					return layer.options
 				},
 				//assign function for color changing
-        		onEachFeature: function (feature, l_arr) {
-              l_arr.on({  
+        		onEachFeature: function (feature, layer) {
+              layer.on({  
 						click: function(e){
-							layer_styling(l_arr, true);
+							layer_styling(layer, true);
 						}
 					});
         		}
 			}).addTo(map_editor);
-      //frst = 0;
-      //}
     }
-    
 	};
-  //frst = frst + 1;
 }
 
 //custom markers1
