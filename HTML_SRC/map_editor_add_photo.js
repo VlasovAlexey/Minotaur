@@ -151,8 +151,11 @@ function photo_gif_load(){
 };
 
 function onClick(e) {
-    console.log(document.getElementsByClassName('marker_photo_img')[0].style.width);
-    document.getElementsByClassName('marker_photo_img')[0].style.width = '500px';
+    console.log(document.getElementsByClassName('marker_photo_img')[0]);
+    if(document.getElementsByClassName('marker_photo_img')[0] != undefined){
+        //document.getElementsByClassName('marker_photo_img')[0].style.width = '500px';
+    }
+    
     //alert(e.latlng);
 }
 
@@ -167,7 +170,7 @@ function create_custom_image_marker(photo_image_jpg_res){
       var marker_photo = new L.marker(map_editor.getCenter(), {
             icon: Icon,
             draggable: true,
-            
+            permanent: true,
         }).addTo(map_editor).on('click', onClick);
       /*
         marker_photo.bindTooltip(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">` , {
@@ -175,6 +178,6 @@ function create_custom_image_marker(photo_image_jpg_res){
         direction: "top",
         className: "photo-tooltip"
     }).openTooltip()*/
-      marker_photo.bindPopup(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">`);
+      marker_photo.bindPopup(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">`).openPopup();
       map_editor.fitBounds(map_editor.getBounds(), {padding: [10,10]});
 };
