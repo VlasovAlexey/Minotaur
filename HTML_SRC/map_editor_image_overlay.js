@@ -1,4 +1,4 @@
-//watcher function for bitmap jpg, png file reading
+//watcher function for bitmap jpg file reading
 var bitmap_file = [];
 
 document.querySelector("#bitmap_file").addEventListener('change', function() {

@@ -735,8 +735,7 @@ function layer_styling(layer,is_polygon){
       var l_arr = layer.toGeoJSON();
       var offset_bnd_x = ((layer.getBounds().getNorth() - layer.getBounds().getSouth()))*((Math.random(10.0345)*0.2));
       var offset_bnd_y = ((layer.getBounds().getNorth() - layer.getBounds().getSouth()))*((Math.random(10.0345)*0.2));
-      console.log(l_arr);
-      
+       
       //for polygons
       if(l_arr.geometry.type == "Polygon"){
         for (var i = 0; i < l_arr.geometry.coordinates[0].length; i++) {
@@ -829,7 +828,7 @@ function addMarker(e){
         iconAnchor: [12, 30],
         iconBase: "true",
       });
-      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
+      new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);
     }
     if(layer_marker_type == 2){
       // Add rest minor marker

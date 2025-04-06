@@ -4759,6 +4759,20 @@
                     s = t.actions,
                     a = {
                         //minotaur interface start
+                        photo_jpg_file: {
+                            text: V("actions.photo_jpg_load"),
+                            title: V("actions.photo_jpg_load"),
+                            onClick() {
+                                photo_jpg_load();
+                            }
+                        },
+                        photo_gif_file: {
+                            text: V("actions.photo_gif_load"),
+                            title: V("actions.photo_gif_load"),
+                            onClick() {
+                                photo_gif_load();
+                            }
+                        },
                         ovl_image_20: {
                             text: V("actions.ovl_image_20"),
                             title: V("actions.ovl_image_20"),
