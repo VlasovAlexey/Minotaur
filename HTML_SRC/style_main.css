@@ -1128,8 +1128,7 @@ input[type=range] {
     margin-right: 5px;
     
     text-align: center;
-    height: 500px;
-    width: 300px;
+    
     text-align: center;
     background-color: #fff;
     background-clip: padding-box;
@@ -1171,4 +1170,5 @@ input[type=range] {
 /* marker with photo */
 .marker_photo_img {
     width: 100px;
+    height: auto;
 }

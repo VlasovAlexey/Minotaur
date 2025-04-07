@@ -151,33 +151,43 @@ function photo_gif_load(){
 };
 
 function onClick(e) {
-    console.log(document.getElementsByClassName('marker_photo_img')[0]);
-    if(document.getElementsByClassName('marker_photo_img')[0] != undefined){
-        //document.getElementsByClassName('marker_photo_img')[0].style.width = '500px';
-    }
-    
+	var tooltip = 'marker_photo_img';
+	//console.log(document.getElementsByClassName(tooltip)[1].style.width)
+	for (var i = 0; i < document.getElementsByClassName(tooltip).length; i++) {
+		if(document.getElementsByClassName(tooltip)[i] != undefined){
+			if(document.getElementsByClassName(tooltip)[i].style.width == `500px`){
+				document.getElementsByClassName(tooltip)[i].style.width = '100px';
+				document.getElementsByClassName(tooltip)[i].style.height = 'auto';
+				
+			} else {
+				document.getElementsByClassName(tooltip)[i].style.width = '500px';
+				document.getElementsByClassName(tooltip)[i].style.height = 'auto';
+		
+			}
+		}
+	}
+    map_editor.fitBounds(map_editor.getBounds(), {padding: [1.1,1.1]});
     //alert(e.latlng);
 }
 
 function create_custom_image_marker(photo_image_jpg_res){
-    // Add rest_major marker
     var Icon = L.icon({
         iconUrl: icon_photo_marker,
         iconSize: [24, 41],
         iconAnchor: [12, 0],
-        iconPhoto: "true",
       });
-      var marker_photo = new L.marker(map_editor.getCenter(), {
+      var marker_photo = L.marker(map_editor.getCenter(), {
             icon: Icon,
             draggable: true,
             permanent: true,
+			iconPhoto: "true",
         }).addTo(map_editor).on('click', onClick);
-      /*
+      
         marker_photo.bindTooltip(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">` , {
         permanent: true,
         direction: "top",
         className: "photo-tooltip"
-    }).openTooltip()*/
-      marker_photo.bindPopup(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">`).openPopup();
-      map_editor.fitBounds(map_editor.getBounds(), {padding: [10,10]});
+    }).openTooltip()
+      //marker_photo.bindPopup(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">`).openPopup();
+      map_editor.fitBounds(map_editor.getBounds(), {padding: [1.1,1.1]});
 };

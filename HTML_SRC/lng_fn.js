@@ -1186,6 +1186,19 @@
         };
         //eng
         if (td_lng == 1) {
+            if (val == "gif_no_file") {
+                val = "Warning!<br>Please select any GIF file.<br>Thank you!<br>"
+            }
+            if (val == "gif_bad_ext_file") {
+                val = "Error!<br>Incorrect file type.<br>Only GIF file extension alloved!<br>"
+            }
+            if (val == "gif_big_file") {
+                val = "Error!<br>Exceeded size 30MB.<br>Only 30Mb GIF data can be alloved!<br>"
+            }
+            if (val == "gif_bad_file") {
+                val = "Error!<br>An unexpected error occurred while reading the file.<br>Check the connection and the correctness of the media!<br>"
+            }
+
             if (val == "jpg_no_file") {
                 val = "Warning!<br>Please select any JPG file.<br>Thank you!<br>"
             }
@@ -1345,6 +1358,19 @@
         }
         //rus
         if (td_lng == 2) {
+            if (val == "gif_no_file") {
+                val = "Внимание!<br>Выбирите хотя бы один GIF файл.<br>Спасибо!<br>"
+            }
+            if (val == "gif_bad_ext_file") {
+                val = "Ошибка!<br>Не коректный тип файла.<br>Только файлы с расширением GIF могут быть загружены!<br>"
+            }
+            if (val == "gif_big_file") {
+                val = "Ошибка!<br>Превышен размер файла в 30Mб.<br>Допускаются GIF файлы размером не более 30Mб!<br>"
+            }
+            if (val == "gif_bad_file") {
+                val = "Ошибка!<br>Во время чтения файла произошла непредвиденная ошибка.<br>Проверьте подключение и исправность носителя!<br>"
+            }
+
             if (val == "jpg_no_file") {
                 val = "Внимание!<br>Выбирите хотя бы один JPG файл.<br>Спасибо!<br>"
             }
@@ -1503,6 +1529,19 @@
         }
         //sp
         if (td_lng == 3) {
+            if (val == "gif_no_file") {
+                val = "¡Atención!<br>Por favor, seleccione cualquier archivo GIF.<br>¡Gracias!<br>"
+            }
+            if (val == "gif_bad_ext_file") {
+                val = "¡Error!<br>Tipo de archivo incorrecto.<br>¡Sólo se permite la extensión GIF!<br>"
+            }
+            if (val == "gif_big_file") {
+                val = "¡Error!<br>El tamaño del archivo supera los 30 MB.<br>¡Sólo se admiten archivos GIF de 30 MB!<br>"
+            }
+            if (val == "gif_bad_file") {
+                val = "¡Error!<br>Se ha producido un error inesperado al leer el archivo.<br>Compruebe la conexión y la corrección del soporte!<br>"
+            }
+
             if (val == "jpg_no_file") {
                 val = "¡Atención!<br>Por favor, seleccione cualquier archivo JPG.<br>¡Gracias!<br>"
             }
@@ -1662,6 +1701,19 @@
         }
         //pt
         if (td_lng == 4) {
+            if (val == "gif_no_file") {
+                val = "Aviso!<br>Por favor, seleccione qualquer ficheiro GIF.<br>Obrigado!<br>"
+            }
+            if (val == "gif_bad_ext_file") {
+                val = "Erro!<br>Tipo de ficheiro incorreto.<br>Só é permitida a extensão de ficheiro GIF!<br>"
+            }
+            if (val == "gif_big_file") {
+                val = "Erro!<br>O tamanho do ficheiro excedeu 30 MB.<br>Só são suportados ficheiros GIF de 30 MB!<br>"
+            }
+            if (val == "gif_bad_file") {
+                val = "Erro!<br>Ocorreu um erro inesperado durante a leitura do ficheiro.<br>Verifique a ligação e a correção do suporte!<br>"
+            }
+
             if (val == "jpg_no_file") {
                 val = "Aviso!<br>Por favor, seleccione qualquer ficheiro JPG.<br>Obrigado!<br>"
             }
@@ -1822,6 +1874,19 @@
         }
         //ch
         if (td_lng == 5) {
+            if (val == "gif_no_file") {
+                val = "警告!<br>请选择任何 GIF 文件。<br>谢谢！<br>"
+            }
+            if (val == "gif_bad_ext_file") {
+                val = "错误!<br>文件类型不正确。<br>只允许 GIF 文件扩展名！<br>"
+            }
+            if (val == "gif_big_file") {
+                val = "错误!<br>文件大小超过 30 MB。<br>只支持 30 MB 的 GIF 文件！<br>"
+            }
+            if (val == "gif_bad_file") {
+                val = "错误!<br>读取文件时发生意外错误。<br>请检查连接和介质的正确性！<br>"
+            }
+
             if (val == "jpg_no_file") {
                 val = "警告!<br>请选择任何 JPG 文件。<br>谢谢！<br>"
             }
@@ -1982,6 +2047,19 @@
         }
         //br
         if (td_lng == 6) {
+            if (val == "gif_no_file") {
+                val = "Предупреждение!<br>Изберете произволен GIF файл.<br>Благодаря ви!<br>"
+            }
+            if (val == "gif_bad_ext_file") {
+                val = "Грешка!<br>Неправилен тип файл.<br>Разрешено е само разширението на файла GIF!<br>"
+            }
+            if (val == "gif_big_file") {
+                val = "Грешка!<br>Размерът на файла е над 30 MB.<br>Поддържат се само 30 MB GIF файлове!<br>"
+            }
+            if (val == "gif_bad_file") {
+                val = "Грешка!<br>По време на четенето на файла е възникнала неочаквана грешка.<br>Моля, проверете правилната връзка и медия!<br>"
+            }
+
             if (val == "jpg_no_file") {
                 val = "Предупреждение!<br>Изберете произволен JPG файл.<br>Благодаря ви!<br>"
             }
@@ -2141,6 +2219,19 @@
         }
         //fr
         if (td_lng == 7) {
+            if (val == "gif_no_file") {
+                val = "Attention !<br>Veuillez sélectionner n'importe quel fichier GIF.<br>Merci d'avance !<br>"
+            }
+            if (val == "gif_bad_ext_file") {
+                val = "Erreur !<br>Type de fichier incorrect.<br>Seule l'extension de fichier GIF est autorisée !<br>"
+            }
+            if (val == "gif_big_file") {
+                val = "Erreur !<br>La taille du fichier a dépassé 30 Mo.<br>Seuls les fichiers GIF de 30 Mo sont pris en charge !<br>"
+            }
+            if (val == "gif_bad_file") {
+                val = "Erreur !<br>Une erreur inattendue s'est produite lors de la lecture du fichier.<br>Veuillez vérifier que la connexion et le support sont corrects !<br>"
+            }
+
             if (val == "jpg_no_file") {
                 val = "Attention !<br>Veuillez sélectionner n'importe quel fichier JPG.<br>Merci d'avance !<br>"
             }
@@ -2301,6 +2392,19 @@
         }
         //kr
         if (td_lng == 8) {
+            if (val == "gif_no_file") {
+                val = "경고!<br>GIF 파일을 선택하세요.<br>감사합니다!<br>"
+            }
+            if (val == "gif_bad_ext_file") {
+                val = "오류!<br>파일 형식이 잘못되었습니다.<br>GIF 파일 확장자만 허용됩니다!<br>"
+            }
+            if (val == "gif_big_file") {
+                val = "오류!<br>파일 크기가 30MB를 초과했습니다.<br>30MB GIF 파일만 지원됩니다!<br>"
+            }
+            if (val == "gif_bad_file") {
+                val = "오류!<br>파일을 읽는 동안 예기치 않은 오류가 발생했습니다.<br>올바른 연결 및 미디어를 확인하세요!<br>"
+            }
+
             if (val == "jpg_no_file") {
                 val = "경고!<br>JPG 파일을 선택하세요.<br>감사합니다!<br>"
             }
@@ -2460,6 +2564,19 @@
         }
         //it
         if (td_lng == 9) {
+            if (val == "gif_no_file") {
+                val = "Attenzione!<br>Selezionare un file GIF qualsiasi.<br>Grazie!<br>"
+            }
+            if (val == "gif_bad_ext_file") {
+                val = "Errore!<br>Tipo di file non corretto.<br>È consentita solo l'estensione GIF!<br>"
+            }
+            if (val == "gif_big_file") {
+                val = "Errore!<br>La dimensione del file ha superato i 30 MB.<br>Sono supportati solo i file GIF da 30 MB!<br>"
+            }
+            if (val == "gif_bad_file") {
+                val = "Errore!<br>Si è verificato un errore imprevisto durante la lettura del file.<br>Controllare la connessione e il supporto corretti!<br>"
+            }
+
             if (val == "jpg_no_file") {
                 val = "Attenzione!<br>Selezionare un file JPG qualsiasi.<br>Grazie!<br>"
             }

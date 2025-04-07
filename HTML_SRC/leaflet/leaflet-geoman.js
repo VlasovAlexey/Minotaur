@@ -2379,6 +2379,8 @@
             selectSecondLayerFor: "Изберете втори слой за {действие}"
         },
         actions: {
+            photo_jpg_load: "JPG",
+            photo_gif_load: "GIF",
             ovl_image_20: "20%",
             ovl_image_50: "50%",
             ovl_image_100: "100%",
@@ -2471,6 +2473,8 @@
             selectSecondLayerFor: "Select second layer for {action}"
         },
         actions: {
+            photo_jpg_load: "JPG",
+            photo_gif_load: "GIF",
             ovl_image_20: "20%",
             ovl_image_50: "50%",
             ovl_image_100: "100%",
@@ -2612,6 +2616,8 @@
             placeCircleMarker: "Clicca per posizionare un Marker del cherchio"
         },
         actions: {
+            photo_jpg_load: "JPG",
+            photo_gif_load: "GIF",
             ovl_image_20: "20%",
             ovl_image_50: "50%",
             ovl_image_100: "100%",
@@ -2750,6 +2756,8 @@
             placeCircleMarker: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u043A\u0440\u0443\u0433\u043E\u0432\u043E\u0439 \u043C\u0430\u0440\u043A\u0435\u0440"
         },
         actions: {
+            photo_jpg_load: "JPG",
+            photo_gif_load: "GIF",
             ovl_image_20: "20%",
             ovl_image_50: "50%",
             ovl_image_100: "100%",
@@ -2822,6 +2830,8 @@
             placeCircleMarker: "Presiona para colocar un marcador de c\xEDrculo"
         },
         actions: {
+            photo_jpg_load: "JPG",
+            photo_gif_load: "GIF",
             ovl_image_20: "20%",
             ovl_image_50: "50%",
             ovl_image_100: "100%",
@@ -2927,6 +2937,8 @@
             placeCircleMarker: "Cliquez pour placer le marqueur circulaire"
         },
         actions: {
+            photo_jpg_load: "JPG",
+            photo_gif_load: "GIF",
             ovl_image_20: "20%",
             ovl_image_50: "50%",
             ovl_image_100: "100%",
@@ -2997,6 +3009,8 @@
             placeCircleMarker: "\u70B9\u51FB\u653E\u7F6E\u5706\u5F62\u6807\u8BB0"
         },
         actions: {
+            photo_jpg_load: "JPG",
+            photo_gif_load: "GIF",
             ovl_image_20: "20%",
             ovl_image_50: "50%",
             ovl_image_100: "100%",
@@ -3103,6 +3117,8 @@
             placeText: "Clique para inserir texto"
         },
         actions: {
+            photo_jpg_load: "JPG",
+            photo_gif_load: "GIF",
             ovl_image_20: "20%",
             ovl_image_50: "50%",
             ovl_image_100: "100%",
@@ -3190,6 +3206,8 @@
             placeText: "Clique para colocar texto"
         },
         actions: {
+            photo_jpg_load: "JPG",
+            photo_gif_load: "GIF",
             ovl_image_20: "20%",
             ovl_image_50: "50%",
             ovl_image_100: "100%",
@@ -3722,6 +3740,8 @@
             placeText: "\uD14D\uC2A4\uD2B8 \uC704\uCE58\uB97C \uD074\uB9AD\uD558\uC138\uC694"
         },
         actions: {
+            photo_jpg_load: "JPG",
+            photo_gif_load: "GIF",
             ovl_image_20: "20%",
             ovl_image_50: "50%",
             ovl_image_100: "100%",
