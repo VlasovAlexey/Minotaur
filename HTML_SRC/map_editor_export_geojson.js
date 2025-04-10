@@ -59,6 +59,8 @@ function drawnItemsToJSON(ilayer) {
                     dOut2 = dOut2 + ',"OvlPt3":"' + ovl_marker3.getLatLng() + '"';
                 }
             };
+            
+            if ('iconPhoto' in ditems[iIndex].options) { if (!ditems[iIndex].options.iconPhoto !== null) { dOut2 = dOut2 + ',"iconPhoto":"' + ditems[iIndex].options.iconPhoto + '"'} };
             if ('rSv' in ditems[iIndex].options) { if (!ditems[iIndex].options.rSv !== null) { dOut2 = dOut2 + ',"rSv":"' + ditems[iIndex].options.rSv + '"'} };
             if ('text' in ditems[iIndex].options) { if (!ditems[iIndex].options.text !== null) { dOut2 = dOut2 + ',"name":"' + ditems[iIndex].options.text + '"'} };
             if ('depth' in ditems[iIndex].options) { if (!ditems[iIndex].options.depth !== null) { dOut2 = dOut2 + ',"depth":"' + ditems[iIndex].options.depth + '"'} };

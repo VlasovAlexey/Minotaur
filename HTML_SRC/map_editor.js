@@ -183,7 +183,7 @@ map_editor.addControl(importer_file);
 //import file button configuration
 var options = {
   button: document.getElementById("btn_import"),
-  position: 'topright', // Leaflet control position
+  position: 'middleleft', // Leaflet control position
   fileSizeLimit: 50024, // File size limit in kb (default: 1024 kb)
   style: () => {
     
@@ -215,25 +215,19 @@ map_editor.on("bfl:layerloaded", () => {
 
 map_editor.on("bfl:layerloaderror", ({layer}) => {
   del_html_elem("tn_overlay_text");
-	create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("geojson_bad_file"));
-	document.getElementById("AlertOverlay").style.height = "100%";
-	document.getElementById("AlertOverlay").style.opacity = "1";
+  notification.alert(plan_lng("ch_alert"), plan_lng("import_no_file"));
   Pbar_Hide();
 });
 
 map_editor.on("bfl:filenotsupported", ({layer}) => {
   del_html_elem("tn_overlay_text");
-	create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("geojson_bad_ext_file"));
-	document.getElementById("AlertOverlay").style.height = "100%";
-	document.getElementById("AlertOverlay").style.opacity = "1";
+  notification.alert(plan_lng("ch_alert"), plan_lng("import_bad_ext_file"));
 	Pbar_Hide();
 });
 
 map_editor.on("bfl:filesizelimit", ({file}) => {
   del_html_elem("tn_overlay_text");
-	create_html_text("tn_overlay_text", "opt_overlay_text", plan_lng("geojson_big_file"));
-	document.getElementById("AlertOverlay").style.height = "100%";
-	document.getElementById("AlertOverlay").style.opacity = "1";
+  notification.alert(plan_lng("ch_alert"), plan_lng("import_big_file"));
 	Pbar_Hide();
 });
 map_editor.pm.Toolbar.setBlockPosition("custom", "topright");

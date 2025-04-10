@@ -114,7 +114,7 @@ function ovl_image_default(){
         point3 = [map_editor.getBounds().getSouth(), map_editor.getBounds().getWest()];
 
         var	bounds = new L.LatLngBounds(point1, point2).extend(point3);
-        map_editor.fitBounds(bounds, {padding: [10,10]});
+        map_editor.fitBounds(bounds, {padding: [100,100]});
         ovl_create_layer();
         ovl_image_status = 1;
     }

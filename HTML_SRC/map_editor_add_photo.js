@@ -43,7 +43,7 @@ document.querySelector("#photo_jpg_file").addEventListener('change', function() 
 	// file reading finished successfully
 	reader.addEventListener('load', function(e) {
         photo_image_jpg_res = reader.result;
-        create_custom_image_marker(photo_image_jpg_res);
+        create_custom_image_marker(photo_image_jpg_res, map_editor.getCenter());
 	});
 
 	// file reading failed
@@ -100,7 +100,7 @@ document.querySelector("#photo_gif_file").addEventListener('change', function() 
 	// file reading finished successfully
 	reader.addEventListener('load', function(e) {
         photo_image_gif_res = reader.result;
-        create_custom_image_marker(photo_image_gif_res);
+        create_custom_image_marker(photo_image_gif_res, map_editor.getCenter());
 	});
 
 	// file reading failed
@@ -170,17 +170,17 @@ function onClick(e) {
     //alert(e.latlng);
 }
 
-function create_custom_image_marker(photo_image_jpg_res){
+function create_custom_image_marker(photo_image_jpg_res, LatLon_rs){
     var Icon = L.icon({
         iconUrl: icon_photo_marker,
         iconSize: [24, 41],
         iconAnchor: [12, 0],
       });
-      var marker_photo = L.marker(map_editor.getCenter(), {
+      var marker_photo =  L.marker(LatLon_rs, {
             icon: Icon,
             draggable: true,
             permanent: true,
-			iconPhoto: icon_photo_marker,
+			iconPhoto: photo_image_jpg_res,
         })
       
         marker_photo.bindTooltip(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">` , {

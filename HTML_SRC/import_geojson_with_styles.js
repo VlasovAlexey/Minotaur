@@ -91,6 +91,12 @@ function geojson_styled_import(e, type){
 		var layers = loaded_data.getLayers();
 		
 		for (var i = 0; i < layers.length; i++) {
+			//create photo and gif markers
+			if (layers[i].feature.properties.iconPhoto != undefined){
+				create_custom_image_marker(layers[i].feature.properties.iconPhoto, [layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]]);
+				map_editor.removeLayer(layers[i]);
+			}
+				//create overlay markers and layer
 				if (layers[i].feature.properties.rSv == "1"){
 					point1 = [layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]];
 					
@@ -161,7 +167,6 @@ function geojson_styled_import(e, type){
 						} else {
 							new L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {icon: Icon}).addTo(map_editor);
 						}
-						
 						map_editor.removeLayer(layers[i]);
 					}
 				}
