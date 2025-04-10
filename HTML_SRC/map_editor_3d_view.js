@@ -24,8 +24,10 @@ map_editor.pm.Toolbar.createCustomControl({
 
 function draw_3d(){
   if(view_3d_status == 1){
+    getSizeFor3D();
     document.getElementsByClassName('draw_3d_window')[0].style.display = 'none';
   } else {
+    getSizeFor3D();
     finish_line_map_editor();
     document.getElementsByClassName('draw_3d_window')[0].style.display = 'block';
   }
@@ -45,6 +47,7 @@ L.window = L.Control.extend({
       //window class and id
       container.className = "draw_3d_window";
       container.id = "draw_3d_window";
+      container.style = "z-index: -100 !important;";
       var table_1 = ''
       container.innerHTML = table_1;
       //container.title = "Title";
@@ -61,8 +64,8 @@ document.getElementsByClassName('draw_3d_window')[0].style.display = 'none';
 
 //watching leaflet map current size
 function getSizeFor3D() {
-  var scale_x = Math.round(0.75 * document.getElementsByClassName('map_editor')[0].offsetWidth);
-  var scale_y = Math.round(0.9 * document.getElementsByClassName('map_editor')[0].offsetHeight);
+  var scale_x = Math.round(1.0 * document.getElementsByClassName('map_editor')[0].offsetWidth);
+  var scale_y = Math.round(1.0 * document.getElementsByClassName('map_editor')[0].offsetHeight);
   document.getElementsByClassName('draw_3d_window')[0].style.width = (scale_x.toString()) + "px";
   document.getElementsByClassName('draw_3d_window')[0].style.height = (scale_y.toString()) + "px";
 

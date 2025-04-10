@@ -119,6 +119,7 @@ var map_editor = L.map('map_editor', {
   center: [c_lat, c_lon],
   maxZoom: 25,
   zoom: 18,
+  zoomSnap: 0.01,
   //add context menu
   contextmenu: false,
   contextmenuWidth: 140,

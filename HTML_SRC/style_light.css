@@ -1145,3 +1145,7 @@ input[type=range] {
     width: 100px;
     height: auto;
 }
+
+.leaflet-middle.leaflet-center {
+    z-index: 800;
+}

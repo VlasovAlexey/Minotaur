@@ -155,12 +155,12 @@ function onClick(e) {
 	//console.log(document.getElementsByClassName(tooltip)[1].style.width)
 	for (var i = 0; i < document.getElementsByClassName(tooltip).length; i++) {
 		if(document.getElementsByClassName(tooltip)[i] != undefined){
-			if(document.getElementsByClassName(tooltip)[i].style.width == `500px`){
+			if(document.getElementsByClassName(tooltip)[i].style.width == `250px`){
 				document.getElementsByClassName(tooltip)[i].style.width = '100px';
 				document.getElementsByClassName(tooltip)[i].style.height = 'auto';
 				
 			} else {
-				document.getElementsByClassName(tooltip)[i].style.width = '500px';
+				document.getElementsByClassName(tooltip)[i].style.width = '250px';
 				document.getElementsByClassName(tooltip)[i].style.height = 'auto';
 		
 			}
@@ -180,14 +180,14 @@ function create_custom_image_marker(photo_image_jpg_res){
             icon: Icon,
             draggable: true,
             permanent: true,
-			iconPhoto: "true",
-        }).addTo(map_editor).on('click', onClick);
+			iconPhoto: icon_photo_marker,
+        })
       
         marker_photo.bindTooltip(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">` , {
         permanent: true,
         direction: "top",
         className: "photo-tooltip"
-    }).openTooltip()
+    }).openTooltip().addTo(map_editor).on('click', onClick);
       //marker_photo.bindPopup(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">`).openPopup();
       map_editor.fitBounds(map_editor.getBounds(), {padding: [1.1,1.1]});
 };

@@ -1138,6 +1138,7 @@ input[type=range] {
 	text-align: center;
 	text-decoration: none;
 	color: black;
+    
 }
 
 .window_table_3d_main {
@@ -1171,4 +1172,8 @@ input[type=range] {
 .marker_photo_img {
     width: 100px;
     height: auto;
+}
+
+.leaflet-middle.leaflet-center {
+    z-index: 800;
 }
