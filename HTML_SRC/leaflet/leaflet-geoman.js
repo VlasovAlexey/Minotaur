@@ -2479,7 +2479,7 @@
             ovl_image_50: "50%",
             ovl_image_100: "100%",
             ovl_image_load: "Clear",
-            ovl_image_clear: "Load Image",
+            ovl_image_clear: "JPG",
             measure_clear: "Clear",
             layer_copy:"Copy",
             layer_optimize_1: "Low",
