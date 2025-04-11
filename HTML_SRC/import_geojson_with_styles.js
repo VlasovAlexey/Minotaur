@@ -114,7 +114,7 @@ function geojson_styled_import(e, type){
 				}
 				//debug only
 				if (layers[i].feature.properties.depth_polyline != undefined){
-					console.log(layers[i].feature.properties.depth_polyline);
+					//console.log(layers[i].feature.properties.depth_polyline);
 				}
 				
 				//setup loaded markers

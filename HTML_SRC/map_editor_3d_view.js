@@ -74,21 +74,21 @@ function getSizeFor3D() {
 getSizeFor3D();
 window.addEventListener("resize", getSizeFor3D);
 
-function create3D_Lines(scale_x){
-  var pointCount = 300;
-  var i, r;
-  var x = [];
-  var y = [];
-  var z = [];
-  var c = [];
-  for (i = 0; i < pointCount; i++) {
-	  r = 10 * Math.cos(i / 10);
-	  x.push(r * Math.cos(i*0.01));
-	  y.push(r * Math.sin(i*0.01));
-	  z.push(i);
-	  //c.push(i);
-  }
+function min_max_arr(array_z) {
+	var tmp_arr = [];
+	var min = array_z[0];
+	var max = array_z[0];
+	for (i = 0; i < array_z.length; i++) {
+		if ( min > array_z[i]) {min = array_z[i];}
+		if ( max < array_z[i]) {max = array_z[i];}
+	}
+	tmp_arr.push(min , max);
+	return tmp_arr;
+}
 
+function plotly_3d_line(x,y,z,color_r){
+  var fin_arr = [];
+  
   //compute min/max value for color gradient
 	var color_max = z[0] + 1;
 	var color_min = z[0] - 1;
@@ -108,13 +108,147 @@ function create3D_Lines(scale_x){
 		color_max = z[0] + Math.abs(z[0] - color_min);
 	}
 
+  fin_arr =
+    {
+      type: "scatter3d",
+      mode: "lines+markers",
+      x: x,
+      y: y,
+      z: z,
+      line: {
+        width: 6,
+        //color: z,
+        color: color_r,
+        //colorscale: "Minotaur_colored",
+        //cmin: color_min,
+        //cmax: color_max
+      },
+      marker: {
+        size: 5,
+        //color: z,
+        color: color_r,
+        //colorscale: "Minotaur_colored",
+        //cmin: color_min,
+        //cmax: color_max
+      }
+    }
+  return fin_arr;
+}
+
+//convert hex color to rgba
+function hexToRgbA(hex){
+  if(hex == "black"){hex = "#000"}
+  var c;
+  if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+      c= hex.substring(1).split('');
+      if(c.length== 3){
+          c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+      }
+      c= '0x'+c.join('');
+      return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',1)';
+  }
+  throw new Error('Bad Hex');
+}
+
+function create3D_Lines(scale_x){
+  //collect all existing paths and markers
+  var layers = new L.featureGroup();
+  map_editor.eachLayer(function (layer) {
+    if (layer instanceof L.Path) {
+      layers.addLayer(layer);
+    } else {
+      if (layer instanceof L.Marker) {
+        layers.addLayer(layer);
+      }
+    }
+  });
+  layers = layers.getLayers();
+  //combining data to plotly
+  var data_plotly = [];
+  var color_r;
+  //for aspect calculation
+  var x_as = [];
+  var y_as = [];
+  //var z_as = [];
+  for (var i = 0; i < layers.length; i++) {
+    //found polygon
+    if(layers[i] instanceof L.Polygon && layers[i]._latlngs[0][0].lng != undefined){
+      x = [];
+      y = [];
+      z = [];
+      //console.log("Polygon");
+      for (ll = 0; ll < layers[i]._latlngs[0].length; ll++) {
+        x.push(layers[i]._latlngs[0][ll].lng);
+        y.push(layers[i]._latlngs[0][ll].lat);
+        z.push(0.0);
+
+        x_as.push(layers[i]._latlngs[0][ll].lng);
+        y_as.push(layers[i]._latlngs[0][ll].lat);
+      };
+      x.push(layers[i]._latlngs[0][0].lng);
+      y.push(layers[i]._latlngs[0][0].lat);
+      z.push(0.0);
+
+      x_as.push(layers[i]._latlngs[0][0].lng);
+      y_as.push(layers[i]._latlngs[0][0].lat);
+      
+      color_r = hexToRgbA(layers[i].options.color);
+      data_plotly.push(plotly_3d_line(x,y,z,color_r));
+    }
+    //founded polyline
+    if(layers[i] instanceof L.Polyline && layers[i]._latlngs[0].lng != undefined){
+      x = [];
+      y = [];
+      z = [];
+      var dp = [];
+      //console.log("Polyline");
+      
+      if(layers[i].options.depth_polyline != undefined){
+        console.log(layers[i].options.depth_polyline);
+        dp = (layers[i].options.depth_polyline).toString().split(",");
+      }
+      for (ll = 0; ll < layers[i]._latlngs.length; ll++) {
+        x.push(layers[i]._latlngs[ll].lng);
+        y.push(layers[i]._latlngs[ll].lat);
+        if(layers[i].options.depth_polyline != undefined){
+          z.push(parseFloat(-1.0 * dp[ll]));
+        } else {
+          z.push(0.0);
+        }
+
+        x_as.push(layers[i]._latlngs[ll].lng);
+        y_as.push(layers[i]._latlngs[ll].lat);
+        
+      };
+      color_r = hexToRgbA(layers[i].options.color);
+      data_plotly.push(plotly_3d_line(x,y,z,color_r));
+    }
+  }
+  
+  //compute aspect for proper 3d lines proportions
+	var x_tmp = min_max_arr(x_as);
+	var y_tmp = min_max_arr(y_as);
+	var x_aspect = 1.0;
+	var y_aspect = 1.0;
+	
+	x_tmp = x_tmp[1] - x_tmp[0];
+	y_tmp = y_tmp[1] - y_tmp[0];
+	
+	if ((x_tmp/y_tmp) > 1) {
+		y_aspect = 1;
+		x_aspect = ((y_tmp/x_tmp));
+	}
+	if ((x_tmp/y_tmp) < 1) {
+		x_aspect = 1;
+		y_aspect = ((x_tmp/y_tmp));
+	}
+
+  //build layout for 3d scene
   layout = {
     //autosize: true,
     scene: {
       aspectmode: "manual",
-      //aspectratio: {x: y_aspect, y: x_aspect, z: 0.3},
-      //aspectmode: "cube",
-      //aspectmode: "data",
+      aspectratio: {x: y_aspect, y: x_aspect, z: 0.2},
       bgcolor: "#ffffff",
       xaxis: {
         //mirror: "true",
@@ -160,30 +294,5 @@ function create3D_Lines(scale_x){
   var config = {
 		displayModeBar: false // this is the line that hides the bar.
 	};
-	Plotly.newPlot("draw_3d_window", [{
-		type: "scatter3d",
-		//mode: "lines+markers",
-		mode: "lines+markers",
-		x: x,
-		y: y,
-		z: z,
-		line: {
-			width: 6,
-			//color: ["rgb(255,0,0)","#ffff00","#00ff00"],
-			//color_discrete_map: "identity",
-			color: z,
-			colorscale: "Minotaur_colored",
-			cmin: color_min,
-			cmax: color_max
-		},
-		marker: {
-			size: 3,
-			//color: ["rgb(255,0,0)","#ffff00","#00ff00"],
-			//color_discrete_map: "identity",
-			color: z,
-			colorscale: "Minotaur_colored",
-			cmin: color_min,
-			cmax: color_max
-		}
-	}, ], layout, config);
+	Plotly.newPlot("draw_3d_window", data_plotly, layout, config);
 }

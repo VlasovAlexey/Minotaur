@@ -279,18 +279,6 @@ function gpx_file_to_arr(gpx_file){
 	}
 }
 
-function min_max_arr(array_z) {
-	var tmp_arr = [];
-	var min = array_z[0];
-	var max = array_z[0];
-	for (i = 0; i < array_z.length; i++) {
-		if ( min > array_z[i]) {min = array_z[i];}
-		if ( max < array_z[i]) {max = array_z[i];}
-	}
-	tmp_arr.push(min , max);
-	return tmp_arr;
-}
-
 //draw gps tracks chart
 //del_html_elem("trackChart");
 var pointCount = 300;
