@@ -187,9 +187,8 @@ function geojson_styled_import(e, type){
 				}
 			  }).addTo(map_editor);
 			*/
+		map_editor.fitBounds(loaded_data.getBounds({padding: [1,1]}));
 
-		map_editor.fitBounds(loaded_data.getBounds());
-		
 		//finish loading data to the map editor
 		Pbar_Hide();
 	}, 1000);

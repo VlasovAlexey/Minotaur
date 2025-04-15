@@ -69,7 +69,21 @@ function getSizeFor3D() {
   document.getElementsByClassName('draw_3d_window')[0].style.width = (scale_x.toString()) + "px";
   document.getElementsByClassName('draw_3d_window')[0].style.height = (scale_y.toString()) + "px";
 
-  create3D_Lines(scale_x);
+  //3d view tool is opened
+  //Show progress bar
+	setTimeout(function() {
+    document.getElementById("Overlay_progress").style.height = "100%";
+    document.getElementById("Overlay_progress").style.opacity = "1";
+  }, 20);
+
+	setTimeout(function() {
+    create3D_Lines(scale_x); 
+  //finish loading data to the map editor
+  setTimeout(function() {
+		document.getElementById("Overlay_progress").style.height = "0%";
+		document.getElementById("Overlay_progress").style.opacity = "0";
+	}, 200);
+}, 200);
 }
 getSizeFor3D();
 window.addEventListener("resize", getSizeFor3D);
@@ -124,7 +138,7 @@ function plotly_3d_line(x,y,z,color_r){
         //cmax: color_max
       },
       marker: {
-        size: 5,
+        size: 3,
         //color: z,
         color: color_r,
         //colorscale: "Minotaur_colored",
@@ -172,56 +186,66 @@ function create3D_Lines(scale_x){
   //var z_as = [];
   for (var i = 0; i < layers.length; i++) {
     //found polygon
-    if(layers[i] instanceof L.Polygon && layers[i]._latlngs[0][0].lng != undefined){
-      x = [];
-      y = [];
-      z = [];
-      //console.log("Polygon");
-      for (ll = 0; ll < layers[i]._latlngs[0].length; ll++) {
-        x.push(layers[i]._latlngs[0][ll].lng);
-        y.push(layers[i]._latlngs[0][ll].lat);
-        z.push(0.0);
-
-        x_as.push(layers[i]._latlngs[0][ll].lng);
-        y_as.push(layers[i]._latlngs[0][ll].lat);
-      };
-      x.push(layers[i]._latlngs[0][0].lng);
-      y.push(layers[i]._latlngs[0][0].lat);
-      z.push(0.0);
-
-      x_as.push(layers[i]._latlngs[0][0].lng);
-      y_as.push(layers[i]._latlngs[0][0].lat);
-      
-      color_r = hexToRgbA(layers[i].options.color);
-      data_plotly.push(plotly_3d_line(x,y,z,color_r));
-    }
-    //founded polyline
-    if(layers[i] instanceof L.Polyline && layers[i]._latlngs[0].lng != undefined){
-      x = [];
-      y = [];
-      z = [];
-      var dp = [];
-      //console.log("Polyline");
-      
-      if(layers[i].options.depth_polyline != undefined){
-        console.log(layers[i].options.depth_polyline);
-        dp = (layers[i].options.depth_polyline).toString().split(",");
-      }
-      for (ll = 0; ll < layers[i]._latlngs.length; ll++) {
-        x.push(layers[i]._latlngs[ll].lng);
-        y.push(layers[i]._latlngs[ll].lat);
-        if(layers[i].options.depth_polyline != undefined){
-          z.push(parseFloat(-1.0 * dp[ll]));
-        } else {
+    
+    if(layers[i]._latlngs != undefined){
+      if(layers[i]._latlngs.length > 0){
+        //console.log(layers[i]._latlngs)
+        if(layers[i] instanceof L.Polygon && layers[i]._latlngs[0][0].lng != undefined){
+          x = [];
+          y = [];
+          z = [];
+          //console.log("Polygon");
+          for (ll = 0; ll < layers[i]._latlngs[0].length; ll++) {
+            x.push(layers[i]._latlngs[0][ll].lng);
+            y.push(layers[i]._latlngs[0][ll].lat);
+            z.push(0.0);
+    
+            x_as.push(layers[i]._latlngs[0][ll].lng);
+            y_as.push(layers[i]._latlngs[0][ll].lat);
+          };
+          x.push(layers[i]._latlngs[0][0].lng);
+          y.push(layers[i]._latlngs[0][0].lat);
           z.push(0.0);
+    
+          x_as.push(layers[i]._latlngs[0][0].lng);
+          y_as.push(layers[i]._latlngs[0][0].lat);
+          
+          color_r = hexToRgbA(layers[i].options.color);
+          data_plotly.push(plotly_3d_line(x,y,z,color_r));
         }
-
-        x_as.push(layers[i]._latlngs[ll].lng);
-        y_as.push(layers[i]._latlngs[ll].lat);
-        
-      };
-      color_r = hexToRgbA(layers[i].options.color);
-      data_plotly.push(plotly_3d_line(x,y,z,color_r));
+      }
+    }
+    
+    //founded polyline
+    if(layers[i]._latlngs != undefined){
+      if(layers[i]._latlngs.length > 0){
+        if(layers[i] instanceof L.Polyline && layers[i]._latlngs[0].lng != undefined){
+          x = [];
+          y = [];
+          z = [];
+          var dp = [];
+          //console.log("Polyline");
+          if(layers[i].options.depth_polyline != undefined){
+            console.log(layers[i].options.depth_polyline);
+            dp = (layers[i].options.depth_polyline).toString().split(",");
+          }
+          for (ll = 0; ll < layers[i]._latlngs.length; ll++) {
+            x.push(layers[i]._latlngs[ll].lng);
+            y.push(layers[i]._latlngs[ll].lat);
+            if(layers[i].options.depth_polyline != undefined){
+              z.push(parseFloat(-1.0 * dp[ll]));
+            } else {
+              z.push(0.0);
+            }
+    
+            x_as.push(layers[i]._latlngs[ll].lng);
+            y_as.push(layers[i]._latlngs[ll].lat);
+            
+          };
+          color_r = hexToRgbA(layers[i].options.color);
+          data_plotly.push(plotly_3d_line(x,y,z,color_r));
+        }
+      }
     }
   }
   

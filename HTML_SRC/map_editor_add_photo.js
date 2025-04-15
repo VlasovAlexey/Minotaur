@@ -167,27 +167,24 @@ function onClick(e) {
 		}
 	}
     map_editor.fitBounds(map_editor.getBounds(), {padding: [1.1,1.1]});
-    //alert(e.latlng);
 }
 
 function create_custom_image_marker(photo_image_jpg_res, LatLon_rs){
     var Icon = L.icon({
         iconUrl: icon_photo_marker,
-        iconSize: [24, 41],
-        iconAnchor: [12, 0],
+        iconSize: [28, 28],
+        iconAnchor: [14, 14],
       });
       var marker_photo =  L.marker(LatLon_rs, {
             icon: Icon,
             draggable: true,
-            permanent: true,
 			iconPhoto: photo_image_jpg_res,
         })
       
         marker_photo.bindTooltip(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">` , {
-        permanent: true,
+        //permanent: true,
         direction: "top",
         className: "photo-tooltip"
-    }).openTooltip().addTo(map_editor).on('click', onClick);
-      //marker_photo.bindPopup(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">`).openPopup();
-      map_editor.fitBounds(map_editor.getBounds(), {padding: [1.1,1.1]});
+    }).addTo(map_editor).on('click', onClick).openTooltip();
+    //marker_photo.bindPopup(`<img src="` + photo_image_jpg_res + `" class="marker_photo_img">`).openPopup();
 };
