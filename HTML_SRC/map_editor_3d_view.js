@@ -1,5 +1,7 @@
 //Add custom path
 var view_3d_status = 0;
+var scale_x,scale_y
+
 map_editor.pm.Toolbar.createCustomControl({
   block: "custom",
   name: "view_3d",
@@ -29,6 +31,21 @@ function draw_3d(){
   } else {
     document.getElementsByClassName('draw_3d_window')[0].style.display = 'block';
     getSizeFor3D();
+    //3d view tool is opened
+  //Show progress bar
+	setTimeout(function() {
+    document.getElementById("Overlay_progress").style.height = "100%";
+    document.getElementById("Overlay_progress").style.opacity = "1";
+  }, 20);
+
+	setTimeout(function() {
+    create3D_Lines(scale_x); 
+  //finish loading data to the map editor
+  setTimeout(function() {
+		document.getElementById("Overlay_progress").style.height = "0%";
+		document.getElementById("Overlay_progress").style.opacity = "0";
+	}, 200);
+}, 200);
   }
 }
 
@@ -63,30 +80,14 @@ document.getElementsByClassName('draw_3d_window')[0].style.display = 'none';
 
 //watching leaflet map current size
 function getSizeFor3D() {
-  var scale_x = Math.round(1.0 * document.getElementsByClassName('map_editor')[0].offsetWidth);
-  var scale_y = Math.round(1.0 * document.getElementsByClassName('map_editor')[0].offsetHeight);
+  scale_x = Math.round(1.0 * document.getElementsByClassName('map_editor')[0].offsetWidth);
+  scale_y = Math.round(1.0 * document.getElementsByClassName('map_editor')[0].offsetHeight);
   document.getElementsByClassName('draw_3d_window')[0].style.width = (scale_x.toString()) + "px";
   document.getElementsByClassName('draw_3d_window')[0].style.height = (scale_y.toString()) + "px";
 
-  //3d view tool is opened
-  //Show progress bar
-	setTimeout(function() {
-    document.getElementById("Overlay_progress").style.height = "100%";
-    document.getElementById("Overlay_progress").style.opacity = "1";
-  }, 20);
-
-	setTimeout(function() {
-    create3D_Lines(scale_x); 
-  //finish loading data to the map editor
-  setTimeout(function() {
-		document.getElementById("Overlay_progress").style.height = "0%";
-		document.getElementById("Overlay_progress").style.opacity = "0";
-	}, 200);
-}, 200);
 }
-
-getSizeFor3D();
-//window.addEventListener("resize", getSizeFor3D);
+//getSizeFor3D();
+window.addEventListener("resize", getSizeFor3D);
 
 function min_max_arr(array_z) {
 	var tmp_arr = [];
