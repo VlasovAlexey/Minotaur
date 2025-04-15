@@ -24,12 +24,11 @@ map_editor.pm.Toolbar.createCustomControl({
 
 function draw_3d(){
   if(view_3d_status == 1){
-    getSizeFor3D();
+    //getSizeFor3D();
     document.getElementsByClassName('draw_3d_window')[0].style.display = 'none';
   } else {
-    getSizeFor3D();
-    finish_line_map_editor();
     document.getElementsByClassName('draw_3d_window')[0].style.display = 'block';
+    getSizeFor3D();
   }
 }
 
@@ -85,8 +84,9 @@ function getSizeFor3D() {
 	}, 200);
 }, 200);
 }
+
 getSizeFor3D();
-window.addEventListener("resize", getSizeFor3D);
+//window.addEventListener("resize", getSizeFor3D);
 
 function min_max_arr(array_z) {
 	var tmp_arr = [];
