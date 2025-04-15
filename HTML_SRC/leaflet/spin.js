@@ -256,7 +256,7 @@ merge(Spinner.prototype, {
       }
 
       var margin = -(o.width+o.length)*2+'px';
-      var g = css(grp(), {position: 'absolute', top: margin, left: margin});
+      var g = css(grp(), {position: 'absolute', top: margin, left: margin, zIndex: 9999999999});
 
       var i;
 

@@ -75,7 +75,6 @@ upd_all();
 //Show progress bar
 var f_start = 1;
 
-/*
 var opt_spin = {
 	lines: 10, // The number of lines to draw
 	length: 23, // The length of each line
@@ -96,7 +95,7 @@ var opt_spin = {
 	className: 'spinner', // The CSS class to assign to the spinner
 	position: 'absolute', // Element positioning
 };
-*/
+
 function Pbar_Show() {
 	//map_editor.spin(true, {lines: 12, color: '#eeeeee', fadeColor: '#555',radius: 20});
 	if (f_start == 1) {

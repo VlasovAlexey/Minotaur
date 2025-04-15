@@ -29,23 +29,26 @@ function draw_3d(){
     //getSizeFor3D();
     document.getElementsByClassName('draw_3d_window')[0].style.display = 'none';
   } else {
+    map_editor.spin(true, {lines: 18, color: '#166bff', fadeColor: '#555',radius: 20})
     document.getElementsByClassName('draw_3d_window')[0].style.display = 'block';
     getSizeFor3D();
     //3d view tool is opened
-  //Show progress bar
-	setTimeout(function() {
-    document.getElementById("Overlay_progress").style.height = "100%";
-    document.getElementById("Overlay_progress").style.opacity = "1";
-  }, 20);
+    //Show progress bar
+	  setTimeout(function() {
+      //document.getElementById("Overlay_progress").style.height = "100%";
+      //document.getElementById("Overlay_progress").style.opacity = "1";
+    }, 20);
 
-	setTimeout(function() {
-    create3D_Lines(scale_x); 
-  //finish loading data to the map editor
-  setTimeout(function() {
-		document.getElementById("Overlay_progress").style.height = "0%";
-		document.getElementById("Overlay_progress").style.opacity = "0";
-	}, 200);
-}, 200);
+	  setTimeout(function() {
+      create3D_Lines(scale_x); 
+      //finish loading data to the map editor
+      setTimeout(function() {
+		    //document.getElementById("Overlay_progress").style.height = "0%";
+		    //document.getElementById("Overlay_progress").style.opacity = "0";
+        map_editor.spin(false)
+	    }, 200);
+    }, 200);
+    
   }
 }
 
@@ -227,7 +230,7 @@ function create3D_Lines(scale_x){
           var dp = [];
           //console.log("Polyline");
           if(layers[i].options.depth_polyline != undefined){
-            console.log(layers[i].options.depth_polyline);
+            //console.log(layers[i].options.depth_polyline);
             dp = (layers[i].options.depth_polyline).toString().split(",");
           }
           for (ll = 0; ll < layers[i]._latlngs.length; ll++) {
