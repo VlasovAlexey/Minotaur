@@ -17,7 +17,7 @@ function openLnkWrn() {
 
 function share_plan_link_gen(){
     //add to var for plan sharing link
-    link_buffer = host_name + "?:mtr=3:"
+    link_buffer = host_name + "?:mtr=100:"
 
     //get styled geojson from map editor
     var allLayers = new L.featureGroup();
@@ -40,24 +40,25 @@ function share_plan_link_gen(){
     }
     return link_buffer;
 }
+function welcome_scr(){
+    del_html_elem("tn_overlay_text_URL");
+    create_html_text("tn_overlay_text_URL", "opt_overlay_text_URL", plan_lng("ch_lnkClipboard_URL"));
+    document.getElementById("AlertOverlay_URL").style.height = "100%";
+    document.getElementById("AlertOverlay_URL").style.opacity = "1";
+}
+
 function check_data_URL(){
     if(url_arr.indexOf("?:mtr=1:") != -1){
-        del_html_elem("tn_overlay_text_URL");
-        create_html_text("tn_overlay_text_URL", "opt_overlay_text_URL", plan_lng("ch_lnkClipboard_URL"));
-        document.getElementById("AlertOverlay_URL").style.height = "100%";
-        document.getElementById("AlertOverlay_URL").style.opacity = "1";
+        welcome_scr();
     }
     if(url_arr.indexOf("?:mtr=2:") != -1){
-        del_html_elem("tn_overlay_text_URL");
-        create_html_text("tn_overlay_text_URL", "opt_overlay_text_URL", plan_lng("ch_lnkClipboard_URL"));
-        document.getElementById("AlertOverlay_URL").style.height = "100%";
-        document.getElementById("AlertOverlay_URL").style.opacity = "1";
+        welcome_scr();
     }
     if(url_arr.indexOf("?:mtr=3:") != -1){
-        del_html_elem("tn_overlay_text_URL");
-        create_html_text("tn_overlay_text_URL", "opt_overlay_text_URL", plan_lng("ch_lnkClipboard_URL"));
-        document.getElementById("AlertOverlay_URL").style.height = "100%";
-        document.getElementById("AlertOverlay_URL").style.opacity = "1";
+        welcome_scr();
+    }
+    if(url_arr.indexOf("?:mtr=100:") != -1){
+        welcome_scr();
     }
 }
 check_data_URL();
@@ -79,7 +80,7 @@ function paste_link(){
 	if(url_arr.length > 5){
 	   url_arr = url_arr.split(":");
 	}
-    if(url_arr[1] == "mtr=3"){
+    if(url_arr[1] == "mtr=100"){
         geojson_styled_import(atob(url_arr[2]), 1);
         document.getElementById("7-header").click();
         map_editor.toggleFullscreen();
@@ -89,6 +90,9 @@ function paste_link(){
     }
     if(url_arr[1] == "mtr=2"){
         loadFile(host_name + 'example_maps/El_Brinco_2_cave_Matanzas_Cuba.geojson');
+    }
+    if(url_arr[1] == "mtr=3"){
+        loadFile(host_name + 'example_maps/Cristales_de_Papaya_Caletones_Holguin_Cuba.geojson');
     }
 }
 
