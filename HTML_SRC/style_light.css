@@ -1149,3 +1149,8 @@ input[type=range] {
 .leaflet-middle.leaflet-center {
     z-index: 800;
 }
+
+/*plotly icons bar pos */
+.js-plotly-plot .plotly .modebar{
+    left: 40%;
+}

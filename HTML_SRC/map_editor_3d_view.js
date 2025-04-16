@@ -33,22 +33,14 @@ function draw_3d(){
     document.getElementsByClassName('draw_3d_window')[0].style.display = 'block';
     getSizeFor3D();
     //3d view tool is opened
-    //Show progress bar
-	  setTimeout(function() {
-      //document.getElementById("Overlay_progress").style.height = "100%";
-      //document.getElementById("Overlay_progress").style.opacity = "1";
-    }, 20);
-
+  
 	  setTimeout(function() {
       create3D_Lines(scale_x); 
       //finish loading data to the map editor
       setTimeout(function() {
-		    //document.getElementById("Overlay_progress").style.height = "0%";
-		    //document.getElementById("Overlay_progress").style.opacity = "0";
         map_editor.spin(false)
-	    }, 200);
-    }, 200);
-    
+	    }, 100);
+    }, 100);   
   }
 }
 
@@ -237,7 +229,11 @@ function create3D_Lines(scale_x){
             x.push(layers[i]._latlngs[ll].lng);
             y.push(layers[i]._latlngs[ll].lat);
             if(layers[i].options.depth_polyline != undefined){
-              z.push(parseFloat(-1.0 * dp[ll]));
+              if(parseFloat(dp[ll]) >= 0){
+                z.push(parseFloat(-1.0 * dp[ll]));
+              } else {
+                z.push(parseFloat(dp[ll]));
+              }
             } else {
               z.push(0.0);
             }
@@ -283,7 +279,7 @@ function create3D_Lines(scale_x){
         color: "#202020",
         spikecolor: "#ff0000",
         title: plan_lng("gps_lat"),
-        autorange: "reversed",
+        //autorange: "reversed",
         backgroundcolor: "#ebc5c1",
         gridcolor: "rgb(255, 255, 255)",
         showbackground: true,
@@ -320,7 +316,9 @@ function create3D_Lines(scale_x){
     }
   };
   var config = {
-		displayModeBar: false // this is the line that hides the bar.
+		displayModeBar: true, // this is the line that hides the bar.
+    scrollZoom: true,
+    displaylogo: false,
 	};
 	Plotly.newPlot("draw_3d_window", data_plotly, layout, config);
 }
