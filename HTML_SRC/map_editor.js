@@ -532,29 +532,54 @@ map_editor.pm.Toolbar.createCustomControl({
 //line_status - true if we need one polyline. if false - we build line by small part from point to point
 function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 	//build data for leaflet geojson layers
-	var myLines = [];
   if(line_status == "false"){
     for (i = 0; i < xy_arr.length - 1; i++) {
+      myLines = [];
       //line with two points
       myLines.push({
         "type": "LineString",
-        "properties": {"color": color_line},
+        //"properties": {"color": color_line},
         "coordinates": [[xy_arr[i][1],xy_arr[i][0]] , [xy_arr[i+1][1],xy_arr[i+1][0]]]
       });
+
+      currentgeojson = L.geoJson(myLines, {
+        depth_polyline: [z_arr[i], z_arr[i+1]],
+        style: style,
+        onEachFeature: function (feature, layer) {
+          layer.on({  
+            click: function(e){
+              layer_styling(layer, true);
+            }
+          });
+        }
+    }).addTo(map_editor);
     }
   }
 
   if(line_status == "true") {
-    var xy_arr_done = []
+    var myLines = [];
+    var xy_arr_done = [];
     for (i = 0; i < xy_arr.length; i++) {
       xy_arr_done.push([xy_arr[i][1],xy_arr[i][0]]);
     }
       //one big line
       myLines.push({
         "type": "LineString",
-        "properties": {"color": color_line},
+        //"properties": {"color": color_line},
         "coordinates": xy_arr_done
       });
+
+      currentgeojson = L.geoJson(myLines, {
+        depth_polyline: z_arr,
+        style: style,
+        onEachFeature: function (feature, layer) {
+          layer.on({  
+            click: function(e){
+              layer_styling(layer, true);
+            }
+          });
+        }
+    }).addTo(map_editor);
   }
 
 	function style(feature) {
@@ -565,17 +590,7 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
 		};
 	}
 	
-	currentgeojson = L.geoJson(myLines, {
-      depth_polyline: z_arr,
-		  style: style,
-		  onEachFeature: function (feature, layer) {
-        layer.on({  
-          click: function(e){
-            layer_styling(layer, true);
-          }
-        });
-      }
-	}).addTo(map_editor);
+	
    
 	// zoom the map to the polygon after data loaded
 	var fit_polygon = L.polyline([xy_arr], {color: color_line}).addTo(map_editor);
