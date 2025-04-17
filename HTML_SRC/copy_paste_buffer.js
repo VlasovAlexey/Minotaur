@@ -86,19 +86,26 @@ function paste_link(){
         map_editor.toggleFullscreen();
     }
     if(url_arr[1] == "mtr=1"){
-        loadFile(host_name + 'example_maps/Lila_cave_Matanzas_Cuba.geojson');
+        loadFile(Lila);
+        //loadFile(host_name + 'example_maps/Lila_cave_Matanzas_Cuba.geojson');
     }
     if(url_arr[1] == "mtr=2"){
-        loadFile(host_name + 'example_maps/El_Brinco_2_cave_Matanzas_Cuba.geojson');
+        loadFile(El_Brinco_2);
+        //loadFile(host_name + 'example_maps/El_Brinco_2_cave_Matanzas_Cuba.geojson');
     }
     if(url_arr[1] == "mtr=3"){
-        loadFile(host_name + 'example_maps/Cristales_de_Papaya_Caletones_Holguin_Cuba.geojson');
+        loadFile(Cristales_de_Papaya);
+        //loadFile(host_name + 'example_maps/Cristales_de_Papaya_Caletones_Holguin_Cuba.geojson');
     }
 }
 
 
 //file:///H:/Minotaur/HTML_SRC/index.html?:mtr=1:
-async function loadFile(url) {
+async function loadFile(data) {
+    geojson_styled_import(data, 1);
+    document.getElementById("7-header").click();
+    map_editor.toggleFullscreen();
+    /*
     try {
         const response = await fetch(url);
         const data = await response.text();
@@ -108,4 +115,5 @@ async function loadFile(url) {
     } catch (err) {
       console.error(err);
     }
+    */
   }
