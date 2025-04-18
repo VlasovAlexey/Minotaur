@@ -72,7 +72,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 
 			//create lines if exist
 			var xy_arr = [];
-			var z_arr =[]
+			var z_arr =[];
 			//all is fine
 			for (i = 0; i < ariane_kml_file.kml.Document.Folder.length; i++) {
 				if(ariane_kml_file.kml.Document.Folder[i].name == "Line") {					
@@ -90,6 +90,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 				}
 	
 			}
+			//console.log(xy_arr);
 			//add loaded data to map editor
 			add_line_arr(xy_arr, "#ff7800", 5, z_arr, "false");
 
