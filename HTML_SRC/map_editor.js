@@ -530,8 +530,10 @@ map_editor.pm.Toolbar.createCustomControl({
 //color_line - line color format 
 //weight_line - weight_line ;)
 //line_status - true if we need one polyline. if false - we build line by small part from point to point
-function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
+//id_color_arr - contain ID of previous point and color of current point
+function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status, id_color_arr){
 	//build data for leaflet geojson layers
+  var compare;
   if(line_status == "false"){
     for (i = 0; i < xy_arr.length - 1; i++) {
       myLines = [];
@@ -541,18 +543,40 @@ function add_line_arr(xy_arr, color_line, weight_line, z_arr, line_status){
         //"properties": {"color": color_line},
         "coordinates": [[xy_arr[i][1],xy_arr[i][0]] , [xy_arr[i+1][1],xy_arr[i+1][0]]]
       });
-
-      currentgeojson = L.geoJson(myLines, {
-        depth_polyline: [z_arr[i], z_arr[i+1]],
-        style: style,
-        onEachFeature: function (feature, layer) {
-          layer.on({  
-            click: function(e){
-              layer_styling(layer, true);
+      if(id_color_arr != undefined){
+        compare = (id_color_arr[i][0]-id_color_arr[i+1][0]);
+        if(compare == -1 || compare == 1 || compare < -1 ){
+          //custom color
+          currentgeojson = L.geoJson(myLines, {
+            depth_polyline: [z_arr[i], z_arr[i+1]],
+            style: {
+              "color": id_color_arr[i+1][1],
+              "weight": weight_line,
+              "opacity": 0.99,
+            },
+            onEachFeature: function (feature, layer) {
+              layer.on({  
+                click: function(e){
+                  layer_styling(layer, true);
+                }
+              });
             }
-          });
+          }).addTo(map_editor);
         }
-    }).addTo(map_editor);
+      } else {
+        //no custom color
+        currentgeojson = L.geoJson(myLines, {
+          depth_polyline: [z_arr[i], z_arr[i+1]],
+          style: style,
+          onEachFeature: function (feature, layer) {
+            layer.on({  
+              click: function(e){
+                layer_styling(layer, true);
+              }
+            });
+          }
+      }).addTo(map_editor);
+      }
     }
   }
 

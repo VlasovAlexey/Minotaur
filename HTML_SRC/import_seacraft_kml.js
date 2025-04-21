@@ -82,7 +82,7 @@ document.querySelector("#seacraft_kml_file").addEventListener('change', function
 			}
 
 			//add loaded data to map editor
-			add_line_arr(xy_arr, "#ff7800", 5, z_arr, "true");
+			add_line_arr(xy_arr, "#ff7800", 5, z_arr, "true", undefined);
 
 			//finish loading data to the map editor
 			map_editor.toggleFullscreen();

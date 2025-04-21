@@ -152,7 +152,7 @@ function add_point_map_editor(){
 		  }
       xy_line_array_add.push([lat_new_tmp , lon_new_tmp]);
       z_line_array_add.push(sp_next_depth);
-      add_line_arr(xy_line_array_add, "#ff7800", 5, z_line_array_add, "false");
+      add_line_arr(xy_line_array_add, "#ff7800", 5, z_line_array_add, "false", undefined);
     
       //add second marker with depth
       var text = sp_next_depth + plan_lng("ch_mtr");
@@ -183,7 +183,7 @@ function add_point_map_editor(){
       xy_line_array_add.push([lat_new_tmp , lon_new_tmp]);
       z_line_array_add.push(sp_next_depth);
       currentgeojson.remove();
-      add_line_arr(xy_line_array_add, "#ff7800", 5, z_line_array_add, "true");
+      add_line_arr(xy_line_array_add, "#ff7800", 5, z_line_array_add, "true", undefined);
 
       //add next marker with depth
       var text = sp_next_depth + plan_lng("ch_mtr");
