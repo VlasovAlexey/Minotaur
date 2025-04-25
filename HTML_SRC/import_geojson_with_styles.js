@@ -161,11 +161,12 @@ function geojson_styled_import(e, type){
 							iconSize: [25, 41],
 							iconAnchor: [12, 30],
 							iconBase: "true",
+							className: 'not-important-icon',
 						});
 						if(layers[i].feature.properties.rSv == "1" || layers[i].feature.properties.rSv == "2" || layers[i].feature.properties.rSv == "3"){
 							//do nothing... it stupid place of code but work...
 						} else {
-							new L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {icon: Icon}).addTo(map_editor);
+							new L.marker([layers[i].feature.geometry.coordinates[1],layers[i].feature.geometry.coordinates[0]], {icon: Icon,}).addTo(map_editor);
 						}
 						map_editor.removeLayer(layers[i]);
 					}

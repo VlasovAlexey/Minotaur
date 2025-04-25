@@ -121,9 +121,9 @@ var map_editor = L.map('map_editor', {
   zoom: 18,
   zoomSnap: 0.01,
   //add context menu
-  contextmenu: false,
-  contextmenuWidth: 140,
-  contextmenuItems: context_menu_list,
+  //contextmenu: false,
+  //contextmenuWidth: 140,
+  //contextmenuItems: context_menu_list,
   //add fullscreen control
   fullscreenControl: true,
 	fullscreenControlOptions: {
@@ -131,7 +131,7 @@ var map_editor = L.map('map_editor', {
 					title: "", //'Fullscreen mode',
 					titleCancel: "",// 'Exit fullscreen mode'
 				},
-  layers: [esri_editor],
+  layers: [osm_editor],
   zoomAnimation: true,
   rotate: true, //we use rotator version of leaflet and need disable rotator functionality for map editor usage
   rotateControl: {
@@ -643,6 +643,7 @@ map_editor.zoomOut();
 function marker_3d_prop(text, depth){
 	if(depth == undefined){
     var ret = {
+      className: 'not-important-icon',
       textMarker: true,
       text: text,
       textMarkerCentered: true,
@@ -658,6 +659,7 @@ function marker_3d_prop(text, depth){
     }
   } else {
     var ret = {
+      className: 'not-important-icon',
       textMarker: true,
       text: text,
       textMarkerCentered: true,
@@ -861,6 +863,7 @@ function addMarker(e){
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
+        className: 'not-important-icon',
       });
       new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);
     }
@@ -871,6 +874,7 @@ function addMarker(e){
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
+        className: 'not-important-icon',
       });
       new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
     }
@@ -881,6 +885,7 @@ function addMarker(e){
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
+        className: 'not-important-icon',
       });
       new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
     }
@@ -900,6 +905,7 @@ function addMarker(e){
       iconSize: [25, 41],
       iconAnchor: [12, 30],
       iconBase: "true",
+      className: 'not-important-icon',
       });
       new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);
     }
@@ -913,6 +919,7 @@ function addMarker(e){
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
+        className: 'not-important-icon',
       });
       new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
     }
@@ -923,6 +930,7 @@ function addMarker(e){
         iconSize: [25, 41],
         iconAnchor: [12, 30],
         iconBase: "true",
+        className: 'not-important-icon',
       });
       new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);    
     }
@@ -933,6 +941,7 @@ function addMarker(e){
         iconSize: [25, 41],
         iconAnchor: [12, 35],
         iconBase: "true",
+        className: 'not-important-icon',
       });
       new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);
     }
@@ -943,6 +952,7 @@ function addMarker(e){
       iconSize: [30, 50],
       iconAnchor: [15, 39],
       iconBase: "true",
+      className: 'not-important-icon',
       });
       new L.marker(e.latlng, {icon: Icon}).addTo(map_editor);
     }
@@ -953,10 +963,11 @@ function addMarker(e){
 function marker_custom_shape(latlng, type, name){
   if(type == 1){
     var icon_distance = new L.marker(latlng, {
+      className: 'not-important-icon',
       markerType: 1,
       textMarker: true,
       text: name,
-      textMarkerCentered: true
+      textMarkerCentered: true,
     }).addTo(map_editor);    
     icon_distance.pm.getElement().style.borderRadius = "50%";
     icon_distance.pm.getElement().style.color = "#666666";
@@ -965,10 +976,12 @@ function marker_custom_shape(latlng, type, name){
   }
   if(type == 2){
     var icon_depth = new L.marker(latlng, {
+      className: 'not-important-icon',
       markerType: 2,
       textMarker: true,
       text: name,
-      textMarkerCentered: true
+      textMarkerCentered: true,
+      
     }).addTo(map_editor);
     icon_depth.pm.getElement().style.textDecorationLine = "overline";
     icon_depth.pm.getElement().style.fontWeight = "bold";
@@ -1005,11 +1018,3 @@ map_editor.pm.Toolbar.createCustomControl({
 
 //add meters line
 L.control.betterscale().addTo(map_editor);
-
-//add notifications to map editor
-var notification = L.control.notifications({
-  timeout: 7000,
-  position: 'bottomleft',
-  closable: false,
-  dismissable: true,
-}).addTo(map_editor);

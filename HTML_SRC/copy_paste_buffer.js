@@ -101,10 +101,15 @@ function paste_link(){
 
 
 //file:///H:/Minotaur/HTML_SRC/index.html?:mtr=1:
-async function loadFile(data) {
+function loadFile(data) {
     geojson_styled_import(data, 1);
     document.getElementById("7-header").click();
     map_editor.toggleFullscreen();
+    setTimeout(function() {
+        show_hide_elements();
+        show_hide_elements();
+	}, 1000);
+    
     /*
     try {
         const response = await fetch(url);
