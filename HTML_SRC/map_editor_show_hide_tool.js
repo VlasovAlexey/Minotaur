@@ -1,11 +1,4 @@
 //add button for show\hide function
-var notification = L.control.notifications({
-    timeout: 7000,
-    position: 'bottomleft',
-    closable: false,
-    dismissable: true,
-  }).addTo(map_editor);
-  
   L.Control.Button = L.Control.extend({
     options: {
         position: 'topleft'
@@ -29,7 +22,6 @@ var notification = L.control.notifications({
 
   var shide_status = 0;
   function show_hide_elements(){
-    console.log(shide_status);
     if(shide_status == 0){
         var labels = document.querySelectorAll('.leaflet-marker-icon.not-important-icon');
 	    for (let i = 0; i < labels.length; i++) {
@@ -43,6 +35,8 @@ var notification = L.control.notifications({
                 labels[i].style.opacity = 0;
             }
 	    }
+        
+        //document.getElementsByClassName('leaflet-special')[0].style.display = "none";
         document.getElementsByClassName('leaflet-pm-custom')[0].style.display = "none";
         document.getElementsByClassName('leaflet-control-paintpolygon')[0].style.display = "none";
 
@@ -89,6 +83,7 @@ var notification = L.control.notifications({
     }
     if(shide_status == 3){
         
+        //document.getElementsByClassName('leaflet-special')[0].style.display = "block";
         document.getElementsByClassName('leaflet-pm-draw')[0].style.display = "block";
         document.getElementsByClassName('leaflet-pm-edit')[0].style.display = "block";
         document.getElementsByClassName('leaflet-pm-custom')[0].style.display = "block";

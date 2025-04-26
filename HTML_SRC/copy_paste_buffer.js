@@ -32,6 +32,7 @@ function share_plan_link_gen(){
     });
     
     link_buffer += btoa(drawnItemsToJSON(allLayers));
+    link_buffer += ":lnk";
     if(link_buffer.length > 7999){
         notification.alert(plan_lng("ch_alert"), plan_lng("big_file_url"));
         link_buffer = "";

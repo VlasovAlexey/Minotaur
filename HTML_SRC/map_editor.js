@@ -1018,3 +1018,11 @@ map_editor.pm.Toolbar.createCustomControl({
 
 //add meters line
 L.control.betterscale().addTo(map_editor);
+
+//add notifications 
+var notification = L.control.notifications({
+  timeout: 7000,
+  position: 'bottomleft',
+  closable: false,
+  dismissable: true,
+}).addTo(map_editor);
