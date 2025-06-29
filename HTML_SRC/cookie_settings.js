@@ -3,6 +3,11 @@ const {
     host, hostname, href, origin, pathname, port, protocol, search
 } = window.location
 var url_arr = search;
+
+//fix facebook and whatsapp problem with URL % encoding
+if(url_arr.indexOf("%") != -1){
+    url_arr = decodeURIComponent(url_arr);
+}
 var host_name = "https://vlasovalexey.github.io/Minotaur/HTML_SRC/";
 
 var link_buffer = "";

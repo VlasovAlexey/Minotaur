@@ -74,10 +74,7 @@ function load_data_URL(){
 
 //paste and open data if link containing info
 function paste_link(){
-    //data present
-	if(url_arr.indexOf("%") != -1){
-	    url_arr = decodeURIComponent(url_arr);
-	}
+
 	if(url_arr.length > 5){
 	   url_arr = url_arr.split(":");
 	}
@@ -97,6 +94,9 @@ function paste_link(){
     if(url_arr[1] == "mtr=3"){
         loadFile(Cristales_de_Papaya);
         //loadFile(host_name + 'example_maps/Cristales_de_Papaya_Caletones_Holguin_Cuba.geojson');
+    }
+     if(url_arr[1] == "mtr=4"){
+        loadFileURL(host_name + 'example_maps/Susana_cave_Matanzas_Cuba.geojson');
     }
 }
 
@@ -122,4 +122,16 @@ function loadFile(data) {
       console.error(err);
     }
     */
+  }
+
+  async function loadFileURL(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.text();
+        geojson_styled_import(data, 1);
+        document.getElementById("7-header").click();
+        map_editor.toggleFullscreen();
+    } catch (err) {
+      console.error(err);
+    }
   }
