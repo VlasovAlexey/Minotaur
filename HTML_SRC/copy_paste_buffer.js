@@ -58,6 +58,9 @@ function check_data_URL(){
     if(url_arr.indexOf("?:mtr=3:") != -1){
         welcome_scr();
     }
+    if(url_arr.indexOf("?:mtr=4:") != -1){
+        welcome_scr();
+    }
     if(url_arr.indexOf("?:mtr=100:") != -1){
         welcome_scr();
     }
@@ -100,7 +103,7 @@ function paste_link(){
     }
 }
 
-
+//load geojson file from value array
 //file:///H:/Minotaur/HTML_SRC/index.html?:mtr=1:
 function loadFile(data) {
     geojson_styled_import(data, 1);
@@ -110,20 +113,9 @@ function loadFile(data) {
         show_hide_elements();
         show_hide_elements();
 	}, 1000);
-    
-    /*
-    try {
-        const response = await fetch(url);
-        const data = await response.text();
-        geojson_styled_import(data, 1);
-        document.getElementById("7-header").click();
-        map_editor.toggleFullscreen();
-    } catch (err) {
-      console.error(err);
-    }
-    */
   }
 
+  //load geojson file from URL
   async function loadFileURL(url) {
     try {
         const response = await fetch(url);
