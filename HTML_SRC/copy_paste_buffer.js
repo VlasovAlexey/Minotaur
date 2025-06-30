@@ -61,6 +61,9 @@ function check_data_URL(){
     if(url_arr.indexOf("?:mtr=4:") != -1){
         welcome_scr();
     }
+    if(url_arr.indexOf("?:mtr=5:") != -1){
+        welcome_scr();
+    }
     if(url_arr.indexOf("?:mtr=100:") != -1){
         welcome_scr();
     }
@@ -101,10 +104,13 @@ function paste_link(){
      if(url_arr[1] == "mtr=4"){
         loadFileURL(host_name + 'example_maps/Susana_cave_Matanzas_Cuba.geojson');
     }
+    if(url_arr[1] == "mtr=5"){
+        loadFileURL(host_name + 'example_maps/El_Macio_del_Jobal_Caletones_Holguin_Cuba.geojson');
+    }
 }
 
 //load geojson file from value array
-//file:///H:/Minotaur/HTML_SRC/index.html?:mtr=1:
+//file:///H:/Minotaur/HTML_SRC/index.html?:mtr=1:el_macio
 function loadFile(data) {
     geojson_styled_import(data, 1);
     document.getElementById("7-header").click();
