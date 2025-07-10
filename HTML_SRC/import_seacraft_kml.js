@@ -88,6 +88,7 @@ document.querySelector("#seacraft_kml_file").addEventListener('change', function
 			map_editor.toggleFullscreen();
 			Pbar_Hide();
 		}, 1000);
+		$("#seacraft_kml_file")[0].value = "";
 	});
 
 	// file reading failed

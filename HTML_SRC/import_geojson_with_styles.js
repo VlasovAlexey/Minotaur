@@ -193,4 +193,5 @@ function geojson_styled_import(e, type){
 		//finish loading data to the map editor
 		Pbar_Hide();
 	}, 1000);
+	$("#geojson_with_styles_file")[0].value = "";
 }

@@ -89,6 +89,7 @@ document.querySelector("#seacraft_csv_file").addEventListener('change', function
 			map_editor.toggleFullscreen();
 			Pbar_Hide();
 		}, 1000);
+		$("#seacraft_csv_file")[0].value = "";
 	});
 
 	// file reading failed

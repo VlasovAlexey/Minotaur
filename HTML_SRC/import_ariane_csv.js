@@ -86,6 +86,7 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 			}
 			
 		}, 1000);
+		$("#ariane_csv_file")[0].value = "";
 	});
 
 	// file reading failed

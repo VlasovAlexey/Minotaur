@@ -99,6 +99,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 			Pbar_Hide();	
 				
 		}, 1000);
+		$("#ariane_kml_file")[0].value = "";
 	});
 
 	// file reading failed

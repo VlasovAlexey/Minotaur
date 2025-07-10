@@ -1,13 +1,4 @@
 //watcher function for Ariane tml file reading
-	//generate zip file example and save
-	/*
-	var zip = new JSZip();
-	zip.file("hello.txt", "Hello World\n");
-	zip.generateAsync({type:"blob"})
-		.then(function (blob) {
-    saveAs(blob, "hello.zip");
-	});
-	*/
 var ariane_tml_file = [];
 function onTMLload(fileInput) {
 	if(fileInput.files[0] == undefined) {
@@ -113,6 +104,7 @@ function onTMLload(fileInput) {
 				map_editor.toggleFullscreen();
 				Pbar_Hide();
 			})
+			$("#ariane_tml_file")[0].value = "";
 		}).catch(function(err) {
 			//bad file or file structure
 			notification.alert(plan_lng("ch_alert"), plan_lng("bad_file_format"));
