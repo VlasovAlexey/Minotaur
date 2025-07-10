@@ -44,6 +44,7 @@ document.querySelector("#photo_jpg_file").addEventListener('change', function() 
 	reader.addEventListener('load', function(e) {
         photo_image_jpg_res = reader.result;
         create_custom_image_marker(photo_image_jpg_res, map_editor.getCenter());
+		$("#photo_jpg_file")[0].value = "";
 	});
 
 	// file reading failed
@@ -101,6 +102,7 @@ document.querySelector("#photo_gif_file").addEventListener('change', function() 
 	reader.addEventListener('load', function(e) {
         photo_image_gif_res = reader.result;
         create_custom_image_marker(photo_image_gif_res, map_editor.getCenter());
+		$("#photo_gif_file")[0].value = "";
 	});
 
 	// file reading failed

@@ -45,6 +45,7 @@ document.querySelector("#bitmap_file").addEventListener('change', function() {
         ovl_pic = reader.result;
         ovl_image_clear();
         ovl_image_default();
+        $("#bitmap_file")[0].value = "";
 	});
 
 	// file reading failed

@@ -136,6 +136,7 @@ document.querySelector("#gpx_file").addEventListener('change', function() {
 			//Hide progress bar
 			Pbar_Hide();
 		}, 1000);
+		$("#gpx_file")[0].value = "";
 	});
 
 
@@ -261,7 +262,6 @@ function gpx_file_to_arr(gpx_file){
 				c_time_freq = ((str.slice(fPos1 + 6 ,fPos2))*1.0);
 			
   			pos = foundPos + 1; // continued search from next one position
-			console.log(numerator,c_lat,c_lon,c_ele);
 			numerator = numerator + 1;
 			arr.push({
 				x: c_lat,

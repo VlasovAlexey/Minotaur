@@ -170,6 +170,7 @@ let importer_file = new L.Control.PMButton({
   onClick: () => {
     //import any files with betterFileLayer plugin
     document.getElementById("btn_import").click();
+    $("#btn_import")[0].value = "";
   },
   afterClick: () => {
   },
