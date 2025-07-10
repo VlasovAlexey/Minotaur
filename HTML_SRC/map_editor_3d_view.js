@@ -26,14 +26,18 @@ map_editor.pm.Toolbar.createCustomControl({
 
 function draw_3d(){
   if(view_3d_status == 1){
-    //getSizeFor3D();
+    //clear scene
+    data_plotly = [];
+    data_plotly.push(plotly_3d_line(0,0,0,hexToRgbA("#fff")));
+    plotly_3d_build(1, 1, data_plotly);
+    
+    //hide window
     document.getElementsByClassName('draw_3d_window')[0].style.display = 'none';
   } else {
     map_editor.spin(true, {lines: 18, color: '#166bff', fadeColor: '#555',radius: 20})
     document.getElementsByClassName('draw_3d_window')[0].style.display = 'block';
     getSizeFor3D();
     //3d view tool is opened
-  
 	  setTimeout(function() {
       create3D_Lines(scale_x); 
       //finish loading data to the map editor
@@ -44,12 +48,14 @@ function draw_3d(){
   }
 }
 
+var container;
+
 L.window = L.Control.extend({
   options: {
       position: 'middlecenter'
   },
   onAdd: function (map) {
-      var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+      container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
       
       //disable touch and zoom on window
       L.DomEvent.disableClickPropagation(container);
@@ -64,7 +70,8 @@ L.window = L.Control.extend({
       //container.title = "Title";
       return container;
   },
-  onRemove: function(map) {},
+  onRemove: function(map) {
+  },
 
 });
 var control = new L.window();
@@ -175,6 +182,7 @@ function create3D_Lines(scale_x){
   layers = layers.getLayers();
   //combining data to plotly
   var data_plotly = [];
+  
   var color_r;
   //for aspect calculation
   var x_as = [];
@@ -266,7 +274,13 @@ function create3D_Lines(scale_x){
 		x_aspect = 1;
 		y_aspect = ((x_tmp/y_tmp));
 	}
+  
+  //final draw
+  plotly_3d_build(y_aspect, x_aspect, data_plotly);
+}
 
+//update plotly 3d sce wint new data
+function plotly_3d_build(y_aspect, x_aspect, data_plotly){
   //build layout for 3d scene
   layout = {
     //autosize: true,
