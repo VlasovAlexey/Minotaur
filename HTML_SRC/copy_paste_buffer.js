@@ -64,6 +64,9 @@ function check_data_URL(){
     if(url_arr.indexOf("?:mtr=5:") != -1){
         welcome_scr();
     }
+    if(url_arr.indexOf("?:mtr=6:") != -1){
+        welcome_scr();
+    }
     if(url_arr.indexOf("?:mtr=100:") != -1){
         welcome_scr();
     }
@@ -106,6 +109,9 @@ function paste_link(){
     }
     if(url_arr[1] == "mtr=5"){
         loadFileURL(host_name + 'example_maps/El_Macio_del_Jobal_Caletones_Holguin_Cuba.geojson');
+    }
+    if(url_arr[1] == "mtr=6"){
+        loadFileURL(host_name + 'example_maps/Cueva_del_Guajiro.geojson');
     }
 }
 

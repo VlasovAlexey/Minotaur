@@ -371,7 +371,7 @@
                 ".tn_donat_header_bronze": "Bronze Donation Section",
 
                 ".td_founder_list": "",
-                ".td_gold_list": "",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
                 ".td_silver_list": "",
                 ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
@@ -469,7 +469,7 @@
                 ".tn_donat_header_bronze": "Бронзовая секция",
 
                 ".td_founder_list": "",
-                ".td_gold_list": "",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
                 ".td_silver_list": "",
                 ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
@@ -568,7 +568,7 @@
                 ".tn_donat_header_bronze": "Sección de Bronce",
 
                 ".td_founder_list": "",
-                ".td_gold_list": "",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
                 ".td_silver_list": "",
                 ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
@@ -665,7 +665,7 @@
                 ".tn_donat_header_bronze": "Doações Bronze",
 
                 ".td_founder_list": "",
-                ".td_gold_list": "",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
                 ".td_silver_list": "",
                 ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
@@ -763,7 +763,7 @@
                 ".tn_donat_header_bronze": "青铜级土豪爸爸",
 
                 ".td_founder_list": "",
-                ".td_gold_list": "",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
                 ".td_silver_list": "",
                 ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
@@ -857,7 +857,7 @@
                 ".tn_donat_header_bronze": " Секция за дарение  ",
 
                 ".td_founder_list": "",
-                ".td_gold_list": "",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
                 ".td_silver_list": "",
                 ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
@@ -951,7 +951,7 @@
                 ".tn_donat_header_bronze": " Section Bronze des dons",
 
                 ".td_founder_list": "",
-                ".td_gold_list": "",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
                 ".td_silver_list": "",
                 ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
@@ -1046,7 +1046,7 @@
                 ".tn_donat_header_bronze": "동 기부 섹션",
 
                 ".td_founder_list": "",
-                ".td_gold_list": "",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
                 ".td_silver_list": "",
                 ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
@@ -1141,7 +1141,7 @@
                 ".tn_donat_header_bronze": "Sezione donazione bronzea",
 
                 ".td_founder_list": "",
-                ".td_gold_list": "",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
                 ".td_silver_list": "",
                 ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
 
