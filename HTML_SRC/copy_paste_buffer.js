@@ -67,6 +67,9 @@ function check_data_URL(){
     if(url_arr.indexOf("?:mtr=6:") != -1){
         welcome_scr();
     }
+    if(url_arr.indexOf("?:mtr=7:") != -1){
+        welcome_scr();
+    }
     if(url_arr.indexOf("?:mtr=100:") != -1){
         welcome_scr();
     }
@@ -112,6 +115,9 @@ function paste_link(){
     }
     if(url_arr[1] == "mtr=6"){
         loadFileURL(host_name + 'example_maps/Cueva_del_Guajiro.geojson');
+    }
+    if(url_arr[1] == "mtr=7"){
+        loadFileURL(host_name + 'example_maps/Checoslovaquia_cavern_Playa_Giron_Matanzas_Cuba.geojson');
     }
 }
 
