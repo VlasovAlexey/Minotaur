@@ -70,6 +70,9 @@ function check_data_URL(){
     if(url_arr.indexOf("?:mtr=7:") != -1){
         welcome_scr();
     }
+    if(url_arr.indexOf("?:mtr=8:") != -1){
+        welcome_scr();
+    }
     if(url_arr.indexOf("?:mtr=100:") != -1){
         welcome_scr();
     }
@@ -118,6 +121,9 @@ function paste_link(){
     }
     if(url_arr[1] == "mtr=7"){
         loadFileURL(host_name + 'example_maps/Checoslovaquia_cavern_Playa_Giron_Matanzas_Cuba.geojson');
+    }
+    if(url_arr[1] == "mtr=8"){
+        loadFileURL(host_name + 'example_maps/XXXV_Aniversario_Bahia_de_Cochinos_Matanzas_Cuba.geojson');
     }
 }
 

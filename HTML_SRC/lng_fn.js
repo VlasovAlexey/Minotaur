@@ -370,10 +370,10 @@
                 ".tn_donat_header_silver": "Silver Donation Section",
                 ".tn_donat_header_bronze": "Bronze Donation Section",
 
-                ".td_founder_list": "",
-                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
+                ".td_founder_list": "Lee Nam Gil",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo, Alfredo Contreras Guitian",
                 ".td_silver_list": "",
-                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
+                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev, Elian Lopez Cabrera, Aldo Baron Tadeo, Raidel Montero Jimenez, Pedro Martinez Lopez, Osvaldo Gonzalez Padilla",
 
                 ".header11": "S.A.U.L. Recreational Dive Planner"
             },
@@ -468,10 +468,10 @@
                 ".tn_donat_header_silver": "Серебряная секция",
                 ".tn_donat_header_bronze": "Бронзовая секция",
 
-                ".td_founder_list": "",
-                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
+                ".td_founder_list": "Lee Nam Gil",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo, Alfredo Contreras Guitian",
                 ".td_silver_list": "",
-                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
+                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev, Elian Lopez Cabrera, Aldo Baron Tadeo, Raidel Montero Jimenez, Pedro Martinez Lopez, Osvaldo Gonzalez Padilla",
 
                 ".header11": "S.A.U.L. Рекриационный планировщик риска погружений"
             },
@@ -567,10 +567,10 @@
                 ".tn_donat_header_silver": "Sección de Plata",
                 ".tn_donat_header_bronze": "Sección de Bronce",
 
-                ".td_founder_list": "",
-                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
+                ".td_founder_list": "Lee Nam Gil",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo, Alfredo Contreras Guitian",
                 ".td_silver_list": "",
-                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
+                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev, Elian Lopez Cabrera, Aldo Baron Tadeo, Raidel Montero Jimenez, Pedro Martinez Lopez, Osvaldo Gonzalez Padilla",
 
                 ".header11": "S.A.U.L. Planificador de Buceo Recreativo"
             },
@@ -664,10 +664,10 @@
                 ".tn_donat_header_silver": "Doações Prata",
                 ".tn_donat_header_bronze": "Doações Bronze",
 
-                ".td_founder_list": "",
-                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
+                ".td_founder_list": "Lee Nam Gil",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo, Alfredo Contreras Guitian",
                 ".td_silver_list": "",
-                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
+                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev, Elian Lopez Cabrera, Aldo Baron Tadeo, Raidel Montero Jimenez, Pedro Martinez Lopez, Osvaldo Gonzalez Padilla",
 
 
                 ".header11": "S.A.U.L. Planificador de Mergulho Recreativo"
@@ -762,10 +762,10 @@
                 ".tn_donat_header_silver": "白银级土豪爸爸",
                 ".tn_donat_header_bronze": "青铜级土豪爸爸",
 
-                ".td_founder_list": "",
-                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
+                ".td_founder_list": "Lee Nam Gil",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo, Alfredo Contreras Guitian",
                 ".td_silver_list": "",
-                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
+                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev, Elian Lopez Cabrera, Aldo Baron Tadeo, Raidel Montero Jimenez, Pedro Martinez Lopez, Osvaldo Gonzalez Padilla",
 
                 ".header11": "S.A.U.L. 休闲潜水计划工具软件"
             },
@@ -856,10 +856,10 @@
                 ".tn_donat_header_silver": " Секция за дарение сребърна ",
                 ".tn_donat_header_bronze": " Секция за дарение  ",
 
-                ".td_founder_list": "",
-                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
+                ".td_founder_list": "Lee Nam Gil",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo, Alfredo Contreras Guitian",
                 ".td_silver_list": "",
-                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
+                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev, Elian Lopez Cabrera, Aldo Baron Tadeo, Raidel Montero Jimenez, Pedro Martinez Lopez, Osvaldo Gonzalez Padilla",
 
                 ".header11": "S.A.U.L. Recreational Dive Planner"
             },
@@ -950,10 +950,10 @@
                 ".tn_donat_header_silver": " Section Argent des dons",
                 ".tn_donat_header_bronze": " Section Bronze des dons",
 
-                ".td_founder_list": "",
-                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
+                ".td_founder_list": "Lee Nam Gil",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo, Alfredo Contreras Guitian",
                 ".td_silver_list": "",
-                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
+                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev, Elian Lopez Cabrera, Aldo Baron Tadeo, Raidel Montero Jimenez, Pedro Martinez Lopez, Osvaldo Gonzalez Padilla",
 
                 ".header11": "S.A.U.L. Planificateur de plongée récréative"
             },
@@ -1045,10 +1045,10 @@
                 ".tn_donat_header_silver": "은 기부 섹션",
                 ".tn_donat_header_bronze": "동 기부 섹션",
 
-                ".td_founder_list": "",
-                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
+                ".td_founder_list": "Lee Nam Gil",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo, Alfredo Contreras Guitian",
                 ".td_silver_list": "",
-                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
+                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev, Elian Lopez Cabrera, Aldo Baron Tadeo, Raidel Montero Jimenez, Pedro Martinez Lopez, Osvaldo Gonzalez Padilla",
 
                 ".header11": "S.A.U.L. 레크리에이션 다이빙 플래너"
             },
@@ -1140,10 +1140,10 @@
                 ".tn_donat_header_silver": "Sezione donazione argentata",
                 ".tn_donat_header_bronze": "Sezione donazione bronzea",
 
-                ".td_founder_list": "",
-                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo",
+                ".td_founder_list": "Lee Nam Gil",
+                ".td_gold_list": "Yancarlos Navarro, Yordan Alonso, Jose Perozo, Alfredo Contreras Guitian",
                 ".td_silver_list": "",
-                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev",
+                ".td_bronze_list": "Evgenij Vlasov, Evgenij Pyanyh, Maxim Parinov, Maxim Belyaev, Elian Lopez Cabrera, Aldo Baron Tadeo, Raidel Montero Jimenez, Pedro Martinez Lopez, Osvaldo Gonzalez Padilla",
 
                 ".header11": "Pianificatore immersioni Ricreative S.A.U.L."
             }
