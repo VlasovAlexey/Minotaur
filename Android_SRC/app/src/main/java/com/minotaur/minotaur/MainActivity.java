@@ -1,20 +1,18 @@
 package com.minotaur.minotaur;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.GeolocationPermissions;
 import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.os.Build;
@@ -32,21 +30,39 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Fixed portrait orientation
-
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         String myURL = "file:///android_asset/index.html";
+
         android.webkit.CookieManager cookieManager = android.webkit.CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
         cookieManager.acceptCookie();
         cookieManager.getCookie(myURL);
 
         myWeb = findViewById(R.id.myWeb);
-        //myWeb.getSettings().setJavaScriptEnabled(true);
 
-        //make visible all console log from WebView visible on Android Studio Console
+        //enable access to local storage from web view
+        WebSettings settings = myWeb.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setDatabaseEnabled(true);
+        settings.setDomStorageEnabled(true);
+        settings.setAllowContentAccess(true);
+        settings.setAllowFileAccess(true);
+        settings.setDatabaseEnabled(true);
+        settings.setDomStorageEnabled(true);
+        settings.setGeolocationEnabled(true);
+        settings.setJavaScriptCanOpenWindowsAutomatically(true);
+        settings.setLoadsImagesAutomatically(true);
+        settings.setMediaPlaybackRequiresUserGesture(false);
+        settings.setSupportMultipleWindows(true);
+        settings.setJavaScriptCanOpenWindowsAutomatically(true);
+        settings.setBuiltInZoomControls(true);
+
+        //disable scrollbars
+        myWeb.setHorizontalScrollBarEnabled(false);
+        myWeb.setVerticalScrollBarEnabled(false);
         myWeb.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
@@ -87,17 +103,8 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
         }
 
-        //enable access to local storage from web view
-        WebSettings settings = myWeb.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setDatabaseEnabled(true);
-        settings.setDomStorageEnabled(true);
-
         //enable geolocation services
-        myWeb.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        myWeb.getSettings().setBuiltInZoomControls(true);
         myWeb.getSettings().setGeolocationEnabled(true);
-
         myWeb.setWebChromeClient(new WebChromeClient() {
             public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
                 callback.invoke(origin, true, false);
