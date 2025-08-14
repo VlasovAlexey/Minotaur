@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Location;
@@ -28,10 +29,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     WebView myWeb;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-    String url;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Fixed portrait orientation
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         cookieManager.getCookie(myURL);
 
         myWeb = findViewById(R.id.myWeb);
-        myWeb.getSettings().setJavaScriptEnabled(true);
+        //myWeb.getSettings().setJavaScriptEnabled(true);
 
         //make visible all console log from WebView visible on Android Studio Console
         myWeb.setWebChromeClient(new WebChromeClient() {
@@ -56,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
                     LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                     Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     if (location != null) {
-                        String latitude = String.valueOf(location.getLatitude());
-                        String longitude = String.valueOf(location.getLongitude());
-                        String url = myURL + "?lat=" + latitude + "&long=" + longitude;
-                        myWeb.loadUrl(url);
+                        //String latitude = String.valueOf(location.getLatitude());
+                        //String longitude = String.valueOf(location.getLongitude());
+                        //String url = myURL + "?lat=" + latitude + "&long=" + longitude;
+                        myWeb.loadUrl(myURL);
                         callback.invoke(origin, true, true);
                     } else {
                         callback.invoke(origin, false, false);
@@ -80,13 +80,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
         // Check if location permission is granted
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // Request location permission if not granted
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
-        } else {
-            // Load the web page if location permission is granted
-            myWeb.loadUrl(url);
         }
 
         //enable access to local storage from web view
@@ -116,60 +114,11 @@ public class MainActivity extends AppCompatActivity {
         //and finally start index.html from storage
         myWeb.loadUrl(myURL);
 
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-    }
-    public class myWebViewclient extends WebViewClient {
-
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
-            view.loadUrl(url);
-
-            return true;
-        }
-
-
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            super.onPageStarted(view, url, favicon);
-
-
-            final String urls = url;
-            if (urls.contains("mailto") || urls.contains("whatsapp") || urls.contains("tel") || urls.contains("sms") || urls.contains("facebook") || urls.contains("truecaller") || urls.contains("")) {
-                myWeb.stopLoading();
-                Intent i = new Intent();
-                i.setAction(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(urls));
-                startActivity(i);
-
-
-            }
-
-
-        }
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            super.onPageFinished(view, url);
-
-        }
-    }
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                myWeb.loadUrl(url); // to load the web page after location permission is granted
-            }
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
     }
 }
