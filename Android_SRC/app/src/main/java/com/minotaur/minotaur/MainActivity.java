@@ -3,21 +3,23 @@ package com.minotaur.minotaur;
 import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.graphics.PixelFormat;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.WindowManager;
 import android.webkit.GeolocationPermissions;
 import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.os.Build;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebSettings;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
 import androidx.activity.EdgeToEdge;
 import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.Insets;
@@ -60,9 +62,14 @@ public class MainActivity extends AppCompatActivity {
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setBuiltInZoomControls(true);
 
+        //enable cookies save
+        settings.setDomStorageEnabled(true);
+        settings.setDatabaseEnabled(true);
+
         //disable scrollbars
         myWeb.setHorizontalScrollBarEnabled(false);
         myWeb.setVerticalScrollBarEnabled(false);
+
         myWeb.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
@@ -111,12 +118,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //enable cookies save
-        myWeb.getSettings().setDomStorageEnabled(true);
-        myWeb.getSettings().setDatabaseEnabled(true);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            myWeb.getSettings().setDatabasePath("/data/data/" + myWeb.getContext().getPackageName() + "/databases/");
-        }
 
         //and finally start index.html from storage
         myWeb.loadUrl(myURL);
