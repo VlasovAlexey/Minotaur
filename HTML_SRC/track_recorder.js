@@ -135,19 +135,24 @@ function btn_record() {
 		record_state = 0;
 		rec_first_start = 0;
 
-		GPX_File = arr_to_gpx(route_map_disp);
+		var GPX_File = arr_to_gpx(route_map_disp);
 
 		//and write file
 		scr_n_add = "";
 		if (GPX_file_num < 10 ) {
 			scr_n_add = "0";
 		}
+		
 		var fl_name = scr_n_add + GPX_file_num + "_" + (track_name.value).toString() + "_" + get_date_hr() + ".gpx";
 		GPX_file_num = GPX_file_num + 1;
 		var blob = new Blob([GPX_File], {
 			type: "application/gpx;charset=utf-8"
 		});
 		saveAs(blob, fl_name);
+		
+		//Android save from WebView
+		generateAndDownload(GPX_File, fl_name, "application/gpx;charset=utf-8");
+		
 		stop_t_time();
 		GPX_File = [];
 

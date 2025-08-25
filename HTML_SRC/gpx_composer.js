@@ -180,6 +180,9 @@ function gpx_save_current_track(){
 		type: "application/gpx;charset=utf-8"
 	});
 	saveAs(blob, fl_name);
+	
+	//Android save from WebView
+	generateAndDownload(arr, fl_name, "application/gpx;charset=utf-8");
 }
 
 //convert loaded gpx text to array

@@ -1186,6 +1186,11 @@
         };
         //eng
         if (td_lng == 1) {
+            if (val == "downl_start") {val = "Download started"}
+            if (val == "success") {val = "success"}
+            if (val == "error") {val = "error"}
+            if (val == "android_interface_err") {val = "Error: Android interface not available"}
+
             if (val == "import_no_file") {val = "Warning!<br>Please select only allowed file.<br>Thank you!<br>"}
             if (val == "import_bad_ext_file") {val = "Error!<br>Incorrect file type.<br>Only allowed file extension alloved!<br>"}
             if (val == "import_big_file") {val = "Error!<br>Exceeded size 30MB.<br>Only 30Mb file data can be alloved!<br>"}
@@ -1363,6 +1368,11 @@
         }
         //rus
         if (td_lng == 2) {
+            if (val == "downl_start") {val = "Загрузка началась"}
+            if (val == "success") {val = "success"}
+            if (val == "error") {val = "error"}
+            if (val == "android_interface_err") {val = "Ошибка: интерфейс Android недоступен"}
+
             if (val == "import_no_file") {
                 val = "Внимание!<br>Пожалуйста, выберите только разрешенные файлы.<br>Спасибо!<br>"
             }
@@ -1547,6 +1557,11 @@
         }
         //sp
         if (td_lng == 3) {
+            if (val == "downl_start") {val = "Descarga iniciada"}
+            if (val == "success") {val = "éxito"}
+            if (val == "error") {val = "error"}
+            if (val == "android_interface_err") {val = "Error: Interfaz de Android no disponible"}
+
             if (val == "import_no_file") {val = "Advertencia!<br>Seleccione solo los archivos permitidos.<br>¡Gracias!<br>"}
             if (val == "import_bad_ext_file") {val = "Error!<br>Tipo de archivo incorrecto.<br>¡Solo se permite la extensión de archivo permitida!<br>"}
             if (val == "import_big_file") {val = "Error!<br>Tamaño excedido 30 MB.<br>¡Solo se pueden permitir datos de archivo de 30 MB!<br>"}
@@ -1724,6 +1739,11 @@
         }
         //pt
         if (td_lng == 4) {
+            if (val == "downl_start") {val = "Download iniciado"}
+            if (val == "success") {val = "sucesso"}
+            if (val == "error") {val = "erro"}
+            if (val == "android_interface_err") {val = "Erro: Interface Android indisponível"}
+
             if (val == "import_no_file") {val = "Aviso!<br>Selecione apenas os ficheiros permitidos.<br>Obrigado!<br>"}
             if (val == "import_bad_ext_file") {val = "Erro!<br>Tipo de ficheiro incorreto.<br>Apenas extensão de ficheiro permitida!<br>"}
             if (val == "import_big_file") {val = "Erro!<br>Tamanho excedido 30 MB.<br>Só podem ser permitidos dados de ficheiros de 30 MB!<br>"}
@@ -1902,6 +1922,11 @@
         }
         //ch
         if (td_lng == 5) {
+            if (val == "downl_start") {val = "下載已開始"}
+            if (val == "success") {val = "success"}
+            if (val == "error") {val = "error"}
+            if (val == "android_interface_err") {val = "錯誤：Android 介面不可用"}
+
             if (val == "import_no_file") {val = "警告！<br>請只選擇允許的檔案。<br>謝謝！<br>"}
             if (val == "import_bad_ext_file") {val = "錯誤！<br>檔案類型不正確。<br>僅允許允許的檔案副檔名！<br>"}
             if (val == "import_big_file") {val = "錯誤！<br>超過 30MB 大小。<br>僅允許 30Mb 檔案資料！<br>"}
@@ -2080,6 +2105,11 @@
         }
         //br
         if (td_lng == 6) {
+            if (val == "downl_start") {val = "Изтеглянето започна"}
+            if (val == "success") {val = "успех"}
+            if (val == "error") {val = "грешка"}
+            if (val == "android_interface_err") {val = "Грешка: Интерфейсът на Android не е наличен"}
+
             if (val == "import_no_file") {val = "Предупреждение!<br>Моля, изберете само разрешен файл.<br>Благодарим ви!<br>"}
             if (val == "import_bad_ext_file") {val = "Грешка!<br>Неправилен тип файл.<br>Разрешава се само разрешено файлово разширение!<br>"}
             if (val == "import_big_file") {val = "Грешка!<br>Превишен размер от 30MB.<br>Могат да бъдат разрешени само 30Mb файлови данни!<br>"}
@@ -2257,6 +2287,11 @@
         }
         //fr
         if (td_lng == 7) {
+            if (val == "downl_start") {val = "Téléchargement démarré"}
+            if (val == "success") {val = "success"}
+            if (val == "error") {val = "error"}
+            if (val == "android_interface_err") {val = "Erreur: Interface Android non disponible"}
+
             if (val == "import_no_file") {val = "Attention!<br>Veuillez sélectionner uniquement les fichiers autorisés.<br>Merci!<br>"}
             if (val == "import_bad_ext_file") {val = "Erreur!<br>Type de fichier incorrect.<br>Seule l'extension de fichier autorisée est autorisée!<br>"}
             if (val == "import_big_file") {val = "Erreur!<br>Taille dépassée: 30Mo.<br>Seules les données de fichier de 30Mo peuvent être autorisées!<br>"}
@@ -2435,6 +2470,11 @@
         }
         //kr
         if (td_lng == 8) {
+            if (val == "downl_start") {val = "다운로드가 시작되었습니다"}
+            if (val == "success") {val = "success"}
+            if (val == "error") {val = "error"}
+            if (val == "android_interface_err") {val = "오류: Android 인터페이스를 사용할 수 없습니다"}
+
             if (val == "import_no_file") {val = "경고!<br>허용된 파일만 선택하세요.<br>감사합니다!<br>"}
             if (val == "import_bad_ext_file") {val = "오류!<br>잘못된 파일 형식입니다.<br>허용된 파일 확장자만 허용됩니다!<br>"}
             if (val == "import_big_file") {val = "오류!<br>크기가 30MB를 초과했습니다.<br>파일 데이터는 30MB만 허용됩니다!<br>"}
@@ -2612,6 +2652,11 @@
         }
         //it
         if (td_lng == 9) {
+            if (val == "downl_start") {val = "Download avviato"}
+            if (val == "success") {val = "success"}
+            if (val == "error") {val = "error"}
+            if (val == "android_interface_err") {val = "Errore: interfaccia Android non disponibile"}
+
             if (val == "import_no_file") {val = "Attenzione!<br>Seleziona solo i file consentiti.<br>Grazie!<br>"}
             if (val == "import_bad_ext_file") {val = "Errore!<br>Tipo di file non corretto.<br>È consentita solo l'estensione di file consentita!<br>"}
             if (val == "import_big_file") {val = "Errore!<br>Dimensione superata 30 MB.<br>Sono consentiti solo file da 30 MB!<br>"}

@@ -23,8 +23,13 @@ let gjson_save = new L.Control.PMButton({
             scr_n_add = "0";
         }
         var fl_name = scr_n_add + editor_file_num + "_" + (track_name.value).toString() + "_" + get_date_hr() + ".geojson";
-        var blob = new Blob([drawnItemsToJSON(allLayers)], {type: "application/geojson;charset=utf-8"});
+        var arr = [drawnItemsToJSON(allLayers)];
+        var blob = new Blob(arr, {type: "application/geojson;charset=utf-8"});
         saveAs(blob, fl_name);
+        
+        //Android save from WebView
+	    generateAndDownload(arr, fl_name, "application/geojson;charset=utf-8");
+        
         editor_file_num = editor_file_num + 1;
       }
       Pbar_Show();
