@@ -13,7 +13,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.PixelFormat;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -23,8 +22,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.WindowManager;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
 import android.webkit.PermissionRequest;
@@ -34,12 +31,9 @@ import android.webkit.WebView;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -62,21 +56,15 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Fixed portrait orientation
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         myWeb = findViewById(R.id.myWeb);
 
-        //setup WebViewChromeClient for working with geolocation, file chooser and blob downloader
         setupWebView();
-
-        //change background color for Android GUI
         getWindow().getDecorView().setBackgroundColor(Color.parseColor("#808080"));
-        //color for WebView background
         myWeb.setBackgroundColor(Color.parseColor("#808080"));
-
-        //and finally start index.html from storage
         myWeb.loadUrl(myURL);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -85,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
     private void setupWebView() {
         WebSettings settings = myWeb.getSettings();
 
-        // Enable JavaScript and file access
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setAllowFileAccess(true);
@@ -102,41 +90,21 @@ public class MainActivity extends AppCompatActivity {
         cookieManager.getCookie(myURL);
         settings.setDatabaseEnabled(true);
         settings.setDomStorageEnabled(true);
-        settings.setAllowContentAccess(true);
-        settings.setAllowFileAccess(true);
-        settings.setDatabaseEnabled(true);
-        settings.setDomStorageEnabled(true);
         settings.setGeolocationEnabled(true);
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setLoadsImagesAutomatically(true);
         settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setSupportMultipleWindows(true);
-        settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setBuiltInZoomControls(true);
 
-        settings.setJavaScriptEnabled(true);
-        settings.setDomStorageEnabled(true);
-        settings.setAllowFileAccess(true);
-        settings.setAllowContentAccess(true);
-
-        //enable cookies save
-        settings.setDomStorageEnabled(true);
-        settings.setDatabaseEnabled(true);
-
-        //disable scrollbars
         myWeb.setHorizontalScrollBarEnabled(false);
         myWeb.setVerticalScrollBarEnabled(false);
-
-        //enable geolocation services
         myWeb.getSettings().setGeolocationEnabled(true);
 
-        // Set WebView clients
         myWeb.setWebViewClient(new WebViewClient());
-
-        // Add JavaScript interface
         myWeb.addJavascriptInterface(new WebAppInterface(), "Android");
+
         myWeb.setWebChromeClient(new WebChromeClient() {
-            //override geolocation prompts
             @Override
             public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -145,10 +113,6 @@ public class MainActivity extends AppCompatActivity {
                     LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                     Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     if (location != null) {
-                        /* String latitude = String.valueOf(location.getLatitude());
-                        String longitude = String.valueOf(location.getLongitude());
-                        String url = myURL + "?lat=" + latitude + "&long=" + longitude;
-                         */
                         myWeb.loadUrl(myURL);
                         callback.invoke(origin, true, true);
                     } else {
@@ -157,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 callback.invoke(origin, true, false);
             }
+
             @Override
             public void onPermissionRequest(PermissionRequest request) {
                 if (request.getOrigin().toString().startsWith("https://")) {
@@ -165,14 +130,13 @@ public class MainActivity extends AppCompatActivity {
                     super.onPermissionRequest(request);
                 }
             }
-            //display in console javascript errors and warnings
+
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
                 android.util.Log.d("WebView--> ", consoleMessage.message());
                 return true;
             }
 
-            //parameters for file chooser
             public boolean onShowFileChooser(WebView webView,
                                              ValueCallback<Uri[]> filePathCallback,
                                              WebChromeClient.FileChooserParams fileChooserParams) {
@@ -181,9 +145,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 MainActivity.this.filePathCallback = filePathCallback;
 
-                Intent intent = fileChooserParams.createIntent();
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("*/*"); // Разрешаем все типы файлов
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+
                 try {
-                    startActivityForResult(intent, FILE_CHOOSER_REQUEST_CODE);
+                    startActivityForResult(Intent.createChooser(intent, "File Chooser"), FILE_CHOOSER_REQUEST_CODE);
                 } catch (Exception e) {
                     MainActivity.this.filePathCallback = null;
                     Toast.makeText(MainActivity.this, "Cannot open file chooser", Toast.LENGTH_LONG).show();
@@ -192,27 +160,20 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        // Check if location permission is granted
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Request location permission if not granted
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
         }
-
-
     }
-    // JavaScript interface for handling blob downloads
+
     public class WebAppInterface {
         @JavascriptInterface
         public void downloadFile(String base64Data, String fileName, String mimeType) {
-
             try {
                 byte[] data = Base64.decode(base64Data, Base64.DEFAULT);
-
-                // For Android 10+ we use MediaStore API
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     saveFileWithMediaStore(data, fileName, mimeType);
                 } else {
-                    // Fallback for older versions (though minSdk=31 makes this unreachable)
                     createFileWithSAF(data, fileName, mimeType);
                 }
             } catch (Exception e) {
@@ -240,7 +201,6 @@ public class MainActivity extends AppCompatActivity {
                         outputStream.write(data);
                         runOnUiThread(() -> {
                             Toast.makeText(this, "File saved to Downloads folder", Toast.LENGTH_LONG).show();
-                            // Notify the system about the new file
                             Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                             mediaScanIntent.setData(uri);
                             sendBroadcast(mediaScanIntent);
@@ -269,33 +229,36 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, CREATE_FILE_REQUEST_CODE);
     }
 
-    //file chooser override parameters
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode != FILE_CHOOSER_REQUEST_CODE || filePathCallback == null) {
-            return;
-        }
-        //load file
-        Uri[] results = null;
-        if (resultCode == Activity.RESULT_OK && data != null) {
-            String dataString = data.getDataString();
-            if (dataString != null) {
-                results = new Uri[]{Uri.parse(dataString)};
-            }
-        }
 
-        //save file
-        if (requestCode == CREATE_FILE_REQUEST_CODE && resultCode == RESULT_OK) {
+        if (requestCode == FILE_CHOOSER_REQUEST_CODE) {
+            if (filePathCallback == null) return;
+
+            Uri[] results = null;
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                if (data.getClipData() != null) {
+                    // Multiple files selected
+                    int count = data.getClipData().getItemCount();
+                    results = new Uri[count];
+                    for (int i = 0; i < count; i++) {
+                        results[i] = data.getClipData().getItemAt(i).getUri();
+                    }
+                } else if (data.getData() != null) {
+                    // Single file selected
+                    results = new Uri[]{data.getData()};
+                }
+            }
+            filePathCallback.onReceiveValue(results);
+            filePathCallback = null;
+
+        } else if (requestCode == CREATE_FILE_REQUEST_CODE && resultCode == RESULT_OK) {
             if (data != null && data.getData() != null) {
                 Uri uri = data.getData();
                 saveFileWithSAF(uri, pendingFileData);
             }
         }
-
-        //load file
-        filePathCallback.onReceiveValue(results);
-        filePathCallback = null;
     }
 
     private void saveFileWithSAF(Uri uri, byte[] data) {
