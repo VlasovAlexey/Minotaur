@@ -1,10 +1,8 @@
-
 //watcher function for seacraft file reading
 var ariane_csv_file = [];
 document.querySelector("#ariane_csv_file").addEventListener('change', function() {
 	//Show progress bar
 	Pbar_Show();
-	
 	// files that user has chosen
 	var all_files = this.files;
 	if(all_files.length == 0) {

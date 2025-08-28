@@ -8,23 +8,23 @@
       <title>Minotaur Software for Cave Dive Mapping</title>
       <meta property="og:title" content="Minotaur Cave Diving Mapping Software"/>
       <meta property="og:description" content="Minotaur Cave Diving Mapping Software"/>
-      <meta property="og:image" content="http://scan3d.ru/Minotaur/promo_label.jpg?v0.81211184415">
+      <meta property="og:image" content="https://vlasovalexey.github.io/Minotaur/HTML_SRC/images/promo_label.jpg?v0.81211184415">
       <meta property="og:type" content="website"/>
-      <meta property="og:url" content= "http://scan3d.ru/Minotaur/promo_label.jpg?v0.81211814415" />
+      <meta property="og:url" content= "https://vlasovalexey.github.io/Minotaur/HTML_SRC/images/promo_label.jpg?v0.81211814415" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, user-scalable=no">
       
       <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
       <meta name="theme-color" content="#2B559B" />
-      <link rel="manifest" href="manifest.webmanifest">
+      <link rel="manifest" href="sys/manifest.webmanifest">
       
-      <link href="apple-touch-icon.png?v0.81284415" rel="apple-touch-icon" />
-      <link href="apple-touch-icon-76x76.png?v0.81284415" rel="apple-touch-icon" sizes="76x76" />
-      <link href="apple-touch-icon-120x120.png?v0.81284415" rel="apple-touch-icon" sizes="120x120" />
-      <link href="apple-touch-icon-152x152.png?v0.81284415" rel="apple-touch-icon" sizes="152x152" />
-      <link href="apple-touch-icon-180x180.png?v0.81284415" rel="apple-touch-icon" sizes="180x180" />
-      <link href="icon-hires.png?v0.81284415" rel="icon" sizes="192x192" />
-      <link href="icon-normal.png?v0.81284415" rel="icon" sizes="128x128" />
-      <link rel="stylesheet" type="text/css" href="style_main.css?v0.621">
+      <link href="images/apple-touch-icon.png?v0.81284415" rel="apple-touch-icon" />
+      <link href="images/apple-touch-icon-76x76.png?v0.81284415" rel="apple-touch-icon" sizes="76x76" />
+      <link href="images/apple-touch-icon-120x120.png?v0.81284415" rel="apple-touch-icon" sizes="120x120" />
+      <link href="images/apple-touch-icon-152x152.png?v0.81284415" rel="apple-touch-icon" sizes="152x152" />
+      <link href="images/apple-touch-icon-180x180.png?v0.81284415" rel="apple-touch-icon" sizes="180x180" />
+      <link href="images/icon-hires.png?v0.81284415" rel="icon" sizes="192x192" />
+      <link href="images/icon-normal.png?v0.81284415" rel="icon" sizes="128x128" />
+      <link rel="stylesheet" type="text/css" href="css/style_main.css?v0.621">
       <!-- Preloader Info Wait when all Page Loaded-->
       <style type="text/css">
          #preloader {
@@ -252,7 +252,7 @@
    <body id="body_main" onload="">
       
       <div id="map_picker_base" class="map_picker_base">
-         <div id="map_picker_center" style="background: url(MapCenterCoordIcon1.svg) no-repeat center; width:100%; height:100px; position:sticky; top: 50%; z-index:45000; pointer-events: none;"></div>
+         <div id="map_picker_center" style="background: url(css/MapCenterCoordIcon1.svg) no-repeat center; width:100%; height:100px; position:sticky; top: 50%; z-index:45000; pointer-events: none;"></div>
          <button type="button" onClick="btn_close_map_picker();" id="btn_close_map_picker" class="btn_close_map_picker">Get Сoordinates</button>
          <div id="map_picker" class="map_picker"></div>
       </div>
@@ -347,11 +347,11 @@
             <div id="data-test1"></div>
             <div id="data-test2"></div>
             <div id="rec_base" style="width:100%; height:0px;">
-               <div id="rec_blinking" style="background: url(rec_blink.svg) no-repeat right center; width:100%; height:70px; right: 0; position:relative; top: 0px; z-index:10"></div>
+               <div id="rec_blinking" style="background: url(css/rec_blink.svg) no-repeat right center; width:100%; height:70px; right: 0; position:relative; top: 0px; z-index:10"></div>
             </div>
             <div id="map_hide" class="map_hide">
                <div id="rec_blinking" style="width:100%; height:0px;">
-                  <div id="rec_blinking_map_rotator" style="background: url(rec_blink.svg) no-repeat right center; width:92%; height:70px; left: 10; position:absolute; top: 20px; z-index:3000"></div>
+                  <div id="rec_blinking_map_rotator" style="background: url(css/rec_blink.svg) no-repeat right center; width:92%; height:70px; left: 10; position:absolute; top: 20px; z-index:3000"></div>
                </div>
                <div id="map" class="map_fullscreen"></div>
                <button type="button" id="btn_rec_fullscreen" onClick="btn_meas_click();"></button>
@@ -431,15 +431,6 @@
                <div id="data-latitude"></div>
                <div id="data-longitude"></div>
                <div id="data-speed"></div>
-               <!--
-                  <div id="compass" style="background: url(compass_main.svg) no-repeat center center; width:100%; height:500px;"></div>
-                  <p class=error id="error-NONAVIGATION" hidden>There are no navigation on this device.</p>
-                  <p class=error id="error-PERMISSION_DENIED" hidden>You must authorize the localisation to get the data.</p>
-                  <p class=error id="error-POSITION_UNAVAILABLE" hidden>Intern error when get the localisation data.</p>
-                  <p class=error id="error-TIMEOUT" hidden>Time out to get the localisation.</p>
-                  <p class=error id="error-OTHER" hidden>Unknown error.</p>
-                  -->
-               
             </div>
             <div class="div_block" id="div_block">
                <div id="big_buttons" class="big_buttons">
@@ -469,7 +460,7 @@
             </div>
             <div class="content" id="6-content">
                <div id="div_block_rec"> 
-                 <iframe id="div_block_rec" class="div_block_rec" src="sketcher/index.html" width="100%" height="700px" style="border:none;"></iframe>
+                 <!--<iframe id="div_block_rec" class="div_block_rec" src="sketcher/index.html" width="100%" height="700px" style="border:none;"></iframe>-->
                </div>
             </div>
             <div class="header" id="7-header">
@@ -517,22 +508,22 @@
                </div>
                <div class="div_block">
                   <div class="tn_donat_header_founder" id="tn_donat_header_founder"></div>
-                  <img src="cup_founder.png"><br>
+                  <img src="images/cup_founder.png"><br>
                   <div class="td_founder_list"></div>
                </div>
                <div class="div_block">
                   <div class="tn_donat_header_gold" id="tn_donat_header_gold"></div>
-                  <img src="cup_gold.png"><br>
+                  <img src="images/cup_gold.png"><br>
                   <div class="td_gold_list"></div>
                </div>
                <div class="div_block">
                   <div class="tn_donat_header_silver" id="tn_donat_header_silver"></div>
-                  <img src="cup_silver.png"><br>
+                  <img src="images/cup_silver.png"><br>
                   <div class="td_silver_list"></div>
                </div>
                <div class="div_block">
                   <div class="tn_donat_header_bronze" id="tn_donat_header_bronze"></div>
-                  <img src="cup_bronze.png"><br>
+                  <img src="images/cup_bronze.png"><br>
                   <div class="td_bronze_list"></div>
                </div>
             </div>
@@ -596,32 +587,32 @@
       <input id="nodejs_export_pdf" type="file"  nwsaveas style="display:none" accept="application/pdf" nwworkingdir=""/>
       
       <!--<load other files>-->
-      <script src="plotly.min.js"></script>
-      <script src="turf.min.js"></script>
-      <script src="jquery-3.6.0.js"></script>
+      <script src="js/plotly.min.js"></script>
+      <script src="js/turf.min.js"></script>
+      <script src="js/jquery-3.6.0.js"></script>
       
       
-      <script src="ObjTree.js"></script>
-      <script src="jszip.min.js"></script>
-      <script src="xlsx.full.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="katex.css">
-      <script src="katex.js"></script>
+      <script src="js/ObjTree.js"></script>
+      <script src="js/jszip.min.js"></script>
+      <script src="js/xlsx.full.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/katex.css">
+      <script src="js/katex.js"></script>
    
-      <script src="jspdf.src.js"></script>
-      <script src="Arial_Digiscream_Normal-normal.js"></script>
-      <script src="svg2pdf.src.js"></script>
-      <script src="jspdf.plugin.autotable.js"></script>
+      <script src="js/jspdf.src.js"></script>
+      <script src="js/Arial_Digiscream_Normal-normal.js"></script>
+      <script src="js/svg2pdf.src.js"></script>
+      <script src="js/jspdf.plugin.autotable.js"></script>
       
-      <script src="utm.js"></script>
-      <script src="highstock.js?v0.18111531116241151113311111131167" charset="UTF-8"></script>
-      <script src="exporting.src.js?v0.161351141258116133592113157" charset="UTF-8"></script>
-      <script src="offline-exporting.src.js?v0.15541116233311163171819215" charset="UTF-8"></script>
-      <script src="html_new_gen_main.js?v0.11121111541563333111186411841154923457" charset="UTF-8"></script>
-      <script src="android_fn.js?v0.2841841125111311453651339116234517" charset="UTF-8"></script>
+      <script src="js/utm.js"></script>
+      <script src="js/highstock.js?v0.18111531116241151113311111131167" charset="UTF-8"></script>
+      <script src="js/exporting.src.js?v0.161351141258116133592113157" charset="UTF-8"></script>
+      <script src="js/offline-exporting.src.js?v0.15541116233311163171819215" charset="UTF-8"></script>
+      <script src="js/html_new_gen_main.js?v0.11121111541563333111186411841154923457" charset="UTF-8"></script>
+      <script src="js/android_fn.js?v0.2841841125111311453651339116234517" charset="UTF-8"></script>
       
       
-      <script src="cookie_settings.js?v0.63457wa123" charset="UTF-8"></script>
-      <script src="base64_res.js?3092"></script>
+      <script src="js/cookie_settings.js?v0.63457wa123" charset="UTF-8"></script>
+      <script src="js/base64_res.js?3092"></script>
       
       <!--demo maps preloader -->
       <script src="example_maps/Lila_cave_Matanzas_Cuba.js?34"></script>
@@ -698,53 +689,53 @@
       <link rel="stylesheet" href="leaflet/leaflet.contextmenu.css"/>
       <script src="leaflet/leaflet.contextmenu.js"></script>
       
-      <script src="html2canvas.min.js"></script>
+      <script src="js/html2canvas.min.js"></script>
       
-      <script src="smooth_polyline_2d.js"></script>
+      <script src="js/smooth_polyline_2d.js"></script>
 
-      <script src="import_seacraft_csv.js"></script>
-      <script src="import_seacraft_kml.js"></script>
-      <script src="import_ariane_csv.js"></script>
-      <script src="import_ariane_tml.js"></script>
-      <script src="import_ariane_kml.js"></script>
+      <script src="js/import_seacraft_csv.js"></script>
+      <script src="js/import_seacraft_kml.js"></script>
+      <script src="js/import_ariane_csv.js"></script>
+      <script src="js/import_ariane_tml.js"></script>
+      <script src="js/import_ariane_kml.js"></script>
 
-      <script src="block_gen.js?v0.826112118315315545v16931123457" charset="UTF-8"></script>
-      <script src="chart_theme.js?v0.1821412834v5753361131461115912345" charset="UTF-8"></script>
-      <script src="style_manager.js?v0.1812v11114353536311327468114315912345" charset="UTF-8"></script>
+      <script src="js/block_gen.js?v0.826112118315315545v16931123457" charset="UTF-8"></script>
+      <script src="js/chart_theme.js?v0.1821412834v5753361131461115912345" charset="UTF-8"></script>
+      <script src="js/style_manager.js?v0.1812v11114353536311327468114315912345" charset="UTF-8"></script>
       <!-- Very important place only here node js check functions! -->
-      <script src="nodejs_fn.js?v0.1818244152v611134573356113591213415" charset="UTF-8"></script>
-      <script src="FileSaver.js?v0.88426171111v4113453335625191123145" charset="UTF-8"></script>
+      <script src="js/nodejs_fn.js?v0.1818244152v611134573356113591213415" charset="UTF-8"></script>
+      <script src="js/FileSaver.js?v0.88426171111v4113453335625191123145" charset="UTF-8"></script>
 
-      <script src="gpx_one_track_export.js" charset="UTF-8"></script>
-      <script src="track_recorder.js?011" charset="UTF-8"></script>
-      <script src="map_rotator.js?30923355" charset="UTF-8"></script>
-      <script src="map_editor.js?3092" charset="UTF-8"></script>
-      <script src="map_editor_show_hide_tool.js"></script>
-      <script src="map_editor_image_overlay.js"></script>
-      <script src="map_editor_add_line.js?3092" charset="UTF-8"></script>
+      <script src="js/gpx_one_track_export.js" charset="UTF-8"></script>
+      <script src="js/track_recorder.js?011" charset="UTF-8"></script>
+      <script src="js/map_rotator.js?30923355" charset="UTF-8"></script>
+      <script src="js/map_editor.js?3092" charset="UTF-8"></script>
+      <script src="js/map_editor_show_hide_tool.js"></script>
+      <script src="js/map_editor_image_overlay.js"></script>
+      <script src="js/map_editor_add_line.js?3092" charset="UTF-8"></script>
       
-      <script src="lng_fn.js?v0.110267w1a134g215f1145v3613313112"charset="UTF-8"></script>
-      <script src="map_editor_3d_view.js?01" charset="UTF-8"></script>
-      <script src="map_editor_add_photo.js?01" charset="UTF-8"></script>
+      <script src="js/lng_fn.js?v0.110267w1a134g215f1145v3613313112"charset="UTF-8"></script>
+      <script src="js/map_editor_3d_view.js?01" charset="UTF-8"></script>
+      <script src="js/map_editor_add_photo.js?01" charset="UTF-8"></script>
 
-      <script src="map_editor_geoman.js?3092" charset="UTF-8"></script>
-      <script src="map_editor_export_geojson.js?3092" charset="UTF-8"></script>
-      <script src="map_editor_paint_polygon.js?3092" charset="UTF-8"></script>
+      <script src="js/map_editor_geoman.js?3092" charset="UTF-8"></script>
+      <script src="js/map_editor_export_geojson.js?3092" charset="UTF-8"></script>
+      <script src="js/map_editor_paint_polygon.js?3092" charset="UTF-8"></script>
 
-      <script src="map_editor_outline_tool.js"></script>
-      <script src="map_editor_info_tool.js"></script>
+      <script src="js/map_editor_outline_tool.js"></script>
+      <script src="js/map_editor_info_tool.js"></script>
       
-      <script src="import_geojson_with_styles.js?3092"></script>
+      <script src="js/import_geojson_with_styles.js?3092"></script>
 
-      <script src="gpx_composer.js?3092" charset="UTF-8"></script>
-      <script src="compass_display.js?01dsd45434d11234" charset="UTF-8"></script>
-      <script src="main.js?v0.188124541156511911v1313452335672113415aw" charset="UTF-8"></script>
-      <script src="map_picker.js" charset="UTF-8"></script>
+      <script src="js/gpx_composer.js?3092" charset="UTF-8"></script>
+      <script src="js/compass_display.js?01dsd45434d11234" charset="UTF-8"></script>
+      <script src="js/main.js?v0.188124541156511911v1313452335672113415aw" charset="UTF-8"></script>
+      <script src="js/map_picker.js" charset="UTF-8"></script>
       
-      <script src="main_fn.js?01" charset="UTF-8"></script>
+      <script src="js/main_fn.js?01" charset="UTF-8"></script>
       
-      <script src="style_manager.js?v0.188141121311v62134573356141115912345" charset="UTF-8"></script>
-      <script src="copy_paste_buffer.js?v0.1488614" charset="UTF-8"></script>
+      <script src="js/style_manager.js?v0.188141121311v62134573356141115912345" charset="UTF-8"></script>
+      <script src="js/copy_paste_buffer.js?v0.1488614" charset="UTF-8"></script>
       
       <!--<load WMM files>-->
       <script src="wmm/newGeomag.js"></script>

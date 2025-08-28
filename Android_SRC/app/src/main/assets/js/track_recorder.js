@@ -98,7 +98,7 @@ function btn_record() {
 		}
 		
 
-		document.getElementById("btn_rec").style.background = "url(rec_press.svg) no-repeat center center";
+		document.getElementById("btn_rec").style.background = "url(css/rec_press.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #fe2b2c";
 		element_id_show("rec_blinking");
 		element_id_show("rec_blinking_map_rotator");
@@ -125,7 +125,7 @@ function btn_record() {
 		geolocation_pos_watcher();
 	} else {
 		
-		document.getElementById("btn_rec").style.background = "url(rec_main.svg) no-repeat center center";
+		document.getElementById("btn_rec").style.background = "url(css/rec_main.svg) no-repeat center center";
 		document.getElementById("btn_rec").style.border = "6px solid #969696";
 		element_id_hide("rec_blinking");
 		element_id_hide("rec_blinking_map_rotator");
@@ -197,7 +197,7 @@ function btn_record() {
 }
 
 //Measure button start here
-document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
+document.getElementById("btn_meas").style.background = "url(css/meas_main.svg) no-repeat center center";
 document.getElementById("btn_meas").style.border = "6px solid #969696";
 
 element_id_hide("map_hide");
@@ -212,7 +212,7 @@ function btn_meas_click() {
 	if (meas_state == 0) {
 		document.getElementById("btn_rec_fullscreen").className = "map_button_rec_fullscreen";
 		
-		document.getElementById("btn_meas").style.background = "url(meas_press.svg) no-repeat center center";
+		document.getElementById("btn_meas").style.background = "url(css/meas_press.svg) no-repeat center center";
 		document.getElementById("btn_meas").style.border = "6px solid #188958";
 		meas_state = 1;
 
@@ -226,7 +226,7 @@ function btn_meas_click() {
 	} else {
 		document.getElementById("btn_rec_fullscreen").className = "map_button_rec_hided";
 
-		document.getElementById("btn_meas").style.background = "url(meas_main.svg) no-repeat center center";
+		document.getElementById("btn_meas").style.background = "url(css/meas_main.svg) no-repeat center center";
 		document.getElementById("btn_meas").style.border = "6px solid #969696";
 		meas_state = 0;
 		
@@ -574,23 +574,23 @@ function updateError(err) {
 	switch (err.code) {
 		case NONAVIGATION:
 			t = "NONAVIGATION";
-			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(css/gps_no.svg) no-repeat left center";
 			break;
 		case PERMISSION_DENIED:
 			t = "PERMISSION_DENIED";
-			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(css/gps_no.svg) no-repeat left center";
 			break;
 		case POSITION_UNAVAILABLE:
 			t = "POSITION_UNAVAILABLE";
-			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(css/gps_no.svg) no-repeat left center";
 			break;
 		case TIMEOUT:
 			t = "TIMEOUT";
-			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(css/gps_no.svg) no-repeat left center";
 			break;
 		default:
 			t = "OTHER";
-			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(css/gps_no.svg) no-repeat left center";
 			console.error(err);
 	}
 	//document.getElementById(`error-${t}`).hidden = false;
@@ -609,21 +609,21 @@ function updateTime() {
 	}
 	if(sec > 3) {
 		if(document.getElementById("tn_color").value == 1){
-			document.getElementById("btn_gps").style.background = "url(gps_bad.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(css/gps_bad.svg) no-repeat left center";
 			gps_bad_count = 4;
 		}
 		else{
-			document.getElementById("btn_gps").style.background = "url(gps_bad_light.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(css/gps_bad_light.svg) no-repeat left center";
 			gps_bad_count = 4;
 		}
 		
 		if(sec > 10){
-			document.getElementById("btn_gps").style.background = "url(gps_no.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(css/gps_no.svg) no-repeat left center";
 		}	
 	}
 	else{
 		if(gps_bad_count < 1){
-			document.getElementById("btn_gps").style.background = "url(gps_ok.svg) no-repeat left center";
+			document.getElementById("btn_gps").style.background = "url(css/gps_ok.svg) no-repeat left center";
 		}
 		
 	}

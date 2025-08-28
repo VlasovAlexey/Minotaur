@@ -1,4 +1,7 @@
 //Android Platform specific functions
+const userAgent = navigator.userAgent.toLowerCase();
+const isAndroid = /android/.test(userAgent);
+const isWebView = /version\/\d+\.\d+/.test(userAgent) || /wv/.test(userAgent);
 
 //Check platform if Android return true
 function IsAndroid(){
@@ -14,9 +17,7 @@ function IsAndroid(){
     //web View class not present
     return false;
 }
-const userAgent = navigator.userAgent.toLowerCase();
-const isAndroid = /android/.test(userAgent);
-const isWebView = /version\/\d+\.\d+/.test(userAgent) || /wv/.test(userAgent);
+
 
 //Color Button about 30 sed
 //if we wanna save cookie properly
