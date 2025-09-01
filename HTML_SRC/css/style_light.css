@@ -989,7 +989,7 @@ input[type=range] {
 }
 
 /* input line parameters window style */
-.input_path_create {
+.input_path_create, .input_create_seacraft {
     margin-bottom: 5px;
     margin-top: 5px;
     margin-left: 5px;
@@ -1044,7 +1044,7 @@ input[type=range] {
     color: #000000;
 }
 
-.opt_input_create_lat, .opt_input_create_lon, .opt_input_create_distance, .opt_input_create_azimuth, .opt_input_create_depth, .opt_input_create_depth_start {
+.opt_input_create_lat, .opt_input_create_lon, .opt_input_create_lat_seacraft, .opt_input_create_lon_seacraft, .opt_input_create_distance, .opt_input_create_azimuth, .opt_input_create_depth, .opt_input_create_depth_start {
     text-align: center;
     text-align-last: center;
     margin-bottom: 2px;
@@ -1063,7 +1063,7 @@ input[type=range] {
     width: 100px;
 }
 
-.opt_button_get_coord, .opt_button_add_point, .opt_button_finish_line {
+.opt_button_get_coord, .opt_button_get_coord_seacraft, .opt_button_add_point, .opt_button_finish_line {
     text-align: center;
     text-align-last: center;
     display: block;

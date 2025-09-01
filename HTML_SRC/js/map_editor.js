@@ -362,6 +362,7 @@ const seacraft = [
   //"cancel",
 ];
 
+var seacraft_status = 0;
 map_editor.pm.Toolbar.createCustomControl({
   block: "custom",
   name: "seacraft import",
@@ -370,8 +371,13 @@ map_editor.pm.Toolbar.createCustomControl({
   onClick: () => {
   },
   afterClick: () => {
+	   seacraft_add_path();
+    	seacraft_status = seacraft_status + 1;
+    	if(seacraft_status > 1){
+      		seacraft_status = 0;
+    	}
   },
-  doToggle: true,
+  doToggle: false,
   toggleStatus: false,
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-seacraft',

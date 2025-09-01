@@ -34,7 +34,8 @@ function btn_close_map_picker(){
         
         //if on desktop we doesn`t have altitude sensor
         if (ele_reg == null || ele_reg == 0){
-            openSensorError();
+            document.getElementById("default_ele_opt").value = "0,0";
+            //openSensorError();
         } else {
             document.getElementById("default_ele_opt").value = (ele_reg.toFixed(2)).replace("." , ",");
         }    
@@ -45,8 +46,6 @@ function btn_close_map_picker(){
     }
 
     element_id_hide("map_picker_base");
-    
-    
 }
 
 //create map for picking

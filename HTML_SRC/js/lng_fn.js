@@ -286,6 +286,11 @@
                 ".opt_line_depth_start": "Start Depth",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
+                
+                ".opt_line_lat_seacraft": "Latitude",
+                ".opt_line_lon_seacraft": "Longitude",
+                ".opt_button_get_coord_seacraft": "Pick from Map Center",
+
                 ".opt_line_distance": "Distance",
                 ".opt_line_azimuth": "Azimuth",
                 ".opt_line_depth": "Depth",
@@ -383,6 +388,11 @@
                 ".opt_line_depth_start": "Начальная глубина",
                 ".opt_line_lat": "Широта",
                 ".opt_line_lon": "Долгота",
+
+                ".opt_line_lat_seacraft": "Широта",
+                ".opt_line_lon_seacraft": "Долгота",
+                ".opt_button_get_coord_seacraft": "Выбрать из центра карты",
+
                 ".opt_line_distance": "Расстояние",
                 ".opt_line_azimuth": "Азимут",
                 ".opt_line_depth": "Глубина",
@@ -482,6 +492,11 @@
                 ".opt_line_depth_start": "Profundidad de inicio",
                 ".opt_line_lat": "Latitud",
                 ".opt_line_lon": "Longitud",
+
+                ".opt_line_lat_seacraft": "Latitud",
+                ".opt_line_lon_seacraft": "Longitud",
+                ".opt_button_get_coord_seacraft": "Seleccionar del centro del mapa",
+
                 ".opt_line_distance": "Distancia",
                 ".opt_line_azimuth": "Acimut",
                 ".opt_line_depth": "Profundidad",
@@ -579,6 +594,11 @@
                 ".opt_line_depth_start": "Profundidade inicial",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
+
+                ".opt_line_lat_seacraft": "Latitude",
+                ".opt_line_lon_seacraft": "Longitude",
+                ".opt_button_get_coord_seacraft": "Selecionar no Centro do Mapa",
+
                 ".opt_line_distance": "Distância",
                 ".opt_line_azimuth": "Azimute",
                 ".opt_line_depth": "Profundidade",
@@ -677,6 +697,11 @@
                 ".opt_line_depth_start": "起始深度",
                 ".opt_line_lat": "緯度",
                 ".opt_line_lon": "經度",
+
+                ".opt_line_lat_seacraft": "緯度",
+                ".opt_line_lon_seacraft": "經度",
+                ".opt_button_get_coord_seacraft": "從地圖中心選擇",
+
                 ".opt_line_distance": "距離",
                 ".opt_line_azimuth": "方位角",
                 ".opt_line_depth": "深度",
@@ -774,6 +799,11 @@
                 ".opt_line_depth_start": "Начална дълбочина",
                 ".opt_line_lat": "Географска ширина",
                 ".opt_line_lon": "Дължина",
+
+                ".opt_line_lat_seacraft": "Географска ширина",
+                ".opt_line_lon_seacraft": "Дължина",
+                ".opt_button_get_coord_seacraft": "Избор от центъра на картата",
+
                 ".opt_line_distance": "Разстояние",
                 ".opt_line_azimuth": "Азимут",
                 ".opt_line_depth": "Дълбочина",
@@ -868,6 +898,11 @@
                 ".opt_line_depth_start": "Profondeur de départ",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
+
+                ".opt_line_lat_seacraft": "Latitude",
+                ".opt_line_lon_seacraft": "Longitude",
+                ".opt_button_get_coord_seacraft": "Choisir depuis le centre de la carte",
+
                 ".opt_line_distance": "Distance",
                 ".opt_line_azimuth": "Azimut",
                 ".opt_line_depth": "Profondeur",
@@ -962,6 +997,11 @@
                 ".opt_line_depth_start": "시작 깊이",
                 ".opt_line_lat": "위도",
                 ".opt_line_lon": "경도",
+
+                ".opt_line_lat_seacraft": "위도",
+                ".opt_line_lon_seacraft": "경도",
+                ".opt_button_get_coord_seacraft": "지도 센터에서 선택",
+
                 ".opt_line_distance": "거리",
                 ".opt_line_azimuth": "방위",
                 ".opt_line_depth": "깊이",
@@ -1057,6 +1097,11 @@
                 ".opt_line_depth_start": "Profondità di inizio",
                 ".opt_line_lat": "Latitudine",
                 ".opt_line_lon": "Longitudine",
+
+                ".opt_line_lat_seacraft": "Latitudine",
+                ".opt_line_lon_seacraft": "Longitudine",
+                ".opt_button_get_coord_seacraft": "Scegli dal centro della mappa",
+
                 ".opt_line_distance": "Distanza",
                 ".opt_line_azimuth": "Azimut",
                 ".opt_line_depth": "Profondità",
