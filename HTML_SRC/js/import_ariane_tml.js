@@ -1,3 +1,46 @@
+//show hide ariane import custom properties
+function draw_custom_ariane(){
+  if(ariane_status == 1){
+    document.getElementsByClassName('input_path_create_ariane')[0].style.display = 'none';
+  } else {
+    document.getElementsByClassName('input_path_create_ariane')[0].style.display = 'block';
+  }
+}
+
+//create custom properties window
+L.window = L.Control.extend({
+  options: {
+      position: 'topcenter'
+  },
+  onAdd: function (map) {
+      var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+      
+      //disable touch and zoom on window
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.disableScrollPropagation(container);
+
+      //window class and id
+      container.className = "input_path_create_ariane";
+      container.id = "input_path_create_ariane";
+      var table_1 = '<table class="input_table_style"><thead><tr class="input_table_style"><td class="input_table_style" id="input_trs_ariane"></td></td></tr></thead></table>'
+      var table_2 = `<table class="input_table_style"><thead><tr class="input_table_style"><td class="input_table_style" id="input_btn_apply_ariane"></td></tr></thead></table>`
+      
+      container.innerHTML = table_1 + table_2;
+      //container.title = "Title";
+      return container;
+  },
+  onRemove: function(map) {},
+
+});
+var control = new L.window();
+control.addTo(map_editor);
+
+//create all interface element inside created window
+create_html_text("input_trs_ariane","opt_trs_ariane" ,"");
+create_input_val_sign("input_trs_ariane", "opt_trs_ariane_input", "1,5");
+document.getElementsByClassName('input_path_create_ariane')[0].style.display = 'none';
+
+
 //watcher function for Ariane tml file reading
 var ariane_tml_file = [];
 function onTMLload(fileInput) {

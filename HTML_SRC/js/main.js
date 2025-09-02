@@ -72,6 +72,9 @@ function upd_all() {
 }
 upd_all();
 
+opt_trs_ariane_input_val = document.getElementById("opt_trs_ariane_input");
+opt_trs_ariane_input_val.addEventListener('change', upd_all);
+
 //Show progress bar
 var f_start = 1;
 

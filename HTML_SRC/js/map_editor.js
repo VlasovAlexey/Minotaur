@@ -339,6 +339,7 @@ const ariane = [
   //"cancel",
 ];
 
+var ariane_status = 0;
 map_editor.pm.Toolbar.createCustomControl({
   block: "custom",
   name: "ariane import",
@@ -347,8 +348,13 @@ map_editor.pm.Toolbar.createCustomControl({
   onClick: () => {
   },
   afterClick: () => {
+    draw_custom_ariane();
+    ariane_status = ariane_status + 1;
+    if(ariane_status > 1){
+      ariane_status = 0;
+    }
   },
-  doToggle: true,
+  doToggle: false,
   toggleStatus: false,
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-ariane',

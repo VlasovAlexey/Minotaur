@@ -283,6 +283,10 @@
         lang = {
             1: {
                 //Eng
+                ".opt_trs_ariane": "Welding Threshold" + lng_meters,
+                ".location-info": "No Location Data",
+                ".location-elev": "Elevation",
+
                 ".opt_line_depth_start": "Start Depth",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
@@ -385,6 +389,10 @@
 
             //Rus
             2: {
+                ".opt_trs_ariane": "Порог сварки" + lng_meters,
+                ".location-info": "Нет данных",
+                ".location-elev": "Высота",
+
                 ".opt_line_depth_start": "Начальная глубина",
                 ".opt_line_lat": "Широта",
                 ".opt_line_lon": "Долгота",
@@ -489,6 +497,10 @@
 
             3: {
                 //Spa
+                ".opt_trs_ariane": "Umbral de soldadura" + lng_meters,
+                ".location-info": "Sin datos",
+                ".location-elev": "Elevación",
+
                 ".opt_line_depth_start": "Profundidad de inicio",
                 ".opt_line_lat": "Latitud",
                 ".opt_line_lon": "Longitud",
@@ -591,6 +603,10 @@
             },
             4: {
                 //Prt
+                ".opt_trs_ariane": "Limiar de Soldadura" + lng_meters,
+                ".location-info": "Sem Dados",
+                ".location-elev": "Elevação",
+
                 ".opt_line_depth_start": "Profundidade inicial",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
@@ -694,6 +710,10 @@
             },
             5: {
                 //China
+                ".opt_trs_ariane": "焊接閾值" + lng_meters,
+                ".location-info": "無資料",
+                ".location-elev": "海拔",
+
                 ".opt_line_depth_start": "起始深度",
                 ".opt_line_lat": "緯度",
                 ".opt_line_lon": "經度",
@@ -796,6 +816,10 @@
             },
             6: {
                 //Bulgarian
+                ".opt_trs_ariane": "Праг на заваряване" + lng_meters,
+                ".location-info": "Няма данни",
+                ".location-elev": "Кота",
+
                 ".opt_line_depth_start": "Начална дълбочина",
                 ".opt_line_lat": "Географска ширина",
                 ".opt_line_lon": "Дължина",
@@ -895,6 +919,10 @@
             },
             7: {
                 //Fr
+                ".opt_trs_ariane": "Seuil de soudage" + lng_meters,
+                ".location-info": "Aucune donnée",
+                ".location-elev": "Altitude",
+
                 ".opt_line_depth_start": "Profondeur de départ",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
@@ -994,6 +1022,10 @@
             },
             8: {
                 //Korean
+                ".opt_trs_ariane": "용접 임계값" + lng_meters,
+                ".location-info": "데이터 없음",
+                ".location-elev": "고도",
+
                 ".opt_line_depth_start": "시작 깊이",
                 ".opt_line_lat": "위도",
                 ".opt_line_lon": "경도",
@@ -1094,6 +1126,10 @@
             },
             9: {
                 //Italian
+                ".opt_trs_ariane": "Soglia di saldatura" + lng_meters,
+                ".location-info": "Nessun dato",
+                ".location-elev": "Altitudine",
+
                 ".opt_line_depth_start": "Profondità di inizio",
                 ".opt_line_lat": "Latitudine",
                 ".opt_line_lon": "Longitudine",
