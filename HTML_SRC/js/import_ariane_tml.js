@@ -37,9 +37,17 @@ control.addTo(map_editor);
 
 //create all interface element inside created window
 create_html_text("input_trs_ariane","opt_trs_ariane" ,"");
-create_input_val_sign("input_trs_ariane", "opt_trs_ariane_input", "1,5");
+create_input_val_sign("input_trs_ariane", "opt_trs_ariane_input", parseFloat(document.getElementById("trs_main_val_opt").value.replace("," , ".")));
+
 document.getElementsByClassName('input_path_create_ariane')[0].style.display = 'none';
 
+w_input_trs_ariane = document.getElementById("opt_trs_ariane_input");
+w_input_trs_ariane.addEventListener('change', upd_trs_total);
+
+function upd_trs_total(){
+	document.getElementById("trs_main_val_opt").value = parseFloat(document.getElementById("opt_trs_ariane_input").value.replace("," , "."));
+	upd_all_no_lang();
+}
 
 //watcher function for Ariane tml file reading
 var ariane_tml_file = [];
@@ -76,6 +84,8 @@ function onTMLload(fileInput) {
 				//create lines if exist
 				var xy_arr = [];
 				var z_arr =[];
+				var xyz_arr = [];
+
 				var id_color_arr = [];
 				var id_tp, x_tp, y_tp, z_tp, id_current_tp;
 				
@@ -89,9 +99,11 @@ function onTMLload(fileInput) {
 						x_tp = 1.0*ariane_tml_file.CaveFile.Data.SurveyData[i].Latitude;
 						y_tp = 1.0*ariane_tml_file.CaveFile.Data.SurveyData[i].Longitude;
 						z_tp = 1.0*ariane_tml_file.CaveFile.Data.SurveyData[i].Depth;
+						
 						xy_arr.push([x_tp , y_tp]);
 						z_arr.push(z_tp);
-						
+						xyz_arr.push([x_tp , y_tp , z_tp]);
+
 						color_tp = color_tp.slice(2);
 						color_tp = color_tp.slice(0,6);
 						id_color_arr.push([ id_tp, "#" + color_tp]);
@@ -104,11 +116,12 @@ function onTMLload(fileInput) {
 							
 							xy_arr.push([lat_tp , lon_tp]);
 							z_arr.push(z_tp);
+							xyz_arr.push([lat_tp , lon_tp , z_tp]);
 						}
 					} else {
 						//all other stations
-						x_tp = xy_arr[id_tp][0];
-						y_tp = xy_arr[id_tp][1];
+						x_tp = xyz_arr[id_tp][0];
+						y_tp = xyz_arr[id_tp][1];
 
 						z_tp = 1.0*ariane_tml_file.CaveFile.Data.SurveyData[i].Depth;
 						distance_tp = 1.0*ariane_tml_file.CaveFile.Data.SurveyData[i].Length;
@@ -120,15 +133,13 @@ function onTMLload(fileInput) {
 		
 						xy_arr.push([lat_new_tmp , lon_new_tmp]);
 						z_arr.push(z_tp);
+						xyz_arr.push([lat_new_tmp , lon_new_tmp , z_tp]);
 
 						color_tp = color_tp.slice(2);
 						color_tp = color_tp.slice(0,6);
 						id_color_arr.push([ id_tp, "#" + color_tp]);
 					}
 				}
-				//add loaded data to map editor
-				add_line_arr(xy_arr, "#ff7800", 5, z_arr, "false", id_color_arr);
-
 				//create markers from pale marks if exist
 				for (i = 0; i < ariane_tml_file.CaveFile.Data.SurveyData.length; i++) {
 
@@ -142,6 +153,18 @@ function onTMLload(fileInput) {
 						new Marker3d(xy_arr[i], marker_3d_prop(depth_text + plan_lng("ch_mtr"), depth_text)).addTo(map_editor);
 					}
 				}
+
+				//filter array before draw
+				var xy_arr = [];
+				var z_arr =[];
+				var filtered_xyz_arr = filterPoints(xyz_arr, (parseFloat(document.getElementById("opt_trs_ariane_input").value.replace("," , "."))));
+				for (i = 0; i < filtered_xyz_arr.length-1; i++) {
+					xy_arr.push([filtered_xyz_arr[i][0] , filtered_xyz_arr[i][1]]);
+					z_arr.push(filtered_xyz_arr[i][2]);
+				}
+
+				//add loaded data to map editor
+				add_line_arr(xy_arr, "#ff7800", 5, z_arr, "false", id_color_arr);
 
 				//finish loading file
 				map_editor.toggleFullscreen();

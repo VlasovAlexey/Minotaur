@@ -67,13 +67,11 @@ function upd_all() {
 	changeGuiDim();
 	changeLang();
 	assign_css_style();
+	upd_map_editor_val();
 	Pbar_Hide();
 	
 }
 upd_all();
-
-opt_trs_ariane_input_val = document.getElementById("opt_trs_ariane_input");
-opt_trs_ariane_input_val.addEventListener('change', upd_all);
 
 //Show progress bar
 var f_start = 1;

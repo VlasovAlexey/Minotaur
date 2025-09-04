@@ -109,7 +109,8 @@ select
 }
 .accel_use_opt,
 .igrf_13_opt,
-.rec_freq_opt
+.rec_freq_opt,
+.trs_main_val_opt
 {
     text-align: center;
 }
@@ -649,7 +650,8 @@ br{
 #tr_default_lon input,
 #tr_default_ele input,
 #tr_igrf_13_val input,
-#tr_track_name input
+#tr_track_name input,
+#tr_trs_main input
 {
     background-color: #eeeeee;
     -webkit-appearance: none;
@@ -1033,7 +1035,7 @@ input[type=range] {
     border: 2px solid rgba(0,0,0,0.0);
 }
 
-.opt_line_lat, .opt_line_lon, .opt_line_distance, .opt_line_azimuth, .opt_line_depth, .opt_line_depth_start {
+.opt_line_lat, .opt_trs_seacraft, .opt_line_lon, .opt_line_distance, .opt_line_azimuth, .opt_line_depth, .opt_line_depth_start {
     text-align: center;
     text-align-last: center;
     margin-bottom: 0px;
@@ -1044,7 +1046,7 @@ input[type=range] {
     color: #000000;
 }
 
-.opt_input_create_lat, .opt_trs_ariane_input, .opt_input_create_lon, .opt_input_create_lat_seacraft, .opt_input_create_lon_seacraft, .opt_input_create_distance, .opt_input_create_azimuth, .opt_input_create_depth, .opt_input_create_depth_start {
+.opt_input_create_lat, .opt_input_trs_seacraft, .opt_trs_ariane_input, .opt_input_create_lon, .opt_input_create_lat_seacraft, .opt_input_create_lon_seacraft, .opt_input_create_distance, .opt_input_create_azimuth, .opt_input_create_depth, .opt_input_create_depth_start {
     text-align: center;
     text-align-last: center;
     margin-bottom: 2px;

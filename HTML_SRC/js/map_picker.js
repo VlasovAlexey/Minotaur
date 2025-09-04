@@ -5,8 +5,15 @@ element_id_hide("map_picker_base");
 function btn_open_map_picker(){
     element_id_show("map_picker_base");
     if (first_start_app == 1){
+    if (lat_reg == "0.0" && lon_reg == "0.0"){
+        //data doesn`t received from sensors for many reasons
+        map_picker.panTo([parseFloat(document.getElementById("default_lat_opt").value.replace("," , ".")),parseFloat(document.getElementById("default_lon_opt").value.replace("," , "."))]);
+        map_picker.invalidateSize();
+    } else{
+        //all is fine and we move to received lat lon from sensors
         map_picker.panTo([lat_reg,lon_reg]);
         map_picker.invalidateSize();
+    }
     }
     if (first_start_app == 0){
         map_picker.panTo(path1.getBounds().getCenter());
@@ -25,7 +32,7 @@ function btn_close_map_picker(){
     txt = (txt.slice((txt.indexOf('LatLng(')) + 7));
     
     //check internet connection
-    if (lat_reg != "0.0" && lon_reg != "0.0"){
+    //if (lat_reg != "0.0" && lon_reg != "0.0"){
         
         //all is ok
         document.getElementById("default_lat_opt").value = (txt.slice(0 , (txt.indexOf(',')) - 1)).replace("." , ",");
@@ -40,10 +47,10 @@ function btn_close_map_picker(){
             document.getElementById("default_ele_opt").value = (ele_reg.toFixed(2)).replace("." , ",");
         }    
         upd_all();
-    } else {
+    /*} else {
         //check internet connection warning
-        openInternetError();
-    }
+       // openInternetError();
+    }*/
 
     element_id_hide("map_picker_base");
 }

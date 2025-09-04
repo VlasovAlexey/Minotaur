@@ -283,6 +283,9 @@
         lang = {
             1: {
                 //Eng
+                ".opt_trs_main": "Welding Threshold" + lng_meters,
+                ".opt_trs_seacraft": "Welding Threshold" + lng_meters,
+
                 ".opt_trs_ariane": "Welding Threshold" + lng_meters,
                 ".location-info": "No Location Data",
                 ".location-elev": "Elevation",
@@ -389,6 +392,9 @@
 
             //Rus
             2: {
+                ".opt_trs_main": "Порог сварки" + lng_meters,
+                ".opt_trs_seacraft": "Порог сварки" + lng_meters,
+
                 ".opt_trs_ariane": "Порог сварки" + lng_meters,
                 ".location-info": "Нет данных",
                 ".location-elev": "Высота",
@@ -497,6 +503,9 @@
 
             3: {
                 //Spa
+                ".opt_trs_main": "Umbral de soldadura" + lng_meters,
+                ".opt_trs_seacraft": "Umbral de soldadura" + lng_meters,
+
                 ".opt_trs_ariane": "Umbral de soldadura" + lng_meters,
                 ".location-info": "Sin datos",
                 ".location-elev": "Elevación",
@@ -603,6 +612,9 @@
             },
             4: {
                 //Prt
+                ".opt_trs_main": "Limiar de Soldadura" + lng_meters,
+                ".opt_trs_seacraft": "Limiar de Soldadura" + lng_meters,
+
                 ".opt_trs_ariane": "Limiar de Soldadura" + lng_meters,
                 ".location-info": "Sem Dados",
                 ".location-elev": "Elevação",
@@ -710,6 +722,9 @@
             },
             5: {
                 //China
+                ".opt_trs_main": "焊接閾值" + lng_meters,
+                ".opt_trs_seacraft": "焊接閾值" + lng_meters,
+
                 ".opt_trs_ariane": "焊接閾值" + lng_meters,
                 ".location-info": "無資料",
                 ".location-elev": "海拔",
@@ -816,6 +831,9 @@
             },
             6: {
                 //Bulgarian
+                ".opt_trs_main": "Праг на заваряване" + lng_meters,
+                ".opt_trs_seacraft": "Праг на заваряване" + lng_meters,
+
                 ".opt_trs_ariane": "Праг на заваряване" + lng_meters,
                 ".location-info": "Няма данни",
                 ".location-elev": "Кота",
@@ -919,6 +937,9 @@
             },
             7: {
                 //Fr
+                ".opt_trs_main": "Seuil de soudage" + lng_meters,
+                ".opt_trs_seacraft": "Seuil de soudage" + lng_meters,
+
                 ".opt_trs_ariane": "Seuil de soudage" + lng_meters,
                 ".location-info": "Aucune donnée",
                 ".location-elev": "Altitude",
@@ -1022,6 +1043,9 @@
             },
             8: {
                 //Korean
+                ".opt_trs_main": "용접 임계값" + lng_meters,
+                ".opt_trs_seacraft": "용접 임계값" + lng_meters,
+
                 ".opt_trs_ariane": "용접 임계값" + lng_meters,
                 ".location-info": "데이터 없음",
                 ".location-elev": "고도",
@@ -1126,6 +1150,9 @@
             },
             9: {
                 //Italian
+                ".opt_trs_main": "Soglia di saldatura" + lng_meters,
+                ".opt_trs_seacraft": "Soglia di saldatura" + lng_meters,
+
                 ".opt_trs_ariane": "Soglia di saldatura" + lng_meters,
                 ".location-info": "Nessun dato",
                 ".location-elev": "Altitudine",

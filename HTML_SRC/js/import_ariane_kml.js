@@ -73,6 +73,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 			//create lines if exist
 			var xy_arr = [];
 			var z_arr =[];
+			var xyz_arr = [];
 			//all is fine
 			for (i = 0; i < ariane_kml_file.kml.Document.Folder.length; i++) {
 				if(ariane_kml_file.kml.Document.Folder[i].name == "Line") {					
@@ -81,8 +82,7 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 							var coord = ariane_kml_file.kml.Document.Folder[i].Placemark[f].LineString.coordinates.split(" ");
 							for (s = 0; s < coord.length-1; s++){
 								var coord1 = coord[s].split(",");
-								xy_arr.push([(1.0*coord1[1]) , (1.0*coord1[0])]);
-								z_arr.push((1.0*coord1[2]));
+								xyz_arr.push([(1.0*coord1[1]) , (1.0*coord1[0]) , (1.0*coord1[2])]);
 							}
 						}
 					}
@@ -90,7 +90,13 @@ document.querySelector("#ariane_kml_file").addEventListener('change', function()
 				}
 	
 			}
-			//console.log(xy_arr);
+			//filter array before draw
+			var filtered_xyz_arr = filterPoints(xyz_arr, (parseFloat(document.getElementById("opt_trs_ariane_input").value.replace("," , "."))));
+			for (i = 0; i < filtered_xyz_arr.length-1; i++) {
+				xy_arr.push([filtered_xyz_arr[i][0] , filtered_xyz_arr[i][1]]);
+				z_arr.push(filtered_xyz_arr[i][2]);
+			}
+			
 			//add loaded data to map editor
 			add_line_arr(xy_arr, "#ff7800", 5, z_arr, "false", undefined);
 
