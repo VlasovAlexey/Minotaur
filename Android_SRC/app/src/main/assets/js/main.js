@@ -67,6 +67,7 @@ function upd_all() {
 	changeGuiDim();
 	changeLang();
 	assign_css_style();
+	upd_map_editor_val();
 	Pbar_Hide();
 	
 }

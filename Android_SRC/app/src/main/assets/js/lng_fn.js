@@ -283,9 +283,21 @@
         lang = {
             1: {
                 //Eng
+                ".opt_trs_main": "Welding Threshold" + lng_meters,
+                ".opt_trs_seacraft": "Welding Threshold" + lng_meters,
+
+                ".opt_trs_ariane": "Welding Threshold" + lng_meters,
+                ".location-info": "No Location Data",
+                ".location-elev": "Elevation",
+
                 ".opt_line_depth_start": "Start Depth",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
+                
+                ".opt_line_lat_seacraft": "Latitude",
+                ".opt_line_lon_seacraft": "Longitude",
+                ".opt_button_get_coord_seacraft": "Pick from Map Center",
+
                 ".opt_line_distance": "Distance",
                 ".opt_line_azimuth": "Azimuth",
                 ".opt_line_depth": "Depth",
@@ -380,9 +392,21 @@
 
             //Rus
             2: {
+                ".opt_trs_main": "Порог сварки" + lng_meters,
+                ".opt_trs_seacraft": "Порог сварки" + lng_meters,
+
+                ".opt_trs_ariane": "Порог сварки" + lng_meters,
+                ".location-info": "Нет данных",
+                ".location-elev": "Высота",
+
                 ".opt_line_depth_start": "Начальная глубина",
                 ".opt_line_lat": "Широта",
                 ".opt_line_lon": "Долгота",
+
+                ".opt_line_lat_seacraft": "Широта",
+                ".opt_line_lon_seacraft": "Долгота",
+                ".opt_button_get_coord_seacraft": "Выбрать из центра карты",
+
                 ".opt_line_distance": "Расстояние",
                 ".opt_line_azimuth": "Азимут",
                 ".opt_line_depth": "Глубина",
@@ -479,9 +503,21 @@
 
             3: {
                 //Spa
+                ".opt_trs_main": "Umbral de soldadura" + lng_meters,
+                ".opt_trs_seacraft": "Umbral de soldadura" + lng_meters,
+
+                ".opt_trs_ariane": "Umbral de soldadura" + lng_meters,
+                ".location-info": "Sin datos",
+                ".location-elev": "Elevación",
+
                 ".opt_line_depth_start": "Profundidad de inicio",
                 ".opt_line_lat": "Latitud",
                 ".opt_line_lon": "Longitud",
+
+                ".opt_line_lat_seacraft": "Latitud",
+                ".opt_line_lon_seacraft": "Longitud",
+                ".opt_button_get_coord_seacraft": "Seleccionar del centro del mapa",
+
                 ".opt_line_distance": "Distancia",
                 ".opt_line_azimuth": "Acimut",
                 ".opt_line_depth": "Profundidad",
@@ -576,9 +612,21 @@
             },
             4: {
                 //Prt
+                ".opt_trs_main": "Limiar de Soldadura" + lng_meters,
+                ".opt_trs_seacraft": "Limiar de Soldadura" + lng_meters,
+
+                ".opt_trs_ariane": "Limiar de Soldadura" + lng_meters,
+                ".location-info": "Sem Dados",
+                ".location-elev": "Elevação",
+
                 ".opt_line_depth_start": "Profundidade inicial",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
+
+                ".opt_line_lat_seacraft": "Latitude",
+                ".opt_line_lon_seacraft": "Longitude",
+                ".opt_button_get_coord_seacraft": "Selecionar no Centro do Mapa",
+
                 ".opt_line_distance": "Distância",
                 ".opt_line_azimuth": "Azimute",
                 ".opt_line_depth": "Profundidade",
@@ -674,9 +722,21 @@
             },
             5: {
                 //China
+                ".opt_trs_main": "焊接閾值" + lng_meters,
+                ".opt_trs_seacraft": "焊接閾值" + lng_meters,
+
+                ".opt_trs_ariane": "焊接閾值" + lng_meters,
+                ".location-info": "無資料",
+                ".location-elev": "海拔",
+
                 ".opt_line_depth_start": "起始深度",
                 ".opt_line_lat": "緯度",
                 ".opt_line_lon": "經度",
+
+                ".opt_line_lat_seacraft": "緯度",
+                ".opt_line_lon_seacraft": "經度",
+                ".opt_button_get_coord_seacraft": "從地圖中心選擇",
+
                 ".opt_line_distance": "距離",
                 ".opt_line_azimuth": "方位角",
                 ".opt_line_depth": "深度",
@@ -771,9 +831,21 @@
             },
             6: {
                 //Bulgarian
+                ".opt_trs_main": "Праг на заваряване" + lng_meters,
+                ".opt_trs_seacraft": "Праг на заваряване" + lng_meters,
+
+                ".opt_trs_ariane": "Праг на заваряване" + lng_meters,
+                ".location-info": "Няма данни",
+                ".location-elev": "Кота",
+
                 ".opt_line_depth_start": "Начална дълбочина",
                 ".opt_line_lat": "Географска ширина",
                 ".opt_line_lon": "Дължина",
+
+                ".opt_line_lat_seacraft": "Географска ширина",
+                ".opt_line_lon_seacraft": "Дължина",
+                ".opt_button_get_coord_seacraft": "Избор от центъра на картата",
+
                 ".opt_line_distance": "Разстояние",
                 ".opt_line_azimuth": "Азимут",
                 ".opt_line_depth": "Дълбочина",
@@ -865,9 +937,21 @@
             },
             7: {
                 //Fr
+                ".opt_trs_main": "Seuil de soudage" + lng_meters,
+                ".opt_trs_seacraft": "Seuil de soudage" + lng_meters,
+
+                ".opt_trs_ariane": "Seuil de soudage" + lng_meters,
+                ".location-info": "Aucune donnée",
+                ".location-elev": "Altitude",
+
                 ".opt_line_depth_start": "Profondeur de départ",
                 ".opt_line_lat": "Latitude",
                 ".opt_line_lon": "Longitude",
+
+                ".opt_line_lat_seacraft": "Latitude",
+                ".opt_line_lon_seacraft": "Longitude",
+                ".opt_button_get_coord_seacraft": "Choisir depuis le centre de la carte",
+
                 ".opt_line_distance": "Distance",
                 ".opt_line_azimuth": "Azimut",
                 ".opt_line_depth": "Profondeur",
@@ -959,9 +1043,21 @@
             },
             8: {
                 //Korean
+                ".opt_trs_main": "용접 임계값" + lng_meters,
+                ".opt_trs_seacraft": "용접 임계값" + lng_meters,
+
+                ".opt_trs_ariane": "용접 임계값" + lng_meters,
+                ".location-info": "데이터 없음",
+                ".location-elev": "고도",
+
                 ".opt_line_depth_start": "시작 깊이",
                 ".opt_line_lat": "위도",
                 ".opt_line_lon": "경도",
+
+                ".opt_line_lat_seacraft": "위도",
+                ".opt_line_lon_seacraft": "경도",
+                ".opt_button_get_coord_seacraft": "지도 센터에서 선택",
+
                 ".opt_line_distance": "거리",
                 ".opt_line_azimuth": "방위",
                 ".opt_line_depth": "깊이",
@@ -1054,9 +1150,21 @@
             },
             9: {
                 //Italian
+                ".opt_trs_main": "Soglia di saldatura" + lng_meters,
+                ".opt_trs_seacraft": "Soglia di saldatura" + lng_meters,
+
+                ".opt_trs_ariane": "Soglia di saldatura" + lng_meters,
+                ".location-info": "Nessun dato",
+                ".location-elev": "Altitudine",
+
                 ".opt_line_depth_start": "Profondità di inizio",
                 ".opt_line_lat": "Latitudine",
                 ".opt_line_lon": "Longitudine",
+
+                ".opt_line_lat_seacraft": "Latitudine",
+                ".opt_line_lon_seacraft": "Longitudine",
+                ".opt_button_get_coord_seacraft": "Scegli dal centro della mappa",
+
                 ".opt_line_distance": "Distanza",
                 ".opt_line_azimuth": "Azimut",
                 ".opt_line_depth": "Profondità",

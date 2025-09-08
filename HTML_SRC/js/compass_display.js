@@ -50,7 +50,7 @@ function grantPremission() {
 	document.getElementById("accessbutton").style.display = "none";
 	document.getElementById("accessblur").style.opacity = "0";
 	document.getElementById("accessblur").style.display = "none";
-	document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
+	document.getElementById("btn_nav").style.background = nav_ok_svg;
 	if (navigator.geolocation) {
 		updatePosition();
 		setInterval(updatePosition(), 100);
@@ -67,7 +67,7 @@ if(url_arr.indexOf("?:mtr") != -1){
 	document.getElementById("accessbutton").style.display = "none";
 	document.getElementById("accessblur").style.opacity = "0";
 	document.getElementById("accessblur").style.display = "none";
-	document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
+	document.getElementById("btn_nav").style.background = nav_ok_svg;
 }
 
 const startBtn = document.querySelector(".start-btn");
@@ -88,7 +88,7 @@ function startCompass() {
 		DeviceOrientationEvent.requestPermission().then((response) => {
 				if (response === "granted") {
 					window.addEventListener("deviceorientation", handler, true);
-					document.getElementById("btn_nav").style.background = "url(nav_ok.svg) no-repeat left center";
+					document.getElementById("btn_nav").style.background = nav_ok_svg;
 				} else {
 					//alert("has to be allowed!");
 				}

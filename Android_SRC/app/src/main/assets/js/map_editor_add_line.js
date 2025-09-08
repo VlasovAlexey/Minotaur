@@ -110,8 +110,17 @@ function get_data_from_center_map_editor(){
   txt = txt.toString();
   txt = (txt.slice((txt.indexOf('LatLng(')) + 7));
   document.getElementById("opt_input_create_lat").value = (txt.slice(0 , (txt.indexOf(',')) - 1)).replace("." , ",");
+  document.getElementById("opt_input_create_lat_seacraft").value = (txt.slice(0 , (txt.indexOf(',')) - 1)).replace("." , ",");
+  document.getElementById("default_lat_opt").value = (txt.slice(0 , (txt.indexOf(',')) - 1)).replace("." , ",");
+  
   txt = (txt.slice((txt.indexOf(' ')) + 1));
   document.getElementById("opt_input_create_lon").value = (txt.slice(0 , (txt.indexOf(')')) - 1)).replace("." , ",");
+  document.getElementById("opt_input_create_lon_seacraft").value = (txt.slice(0 , (txt.indexOf(')')) - 1)).replace("." , ",");
+  document.getElementById("default_lon_opt").value = (txt.slice(0 , (txt.indexOf(')')) - 1)).replace("." , ",");
+  
+  Pbar_Show();
+  btn_save();
+  Pbar_Hide();
 }
 
 function add_point_map_editor(){

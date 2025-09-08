@@ -70,15 +70,22 @@ document.querySelector("#seacraft_kml_file").addEventListener('change', function
 			//read and create lines if exist
 			var xy_arr = [];
 			var z_arr = [];
+			var xyz_arr = [];
 			for (i = 0; i < seacraft_kml_file.Document.Placemark.length; i++) {
 				if(seacraft_kml_file.Document.Placemark[i].styleUrl == "#MainLine"){
 					var a = seacraft_kml_file.Document.Placemark[i].Track["gx:coord"];
 					for (s = 0; s < a.length-1; s++) {
 						var coord = String(seacraft_kml_file.Document.Placemark[i].Track["gx:coord"][s]["#text"]).split(" ");
-						xy_arr.push([(1.0*coord[1]) , (1.0*coord[0])]);
-						z_arr.push((1.0*coord[2]));
+						xyz_arr.push([(1.0*coord[1]) , (1.0*coord[0]) , (1.0*coord[2])]);
 					}
 				}
+			}
+
+			//filter array before draw
+			filtered_xyz_arr = filterPoints(xyz_arr, (parseFloat(document.getElementById("opt_input_trs_seacraft").value.replace("," , "."))));
+			for (i = 0; i < filtered_xyz_arr.length-1; i++) {
+				xy_arr.push([filtered_xyz_arr[i][0] , filtered_xyz_arr[i][1]]);
+				z_arr.push(filtered_xyz_arr[i][2]);
 			}
 
 			//add loaded data to map editor

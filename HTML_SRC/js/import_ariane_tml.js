@@ -42,9 +42,9 @@ create_input_val_sign("input_trs_ariane", "opt_trs_ariane_input", parseFloat(doc
 document.getElementsByClassName('input_path_create_ariane')[0].style.display = 'none';
 
 w_input_trs_ariane = document.getElementById("opt_trs_ariane_input");
-w_input_trs_ariane.addEventListener('change', upd_trs_total);
+w_input_trs_ariane.addEventListener('change', upd_trs_total_ariane);
 
-function upd_trs_total(){
+function upd_trs_total_ariane(){
 	document.getElementById("trs_main_val_opt").value = parseFloat(document.getElementById("opt_trs_ariane_input").value.replace("," , "."));
 	upd_all_no_lang();
 }

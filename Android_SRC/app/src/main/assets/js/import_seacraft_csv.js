@@ -1,3 +1,81 @@
+function seacraft_add_path(){
+  if(seacraft_status == 1){
+    document.getElementsByClassName('input_center_map_editor_seacraft')[0].style.display = 'none';
+    document.getElementsByClassName('input_create_seacraft')[0].style.display = 'none';
+  } else {
+    //seacraft_map_editor();
+    document.getElementsByClassName('input_create_seacraft')[0].style.display = 'block';
+    document.getElementsByClassName('input_center_map_editor_seacraft')[0].style.display = 'block';
+  }
+}
+
+//add map center picker
+L.marker_center = L.Control.extend({
+  options: {
+      position: 'middlecenter'
+  },
+  onAdd: function (map) {
+      var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+      container.className = "input_center_map_editor_seacraft";
+      container.id = "input_center_map_editor_seacraft";
+      container.innerHTML = `<div style="color:#ee0000; font-size: 40px;">☉</div>`;
+      //container.title = "Title";
+      return container;
+  },
+  onRemove: function(map) {},
+  
+});
+var control = new L.marker_center();
+control.addTo(map_editor);
+
+//add window with picker, lat and lon and button
+L.window = L.Control.extend({
+  options: {
+      position: 'topcenter'
+  },
+  onAdd: function (map) {
+      var container = L.DomUtil.create('div', 'leaflet-bar-seacraft leaflet-control-seacraft');
+      
+      //disable touch and zoom on window
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.disableScrollPropagation(container);
+
+      //window class and id
+      container.className = "input_create_seacraft";
+      container.id = "input_create_seacraft";
+      var table_1 = '<table class="input_table_style"><thead><tr class="input_table_style"><td class="input_table_style" id="input_path_lat_seacraft"></td><td class="input_table_style" id="input_path_lon_seacraft"></td></tr></thead></table>'
+      var table_2 = `<table class="input_table_style"><thead><tr class="input_table_style"><td class="input_table_style" id="input_btn_coord_seacraft"></td></tr></thead></table>`
+	  var table_3 = '<table class="input_table_style"><thead><tr class="input_table_style"><td class="input_table_style" id="trs_seacraft"></td></tr></thead></table>'
+      container.innerHTML = table_3 + table_1 + table_2;
+      //container.title = "Title";
+      return container;
+  },
+  onRemove: function(map) {},
+
+});
+var control = new L.window();
+control.addTo(map_editor);
+
+//create all interface element inside created window
+create_html_text("trs_seacraft","opt_trs_seacraft" ,"");
+create_input_val_sign("trs_seacraft", "opt_input_trs_seacraft", parseFloat(document.getElementById("trs_main_val_opt").value.replace("," , ".")));
+create_html_text("input_path_lat_seacraft","opt_line_lat_seacraft" ,"");
+create_input_val_sign("input_path_lat_seacraft", "opt_input_create_lat_seacraft", document.getElementById("default_lat_opt").value);
+create_html_text("input_path_lon_seacraft","opt_line_lon_seacraft" ,"");
+create_input_val_sign("input_path_lon_seacraft", "opt_input_create_lon_seacraft", document.getElementById("default_lon_opt").value);
+create_html_button("input_btn_coord_seacraft", "opt_button_get_coord_seacraft", "get_data_from_center_map_editor();")
+
+document.getElementsByClassName('input_create_seacraft')[0].style.display = 'none';
+document.getElementsByClassName('input_center_map_editor_seacraft')[0].style.display = 'none';
+
+w_opt_input_trs_seacraft = document.getElementById("opt_input_trs_seacraft");
+w_opt_input_trs_seacraft.addEventListener('change', upd_trs_total_seacraft);
+
+function upd_trs_total_seacraft(){
+	document.getElementById("trs_main_val_opt").value = parseFloat(document.getElementById("opt_input_trs_seacraft").value.replace("," , "."));
+	upd_all_no_lang();
+}
+
 //watcher function for seacraft file reading
 var seacraft_csv_file = [];
 document.querySelector("#seacraft_csv_file").addEventListener('change', function() {
@@ -82,7 +160,9 @@ document.querySelector("#seacraft_csv_file").addEventListener('change', function
 					z_arr.push(1.0*data[4]);
 				}
 			}
+			
 			//add loaded data to map editor
+			//console.log(xy_arr);
 			add_line_arr(xy_arr, "#ff7800", 5, z_arr, "true", undefined);
 
 			//finish loading data to the map editor
@@ -134,3 +214,4 @@ function xy_to_distance_heading(x,y) {
 	result.push(distance,heading);
 	return (result);
 }
+

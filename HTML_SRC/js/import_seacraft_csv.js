@@ -137,6 +137,7 @@ document.querySelector("#seacraft_csv_file").addEventListener('change', function
 			var data_start = 0;
 			var xy_arr = [];
 			var z_arr = [];
+			var xyz_arr = [];
 			var lat_tmp = parseFloat(document.getElementById("default_lat_opt").value.replace("," , "."));
 			var lon_tmp = parseFloat(document.getElementById("default_lon_opt").value.replace("," , "."));
 
@@ -156,13 +157,17 @@ document.querySelector("#seacraft_csv_file").addEventListener('change', function
 						lat_new_tmp = lat_tmp;
 						lon_new_tmp = lon_tmp;
 					}
-					xy_arr.push([(lat_new_tmp) , (lon_new_tmp)]);
-					z_arr.push(1.0*data[4]);
+					xyz_arr.push([(lat_new_tmp) , (lon_new_tmp) , 1.0*data[4]]);
 				}
 			}
 			
+			//filter array before draw
+			filtered_xyz_arr = filterPoints(xyz_arr, (parseFloat(document.getElementById("opt_input_trs_seacraft").value.replace("," , "."))));
+			for (i = 0; i < filtered_xyz_arr.length-1; i++) {
+				xy_arr.push([filtered_xyz_arr[i][0] , filtered_xyz_arr[i][1]]);
+				z_arr.push(filtered_xyz_arr[i][2]);
+			}
 			//add loaded data to map editor
-			//console.log(xy_arr);
 			add_line_arr(xy_arr, "#ff7800", 5, z_arr, "true", undefined);
 
 			//finish loading data to the map editor

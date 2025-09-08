@@ -339,6 +339,7 @@ const ariane = [
   //"cancel",
 ];
 
+var ariane_status = 0;
 map_editor.pm.Toolbar.createCustomControl({
   block: "custom",
   name: "ariane import",
@@ -347,8 +348,13 @@ map_editor.pm.Toolbar.createCustomControl({
   onClick: () => {
   },
   afterClick: () => {
+    draw_custom_ariane();
+    ariane_status = ariane_status + 1;
+    if(ariane_status > 1){
+      ariane_status = 0;
+    }
   },
-  doToggle: true,
+  doToggle: false,
   toggleStatus: false,
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-ariane',
@@ -362,6 +368,7 @@ const seacraft = [
   //"cancel",
 ];
 
+var seacraft_status = 0;
 map_editor.pm.Toolbar.createCustomControl({
   block: "custom",
   name: "seacraft import",
@@ -370,8 +377,13 @@ map_editor.pm.Toolbar.createCustomControl({
   onClick: () => {
   },
   afterClick: () => {
+	   seacraft_add_path();
+    	seacraft_status = seacraft_status + 1;
+    	if(seacraft_status > 1){
+      		seacraft_status = 0;
+    	}
   },
-  doToggle: true,
+  doToggle: false,
   toggleStatus: false,
   disableOtherButtons: true,
   className: 'control-icon leaflet-pm-icon-seacraft',

@@ -627,6 +627,6 @@ function updateTime() {
 		}
 		
 	}
-	document.getElementById("lastUpdate").innerHTML = "Last Update <br>" + tot_time;
+	document.getElementById("lastUpdate").innerHTML = tot_time;
 	sec_old = sec;
 }

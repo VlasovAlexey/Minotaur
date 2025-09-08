@@ -29,6 +29,7 @@ var default_ele_usr = "0,0";
 var data_format_usr = 1;
 
 var igrf_13_val_usr = "0,0";
+var trs_main_val_usr = "1,5";
 var track_name_usr = "Minotaur Explorer";
 
 function default_set() {
@@ -50,6 +51,7 @@ function default_set() {
 
 	data_format_usr = 1;
 	igrf_13_val_usr = "0,0";
+	trs_main_val_usr = "1,5";
 	track_name_usr = "Minotaur Explorer";
 }
 
@@ -319,6 +321,7 @@ function write_cookie() {
 	setCookie("data_format_usr1", return_val("data_format_opt"));
 	
 	setCookie("igrf_13_val_usr1", return_val("igrf_13_val_opt"));
+	setCookie("trs_main_val_usr1", return_val("trs_main_val_opt"));
 	setCookie("track_name_usr1", return_val("track_name_opt"));
 }
 
@@ -341,6 +344,7 @@ function read_cookie() {
 
 	data_format_usr = getCookie("data_format_usr1");
 	igrf_13_val_usr = getCookie("igrf_13_val_usr1");
+	trs_main_val_usr = getCookie("trs_main_val_usr1");
 	track_name_usr = getCookie("track_name_usr1");
 }
 
@@ -357,7 +361,7 @@ function return_val(html_ids) {
 }
 
 //settings doesn`t saved ad it is first start. it will be saved now
-if (getCookie("default_ele_usr1") == undefined) {
+if (getCookie("trs_main_val_usr1") == undefined) {
 	
 } else
 // read if exist but it is second start
@@ -378,7 +382,23 @@ function btn_save() {
 	write_cookie();
 }
 
+//update all GUI and dimension without Map Editor
+function upd_all_no_lang(){
+	//Show progress bar
+	Pbar_Show();
+	//Update GUI dimension first. It is important for correct update GUI elements at any time
+	changeGuiDim();
+	btn_save();
+	assign_css_style();
+	upd_map_editor_val();
+	Pbar_Hide();
+}
 
+function upd_map_editor_val(){
+	//update map editor values
+	document.getElementById("opt_input_trs_seacraft").value = parseFloat(document.getElementById("trs_main_val_opt").value.replace("," , "."));
+	document.getElementById("opt_trs_ariane_input").value = parseFloat(document.getElementById("trs_main_val_opt").value.replace("," , "."));
+}
 //Restore all default settings
 function btn_restore() {
 	default_set();
@@ -417,6 +437,7 @@ function dim_cng() {
 	data_format = $("#data_format_opt").val();
 	
 	igrf_13_val = $("#igrf_13_val_opt").val();
+	trs_main_val = $("#trs_main_val_opt").val();
 	track_name = $("#track_name_opt").val();
 	
 	create_html();
@@ -466,6 +487,8 @@ function create_html() {
 
 	del_html_elem("tr_igrf_13_val");
 	create_input_val_sign("tr_igrf_13_val", "igrf_13_val_opt", igrf_13_val_usr);
+	del_html_elem("tr_trs_main");
+	create_input_val_sign("tr_trs_main", "trs_main_val_opt", trs_main_val_usr);
 	del_html_elem("tr_track_name");
 	create_input_val_text("tr_track_name", "track_name_opt", track_name_usr);
 
@@ -507,6 +530,10 @@ function create_html() {
 
 	w_igrf_13_val = document.getElementById("igrf_13_val_opt");
 	w_igrf_13_val.addEventListener('change', upd_all);
+
+	w_trs_main_val = document.getElementById("trs_main_val_opt");
+	w_trs_main_val.addEventListener('change', upd_all_no_lang);
+
 	track_name = document.getElementById("track_name_opt");
 	track_name.addEventListener('change', upd_all);
 
@@ -516,7 +543,6 @@ create_custom_option_arr("tr_lng_sel", "tn_lng", lngs_usr, lng_arr);
 create_custom_option_arr("tr_dmn_sel", "tn_dmn", dmns_usr, dmns_arr);
 create_custom_option_arr("tn_ifc_set", "tn_color", color_usr, color_arr);
 
-//create_option("tr_rec_freq", "rec_freq_opt", 0.02, 1, rec_freq_usr, 0.01, 2, "none");
 create_custom_option_arr("tr_rec_freq", "rec_freq_opt", rec_freq_usr, record_step_arr);
 
 create_input_val("tr_meas_len", "meas_len_opt", meas_len_usr);
@@ -533,6 +559,7 @@ create_input_val_sign("tr_default_ele", "default_ele_opt", default_ele_usr);
 create_custom_option_arr("tr_data_format", "data_format_opt", data_format_usr, data_format_arr);
 
 create_input_val_sign("tr_igrf_13_val", "igrf_13_val_opt", igrf_13_val_usr);
+create_input_val_sign("tr_trs_main", "trs_main_val_opt", trs_main_val_usr);
 create_input_val_text("tr_track_name", "track_name_opt", track_name_usr);
 
 var force_lng = 0;
@@ -580,6 +607,8 @@ function init_global() {
 
 	w_igrf_13_val = document.getElementById("igrf_13_val_opt");
 	w_igrf_13_val.addEventListener('change', upd_all);
+	w_trs_main_val = document.getElementById("trs_main_val_opt");
+	w_trs_main_val.addEventListener('change', upd_all_no_lang);
 	track_name = document.getElementById("track_name_opt");
 	track_name.addEventListener('change', upd_all);
 }

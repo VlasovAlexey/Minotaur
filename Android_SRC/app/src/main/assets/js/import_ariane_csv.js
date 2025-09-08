@@ -54,22 +54,27 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 				var pos_old = 0
 				var xy_arr = [];
 				var z_arr = [];
+				var xyz_arr = [];
 				while ((pos_start = ariane_csv_file.indexOf("\n", pos_start + 1)) != -1) {
 					var tmp = ariane_csv_file.slice(pos_old, pos_start - 1).split(";");
 					//skip first line element
 					if(pos_old != 0){
-						xy_arr.push([(1.0*tmp[2]),(1.0*tmp[1])]);
-						z_arr.push((1.0*tmp[3]));
-
-						//add markers with depth postfix
-						var depth_text = String(Math.abs(Math.round((1.0*tmp[3]) * 100) / 100));
-						new Marker3d([(1.0*tmp[2]),(1.0*tmp[1])], marker_3d_prop(depth_text + plan_lng("ch_mtr"), depth_text)).addTo(map_editor);
 						//WARNING! Lat Lon inverted for GeoJSON!
-						//xy_arr_inv.push([(1.0*tmp[1]),(1.0*tmp[2])]);
+						xyz_arr.push([(1.0*tmp[2]) , (1.0*tmp[1]) , (1.0*tmp[3])]);
 					}				
 					pos_old = pos_start + 1;
 				}
-
+				
+				//filter array before draw
+				var filtered_xyz_arr = filterPoints(xyz_arr, (parseFloat(document.getElementById("opt_trs_ariane_input").value.replace("," , "."))));
+				for (i = 0; i < filtered_xyz_arr.length-1; i++) {
+					xy_arr.push([filtered_xyz_arr[i][0] , filtered_xyz_arr[i][1]]);
+					z_arr.push(filtered_xyz_arr[i][2]);
+					
+					//add markers with depth postfix
+					var depth_text = String(Math.abs(Math.round((filtered_xyz_arr[i][2]) * 100) / 100));
+					new Marker3d([(filtered_xyz_arr[i][0]),(filtered_xyz_arr[i][1])], marker_3d_prop(depth_text + plan_lng("ch_mtr"), depth_text)).addTo(map_editor);
+				}
 				//add loaded data to map editor
 				add_line_arr(xy_arr, "#ff7800", 5, z_arr, "false", undefined);
 
@@ -97,3 +102,62 @@ document.querySelector("#ariane_csv_file").addEventListener('change', function()
 	reader.readAsText(file);
 });
 
+/*Coordinate transformation: The WGS84 model is used to transform geographic coordinates into ECEF Cartesian coordinates.
+Distance calculation: The exact Euclidean distance between points in three-dimensional space is calculated.
+Filtering algorithm: All subsequent points are checked for each point. If a point is found at a distance closer than the specified threshold, it is marked for deletion.
+Guarantee of preserving at least one point: The first detected point always remains in a group of closely spaced points.*/
+function filterPoints(points, minDistance) {
+	if (points.length === 0) return points.slice();
+
+	// Constants for the WGS84 model
+	const a = 6378137.0; // semi-major axis of the ellipsoid (m)
+	const e2 = 0.00669437999014; // square of eccentricity
+
+	// Transformation of geographic coordinates to ECEF (Earth-Centered, Earth-Fixed)
+	function toECEF(lat, lon, height) {
+		const latRad = lat * Math.PI / 180;
+		const lonRad = lon * Math.PI / 180;
+
+		const N = a / Math.sqrt(1 - e2 * Math.sin(latRad) * Math.sin(latRad));
+
+		const x = (N + height) * Math.cos(latRad) * Math.cos(lonRad);
+		const y = (N + height) * Math.cos(latRad) * Math.sin(lonRad);
+		const z = (N * (1 - e2) + height) * Math.sin(latRad);
+
+		return [x, y, z];
+	}
+
+	// Calculate Euclidean distance between two points in ECEF
+	function calculateDistance(point1, point2) {
+		const dx = point2[0] - point1[0];
+		const dy = point2[1] - point1[1];
+		const dz = point2[2] - point1[2];
+
+		return Math.sqrt(dx * dx + dy * dy + dz * dz);
+	}
+
+	// Convert all points to ECEF coordinates
+	const ecefPoints = points.map(point =>
+		toECEF(point[0], point[1], point[2])
+	);
+
+	const result = points.slice(); // Copy the original array
+	const kept = new Array(points.length).fill(true);
+
+	// Loop through all points and check distances
+	for (let i = 0; i < ecefPoints.length; i++) {
+		if (!kept[i]) continue;
+
+		// Check all subsequent points
+		for (let j = i + 1; j < ecefPoints.length; j++) {
+			const distance = calculateDistance(ecefPoints[i], ecefPoints[j]);
+
+			if (distance < minDistance) {
+				// Assign point j the same coordinates as point i
+				result[j] = [...result[i]];
+				kept[j] = false; // Mark this point as changed
+			}
+		}
+	}
+	return result;
+}
