@@ -161,3 +161,63 @@ function filterPoints(points, minDistance) {
 	}
 	return result;
 }
+
+function filterPointsWindow(points, minDistance, windowSize = 3) {
+    if (points.length === 0) return points.slice();
+    
+    //Constants for the WGS84 model
+    const a = 6378137.0; //major axis of an ellipsoid (m)
+    const e2 = 0.00669437999014; //square of eccentricity
+
+    //Conversion of geographic coordinates to ECEF (Earth-Centered, Earth-Fixed)
+    function toECEF(lat, lon, height) {
+        const latRad = lat * Math.PI / 180;
+        const lonRad = lon * Math.PI / 180;
+        
+        const N = a / Math.sqrt(1 - e2 * Math.sin(latRad) * Math.sin(latRad));
+        
+        const x = (N + height) * Math.cos(latRad) * Math.cos(lonRad);
+        const y = (N + height) * Math.cos(latRad) * Math.sin(lonRad);
+        const z = (N * (1 - e2) + height) * Math.sin(latRad);
+        
+        return [x, y, z];
+    }
+
+    //Calculating the Euclidean distance between two points in ECEF
+    function calculateDistance(point1, point2) {
+        const dx = point2[0] - point1[0];
+        const dy = point2[1] - point1[1];
+        const dz = point2[2] - point1[2];
+        
+        return Math.sqrt(dx * dx + dy * dy + dz * dz);
+    }
+
+    //Create copies of arrays
+    const result = points.map(point => [...point]);
+    let ecefPoints = points.map(point => toECEF(point[0], point[1], point[2]));
+
+    //We go through all points and check distances only in the specified window.
+    for (let i = 0; i < result.length; i++) {
+        
+		//Define the window boundaries for the current point
+        const start = Math.max(0, i - windowSize);
+        const end = Math.min(result.length - 1, i + windowSize);
+        
+        //Checking points in the window (except for itself)
+        for (let j = start; j <= end; j++) {
+            if (i === j) continue;
+            
+            const distance = calculateDistance(ecefPoints[i], ecefPoints[j]);
+            
+            if (distance < minDistance) {
+                //Assign point j the same coordinates as point i
+                result[j] = [...result[i]];
+                
+				//Recalculate ECEF coordinates for point j
+                ecefPoints[j] = toECEF(result[i][0], result[i][1], result[i][2]);
+            }
+        }
+    }
+
+    return result;
+}
