@@ -286,7 +286,7 @@ function plotly_3d_build(y_aspect, x_aspect, data_plotly){
     //autosize: true,
     scene: {
       aspectmode: "manual",
-      aspectratio: {x: y_aspect, y: x_aspect, z: 0.2},
+      aspectratio: {x: y_aspect, y: x_aspect, z: 0.07},
       bgcolor: "#ffffff",
       xaxis: {
         //mirror: "true",
